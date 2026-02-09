@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 import type { TutorialsJson, TutorialData } from '@/types/tutorials';
+import { fetchFromGitHub, updateGitHubFile } from '@/lib/github';
 
 // 动态引入 node-fetch 避免构建问题
 const fetch = globalThis.fetch;
@@ -71,73 +72,7 @@ const generateId = (url: string, title: string, existing: TutorialData[]): strin
 
 // GitHub API 配置
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_REPO = process.env.GITHUB_REPO; // e.g. "Rosiawu/ka21"
-const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
-const FILE_PATH = 'src/data/tutorials.json';
-
-/**
- * 从 GitHub 获取最新的 tutorials.json 内容
- */
-async function fetchFromGitHub() {
-  if (!GITHUB_TOKEN || !GITHUB_REPO) {
-    throw new Error('Missing GITHUB_TOKEN or GITHUB_REPO env variables');
-  }
-
-  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${FILE_PATH}?ref=${GITHUB_BRANCH}`;
-  const res = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-      Accept: 'application/vnd.github.v3+json',
-    },
-    cache: 'no-store',
-  });
-
-  if (!res.ok) {
-    throw new Error(`GitHub API Error: ${res.status} ${res.statusText}`);
-  }
-
-  const data = await res.json() as any;
-  // GitHub 返回的是 base64 编码的内容
-  const content = Buffer.from(data.content, 'base64').toString('utf-8');
-  return {
-    sha: data.sha, // 更新文件时需要提供 sha
-    content: JSON.parse(content) as TutorialsJson,
-  };
-}
-
-/**
- * 更新 GitHub 上的文件
- */
-async function updateGitHubFile(sha: string, newContent: TutorialsJson, message: string) {
-  if (!GITHUB_TOKEN || !GITHUB_REPO) {
-    throw new Error('Missing GITHUB_TOKEN or GITHUB_REPO env variables');
-  }
-
-  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${FILE_PATH}`;
-  const body = {
-    message,
-    content: Buffer.from(JSON.stringify(newContent, null, 2)).toString('base64'),
-    sha,
-    branch: GITHUB_BRANCH,
-  };
-
-  const res = await fetch(url, {
-    method: 'PUT',
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-      Accept: 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (!res.ok) {
-    const err = await res.json() as any;
-    throw new Error(`GitHub Update Error: ${err.message}`);
-  }
-
-  return await res.json();
-}
+const GITHUB_REPO = process.env.GITHUB_REPO;
 
 export async function POST(request: Request) {
   let payload: AddTutorialPayload;

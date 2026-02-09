@@ -21,7 +21,15 @@ const TutorialTag = ({ category }: { category: string }) => (
 /**
  * 教程卡片组件 - 优化移动端交互和布局
  */
-const TutorialCard = ({ tutorial }: { tutorial: Tutorial }) => {
+const TutorialCard = ({ 
+  tutorial, 
+  showDelete, 
+  onDelete 
+}: { 
+  tutorial: Tutorial; 
+  showDelete: boolean; 
+  onDelete: (id: string) => void;
+}) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const cardRef = useRef<HTMLDivElement>(null);
   
@@ -41,21 +49,37 @@ const TutorialCard = ({ tutorial }: { tutorial: Tutorial }) => {
   };
 
   return (
-    <a 
-      href={tutorial.url} 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      className="block h-full group"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      onTouchCancel={handleTouchEnd}
-    >
-      <article 
-        ref={cardRef}
-        className="tool-card bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent"
-        style={{ transition: 'transform 0.2s, opacity 0.2s' }}
+    <div className="relative h-full group/card">
+      {showDelete && (
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (window.confirm(`确定要删除 "${tutorial.title}" 吗？\n\n这将提交代码变更到 GitHub 并触发重新部署。`)) {
+              onDelete(tutorial.id);
+            }
+          }}
+          className="absolute -top-2 -right-2 z-30 bg-red-500 hover:bg-red-600 text-white w-8 h-8 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
+          title="删除此教程"
+        >
+          <i className="fas fa-trash text-xs"></i>
+        </button>
+      )}
+      <a 
+        href={tutorial.url} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="block h-full group"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
       >
-        <div className={`relative w-full ${isMobile ? 'h-28' : 'h-36'} overflow-hidden bg-gradient-to-r from-gray-100 to-slate-200 dark:from-gray-800 dark:to-slate-900`}>
+        <article 
+          ref={cardRef}
+          className={`tool-card bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent ${showDelete ? 'ring-2 ring-red-500/20' : ''}`}
+          style={{ transition: 'transform 0.2s, opacity 0.2s' }}
+        >
+          <div className={`relative w-full ${isMobile ? 'h-28' : 'h-36'} overflow-hidden bg-gradient-to-r from-gray-100 to-slate-200 dark:from-gray-800 dark:to-slate-900`}>
           <div className="absolute inset-0 flex items-center justify-center">
             <Image 
               src={tutorial.imageUrl} 
@@ -123,6 +147,7 @@ const TutorialCard = ({ tutorial }: { tutorial: Tutorial }) => {
         </div>
       </article>
     </a>
+    </div>
   );
 };
 
@@ -146,6 +171,7 @@ export default function TutorialsContent() {
   const [importError, setImportError] = useState('');
   const [saving, setSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const [formTitle, setFormTitle] = useState('');
   const [formAuthor, setFormAuthor] = useState('');
@@ -265,7 +291,10 @@ export default function TutorialsContent() {
         setImportError(data.message || '保存失败');
         return;
       }
-      setSaveMessage('已添加到教程数据中，记得重新构建/部署后生效。');
+      setSaveMessage(data.message || '已添加到教程数据中');
+      
+      // 如果是本地环境，可以尝试手动更新列表（可选）
+      // 但因为是静态数据，最好还是提示重新部署
     } catch (error) {
       console.error(error);
       setImportError('保存失败，请稍后再试');
@@ -274,6 +303,32 @@ export default function TutorialsContent() {
     }
   };
   
+  const handleDeleteTutorial = async (id: string) => {
+    if (deletingId) return;
+    setDeletingId(id);
+    try {
+      const res = await fetch('/api/tutorials/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id }),
+      });
+      const data = await res.json();
+      
+      if (data.success) {
+        alert(data.message || '删除成功！');
+        // 乐观更新：从当前视图中移除
+        setFilteredTutorials(prev => prev.filter(t => t.id !== id));
+      } else {
+        alert(`删除失败: ${data.message}`);
+      }
+    } catch (error) {
+      console.error('Delete error:', error);
+      alert('删除请求发生错误');
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   // 筛选和排序教程
   useEffect(() => {
     let filtered = tutorials;
@@ -692,7 +747,11 @@ export default function TutorialsContent() {
           <div className={`grid grid-cols-2 ${isMobile ? 'gap-2' : 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4'}`}>
             {filteredTutorials.map(tutorial => (
               <div key={tutorial.id}>
-                <TutorialCard tutorial={tutorial} />
+                <TutorialCard 
+                  tutorial={tutorial} 
+                  showDelete={showImportForm} 
+                  onDelete={handleDeleteTutorial}
+                />
               </div>
             ))}
           </div>
