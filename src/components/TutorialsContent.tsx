@@ -221,10 +221,11 @@ export default function TutorialsContent() {
       
       setSaveMessage('已自动填充文章信息，请核对后保存。');
       alert('提取成功！请检查下方表单内容。');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Fetch error:', error);
-      setImportError(error.message || '请求失败');
-      alert(`发生错误: ${error.message || '请求失败'}\n\n可能原因：\n1. 网络连接问题\n2. 链接无效\n3. 浏览器插件拦截`);
+      const errorMessage = error instanceof Error ? error.message : '请求失败';
+      setImportError(errorMessage);
+      alert(`发生错误: ${errorMessage}\n\n可能原因：\n1. 网络连接问题\n2. 链接无效\n3. 浏览器插件拦截`);
     } finally {
       setImportLoading(false);
     }

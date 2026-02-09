@@ -93,7 +93,7 @@ export default function LayoutContainers({
     }
     window.addEventListener('scroll', onScroll, {passive: true});
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll as any);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const leftContainerClass = useMemo(() => {
