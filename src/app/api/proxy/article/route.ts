@@ -71,8 +71,15 @@ const parseWechatHtml = (html: string): Partial<WechatMetadata> => {
   if (ctMatch && ctMatch[1]) {
     const timestamp = parseInt(ctMatch[1], 10);
     if (!isNaN(timestamp)) {
+      // 强制转换为北京时间 (UTC+8)
       const date = new Date(timestamp * 1000);
-      publishDate = date.toISOString().split('T')[0];
+      const formatter = new Intl.DateTimeFormat('en-CA', { // en-CA 输出 YYYY-MM-DD
+        timeZone: 'Asia/Shanghai',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+      });
+      publishDate = formatter.format(date);
     }
   }
 
