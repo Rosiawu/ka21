@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "order": ["ai_creation", "productivity", "learning"],
+  "categories": {
+    "ai_creation": {
+      "title": "AI创作助手",
+      "subtitle": "激发灵感，用AI释放创意",
+      "icon": "🤖",
+      "featured_tools": [
+        "napkin",
+        "ima"
+      ],
+      "backup_tags": [
+        "ai-image",
+        "ai-design", 
+        "creativity",
+        "ai-video",
+        "ai-audio",
+        "ai-writing"
+      ],
+      "backup_categories": [
+        "image",
+        "design", 
+        "video",
+        "audio",
+        "writing"
+      ],
+      "view_all_href": "/tools?tags=ai-image,ai-design,creativity",
+      "order": 10
+    },
+    "productivity": {
+      "title": "效率办公工具", 
+      "subtitle": "提升效率，让AI接管繁琐",
+      "icon": "⚡",
+      "featured_tools": [
+        "deepseek",
+        "tongyi-efficiency"
+      ],
+      "backup_tags": [
+        "productivity",
+        "automation",
+        "ai-assistant",
+        "ai-chat",
+        "ai-code"
+      ],
+      "backup_categories": [
+        "office",
+        "chat",
+        "agent",
+        "utils"
+      ],
+      "view_all_href": "/tools?tags=productivity,automation,ai-assistant",
+      "order": 20
+    },
+    "learning": {
+      "title": "学习成长工具",
+      "subtitle": "持续精进，让AI陪你学习", 
+      "icon": "📚",
+      "featured_tools": [
+        "cursor",
+        "coze"
+      ],
+      "backup_tags": [
+        "ai-code",
+        "research",
+        "learning",
+        "ai-podcast",
+        "no-code"
+      ],
+      "backup_categories": [
+        "coding",
+        "dev-platform",
+        "misc",
+        "podcast"
+      ],
+      "view_all_href": "/tools?tags=ai-code,research,learning",
+      "order": 30
+    }
+  }
+}

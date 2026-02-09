@@ -1,0 +1,979 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #0f172a;
+  --background: #f8fafc;
+  --primary: #4f83fb;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #4f83fb;
+  --sidebar-width-expanded: 16rem;
+  --sidebar-width-collapsed: 4rem;
+  --sidebar-bg-light: #ffffff;
+  --sidebar-bg-dark: #0f172a;
+  --sidebar-border-light: rgba(226, 232, 240, 0.7);
+  --sidebar-border-dark: rgba(30, 41, 59, 0.7);
+}
+
+.dark {
+  --foreground: #f8fafc;
+  --background: #0f172a;
+  --primary: #3162f3;
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #cbd5e1;
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #3162f3;
+  --sidebar-bg-dark: #0f172a;
+}
+
+body {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 动画效果 */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* 卡片悬浮效果 */
+.tool-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.dark .tool-card:hover {
+  box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* 增强暗黑模式下的文字可读性 */
+.dark .text-neutral-400 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-neutral-500 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-neutral-600 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-500 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-slate-600 {
+  color: #f1f5f9 !important;
+}
+
+/* 提高暗黑模式下标签文字可见度的通用样式 */
+.dark .tag, 
+.dark span[class*="inline-flex items-center font-medium rounded"] {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 标签悬浮效果 */
+.tag {
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  transform: translateY(-1px);
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 隐藏滚动条但保持功能 */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+/* 为锚点定位提供顶部间距 */
+[id^="category-"] {
+  scroll-margin-top: 8rem;
+  padding-top: 3rem;
+}
+
+/* 分类标题高亮动画 */
+@keyframes highlight {
+  0% { background-color: rgba(79, 131, 251, 0.1); }
+  100% { background-color: transparent; }
+}
+
+[id^="category-"]:target h2 {
+  animation: highlight 2s ease-out;
+  border-bottom-color: var(--primary);
+}
+
+/* 图片加载效果 */
+.img-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-loading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+  animation: shimmer 1.5s infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}
+
+.dark .img-loading::before {
+  background: linear-gradient(90deg, rgba(30,41,59,0) 0%, rgba(30,41,59,0.5) 50%, rgba(30,41,59,0) 100%);
+}
+
+/* 暗黑模式下的标签增强 */
+.dark .tag.bg-green-900\/50 {
+  background-color: rgba(20, 83, 45, 0.5) !important;
+}
+
+.dark .tag.bg-red-900\/50 {
+  background-color: rgba(127, 29, 29, 0.5) !important;
+}
+
+.dark .tag.bg-blue-900\/50 {
+  background-color: rgba(30, 58, 138, 0.5) !important;
+}
+
+.dark .tag.text-green-200 {
+  color: #bbf7d0 !important;
+}
+
+.dark .tag.text-red-200 {
+  color: #fecaca !important;
+}
+
+.dark .tag.text-blue-200 {
+  color: #bfdbfe !important;
+}
+
+@media (max-width: 768px) {
+  /* 移动端卡片优化 */
+  .tool-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  /* 移动端分类面板优化 */
+  .category-panel {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+}
+
+/* 侧边栏样式优化 */
+@media (min-width: 1024px) {
+  .sidebar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 50;
+    transition: width 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    background-color: var(--sidebar-bg-light);
+    border-right: 1px solid var(--sidebar-border-light);
+  }
+  
+  .dark .sidebar-container {
+    background-color: var(--sidebar-bg-dark);
+    border-right: 1px solid var(--sidebar-border-dark);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* 侧边栏折叠状态 */
+  .sidebar-container.w-16 {
+    width: var(--sidebar-width-collapsed);
+  }
+  
+  .sidebar-container.w-64 {
+    width: var(--sidebar-width-expanded);
+  }
+  
+  /* 确保侧边栏在z-index上比内容高 */
+  .sidebar-container {
+    z-index: 1000;
+    backdrop-filter: none; /* 移除模糊效果，确保不透明 */
+  }
+  
+  /* 主内容区域自适应宽度 */
+  .lg\:ml-\[48px\] {
+    margin-left: 48px !important;
+  }
+  
+  .lg\:ml-\[256px\] {
+    margin-left: 256px !important;
+  }
+  
+  /* 增强主内容区域宽度计算 */
+  .main-content-container {
+    transition: margin 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+  
+  .main-content-container.sidebar-collapsed {
+    width: calc(100% - 48px);
+    margin-left: 48px;
+  }
+  
+  .main-content-container.sidebar-expanded {
+    width: calc(100% - 256px);
+    margin-left: 256px;
+  }
+}
+
+/* 添加小屏幕适配 */
+@media (max-width: 1023px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  
+  .main-content {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .sidebar-container {
+    display: none !important;
+  }
+  
+  /* 主内容区域样式 */
+  .lg\:ml-\[48px\], .lg\:ml-\[256px\] {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1600px;
+  }
+}
+
+/* 确保超宽屏幕下内容不会过度拉伸 */
+.max-content-width {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 添加侧边栏折叠/展开效果相关样式 */
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 50;
+  transition: width 0.3s ease-in-out;
+  will-change: width;
+  background-color: var(--sidebar-bg-light);
+}
+
+.dark .sidebar-container {
+  background-color: var(--sidebar-bg-dark);
+}
+
+/* 侧边栏图标旋转动画 */
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+/* 侧边栏折叠状态下的图标样式 */
+.w-16 .nav-icon {
+  margin-right: 0;
+}
+
+/* 主内容区适配侧边栏 */
+@media (min-width: 1024px) {
+  /* 主内容区域调整，确保与侧边栏宽度变化同步 */
+  [style*="--sidebar-width"] {
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+    will-change: margin-left, width;
+  }
+}
+
+/* 确保内容宽度适配 */
+@media (max-width: 640px) {
+  .max-content-width {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .max-content-width {
+    max-width: 1200px;
+  }
+}
+
+/* 侧边栏收缩/展开按钮样式 */
+.sidebar-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: var(--muted-foreground);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-toggle-btn:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* 暗黑模式下侧边栏样式强化 */
+.dark .sidebar-container .text-slate-700 {
+  color: #f1f5f9 !important;
+}
+
+.dark .sidebar-container .text-slate-600 {
+  color: #e2e8f0 !important;
+}
+
+.dark .sidebar-container .group-hover\:text-primary-600 {
+  color: #93c5fd !important;
+}
+
+/* 强化暗黑模式下表格和卡片边框的可见度 */
+.dark .border-neutral-200\/70 {
+  border-color: rgba(226, 232, 240, 0.2) !important;
+}
+
+.dark .dark\:border-neutral-700\/70 {
+  border-color: rgba(51, 65, 85, 0.7) !important;
+}
+
+/* 强化暗黑模式下按钮样式 */
+.dark button.hover\:bg-neutral-100 {
+  @apply hover:bg-neutral-800;
+}
+
+.dark a.hover\:bg-neutral-100 {
+  @apply hover:bg-neutral-800;
+}
+
+/* 暗黑模式背景色修复 */
+.dark body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.dark header {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border-color: rgba(30, 41, 59, 0.5) !important;
+}
+
+.dark footer {
+  background-color: var(--background) !important;
+  border-color: var(--border) !important;
+}
+
+.dark #mobileMenu {
+  background-color: var(--background) !important;
+  border-color: var(--border) !important;
+}
+
+/* 暗黑模式下的卡片和容器样式 */
+.dark .tool-card {
+  background-color: var(--secondary) !important;
+  border-color: var(--border) !important;
+}
+
+.dark .container {
+  background-color: var(--background) !important;
+}
+
+/* 暗黑模式下的按钮和交互元素 */
+.dark button.hover\:bg-neutral-100:hover {
+  background-color: var(--secondary) !important;
+}
+
+.dark a.hover\:bg-neutral-100:hover {
+  background-color: var(--secondary) !important;
+}
+
+/* 暗黑模式下的文字颜色 */
+.dark .text-neutral-700 {
+  color: var(--foreground) !important;
+}
+
+.dark .text-neutral-600 {
+  color: var(--muted-foreground) !important;
+}
+
+.dark .text-neutral-500 {
+  color: var(--muted-foreground) !important;
+}
+
+/* 暗黑模式下的链接颜色 */
+.dark a:not(.tag):not(.btn) {
+  color: var(--primary);
+}
+
+.dark a:not(.tag):not(.btn):hover {
+  color: var(--primary-foreground);
+}
+
+/* 暗黑模式下的输入框样式 */
+.dark input {
+  background-color: var(--secondary);
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+/* 暗黑模式下的滚动条样式 */
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 双容器布局样式 */
+.dual-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* 左侧容器 - 侧边栏 */
+.left-container {
+  position: fixed;
+  height: 100vh;
+  z-index: 50; /* 确保覆盖 Header (z-40) */
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-right: 1px solid var(--sidebar-border-light);
+  background-color: var(--sidebar-bg-light);
+}
+
+.dark .left-container {
+  border-color: var(--sidebar-border-dark);
+  background-color: var(--sidebar-bg-dark);
+}
+
+.left-container-expanded {
+  width: var(--sidebar-width-expanded);
+}
+
+.left-container-collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+/* 右侧容器 - 主内容区 */
+.right-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.right-container-expanded {
+  margin-left: var(--sidebar-width-expanded);
+  width: calc(100% - var(--sidebar-width-expanded));
+}
+
+.right-container-collapsed {
+  margin-left: var(--sidebar-width-collapsed);
+  width: calc(100% - var(--sidebar-width-collapsed));
+}
+
+/* 响应式调整 */
+@media (max-width: 1023px) {
+  .left-container {
+    width: 0;
+    will-change: transform;          /* 提示浏览器优化抽屉动画 */
+    transform: translateX(-101%); /* 多移出 1%，防止亚像素残影 */
+    overflow: hidden;              /* 隐藏滚动条/溢出 */
+    border-right: 0;               /* 去掉边框，避免残影 */
+    pointer-events: none;          /* 禁用交互 */
+  }
+  
+  .left-container.mobile-expanded {
+    width: var(--sidebar-width-expanded);
+    will-change: transform;          /* 提示浏览器优化抽屉动画 */
+    transform: translateX(0);
+    overflow-y: auto;                                         /* 恢复滚动 */
+    border-right: 1px solid var(--sidebar-border-light);       /* 恢复边框 */
+    pointer-events: auto;                                      /* 恢复交互 */
+  }
+  
+  /* 暗黑模式下的边框颜色恢复 */
+  .dark .left-container.mobile-expanded {
+    border-right-color: var(--sidebar-border-dark);
+  }
+  
+  .right-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 49; /* 位于 Header(40) 之上，侧栏(50) 之下 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .sidebar-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* 移动端优化样式 - 萌新教程页面 */
+@media (max-width: 767px) {
+  /* 整体容器紧凑化 */
+  .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  /* 页面标题区域紧凑化 */
+  .text-center.mb-8 {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* 教程卡片优化 */
+  .tool-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 0.75rem !important;
+  }
+  
+  /* 减小卡片内容区域间距 */
+  .tool-card .p-3 {
+    padding: 0.5rem !important;
+  }
+  
+  /* 优化卡片图片高度 */
+  .tool-card .h-36, 
+  .tool-card .relative.w-full.h-36 {
+    height: 7rem !important; /* 减小图片高度 */
+  }
+  
+  /* 调整标题字体大小 */
+  .tool-card h3 {
+    font-size: 0.9rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  /* 调整元信息文字大小 */
+  .tool-card .text-xs {
+    font-size: 0.7rem !important;
+  }
+  
+  /* 调整"阅读全文"样式 */
+  .tool-card .text-sm {
+    font-size: 0.8rem !important;
+    margin-top: 0.25rem !important;
+  }
+  
+  /* 分类筛选区域优化 */
+  .flex.items-center.gap-3.overflow-x-auto.py-2 {
+    padding: 0.5rem 0 !important;
+    justify-content: flex-start !important; /* 左对齐而非居中 */
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* 分类按钮样式优化 */
+  .px-4.py-1\.5.rounded-full.text-sm {
+    padding: 0.25rem 0.75rem !important;
+    font-size: 0.7rem !important;
+  }
+  
+  /* 搜索框优化 */
+  .relative.w-full.max-w-lg.mx-auto.mb-5 {
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .relative.w-full.max-w-lg.mx-auto.mb-5 input {
+    padding: 0.5rem 2rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* 教程卡片网格布局优化 - 改为两列 */
+  [class*="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4"] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* 移除卡片悬停动画效果，在触摸设备上体验不佳 */
+  .tool-card:hover {
+    transform: none !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* 优化分类标签显示 */
+  .absolute.bottom-2.left-2.z-10 {
+    bottom: 0.5rem !important;
+    left: 0.5rem !important;
+  }
+  
+  .px-2.py-0\.5.text-white.text-xs {
+    padding: 0.125rem 0.375rem !important;
+    font-size: 0.65rem !important;
+  }
+  
+  /* "没有结果时显示提示"区域优化 */
+  .text-center.py-10.bg-white.dark\:bg-slate-800.rounded-xl.shadow-sm.p-6.mt-6 {
+    padding: 1.5rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  /* 背景装饰元素优化位置 */
+  .absolute.-top-24.-right-24.w-96.h-96,
+  .absolute.-bottom-40.-left-20.w-80.h-80 {
+    opacity: 0.5 !important; /* 降低背景装饰元素的显著性 */
+  }
+  
+  /* 优化顶部导航区的间距 */
+  .py-6 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+  
+  /* 优化顶部标题大小 */
+  .text-3xl {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  /* 优化顶部描述文字 */
+  .text-lg {
+    font-size: 0.9rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* 轮播指示器样式优化 */
+  .flex.justify-center.gap-2.py-2 {
+    padding: 0.25rem !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* 轮播指示器点大小优化 */
+  .h-2.w-2.rounded-full, 
+  .h-2.w-6.rounded-full {
+    height: 0.375rem !important;
+    width: 0.375rem !important;
+    margin: 0 0.125rem !important;
+  }
+  
+  /* 活动的轮播指示器 */
+  .h-2.w-6.rounded-full.bg-primary-500 {
+    width: 0.75rem !important;
+  }
+  
+  /* 修复暗黑模式下的卡片阴影 */
+  .dark .tool-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+  
+  /* 优化标签溢出显示 */
+  .overflow-x-auto.py-2.no-scrollbar {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .overflow-x-auto.py-2.no-scrollbar > button {
+    scroll-snap-align: start;
+    white-space: nowrap;
+  }
+  
+  /* 移动端页面底部减少空白 */
+  .min-h-screen {
+    min-height: calc(100vh - 1rem) !important;
+  }
+
+  /* 优化底部导航的上间距 */
+  .mb-8:last-child {
+    margin-bottom: 2rem !important;
+  }
+  
+  /* 优化移动端工具卡片内部元素溢出控制 */
+  .tool-card h3.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 2.4em;
+  }
+  
+  /* 优化移动端底部"阅读更多"链接 */
+  .text-center.pb-6 {
+    padding-bottom: 1rem !important;
+  }
+  
+  /* 移动端卡片触摸反馈 */
+  .tool-card {
+    -webkit-tap-highlight-color: transparent; /* 移除iOS默认的点击高亮效果 */
+    touch-action: manipulation; /* 优化触摸操作 */
+    will-change: transform, opacity; /* 提示浏览器元素将发生变化，优化性能 */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* 添加触摸涟漪效果 */
+  .tool-card::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1%, transparent 1%);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 1000% 1000%;
+    opacity: 0;
+    transition: opacity 0.4s, background-size 0.4s;
+  }
+  
+  .tool-card:active::after {
+    background-size: 0% 0%;
+    opacity: 0.3;
+    transition: 0s;
+  }
+  
+  /* 优化卡片内部图像加载体验 */
+  .tool-card img {
+    transition-property: transform, opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+  }
+  
+  /* 适用于移动设备的标签优化 */
+  [class*="tool-card"] [class*="px-2 py-0.5"] {
+    font-size: 0.65rem !important;
+    padding: 0.1rem 0.5rem !important;
+  }
+  
+  /* 提升卡片可点击区域 */
+  .tool-card h3 {
+    margin-bottom: 0.25rem !important;
+  }
+  
+  /* 移动端优化卡片底部的"阅读全文"提示 */
+  .tool-card .text-sm.font-medium.text-primary-600 {
+    font-size: 0.75rem !important;
+    margin-top: 0.25rem !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* 3D卡片翻转效果所需样式 */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* 团队成员卡片样式 */
+.team-card-container {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.team-card-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 移动端样式覆盖 */
+@media (max-width: 768px) {
+  .team-card-container:hover {
+    transform: none;
+  }
+}
+
+/* 移动端样式 */
+@media (max-width: 640px) {
+  .max-content-width {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* 团队成员卡片自定义样式 */
+.light-purple-bg {
+  background-color: #f5f3ff; /* 浅紫色背景 */
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  border: 2px solid #6366f1;
+  opacity: 0.5;
+}
+
+.tag {
+  transition: transform 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.tag:hover {
+  transform: scale(1.05);
+}
+
+.skill-card {
+  transition: all 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1);
+}
+
+.text-control {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+/* 移除了动态光效 */
+.qr-code {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .light-purple-bg {
+    background-color: #1e293b;
+  }
+}

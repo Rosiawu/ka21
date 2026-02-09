@@ -1,0 +1,186 @@
+{
+  "Common": {
+    "siteTitle": "KA21: One-stop AI Resource Hub",
+    "sidebarTitle": "KA21 Tools",
+    "submitTool": "Submit AI Tool",
+    "viewAll": "View all",
+    "home": "Home",
+    "menuAllTools": "All Tools",
+    "menuTutorials": "Starter Tutorials",
+    "menuLlmArticles": "LLM Articles",
+    "menuAiLibrary": "AI Resource Wiki",
+    "menuAbout": "About",
+    "wechatLabel": "WeChat (note purpose)",
+    "officialAccountLabel": "Follow Official Account",
+    "sidebarExpand": "Expand sidebar",
+    "sidebarCollapse": "Collapse sidebar",
+    "footerIntro1": "KA21 Tools only lists AI tools we have personally tested and found genuinely useful. Every tool is selected through real hands-on experience and rigorous review — no ads or paid recommendations — to help you find truly trustworthy AI assistants. Recommendation levels are updated based on ongoing usage to remain objective and fair.",
+    "bookmarkNote": "Press Ctrl + D or ⌘ + D to bookmark and discover new tools first!",
+    "loading": "Loading...",
+    "backToTop": "Back to top",
+    "retry": "Retry",
+    "loadFailed": "Failed to load, please try again later",
+    "totalCount": "{count} items"
+  },
+  "Home": {
+    "subtitle": "Discover, compare and use the best AI tools to boost productivity and creativity",
+    "tutorials": "Starter Tutorials",
+    "readMore": "Read more",
+    "filtered": "Filtered",
+    "tutorialsSourceNote": "From AI practitioners' personal writing",
+    "collapse": "Collapse",
+    "noTutorialsTitle": "No matching tutorials",
+    "noTutorialsHint": "Try other keywords or view the full list",
+    "browseAllTutorials": "Browse all tutorials",
+    "scrollDownToViewTools": "Scroll down to view AI tools",
+    "allCategoriesTitle": "All AI Tool Categories",
+    "allCategoriesDesc": "Browse by type to find tools for your needs",
+    "searchPlaceholder": "Search tools, tutorials, authors",
+    "scrollLeft": "Scroll left",
+    "scrollRight": "Scroll right",
+    "jumpToTutorialPage": "Go to tutorial page {index}"
+  },
+  "Search": {
+    "results": "Search Results",
+    "subtitle": "Find the most suitable AI tools",
+    "searchPlaceholder": "Search tool name, description...",
+    "searchAction": "Search",
+    "allTools": "All Tools",
+    "categoryPrefix": "Category:",
+    "searchPrefix": "Search:",
+    "shareResults": "Share results",
+    "linkCopied": "Link copied to clipboard!",
+    "breadcrumbLabel": "Breadcrumb",
+    "unknownCategory": "Unknown category",
+    "inputAriaLabel": "Search tools",
+    "clearAction": "Clear search"
+  }
+  ,
+  "Sort": {
+    "label": "Sort by:",
+    "default": "Default",
+    "recommend": "Recommended",
+    "newest": "Newest",
+    "name": "Name"
+  }
+  ,
+  "TutorialSort": {
+    "label": "Sort by:",
+    "latestFirst": "Newest first",
+    "oldestFirst": "Oldest first",
+    "easyToHard": "Easy to hard"
+  },
+  "Clarity": {
+    "monitorTitle": "Clarity Status Monitor",
+    "initLabel": "Init status:",
+    "initYes": "✅ Initialized",
+    "initNo": "❌ Not initialized",
+    "networkLabel": "Network activity:",
+    "networkYes": "✅ Activity detected",
+    "networkWait": "⏳ Waiting",
+    "lastActivity": "Last activity:",
+    "eventCount": "Event count:",
+    "tip": "💡 Tip: Open DevTools Network panel and search \"clarity.ms\" to inspect requests",
+    "ok": "✅ Clarity is running well! Check the Microsoft Clarity dashboard for data"
+  },
+  "Stats": {
+    "coreToolsLabel": "Curated AI tools",
+    "utilsLabel": "Utility tools",
+    "tutorialsLabel": "Starter tutorials",
+    "strategyNote": "We keep only 100 truly useful tools"
+  }
+  ,
+  "Categories": {
+    "agent": "AI Agents",
+    "office": "AI Productivity",
+    "image": "AI Image Tools",
+    "writing": "AI Writing Tools",
+    "video": "AI Video Tools",
+    "design": "AI Design Tools",
+    "chat": "AI Chat",
+    "coding": "AI Coding Tools",
+    "audio": "AI Audio Tools",
+    "dev-platform": "AI Development Platforms",
+    "podcast": "AI Podcast Tools",
+    "misc": "Other AI Tools",
+    "utils": "Utilities"
+  },
+  "ToolList": {
+    "emptyTitle": "No matching tools found",
+    "emptyHint": "Try other keywords or categories"
+  },
+  "Error": {
+    "generalTitle": "Sorry, something went wrong",
+    "generalHint": "We are working to fix this. Please try again later."
+  }
+  ,
+  "Access": {
+    "direct": "Direct",
+    "proxy": "Proxy",
+    "visit": "Visit"
+  }
+  ,
+  "ToolDetail": {
+    "back": "Back"
+  }
+  ,
+  "LlmArticles": {
+    "title": "LLM Articles",
+    "filters": {
+      "all": "All",
+      "intro": "Introductions",
+      "comparison": "Comparisons",
+      "analysis": "Technical Analysis"
+    },
+    "empty": "No articles in this category."
+  }
+  ,
+  "Hot": {
+    "title": "Hot Recommendations",
+    "subtitle": "Curated quality AI tools to boost productivity",
+    "changeButton": "Change",
+    "featuredBadge": "Featured",
+    "viewToolAria": "Learn about {name} - {desc}",
+    "debug": {
+      "panelTitle": "Debug Info",
+      "category": "Category",
+      "pageSize": "Page size",
+      "current": "Shown",
+      "canRefresh": "Can refresh",
+      "yes": "Yes",
+      "no": "No",
+      "categoryCount": "Category count",
+      "windowSize": "Window size"
+    }
+  },
+  "HotCategories": {
+    "ai_creation": {
+      "title": "AI Creation",
+      "subtitle": "Inspire ideas and unleash creativity with AI"
+    },
+    "productivity": {
+      "title": "AI Productivity",
+      "subtitle": "Boost efficiency and let AI handle the tedious"
+    },
+    "learning": {
+      "title": "Learning & Growth",
+      "subtitle": "Keep improving with AI by your side"
+    }
+  }
+  ,
+  "CategoryDesc": {
+    "agent": "Intelligent assistants that help with diverse tasks",
+    "office": "AI tools to improve work productivity",
+    "image": "Image generation, editing and optimization tools",
+    "writing": "AI writing assistants to improve copy quality",
+    "video": "Video generation, editing and processing tools",
+    "design": "AI design tools to spark creativity",
+    "chat": "Smart conversational tools to answer questions",
+    "coding": "AI coding assistants to boost development efficiency",
+    "audio": "Audio generation, editing and processing tools",
+    "dev-platform": "AI development platforms and tools",
+    "podcast": "Podcast creation and processing tools",
+    "misc": "Other practical AI tools",
+    "utils": "Handy utilities to improve daily efficiency"
+  }
+}

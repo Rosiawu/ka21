@@ -1,0 +1,186 @@
+{
+  "Common": {
+    "siteTitle": "KA21：一站式AI资源平台",
+    "sidebarTitle": "KA21工具导航",
+    "submitTool": "提交AI工具",
+    "viewAll": "查看全部",
+    "home": "首页",
+    "menuAllTools": "全部工具",
+    "menuTutorials": "萌新教程",
+    "menuLlmArticles": "大模型文章",
+    "menuAiLibrary": "AI牛马库",
+    "menuAbout": "关于我们",
+    "wechatLabel": "微信号（备注来意）",
+    "officialAccountLabel": "关注公众号",
+    "sidebarExpand": "展开侧边栏",
+    "sidebarCollapse": "收起侧边栏",
+    "footerIntro1": "KA21工具导航只收录我们亲自测评、实际好用的AI工具。每一款工具都经过我和朋友们的真实体验和严格筛选，拒绝广告和虚假推荐，只为帮你找到真正靠谱的AI助手。工具推荐级别会根据我们的实际体验动态调整，力求客观公正。",
+    "bookmarkNote": "Ctrl + D 或 ⌘ + D 收藏本站，第一时间发现新工具！",
+    "loading": "加载中...",
+    "backToTop": "返回顶部",
+    "retry": "重试",
+    "loadFailed": "加载失败，请稍后重试",
+    "totalCount": "共 {count} 个"
+  },
+  "Home": {
+    "subtitle": "发现、比较和使用最佳AI工具，提升您的工作效率和创造力",
+    "tutorials": "萌新教程",
+    "readMore": "阅读全文",
+    "filtered": "已过滤",
+    "tutorialsSourceNote": "来自AI践行者们个人写作公众号",
+    "collapse": "折叠",
+    "noTutorialsTitle": "未找到匹配的教程",
+    "noTutorialsHint": "请尝试其他搜索词，或查看完整的教程列表",
+    "browseAllTutorials": "浏览所有教程",
+    "scrollDownToViewTools": "向下滚动查看AI工具",
+    "allCategoriesTitle": "所有AI工具分类",
+    "allCategoriesDesc": "按工具类型浏览，找到适合您需求的AI工具",
+    "searchPlaceholder": "搜索AI工具、教程、作者",
+    "scrollLeft": "向左滚动",
+    "scrollRight": "向右滚动",
+    "jumpToTutorialPage": "跳转到第{index}页教程"
+  },
+  "Search": {
+    "results": "搜索结果",
+    "subtitle": "在AI工具导航中找到最适合您的工具",
+    "searchPlaceholder": "搜索AI工具名称、描述...",
+    "searchAction": "搜索",
+    "allTools": "所有工具",
+    "categoryPrefix": "分类:",
+    "searchPrefix": "搜索:",
+    "shareResults": "分享结果",
+    "linkCopied": "链接已复制到剪贴板!",
+    "breadcrumbLabel": "导航路径",
+    "unknownCategory": "未知分类",
+    "inputAriaLabel": "搜索工具",
+    "clearAction": "清除搜索"
+  }
+  ,
+  "Sort": {
+    "label": "排序方式:",
+    "default": "默认排序",
+    "recommend": "推荐排序",
+    "newest": "最新排序",
+    "name": "名称排序"
+  }
+  ,
+  "TutorialSort": {
+    "label": "排序方式:",
+    "latestFirst": "最新优先",
+    "oldestFirst": "最早优先",
+    "easyToHard": "从易到难"
+  },
+  "Clarity": {
+    "monitorTitle": "Clarity 状态监控",
+    "initLabel": "初始化状态:",
+    "initYes": "✅ 已初始化",
+    "initNo": "❌ 未初始化",
+    "networkLabel": "网络活动:",
+    "networkYes": "✅ 检测到活动",
+    "networkWait": "⏳ 等待活动",
+    "lastActivity": "最后活动:",
+    "eventCount": "事件计数:",
+    "tip": "💡 提示：查看浏览器开发者工具的网络面板，搜索 \"clarity.ms\" 查看详细的网络请求",
+    "ok": "✅ Clarity 运行正常！可以在 Microsoft Clarity 仪表板中查看数据"
+  },
+  "Stats": {
+    "coreToolsLabel": "精选AI工具",
+    "utilsLabel": "四次元小工具",
+    "tutorialsLabel": "萌新教程",
+    "strategyNote": "末位淘汰 只留好用100个AI牛马"
+  }
+  ,
+  "Categories": {
+    "agent": "AI通用智能体",
+    "office": "AI办公工具",
+    "image": "AI图像工具",
+    "writing": "AI写作工具",
+    "video": "AI视频工具",
+    "design": "AI设计工具",
+    "chat": "AI对话聊天",
+    "coding": "AI编程工具",
+    "audio": "AI音频工具",
+    "dev-platform": "AI开发平台",
+    "podcast": "AI播客工具",
+    "misc": "其他AI工具",
+    "utils": "四次元小工具"
+  },
+  "ToolList": {
+    "emptyTitle": "没有找到匹配的工具",
+    "emptyHint": "请尝试其他搜索关键词或分类"
+  },
+  "Error": {
+    "generalTitle": "抱歉，出现了一些问题",
+    "generalHint": "我们正在努力修复这个问题。请稍后再试。"
+  }
+  ,
+  "Access": {
+    "direct": "直达",
+    "proxy": "魔法",
+    "visit": "访问"
+  }
+  ,
+  "ToolDetail": {
+    "back": "返回"
+  }
+  ,
+  "LlmArticles": {
+    "title": "大模型文章",
+    "filters": {
+      "all": "全部",
+      "intro": "大模型介绍",
+      "comparison": "模型对比",
+      "analysis": "技术分析"
+    },
+    "empty": "暂无该分类下的文章。"
+  }
+  ,
+  "Hot": {
+    "title": "热门推荐",
+    "subtitle": "精选优质AI工具，提升你的工作效率",
+    "changeButton": "换一换",
+    "featuredBadge": "精选",
+    "viewToolAria": "了解 {name} - {desc}",
+    "debug": {
+      "panelTitle": "调试信息",
+      "category": "分类",
+      "pageSize": "页大小",
+      "current": "当前显示",
+      "canRefresh": "可刷新",
+      "yes": "是",
+      "no": "否",
+      "categoryCount": "分类数量",
+      "windowSize": "窗口大小"
+    }
+  },
+  "HotCategories": {
+    "ai_creation": {
+      "title": "AI创作助手",
+      "subtitle": "激发灵感，用AI释放创意"
+    },
+    "productivity": {
+      "title": "效率办公工具",
+      "subtitle": "提升效率，让AI接管繁琐"
+    },
+    "learning": {
+      "title": "学习成长工具",
+      "subtitle": "持续精进，让AI陪你学习"
+    }
+  }
+  ,
+  "CategoryDesc": {
+    "agent": "智能助手，帮你处理各种任务",
+    "office": "提升办公效率的AI工具",
+    "image": "图像生成、编辑和优化工具",
+    "writing": "AI写作助手，提升文案质量",
+    "video": "视频生成、编辑和处理工具",
+    "design": "AI设计工具，激发创意灵感",
+    "chat": "智能对话，解答你的问题",
+    "coding": "AI编程助手，提升开发效率",
+    "audio": "音频生成、编辑和处理工具",
+    "dev-platform": "AI开发平台和工具",
+    "podcast": "播客制作和处理工具",
+    "misc": "其他实用AI工具",
+    "utils": "实用小工具，提升生活效率"
+  }
+}

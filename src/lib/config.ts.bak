@@ -1,0 +1,8 @@
+/**
+ * 系统配置文件
+ */
+
+// 教程数据源控制
+export const USE_NEW_TUTORIALS_SOURCE = false; // 设置为true启用新的tutorials.json数据源
+
+// 其他配置项可以在这里添加 

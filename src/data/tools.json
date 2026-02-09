@@ -1,0 +1,4934 @@
+{
+  "tools": [
+    {
+      "id": "remove-bg",
+      "name": "Remove.bg",
+      "description": "Remove.bg是一款100%全自动的AI背景消除工具，只需上传图片点击一键即可去除背景，无需登录，操作简单便捷。它能够智能识别前景主体，精准分离背景，适用于人像、产品、动物等多种图片类型，是电商产品图、个人头像、设计素材处理的理想工具。",
+      "icon": "/icons/remove-bg.png",
+      "url": "https://www.remove.bg/zh/upload",
+      "tags": [
+        "pdf-tools",
+        "document-conversion",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "非常好用的抠图工具，操作非常简单，上传点击然后下载，无需登录，各大专业图像处理软件的合作平台方",
+          "author": "百宝箱子",
+          "createdAt": "2025-06-23",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 全自动背景消除：一键去除任何图片背景\n2. 多场景适用：支持人像、产品、动物等多种图片类型\n3. 批量处理：可同时处理多张图片\n4. 自定义输出：支持透明背景和自定义背景\n5. 多种格式支持：输出PNG、JPG等常用格式",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问Remove.bg官网\n2. 上传需要处理的图片\n3. 等待几秒钟自动处理\n4. 预览处理结果\n5. 下载去除背景后的图片\n6. 可选择应用自定义背景",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-07-02T00:00:00Z",
+      "updatedAt": "2025-07-02T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "monica",
+      "name": "Monica",
+      "description": "Monica是一款综合性AI工具平台，集成多种顶级AI模型如GPT-4o、Claude 3.5 Sonnet、Llama等，支持聊天、图像生成、视频创作、音频处理、文档分析等多种功能。它界面简洁直观，工具丰富齐全，是进行各类AI创意工作的一站式解决方案。",
+      "icon": "/icons/monica.png",
+      "url": "https://monica.im/invitation-affiliate?ref=m2qzmtl&ref_aff=m2qzmtl",
+      "tags": [
+        "ai-chat",
+        "ai-image",
+        "ai-video",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "displayOrder": 7001,
+      "groupComments": [
+        {
+          "content": "使用过各种AI平台后，发现Monica是Claude的平替。多种顶级模型随心切换，完美支持中文，价格更实惠，界面简洁高效。日常写作和数据分析都用它，强烈推荐！",
+          "author": "群友分享",
+          "createdAt": "2025-06-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多模型AI聊天\n2. 图像生成与处理\n3. 视频创作功能\n4. 文档分析与处理\n5. 音频生成与编辑\n6. 一站式工具箱",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Monica账号\n2. 选择需要使用的功能\n3. 选择适合的AI模型\n4. 输入提示或上传文件\n5. 获取AI处理结果\n6. 导出或分享成果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 部分功能需付费\n3. 选择合适的模型能获得更好效果\n4. 注意数据和隐私安全",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-06-27T00:00:00Z",
+      "updatedAt": "2025-06-27T00:00:00Z",
+      "toolCategory": "chat",
+      "icons": {
+        "png": "/icons/monica.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "description": "DeepSeek是一款强大的AI助手，能够帮助用户快速获取信息、解决问题和提高工作效率。它使用先进的AI技术，提供智能搜索、知识问答和数据分析等功能。",
+      "icon": "/icons/deepseek.png",
+      "url": "https://deepseek.com",
+      "tags": [
+        "ai-chat",
+        "research",
+        "productivity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "displayOrder": 7000,
+      "groupComments": [
+        {
+          "content": "DeepSeek是一款非常强大的AI助手，能够帮助用户快速获取信息、解决问题和提高工作效率。",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "chat",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级-飞书多维表格-x-deepsee-0",
+        "tutorial-mp-weixin-qq-com-deepseek-与飞书多维表格第一弹-教师备课辅助丨附模板-1",
+        "tutorial-mp-weixin-qq-com-我的-ai-日报模板-在飞书产品群火了--2",
+        "tutorial-mp-weixin-qq-com-效率大翻倍-把deepseek装进飞书表格-自动反推ai绘图-3",
+        "tutorial-mp-weixin-qq-com-deepseek-飞书多维表格-做了提示词2-0小助手和一个-4",
+        "tutorial-mp-weixin-qq-com-deepseek赋能多维表格-自动写口播文案-生成分镜-工作-5",
+        "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级本地部署大模型教程-6",
+        "tutorial-mp-weixin-qq-com-claude-3-7与deepseek比美-7",
+        "tutorial-mp-weixin-qq-com-理科老师狂喜-ai一键生成互动公式动画-再也不用求flash-8",
+        "tutorial-mp-weixin-qq-com-用-ai-花三分钟写个html小游戏-编程小白也能秒变游戏大-9"
+      ]
+    },
+    {
+      "id": "seko",
+      "name": "Seko",
+      "description": "Seko是商汤科技推出的AI视频创作平台，提供无门槛提示词输入、一键成片、首尾帧丝滑转场、对口型播客等功能。支持多种视频比例，具备可视编辑器，可单独修改分镜、配音等元素。适合内容创作者、营销人员快速制作高质量视频。",
+      "icon": "/icons/seko.png",
+      "url": "https://seko.sensetime.com/explore",
+      "tags": [
+        "ai-video",
+        "video-creation",
+        "ai-agent"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "Seko的视频创作功能太惊艳了！首尾帧丝滑转场和对口型效果很棒，无门槛提示词输入让创作变得简单。支持多种视频比例，可视编辑器功能强大，可以单独修改分镜、配音等元素。特别适合内容创作者和营销人员。",
+          "author": "群友分享",
+          "createdAt": "2025-08-14",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "提示词无门槛创作",
+          "content": "1. 支持简单一句话到2000字脚本的提示词输入\n2. 可以天马行空，AI会自动提炼和优化\n3. 建议在提示词中明确分镜数量\n4. 不需要旁白时要在提示词中说明",
+          "type": "text"
+        },
+        {
+          "title": "一键成片制作",
+          "content": "1. 输入内容后点击生成视频\n2. 可添加出演主体（人物、动物、物品）\n3. 支持多种视频比例调整\n4. 使用可视编辑器修改分镜、配音、背景音乐\n5. 可导出完整版或分镜版",
+          "type": "text"
+        },
+        {
+          "title": "首尾帧丝滑转场",
+          "content": "1. 选择【添加尾帧】→【使用下一分镜首帧图】\n2. 每个分镜都这样操作实现无缝连接\n3. 最后一帧可添加首帧图片实现首尾联动\n4. 可修改转场提示词但核心要保持转场效果",
+          "type": "text"
+        },
+        {
+          "title": "对口型播客制作",
+          "content": "1. 支持卡通人物、动物等智能对口型\n2. 选择【对口型】功能\n3. 目前更适合单角色，多角色可能混乱\n4. 一致性表现优秀，可增加提示词细节优化",
+          "type": "text"
+        },
+        {
+          "title": "使用技巧",
+          "content": "1. 注册可获得100积分，邀请好友互相得100积分\n2. 生成速度较快，等待时间不长\n3. 可单独修改某个分镜的提示词重新生成\n4. 有修改历史功能可切换回之前版本\n5. 分镜可调整长度，使用小剪刀图标",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 谨慎删除分镜，删除后不可恢复\n2. 删除分镜后需要重新跑首尾帧连接\n3. 视频节奏太慢可用剪映加速处理\n4. 建议保存优秀提示词模板\n5. 注意视频内容版权问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-09-17T00:00:00Z",
+      "updatedAt": "2025-09-17T00:00:00Z",
+      "toolCategory": "agent",
+      "isVisible": true
+    },
+    {
+      "id": "leonardo",
+      "name": "包工头帅气员工",
+      "description": "Leonardo是一款强大的AI绘画工具，以其生成帅气人物形象而闻名。它提供每日免费token，支持多种艺术风格，特别擅长生成高质量的人物肖像和场景图。现已推出手机客户端，让免费用户也能随时随地创作。",
+      "icon": "/icons/leonardo.png",
+      "url": "https://leonardo.ai",
+      "tags": [
+        "ai-image",
+        "ai-design",
+        "creativity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "包工头在群里吹爆了的\"帅气员工\"，出的图帅气好看，每天送150个token，可以画二三十张",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用技巧",
+          "content": "1. 利用每日赠送的150个token\n2. 专注于人物肖像创作\n3. 使用详细的提示词描述外观",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 合理规划token使用\n2. 保存优秀的提示词\n3. 注意图片的使用版权\n4. 定期备份作品",
+          "type": "注意事项"
+        },
+        {
+          "title": "手机客户端使用",
+          "content": "1. 下载Leonardo.Ai手机应用\n2. 使用相同账号登录\n3. 免费用户也可使用基本功能\n4. 支持移动端创作和查看作品",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-03-02T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-leonardo-ai-手机客户端-免费用户也能玩得开心--0"
+      ]
+    },
+    {
+      "id": "mistral",
+      "name": "包工头法国员工",
+      "description": "mistral是一款强大的AI绘画工具，每日免费生成3张图，适合快速创意测试。",
+      "icon": "/icons/mistral.png",
+      "url": "https://mistral.ai",
+      "tags": [
+        "ai-image",
+        "ai-design",
+        "creativity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "包工头常驱使的法国员工，欧洲正经大模型，每天只能免费出3张图，出的图有点法国人的浪漫感",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用技巧",
+          "content": "1. 合理利用每日3张免费额度\n2. 注重艺术风格的表达\n3. 善用法式浪漫风格特点",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 每日使用次数有限\n2. 需要使用代理访问\n3. 保存重要作品\n4. 关注更新和新功能",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-面试3个画图的外籍ai员工-谁审美最好-0"
+      ]
+    },
+    {
+      "id": "gamma",
+      "name": "Gamma",
+      "description": "AI驱动的演示文稿创作平台！Gamma是一款革新性的演示文稿工具，使用AI技术帮助用户快速创建专业级演示文稿。它能根据简单的文本描述自动生成精美的幻灯片，包含智能排版、主题推荐和内容生成等功能，大大提升演示文稿的制作效率。",
+      "icon": "/icons/gamma.png",
+      "url": "https://gamma.app/zh-cn",
+      "tags": [
+        "ai-assistant",
+        "ai-design",
+        "content-generation"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "包工头推荐PPT 第一梯队工具，PPT 排版，AI生成的内容和排版都很专业，特别适合快速制作高质量演示",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI内容生成\n2. 智能排版设计\n3. 主题风格推荐\n4. 实时协作编辑\n5. 丰富的模板库\n6. 一键导出分享",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入演示主题或大纲\n2. 选择设计风格\n3. 等待AI生成内容\n4. 调整和优化\n5. 导出或在线展示",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 建议准备详细大纲\n2. 生成内容需要审核\n3. 支持实时保存\n4. 注意版权合规性",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "office",
+      "isVisible": true
+    },
+    {
+      "id": "freedraw",
+      "name": "自由画布",
+      "description": "AI智能白板工具！自由画布是一款强大的在线协作白板工具，集成了AI绘画、智能图表和文档处理功能。它支持多人实时协作，提供丰富的模板资源，能快速生成专业图表，是团队协作和创意表达的理想工具。",
+      "icon": "/icons/freedraw.png",
+      "url": "https://wenku.baidu.com/board",
+      "tags": [
+        "ai-assistant",
+        "ai-design",
+        "productivity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "自由画布，包工头推荐PPT 第一梯队工具",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能绘画\n2. 实时多人协作\n3. 智能图表生成\n4. 丰富模板库\n5. 文档导入导出\n6. 版本历史管理",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "design",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-接入deepseek后的自由画布-做ppt还真的有点强--0",
+        "tutorial-mp-weixin-qq-com-不得不说-百度自由画布-能快速从视频-链接和ppt中生成新课-1"
+      ]
+    },
+    {
+      "id": "mineru",
+      "name": "MinerU",
+      "description": "大模型时代的文档提取/转换神器！MinerU是一款专业的文档智能解析工具，支持PDF、Word、PPT等多种格式。它能高效提取文档结构和内容，特别适用于机器学习、大模型语料生产、RAG等场景，是AI开发和研究的理想助手。",
+      "icon": "/icons/mineru.png",
+      "url": "https://mineru.net/",
+      "tags": [
+        "ai-assistant",
+        "content-generation",
+        "productivity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "上海AI实验室出品，文档解析提取利器，支持多种格式，适合RAG应用",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "背景介绍",
+          "content": "MinerU\n开发团队：上海人工智能实验室OpenDataLab团队开发，\n应用简介：大模型时代的文档提取/转换神器。\n功能：支持PDF、Word、PPT等多种文档的智能解析，可用于机器学习、大模型语料生产、RAG等场景。\n官网：https://mineru.net/\nGitHub开源地址：https://github.com/opendatalab/MinerU",
+          "type": "text"
+        },
+        {
+          "title": "主要功能",
+          "content": "1. 多格式文档解析\n2. 智能结构提取\n3. 大模型语料生产\n4. RAG应用支持\n5. 批量处理能力\n6. 开源可定制",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传目标文档\n2. 选择解析模式\n3. 等待AI处理\n4. 获取结构化数据\n5. 导出或应用到模型",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 开源项目可自行部署\n2. 复杂文档可能需要调整\n3. 建议使用高质量原文档\n4. 关注GitHub更新",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "misc",
+      "icons": {
+        "png": "/icons/mineru.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "bibigpt",
+      "name": "BibiGPT",
+      "description": "音视频内容总结！BibiGPT是一款AI视频内容总结工具，支持B站、YouTube等平台的视频内容一键总结。它能快速生成视频字幕、内容要点、章节总结等，帮助用户快速了解视频核心内容，提高学习和信息获取效率。",
+      "icon": "/icons/bibigpt.png",
+      "url": "https://bibigpt.co",
+      "tags": [
+        "productivity",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "非常实用的视频内容总结工具，支持B站和YouTube，可以快速了解视频核心内容",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 复制视频链接\n2. 粘贴到BibiGPT\n3. 等待AI分析总结\n4. 获取视频内容摘要",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. 支持多平台视频\n2. 智能内容提取\n3. 章节自动分割\n4. 关键点突出显示",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "misc",
+      "isVisible": true
+    },
+    {
+      "id": "ai2word",
+      "name": "AI2Word",
+      "description": "内容格式转换！AI2Word是一款AI内容格式转换工具，支持多种AI模型(如DeepSeek)的对话记录转换为规范的文档格式。它能帮助用户快速整理AI对话内容，将聊天记录转换成易读的文档形式，提高内容整理效率。",
+      "icon": "/icons/ai2word.svg",
+      "url": "https://ai2word.dawne.cn",
+      "tags": [
+        "ai-assistant",
+        "productivity",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "非常实用的AI对话整理工具，可以快速把AI对话转成文档格式，支持DeepSeek等多个模型",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 复制AI对话内容\n2. 粘贴到转换框中\n3. 点击转换按钮\n4. 复制转换后的格式化文档",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. 支持多种AI模型对话格式\n2. 一键转换文档格式\n3. 简单易用无需登录\n4. 完全免费使用",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "artifig",
+      "name": "Artifig",
+      "description": "排版好用的AI！Artifig是一款AI驱动的Figma插件开发工具，它能帮助设计师和开发者快速将创意转化为可用的Figma插件。只需描述你想要的插件功能，Artifig就能自动生成相应的插件代码，大大简化了Figma插件开发流程。",
+      "icon": "/icons/artifig.svg",
+      "url": "https://www.figma.com/community/plugin/1434961364530492108/artifig-ai-turn-ideas-into-live-figma-plugins",
+      "tags": [
+        "productivity",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "排版好用的AI",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 安装Artifig Figma插件\n2. 用自然语言描述你想要的插件功能\n3. AI自动生成插件代码\n4. 测试和调整生成的插件",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. AI驱动的代码生成\n2. 支持自然语言描述需求\n3. 快速原型验证\n4. 适合无代码经验的设计师",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "design",
+      "isVisible": true
+    },
+    {
+      "id": "textbehindimage",
+      "name": "TextBehindImage",
+      "description": "添加背景文字！TextBehindImage是一款AI驱动的图片文字提取工具，能够识别并提取图片中被遮挡、半透明或水印覆盖的文字。它使用先进的AI技术，帮助用户恢复和获取图片背后的文字内容。",
+      "icon": "/icons/textbehindimage.png",
+      "url": "https://textbehindimage.rexanwong.xyz",
+      "tags": [
+        "ai-assistant",
+        "ai-image",
+        "ai-design"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "非常实用的图片文字恢复工具，可以提取被遮挡或水印覆盖的文字，对于文档处理很有帮助",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 上传需要处理的图片\n2. 等待AI分析处理\n3. 查看提取出的文字内容\n4. 下载或复制提取结果",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. 支持多种图片格式\n2. 可识别半透明文字\n3. 水印文字提取\n4. 免费使用无限制",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true
+    },
+    {
+      "id": "bwbg",
+      "name": "BWBG",
+      "description": "背景变黑白神器！BWBG是一款简单易用的黑白背景设计工具，帮助用户快速创建黑白风格的背景图案。适合用于制作简约风格的设计作品、社交媒体封面或者演示文稿背景。",
+      "icon": "/icons/bwbg.svg",
+      "url": "https://bwbg.rexanwong.xyz",
+      "tags": [
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "简单好用的黑白背景生成工具，适合制作简约风格的设计。",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 访问BWBG网站\n2. 选择背景样式和参数\n3. 自定义设计元素\n4. 下载生成的背景图案",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. 简单直观的操作界面\n2. 多种黑白风格模板\n3. 自定义设计选项\n4. 免费使用",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "readkidz",
+      "name": "ReadKidz",
+      "description": "儿童绘本神器！ReadKidz是一款AI驱动的儿童绘本创作工具，能够一站式生成完整的儿童绘本，包括故事内容、配套插图和音频配音。它使用先进的AI技术，帮助家长和教育工作者快速创作适合儿童阅读的绘本作品。",
+      "icon": "/icons/readkidz.png",
+      "url": "https://www.readkidz.com",
+      "tags": [
+        "creativity",
+        "ai-image",
+        "ai-design"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "儿童绘本神器，一键生成故事、配图和配音，特别适合给孩子制作个性化的绘本",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 选择绘本主题和风格\n2. AI生成故事内容\n3. 自动生成配套插图\n4. 添加AI配音效果\n5. 导出完整绘本",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. 全流程AI绘本生成\n2. 智能故事创作\n3. 高质量插图生成\n4. 自然语音配音\n5. 支持个性化定制",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true
+    },
+    {
+      "id": "bigjpg",
+      "name": "BigJPG",
+      "description": "图片无损放大神器！BigJPG是一款基于深度学习的图片无损放大工具，能够将小尺寸图片放大2-4倍而不失真。特别适合动漫图片、插画作品的放大，可以保持边缘清晰，细节丰富。支持多种图片格式，提供免费和付费两种模式。",
+      "icon": "/icons/bigjpg.png",
+      "url": "https://bigjpg.com",
+      "tags": [
+        "ai-assistant",
+        "ai-image",
+        "ai-design"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "非常好用的图片放大工具，特别是动漫图片放大效果惊艳，免费版每天可以用几次，付费很便宜",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 上传需要放大的图片\n2. 选择放大倍数（2x-4x）\n3. 选择图片风格（插画/照片）\n4. 等待AI处理完成\n5. 下载放大后的图片",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. 支持多种图片格式\n2. 2-4倍无损放大\n3. 针对动漫优化\n4. 边缘锐化处理\n5. 免费版每日额度\n6. 合理的付费方案",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版有每日使用限制\n2. 建议上传清晰原图\n3. 选择合适的放大倍数\n4. 注意选择正确的图片类型",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "jm",
+      "name": "即梦",
+      "description": "字节跳动出品的AI创作神器！即梦是剪映旗下的一站式AI创作平台，提供AI绘画、视频创作、图像编辑等多种功能。支持一键生成各类风格图片和视频，内置专业级编辑工具，让创作更简单高效。完全免费，无需注册，适合设计师和内容创作者使用。",
+      "icon": "/icons/jm.png",
+      "url": "https://jimeng.jianying.com/",
+      "tags": [
+        "ai-image",
+        "ai-design",
+        "ai-video"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "字节跳动官方出品的AI创作平台，支持图片生成、视频制作、图像编辑等功能，完全免费，操作简单，效果专业",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI图像生成与编辑\n2. 视频智能创作\n3. 图片高清修复\n4. 一键抠图/换背景\n5. 图片高清放大\n6. 智能调色美化",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问即梦官网\n2. 选择创作功能模块\n3. 上传素材或输入提示词\n4. 选择风格和参数\n5. 编辑和优化效果\n6. 导出作品",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 完全免费使用\n2. 无需注册登录",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-零门槛教程-手把手教你用3款工具一键生成-万物开花-爆款特效-0",
+        "tutorial-mp-weixin-qq-com-爆肝整理国内ai生图工具免费指南-亲测好用工具-图片效果对比-1",
+        "tutorial-mp-weixin-qq-com-今日份ai赋能-如何用ai文生图-2",
+        "tutorial-mp-weixin-qq-com-即梦ai字体我有点玩明白了-用这套prompt提效50--3",
+        "tutorial-mp-weixin-qq-com-小白也能写出专业文生图prompt-超棒的提示词框架-ai生-4",
+        "tutorial-mp-weixin-qq-com-即梦3-0创意字体-解锁14座城市的独特文化符号-5",
+        "tutorial-mp-weixin-qq-com-9500-提示词实测-ai绘画的3个-哇噻-不可能-创意-最-6"
+      ]
+    },
+    {
+      "id": "videoproc",
+      "name": "VideoProc",
+      "description": "AI视频处理神器！VideoProc是一款强大的AI视频处理软件，支持AI超分辨率、AI降噪、AI帧率提升等功能。它不仅能处理4K视频，还支持视频压缩、编辑、格式转换、下载等多种功能。特别适合需要处理高清视频的创作者和普通用户。",
+      "icon": "/icons/videoproc.png",
+      "url": "https://www.videoproc.com/giveaway/index-zh.htm",
+      "tags": [
+        "ai-assistant",
+        "video-editing",
+        "ai-video"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "免费视频高清放大/防抖/插帧",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI视频增强（超分辨率/帧率提升）\n2. AI降噪和稳定\n3. 4K视频处理和压缩\n4. 视频格式转换\n5. 视频编辑和剪辑\n6. 在线视频下载",
+          "type": "text"
+        },
+        {
+          "title": "特色优势",
+          "content": "1. Level-3硬件加速技术\n2. 支持多种GPU加速\n3. 高效4K视频处理\n4. 简单易用的界面\n5. 提供免费试用版本",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版功能有限制\n2. 完整版需要付费\n3. 建议使用支持GPU加速的设备\n4. Mac版部分AI功能仍在开发中",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "video",
+      "isVisible": true
+    },
+    {
+      "id": "gjcool",
+      "name": "古籍酷",
+      "description": "古籍OCR神器！古籍酷是一款专业的中文古籍AI处理平台，提供古籍OCR识别（准确率高达98.5%）、自动标点、文言文翻译等功能。它使用先进的AI技术，帮助用户快速完成古籍数字化工作，支持批量处理和API调用。",
+      "icon": "/icons/gjcool.png",
+      "url": "https://ocr.gj.cool",
+      "tags": [
+        "ai-assistant",
+        "ai-writing",
+        "content-generation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "文言文转白话文",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 古籍OCR识别（学术版~94%/工业版~98.5%）\n2. 自动标点（支持7种现代标点）\n3. 文言文翻译（数百万句平行语料库）\n4. 批量处理功能\n5. API接口支持\n6. 双层PDF输出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传或拍照古籍图片\n2. 选择处理功能（OCR/标点/翻译）\n3. 等待AI处理完成\n4. 导出处理结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 提供免费学术版和付费工业版\n2. 支持公益项目申请免费使用\n3. 开发者可申请API授权\n4. 建议使用清晰的古籍图片",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "misc",
+      "isVisible": true
+    },
+    {
+      "id": "googlelearning",
+      "name": "Google Learning",
+      "description": "谷歌AI学习实验室！这是谷歌推出的一系列AI学习实验项目，包括音乐创作、图像生成、声音实验等多个有趣的AI互动体验。通过这些实验，用户可以直观地了解和体验AI技术的各种可能性，非常适合AI学习和教育使用。",
+      "icon": "/icons/googlelearning.png",
+      "url": "https://learning.google.com/experiments/learn-about/signup",
+      "tags": [
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "AI生成定制化课程，信息转化为理解，高质量内容、学习科学和聊天体验结合",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI音乐创作实验\n2. 图像生成实验\n3. 声音互动实验\n4. AI艺术创作\n5. 机器学习基础教程\n6. 实时互动演示",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问Google Learning实验室\n2. 选择感兴趣的实验项目\n3. 按照指引进行互动体验\n4. 探索和学习AI原理",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 建议使用Chrome浏览器\n3. 部分实验需要摄像头或麦克风\n4. 推荐使用电脑访问",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "misc",
+      "isVisible": true
+    },
+    {
+      "id": "pngfree",
+      "name": "PNGFree",
+      "description": "AI驱动的PNG图片处理工具！PNGFree是一款专业的PNG图片处理平台，提供AI抠图、背景移除、图片优化等功能。完全免费使用，无水印，支持批量处理。",
+      "icon": "/icons/pngfree.png",
+      "url": "https://pngfree.ai",
+      "tags": [
+        "ai-assistant",
+        "ai-image",
+        "ai-design"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "免费百万级PNG素材库",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能抠图\n2. 背景移除\n3. 图片优化\n4. 批量处理\n5. 无水印导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传PNG图片\n2. 选择处理功能\n3. 等待AI处理\n4. 下载处理结果",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "colorify",
+      "name": "Colorify",
+      "description": "AI智能配色神器！Colorify是一款强大的在线配色工具，使用AI技术帮助用户生成和管理配色方案。它可以从图片中提取配色，生成渐变色，并提供大量预设的配色模板，特别适合设计师和创意工作者使用。",
+      "icon": "/icons/colorify.png",
+      "url": "https://colorify.rocks",
+      "tags": [
+        "ai-assistant",
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "调色盘生成器，输入的关键词，生成对应的色彩组合。",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能配色推荐\n2. 从图片提取配色\n3. 渐变色生成\n4. 配色方案管理\n5. 色彩理论指导",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择配色模式（智能推荐/图片提取）\n2. 设置颜色参数和偏好\n3. 生成配色方案\n4. 调整和保存结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 注意保存喜欢的配色\n2. 可以导出多种格式\n3. 建议参考色彩理论\n4. 考虑使用场景适配",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true
+    },
+    {
+      "id": "zcoloring",
+      "name": "ZColoring",
+      "description": "AI智能上色神器！ZColoring是一款专业的AI自动上色工具，可以为黑白图片、线稿和素描添加自然的色彩。它使用先进的AI技术，能够智能识别图像内容，并根据场景和物体特征进行合理的上色处理。特别适合漫画、插画作品的快速上色。",
+      "icon": "/icons/zcoloring.png",
+      "url": "https://zcoloring.com",
+      "tags": [
+        "ai-assistant",
+        "ai-image",
+        "ai-design"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "AI生成儿童涂色书，非常强大的AI上色工具，特别适合漫画线稿上色，效果自然，支持风格调整",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能上色\n2. 多种上色风格选择\n3. 局部颜色调整\n4. 批量处理功能\n5. 支持高分辨率输出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传黑白图片或线稿\n2. 选择上色风格\n3. 调整色彩参数\n4. 等待AI处理\n5. 下载成品",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 建议使用清晰的原图\n2. 可以指定关键区域颜色\n3. 支持多次调整和重试\n4. 注意保存中间结果",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true
+    },
+    {
+      "id": "outdraw",
+      "name": "Outdraw",
+      "description": "AI绘图白板神器！Outdraw是一款创新的AI驱动白板工具，能够将简单的涂鸦和文字描述转换成精美的插图和图标。它特别适合用于制作演示文稿、流程图和信息图表，支持实时协作和多人编辑。",
+      "icon": "/icons/outdraw.png",
+      "url": "https://outdraw.ai",
+      "tags": [
+        "ai-image",
+        "ai-design",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "创作让 AI 无法理解，但人可以看懂画的游戏，特别适合做演示和教学",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI草图优化\n2. 实时协作编辑\n3. 智能图形识别\n4. 多种导出格式\n5. 模板库支持\n6. 版本历史记录",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 创建新白板项目\n2. 绘制简单草图\n3. 添加文字描述\n4. 使用AI优化\n5. 调整和导出",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 定期保存工作\n2. 注意项目权限设置\n3. 合理使用模板资源\n4. 备份重要内容",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "design",
+      "isVisible": false
+    },
+    {
+      "id": "smallpdf",
+      "name": "SmallPDF",
+      "description": "PDF全能工具箱！SmallPDF是一款专业的在线PDF处理工具，提供PDF转换、压缩、编辑、合并、拆分等多种功能。它使用智能技术优化文件处理效果，支持批量操作，界面简洁易用，是处理PDF文件的理想选择。",
+      "icon": "/icons/smallpdf.png",
+      "url": "https://smallpdf.com/cn",
+      "tags": [
+        "ai-writing",
+        "content-generation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "PDF编辑/转换/压缩",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. PDF格式转换（Word/Excel/PPT）\n2. PDF压缩和优化\n3. PDF合并与拆分\n4. PDF编辑和签名\n5. OCR文字识别\n6. 批量处理功能",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择需要的PDF处理功能\n2. 上传PDF文件\n3. 设置处理参数\n4. 等待处理完成\n5. 下载处理结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版每天有使用限制\n2. 部分高级功能需要付费\n3. 注意文件大小限制\n4. 建议及时下载处理结果",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "pdfcandy",
+      "name": "PDFCandy",
+      "description": "免费PDF转换神器！PDFCandy是一款功能强大的在线PDF工具，特别擅长PDF和其他格式之间的转换。支持TXT、Word、图片等多种格式互转，所有功能完全免费，无需注册，界面简洁直观。特别适合需要经常处理文档格式转换的用户。",
+      "icon": "/icons/pdfcandy.png",
+      "url": "https://pdfcandy.com/cn/txt-to-pdf.html",
+      "tags": [
+        "ai-writing",
+        "content-generation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "在线把 TXT 文件转为 PDF 格式，完全免费的PDF转换工具",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. PDF转TXT/Word/图片\n2. 多种格式转PDF\n3. PDF合并拆分\n4. PDF压缩优化\n5. OCR文字识别\n6. 在线PDF编辑",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择转换类型\n2. 上传源文件\n3. 设置转换参数\n4. 等待处理完成\n5. 下载转换结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 单次文件大小有限制\n2. 建议使用Chrome浏览器\n3. 及时下载处理结果\n4. 注意文件命名规范",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "onlineconvert",
+      "name": "Online-Convert",
+      "description": "全能文件转换工具！Online-Convert是一款强大的在线文件转换平台，支持音频、视频、图像、文档、电子书等多种格式的互相转换。它提供高质量的转换效果，操作简单，完全免费，无需安装任何软件。",
+      "icon": "/icons/onlineconvert.png",
+      "url": "https://www.online-convert.com/",
+      "tags": [
+        "productivity",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "多功能各种文件在线转换器，支持200+文件格式互转",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 音频格式转换\n2. 视频格式转换\n3. 图像格式转换\n4. 文档格式转换\n5. 电子书格式转换\n6. 压缩文件处理",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择文件类型和目标格式\n2. 上传源文件\n3. 设置转换参数\n4. 等待在线转换\n5. 下载转换结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 文件大小有上限限制\n2. 部分格式可能需要排队\n3. 建议使用稳定的网络\n4. 及时下载转换结果",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "baimiao",
+      "name": "白描",
+      "description": "AI表格识别神器！白描是一款专业的OCR识别工具，特别擅长将图片中的表格转换为Excel文件。它使用先进的AI技术，能够精确识别复杂表格结构，保持格式完整，支持批量处理，是处理纸质表格电子化的理想选择。",
+      "icon": "/icons/baimiao.png",
+      "url": "https://web.baimiaoapp.com/image-to-excel",
+      "tags": [
+        "ai-assistant",
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "截图直接转Excel表格",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 图片表格转Excel\n2. 智能表格识别\n3. 批量处理功能\n4. 多种格式支持\n5. 在线编辑修正\n6. 自动格式优化",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传表格图片\n2. 选择识别区域\n3. 等待AI处理\n4. 预览和编辑\n5. 导出Excel文件",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 建议使用清晰的原图\n2. 表格线条要清晰可见\n3. 支持批量但有数量限制\n4. 复杂表格可能需要手动修正",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "klap",
+      "name": "Klap",
+      "description": "批量剪辑神器！Klap是一款创新的AI驱动视频编辑工具，能够自动识别视频中的关键时刻，智能生成字幕，并提供多种创意编辑功能。特别适合短视频创作者和内容运营人员使用，可以大大提高视频制作效率。",
+      "icon": "/icons/klap.png",
+      "url": "https://klap.app",
+      "tags": [
+        "ai-assistant",
+        "video-editing",
+        "content-generation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "批量快速剪辑Vlog，自动将冗长视频转化为吸睛短片",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能剪辑\n2. 自动字幕生成\n3. 关键时刻识别\n4. 多种转场效果\n5. 智能配乐推荐\n6. 一键导出分享",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传原始视频\n2. 选择智能剪辑模式\n3. 调整AI建议\n4. 添加字幕和特效\n5. 导出成品视频",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 支持主流视频格式\n2. 建议视频质量要清晰\n3. 长视频处理需要等待\n4. 注意保存项目文件",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "video",
+      "isVisible": true
+    },
+    {
+      "id": "functionsocr",
+      "name": "Functions OCR",
+      "description": "高精度OCR识别工具！Functions OCR是一款专业的在线文字识别工具，支持多语言识别，特别擅长处理复杂版面和表格。它采用先进的AI技术，提供高达99%的识别准确率，支持批量处理，是文档数字化的理想选择。",
+      "icon": "/icons/functionsocr.svg",
+      "url": "https://functions-ocr.edgeone.app/",
+      "tags": [
+        "ai-assistant",
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "在线免费 AI OCR（图片文字识别）工具",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多语言文字识别\n2. 复杂版面识别\n3. 表格结构识别\n4. 批量处理支持\n5. 多种输出格式\n6. 在线编辑校对",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传需要识别的图片\n2. 选择识别语言和模式\n3. 等待AI处理\n4. 预览和编辑结果\n5. 导出识别文本",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 建议使用清晰的原图\n2. 支持多种图片格式\n3. 大文件处理需要等待\n4. 及时保存识别结果",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "kimippt",
+      "name": "Kimi PPT助手",
+      "description": "AI驱动的PPT制作神器！Kimi PPT助手是一款专业的演示文稿智能助手，由月之暗面团队开发。它能根据用户需求自动生成PPT大纲和内容，提供专业的设计建议，支持一键美化，让PPT制作变得简单高效。",
+      "icon": "/icons/kimippt.png",
+      "url": "https://kimi.moonshot.cn/ppt",
+      "tags": [
+        "ai-assistant",
+        "ai-design",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "WPS PPT 第三梯队工具",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI生成PPT大纲\n2. 智能内容填充\n3. 一键美化设计\n4. 模板智能推荐\n5. 实时预览调整\n6. 多种导出格式",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入演示主题\n2. 选择PPT风格\n3. 等待AI生成\n4. 编辑优化内容\n5. 导出成品PPT",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 建议提供详细主题\n2. 生成后需要审核\n3. 注意内容版权\n4. 及时保存文件",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "office",
+      "isVisible": true
+    },
+    {
+      "id": "napkin",
+      "name": "Napkin",
+      "description": "AI驱动的流程图制作工具！Napkin AI能够将文本描述自动转换为专业的流程图和示意图。它使用先进的AI技术理解用户意图，快速生成清晰的可视化图表，特别适合需要快速制作流程图的场景。",
+      "icon": "/icons/napkin.png",
+      "url": "https://www.napkin.ai",
+      "tags": [
+        "ai-assistant",
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "包工头认证四个月的一位，文本自动生成可视化图表（流程图/思维导图）写稿件的一把手",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本转流程图\n2. 智能布局优化\n3. 多种图表样式\n4. 实时协作编辑\n5. 一键导出分享\n6. 版本历史管理",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入流程描述\n2. 选择图表类型\n3. 等待AI生成\n4. 调整和优化\n5. 导出或分享",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 建议使用清晰的描述\n2. 支持英文输入\n3. 可以手动微调\n4. 及时保存工作",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "design",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-高颜值思维导图-ppt-小红书-公众号必备神器-零门槛-不会-0",
+        "tutorial-mp-weixin-qq-com-流程图也可以优雅生成-再也不折磨自己了-1"
+      ]
+    },
+    {
+      "id": "amymind",
+      "name": "AmyMind",
+      "description": "智能思维导图工具！AmyMind是一款创新的在线思维导图工具，结合了AI技术和协作功能。它能够帮助用户快速构建思维导图，支持多人实时协作，并提供智能布局和主题推荐。特别适合项目规划、知识管理和头脑风暴场景。",
+      "icon": "/icons/amymind.png",
+      "url": "https://amymind.com",
+      "tags": [
+        "productivity",
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "AI自动生成节点和实时协作，适合快速整理思路",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能思维导图\n2. 多人实时协作\n3. AI主题推荐\n4. 丰富的模板\n5. 自动布局优化\n6. 多格式导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 创建新思维导图\n2. 选择模板或主题\n3. 添加节点内容\n4. 邀请协作成员\n5. 导出或分享",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 定期保存工作\n2. 合理规划层级结构\n3. 注意访问权限设置\n4. 大型图表建议分块",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "design",
+      "isVisible": true
+    },
+    {
+      "id": "whimsical",
+      "name": "Whimsical",
+      "description": "全能协作白板平台！Whimsical是一款专业的在线协作工具，集成了思维导图、流程图、线框图和文档等多种功能。它提供直观的界面设计，支持团队实时协作，是远程团队进行可视化协作的理想选择。",
+      "icon": "/icons/whimsical.png",
+      "url": "https://whimsical.com",
+      "tags": [
+        "productivity",
+        "ai-design",
+        "ai-code"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "多功能协作工具，支持思维导图，流程图和线框图",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 思维导图制作\n2. 流程图绘制\n3. 线框图设计\n4. 文档协作编辑\n5. 实时团队协作\n6. 模板资源库",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择创建类型\n2. 使用模板或从头开始\n3. 添加和编辑内容\n4. 邀请团队成员\n5. 导出或分享作品",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版功能有限\n2. 定期备份重要内容\n3. 合理管理访问权限\n4. 注意文件组织结构",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "iconkit",
+      "name": "IconKit",
+      "description": "图标获取器！IconKit是一款强大的图标设计和管理平台，提供丰富的图标库和编辑功能。支持图标定制、在线编辑、团队协作等功能，并提供API接口，特别适合需要系统化管理图标资源的团队使用。",
+      "icon": "/icons/iconkit.png",
+      "url": "https://iconkit.cn",
+      "tags": [
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "图标获取工具，支持网页、APP、播客",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 图标库管理\n2. 在线图标编辑\n3. 团队协作功能\n4. API接口支持\n5. 版本控制管理\n6. 批量导入导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册账号\n2. 创建图标项目\n3. 上传或创建图标\n4. 管理和编辑图标\n5. 导出或集成使用",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 部分功能需要付费\n2. 注意团队权限设置\n3. 定期备份图标资源\n4. 关注API使用限制",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "gaoding",
+      "name": "稿定设计",
+      "description": "专业在线设计平台！稿定设计是一款强大的在线设计工具，提供海量模板和素材资源。集成了智能抠图、在线编辑、版式设计等功能，支持团队协作，是平面设计、营销物料制作的理想选择。",
+      "icon": "/icons/gaoding.png",
+      "url": "https://www.gaoding.com",
+      "tags": [
+        "ai-image",
+        "ai-design",
+        "creativity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "在线设计辅助，综合型选手，批量图文排版",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能抠图处理\n2. 在线图片编辑\n3. 海量设计模板\n4. 版式智能排版\n5. 团队协作功能\n6. 素材资源库",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择设计模板\n2. 上传素材图片\n3. 编辑调整内容\n4. 应用特效滤镜\n5. 导出成品设计",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 部分功能需要会员\n2. 注意素材版权\n3. 及时保存作品\n4. 关注导出分辨率",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "qqtools",
+      "name": "帮小忙",
+      "description": "免费实用工具集合！腾讯浏览器工具箱是一个综合性在线工具平台，集成了格式转换、图片处理、文档编辑、视频处理等多种实用工具。完全免费，无需安装，简单易用，是日常办公的得力助手。",
+      "icon": "/icons/qqtools.png",
+      "url": "https://tool.browser.qq.com",
+      "tags": [
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "智能抹除，在线工具集，图片处理、PDF 转换、数据换算、生活娱乐、教育、文本处理、文档转换、开发、视频",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文件格式转换\n2. 图片编辑处理\n3. PDF工具集合\n4. 视频音频处理\n5. 文本编辑工具\n6. 实用小工具集",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择所需工具\n2. 上传待处理文件\n3. 设置处理参数\n4. 等待在线处理\n5. 下载处理结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 文件大小有限制\n2. 建议使用主流格式\n3. 及时下载结果\n4. 注意隐私保护",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "maoandstar",
+      "name": "猫与星",
+      "description": "AI童话故事创作工具！猫与星是一款专为儿童设计的AI故事创作应用，可以根据孩子的照片和想象，定制独特的童话故事。它能将孩子变成故事主角，创造专属的奇幻冒险，让每个孩子都拥有自己的童话世界。",
+      "icon": "/icons/maoandstar.png",
+      "url": "https://apps.apple.com/cn/app/%E7%8C%AB%E4%B8%8E%E6%98%9F-%E5%AE%9A%E5%88%B6%E5%AD%A9%E5%AD%90%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AB%A5%E8%AF%9D%E6%95%85%E4%BA%8B/id6739560324?platform=iphone",
+      "tags": [
+        "ai-assistant",
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "定制孩子自己的童话故事，让孩子成为故事主角",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 个性化故事创作\n2. 照片角色定制\n3. 多种故事主题\n4. 互动剧情选择\n5. 配音朗读功能\n6. 故事收藏分享",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传孩子照片\n2. 选择故事主题\n3. 定制故事情节\n4. 生成专属童话\n5. 保存或分享故事",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 仅支持iOS设备\n2. 需要网络连接\n3. 部分功能需要订阅\n4. 注意照片隐私保护",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "misc",
+      "isVisible": true
+    },
+    {
+      "id": "maildrop",
+      "name": "MailDrop",
+      "description": "免费临时邮箱工具！MailDrop是一个无需注册的一次性邮箱服务，由专业反垃圾邮件公司Heluna提供技术支持。它能帮你在注册网站、订阅服务时保护真实邮箱不被泄露，智能过滤垃圾邮件，适合需要临时邮箱的各种场景。",
+      "icon": "/icons/maildrop.png",
+      "url": "https://maildrop.cc/",
+      "tags": [
+        "email",
+        "privacy",
+        "utility"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "完全免费的临时邮箱服务，无需注册，由专业反垃圾邮件公司Heluna运营，自带强大的垃圾邮件过滤功能，适合测试、一次性注册等场景",
+          "author": "群友分享",
+          "createdAt": "2025-11-07",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 无需注册即用的临时邮箱\n2. 自动过滤垃圾邮件\n3. 支持任意邮箱地址创建\n4. 提供GraphQL API接口\n5. 邮件保留24小时\n6. 完全免费使用",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问 maildrop.cc 网站\n2. 输入任意想要的邮箱名（如：test123）\n3. 完整邮箱地址为：test123@maildrop.cc\n4. 将此地址用于需要的注册场景\n5. 返回网站输入邮箱名查看收件\n6. 邮件会在24小时后自动删除",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 任何人都可以查看邮箱内容，不要接收敏感信息\n2. 邮件24小时后自动删除\n3. 首次收信可能延迟15分钟（灰名单机制）\n4. 不能发送邮件，仅接收\n5. 部分网站可能屏蔽临时邮箱域名\n6. 适合一次性注册，不适合长期使用",
+          "type": "注意事项"
+        },
+        {
+          "title": "适用场景",
+          "content": "1. 网站注册测试\n2. 获取一次性优惠码\n3. 避免营销邮件骚扰\n4. 下载需要邮箱验证的资源\n5. 临时接收验证码\n6. 开发测试邮件功能",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-11-12T00:00:00Z",
+      "updatedAt": "2025-11-12T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/maildrop.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "chatglm",
+      "name": "清影",
+      "description": "AI视频创作神器！清影是一款强大的AI视频创作工具，集成了视频生成、编辑和风格化处理等多项功能。它能根据文本描述生成视频内容，支持智能剪辑、风格迁移，让视频创作变得简单高效，适合各类创作者使用。",
+      "icon": "/icons/chatglm.png",
+      "url": "https://chatglm.cn",
+      "tags": [
+        "ai-assistant",
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "清影具备多种核心功能，从生成到编辑，再到风格适配，能满足不同用户在视频创作上的多样化需求。",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI视频生成\n2. 智能视频剪辑\n3. 风格化处理\n4. 文本转视频\n5. 特效滤镜添加\n6. 一键导出分享",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入创作需求\n2. 选择视频风格\n3. 等待AI生成\n4. 编辑优化效果\n5. 导出成品视频",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要较好的网络\n2. 生成时间可能较长\n3. 注意版权问题\n4. 及时保存作品",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "video",
+      "isVisible": true
+    },
+    {
+      "id": "volcengine",
+      "name": "火山引擎",
+      "description": "字节跳动企业级技术服务平台！火山引擎是一个综合性的云服务平台，提供强大的计算服务能力，支持快速搭建和部署应用。它具备高效的数据处理与存储能力，提供多种存储方案，深度应用AI技术，并通过多层防护与高可用性架构保障安全与稳定。",
+      "icon": "/icons/volcengine.png",
+      "url": "https://www.volcengine.com/",
+      "tags": [
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "提供强大的计算服务，能快速搭建和部署应用并灵活扩展；具备高效的数据处理与存储能力，有多种存储方案可依业务需求选择；深度应用 AI 技术，丰富应用场景、提升用户体验；拥有多层防护与高可用性架构保障安全与稳定。",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 快速应用部署\n2. 弹性计算服务\n3. 多样存储方案\n4. AI技术应用\n5. 安全防护体系\n6. 高可用性保障",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册企业账号\n2. 选择服务方案\n3. 完成实名认证\n4. 配置服务参数\n5. 部署应用服务",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要企业认证\n2. 按需选择方案\n3. 关注资源配置\n4. 做好安全防护",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "dev-platform",
+      "isVisible": true
+    },
+    {
+      "id": "mgx",
+      "name": "MGX",
+      "description": "创新的多智能体协作框架！MGX是一个强大的多Agent框架，能够模拟软件公司的完整开发流程。它通过多个AI智能体的协作，自动完成从需求分析、系统设计到代码实现的全流程工作，大幅提升软件开发效率。",
+      "icon": "/icons/mgx.png",
+      "url": "https://mgx.dev/",
+      "tags": [
+        "ai-assistant",
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "是一个多 Agent 框架，可以模拟软件公司的完整开发流程",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多Agent协作\n2. 自动需求分析\n3. 系统设计生成\n4. 代码自动实现\n5. 项目流程管理\n6. 开发文档生成",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 安装框架环境\n2. 配置项目参数\n3. 输入项目需求\n4. 启动Agent协作\n5. 获取开发成果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要开发经验\n2. 配置API密钥\n3. 关注资源消耗\n4. 代码需要审查",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "misc",
+      "isVisible": true
+    },
+    {
+      "id": "wenxinlyrics",
+      "name": "文心歌词",
+      "description": "百度文心AI歌词创作平台！文心歌词是一款专业的AI歌词创作工具，能根据主题、风格和情感智能生成歌词内容。它支持多种音乐风格，可以快速创作出符合韵律的优质歌词，是音乐创作者的得力助手。",
+      "icon": "/icons/wenxinlyrics.png",
+      "url": "https://wenxin.baidu.com/wenxin/pc/lyrics",
+      "tags": [
+        "creativity",
+        "ai-image",
+        "ai-design"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "百度歌词自由生成",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI歌词生成\n2. 多风格创作\n3. 智能押韵\n4. 情感表达\n5. 一键导出\n6. 协同创作",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择创作风格\n2. 输入主题关键词\n3. 设置情感倾向\n4. 生成歌词内容\n5. 编辑优化导出",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要登录账号\n2. 注意版权保护\n3. 建议人工优化\n4. 保存创作成果",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "audio",
+      "isVisible": true
+    },
+    {
+      "id": "suno",
+      "name": "Suno",
+      "description": "AI音乐创作平台！Suno是一款革命性的AI音乐创作工具，能够通过文本描述生成完整的音乐作品。它支持多种音乐风格，可以创作歌词、旋律和编曲，让普通用户也能轻松创作专业级音乐。",
+      "icon": "/icons/suno.png",
+      "url": "https://suno.com",
+      "tags": [
+        "ai-code",
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "该音乐创作工具具有全链路音乐创作功能，能满足不同阶段创作需求；可生成多风格音乐且细分风格持续扩展；",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本生成音乐\n2. 多风格创作\n3. 智能编曲\n4. 歌词创作\n5. 音频导出\n6. 项目管理",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 描述音乐需求\n2. 选择音乐风格\n3. 等待AI生成\n4. 调整优化效果\n5. 导出音频文件",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要付费订阅\n2. 注意版权问题\n3. 生成时间较长\n4. 及时保存作品",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "audio",
+      "isVisible": true
+    },
+    {
+      "id": "tripo3d",
+      "name": "Tripo3D",
+      "description": "AI驱动的3D场景生成工具！Tripo3D是一款创新的3D内容创作平台，能够通过文本描述快速生成3D场景和模型。它支持场景编辑、材质调整、光影效果等专业功能，让3D创作变得简单直观。",
+      "icon": "/icons/tripo3d.png",
+      "url": "https://www.tripo3d.ai/",
+      "tags": [
+        "ai-assistant",
+        "ai-image",
+        "ai-design"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "一个照片快速生成3D，打印手办的好地方",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本生成3D\n2. 场景编辑\n3. 材质调整\n4. 光影效果\n5. 模型导出\n6. 协作分享",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 描述场景需求\n2. 选择场景风格\n3. 等待AI生成\n4. 编辑优化效果\n5. 导出3D文件",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要较好硬件\n2. 部分功能收费\n3. 文件大小限制\n4. 注意版权问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "design",
+      "isVisible": true
+    },
+    {
+      "id": "pi-ai",
+      "name": "Pi.ai",
+      "description": "Pi.ai 是一款智能对话助手，提供自然、友好的对话体验。它能够理解上下文，回答问题，提供建议，并且支持多种语言交流。",
+      "icon": "/icons/pi-ai.svg",
+      "icons": {
+        "svg": "/icons/pi-ai.svg",
+        "png": "/icons/pi-ai.png"
+      },
+      "url": "https://pi.ai",
+      "tags": [
+        "ai-chat",
+        "ai-assistant",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "包工头爆吹：娱乐好玩。友情提示：不要和它谈恋爱哟。",
+          "author": "群友分享",
+          "createdAt": "2025-03-01",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 自然对话交流\n2. 多语言支持\n3. 上下文理解\n4. 知识问答\n5. 个性化助手\n6. 移动端支持",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问 Pi.ai 网站\n2. 直接开始对话\n3. 提问或交流任何话题\n4. 根据回答继续深入对话",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费使用但可能有使用限制\n2. 注意个人隐私保护\n3. 回答可能存在不准确性\n4. 建议验证重要信息",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "chat",
+      "isVisible": true
+    },
+    {
+      "id": "trae",
+      "name": "Trae",
+      "description": "AI驱动的桌面助手！Trae 是一款创新的 AI 桌面应用，它能够通过自然语言对话帮助用户完成各种任务。支持文本生成、代码编写、图片处理等功能，内置 Claude 3.5 模型，提供流畅的中文交互体验，是提升工作效率的理想助手。",
+      "icon": "/icons/trae.png",
+      "url": "https://www.trae.ai/",
+      "tags": [
+        "ai-assistant",
+        "productivity",
+        "ai-chat"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "字节出品，中文界面友好，限时免费Clau3.5,目前仅支持Mac系统",
+          "author": "群友分享",
+          "createdAt": "2025-03-10",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能对话\n2. 文本生成和编辑\n3. 代码编写辅助\n4. 图片处理功能\n5. 快捷键操作\n6. 多任务管理",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 下载安装应用\n2. 登录账号\n3. 选择功能模块\n4. 输入自然语言指令\n5. 获取AI处理结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 仅支持Mac系统\n2. 需要网络连接\n3. 部分功能收费\n4. 及时更新版本",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "coding",
+      "icons": {
+        "png": "/icons/trae.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-我用AI上线一个插件后，整理了一份小白也能用的AI编程指南-0"
+      ]
+    },
+    {
+      "id": "kling-ai",
+      "name": "可灵",
+      "description": "快手出品的AI视频创作平台！KlingAI是一款强大的AI视频生成工具，能够通过文本描述快速创建高质量视频内容。它支持多种视频风格，提供丰富的模板和特效，让用户轻松制作专业级视频，特别适合短视频创作者和营销人员使用。",
+      "icon": "/icons/kling-ai.png",
+      "url": "https://klingai.kuaishou.com/",
+      "tags": [
+        "ai-video",
+        "content-generation",
+        "creativity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "国产视频生成天花板，质量吊打Sora水桶级模型",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本生成视频\n2. 多种视频风格\n3. 丰富模板库\n4. 智能场景转换\n5. 自定义编辑\n6. 高清视频导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入创意描述\n2. 选择视频风格\n3. 等待AI生成\n4. 预览编辑细节\n5. 导出分享视频",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要注册快手账号\n2. 部分高级功能收费\n3. 生成时间可能较长\n4. 注意内容版权问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-04-19T00:00:00Z",
+      "toolCategory": "video",
+      "icons": {
+        "png": "/icons/kling-ai.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-零基础玩转可灵ai图转视频-动态表情包与gif制作全攻略-0"
+      ]
+    },
+    {
+      "id": "vidu",
+      "name": "Vidu",
+      "description": "AI驱动的视频编辑平台！Vidu是一款智能视频编辑工具，提供AI自动剪辑、字幕生成和视频增强功能。它能快速识别视频中的关键内容，自动生成精彩片段，并支持一键添加字幕和特效，大幅提升视频创作效率。",
+      "icon": "/icons/vidu.png",
+      "url": "https://www.vidu.cn/",
+      "tags": [
+        "ai-video",
+        "content-generation",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "2D/3D动画风格王者，首尾帧运镜丝滑，性价比高",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能剪辑\n2. 自动字幕生成\n3. 视频内容增强\n4. 一键添加特效\n5. 智能场景识别\n6. 高清视频导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传原始视频\n2. 选择智能剪辑模式\n3. 等待AI分析处理\n4. 调整编辑细节\n5. 导出成品视频",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版有功能限制\n2. 大文件处理需要时间\n3. 建议使用高质量素材\n4. 注意保存项目文件",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "video",
+      "icons": {
+        "png": "/icons/vidu.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "haimian",
+      "name": "海绵音乐",
+      "description": "AI驱动的音乐创作平台！海绵音乐是一款由字节跳动开发的AI音乐生成工具，能够通过简单描述快速创建高质量音乐作品。它支持多种音乐风格和场景，提供丰富的旋律和节奏选择，让用户轻松创作专业级音乐，特别适合创作者、短视频制作者和音乐爱好者使用。",
+      "icon": "/icons/haimian.png",
+      "url": "https://www.haimian.com/",
+      "tags": [
+        "ai-audio",
+        "music-generation",
+        "creativity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "字节出品，中文旋律适配大众，门槛低",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本生成音乐\n2. 多种音乐风格\n3. 丰富的旋律库\n4. 智能和声编排\n5. 自定义音乐参数\n6. 高质量音频导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入音乐创意描述\n2. 选择音乐风格和情感\n3. 等待AI生成\n4. 预览编辑音乐细节\n5. 导出分享音乐作品",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要注册账号\n2. 部分高级功能收费\n3. 生成时间可能较长\n4. 注意音乐版权问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-04-02T00:00:00Z",
+      "toolCategory": "audio",
+      "icons": {
+        "png": "/icons/haimian.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "minimax-audio",
+      "name": "海螺 (MiniMax Audio)",
+      "description": "AI驱动的语音生成平台！海螺(MiniMax Audio)是一款专业的AI语音合成工具，能够生成自然流畅的人声。它支持多种语言和音色，可以快速将文本转换为高质量语音，适用于有声书、广告配音、游戏角色等多种场景。",
+      "icon": "/icons/minimax-audio.png",
+      "url": "https://www.minimax.io/audio",
+      "tags": [
+        "ai-audio",
+        "content-generation",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "中文语音克隆之王，30秒复刻声音，情绪张力强",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本转语音\n2. 多语言支持\n3. 丰富音色库\n4. 情感语调调整\n5. 批量处理\n6. 高质量音频导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入文本内容\n2. 选择语言和音色\n3. 调整语速和情感\n4. 生成语音样本\n5. 导出音频文件",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要注册账号\n2. 免费版有使用限制\n3. 长文本处理需要时间\n4. 注意版权问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "audio",
+      "icons": {
+        "png": "/icons/minimax-audio.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "description": "马斯克出品的AI对话助手！Grok是一款由xAI开发的大型语言模型，具有实时网络搜索能力和幽默感。它能够回答复杂问题，提供创意建议，并且敢于挑战常规思维。Grok特别擅长处理技术和科学领域的问题，同时保持对话的轻松有趣。",
+      "icon": "/icons/grok.png",
+      "url": "https://grok.com/",
+      "tags": [
+        "ai-chat",
+        "ai-assistant",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "马斯克出品，敢说敢言，有实时网络搜索能力，回答问题不受束缚",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能对话交流\n2. 实时网络搜索\n3. 复杂问题解答\n4. 创意内容生成\n5. 代码编写辅助\n6. 幽默风趣互动",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问Grok网站\n2. 注册或登录账号\n3. 直接开始对话\n4. 提问或交流任何话题\n5. 获取AI回应和建议",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要付费订阅X Premium\n2. 需要科学上网\n3. 回答可能带有幽默或讽刺\n4. 建议验证重要信息",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "chat",
+      "icons": {
+        "png": "/icons/grok.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "video-to-article",
+      "name": "Video to Article",
+      "description": "AI驱动的视频转文章工具！Video to Article是一款强大的内容转换工具，能够自动将视频内容转换为结构化的文章。它支持多种语言，可以识别视频中的关键信息，生成标题、摘要和正文，帮助内容创作者快速将视频资源转化为文字内容。",
+      "icon": "/icons/video-to-article.png",
+      "url": "https://video-to-article.com/",
+      "tags": [
+        "ai-assistant",
+        "content-generation",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "视频转文章神器，自动提取关键信息，生成结构化文章，特别适合内容创作者",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 视频内容转文字\n2. 自动生成文章结构\n3. 多语言支持\n4. 关键信息提取\n5. 自定义输出格式\n6. 批量处理能力",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传视频或提供链接\n2. 选择输出语言和格式\n3. 等待AI处理分析\n4. 预览生成的文章\n5. 编辑优化内容\n6. 导出保存文章",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 免费版有使用限制\n3. 处理长视频需要时间\n4. 建议审核AI生成内容",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "writing",
+      "icons": {
+        "png": "/icons/video-to-article.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "company-researcher",
+      "name": "Company Researcher",
+      "description": "国外版企查查!!!AI驱动的企业研究助手！Company Researcher by Exa是一款专业的企业情报搜索工具，能够快速收集和分析公司信息。它利用AI技术从互联网上获取最新的企业数据，包括公司背景、财务状况、产品信息、竞争对手分析等，帮助用户进行深入的企业研究和市场分析。",
+      "icon": "/icons/company-researcher.png",
+      "url": "https://companyresearcher.exa.ai/",
+      "tags": [
+        "ai-research",
+        "business-intelligence",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "查找公司的信息，类似国外版的企查查",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 企业信息搜索\n2. 财务数据分析\n3. 竞争对手研究\n4. 市场趋势分析\n5. 产品信息收集\n6. 研究报告生成",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入目标公司名称\n2. 选择研究领域\n3. 等待AI收集信息\n4. 查看分析结果\n5. 导出研究报告",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 免费版有使用限制\n3. 信息准确性需验证\n4. 注意数据隐私问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "misc",
+      "icons": {
+        "png": "/icons/company-researcher.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "picwish-sharpener",
+      "name": "PicWish 图片增强",
+      "description": "AI驱动的图片增强工具！PicWish AI图片增强器能够智能提升图片清晰度和质量。它可以自动修复模糊、低分辨率的图片，增强细节和色彩，让图片更加清晰锐利。特别适合修复老照片、优化产品图片或提升社交媒体内容质量。",
+      "icon": "/icons/picwish-sharpener.png",
+      "url": "https://picwish.cn/ai-image-sharpener",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "国产图片增强神器，一键提升清晰度，老照片修复效果惊人，免费额度够用",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 图片清晰度提升\n2. 老照片修复\n3. 细节增强\n4. 色彩优化\n5. 批量处理\n6. 多种输出格式",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传需要增强的图片\n2. 选择增强程度\n3. 等待AI处理\n4. 预览对比效果\n5. 下载增强后的图片",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版有使用限制\n2. 大图片处理需要时间\n3. 效果因原图质量而异\n4. 建议备份原始图片",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/picwish-sharpener.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "music-hero",
+      "name": "Music Hero",
+      "description": "AI驱动的音乐创作平台！Music Hero是一款强大的AI音乐生成工具，能够帮助用户快速创作专业级音乐作品。它支持多种音乐风格和乐器，可以根据文本描述或情感提示生成原创音乐，特别适合视频创作者、游戏开发者和音乐爱好者使用。",
+      "icon": "/icons/music-hero.png",
+      "url": "https://musichero.ai/zh-CN",
+      "tags": [
+        "ai-audio",
+        "content-generation",
+        "creativity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "国产AI音乐创作神器，支持中文界面，多种风格音乐生成，特别适合视频配乐",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI音乐生成\n2. 多种音乐风格\n3. 情感化音乐创作\n4. 自定义音轨编辑\n5. 一键导出多格式\n6. 版权无忧使用",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入音乐描述或情感\n2. 选择音乐风格和长度\n3. 等待AI生成音乐\n4. 调整和编辑细节\n5. 导出或分享作品",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版有使用限制\n2. 高质量音乐需要付费\n3. 生成时间可能较长\n4. 商业使用需注意版权",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "audio",
+      "icons": {
+        "png": "/icons/music-hero.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "kreado-ai",
+      "name": "Kreado AI",
+      "description": "AI驱动的视频创作平台！Kreado AI是一款强大的AI视频生成工具，能够将文本脚本转换为专业级视频内容。它支持多种语言和场景，提供丰富的虚拟人物和场景模板，可以快速生成新闻报道、产品演示、教育培训等各类视频，特别适合企业营销和内容创作者使用。",
+      "icon": "/icons/kreado-ai.png",
+      "url": "https://www.kreadoai.com/?via=cool",
+      "tags": [
+        "ai-video",
+        "content-generation",
+        "creativity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "支持将文本、图片、PPT 等转化为高质量的数字人口播视频。平台提供1,000+数字人形象和 1,600+音色，覆盖 140 多种语言。支持1分钟内创建数字人分身！",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本转视频\n2. 多语言数字人\n3. 丰富场景模板\n4. 自定义脚本编辑\n5. 表情动作控制\n6. 高清视频导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入视频脚本\n2. 选择数字人物\n3. 设置场景和风格\n4. 等待AI生成视频\n5. 预览和编辑细节\n6. 导出成品视频",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版有使用限制\n2. 高质量视频需要付费\n3. 生成时间可能较长\n4. 商业使用需注意版权",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "video",
+      "icons": {
+        "png": "/icons/kreado-ai.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "heartlight",
+      "name": "心光AI",
+      "description": "AI驱动的生活记录伴侣！心光AI是一款智能日记和笔记应用，它能帮助用户轻松记录生活点滴，并通过AI技术提供情感分析和写作建议。特色功能包括AI写作助手、情绪分析、智能标签、回忆提醒等，让记录生活变得更有趣味和意义。",
+      "icon": "/icons/heartlight.png",
+      "url": "https://apps.apple.com/cn/app/%E5%BF%83%E5%85%89-ai-%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95%E4%BC%B4%E4%BE%A3-%E6%97%A5%E8%AE%B0%E7%AC%94%E8%AE%B0/id1631169735",
+      "tags": [
+        "ai-assistant",
+        "productivity",
+        "writing"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "包工头爆吹级别 特别适合治愈职场人。非常好用的AI日记应用，能帮助整理思绪和记录生活，AI写作助手和情绪分析功能很贴心",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI写作助手\n2. 情绪分析追踪\n3. 智能标签系统\n4. 回忆提醒功能\n5. 隐私保护加密\n6. 多平台同步",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 下载安装应用\n2. 注册或登录账号\n3. 开始记录生活点滴\n4. 使用AI助手优化文字\n5. 查看情绪分析报告",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 部分高级功能需要订阅\n2. 建议定期备份数据\n3. 重要内容本地保存\n4. 注意隐私保护设置",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "writing",
+      "icons": {
+        "png": "/icons/heartlight.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "notebooklm",
+      "name": "NotebookLM",
+      "description": "Google推出的AI笔记助手！NotebookLM是一款智能文档分析和笔记工具，它能够深入理解用户上传的文档内容，提供智能总结、问答和见解分析。特别适合学术研究、文献阅读和知识管理，可以帮助用户更高效地处理和理解复杂文档。",
+      "icon": "/icons/notebooklm.png",
+      "url": "https://notebooklm.google",
+      "tags": [
+        "ai-assistant",
+        "productivity",
+        "research"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "Google出品的AI文档助手，可以上传PDF进行智能分析和问答，支持多文档关联分析，特别适合学术研究和文献阅读",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文档智能分析\n2. 多文档关联理解\n3. 智能问答系统\n4. 自动生成摘要\n5. 关键信息提取\n6. 笔记智能组织",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传PDF文档\n2. 等待AI分析处理\n3. 提出问题或要求\n4. 获取AI分析结果\n5. 整理笔记和见解",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要Google账号\n2. 需要科学上网\n3. 目前仅支持英文\n4. 注意文档隐私",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "podcast",
+      "icons": {
+        "png": "/icons/notebooklm.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "ima",
+      "name": "ima",
+      "description": "腾讯出品的AI知识库管理平台！ima是一款智能的企业知识管理工具，能够帮助团队高效管理和共享知识资产。它支持智能文档分类、全文检索、知识图谱构建、智能问答等功能，让企业知识管理更加系统化和智能化。",
+      "icon": "/icons/ima.png",
+      "url": "https://ima.qq.com/",
+      "tags": [
+        "ai-assistant",
+        "knowledge-base",
+        "productivity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "腾讯出品的企业级知识库系统，支持智能文档管理、知识图谱、智能问答，特别适合团队知识沉淀和共享",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能文档管理\n2. 全文检索系统\n3. 知识图谱构建\n4. 智能问答功能\n5. 团队协作共享\n6. 权限管理系统",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册企业账号\n2. 创建知识空间\n3. 导入文档资料\n4. 设置访问权限\n5. 开始使用和维护",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要企业认证\n2. 部分功能收费\n3. 定期维护更新\n4. 注意数据安全",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "writing",
+      "icons": {
+        "png": "/icons/ima.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-安利一个我目前觉得最好用的ai知识库-腾讯ima-0",
+        "tutorial-mp-weixin-qq-com-ima知识库真香-工作党大学生教师皆适用--1",
+        "tutorial-mp-weixin-qq-com-自己的专属知识库-妈妈再也不担心我问的问题ai乱回答了-2",
+        "tutorial-mp-weixin-qq-com-我有了一个数字分身-24小时可以回答你的ai教学问题-3",
+        "tutorial-mp-weixin-qq-com-电商如何利用ai降本增效-电商小白入门选哪个a1--4"
+      ]
+    },
+    {
+      "id": "coze",
+      "name": "Coze",
+      "description": "字节跳动出品的AI助手创建平台！Coze是一个强大的AI应用开发平台，让用户可以轻松创建和部署自己的AI助手。它支持多种场景应用，包括客服、营销、教育等领域，并提供丰富的插件和模型选择。无需编程经验，就能快速构建专业的AI应用。",
+      "icon": "/icons/coze.png",
+      "url": "https://www.coze.cn/",
+      "tags": [
+        "ai-assistant",
+        "no-code",
+        "productivity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "字节跳动出品的AI助手开发平台，支持多场景应用，可以快速创建自己的AI助手，并部署到各种平台",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI助手创建和定制\n2. 多场景应用模板\n3. 丰富的插件系统\n4. 多平台一键部署\n5. 数据分析和优化\n6. 协作管理功能",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Coze账号\n2. 选择应用场景\n3. 配置AI助手功能\n4. 添加所需插件\n5. 测试和优化\n6. 发布到目标平台",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要实名认证\n2. 部分功能需付费\n3. 注意数据安全\n4. 遵守使用规范",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "dev-platform",
+      "icons": {
+        "png": "/icons/coze.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-扣子丨来学一个超简单的扣子coze入门案例-制作日签海报--0"
+      ]
+    },
+    {
+      "id": "tongyi-tingwu",
+      "name": "通义听悟",
+      "description": "阿里云出品的智能会议助手！通义听悟是一款专业的语音转写和会议记录工具，支持实时语音转写、多语言翻译、会议纪要自动生成等功能。它能够智能识别发言人，提取关键信息，让会议记录更加高效和准确。特别适合需要处理大量会议记录的团队使用。",
+      "icon": "/icons/tongyi-tingwu.png",
+      "url": "https://tingwu.aliyun.com/home",
+      "tags": [
+        "ai-assistant",
+        "productivity",
+        "meeting"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "通义听悟适用于需要准确记录和总结音频视频内容的用户，特别是在教育、媒体和国际会议中",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 实时语音转写\n2. 多语言翻译\n3. 智能会议纪要\n4. 发言人识别\n5. 关键信息提取\n6. 会议录音管理",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 登录阿里云账号\n2. 创建会议记录\n3. 开启语音转写\n4. 实时查看字幕\n5. 生成会议纪要\n6. 导出分享记录",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要阿里云账号\n2. 部分功能需付费\n3. 建议使用好的麦克风\n4. 注意会议隐私保护",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "office",
+      "icons": {
+        "png": "/icons/tongyi-tingwu.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "tongyi-efficiency",
+      "name": "通义效率",
+      "description": "阿里云出品的智能办公助手！通义效率是一款全能型AI办公助手，集成了文档处理、PPT生成、数据分析、文案创作等多种功能。它基于阿里先进的大语言模型，可以帮助用户快速完成各类办公任务，提升工作效率。支持中文优化，操作简单直观。",
+      "icon": "/icons/tongyi-efficiency.png",
+      "url": "https://tongyi.aliyun.com/efficiency/home",
+      "tags": [
+        "ai-assistant",
+        "productivity",
+        "office"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "通义效率适用于需要高效处理大量文档和会议记录的职场人士，特别是在教育、科研和企业管理中，它能够帮助用户快速整理会议内容、撰写报告和制作演示文稿",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能文档处理\n2. PPT一键生成\n3. 数据分析报告\n4. 文案创作助手\n5. 多格式文件支持\n6. 协同办公集成",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 阿里云账号登录\n2. 选择所需功能\n3. 上传或输入内容\n4. 等待AI处理\n5. 编辑优化结果\n6. 导出使用成果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要实名认证\n2. 部分功能收费\n3. 注意数据安全\n4. 建议备份重要文件",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "office",
+      "icons": {
+        "png": "/icons/tongyi-efficiency.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "elevenlabs-cn",
+      "name": "ElevenLabs中文版",
+      "description": "专业的AI语音合成平台！ElevenLabs中文版是一款强大的AI配音工具，支持中英日韩等多语言，提供超过900+种真人语音。它能够生成自然流畅的语音内容，支持情感调节和音色克隆，特别适合视频配音、有声书制作等场景。",
+      "icon": "/icons/elevenlabs-cn.png",
+      "url": "https://elevenlabscn.com/",
+      "tags": [
+        "ai-assistant",
+        "text-to-speech",
+        "content-creation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "最强大的AI语音合成工具，支持900+种声音，可以克隆音色，配音效果自然流畅，商用无版权问题",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多语言语音合成\n2. 900+种真人音色\n3. 音色克隆功能\n4. 情感语气调节\n5. 批量文本转语音\n6. 商用授权支持",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 选择目标语言\n2. 挑选合适音色\n3. 输入文本内容\n4. 调整语音参数\n5. 生成并下载音频",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 部分功能需付费\n2. 音色克隆需实名\n3. 注意版权问题\n4. 建议备份音频",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "audio",
+      "icons": {
+        "png": "/icons/elevenlabs-cn.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "description": "AI驱动的智能代码编辑器！Cursor是一款革新性的代码编辑器，内置强大的AI助手功能。它不仅提供代码补全、重构建议，还能理解自然语言指令生成代码，解答编程问题。基于VS Code构建，完美继承了其生态系统，同时提供更智能的编程体验。",
+      "icon": "/icons/cursor.png",
+      "url": "https://www.cursor.com/",
+      "tags": [
+        "ai-assistant",
+        "development",
+        "productivity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "displayOrder": 700,
+      "groupComments": [
+        {
+          "content": "基于VS Code的AI编辑器，内置GPT-4，代码生成和解释能力强大，支持自然语言编程",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI代码补全\n2. 自然语言生成代码\n3. 代码解释和重构\n4. 智能错误诊断\n5. VS Code插件支持\n6. 多人实时协作",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 下载安装Cursor\n2. 登录账号授权\n3. 打开项目目录\n4. 开始编码开发\n5. 使用AI辅助功能",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要注册账号\n2. 部分功能需付费\n3. 建议良好网络\n4. 注意代码安全",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-04-27T00:00:00Z",
+      "toolCategory": "coding",
+      "icons": {
+        "png": "/icons/cursor.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-我用AI上线一个插件后，整理了一份小白也能用的AI编程指南-0"
+      ]
+    },
+    {
+      "id": "ttsmaker",
+      "name": "TTSMaker",
+      "description": "免费的AI配音神器！TTSMaker（马克配音）是一款专业的文本转语音工具，支持50多种语言和300多种语音风格。它可以用于视频配音、有声书制作、教育培训等场景。特别之处在于完全免费且支持商用，让用户可以轻松创建高质量的AI配音内容。",
+      "icon": "/icons/ttsmaker.svg",
+      "url": "https://ttsmaker.cn/",
+      "tags": [
+        "ai-assistant",
+        "text-to-speech",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "免费好用的AI配音工具，支持50+语言，300+音色，可商用，支持视频配音、有声书等多场景",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多语言文本转语音\n2. 300+种语音风格\n3. 语速音调调节\n4. 背景音乐添加\n5. 多种音频格式\n6. 商用版权授权",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 输入需转换文本\n2. 选择语言和声音\n3. 调整高级设置\n4. 点击开始转换\n5. 试听和下载音频",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 每周免费额度30000字符\n2. 部分声音无限制使用\n3. 音频文件1小时后自动删除\n4. 禁止转换违规内容",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "audio",
+      "icons": {
+        "png": "/icons/ttsmaker.svg"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "feishu-base",
+      "name": "飞书多维表格",
+      "description": "字节跳动出品的新一代在线协作表格！飞书多维表格是一款强大的数据协作工具，支持多种视图展示（表格、看板、甘特图等），可以轻松构建轻量级应用。它集成了智能公式、自动化工作流、数据分析等功能，特别适合团队协作和项目管理。",
+      "icon": "/icons/feishu-base.png",
+      "url": "https://www.feishu.cn/product/base",
+      "tags": [
+        "productivity",
+        "collaboration",
+        "automation"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "飞书多维表格功能强大，可以替代Airtable，支持自动化工作流，数据分析功能完善，是团队协作必备工具",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多视图数据展示\n2. 智能公式计算\n3. 自动化工作流\n4. 数据分析统计\n5. 协作实时编辑\n6. 权限精细管理",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 创建多维表格\n2. 选择适合的视图\n3. 设置字段属性\n4. 添加数据内容\n5. 配置工作流\n6. 邀请团队协作",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要飞书账号\n2. 部分功能需企业版\n3. 定期数据备份\n4. 注意权限设置",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "office",
+      "icons": {
+        "png": "/icons/feishu-base.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级-飞书多维表格-x-deepsee-0",
+        "tutorial-mp-weixin-qq-com-deepseek-与飞书多维表格第一弹-教师备课辅助丨附模板-1",
+        "tutorial-mp-weixin-qq-com-我的-ai-日报模板-在飞书产品群火了--2",
+        "tutorial-mp-weixin-qq-com-效率大翻倍-把deepseek装进飞书表格-自动反推ai绘图-3",
+        "tutorial-mp-weixin-qq-com-deepseek-飞书多维表格-做了提示词2-0小助手和一个-4",
+        "tutorial-mp-weixin-qq-com-deepseek赋能多维表格-自动写口播文案-生成分镜-工作-5",
+        "tutorial-mp-weixin-qq-com-ai-狂飙时代-小白也能玩转飞书多维表格-6"
+      ]
+    },
+    {
+      "id": "genspark",
+      "name": "GenSpark",
+      "description": "Genspark 是一个 AI 驱动的平台，因其创新功能和用户友好的界面而受到关注。它旨在通过提供个性化的网页和对用户查询的上下文准确响应来提高生产力和创造力。",
+      "icon": "/icons/genspark.png",
+      "url": "https://www.genspark.ai/agents",
+      "tags": [
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "displayOrder": 1004,
+      "groupComments": [
+        {
+          "content": "用户体验和功能：\n1. 界面设计干净利落，使用起来毫不费劲。\n2. Genspark这套混合代理系统不用你操心底层技术，直接给你拿结果。\n3. 搜索功能特别给力，一分钟就能把美欧中的资料整合成一份带图的报告，还能点开原始出处看细节。\n4. 最惊艳的是'代我呼叫'，设置几下就能替你打电话，声音自然到商家完全没察觉是AI，实时回应一点不卡顿。整个产品就是让复杂的事变简单，几步操作就能完成原本繁琐的任务。",
+          "author": "群友分享",
+          "createdAt": "2025-04-03",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI搜索：提供快速准确的搜索结果\n2. 无广告浏览器：屏蔽广告，提供纯净浏览体验\n3. Super Agent智能助手：自主规划、执行复杂任务\n4. 顶尖AI搜索：使用Mixture-of-agents技术，支持交互式思维导图\n5. 深度研究：根据用户选择的研究方向提供结果\n6. 自动电话服务：能与商家进行自然交流，预订服务\n7. 事实核查功能：验证信息准确性",
+          "type": "text"
+        },
+        {
+          "title": "使用技巧",
+          "content": "1. 利用Super Agent功能自动规划旅行和日程\n2. 使用并行搜索同时获取多个关键信息\n3. 结合地图导航功能规划最佳路线\n4. 让AI创建展示网页整合所有信息\n5. 使用自动电话功能预订餐厅或服务\n6. 选择适合的研究方向获取最佳搜索结果\n7. 组合使用基础智能体和高级智能体完成任务\n8. 通过用户反馈指导AI优化输出结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网才能正常访问\n2. 收费规则：免费版每天200积分，Plus版$24.99/月，年付每月$19.99 10000积分/月\n3. 在GAIA基准测试中表现优于manus.ai和OpenAI Deep Research\n4. 自动电话功能可能受地区和语言限制\n5. 生成网页和规划结果可能需要用户微调\n6. 某些高级功能可能消耗更多积分\n7. 并行搜索功能有每日使用限制",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-04-03T00:00:00Z",
+      "toolCategory": "agent",
+      "icons": {
+        "png": "/icons/genspark.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "description": "OpenAI开发的AI对话助手！ChatGPT是全球最受欢迎的AI语言模型之一，能够进行自然流畅的对话交流。它支持多语言交互，可以帮助用户完成写作、编程、分析等各种任务，具备强大的知识储备和理解能力。",
+      "icon": "/icons/chatgpt.png",
+      "url": "https://chat.openai.com/",
+      "tags": [
+        "ai-chat",
+        "ai-assistant",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "displayOrder": 7002,
+      "groupComments": [
+        {
+          "content": "AI助手鼻祖，稳定可靠，GPT-4o的生图效果还是很强的，除了付费订阅有点贵，其他没毛病。已经可以代替普通设计师的存在了",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能对话交互\n2. 多语言支持\n3. 代码编写辅助\n4. 文本创作和编辑\n5. 知识问答解析\n6. 插件系统扩展",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册OpenAI账号\n2. 选择免费或Plus版本\n3. 开始对话交流\n4. 选择GPT模型\n5. 使用各种插件",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. GPT-4需要Plus订阅\n3. 部分地区需要国际手机号\n4. 注意隐私保护",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "chat",
+      "icons": {
+        "png": "/icons/chatgpt.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-实测20组chatgpt-4o画图案例-细致到堪比绣花针的a-0",
+        "tutorial-mp-weixin-qq-com-chatgpt-4o或ai制作表情包上架微信喂饭级教程-不会-1",
+        "tutorial-mp-weixin-qq-com-普通人的ai改图指南-gpt-4o如何改变生活的每个角落-1-2",
+        "tutorial-mp-weixin-qq-com-22款GPT-4o提示词，轻松搞定高质量AI绘图-0"
+      ]
+    },
+    {
+      "id": "metaso",
+      "name": "秘塔搜索",
+      "description": "AI驱动的学术搜索引擎！秘塔搜索是一个专注于学术和知识内容的智能搜索引擎，支持论文、专利、期刊等学术资源的检索。通过AI技术，它能够快速定位相关文献，提供精准的知识图谱和文献分析，是科研工作者的得力助手。",
+      "icon": "/icons/metaso.png",
+      "url": "https://metaso.cn/",
+      "tags": [
+        "ai-search",
+        "research",
+        "academic"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "专业的学术搜索引擎，支持论文专利检索，知识图谱功能强大，适合学术研究使用",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 学术文献检索\n2. 专利资源搜索\n3. 知识图谱分析\n4. 文献引用追踪\n5. 相关推荐\n6. 智能分类筛选",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问秘塔搜索\n2. 输入检索关键词\n3. 选择资源类型\n4. 筛选搜索结果\n5. 查看详细内容",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 部分资源需要付费\n2. 使用精准关键词\n3. 注意文献引用规范\n4. 及时保存检索结果",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "misc",
+      "icons": {
+        "png": "/icons/metaso.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "description": "Anthropic开发的顶级AI模型！Claude以其强大的Claude 3系列（Opus、Sonnet、Haiku）闻名，是目前最先进的AI助手之一。它具有超强的多模态能力，可以处理文本、图像、代码等多种任务，理解力和创造力都非常出色。特别是最新的Claude 3 Opus被认为在多项测试中超越了GPT-4。",
+      "icon": "/icons/claude.png",
+      "url": "https://www.anthropic.com/",
+      "tags": [
+        "ai-chat",
+        "ai-assistant",
+        "multimodal"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "displayOrder": 7003,
+      "groupComments": [
+        {
+          "content": "最强大的AI助手之一，Claude 3系列表现惊艳，多模态能力出色",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 超强多模态处理\n2. 图像分析理解\n3. 代码编程辅助\n4. 学术研究支持\n5. API开发集成\n6. 企业级应用支持",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Claude账号\n2. 选择适合的模型\n3. 开始对话交互\n4. 上传图片或文件\n5. 获取AI分析结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. API需要企业认证\n3. 不同模型收费不同\n4. 注意数据安全",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "chat",
+      "icons": {
+        "png": "/icons/claude.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-claude制作ppt图表-在线编辑与ppt直接修改图表的技-0",
+        "tutorial-mp-weixin-qq-com-理科老师狂喜-ai一键生成互动公式动画-再也不用求flash-8"
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "description": "Google最强大的AI模型！Gemini是谷歌推出的新一代多模态AI模型，分为Ultra、Pro和Nano三个版本。它具有强大的多模态理解能力，可以处理文本、图像、音频和代码等多种输入，支持复杂推理和创意生成。作为谷歌最先进的AI模型，它在多项基准测试中展现出卓越性能。",
+      "icon": "/icons/gemini.png",
+      "url": "https://gemini.google.com/",
+      "tags": [
+        "ai-chat",
+        "ai-assistant",
+        "multimodal"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "displayOrder": 7004,
+      "groupComments": [
+        {
+          "content": "谷歌最新AI助手，多模态能力强大，支持API调用，免费版本就能使用Pro模型",
+          "author": "群友分享",
+          "createdAt": "2025-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多模态理解\n2. 代码编程辅助\n3. 图像分析处理\n4. 创意内容生成\n5. API开发集成\n6. 实时对话交互",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 登录Google账号\n2. 访问Gemini网站\n3. 选择使用场景\n4. 开始AI对话\n5. 上传图片或代码",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 需要Google账号\n3. Ultra版本未开放\n4. API有使用限制",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-27T00:00:00Z",
+      "updatedAt": "2025-02-27T00:00:00Z",
+      "toolCategory": "chat",
+      "icons": {
+        "png": "/icons/gemini.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-16组案例测试gemini-2-0-说是言出法随的当下p图王-0"
+      ]
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "description": "顶级AI绘画工具！Midjourney是目前最受欢迎的AI艺术创作平台之一，能够通过文字描述生成惊艳的艺术作品。它以其独特的艺术风格和高质量的图像生成能力而闻名，特别擅长创作富有艺术感和想象力的画面，广受设计师和艺术创作者欢迎。",
+      "icon": "/icons/midjourney.png",
+      "url": "https://www.midjourney.com/home",
+      "tags": [
+        "ai-art",
+        "ai-image",
+        "design"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "AI绘画领域的标杆，画面质量和艺术性极高，适合创意设计和艺术创作，但需要通过Discord使用",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本生成图像\n2. 图像变体创作\n3. 图像局部重绘\n4. 高清图像放大\n5. 多风格支持\n6. 批量图像生成",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Discord账号\n2. 加入Midjourney服务器\n3. 选择工作频道\n4. 输入生成命令\n5. 等待图像生成\n6. 选择保存或变体",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要付费订阅\n2. 必须通过Discord使用\n3. 需要科学上网\n4. 注意版权问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/midjourney.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "flux",
+      "name": "Flux",
+      "description": "专业的AI设计工具！Flux是一款强大的AI辅助设计平台，专注于UI/UX设计领域。它能够通过文本描述快速生成界面设计，支持组件库管理、设计系统构建、自动布局等功能，大幅提升设计效率。特别适合产品设计师和UI设计师使用。",
+      "icon": "/icons/flux.png",
+      "url": "https://www.flux1.com.cn/",
+      "tags": [
+        "ai-design",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "国产AI设计工具的佼佼者，支持中文交互，设计效果专业，适合产品和UI设计师使用",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI界面生成\n2. 设计系统管理\n3. 组件库构建\n4. 自动布局优化\n5. 设计规范导出\n6. 团队协作支持",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Flux账号\n2. 描述设计需求\n3. 等待AI生成\n4. 调整优化设计\n5. 导出设计资源",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 部分功能需付费\n2. 建议详细描述需求\n3. 注意设计版权\n4. 及时备份项目",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "design",
+      "icons": {
+        "png": "/icons/flux.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "recraft",
+      "name": "Recraft",
+      "description": "AI设计神器！Recraft是一款强大的AI设计工具，专注于品牌设计和营销物料生成。它能快速生成Logo、海报、社交媒体图片等多种设计素材，支持一键换色、风格迁移、智能布局等功能。适合设计师和营销人员使用，大幅提升设计效率。",
+      "icon": "/icons/recraft.png",
+      "url": "https://www.recraft.ai/",
+      "tags": [
+        "ai-design",
+        "ai-image",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "专业的AI品牌设计工具，支持Logo、海报等多种设计生成，智能布局和风格迁移效果出色，适合品牌设计和营销使用",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI品牌Logo生成\n2. 营销物料设计\n3. 智能布局优化\n4. 一键换色系统\n5. 风格迁移功能\n6. 设计资产管理",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Recraft账号\n2. 选择设计类型\n3. 输入设计需求\n4. 调整风格参数\n5. AI生成设计\n6. 导出设计成果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 部分功能需付费\n3. 建议使用Chrome浏览器\n4. 注意版权问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "design",
+      "icons": {
+        "png": "/icons/recraft.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "description": "字节跳动出品的AI助手！豆包是一款强大的中文AI对话助手，由抖音团队开发。它支持多轮对话、文本创作、图片生成等功能，能够帮助用户完成写作、编程、设计等各类任务。完全免费，无需注册即可体验基础功能。",
+      "icon": "/icons/doubao.png",
+      "url": "https://www.doubao.com/chat/",
+      "tags": [
+        "ai-assistant",
+        "ai-chat",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "字节官方AI助手，支持多种创作场景，完全免费，中文交互体验好，响应速度快",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能对话问答\n2. AI文本创作\n3. 图片生成能力\n4. 代码编程辅助\n5. 多场景应用\n6. 知识库问答",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问豆包官网\n2. 选择对话场景\n3. 输入问题或需求\n4. 获取AI回答\n5. 继续多轮对话",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 完全免费使用\n2. 登录可解锁更多功能\n3. 支持移动端访问\n4. 注意隐私保护",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "chat",
+      "icons": {
+        "png": "/icons/doubao.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-原来-我写过豆包的18种不同教学场景下用法-0",
+        "tutorial-mp-weixin-qq-com-用手机豆包，让表情包过上精致人生-1",
+        "tutorial-mp-weixin-qq-com-免费不限次的AI生图神器！全面测评「豆包超能创意2-0」-0",
+        "tutorial-mp-weixin-qq-com-教爸妈用豆包AI真正走进家庭的温暖故事-0"
+      ]
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "description": "AI视频创作神器！Runway是一款革命性的AI视频创作平台，提供视频生成、编辑和特效处理等全方位功能。它支持文本生成视频、视频风格迁移、智能抠像、动作捕捉等高级特性，是视频创作者的理想之选。",
+      "icon": "/icons/runway.png",
+      "url": "https://runwayml.com/",
+      "tags": [
+        "ai-video",
+        "ai-image",
+        "video-editing"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "专业级AI视频创作平台，支持文本生成视频、视频编辑、特效处理等，效果惊艳，适合专业创作者使用",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本生成视频\n2. AI视频编辑\n3. 视频风格迁移\n4. 智能抠像处理\n5. 动作捕捉\n6. 视频特效合成",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Runway账号\n2. 选择创作功能\n3. 上传素材或输入提示词\n4. 设置AI参数\n5. 等待生成处理\n6. 导出作品",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 部分功能需付费\n3. 建议使用高性能设备\n4. 注意版权问题",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "video",
+      "icons": {
+        "png": "/icons/runway.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "windsurf",
+      "name": "Windsurf",
+      "description": "AI驱动的网页设计工具！Windsurf是一款革新性的网页设计平台，能够通过文本描述快速生成专业级网页。它支持多种设计风格，提供丰富的组件库和模板，让用户无需编码即可创建现代化的响应式网站。",
+      "icon": "/icons/windsurf.png",
+      "url": "https://windsurf.com/",
+      "tags": [
+        "ai-design",
+        "web-design",
+        "no-code"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "强大的AI网页设计工具，支持文本生成网页，组件库丰富，适合快速建站和原型设计",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 文本生成网页\n2. 智能布局系统\n3. 丰富组件库\n4. 响应式设计\n5. 代码导出\n6. 一键部署",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Windsurf账号\n2. 描述网页需求\n3. 选择设计风格\n4. AI生成网页\n5. 自定义调整\n6. 导出或部署",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 部分功能需付费\n3. 建议使用Chrome浏览器\n4. 注意内容版权",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "coding",
+      "icons": {
+        "png": "/icons/windsurf.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "convertio",
+      "name": "Convertio",
+      "description": "全能文件格式转换工具！Convertio是一款强大的在线文件转换平台，支持超过300种文件格式的互转。从图片、视频、音频到文档，一站式解决各类格式转换需求。操作简单，转换快速，支持批量处理，是文件处理的必备工具。",
+      "icon": "/icons/convertio.png",
+      "url": "https://convertio.co/zh/",
+      "tags": [
+        "file-conversion",
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "全能格式转换工具，支持格式全面，转换速度快，免费额度够用，界面简洁易用",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多格式文件转换\n2. 批量处理支持\n3. 云端转换存储\n4. 在线预览功能\n5. API接口支持\n6. 自定义转换参数",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 上传源文件\n2. 选择目标格式\n3. 设置转换参数\n4. 开始转换处理\n5. 预览转换结果\n6. 下载转换文件",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 免费版有容量限制\n2. 部分格式需要付费\n3. 注意文件安全性\n4. 建议压缩后上传",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/convertio.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "poe",
+      "name": "Poe",
+      "description": "Quora出品的AI助手聚合平台！Poe提供了包括Claude、GPT-4、Llama等多个顶级AI模型的统一访问界面。它支持实时对话、知识问答、文本创作等功能，免费用户可以使用基础模型，付费用户可以访问更多高级模型。界面简洁，使用便捷。",
+      "icon": "/icons/poe.png",
+      "url": "https://poe.com/",
+      "tags": [
+        "ai-chat",
+        "ai-assistant",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "需要代理",
+      "groupComments": [
+        {
+          "content": "AI助手聚合平台，支持多个顶级模型，界面简洁，使用便捷，免费额度慷慨",
+          "author": "群友分享",
+          "createdAt": "2025-02-28",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多模型统一访问\n2. 实时对话交互\n3. 知识问答解析\n4. 文本创作辅助\n5. 代码编程支持\n6. 历史记录同步",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Poe账号\n2. 选择AI助手模型\n3. 开始对话交流\n4. 切换不同模型\n5. 保存重要对话",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要科学上网\n2. 部分模型需付费\n3. 免费用户有使用限制\n4. 注意数据安全",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-02-28T00:00:00Z",
+      "updatedAt": "2025-02-28T00:00:00Z",
+      "toolCategory": "chat",
+      "icons": {
+        "png": "/icons/poe.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "qiyu",
+      "name": "奇域AI",
+      "description": "专注中国风的AI绘画平台！奇域AI是一款深度融合中国传统文化的AI绘画工具，专精于水墨画、国画等中式艺术风格。它提供200多个传统文化模板，包含敦煌壁画、京剧、皮影等元素，能精准还原水墨晕染效果与人物写意造型，是进行中国风创作的理想之选。",
+      "icon": "/icons/qiyu.png",
+      "url": "https://www.qiyuai.net/",
+      "tags": [
+        "ai-art",
+        "ai-image",
+        "chinese-style"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "专注中国风AI绘画，水墨渲染效果出色，深度融合传统文化元素如敦煌壁画、京剧、皮影等，支持200+传统风格模板，中文交互体验好",
+          "author": "群友分享",
+          "createdAt": "2025-03-04",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 中国风AI绘画\n2. 水墨画生成\n3. 传统文化模板\n4. 人物写意创作\n5. 风格迁移应用\n6. 高清图片导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 微信快捷登录\n2. 选择创作风格\n3. 输入创作描述\n4. 选择参考模板\n5. 等待AI生成\n6. 导出作品分享",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-04T00:00:00Z",
+      "updatedAt": "2025-03-04T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/qiyu.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "hotpot-ai",
+      "name": "Hotpot AI",
+      "description": "多功能AI图像处理平台！Hotpot AI提供多种AI图像处理工具，包括黑白照片上色、图片放大、背景移除、人物照片增强等功能。",
+      "icon": "/icons/hotpot-ai.png",
+      "url": "https://hotpot.ai/colorize-picture",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "productivity"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：支持批量处理，可增强旧彩色照片的饱和度，处理速度约10秒/张。\n槽点：免费版有分辨率限制（最高2000x2000），需付费解锁高清输出。",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 黑白照片上色\n2. 图片超分辨率\n3. 背景移除\n4. 人物照片增强\n5. 物体移除\n6. API接口支持",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/hotpot-ai.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "image-colorizer",
+      "name": "Image Colorizer",
+      "description": "专业的AI照片上色工具！Image Colorizer是一款专注于老照片修复和上色的AI工具，能够将黑白照片转换为自然的彩色图像。它采用先进的深度学习技术，可以智能识别照片中的人物、场景和物体，并赋予它们逼真的色彩，让珍贵的老照片重现生机。",
+      "icon": "/icons/image-colorizer.png",
+      "url": "https://imagecolorizer.com/",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "restoration"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：全自动处理，支持多格式（JPG/PNG），隐私保护（24小时自动清除数据）\n槽点：最大文件4MB，输出分辨率限制为3000x3000。",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 黑白照片智能上色\n2. 老照片修复增强\n3. 人物肤色优化\n4. 场景色彩还原\n5. 批量处理支持\n6. 高清图片输出",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/image-colorizer.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "palette-fm",
+      "name": "Palette.fm",
+      "description": "智能照片上色专家！Palette.fm是一款强大的AI照片上色工具，专注于将黑白照片转换为逼真的彩色图像。",
+      "icon": "/icons/palette-fm.png",
+      "url": "https://palette.fm/",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "restoration"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：支持自然语言描述调整色彩（如red rose, green leaves）提供20种预设模板 \n槽点：生成效果依赖描述词准确性，复杂场景易出现颜色溢出",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能照片上色\n2. 多种风格选择\n3. 色彩饱和度调整\n4. 批量处理支持\n5. 历史照片修复\n6. 实时预览效果",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/palette-fm.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "media-io-colorizer",
+      "name": "Media.io AI Photo Colorizer",
+      "description": "专业的AI照片上色工具！Media.io AI Photo Colorizer是一款强大的在线照片上色工具，能够智能将黑白照片转换为彩色图像。",
+      "icon": "/icons/media-io-colorizer.png",
+      "url": "https://www.media.io/photo-colorizer.html",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "restoration"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：操作简单，支持一键修复划痕和模糊\n槽点：免费版仅输出中等画质，去水印需订阅（$9.9/月）。",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 智能场景识别上色\n2. 老照片修复增强\n3. 批量处理支持\n4. 自动优化调整\n5. 多种输出格式\n6. 在线快速处理",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/media-io-colorizer.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "fotor",
+      "name": "Fotor",
+      "description": "专业的AI照片编辑平台！Fotor提供全方位的照片编辑功能，包括AI照片上色、人像美化、背景移除等。",
+      "icon": "/icons/fotor.png",
+      "url": "https://www.fotor.com/features/colorize-photo/",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "restoration"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：集成多工具（如滤镜、裁剪），适合轻度编辑用户\n槽点：免费版每天限3次处理，输出压缩严重",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI照片上色\n2. 人像美化增强\n3. 背景移除\n4. 专业滤镜效果\n5. 照片编辑工具\n6. 在线设计功能",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/fotor.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "deep-ai",
+      "name": "DeepAI",
+      "description": "全能AI创作平台！DeepAI提供多种AI图像处理工具，包括文生图、图片上色、超分辨率、风格迁移等功能。",
+      "icon": "/icons/deep-ai.png",
+      "url": "https://deepai.org/",
+      "tags": [
+        "ai-image",
+        "ai-api",
+        "photo-editing"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：支持8K分辨率输出，提供API接口供开发者调用\n槽点：处理耗时较长（约3分钟/张），免费版限5次/月。",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI文生图\n2. 图片上色处理\n3. 超分辨率放大\n4. 风格迁移\n5. 图像识别\n6. API接口支持",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/deep-ai.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "vance-ai",
+      "name": "VanceAI",
+      "description": "专业级AI图像处理平台！VanceAI提供全方位的AI图像增强功能，包括照片上色、图片放大、降噪锐化、人像美化等。",
+      "icon": "/icons/vance-ai.png",
+      "url": "https://vanceai.com/colorize-photo/",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "restoration"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：基于深度学习算法，细节还原度高（如发丝、纹理）\n槽点：免费试用仅1张，订阅价格较高（$19.9/月）",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI照片上色\n2. 图片超分辨率\n3. 降噪锐化\n4. 人像美化\n5. 批量处理\n6. 专业参数调节",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/vance-ai.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "gaituya",
+      "name": "改图鸭",
+      "description": "国产AI图像处理神器！改图鸭提供一站式AI图像处理解决方案，包括智能抠图、图片放大、老照片修复、人像美化等功能。",
+      "icon": "/icons/gaituya.png",
+      "url": "https://www.gaituya.com/",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "background-removal"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：界面简洁无广告，支持JPG、PNG等多种格式。全自动处理，无需手动调整，适合快速上色需求。提供其他辅助功能如照片修复、AI绘画等。\n槽点：上色效果偏保守，色彩鲜艳度较低。\n无法批量处理，仅支持单张图片操作。",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能抠图\n2. 图片无损放大\n3. 老照片修复\n4. 人像美化\n5. 批量处理\n6. 图片格式转换",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/gaituya.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "xunjie-photo",
+      "name": "迅捷智能修复老照片",
+      "description": "专业的老照片修复工具！迅捷智能修复老照片采用先进的AI技术，能够一键修复破损、褪色、模糊的老照片。支持照片上色、清晰度提升、划痕修复等功能，让珍贵的老照片焕发新生。",
+      "icon": "/icons/xunjie-photo.png",
+      "url": "https://www.xunjiepdf.com/old-photos",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "restoration"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：覆盖老照片修复、黑白上色、模糊人脸修复、图片编辑（裁剪/滤镜/虚化）、证件照制作、抠图等，满足多场景需求。针对普通用户设计，操作门槛低，界面简洁无广告\n槽点：未提及具体AI技术细节（如模型版本或算法优势），缺乏动态化处理，功能偏传统。",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 老照片修复增强\n2. AI智能上色\n3. 划痕修复\n4. 清晰度提升\n5. 批量处理\n6. 在线预览效果",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/xunjie-photo.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "jpghd",
+      "name": "JPGHD",
+      "description": "专业的图片无损放大工具！JPGHD采用先进的AI超分辨率技术，能够将图片放大2-16倍而保持清晰度。特别适合处理老照片、模糊图片和低分辨率图像，支持批量处理，让图片更加清晰锐利。",
+      "icon": "/icons/jpghd.png",
+      "url": "https://jpghd.com/",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "upscaling"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：强调2024年最先进AI模型，支持破损修复、动态照片生成（类似哈利波特报纸效果），技术差异化明显。提供API接口和开发者文档（Python/cURL示例），适合技术团队或企业集成\n槽点：界面偏向技术文档，普通用户可能因参数设置复杂而放弃。动态照片功能需付费，免费版限制多（如尺寸、修复划痕），可能劝退个人用户",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 图片无损放大\n2. 超分辨率处理\n3. 老照片修复\n4. 模糊图片增强\n5. 批量处理\n6. 多种输出格式",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/jpghd.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "ai-huazuo",
+      "name": "AI画室",
+      "description": "智能图像处理工作室！AI画室提供一站式AI图像处理服务，包括老照片修复、黑白照片上色、人像美化等功能。",
+      "icon": "/icons/ai-huazuo.png",
+      "url": "https://www.aihuazuo.com/shangse/",
+      "tags": [
+        "ai-image",
+        "photo-editing",
+        "restoration"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "亮点：操作便捷性高：项目流程清晰，无需专业图像处理技能，适合新手快速上手。工具多样性：提供多款免费或低门槛AI工具，覆盖图片修复、上色、视频生成全流程。\n槽点：修复效果依赖原图质量：若原图模糊严重，修复后仍可能影响视频稳定性。免费工具限制多：部分工具可能存在生成次数限制，通义实验室等平台需注册或付费解锁高级功能",
+          "author": "群友分享",
+          "createdAt": "2025-03-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 老照片修复\n2. 黑白照片上色\n3. 人像美化\n4. 视频生成\n5. 图片放大\n6. 在线预览效果",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-05T00:00:00Z",
+      "updatedAt": "2025-03-05T00:00:00Z",
+      "toolCategory": "image",
+      "icons": {
+        "png": "/icons/ai-huazuo.png"
+      },
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0"
+      ]
+    },
+    {
+      "id": "getbiji",
+      "name": "Get笔记",
+      "description": "Get笔记是一款专注于知识管理的智能笔记工具，支持多种笔记格式、云端同步、智能分类和标签管理。它提供了丰富的排版功能和协作能力，帮助用户高效整理和分享知识。特别适合学生、研究人员和知识工作者使用。",
+      "icon": "/icons/getbiji.png",
+      "url": "https://www.biji.com",
+      "tags": [
+        "ai-assistant",
+        "knowledge-base",
+        "productivity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "知识管理神器，支持多端同步，笔记整理非常方便",
+          "author": "群友分享",
+          "createdAt": "2025-03-30",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多格式笔记支持\n2. 智能分类与标签系统\n3. 云端同步与多设备访问\n4. 知识图谱可视化\n5. 协作与分享功能\n6. 强大的搜索与检索能力",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册/登录账号\n2. 创建笔记本或笔记\n3. 编写并格式化内容\n4. 添加标签和分类\n5. 设置同步和备份\n6. 分享或协作（可选）",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-03-30T00:00:00Z",
+      "updatedAt": "2025-03-30T00:00:00Z",
+      "toolCategory": "writing",
+      "icons": {
+        "png": "/icons/getbiji.png"
+      },
+      "isVisible": true
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "description": "创意图像生成平台！Ideogram是一款强大的AI文本到图像生成工具，能够将文字描述转换为精美的艺术图像。它支持多种艺术风格，特别擅长生成具有设计感的图像、文字海报和概念艺术。每天提供免费生成额度，适合创意工作者和设计师使用。",
+      "icon": "/icons/ideogram.png",
+      "url": "https://ideogram.ai",
+      "tags": [
+        "ai-image",
+        "ai-design",
+        "creativity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "做Logo很不错~",
+          "author": "群友分享",
+          "createdAt": "2025-03-06",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "createdAt": "2025-03-31T00:00:00Z",
+      "updatedAt": "2025-03-31T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-ideogram这么玩-ai做logo一分钟40个不是梦-附-0"
+      ]
+    },
+    {
+      "id": "yujing",
+      "name": "语鲸",
+      "description": "语鲸是一款AI驱动的信息阅读和处理工具，可提高10倍阅读效率。它能够智能总结单文档和多文档，生成多级大纲，支持思维导图转换，提供原文精准定位等功能。支持PDF、Word、PPT等多种文件格式，以及网页链接处理。",
+      "icon": "/icons/yujing.png",
+      "url": "https://lingowhale.com/",
+      "tags": [
+        "ai-assistant"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "聚合一站式获得AI信息，精准去掉冗余，包工头爆吹",
+          "author": "群友分享",
+          "createdAt": "2025-04-13",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用技巧",
+          "content": "1. 使用多文档总结功能对比多篇相关文章\n2. 通过鲸彩问答深入探讨文档内容",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 上传敏感文件前请留意隐私政策\n2. 保存重要摘录和笔记\n3. 对AI总结内容进行人工验证",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-04-14T00:00:00Z",
+      "updatedAt": "2025-04-14T00:00:00Z",
+      "toolCategory": "writing",
+      "isVisible": true
+    },
+    {
+      "id": "nami",
+      "name": "纳米AI搜索",
+      "description": "专业的AI工具搜索引擎！纳米AI搜索是一个专注于AI领域的智能搜索平台，提供全面的AI工具、模型和教程搜索。",
+      "icon": "/icons/nami.png",
+      "url": "https://www.n.cn",
+      "tags": [
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "纳米的深度研究如果能跑完任务还是可以的，搜索功能强大，对新手非常友好",
+          "author": "群友分享",
+          "createdAt": "2025-04-25",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "createdAt": "2025-04-27T00:00:00Z",
+      "updatedAt": "2025-04-27T00:00:00Z",
+      "toolCategory": "agent",
+      "isVisible": true
+    },
+    {
+      "id": "cozekj",
+      "name": "扣子空间",
+      "description": "coze下面开发的扣子空间，可以快速创建自己的AI助手，并部署到各种平台",
+      "icon": "/icons/coze.png",
+      "url": "https://www.coze.cn/space-preview",
+      "tags": [
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "displayOrder": 1005,
+      "groupComments": [
+        {
+          "content": "字节跳动出品的AI助手开发平台，支持多场景应用，可以快速创建自己的AI助手，并部署到各种平台",
+          "author": "群友分享",
+          "createdAt": "2025-04-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI助手创建和定制\n2. 多场景应用模板\n3. 丰富的插件系统\n4. 多平台一键部署\n5. 数据分析和优化\n6. 协作管理功能",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 注册Coze账号\n2. 选择应用场景\n3. 配置AI助手功能\n4. 添加所需插件\n5. 测试和优化\n6. 发布到目标平台",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要实名认证\n2. 部分功能需付费\n3. 注意数据安全\n4. 遵守使用规范",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-04-27T00:00:00Z",
+      "updatedAt": "2025-04-27T00:00:00Z",
+      "toolCategory": "agent",
+      "isVisible": true
+    },
+    {
+      "id": "manus",
+      "name": "Manus",
+      "description": "Manus 是一款通用型 AI 助手，能将想法转化为行动：不止于思考，更注重成果",
+      "icon": "/icons/manus.png",
+      "url": "https://manus.im/",
+      "tags": [
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "displayOrder": 1003,
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI智能通用体",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-04-27T00:00:00Z",
+      "updatedAt": "2025-04-27T00:00:00Z",
+      "toolCategory": "agent",
+      "isVisible": true
+    },
+    {
+      "id": "flowith",
+      "name": "Flowith",
+      "description": "Flowith 2.0 是一个 AI 创作工作空间，面向头脑风暴、深度工作与多模态创作。它整合 ChatGPT、Perplexity、Claude 等多模型，支持与 AI 顺畅协作，把知识转化为作品。借助预构建配方与知识花园（Knowledge Garden），用户可以高效产出文本、图像、交互网页与行业研究等内容。",
+      "icon": "/icons/flowith.png",
+      "url": "https://flowith.net/",
+      "tags": [
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "displayOrder": 1002,
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI创作工作空间：整合ChatGPT、Perplexity、Claude等多模型\n2. 头脑风暴与深度工作：围绕生产力提供专业工具\n3. 多模态创作：支持文本、图像、交互网页、行业分析等内容生成\n4. 知识花园：沉淀资料与灵感，实现知识复用\n5. 预构建配方：通过Recipes搭建高效工作流",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问Flowith官网并注册账号\n2. 选择交互模式：Oracle / Regular / DeepSeek V3\n3. 使用预构建配方（Recipes）搭建高效工作流\n4. 在\"知识花园\"中沉淀资料与灵感，复用既有知识\n5. 输入提示（Prompt）或复用知识库，一键生成内容\n6. 迭代编辑与协作，发布或导出成果",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-04-27T00:00:00Z",
+      "updatedAt": "2025-10-16T00:00:00Z",
+      "toolCategory": "agent",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-万字长文打造flowith保姆级教程-快速上手-0",
+        "tutorial-mp-weixin-qq-com-使用flowith重构表情包设计流程-1",
+        "tutorial-mp-weixin-qq-com-4000字长文+案例对比3个agent AI工具：Flowith, Lovart和Skywork-0"
+      ]
+    },
+    {
+      "id": "lovart",
+      "name": "Lovart",
+      "description": "Lovart是一款专注于设计领域的垂直AI Agent，它通过深度优化设计流程，帮助设计师和创意工作者将灵感转化为专业作品。与通用AI Agent不同，Lovart专注于设计领域，在创意发散和设计执行方面提供极致体验，让设计过程更加高效和专业。",
+      "icon": "/icons/lovart.png",
+      "url": "https://www.lovart.ai",
+      "tags": [
+        "ai-design",
+        "automation",
+        "creativity"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "displayOrder": 1000,
+      "groupComments": [
+        {
+          "content": "Lovart作为垂直领域的设计Agent，在创意发散和设计执行方面提供了极致体验，让设计过程更加高效和专业。",
+          "author": "群友分享",
+          "createdAt": "2025-05-18",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "核心优势",
+          "content": "1. 垂直领域专注：专注于设计领域，提供极致体验\n2. 流程优化：简化设计流程，提高效率\n3. 创意支持：帮助设计师将灵感转化为专业作品\n4. 专业输出：确保设计作品的专业性和精美度",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-05-18T00:00:00Z",
+      "updatedAt": "2025-05-18T00:00:00Z",
+      "toolCategory": "agent",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-适合设计agent的提示词-能让lovart作图更好看更高效-0",
+        "tutorial-mp-weixin-qq-com-4000字实测-lovart-ai-提示词模版大放送--1",
+        "tutorial-mp-weixin-qq-com-4000字长文+案例对比3个agent AI工具：Flowith, Lovart和Skywork-0"
+      ]
+    },
+    {
+      "id": "listenhub",
+      "name": "ListenHub",
+      "description": "ListenHub是一款基于AI技术的播客生成工具，用户可以通过输入话题、粘贴链接或上传文件，快速生成高质量的播客内容。它提供超真实人声效果，支持自然对话式交互，让用户无需搜索即可获取和收听各类信息和热门话题。",
+      "icon": "/icons/listenhub.png",
+      "url": "https://listenhub.ai/zh",
+      "tags": [
+        "ai-audio",
+        "ai-podcast",
+        "text-to-speech",
+        "content-generation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "需要代理",
+      "displayOrder": 1100,
+      "groupComments": [
+        {
+          "content": "ListenHub生成的播客语音非常自然，特别是北京口音很有人味儿。用户体验极佳，一分钟内就能将热搜话题生成为完整播客。",
+          "author": "群友分享",
+          "createdAt": "2025-05-20",
+          "reviewType": "纯·人工测评·无广告·为爱发电"
+        }
+      ],
+      "guides": [
+        {
+          "title": "核心功能",
+          "content": "1. 话题生成：输入任意话题快速生成播客\n2. 链接转换：粘贴网页链接转为有声内容\n3. 文件上传：将文档转换为播客\n4. 自然对话：通过对话获取信息\n5. 真实人声：采用最新AI语音技术，声音极为自然\n6. 热门话题：提供最新热点内容",
+          "type": "text"
+        },
+        {
+          "title": "使用方法",
+          "content": "1. 访问ListenHub官网或打开App\n2. 选择生成方式：话题生成、粘贴链接或上传文件\n3. 输入相关内容并点击'创建'\n4. 等待系统生成播客（通常只需一分钟）\n5. 收听、收藏或下载生成的内容",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-05-21T00:00:00Z",
+      "updatedAt": "2025-05-21T00:00:00Z",
+      "toolCategory": "podcast",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-弹射起床抢邀请码-30个case告诉你1分钟生成的播客有多香-0"
+      ]
+    },
+    {
+      "id": "youdao-fm",
+      "name": "有道文档FM",
+      "description": "网易有道旗下有声阅读与学习效率工具，可将各类文档和文本内容转换为对话式播客、总结摘要和思维导图，支持多种播客场景和音色，提供实时录音转写和多语言翻译功能，帮助用户随时随地听取文档内容，提升阅读与学习效率。",
+      "icon": "/icons/youdao-fm.png",
+      "url": "https://apps.apple.com/cn/app/%E6%9C%89%E9%81%93%E6%96%87%E6%A1%A3fm-%E6%96%87%E6%9C%AC%E6%9C%97%E8%AF%BB-%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3-%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97-%E5%BD%95%E9%9F%B3%E8%BD%AC%E5%86%99/id6738774225",
+      "tags": [
+        "ai-audio",
+        "ai-podcast",
+        "text-to-speech",
+        "speech-to-text",
+        "content-generation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "有道文档FM提供非常简洁的用户体验，可以方便地将各类文档快速转为播客形式。多种播客场景和音色选择很实用，对学习和工作效率提升有明显帮助。",
+          "author": "群友分享",
+          "createdAt": "2025-05-20",
+          "reviewType": "纯·人工测评·无广告·为爱发电"
+        }
+      ],
+      "guides": [
+        {
+          "title": "核心功能",
+          "content": "1. 文本/文档转播客：一键将文本或文档转为对话研讨型播客\n2. 内容智能解析：自动生成内容总结和思维导图\n3. 多种播客场景：支持双人深度对话、汇报演讲、读书播客等19种场景\n4. 多音色选择：提供多种主播音色，可自定义选择\n5. 实时录音转写：11种语言的实时语音转文字\n6. 多语种翻译：支持110种语言的同传翻译\n7. 笔记保存：一键保存播客内容为笔记",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-05-21T00:00:00Z",
+      "updatedAt": "2025-05-21T00:00:00Z",
+      "toolCategory": "podcast",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-notebooklm之外-还有这种国产ai播客神器--0"
+      ]
+    },
+    {
+      "id": "tiangong",
+      "name": "天工",
+      "description": "昆仑万维出品的中国领先大语言模型平台！天工AI不仅是大语言模型平台，还提供超级智能体功能，专注于智能创作和文档处理。",
+      "icon": "/icons/tiangong.png",
+      "url": "https://www.tiangong.cn/",
+      "tags": [
+        "ai-chat",
+        "ai-assistant",
+        "automation"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "直接访问",
+      "displayOrder": 1001,
+      "groupComments": [
+        {
+          "content": "天工在课件制作方面表现卓越，内容贴合度极高。就内容一致性而言，是目前市面上最出色的PPT生成工具，能够精准理解需求并保持连贯性。虽在视觉设计特别是色彩搭配上略显保守，但内容质量和结构性堪称一流。",
+          "author": "群友分享",
+          "createdAt": "2025-05-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+            "title": "智能体模式",
+            "content": "天工提供多种专业智能体模式，一键切换满足不同场景需求：\n1. 文档模式：专业文档撰写与排版，适合论文、报告等正式文档\n2. PPT模式：高质量演示文稿创建，内容结构连贯，组织清晰\n3. 表格模式：数据处理与表格设计，支持复杂数据分析\n4. 网页模式：网站内容与布局设计，适合网页文案创作\n5. 通用模式：日常对话与多功能辅助，满足一般性需求",
+            "type": "text"
+        },
+        {
+            "title": "智能体使用方法",
+            "content": "1. 访问天工官网或下载APP并登录\n2. 点击顶部'智能体'选项\n3. 根据任务需求选择合适的模式（文档/PPT/表格/网页/通用）\n4. 输入主题和需求描述，或上传参考文件\n5. 智能体会根据所选模式生成专业内容\n6. 可随时切换模式以适应不同创作需求",
+            "type": "text"
+        },
+        {
+            "title": "注意事项",
+            "content": "1. 免费使用但需要注册账号\n2. 每天可使用3000积分\n3. 注意个人数据安全",
+            "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-05-28T00:00:00Z",
+      "updatedAt": "2025-05-28T00:00:00Z",
+      "toolCategory": "agent",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-4000字长文+案例对比3个agent AI工具：Flowith, Lovart和Skywork-0",
+        "tutorial-mp-weixin-qq-com-爆火的毛茸茸女将军打卡视频，如何用天工MCP虚拟机全自动做好？-0"
+      ]
+    },
+    {
+      "id": "hatch",
+      "name": "Hatch",
+      "description": "Hatch是一款革新性的AI智能体工具，结合无限画布与多模态AI能力，打造全新创意与工作流体验。由Valve和Picnik前创始人创建，它提供了超越传统聊天框的交互方式，在无限画布上实现AI协作创意。",
+      "icon": "/icons/hatch.png",
+      "url": "https://hatchcanvas.com/",
+      "tags": [
+        "ai-agent",
+        "creativity",
+        "productivity",
+        "design"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "还没有用hatch的，可以试试了，生图、表情包、写游戏、搭网站、画原型全都能做，甚至还可以给你家娃做个英语单词每日打卡和智能数学练习题的工具！",
+          "author": "群友分享",
+          "createdAt": "2025-06-12",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多模态AI智能体\n2. 无限画布工作空间\n3. 智能工作流自动化\n4. 创意协作与构思\n5. 设计和内容生成\n6. 项目管理与追踪",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 创建新项目或工作空间\n2. 描述你的创意或需求\n3. 让AI智能体生成初始设计或内容\n4. 反馈调整并迭代改进\n5. 导出成品或与团队协作",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 提供清晰具体的指令\n2. 善用多模态功能结合文字与图像\n3. 保存阶段性成果\n4. 探索智能体的创意潜力",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-06-13T00:00:00Z",
+      "updatedAt": "2025-06-13T00:00:00Z",
+      "toolCategory": "agent",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-无限画布+多模态AI=王炸？这个Agent比你用过的所有AI工具都聪明！-0"
+      ]
+    },
+    {
+      "id": "pdf24",
+      "name": "PDF24",
+      "description": "PDF24是一款功能全面的PDF处理工具集，提供超过25种免费在线PDF工具，包括PDF转换、合并、分割、压缩、编辑、签署等功能。使用简单直观，无需安装软件，在线即可完成各种PDF文档处理需求。同时提供免费的PDF24 Creator桌面软件版本，适合需要离线处理PDF的用户。",
+      "icon": "/icons/pdf24.png",
+      "url": "https://www.pdf24.org/zh/",
+      "tags": [
+        "pdf-tools",
+        "document-conversion",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "PDF24 为所有 PDF 问题提供解决方案，免费且易于使用的在线 PDF 工具",
+          "author": "百宝箱子",
+          "createdAt": "2025-06-09",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. PDF格式转换：PDF与Word、Excel、PPT等格式互转\n2. PDF合并与分割：多个PDF合并或拆分为多个文件\n3. PDF压缩：智能压缩PDF文件大小\n4. PDF编辑：添加文本、图像、页码和水印\n5. PDF签署：添加电子签名到PDF文档\n6. OCR文本识别：从图像提取文本内容\n7. PDF保护与解锁：设置或移除密码保护",
+          "type": "text"
+        },
+        {
+          "title": "使用优势",
+          "content": "1. 完全免费，无隐藏收费\n2. 无需注册，直接使用\n3. 处理结果无水印\n4. 支持在线和桌面两种使用模式\n5. 界面简洁友好，操作直观\n6. 提供多语言支持\n7. 注重数据安全，文件自动删除",
+          "type": "text"
+        },
+        {
+          "title": "使用方法",
+          "content": "1. 在线工具：访问官网并选择所需工具\n2. 上传文件：拖拽或点击上传PDF文件\n3. 设置选项：根据需求调整转换或编辑参数\n4. 处理文件：点击处理按钮完成操作\n5. 下载结果：点击下载按钮获取处理后的文件",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-06-17T00:00:00Z",
+      "updatedAt": "2025-06-17T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "ilovepdf",
+      "name": "iLovePDF",
+      "description": "iLovePDF是一款全能PDF在线工具，提供合并、拆分、压缩、格式转换等25+种功能，完全免费且易于使用。可处理PDF转Word、Excel、PPT和图片互转，还支持添加水印、页码、电子签名等高级编辑功能。同时提供桌面和移动应用，满足各种场景下的文档处理需求。",
+      "icon": "/icons/ilovepdf.png",
+      "url": "https://www.ilovepdf.com/zh-cn",
+      "tags": [
+        "pdf-tools",
+        "document-conversion",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "PDF爱好者必备工具，完全免费、界面直观，提供丰富的PDF处理功能。支持在线处理各种PDF需求，无需安装软件，几秒钟即可完成转换和编辑工作。",
+          "author": "群友分享",
+          "createdAt": "2025-06-17",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. PDF格式转换：PDF与Word、Excel、PPT、JPG等多种格式互转\n2. PDF文件整理：合并、拆分、排序、提取和删除页面\n3. PDF优化工具：压缩PDF、修复损坏文件、OCR文字识别\n4. PDF编辑工具：添加页码、水印、旋转页面、裁剪和编辑内容\n5. PDF安全工具：加密和解锁PDF、添加电子签名、标记密文\n6. 专业功能：PDF比较、PDF/A转换、扫描为PDF",
+          "type": "text"
+        },
+        {
+          "title": "使用优势",
+          "content": "1. 完全免费使用基础功能\n2. 无需安装，在线即可处理\n3. 处理速度快，几秒钟完成\n4. 界面直观友好，操作简单\n5. 提供桌面和移动应用\n6. 支持30多种语言\n7. 安全连接，保护文件隐私",
+          "type": "text"
+        },
+        {
+          "title": "使用方法",
+          "content": "1. 访问iLovePDF网站\n2. 选择需要的PDF工具\n3. 上传需要处理的文件(拖放或点击上传)\n4. 根据需要调整设置\n5. 点击处理按钮\n6. 下载处理完成的文件",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-06-17T00:00:00Z",
+      "updatedAt": "2025-06-17T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "vert",
+      "name": "VERT",
+      "description": "VERT是一款简洁强大的文件格式转换工具，支持图像、音频、文档和视频多种格式互转。特点是图像、音频和文档处理完全在本地设备上完成，保证隐私安全。",
+      "icon": "/icons/vert.png",
+      "url": "https://vert.sh/",
+      "tags": [
+        "file-conversion",
+        "media-tools",
+        "open-source"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "一个超级好用的格式转换小工具",
+          "author": "群友分享",
+          "createdAt": "2025-06-11",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 图像格式转换：支持png、jpeg、webp、gif、heic等格式互转\n2. 音频格式转换：支持mp3、wav、flac、ogg、aac、m4a等格式互转\n3. 文档格式转换：支持docx、xml、doc、md、html、rtf等格式互转\n4. 视频格式转换：支持mkv、mp4、webm、avi、wmv、mov等格式互转",
+          "type": "text"
+        },
+        {
+          "title": "使用优势",
+          "content": "1. 本地处理：大多数转换在本地完成，保护隐私\n2. 无文件大小限制：适合处理大型文件\n3. 完全免费：所有功能免费使用\n4. 开源透明：代码完全开源\n5. 无广告干扰：纯净简洁的用户体验\n6. 简单易用：拖放文件即可转换",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问官网：打开VERT网站\n2. 上传文件：拖放文件到转换区域或点击上传\n3. 选择格式：选择目标输出格式\n4. 调整设置：根据需要调整转换参数\n5. 开始转换：点击转换按钮处理文件\n6. 下载结果：转换完成后下载文件",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-06-17T00:00:00Z",
+      "updatedAt": "2025-06-17T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "autotypesetting",
+      "name": "文档排版工具",
+      "description": "一款专业的文档排版工具，支持Word、PDF、Excel、CSV和TXT等多种格式文件的智能排版，采用DeepSeek-V3和Claude等AI模型生成高质量排版，特别适合需要发布到公众号等平台的内容创作者使用。",
+      "icon": "/icons/autotypesetting.png",
+      "url": "http://autotypesetting.ycgod.online/",
+      "tags": [
+        "document-formatting",
+        "content-creation",
+        "ai-tools"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "很实用的AI文档排版工具，特别适合整理排版后直接发布到公众号，省去了手动调整格式的麻烦。支持多种格式，操作简单便捷。",
+          "author": "群友分享",
+          "createdAt": "2025-06-05",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多格式支持：处理docx、pdf、xlsx、csv和txt等多种文档格式\n2. AI智能排版：采用DeepSeek-V3、Claude 3.5/3.7等先进AI模型\n3. 模板保存：可将排版方案保存为模板供日后使用\n4. 批量处理：支持多文档批量排版，提高工作效率\n5. 直接粘贴：支持直接粘贴文本进行排版",
+          "type": "text"
+        },
+        {
+          "title": "使用优势",
+          "content": "1. 专为公众号内容创作者设计\n2. 界面简洁易用，操作流程简单\n3. 多种AI模型可选，满足不同排版需求\n4. 排版质量高，符合专业出版标准\n5. 支持自定义模板，节省重复工作时间",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问工具网站\n2. 上传文档或粘贴文本内容\n3. 选择适合的AI模型\n4. 点击生成排版\n5. 预览排版结果\n6. 根据需要保存为模板\n7. 下载排版好的文档或直接复制使用",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-06-21T00:00:00Z",
+      "updatedAt": "2025-06-21T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "klingai",
+      "name": "可图",
+      "description": "可图是一款先进的AI图像生成工具，最新的2.0版本新增多参考图功能，允许用户同时上传人物和场景图片，通过简单提示词指引AI生成特定场景下的人物图像。该工具特别适合创作者快速制作角色在不同场景中的视觉内容，操作简便，效果自然。",
+      "icon": "/icons/klingai.png",
+      "url": "https://app.klingai.com/cn/image-to-image/multi/new",
+      "tags": [
+        "ai-image",
+        "character-generation",
+        "scene-composition"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "可图2.0的多参考图功能非常强大，只需要上传人物和场景参考图，然后简单描述人物在场景中的动作，就能生成非常自然的合成图像，比传统P图省时又好看。",
+          "author": "群友分享",
+          "createdAt": "2025-06-17",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "多参考图功能使用指南",
+          "content": "1. 进入可图2.0多参考图界面\n2. 上传人物主题图片（可以是角色照片或形象）\n3. 上传场景背景图片（想要角色出现的环境）\n4. 编写提示词，描述角色在场景中的动作或状态\n5. 调整生成参数（如需要）\n6. 点击生成按钮获取合成图像\n7. 根据结果调整提示词进行优化",
+          "type": "text"
+        },
+        {
+          "title": "提示词技巧",
+          "content": "1. 明确描述人物的动作：如'坐在沙发上阅读'、'站在山顶眺望'\n2. 指定人物表情：如'微笑着'、'认真地'\n3. 描述光线和氛围：如'在阳光下'、'在月光下'\n4. 添加细节元素：如'手持咖啡杯'、'背着登山包'\n5. 避免过于复杂的场景要求\n6. 保持提示词简洁但信息丰富",
+          "type": "text"
+        },
+        {
+          "title": "使用案例",
+          "content": "1. 旅游照创意：将自己的照片与世界各地景点合成\n2. 角色创作：将原创角色放入不同场景中展示故事情节\n3. 产品展示：将产品放入理想使用场景中进行营销\n4. 概念艺术：快速生成角色在特定场景中的概念图\n5. 社交媒体内容：为社交平台创建独特的个性化内容",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-06-17T00:00:00Z",
+      "updatedAt": "2025-06-17T00:00:00Z",
+      "toolCategory": "image",
+      "isVisible": true
+    },
+    {
+      "id": "loki-image-toolbox",
+      "name": "赛博小熊猫Loki的图片工具箱",
+      "description": "图片批处理神器！这是一款轻量级的在线图片处理工具，提供格式转换、压缩优化、尺寸调整、水印处理、艺术滤镜、一键加底、图像拼接和图像分析等功能。无需安装，支持批量处理，适合设计师、营销人员和普通用户使用。",
+      "icon": "/icons/loki-image-toolbox.png",
+      "url": "https://loki2046-mao.github.io/Loki-s-Multi-Functional-Image-Toolbox/",
+      "tags": [
+        "productivity",
+        "image-processing",
+        "batch-processing"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "别再跪设计了！图片批处理神器来了（压缩、裁剪、改尺寸、拼图、滤镜、加水印，一个工具全搞定！）",
+          "author": "群友分享",
+          "createdAt": "2025-06-20",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 格式转换：PNG、JPEG、WebP等格式互转\n2. 压缩优化：多级压缩选项，可设置目标大小\n3. 尺寸调整：灵活的缩放和裁剪功能\n4. 水印处理：添加和去除水印\n5. 艺术滤镜：调整亮度、对比度、饱和度等\n6. 一键加底：添加各种背景\n7. 图像拼接：水平、垂直、网格等多种拼接方式\n8. 图像分析：提取主色调、尺寸信息等",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问工具网站\n2. 上传需要处理的图片\n3. 选择需要的处理功能\n4. 设置相应参数\n5. 点击执行按钮\n6. 下载处理后的图片",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 支持JPG、PNG、WEBP格式\n2. 支持批量上传和处理\n3. 所有处理在浏览器本地进行，保护隐私\n4. 大文件处理可能需要较长时间",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-06-20T00:00:00Z",
+      "updatedAt": "2025-06-20T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    },
+    {
+      "id": "mureka",
+      "name": "Mureka",
+      "description": "Mureka是全球首个融合AI音乐生成、编辑和版权交易的综合平台。它搭载多个专业级AI模型（包括Mureka O1、Mureka V6等），能够基于歌词、提示词或哼唱旋律创作高质量音乐作品。平台提供免版税歌曲生成、多语种支持（最多10种语言）、可定制歌手音色等功能，既适合个人创作者捕捉灵感，也满足专业音乐制作需求。",
+      "icon": "/icons/mureka.png",
+      "url": "https://www.mureka.cn/",
+      "tags": [
+        "ai-audio",
+        "content-generation",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "非常强大的AI音乐创作工具，支持从简单描述到复杂编曲的全流程音乐生成。如 Mureka O1 和 Mureka V6，每种模型具有独特的功能。",
+          "author": "群友分享",
+          "createdAt": "2025-08-29",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多模型AI音乐生成：配备Mureka O1、Mureka V6、Mureka V5.5等专业模型\n2. 基于歌词和提示的音乐创作：输入文本即可生成完整音乐作品\n3. 免版税歌曲生成：为各种项目提供可商用的音乐内容\n4. 音乐编辑工具：提供专业级的音乐后期编辑功能\n5. 版权交易平台：支持音乐版权的买卖交易\n6. 可定制歌手音色：自由选择和定制演唱风格\n7. 哼唱转歌曲功能：将哼唱旋律转换为完整歌曲（Beta功能）\n8. 多语种支持：支持最多10种不同语言的音乐创作",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问Mureka官网并注册登录账户\n2. 选择合适的AI音乐生成模型（O1、V6或V5.5）\n3. 输入创作内容：歌词、提示词或上传哼唱音频\n4. 设置音乐风格和参数：选择曲风、节拍、调性等\n5. 可选功能：使用参考歌曲、定制歌手音色或设置语言\n6. 启动AI音乐生成，等待模型处理\n7. 试听生成结果，使用编辑工具进行调整\n8. 下载免版税音乐作品或参与版权交易",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 平台提供免版税歌曲，但建议确认具体使用条款\n2. 不同AI模型（O1、V6、V5.5）有各自的特点和适用场景\n3. 专业级音乐制作可能需要较长的生成时间\n4. 哼唱转歌曲功能目前为Beta版本，效果可能有限\n5. 版权交易功能需要了解相关法律法规\n6. 建议及时保存创作成果和备份重要作品",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-08-29T00:00:00Z",
+      "updatedAt": "2025-08-29T00:00:00Z",
+      "toolCategory": "audio",
+      "isVisible": true
+    },
+    {
+      "id": "tunee",
+      "name": "Tunee",
+      "description": "Tunee是一款革命性的AI音乐智能体，通过自然语言对话即可创作完整音乐作品。支持多模态交互（文字、图片、音频、视频），能够生成歌词、旋律、编曲，并提供MV制作、分轨导出、商业授权等全链路服务。让没有音乐基础的用户也能轻松创作专业级音乐，真正实现'人人都能玩点音乐'的愿景。",
+      "icon": "/icons/tunee.png",
+      "url": "https://www.tunee.ai",
+      "tags": [
+        "ai-audio",
+        "content-generation",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "真正意义上的AI音乐智能体！8小时就能做出一张完整专辑，还能生成MV。从词曲演唱到MV制作全包揽，是音乐创作的新工具。",
+          "author": "群友分享",
+          "createdAt": "2025-09-26",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 自然语言音乐创作：通过对话描述需求，AI智能体理解并创作\n2. 多模态交互：支持文字、图片、音频、视频多种输入方式\n3. 全链路制作：词曲创作、编曲、混音、MV制作一站式完成\n4. 多风格支持：流行、摇滚、古风、电子、R&B等14种风格\n5. 多语言创作：支持中文、英文、日文、韩文、西班牙文等6种语言\n6. 专业功能：分轨导出、商业授权、版权保护\n7. 智能编辑：歌词编辑、风格调整、重新生成",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问Tunee官网并登录\n2. 通过自然语言描述音乐需求（风格、主题、情感等）\n3. 选择AI提供的3个创作方向\n4. 等待AI生成完整音乐作品\n5. 试听并选择满意的版本\n6. 进行歌词编辑或风格调整（可选）\n7. 生成MV或导出分轨文件\n8. 获取商业授权（付费用户）",
+          "type": "text"
+        },
+        {
+          "title": "创作技巧",
+          "content": "1. 明确需求：描述风格、主题、情感、用途等具体信息\n2. 押韵要求：在提示词中加入'每句歌词句尾押韵，每段歌词韵脚一致'\n3. 多模态创作：上传图片、音频、视频作为创作灵感\n4. 专业提示词：可先用其他AI工具生成专业的音乐创作提示词\n5. 风格参考：描述想要模仿的歌手或歌曲风格特点\n6. 明确输出：说明需要带歌词的歌曲还是纯音乐",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 需要注册账号并可能需要付费订阅\n2. 商业使用需要购买相应授权\n3. 生成时间根据复杂度而定，通常几分钟到十几分钟\n4. 歌词发音可能存在问题，特别是多音字和生僻字\n5. MV制作需要额外消耗创作点数\n6. 建议及时保存和备份创作成果\n7. 注意版权问题，避免侵权风险",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2025-09-26T00:00:00Z",
+      "updatedAt": "2025-09-26T00:00:00Z",
+      "toolCategory": "audio",
+      "isVisible": true,
+      "relatedTutorials": [
+        "tutorial-mp-weixin-qq-com-我用8小时做了一张专辑Tunee包揽了词曲演唱和MV-0"
+      ]
+    },
+    {
+      "id": "zhuque",
+      "name": "腾讯朱雀AI检测助手",
+      "description": "腾讯朱雀AI检测助手是由腾讯混元安全团队朱雀实验室研发的专业AI内容鉴别工具",
+      "icon": "/icons/zhuque.png",
+      "url": "https://matrix.tencent.com/ai-detect/",
+      "tags": [
+        "ai-detection"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "腾讯出品的AI检测工具，专业性很强，对AI生成的文本和图像检测准确率较高，特别适合需要验证内容真实性的场景",
+          "author": "群友分享",
+          "createdAt": "2025-01-17",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. AI生成文本检测：基于海量数据训练，分析文本的语法结构、用词习惯、句式特征及语义逻辑\n2. AI生成图像检测：通过像素级特征分析，捕捉AI生成图片的异常模式和隐形水印\n3. 多文体支持：支持新闻、公文、小说、散文等多种文体的检测\n4. 快速检测：几秒钟内生成详细检测报告\n5. 概率分析：提供具体的AI生成概率和特征分析\n6. 专业安全：由腾讯混元安全团队朱雀实验室研发，技术可靠",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问腾讯朱雀AI检测助手官网\n2. 选择检测类型：AI生成图片检测或AI生成文本检测\n3. 上传内容：对于图片上传文件，对于文本粘贴或上传文本内容\n4. 开始检测：点击检测按钮启动分析\n5. 查看结果：系统生成检测报告，显示是否为AI生成及详细分析\n6. 保存报告：可保存检测结果作为证据或参考",
+          "type": "text"
+        },
+        {
+          "title": "应用场景",
+          "content": "1. 学术领域：检测论文、作业中的AI生成内容，维护学术诚信\n2. 新闻媒体：验证新闻稿件和图片的真实性，防止虚假信息传播\n3. 内容创作：保护原创作品版权，识别AI辅助生成的内容\n4. 法律证据：审核证据材料的真实性，防范AI伪造证据风险\n5. 企业审核：用于内容审核和质量控制\n6. 教育评估：辅助教师识别学生作业中的AI生成部分",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-01-17T00:00:00Z",
+      "updatedAt": "2025-01-17T00:00:00Z",
+      "toolCategory": "misc",
+      "isVisible": true
+    },
+    {
+      "id": "yueliu",
+      "name": "阅流",
+      "description": "阅流是一款面向创意团队的云端资产管理平台，支持音视频、设计类与图像等多种文件统一管理与在线预览。适合品牌、设计、视频团队集中存储、快速查找、便捷分享与协同评审，提高创作与交付效率。",
+      "icon": "/icons/yueliu.png",
+      "url": "https://yueliu.cn/",
+      "tags": [
+        "media-tools",
+        "asset-management",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "支持音视频文件、设计类文件以及图像文件等创意资产的云端管理，同时可在线便捷预览",
+          "author": "群友推荐",
+          "createdAt": "2025-10-14",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 多格式创意资产管理：音视频、设计稿、图片等集中存储\n2. 在线便捷预览：支持常见媒体与设计文件的在线预览\n3. 协作与权限：支持分享链接、权限分配与团队协作\n4. 检索与组织：标签/关键字搜索、文件夹/项目化管理\n5. 版本与留痕：版本管理、历史记录与备注",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 访问阅流并注册登录\n2. 新建空间/项目，上传音视频或设计类文件\n3. 在线预览与批注评审，统一沟通反馈\n4. 通过分享链接或成员邀请进行协作\n5. 使用标签/搜索管理与快速定位资产",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-10-14T00:00:00Z",
+      "updatedAt": "2025-10-14T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true
+    }
+  ]
+}
