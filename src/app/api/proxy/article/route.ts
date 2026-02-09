@@ -28,7 +28,7 @@ const parseWechatHtml = (html: string): Partial<WechatMetadata> => {
   const $ = cheerio.load(html);
   
   // 1. Extract Title
-  let title = 
+  const title = 
     $('meta[property="og:title"]').attr('content') ||
     $('meta[name="twitter:title"]').attr('content') ||
     $('#activity-name').text() ||
@@ -37,7 +37,7 @@ const parseWechatHtml = (html: string): Partial<WechatMetadata> => {
     '';
     
   // 2. Extract Author
-  let author = 
+  const author = 
     $('meta[name="author"]').attr('content') ||
     $('#js_name').text() || // 公众号名称
     $('.rich_media_meta_text').first().text() || 
@@ -47,7 +47,7 @@ const parseWechatHtml = (html: string): Partial<WechatMetadata> => {
     '';
 
   // 3. Extract Summary/Description
-  let summary = 
+  const summary = 
     $('meta[property="og:description"]').attr('content') ||
     $('meta[name="description"]').attr('content') ||
     extractByRegex(html, /var\s+msg_desc\s*=\s*["']([^"']*)["']/) ||
@@ -55,7 +55,7 @@ const parseWechatHtml = (html: string): Partial<WechatMetadata> => {
     '';
 
   // 4. Extract Cover Image
-  let cover = 
+  const cover = 
     $('meta[property="og:image"]').attr('content') ||
     $('meta[name="twitter:image"]').attr('content') ||
     extractByRegex(html, /var\s+msg_cdn_url\s*=\s*["']([^"']*)["']/) ||
