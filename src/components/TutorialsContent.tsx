@@ -327,7 +327,7 @@ export default function TutorialsContent() {
               </span>
               <button
                 onClick={() => setShowImportForm(!showImportForm)}
-                className="opacity-0 group-hover:opacity-100 transition-opacity text-slate-300 hover:text-primary-500"
+                className="opacity-30 hover:opacity-100 transition-opacity text-slate-400 hover:text-primary-500 p-2"
                 title="导入文章"
               >
                 <i className="fas fa-magic text-lg"></i>
