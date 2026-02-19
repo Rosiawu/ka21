@@ -9,19 +9,13 @@ export type SortMethod = "recommend" | "newest" | "name" | "default";
 export type DifficultyLevel = '小白入门' | '萌新进阶' | '高端玩家';
 
 export type ToolCategoryId = 
-  | "writing"       // AI写作工具
-  | "image"         // AI图像工具  
-  | "video"         // AI视频工具
-  | "office"        // AI办公工具
-  | "design"        // AI设计工具
-  | "chat"          // AI对话聊天
-  | "coding"        // AI编程工具
-  | "audio"         // AI音频工具
-  | "dev-platform"  // AI开发平台
-  | "agent"         // AI通用智能体
-  | "podcast"       // AI播客工具
-  | "misc"          // 其他AI工具 - AI 技术驱动但暂无法归类到上述具体大类的兜底分类
-  | "utils";         // 效率小玩意 - 轻量高效但非 AI 核心驱动的小工具，例如格式转换/PDF 压缩等
+  | "writing"       // ✍️ 写文案 (writing + chat + agent)
+  | "image"         // 🎨 做设计 (image + design)
+  | "video"         // 🎬 做视频 (video)
+  | "audio"         // 🎧 听声音 (audio + podcast)
+  | "office"        // 💼 办办公 (office)
+  | "coding"        // 💻 写代码 (coding)
+  | "utils";        // 🔧 小工具 (utils + misc + dev-platform)
 
 export interface ToolCategory {
   id: ToolCategoryId;

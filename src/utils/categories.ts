@@ -12,31 +12,21 @@ export function getCategoryIcon(categoryId: ToolCategoryId | string): string {
   // 使用switch语句根据分类ID返回对应的Font Awesome图标类名
   switch (categoryId as ToolCategoryId) {
     case 'writing':
-      return 'fa-pen'; // AI写作工具 - 笔图标
+      return 'fa-pen'; // ✍️ 写文案
     case 'image':
-      return 'fa-image'; // AI图像工具 - 图片图标
+      return 'fa-image'; // 🎨 做设计
     case 'video':
-      return 'fa-video'; // AI视频工具 - 视频图标
-    case 'office':
-      return 'fa-briefcase'; // AI办公工具 - 公文包图标
-    case 'design':
-      return 'fa-palette'; // AI设计工具 - 调色板图标
-    case 'chat':
-      return 'fa-comments'; // AI对话聊天 - 对话气泡图标
-    case 'coding':
-      return 'fa-code'; // AI编程工具 - 代码图标
+      return 'fa-video'; // 🎬 剪视频
     case 'audio':
-      return 'fa-music'; // AI音频工具 - 音乐图标
-    case 'dev-platform':
-      return 'fa-server'; // AI开发平台 - 服务器图标
-    case 'agent':
-      return 'fa-robot'; // AI通用智能体 - 机器人图标
-    case 'podcast':
-      return 'fa-microphone'; // AI播客工具 - 麦克风图标
+      return 'fa-music'; // 🎧 听声音
+    case 'office':
+      return 'fa-briefcase'; // 💼 办办公
+    case 'coding':
+      return 'fa-code'; // 💻 写代码
     case 'utils':
-      return 'fa-toolbox'; // 四次元小工具 - 工具箱图标
+      return 'fa-toolbox'; // 🔧 小工具
     default:
-      return 'fa-search'; // misc 或未知分类 - 搜索图标
+      return 'fa-search'; // 未知分类
   }
 }
 

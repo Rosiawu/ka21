@@ -91,19 +91,13 @@
   }
   ,
   "Categories": {
-    "agent": "AI Agents",
-    "office": "AI Productivity",
-    "image": "AI Image Tools",
-    "writing": "AI Writing Tools",
-    "video": "AI Video Tools",
-    "design": "AI Design Tools",
-    "chat": "AI Chat",
-    "coding": "AI Coding Tools",
-    "audio": "AI Audio Tools",
-    "dev-platform": "AI Development Platforms",
-    "podcast": "AI Podcast Tools",
-    "misc": "Other AI Tools",
-    "utils": "Utilities"
+    "writing": "✍️ Writing",
+    "image": "🎨 Design",
+    "video": "🎬 Video",
+    "audio": "🎧 Audio",
+    "office": "💼 Office",
+    "coding": "💻 Coding",
+    "utils": "🔧 Utils"
   },
   "ToolList": {
     "emptyTitle": "No matching tools found",
@@ -169,18 +163,11 @@
   }
   ,
   "CategoryDesc": {
-    "agent": "Intelligent assistants that help with diverse tasks",
-    "office": "AI tools to improve work productivity",
-    "image": "Image generation, editing and optimization tools",
-    "writing": "AI writing assistants to improve copy quality",
-    "video": "Video generation, editing and processing tools",
-    "design": "AI design tools to spark creativity",
-    "chat": "Smart conversational tools to answer questions",
-    "coding": "AI coding assistants to boost development efficiency",
-    "audio": "Audio generation, editing and processing tools",
-    "dev-platform": "AI development platforms and tools",
-    "podcast": "Podcast creation and processing tools",
-    "misc": "Other practical AI tools",
-    "utils": "Handy utilities to improve daily efficiency"
+    "writing": "Writing, Chat, Q&A",
+    "image": "Drawing, Editing, Design",
+    "video": "Generation, Editing, Effects",
+    "audio": "Voiceover, Music, Speech-to-Text",
+    "office": "PPT, Docs, Spreadsheets",
+    "utils": "Productivity Tools, Utilities"
   }
 }

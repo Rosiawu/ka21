@@ -31,20 +31,17 @@ function buildMenuItems(
 ): MenuItem[] {
   return [
     {
-      name: tCommon('menuAllTools'),
-      icon: 'fa-layer-group',
-      href: '/'
-    },
-    {
       name: tCommon('menuTutorials'),
       icon: 'fa-graduation-cap',
       href: '/tutorials'
     },
-    {
-      name: tCommon('menuLlmArticles'),
-      icon: 'fa-newspaper',
-      href: '/llm-articles'
-    },
+    // 添加分类菜单项
+    ...TOOL_CATEGORIES.map(category => ({
+      name: tCategories(String(category.id)) || category.name,
+      icon: getCategoryIcon(category.id),
+      categoryId: category.id,
+      href: `/search?category=${category.id}`
+    })),
     {
       name: tCommon('menuAiLibrary'),
       icon: 'fa-book',
@@ -54,14 +51,7 @@ function buildMenuItems(
       name: tCommon('menuAbout'),
       icon: 'fa-users',
       href: '/about'
-    },
-    // 添加分类菜单项
-    ...TOOL_CATEGORIES.map(category => ({
-      name: tCategories(String(category.id)) || category.name,
-      icon: getCategoryIcon(category.id),
-      categoryId: category.id,
-      href: `/search?category=${category.id}`
-    }))
+    }
   ];
 }
 

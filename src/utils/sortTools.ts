@@ -21,19 +21,13 @@ const RECOMMEND_LEVEL_WEIGHTS: Record<RecommendLevel, number> = {
  * - 可以根据业务需求调整各分类的权重
  */
 const CATEGORY_WEIGHTS: Record<ToolCategoryId, number> = {
-  writing: 10,     // AI写作工具 - 权重最高，优先显示
-  chat: 9,         // AI对话聊天 - 权重很高
-  agent: 9.5,      // AI通用智能体 - 权重很高
-  image: 8,        // AI图像工具 - 权重高
-  video: 7,        // AI视频工具 - 权重较高
-  office: 6,       // AI办公工具 - 权重中等
-  design: 5,       // AI设计工具 - 权重中等
-  coding: 4,       // AI编程工具 - 权重较低
-  audio: 3,        // AI音频工具 - 权重低
-  podcast: 3.5,    // AI播客工具 - 权重低
-  "dev-platform": 2, // AI开发平台 - 权重很低
-  misc: 1,          // 其他AI工具 - 权重最低
-  utils: 4.5       // 四次元小工具 (效率小工具) - 权重较低
+  writing: 10,     // ✍️ 写文案
+  image: 9,        // 🎨 做设计
+  video: 8,        // 🎬 做视频
+  audio: 7,        // 🎧 听声音
+  office: 6,       // 💼 办办公
+  coding: 5,       // 💻 写代码
+  utils: 4         // 🔧 小工具
 };
 
 // ========== 基础排序函数 ==========
@@ -49,19 +43,21 @@ const CATEGORY_WEIGHTS: Record<ToolCategoryId, number> = {
  */
 export function sortByRecommendLevel(tools: Tool[]): Tool[] {
   return [...tools].sort((a, b) => { // 创建数组副本并排序
-    // 获取两个工具的推荐级别权重
+    // 一级排序：displayOrder（自定义显示顺序）
+    // 如果两个工具都有displayOrder，按数值升序排列
+    if (typeof a.displayOrder === 'number' && typeof b.displayOrder === 'number') {
+      return a.displayOrder - b.displayOrder;
+    }
+    // 如果只有一个有displayOrder，它排在前面
+    if (typeof a.displayOrder === 'number') return -1;
+    if (typeof b.displayOrder === 'number') return 1;
+
+    // 二级排序：推荐级别
     const aWeight = a.recommendLevel ? RECOMMEND_LEVEL_WEIGHTS[a.recommendLevel] : 0; // 工具A的推荐权重
     const bWeight = b.recommendLevel ? RECOMMEND_LEVEL_WEIGHTS[b.recommendLevel] : 0; // 工具B的推荐权重
     
     // 如果推荐级别不同，按推荐级别排序（降序）
     if (bWeight !== aWeight) return bWeight - aWeight;
-    
-    // 二级排序：displayOrder（自定义显示顺序）
-    if (typeof a.displayOrder === 'number' && typeof b.displayOrder === 'number') { // 如果两个工具都有displayOrder
-      return a.displayOrder - b.displayOrder; // 按displayOrder升序排列
-    }
-    if (typeof a.displayOrder === 'number') return -1; // 只有A有displayOrder，A优先
-    if (typeof b.displayOrder === 'number') return 1;  // 只有B有displayOrder，B优先
     
     // 三级排序：名称（字母顺序）
     return a.name.localeCompare(b.name); // 按名称字母顺序排序

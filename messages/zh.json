@@ -91,19 +91,13 @@
   }
   ,
   "Categories": {
-    "agent": "AI通用智能体",
-    "office": "AI办公工具",
-    "image": "AI图像工具",
-    "writing": "AI写作工具",
-    "video": "AI视频工具",
-    "design": "AI设计工具",
-    "chat": "AI对话聊天",
-    "coding": "AI编程工具",
-    "audio": "AI音频工具",
-    "dev-platform": "AI开发平台",
-    "podcast": "AI播客工具",
-    "misc": "其他AI工具",
-    "utils": "四次元小工具"
+    "writing": "✍️ 写文案",
+    "image": "🎨 做设计",
+    "video": "🎬 做视频",
+    "audio": "🎧 听声音",
+    "office": "💼 办办公",
+    "coding": "💻 写代码",
+    "utils": "🔧 小工具"
   },
   "ToolList": {
     "emptyTitle": "没有找到匹配的工具",
@@ -169,18 +163,11 @@
   }
   ,
   "CategoryDesc": {
-    "agent": "智能助手，帮你处理各种任务",
-    "office": "提升办公效率的AI工具",
-    "image": "图像生成、编辑和优化工具",
-    "writing": "AI写作助手，提升文案质量",
-    "video": "视频生成、编辑和处理工具",
-    "design": "AI设计工具，激发创意灵感",
-    "chat": "智能对话，解答你的问题",
-    "coding": "AI编程助手，提升开发效率",
-    "audio": "音频生成、编辑和处理工具",
-    "dev-platform": "AI开发平台和工具",
-    "podcast": "播客制作和处理工具",
-    "misc": "其他实用AI工具",
-    "utils": "实用小工具，提升生活效率"
+    "writing": "写作、聊天、智能问答",
+    "image": "画图、修图、海报设计",
+    "video": "视频生成、剪辑、特效",
+    "audio": "配音、音乐、语音转文字",
+    "office": "PPT、文档、表格处理",
+    "utils": "效率神器、实用工具"
   }
 }

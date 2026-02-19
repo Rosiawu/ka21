@@ -157,7 +157,7 @@ const loadTutorialsFromJson = (): Tutorial[] => {
       description: tutorial.description || tutorial.title, // 如果没有描述则使用标题
       imageUrl: imageUrl,
       author: tutorial.source || "AI践行者",
-      publishDate: tutorial.publishDate || new Date().toISOString().split('T')[0],
+      publishDate: tutorial.publishDate || new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()).replace(/\//g, '-'),
       url: tutorial.url,
       category: tutorial.category,
       difficultyLevel: tutorial.difficultyLevel as DifficultyLevel,
