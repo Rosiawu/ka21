@@ -5,7 +5,7 @@ import { Tool, ToolCategoryId } from '../lib/types';
 
 const toolsPath = path.join(process.cwd(), 'src/data/tools.json');
 const toolsData = JSON.parse(fs.readFileSync(toolsPath, 'utf-8'));
-let tools: Tool[] = toolsData.tools;
+const tools: Tool[] = toolsData.tools;
 
 console.log(`Initial tool count: ${tools.length}`);
 

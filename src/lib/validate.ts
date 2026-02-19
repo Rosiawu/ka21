@@ -57,19 +57,13 @@ export function validateTool(data: unknown): data is Tool {
   // 验证工具类型分类（可选）
   if (tool.toolCategory !== undefined) { // 如果分类字段存在
     const validToolCategories: ToolCategoryId[] = [ // 定义有效的工具分类列表
-      'writing',      // AI写作工具
-      'image',         // AI图像工具
-      'video',         // AI视频工具
-      'office',        // AI办公工具
-      'design',        // AI设计工具
-      'chat',          // AI对话聊天
-      'coding',        // AI编程工具
-      'audio',         // AI音频工具
-      'dev-platform',  // AI开发平台
-      'agent',         // AI通用智能体
-      'podcast',       // AI播客工具
-      'misc',          // 其他AI工具
-      'utils'          // 四次元小工具
+      'writing',
+      'image',
+      'video',
+      'audio',
+      'office',
+      'coding',
+      'utils'
     ];
     if (!validToolCategories.includes(tool.toolCategory as ToolCategoryId)) { // 检查分类是否在有效列表中
       return false; // 如果分类无效，验证失败
