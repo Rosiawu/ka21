@@ -46,7 +46,7 @@ export default function UnifiedSearchContent() {
   // 输入和搜索状态
   const [inputValue, setInputValue] = useState(searchQuery); // 输入框的值，初始为URL中的查询参数
   const [isLoading, setIsLoading] = useState(true); // 是否正在加载数据
-  const searchInputRef = useRef<HTMLInputElement>(null); // 搜索输入框的引用，用于聚焦操作
+  const searchInputRef = useRef<HTMLTextAreaElement>(null); // 搜索输入框的引用，用于聚焦操作
   
   // 搜索结果状态
   const [filteredTools, setFilteredTools] = useState<Tool[]>([]); // 过滤后的工具列表
@@ -90,23 +90,31 @@ export default function UnifiedSearchContent() {
   
   // ========== 事件处理函数 ==========
   
-  // 按下Escape键清空搜索
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') { // 检测Escape键
-      setInputValue(''); // 清空输入框内容
-    }
+  const executeUnifiedSearch = (rawQuery: string, source: string) => {
+    const trimmed = rawQuery.trim();
+    if (!trimmed) return;
+    trackUserAction('search', {
+      query: trimmed,
+      search_source: source
+    });
+    router.push(`/unified-search?q=${encodeURIComponent(trimmed)}`);
   };
   
   // 处理搜索表单提交
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // 阻止表单默认提交行为
-    if (inputValue.trim()) { // 如果输入内容不为空
-      trackUserAction('search', {
-        query: inputValue.trim(),
-        search_source: 'unified_search'
-      });
-      // 更新URL参数，跳转到统一搜索页面
-      router.push(`/unified-search?q=${encodeURIComponent(inputValue.trim())}`);
+    executeUnifiedSearch(inputValue, 'unified_search');
+  };
+
+  const handleComposerKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Escape') {
+      setInputValue('');
+      router.push('/unified-search');
+      return;
+    }
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      executeUnifiedSearch(inputValue, 'unified_search_enter');
     }
   };
 
@@ -218,55 +226,70 @@ export default function UnifiedSearchContent() {
             </p>
           </div>
           
-          {/* 搜索表单 */}
-          <div className="mb-12 relative max-w-lg mx-auto">
-            <form onSubmit={handleSubmit} className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-              </div>
-              <input
+          {/* 对话式输入框 */}
+          <div className="mb-8 relative max-w-5xl mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-[2rem] border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)] dark:shadow-[0_10px_30px_rgba(2,6,23,0.45)] backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5 transition-all focus-within:border-primary-400 focus-within:shadow-[0_14px_35px_rgba(59,130,246,0.18)]"
+            >
+              <label htmlFor="search" className="sr-only">对话输入框</label>
+              <textarea
                 ref={searchInputRef}
-                type="text"
                 id="search"
-                className="block w-full p-3 pl-10 text-md border-none ring-1 ring-slate-300 dark:ring-slate-700 rounded-lg bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all"
-                placeholder="搜索AI工具、教程..."
-                autoComplete="off"
+                rows={2}
+                className="w-full resize-none bg-transparent text-base sm:text-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
+                placeholder="把你的任务直接说出来，比如：我想做一个短剧脚本。"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={handleKeyDown}
+                onKeyDown={handleComposerKeyDown}
                 onFocus={() => {
                   trackUserAction('search_focus', {
                     search_source: 'unified_search'
                   });
                 }}
               />
-              {inputValue && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setInputValue('');
-                    router.push('/unified-search');
-                  }}
-                  className="absolute inset-y-0 right-12 flex items-center pr-2 text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </button>
-              )}
-              <button
-                type="submit"
-                className="absolute inset-y-0 right-0 flex items-center pr-3 text-white bg-primary-500 hover:bg-primary-600 rounded-r-lg px-4"
-              >
-                <span className="sr-only">搜索</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-              </button>
+
+              <div className="mt-4 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
+                    <i className="fas fa-comments text-[11px]"></i>
+                    对话模式
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-primary-50 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 border border-primary-100 dark:border-primary-800/60">
+                    <i className="fas fa-wand-magic-sparkles text-[11px]"></i>
+                    智能意图理解
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {inputValue && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setInputValue('');
+                        router.push('/unified-search');
+                      }}
+                      className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                      aria-label="清空输入"
+                    >
+                      <i className="fas fa-xmark"></i>
+                    </button>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={!inputValue.trim()}
+                    className="h-11 px-4 inline-flex items-center gap-2 rounded-full bg-slate-900 text-white dark:bg-primary-500 dark:text-white enabled:hover:bg-slate-700 dark:enabled:hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <span className="text-sm">发送</span>
+                    <i className="fas fa-paper-plane text-xs"></i>
+                  </button>
+                </div>
+              </div>
+
+              <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+                示例提问: 帮我做一个短视频创作流程 | 适合小白的 AI 写作工具有哪些
+              </p>
             </form>
-            {/* 搜索提示已移除 */}
           </div>
 
           <div className="mb-10 max-w-4xl mx-auto">

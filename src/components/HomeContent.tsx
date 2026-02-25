@@ -54,7 +54,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   
   // 搜索相关状态
   const [searchQuery, setSearchQuery] = useState(''); // 搜索输入框的值
-  const searchInputRef = useRef<HTMLInputElement>(null); // 搜索输入框的引用，用于聚焦操作
+  const searchInputRef = useRef<HTMLTextAreaElement>(null); // 搜索输入框的引用，用于聚焦操作
   
   // 数据加载状态
   const [isLoading, setIsLoading] = useState(true); // 是否正在加载数据
@@ -125,18 +125,26 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     },
   ]);
   
+  const executeHomeSearch = (rawQuery: string, source: string) => {
+    const trimmed = rawQuery.trim();
+    if (!trimmed) return;
+    trackUserAction('search', {
+      query: trimmed,
+      search_source: source,
+    });
+    router.push(`/unified-search?q=${encodeURIComponent(trimmed)}`);
+  };
+
   // 处理搜索表单提交
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      // 跟踪搜索事件
-      trackUserAction('search', {
-        query: searchQuery.trim(),
-        search_source: 'home_page'
-      });
-      
-      // 跳转到统一搜索页面，同时显示工具和教程结果
-      router.push(`/unified-search?q=${encodeURIComponent(searchQuery.trim())}`);
+    executeHomeSearch(searchQuery, 'home_page');
+  };
+
+  const handleComposerKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      executeHomeSearch(searchQuery, 'home_page_enter');
     }
   };
 
@@ -305,60 +313,73 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
             </p>
           </div>
           
-          {/* 搜索栏 - 修改为表单提交到搜索页面 */}
-          <div className="mb-4 relative max-w-lg mx-auto">
-            <form onSubmit={handleSearchSubmit} className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                {isSearchPending ? (
-                  <svg className="w-5 h-5 text-primary-500 animate-spin" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                  </svg>
-                )}
-              </div>
-              <input
+          {/* 对话式输入框 */}
+          <div className="mb-6 relative max-w-5xl mx-auto">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="rounded-[2rem] border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)] dark:shadow-[0_10px_30px_rgba(2,6,23,0.45)] backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5 transition-all focus-within:border-primary-400 focus-within:shadow-[0_14px_35px_rgba(59,130,246,0.18)]"
+            >
+              <label htmlFor="search" className="sr-only">对话输入框</label>
+              <textarea
                 ref={searchInputRef}
-                type="text"
                 id="search"
-                className={`block w-full p-3 pl-10 pr-16 text-md border-none ring-1 ring-slate-300 dark:ring-slate-700 rounded-lg bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 ${isSearchPending ? 'focus:ring-primary-500' : 'focus:ring-primary-500'} dark:focus:ring-primary-400 transition-all`}
-                placeholder={tHome('searchPlaceholder')}
-                autoComplete="off"
+                rows={2}
+                className="w-full resize-none bg-transparent text-base sm:text-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
+                placeholder="今天想做什么？像聊天一样告诉我，我来帮你找工具和教程。"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleComposerKeyDown}
                 onFocus={() => {
                   trackUserAction('search_focus', {
-                    search_source: 'home_page'
+                    search_source: 'home_page',
                   });
                 }}
               />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSearchQuery('');
-                  }}
-                  className="absolute inset-y-0 right-12 flex items-center pr-2 text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </button>
-              )}
-              <button
-                type="submit"
-                className="absolute inset-y-0 right-0 flex items-center pr-3 text-white bg-primary-500 hover:bg-primary-600 rounded-r-lg px-4"
-              >
-                <span className="sr-only">搜索</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-              </button>
+
+              <div className="mt-4 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
+                    <i className="fas fa-comments text-[11px]"></i>
+                    对话模式
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-primary-50 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 border border-primary-100 dark:border-primary-800/60">
+                    <i className="fas fa-wand-magic-sparkles text-[11px]"></i>
+                    意图匹配已开启
+                  </span>
+                  {isSearchPending && (
+                    <span className="inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                      <span className="w-3 h-3 border-2 border-primary-400 border-t-transparent rounded-full animate-spin"></span>
+                      正在理解你的需求
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                      aria-label="清空输入"
+                    >
+                      <i className="fas fa-xmark"></i>
+                    </button>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={!searchQuery.trim()}
+                    className="h-11 px-4 inline-flex items-center gap-2 rounded-full bg-slate-900 text-white dark:bg-primary-500 dark:text-white enabled:hover:bg-slate-700 dark:enabled:hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  >
+                    <span className="text-sm">发送</span>
+                    <i className="fas fa-paper-plane text-xs"></i>
+                  </button>
+                </div>
+              </div>
+
+              <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+                试试这样问: 做短剧分镜 | 写一段发布文案 | 找能自动汇总表格的工具
+              </p>
             </form>
-            {/* 搜索提示已移除 */}
           </div>
 
           <div className="mb-10 max-w-4xl mx-auto">
