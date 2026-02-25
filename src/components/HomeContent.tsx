@@ -20,6 +20,7 @@ import { applySorting } from '@/utils/sortTools'; // 应用排序函数
 import { getVisibleTools } from '@/utils/sortTools'; // 获取可见工具函数
 import StatsDisplay from './StatsDisplay'; // 统计显示组件
 import { HotSection } from '@/components/hot'; // 热门推荐区域组件
+import SearchIntentPanel from './SearchIntentPanel'; // 搜索意图推荐组件
 import { trackUserAction, trackPageView, setTag } from '@/utils/clarity'; // 埋点分析工具
 import useDebounce from '@/hooks/useDebounce'; // 防抖Hook
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
@@ -137,6 +138,17 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       // 跳转到统一搜索页面，同时显示工具和教程结果
       router.push(`/unified-search?q=${encodeURIComponent(searchQuery.trim())}`);
     }
+  };
+
+  const handleIntentQuerySelect = (query: string) => {
+    const trimmed = query.trim();
+    if (!trimmed) return;
+    setSearchQuery(trimmed);
+    trackUserAction('search_intent_click', {
+      query: trimmed,
+      search_source: 'home_intent_panel'
+    });
+    router.push(`/unified-search?q=${encodeURIComponent(trimmed)}`);
   };
 
   // 由数据推导出的 UI 状态（不额外维护本地状态）
@@ -317,6 +329,11 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 autoComplete="off"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => {
+                  trackUserAction('search_focus', {
+                    search_source: 'home_page'
+                  });
+                }}
               />
               {searchQuery && (
                 <button
@@ -342,6 +359,13 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
               </button>
             </form>
             {/* 搜索提示已移除 */}
+          </div>
+
+          <div className="mb-10 max-w-4xl mx-auto">
+            <SearchIntentPanel
+              query={searchQuery}
+              onQuerySelect={handleIntentQuerySelect}
+            />
           </div>
           
           {/* 添加工具和教程统计数据 */}

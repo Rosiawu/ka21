@@ -13,6 +13,8 @@ import TutorialCard from '@/components/TutorialCard'; // 教程卡片组件
 import ToolSortControls, { SortMethod } from './ToolSortControls'; // 排序控制组件
 import { applySorting, getVisibleTools } from '@/utils/sortTools'; // 排序和过滤工具函数
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
+import SearchIntentPanel from '@/components/SearchIntentPanel'; // 搜索意图推荐
+import { trackUserAction } from '@/utils/clarity'; // 搜索行为埋点
 
 /**
  * 统一搜索内容组件
@@ -99,9 +101,24 @@ export default function UnifiedSearchContent() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // 阻止表单默认提交行为
     if (inputValue.trim()) { // 如果输入内容不为空
+      trackUserAction('search', {
+        query: inputValue.trim(),
+        search_source: 'unified_search'
+      });
       // 更新URL参数，跳转到统一搜索页面
       router.push(`/unified-search?q=${encodeURIComponent(inputValue.trim())}`);
     }
+  };
+
+  const handleIntentQuerySelect = (query: string) => {
+    const trimmed = query.trim();
+    if (!trimmed) return;
+    setInputValue(trimmed);
+    trackUserAction('search_intent_click', {
+      query: trimmed,
+      search_source: 'unified_search_panel'
+    });
+    router.push(`/unified-search?q=${encodeURIComponent(trimmed)}`);
   };
   
   // ========== 快捷键支持 ==========
@@ -219,6 +236,11 @@ export default function UnifiedSearchContent() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
+                onFocus={() => {
+                  trackUserAction('search_focus', {
+                    search_source: 'unified_search'
+                  });
+                }}
               />
               {inputValue && (
                 <button
@@ -245,6 +267,15 @@ export default function UnifiedSearchContent() {
               </button>
             </form>
             {/* 搜索提示已移除 */}
+          </div>
+
+          <div className="mb-10 max-w-4xl mx-auto">
+            <SearchIntentPanel
+              query={inputValue}
+              onQuerySelect={handleIntentQuerySelect}
+              maxTools={4}
+              maxTutorials={4}
+            />
           </div>
           
           {/* 加载状态 */}
