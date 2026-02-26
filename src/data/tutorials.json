@@ -1661,11 +1661,25 @@
       "recommendReason": "7大穷鬼套餐+3个省钱方案",
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/MoZfoickyLB1ssU7AOjFHVJKX0Bx1GkKMezCf5CsEvrJWnzAXz4fB4z5BWwp8TIEzAXvA5tUtGN6KeS0emd63EIVogawGmJSXanabbegUrcM/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-装上这个Skills让整个GitHub为你打工-0",
+      "title": "装上这个Skills，让整个GitHub为你打工",
+      "description": "让AI自动拆解任务、搜索、阅读并筛选最适合自己的开源仓库。",
+      "url": "https://mp.weixin.qq.com/s/zSOYzJfFe-P8BRZMa_PtUA",
+      "source": "云舒（哈皮狗狗教主）",
+      "publishDate": "2026-02-26",
+      "difficultyLevel": "萌新进阶",
+      "category": "AI效率",
+      "skillTags": [],
+      "recommendReason": "让AI自动拆解任务、搜索、阅读并筛选最适合自己的开源仓库。",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/cevPo6QMgbDLusN5jZPbjia57PbwOIoTQAYs49qnvxmqls8AoAjwVYXCdbZN4zR1V1aBemvS8mdibXzCabicSCRLyDhXZdt7ayZ2Z2NxpfZHFM/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-02-26T06:11:48.440Z",
-    "count": 91
+    "updatedAt": "2026-02-26T07:35:49.539Z",
+    "count": 92
   }
 }
