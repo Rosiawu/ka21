@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { TeamMember } from '@/types/team';
+import { usePathname } from 'next/navigation';
 
 interface TeamMemberCardProps {
   member: TeamMember;
@@ -67,7 +68,26 @@ const getTraitEmoji = (trait: string): string => {
 };
 
 export default function TeamMemberCard({ member }: TeamMemberCardProps) {
+  const pathname = usePathname();
+  const isEn = pathname?.startsWith('/en');
   const [isExpanded, setIsExpanded] = useState(false);
+  const text = {
+    avatar: isEn ? 'avatar' : '头像',
+    locationFallback: isEn ? 'China' : '中国',
+    specialty: isEn ? 'Specialty' : '专业领域',
+    bio: isEn ? 'Bio' : '个人简介',
+    nickname: isEn ? 'Nickname' : '昵称',
+    skills: isEn ? 'Skills' : '技术能力',
+    coreSkill: isEn ? 'Core domain skill' : '专业领域核心技能',
+    supportSkill: isEn ? 'Supporting skill' : '辅助技术能力',
+    aiTools: isEn ? 'AI Tools' : '常用AI工具',
+    traits: isEn ? 'Personal Traits' : '个人特质',
+    officialAccount: isEn ? 'Official Account' : '公众号',
+    followHint: isEn ? 'Follow for updates' : '敬请关注',
+    accountAlt: isEn ? 'official account' : '的公众号',
+    collapse: isEn ? 'Collapse' : '收起',
+    expand: isEn ? 'Learn more' : '了解更多',
+  };
   
   // 处理展开/收起状态切换
   const toggleExpand = () => {
@@ -90,7 +110,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             {member.avatar ? (
               <Image 
                 src={member.avatar} 
-                alt={`${member.name}头像`} 
+                alt={`${member.name} ${text.avatar}`} 
                 width={64} 
                 height={64} 
                 className="w-full h-full object-cover"
@@ -110,7 +130,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         </div>
         <div>
           <h3 className="text-2xl font-bold text-indigo-900 dark:text-primary-400 shadow-sm">{member.name}</h3>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">{member.location || '中国'}</p>
+          <p className="text-gray-600 dark:text-gray-400 text-sm">{member.location || text.locationFallback}</p>
           <div className="tag-container flex flex-wrap gap-1.5 mt-2">
             {member.title && (
               <span className="tag bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 text-xs px-2 py-1 rounded-full shadow-sm">
@@ -136,7 +156,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             <circle cx="12" cy="12" r="10"></circle>
             <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
           </svg>
-          <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">专业领域</h2>
+          <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.specialty}</h2>
         </div>
         <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-3 border-l-4 border-indigo-400 dark:border-indigo-500 shadow-sm">
           <p className="text-gray-700 dark:text-gray-300 text-sm">{specialtyTags.join(' · ')}</p>
@@ -152,7 +172,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
               <line x1="12" y1="16" x2="12" y2="12"></line>
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
             </svg>
-            <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">个人简介</h2>
+            <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.bio}</h2>
           </div>
           <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-3 border-l-4 border-indigo-400 dark:border-indigo-500 text-sm text-gray-700 dark:text-gray-300 whitespace-pre-line">
             {member.description}
@@ -177,7 +197,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
-            昵称: {member.nickname}
+            {text.nickname}: {member.nickname}
           </div>
         )}
       </div>
@@ -197,7 +217,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                 <line x1="10" y1="22" x2="14" y2="22"></line>
                 <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8A6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
               </svg>
-              <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">技术能力</h2>
+              <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.skills}</h2>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {member.skills.map((skill, index) => (
@@ -207,7 +227,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                 >
                   <h3 className="font-medium text-indigo-700 dark:text-indigo-300 text-xs mb-1">{skill}</h3>
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    {index === 0 ? '专业领域核心技能' : '辅助技术能力'}
+                    {index === 0 ? text.coreSkill : text.supportSkill}
                   </p>
                 </div>
               ))}
@@ -223,7 +243,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                 <path d="M12 8V4m0 4l-4 4m4-4l4 4M4 16v-4a8 8 0 0 1 16 0v4"></path>
                 <path d="M18 18v2a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-2"></path>
               </svg>
-              <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">常用AI工具</h2>
+              <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.aiTools}</h2>
             </div>
             <div className="flex flex-wrap gap-2">
               {member.aiTools.map((tool, index) => (
@@ -246,7 +266,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
               </svg>
-              <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">个人特质</h2>
+              <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.traits}</h2>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-gray-200 dark:border-gray-700 shadow-sm">
               <div className="flex flex-wrap gap-2">
@@ -282,14 +302,14 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-1">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                   </svg>
-                  <h3 className="text-xs font-semibold text-gray-700 dark:text-gray-300">公众号</h3>
+                  <h3 className="text-xs font-semibold text-gray-700 dark:text-gray-300">{text.officialAccount}</h3>
                 </div>
-                <p className="text-xs text-gray-600 dark:text-gray-400 italic">{member.wechatAccount || '敬请关注'}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 italic">{member.wechatAccount || text.followHint}</p>
               </div>
               <div className="qr-code w-16 h-16 bg-white dark:bg-gray-800 border-2 border-indigo-200 dark:border-indigo-700 rounded-lg flex items-center justify-center shadow-sm overflow-hidden">
                 <Image 
                   src={member.wechatQR} 
-                  alt={`${member.name}的公众号`} 
+                  alt={`${member.name} ${text.accountAlt}`} 
                   width={64} 
                   height={64} 
                   className="w-full h-full object-cover"
@@ -310,7 +330,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
           onClick={toggleExpand}
           className="save-btn bg-indigo-500 hover:bg-indigo-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full text-center transition-colors shadow-sm"
         >
-          {isExpanded ? "收起" : "了解更多"}
+          {isExpanded ? text.collapse : text.expand}
         </button>
       </div>
     </div>

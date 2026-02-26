@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { TeamMember } from '@/types/team';
 import { calculateTeamCapabilities } from '@/data/team-members';
+import { usePathname } from 'next/navigation';
 
 interface TeamCapabilityMatrixProps {
   teamMembers: TeamMember[];
@@ -10,8 +11,15 @@ interface TeamCapabilityMatrixProps {
 }
 
 export default function TeamCapabilityMatrix({ teamMembers, className = '' }: TeamCapabilityMatrixProps) {
+  const pathname = usePathname();
+  const isEn = pathname?.startsWith('/en');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const capabilities = calculateTeamCapabilities();
+  const text = {
+    title: isEn ? 'Team AI Tool Usage' : '团队AI工具使用分布',
+    membersUsing: (category: string, count: number) =>
+      isEn ? `Team members using "${category}" (${count})` : `使用"${category}"的团队成员 (${count})`,
+  };
   
   // 显示前8个主要能力
   const topCapabilities = capabilities.slice(0, 8);
@@ -33,7 +41,7 @@ export default function TeamCapabilityMatrix({ teamMembers, className = '' }: Te
           <line x1="20" y1="8" x2="20" y2="14"></line>
           <line x1="23" y1="11" x2="17" y2="11"></line>
         </svg>
-        <h2 className="text-xl font-bold text-indigo-800 dark:text-indigo-300">团队AI工具使用分布</h2>
+        <h2 className="text-xl font-bold text-indigo-800 dark:text-indigo-300">{text.title}</h2>
       </div>
       
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
@@ -70,7 +78,7 @@ export default function TeamCapabilityMatrix({ teamMembers, className = '' }: Te
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             <h3 className="text-lg font-semibold text-indigo-800 dark:text-indigo-300">
-              使用&quot;{selectedCategory}&quot;的团队成员 ({filteredMembers.length})
+              {text.membersUsing(selectedCategory, filteredMembers.length)}
             </h3>
           </div>
           <div className="flex flex-wrap gap-2">

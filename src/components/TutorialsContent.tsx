@@ -2,19 +2,19 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, usePathname } from 'next/navigation';
 import { tutorials, Tutorial, sortTutorials, TutorialSortMethod, DifficultyLevel } from '@/data/tutorials';
 import { useMediaQuery } from '@/hooks/useMediaQuery'; // 引入媒体查询钩子
 import DifficultyBadge from './DifficultyBadge';
 import SkillTag from './SkillTag';
-import { getCategoryColor } from '@/utils/tutorials';
+import { getCategoryColor, localizeTutorialCategory } from '@/utils/tutorials';
 
 /**
  * 教程标签组件
  */
-const TutorialTag = ({ category }: { category: string }) => (
+const TutorialTag = ({ category, isEn }: { category: string; isEn: boolean }) => (
   <span className={`px-2 py-0.5 ${getCategoryColor(category)} text-white text-xs font-medium rounded-md`}>
-    {category}
+    {localizeTutorialCategory(category, isEn ? 'en' : 'zh')}
   </span>
 );
 
@@ -24,11 +24,13 @@ const TutorialTag = ({ category }: { category: string }) => (
 const TutorialCard = ({ 
   tutorial, 
   showDelete, 
-  onDelete 
+  onDelete,
+  isEn,
 }: { 
   tutorial: Tutorial; 
   showDelete: boolean; 
   onDelete: (id: string) => void;
+  isEn: boolean;
 }) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const cardRef = useRef<HTMLDivElement>(null);
@@ -55,12 +57,15 @@ const TutorialCard = ({
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            if (window.confirm(`确定要删除 "${tutorial.title}" 吗？\n\n这将提交代码变更到 GitHub 并触发重新部署。`)) {
+            if (window.confirm(isEn
+              ? `Delete "${tutorial.title}"?\n\nThis will submit code changes to GitHub and trigger redeployment.`
+              : `确定要删除 "${tutorial.title}" 吗？\n\n这将提交代码变更到 GitHub 并触发重新部署。`
+            )) {
               onDelete(tutorial.id);
             }
           }}
           className="absolute -top-2 -right-2 z-30 bg-red-500 hover:bg-red-600 text-white w-8 h-8 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
-          title="删除此教程"
+          title={isEn ? 'Delete tutorial' : '删除此教程'}
         >
           <i className="fas fa-trash text-xs"></i>
         </button>
@@ -95,7 +100,7 @@ const TutorialCard = ({
                 const target = e.target as HTMLImageElement;
                 // 使用一个默认的渐变背景作为图片
                 target.onerror = null; // 防止无限循环
-                target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="288" height="144" viewBox="0 0 288 144"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="288" height="144" fill="url(%23grad)" /><text x="50%" y="50%" font-family="Arial" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">教程图片</text></svg>';
+                target.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="288" height="144" viewBox="0 0 288 144"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="288" height="144" fill="url(%23grad)" /><text x="50%" y="50%" font-family="Arial" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">${isEn ? 'Tutorial cover' : '教程图片'}</text></svg>`;
               }}
             />
           </div>
@@ -104,7 +109,7 @@ const TutorialCard = ({
             <DifficultyBadge level={tutorial.difficultyLevel} size="sm" />
           </div>
           <div className="absolute bottom-2 left-2 z-10">
-            <TutorialTag category={tutorial.category} />
+            <TutorialTag category={tutorial.category} isEn={isEn} />
           </div>
         </div>
         <div className={`${isMobile ? 'p-2' : 'p-3'} flex-grow`}>
@@ -141,7 +146,7 @@ const TutorialCard = ({
           )}
           
           <div className={`text-sm font-medium text-primary-600 dark:text-primary-400 flex items-center ${isMobile ? '' : 'group-hover:translate-x-1'} transition-transform duration-300 mt-1`}>
-            阅读全文
+            {isEn ? 'Read more' : '阅读全文'}
             <i className={`fas fa-arrow-right ml-1 ${isMobile ? '' : 'group-hover:ml-2'} transition-all duration-300`}></i>
           </div>
         </div>
@@ -155,6 +160,8 @@ const TutorialCard = ({
  * 教程列表内容组件
  */
 export default function TutorialsContent() {
+  const pathname = usePathname();
+  const isEn = pathname?.startsWith('/en');
   const searchParams = useSearchParams();
   const queryParam = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(queryParam);
@@ -172,6 +179,63 @@ export default function TutorialsContent() {
   const [saving, setSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const text = {
+    title: isEn ? 'Starter Tutorials' : '萌新教程',
+    subtitle: isEn
+      ? 'Personal write-ups from AI practitioners, sharing practical tips, hands-on workflows, and real use cases.'
+      : '来自AI践行者们的个人写作，分享AI工具的使用技巧、实战经验和创新应用',
+    importTitle: isEn ? 'Import article' : '导入文章',
+    allTutorials: isEn ? 'All Tutorials' : '全部教程',
+    beginner: isEn ? 'Beginner' : '小白入门',
+    intermediate: isEn ? 'Intermediate' : '萌新进阶',
+    advanced: isEn ? 'Advanced' : '高端玩家',
+    searchPlaceholder: isEn ? 'Search tutorial title, description, or author...' : '搜索教程标题、描述或作者...',
+    sortLatest: isEn ? 'Newest first' : '最新优先',
+    sortOldest: isEn ? 'Oldest first' : '最早优先',
+    sortDifficulty: isEn ? 'Easy to hard' : '从易到难',
+    categoryTitle: isEn ? 'Content Categories' : '内容分类',
+    allCategories: isEn ? 'All Categories' : '全部分类',
+    skillTitle: isEn ? 'Tool/Skill Tags' : '工具/技能标签',
+    allSkills: isEn ? 'All Skills' : '全部技能',
+    resultCount: (count: number) => (isEn ? `Found ${count} matching tutorials` : `找到 ${count} 个符合条件的教程`),
+    resetFilters: isEn ? 'Reset Filters' : '重置筛选',
+    noResultTitle: isEn ? 'No matching tutorials found' : '未找到匹配的教程',
+    noResultHint: isEn ? 'Try different keywords or filters.' : '请尝试其他搜索词或筛选条件',
+    resetAll: isEn ? 'Reset All Filters' : '重置所有筛选',
+    deleteSuccess: isEn ? 'Deleted successfully!' : '删除成功！',
+    deleteFailedPrefix: isEn ? 'Delete failed:' : '删除失败:',
+    deleteRequestError: isEn ? 'Delete request failed' : '删除请求发生错误',
+    inputLink: isEn ? 'Please enter a link' : '请输入链接',
+    extractFailed: isEn ? 'Extraction failed' : '提取失败',
+    extractSuccess: isEn ? 'Extracted successfully! Please review the form below.' : '提取成功！请检查下方表单内容。',
+    autoFilled: isEn ? 'Article metadata auto-filled. Please review and save.' : '已自动填充文章信息，请核对后保存。',
+    requestFailed: isEn ? 'Request failed' : '请求失败',
+    unexpectedErrorPrefix: isEn ? 'Unexpected error:' : '发生错误:',
+    likelyReason: isEn ? 'Possible reasons:' : '可能原因：',
+    reasonNetwork: isEn ? 'Network connection issue' : '网络连接问题',
+    reasonInvalidLink: isEn ? 'Invalid link' : '链接无效',
+    reasonBlocked: isEn ? 'Blocked by browser extension' : '浏览器插件拦截',
+    requiredLinkTitle: isEn ? 'Link and title are required' : '链接和标题不能为空',
+    saveFailed: isEn ? 'Save failed' : '保存失败',
+    saveFailedRetry: isEn ? 'Save failed, please try again later' : '保存失败，请稍后再试',
+    addedSuccess: isEn ? 'Added to tutorial data' : '已添加到教程数据中',
+    importPanelTitle: isEn ? 'WeChat article import (internal)' : '微信公众号文章导入（内部使用）',
+    articleLinkLabel: isEn ? 'Article link (WeChat only)' : '文章链接（仅支持微信公众号）',
+    extracting: isEn ? 'Extracting...' : '提取中...',
+    extractInfo: isEn ? 'Extract info' : '提取信息',
+    fieldTitle: isEn ? 'Title' : '标题',
+    fieldAuthor: isEn ? 'Author' : '作者',
+    fieldDate: isEn ? 'Publish date (YYYY-MM-DD)' : '发布日期（YYYY-MM-DD）',
+    fieldCategory: isEn ? 'Category (auto-detected, editable)' : '分类（自动匹配，可手动修改）',
+    chooseCategory: isEn ? 'Select category' : '请选择分类',
+    fieldDifficulty: isEn ? 'Difficulty' : '难度',
+    fieldCover: isEn ? 'Cover URL (optional)' : '封面图 URL（可为空）',
+    fieldSummary: isEn ? 'Summary / Recommendation' : '摘要 / 推荐理由',
+    fieldSkills: isEn ? 'Skill tags (comma-separated)' : '技能标签（用逗号分隔）',
+    skillPlaceholder: isEn ? 'Example: DeepSeek, AI design' : '例如：DeepSeek, AI绘画',
+    saving: isEn ? 'Saving...' : '保存中...',
+    confirmAdd: isEn ? 'Add to tutorial data' : '确认添加到教程数据',
+  };
 
   const [formTitle, setFormTitle] = useState('');
   const [formAuthor, setFormAuthor] = useState('');
@@ -208,7 +272,7 @@ export default function TutorialsContent() {
   const handleFetchWechat = async () => {
     console.log('>>> handleFetchWechat called', { importUrl });
     if (!importUrl) {
-      alert('请输入链接');
+      alert(text.inputLink);
       return;
     }
     
@@ -227,9 +291,9 @@ export default function TutorialsContent() {
       console.log('Response data:', data);
 
       if (!data.success) {
-        const msg = data.message || '提取失败';
+        const msg = data.message || text.extractFailed;
         setImportError(msg);
-        alert(`提取失败: ${msg}`);
+        alert(`${text.extractFailed}: ${msg}`);
         return;
       }
 
@@ -245,13 +309,15 @@ export default function TutorialsContent() {
       setFormDifficulty('萌新进阶');
       setFormSkillTags('');
       
-      setSaveMessage('已自动填充文章信息，请核对后保存。');
-      alert('提取成功！请检查下方表单内容。');
+      setSaveMessage(text.autoFilled);
+      alert(text.extractSuccess);
     } catch (error: unknown) {
       console.error('Fetch error:', error);
-      const errorMessage = error instanceof Error ? error.message : '请求失败';
+      const errorMessage = error instanceof Error ? error.message : text.requestFailed;
       setImportError(errorMessage);
-      alert(`发生错误: ${errorMessage}\n\n可能原因：\n1. 网络连接问题\n2. 链接无效\n3. 浏览器插件拦截`);
+      alert(
+        `${text.unexpectedErrorPrefix} ${errorMessage}\n\n${text.likelyReason}\n1. ${text.reasonNetwork}\n2. ${text.reasonInvalidLink}\n3. ${text.reasonBlocked}`
+      );
     } finally {
       setImportLoading(false);
     }
@@ -261,7 +327,7 @@ export default function TutorialsContent() {
     setImportError('');
     setSaveMessage('');
     if (!formTitle || !importUrl) {
-      setImportError('链接和标题不能为空');
+      setImportError(text.requiredLinkTitle);
       return;
     }
     setSaving(true);
@@ -288,16 +354,16 @@ export default function TutorialsContent() {
       });
       const data = await res.json();
       if (!data.success) {
-        setImportError(data.message || '保存失败');
+        setImportError(data.message || text.saveFailed);
         return;
       }
-      setSaveMessage(data.message || '已添加到教程数据中');
+      setSaveMessage(data.message || text.addedSuccess);
       
       // 如果是本地环境，可以尝试手动更新列表（可选）
       // 但因为是静态数据，最好还是提示重新部署
     } catch (error) {
       console.error(error);
-      setImportError('保存失败，请稍后再试');
+      setImportError(text.saveFailedRetry);
     } finally {
       setSaving(false);
     }
@@ -315,15 +381,15 @@ export default function TutorialsContent() {
       const data = await res.json();
       
       if (data.success) {
-        alert(data.message || '删除成功！');
+        alert(data.message || text.deleteSuccess);
         // 乐观更新：从当前视图中移除
         setFilteredTutorials(prev => prev.filter(t => t.id !== id));
       } else {
-        alert(`删除失败: ${data.message}`);
+        alert(`${text.deleteFailedPrefix} ${data.message}`);
       }
     } catch (error) {
       console.error('Delete error:', error);
-      alert('删除请求发生错误');
+      alert(text.deleteRequestError);
     } finally {
       setDeletingId(null);
     }
@@ -378,18 +444,18 @@ export default function TutorialsContent() {
           <div className="text-center mb-6 relative group">
             <h1 className="text-3xl font-bold mb-2 text-slate-900 dark:text-white inline-flex items-center gap-2">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-                萌新教程
+                {text.title}
               </span>
               <button
                 onClick={() => setShowImportForm(!showImportForm)}
                 className="opacity-30 hover:opacity-100 transition-opacity text-slate-400 hover:text-primary-500 p-2"
-                title="导入文章"
+                title={text.importTitle}
               >
                 <i className="fas fa-magic text-lg"></i>
               </button>
             </h1>
             <p className="text-md text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
-              来自AI践行者们的个人写作，分享AI工具的使用技巧、实战经验和创新应用
+              {text.subtitle}
             </p>
           </div>
 
@@ -399,13 +465,13 @@ export default function TutorialsContent() {
               <div className="flex items-center justify-between mb-3">
                 <h2 className="text-sm font-semibold text-slate-800 dark:text-slate-100 flex items-center">
                   <i className="fas fa-magic mr-2 text-primary-500"></i>
-                  微信公众号文章导入（内部使用）
+                  {text.importPanelTitle}
                 </h2>
               </div>
               <div className="space-y-3">
                 <div>
                   <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                    文章链接（仅支持微信公众号）
+                    {text.articleLinkLabel}
                   </label>
                   <div className="flex gap-2">
                     <input
@@ -424,7 +490,7 @@ export default function TutorialsContent() {
                       }}
                       disabled={importLoading}
                     >
-                      {importLoading ? '提取中...' : '提取信息'}
+                      {importLoading ? text.extracting : text.extractInfo}
                     </button>
                   </div>
                 </div>
@@ -432,7 +498,7 @@ export default function TutorialsContent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
                   <div>
                     <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                      标题
+                      {text.fieldTitle}
                     </label>
                     <input
                       className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
@@ -442,7 +508,7 @@ export default function TutorialsContent() {
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                      作者
+                      {text.fieldAuthor}
                     </label>
                     <input
                       className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
@@ -452,7 +518,7 @@ export default function TutorialsContent() {
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                      发布日期（YYYY-MM-DD）
+                      {text.fieldDate}
                     </label>
                     <input
                       className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
@@ -462,14 +528,14 @@ export default function TutorialsContent() {
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                      分类（自动匹配，可手动修改）
+                      {text.fieldCategory}
                     </label>
                     <select
                       className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
                       value={formCategory}
                       onChange={(e) => setFormCategory(e.target.value)}
                     >
-                      <option value="">请选择分类</option>
+                      <option value="">{text.chooseCategory}</option>
                       {categories.map((c) => (
                         <option key={c} value={c}>
                           {c}
@@ -479,7 +545,7 @@ export default function TutorialsContent() {
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                      难度
+                      {text.fieldDifficulty}
                     </label>
                     <select
                       className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
@@ -488,14 +554,14 @@ export default function TutorialsContent() {
                         setFormDifficulty(e.target.value as DifficultyLevel)
                       }
                     >
-                      <option value="小白入门">小白入门</option>
-                      <option value="萌新进阶">萌新进阶</option>
-                      <option value="高端玩家">高端玩家</option>
+                      <option value="小白入门">{text.beginner}</option>
+                      <option value="萌新进阶">{text.intermediate}</option>
+                      <option value="高端玩家">{text.advanced}</option>
                     </select>
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                      封面图 URL（可为空）
+                      {text.fieldCover}
                     </label>
                     <input
                       className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
@@ -507,7 +573,7 @@ export default function TutorialsContent() {
 
                 <div>
                   <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                    摘要 / 推荐理由
+                    {text.fieldSummary}
                   </label>
                   <textarea
                     className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
@@ -519,13 +585,13 @@ export default function TutorialsContent() {
 
                 <div>
                   <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                    技能标签（用逗号分隔）
+                    {text.fieldSkills}
                   </label>
                   <input
                     className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
                     value={formSkillTags}
                     onChange={(e) => setFormSkillTags(e.target.value)}
-                    placeholder="例如：DeepSeek, AI绘画"
+                    placeholder={text.skillPlaceholder}
                   />
                 </div>
 
@@ -542,7 +608,7 @@ export default function TutorialsContent() {
                     onClick={handleSaveTutorial}
                     disabled={saving}
                   >
-                    {saving ? '保存中...' : '确认添加到教程数据'}
+                    {saving ? text.saving : text.confirmAdd}
                   </button>
                 </div>
               </div>
@@ -563,7 +629,7 @@ export default function TutorialsContent() {
                   onClick={() => setDifficultyFilter('')}
                 >
                   <i className="fas fa-th-large mr-2"></i>
-                  全部教程
+                  {text.allTutorials}
                 </button>
                 
                 {/* 小白入门 - 绿色背景 */}
@@ -577,7 +643,7 @@ export default function TutorialsContent() {
                   onClick={() => setDifficultyFilter('小白入门')}
                 >
                   <i className="fas fa-seedling mr-2 text-green-600"></i>
-                  小白入门
+                  {text.beginner}
                 </button>
                 
                 {/* 萌新进阶 - 蓝色背景 */}
@@ -591,7 +657,7 @@ export default function TutorialsContent() {
                   onClick={() => setDifficultyFilter('萌新进阶')}
                 >
                   <i className="fas fa-graduation-cap mr-2 text-blue-600"></i>
-                  萌新进阶
+                  {text.intermediate}
                 </button>
                 
                 {/* 高端玩家 - 紫色背景 */}
@@ -605,7 +671,7 @@ export default function TutorialsContent() {
                   onClick={() => setDifficultyFilter('高端玩家')}
                 >
                   <i className="fas fa-crown mr-2 text-purple-600"></i>
-                  高端玩家
+                  {text.advanced}
                 </button>
               </div>
             </div>
@@ -621,7 +687,7 @@ export default function TutorialsContent() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full px-4 py-2 pl-10 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all" 
-                  placeholder="搜索教程标题、描述或作者..."
+                  placeholder={text.searchPlaceholder}
                 />
                 <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
                   <i className="fas fa-search"></i>
@@ -644,9 +710,9 @@ export default function TutorialsContent() {
                     onChange={(e) => setSortMethod(e.target.value as TutorialSortMethod)}
                     className="w-full py-2 px-4 pr-8 appearance-none rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all"
                   >
-                    <option value="latest">最新优先</option>
-                    <option value="oldest">最早优先</option>
-                    <option value="difficulty-asc">从易到难</option>
+                    <option value="latest">{text.sortLatest}</option>
+                    <option value="oldest">{text.sortOldest}</option>
+                    <option value="difficulty-asc">{text.sortDifficulty}</option>
                   </select>
                   <div className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
                     <i className="fas fa-sort"></i>
@@ -660,10 +726,10 @@ export default function TutorialsContent() {
           <div className="mb-6 space-y-4">
             {/* 主要分类 */}
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-3">
-              <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
-                <i className="fas fa-folder mr-2 text-primary-500"></i>
-                内容分类
-              </h3>
+                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
+                  <i className="fas fa-folder mr-2 text-primary-500"></i>
+                  {text.categoryTitle}
+                </h3>
               <div className="flex items-center gap-2 overflow-x-auto py-1 no-scrollbar">
                 <button 
                   className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
@@ -671,7 +737,7 @@ export default function TutorialsContent() {
                   }`}
                   onClick={() => setCategoryFilter('')}
                 >
-                  全部分类
+                  {text.allCategories}
                 </button>
                 {categories.map(category => (
                   <button 
@@ -681,7 +747,7 @@ export default function TutorialsContent() {
                     }`}
                     onClick={() => setCategoryFilter(category)}
                   >
-                    {category}
+                    {localizeTutorialCategory(category, isEn ? 'en' : 'zh')}
                   </button>
                 ))}
               </div>
@@ -692,7 +758,7 @@ export default function TutorialsContent() {
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-3">
                 <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
                   <i className="fas fa-tags mr-2 text-primary-500"></i>
-                  工具/技能标签
+                  {text.skillTitle}
                 </h3>
                 <div className="flex flex-wrap gap-2 overflow-x-auto py-1 no-scrollbar">
                   <button 
@@ -700,8 +766,8 @@ export default function TutorialsContent() {
                       !skillFilter ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                     }`}
                     onClick={() => setSkillFilter('')}
-                  >
-                    全部技能
+                >
+                    {text.allSkills}
                   </button>
                   {allSkillTags.map(tag => (
                     <button 
@@ -722,7 +788,7 @@ export default function TutorialsContent() {
           {/* 结果计数 */}
           <div className="mb-4 flex justify-between items-center">
             <div className="text-sm text-slate-600 dark:text-slate-400">
-              找到 <span className="font-medium">{filteredTutorials.length}</span> 个符合条件的教程
+              {text.resultCount(filteredTutorials.length)}
             </div>
             
             {/* 重置按钮 */}
@@ -738,7 +804,7 @@ export default function TutorialsContent() {
                 className="text-xs px-2 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 rounded transition-colors flex items-center"
               >
                 <i className="fas fa-undo-alt mr-1"></i>
-                重置筛选
+                {text.resetFilters}
               </button>
             )}
           </div>
@@ -751,6 +817,7 @@ export default function TutorialsContent() {
                   tutorial={tutorial} 
                   showDelete={showImportForm} 
                   onDelete={handleDeleteTutorial}
+                  isEn={isEn}
                 />
               </div>
             ))}
@@ -762,8 +829,8 @@ export default function TutorialsContent() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 mb-4">
                 <i className="fas fa-search text-neutral-400 text-xl"></i>
               </div>
-              <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100 mb-2">未找到匹配的教程</h3>
-              <p className="text-base text-neutral-500 dark:text-neutral-400">请尝试其他搜索词或筛选条件</p>
+              <h3 className="text-lg font-medium text-neutral-900 dark:text-neutral-100 mb-2">{text.noResultTitle}</h3>
+              <p className="text-base text-neutral-500 dark:text-neutral-400">{text.noResultHint}</p>
               <button 
                 onClick={() => {
                   setSearchQuery('');
@@ -775,7 +842,7 @@ export default function TutorialsContent() {
                 className="mt-4 px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
               >
                 <i className="fas fa-redo mr-2"></i>
-                重置所有筛选
+                {text.resetAll}
               </button>
             </div>
           )}

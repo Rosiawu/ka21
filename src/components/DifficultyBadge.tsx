@@ -1,4 +1,6 @@
 import { DifficultyLevel } from '@/data/tutorials';
+import { localizeDifficultyLevel } from '@/utils/tutorials';
+import { usePathname } from 'next/navigation';
 
 interface DifficultyBadgeProps {
   level: DifficultyLevel;
@@ -10,6 +12,8 @@ interface DifficultyBadgeProps {
  * 根据不同难度级别显示不同的颜色和图标
  */
 export default function DifficultyBadge({ level, size = 'md' }: DifficultyBadgeProps) {
+  const pathname = usePathname();
+  const locale = pathname?.startsWith('/en') ? 'en' : 'zh';
   // 根据难度级别设置颜色和图标
   const getStyleByLevel = (level: DifficultyLevel) => {
     const styleMap: Record<DifficultyLevel, { bg: string, text: string, icon: string }> = {
@@ -55,7 +59,7 @@ export default function DifficultyBadge({ level, size = 'md' }: DifficultyBadgeP
   return (
     <span className={`inline-flex items-center rounded-full ${bg} ${text} font-medium ${sizeClasses[size]}`}>
       <i className={`fas ${icon} mr-1`}></i>
-      <span>{level}</span>
+      <span>{localizeDifficultyLevel(level, locale)}</span>
     </span>
   );
-} 
+}

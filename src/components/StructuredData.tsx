@@ -6,6 +6,7 @@ interface StructuredDataProps {
   url?: string;
   title?: string;
   description?: string;
+  locale?: string;
 }
 
 export default function StructuredData({
@@ -13,10 +14,17 @@ export default function StructuredData({
   type,
   url,
   title,
-  description
+  description,
+  locale = 'zh'
 }: StructuredDataProps) {
   const getStructuredData = () => {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ka21.tools';
+    const isEn = locale === 'en';
+    const orgName = isEn ? 'KA21 Tools' : 'KA21工具导航';
+    const webName = isEn ? 'KA21: One-stop AI Resource Hub' : '数字生命卡兹克-KA21工具导航';
+    const orgDescription = isEn
+      ? 'A curated navigation platform for practical AI tools.'
+      : '一个专注于展示和分享优质AI工具的导航平台';
 
     switch (type) {
       case 'Tool':
@@ -44,7 +52,7 @@ export default function StructuredData({
           } : undefined,
           creator: {
             '@type': 'Organization',
-            name: 'KA21工具导航',
+            name: orgName,
             url: baseUrl
           }
         };
@@ -56,10 +64,10 @@ export default function StructuredData({
           name: title,
           description: description,
           url: url,
-          inLanguage: 'zh-CN',
+          inLanguage: isEn ? 'en-US' : 'zh-CN',
           isPartOf: {
             '@type': 'WebSite',
-            name: 'KA21工具导航',
+            name: orgName,
             url: baseUrl
           }
         };
@@ -68,8 +76,8 @@ export default function StructuredData({
         return {
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          name: '数字生命卡兹克-KA21工具导航',
-          description: '一个专注于展示和分享优质AI工具的导航平台',
+          name: webName,
+          description: orgDescription,
           url: baseUrl,
           logo: `${baseUrl}/KA21.png`,
           sameAs: [

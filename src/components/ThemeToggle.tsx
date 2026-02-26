@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { useLocale } from 'next-intl';
 
 function SunIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -41,6 +42,7 @@ function MoonIcon(props: React.SVGProps<SVGSVGElement>) {
 // 前端暗黑模式开关，通过 next-themes 切换主题。
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
+  const isEn = useLocale() === 'en';
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
@@ -57,7 +59,11 @@ export default function ThemeToggle() {
       type="button"
       onClick={handleToggle}
       className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-slate-800 transition-colors duration-200"
-      aria-label={isDark ? '切换到日间模式' : '切换到夜间模式'}
+      aria-label={
+        isDark
+          ? (isEn ? 'Switch to light mode' : '切换到日间模式')
+          : (isEn ? 'Switch to dark mode' : '切换到夜间模式')
+      }
     >
       {mounted ? (
         isDark ? (

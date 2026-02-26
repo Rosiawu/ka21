@@ -4,9 +4,24 @@
 import { LLMArticle } from '@/data/llm-articles';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import SkillTag from './SkillTag';
+import { usePathname } from 'next/navigation';
 
 export default function LLMArticleCard({ article }: { article: LLMArticle }) {
   const isMobile = useMediaQuery('(max-width: 767px)');
+  const pathname = usePathname();
+  const isEn = pathname?.startsWith('/en');
+  const categoryLabel =
+    isEn
+      ? (
+        article.category === '大模型介绍'
+          ? 'LLM Intro'
+          : article.category === '模型对比'
+            ? 'Model Comparison'
+            : article.category === '技术分析'
+              ? 'Technical Analysis'
+              : article.category
+      )
+      : article.category;
   
   // 根据文章分类获取背景颜色或样式
   const getBackgroundStyle = (category: LLMArticle['category']) => {
@@ -34,7 +49,7 @@ export default function LLMArticleCard({ article }: { article: LLMArticle }) {
         <div className={`relative w-full aspect-[2/1] overflow-hidden flex items-center justify-center ${getBackgroundStyle(article.category)}`}>
           {/* 这里可以根据需要添加图标或其他装饰元素 */}
           <span className="text-white text-xl font-bold">
-            {article.category}
+            {categoryLabel}
           </span>
           <div className="absolute bottom-2 left-2 z-10">
             {/* 分类徽章已包含在背景中，这里不再需要 */}
@@ -81,7 +96,7 @@ export default function LLMArticleCard({ article }: { article: LLMArticle }) {
           )}
           
           <div className={`text-sm font-medium text-primary-600 dark:text-primary-400 flex items-center ${isMobile ? '' : 'group-hover:translate-x-1'} transition-transform duration-300 mt-1`}>
-            阅读全文
+            {isEn ? 'Read more' : '阅读全文'}
             <i className={`fas fa-arrow-right ml-1 ${isMobile ? '' : 'group-hover:ml-2'} transition-all duration-300`}></i>
           </div>
         </div>

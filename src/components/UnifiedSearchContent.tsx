@@ -15,6 +15,7 @@ import { applySorting, getVisibleTools } from '@/utils/sortTools'; // 排序和�
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
 import SearchIntentPanel from '@/components/SearchIntentPanel'; // 搜索意图推荐
 import { trackUserAction } from '@/utils/clarity'; // 搜索行为埋点
+import { useLocale } from 'next-intl';
 
 /**
  * 统一搜索内容组件
@@ -24,6 +25,7 @@ import { trackUserAction } from '@/utils/clarity'; // 搜索行为埋点
  * - 使用抽取后的通用 TutorialCard 组件
  */
 export default function UnifiedSearchContent() {
+  const isEn = useLocale() === 'en';
   // 开发环境调试日志
   if (process.env.NODE_ENV !== 'production') {
     console.info('[UnifiedSearchContent] render start'); // 组件渲染开始日志
@@ -55,13 +57,39 @@ export default function UnifiedSearchContent() {
   // 排序相关状态
   const [sortMethod, setSortMethod] = useState<SortMethod>('recommend'); // 排序方式，默认为推荐排序
   const [sortedFilteredTools, setSortedFilteredTools] = useState<Tool[]>([]); // 排序后的工具列表
+  const text = {
+    dataValidationFailed: isEn ? 'Tool data validation failed' : '工具数据验证失败',
+    titlePrefix: isEn ? 'Search Results' : '搜索结果',
+    titleDefault: isEn ? 'Search Tools and Tutorials' : '搜索工具和教程',
+    subtitleFound: (count: number) => (isEn ? `Found ${count} results` : `找到 ${count} 个结果`),
+    subtitleDefault: isEn ? 'Enter keywords to search tools and tutorials' : '输入关键词搜索工具和教程',
+    composerLabel: isEn ? 'Conversation input' : '对话输入框',
+    placeholder: isEn
+      ? 'Describe your task directly, for example: I want to create a short drama script.'
+      : '把你的任务直接说出来，比如：我想做一个短剧脚本。',
+    mode: isEn ? 'Chat mode' : '对话模式',
+    intent: isEn ? 'Intent understanding' : '智能意图理解',
+    clear: isEn ? 'Clear input' : '清空输入',
+    send: isEn ? 'Send' : '发送',
+    examples: isEn
+      ? 'Example: Build a short-video production workflow | Best AI writing tools for beginners'
+      : '示例提问: 帮我做一个短视频创作流程 | 适合小白的 AI 写作工具有哪些',
+    loading: isEn ? 'Searching...' : '正在搜索...',
+    noResultTitle: isEn ? 'No matching results found' : '没有找到相关结果',
+    noResultHint: isEn
+      ? 'Try different keywords, or browse tool categories to find what you need.'
+      : '尝试使用不同的关键词，或者浏览我们的工具分类以找到您需要的内容。',
+    tools: isEn ? 'Tools' : '工具',
+    tutorials: isEn ? 'Tutorials' : '教程',
+    resultCount: (count: number) => (isEn ? `${count} results` : `${count}个结果`),
+  };
   
   // ========== 数据处理 ==========
   
   // 确保工具数据符合类型定义
   const allTools = toolsData.tools as Tool[]; // 将工具数据转换为Tool类型数组
   if (!validateTools(allTools)) { // 验证工具数据格式
-    throw new Error('工具数据验证失败'); // 如果验证失败则抛出错误
+    throw new Error(text.dataValidationFailed); // 如果验证失败则抛出错误
   }
 
   // 过滤可见工具并使用 useMemo 缓存，以避免每次渲染都创建新数组
@@ -76,7 +104,7 @@ export default function UnifiedSearchContent() {
       // 使用多级排序对工具进行初始排序
       setIsLoading(false); // 设置加载状态为false
     } catch (err) {
-      console.error('加载工具时出错:', err); // 输出错误信息到控制台
+      console.error('Error loading tools:', err); // 输出错误信息到控制台
       setIsLoading(false); // 确保加载状态为false
     }
   }, []); // 空依赖数组，只在组件挂载时执行一次
@@ -215,14 +243,14 @@ export default function UnifiedSearchContent() {
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl mb-2"> {/* 主标题 */}
               {searchQuery ? ( // 如果有搜索查询
                 <>
-                  搜索结果: <span className="text-primary-600 dark:text-primary-400">&quot;{searchQuery}&quot;</span>
+                  {text.titlePrefix}: <span className="text-primary-600 dark:text-primary-400">&quot;{searchQuery}&quot;</span>
                 </>
               ) : (
-                <>搜索工具和教程</>
+                <>{text.titleDefault}</>
               )}
             </h1>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              {totalResults > 0 ? `找到 ${totalResults} 个结果` : '输入关键词搜索工具和教程'}
+              {totalResults > 0 ? text.subtitleFound(totalResults) : text.subtitleDefault}
             </p>
           </div>
           
@@ -232,13 +260,13 @@ export default function UnifiedSearchContent() {
               onSubmit={handleSubmit}
               className="rounded-[2rem] border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)] dark:shadow-[0_10px_30px_rgba(2,6,23,0.45)] backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5 transition-all focus-within:border-primary-400 focus-within:shadow-[0_14px_35px_rgba(59,130,246,0.18)]"
             >
-              <label htmlFor="search" className="sr-only">对话输入框</label>
+              <label htmlFor="search" className="sr-only">{text.composerLabel}</label>
               <textarea
                 ref={searchInputRef}
                 id="search"
                 rows={2}
                 className="w-full resize-none bg-transparent text-base sm:text-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
-                placeholder="把你的任务直接说出来，比如：我想做一个短剧脚本。"
+                placeholder={text.placeholder}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleComposerKeyDown}
@@ -253,11 +281,11 @@ export default function UnifiedSearchContent() {
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
                     <i className="fas fa-comments text-[11px]"></i>
-                    对话模式
+                    {text.mode}
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-primary-50 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 border border-primary-100 dark:border-primary-800/60">
                     <i className="fas fa-wand-magic-sparkles text-[11px]"></i>
-                    智能意图理解
+                    {text.intent}
                   </span>
                 </div>
 
@@ -270,7 +298,7 @@ export default function UnifiedSearchContent() {
                         router.push('/unified-search');
                       }}
                       className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                      aria-label="清空输入"
+                      aria-label={text.clear}
                     >
                       <i className="fas fa-xmark"></i>
                     </button>
@@ -280,14 +308,14 @@ export default function UnifiedSearchContent() {
                     disabled={!inputValue.trim()}
                     className="h-11 px-4 inline-flex items-center gap-2 rounded-full bg-slate-900 text-white dark:bg-primary-500 dark:text-white enabled:hover:bg-slate-700 dark:enabled:hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                   >
-                    <span className="text-sm">发送</span>
+                    <span className="text-sm">{text.send}</span>
                     <i className="fas fa-paper-plane text-xs"></i>
                   </button>
                 </div>
               </div>
 
               <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-                示例提问: 帮我做一个短视频创作流程 | 适合小白的 AI 写作工具有哪些
+                {text.examples}
               </p>
             </form>
           </div>
@@ -305,7 +333,7 @@ export default function UnifiedSearchContent() {
           {isLoading && (
             <div className="flex items-center justify-center mt-12">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
-              <span className="ml-3 text-slate-600 dark:text-slate-400">正在搜索...</span>
+              <span className="ml-3 text-slate-600 dark:text-slate-400">{text.loading}</span>
             </div>
           )}
           
@@ -317,9 +345,9 @@ export default function UnifiedSearchContent() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-2">没有找到相关结果</h3>
+              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-2">{text.noResultTitle}</h3>
               <p className="text-slate-600 dark:text-slate-400 max-w-md">
-                尝试使用不同的关键词，或者浏览我们的工具分类以找到您需要的内容。
+                {text.noResultHint}
               </p>
             </div>
           )}
@@ -332,9 +360,9 @@ export default function UnifiedSearchContent() {
                 <div className="space-y-6">
                   <div className="flex items-center justify-between flex-wrap gap-y-3">
                     <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">
-                      工具
+                      {text.tools}
                       <span className="text-sm font-normal text-slate-500 dark:text-slate-400 ml-2">
-                        ({filteredTools.length}个结果)
+                        ({text.resultCount(filteredTools.length)})
                       </span>
                     </h2>
                     
@@ -357,9 +385,9 @@ export default function UnifiedSearchContent() {
               {hasTutorials && (
                 <div className="space-y-6">
                   <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">
-                    教程
+                    {text.tutorials}
                     <span className="text-sm font-normal text-slate-500 dark:text-slate-400 ml-2">
-                      ({filteredTutorials.length}个结果)
+                      ({text.resultCount(filteredTutorials.length)})
                     </span>
                   </h2>
                   <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

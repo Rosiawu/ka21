@@ -6,6 +6,7 @@ import StructuredData from '@/components/StructuredData';
 
 export default async function Home({ params }: { params: { locale: string } }) {
   setRequestLocale(params.locale);
+  const isEn = params.locale === 'en';
   // 直接按路径参数加载对应语言消息，避免受 request 级 locale 影响
   type Messages = typeof import('../../../messages/en.json');
   const messages = (await import(`../../../messages/${params.locale}.json`)).default as Messages;
@@ -21,11 +22,12 @@ export default async function Home({ params }: { params: { locale: string } }) {
     <main>
       <StructuredData
         type="WebPage"
-        title="KA21工具导航 - 一站式AI资源平台"
+        title={isEn ? 'KA21 Tools - One-stop AI Resource Hub' : 'KA21工具导航 - 一站式AI资源平台'}
         description={subtitle}
         url={`/${params.locale}`}
+        locale={params.locale}
       />
-      <StructuredData type="Organization" />
+      <StructuredData type="Organization" locale={params.locale} />
       <Suspense fallback={<div className="relative overflow-hidden animate-pulse" />}>
         <HomeContent subtitle={subtitle} />
         <ChatWidget />

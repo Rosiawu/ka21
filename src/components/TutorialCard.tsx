@@ -2,8 +2,9 @@
 
 import Image from 'next/image'; // 引入Next.js优化的图片组件
 import { Tutorial } from '@/data/tutorials'; // 引入教程数据类型定义
-import { getCategoryColor } from '@/utils/tutorials'; // 引入获取分类颜色的工具函数
+import { getCategoryColor, localizeTutorialCategory } from '@/utils/tutorials'; // 引入获取分类颜色的工具函数
 import {useTranslations} from 'next-intl';
+import { usePathname } from 'next/navigation';
 
 // 定义教程卡片组件的属性接口
 interface TutorialCardProps {
@@ -22,6 +23,10 @@ interface TutorialCardProps {
 export default function TutorialCard({ tutorial }: TutorialCardProps) {
   // 使用 Home 命名空间中的“阅读全文”文案，保持与首页一致
   const tHome = useTranslations('Home');
+  const pathname = usePathname();
+  const locale = pathname?.startsWith('/en') ? 'en' : 'zh';
+  const localizedCategory = localizeTutorialCategory(tutorial.category, locale);
+  const fallbackImageLabel = locale === 'en' ? 'Tutorial cover' : '教程图片';
   return (
     // 外层链接容器，点击整个卡片跳转到教程页面
     <a
@@ -49,7 +54,7 @@ export default function TutorialCard({ tutorial }: TutorialCardProps) {
               onError={(e) => { // 图片加载失败时的处理函数
                 const target = e.target as HTMLImageElement; // 获取图片元素
                 target.onerror = null; // 防止无限循环错误
-                target.src = 'data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"320\" height=\"160\" viewBox=\"0 0 320 160\"><defs><linearGradient id=\"grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23667eea;stop-opacity:1\" /><stop offset=\"100%\" style=\"stop-color:%23764ba2;stop-opacity:1\" /></linearGradient></defs><rect width=\"320\" height=\"160\" fill=\"url(%23grad)\" /><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"14\" fill=\"white\" text-anchor=\"middle\" dominant-baseline=\"middle\">教程图片</text></svg>'; // 设置备用图片
+                target.src = `data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"320\" height=\"160\" viewBox=\"0 0 320 160\"><defs><linearGradient id=\"grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23667eea;stop-opacity:1\" /><stop offset=\"100%\" style=\"stop-color:%23764ba2;stop-opacity:1\" /></linearGradient></defs><rect width=\"320\" height=\"160\" fill=\"url(%23grad)\" /><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"14\" fill=\"white\" text-anchor=\"middle\" dominant-baseline=\"middle\">${fallbackImageLabel}</text></svg>`; // 设置备用图片
               }}
             />
           </div>
@@ -59,7 +64,7 @@ export default function TutorialCard({ tutorial }: TutorialCardProps) {
           <div className="absolute bottom-3 left-3 z-10">
             {/* 分类标签 */}
             <span className={`px-2 py-1 ${getCategoryColor(tutorial.category)} text-white text-xs font-medium rounded-md`}>
-              {tutorial.category} {/* 显示教程分类名称 */}
+              {localizedCategory} {/* 显示教程分类名称 */}
             </span>
           </div>
         </div>

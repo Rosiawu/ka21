@@ -168,6 +168,7 @@
     "video": "Generation, Editing, Effects",
     "audio": "Voiceover, Music, Speech-to-Text",
     "office": "PPT, Docs, Spreadsheets",
+    "coding": "Code Generation, Coding Assistants",
     "utils": "Productivity Tools, Utilities"
   }
 }

@@ -2,7 +2,8 @@
 
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { aiFeatureTags } from '@/lib/aiTags';
+import { aiFeatureTags, getAiTagLabel, TagLocale } from '@/lib/aiTags';
+import { usePathname } from 'next/navigation';
 
 interface AiTagBadgeProps {
   tagId: string;
@@ -13,12 +14,15 @@ const AiTagBadge: React.FC<AiTagBadgeProps> = ({
   tagId,
   size = 'sm'
 }) => {
+  const pathname = usePathname();
+  const locale = ((pathname?.startsWith('/en') ? 'en' : 'zh')) as TagLocale;
   // 获取标签信息，如果不存在则使用默认值
   const tagInfo = aiFeatureTags[tagId] || { 
-    name: tagId, 
+    label: { zh: tagId, en: tagId },
     color: '#6B7280', 
     priority: 99 
   };
+  const tagName = getAiTagLabel(tagId, locale);
 
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -61,9 +65,9 @@ const AiTagBadge: React.FC<AiTagBadgeProps> = ({
     <span 
       className={`inline-flex items-center font-medium rounded-md border ${sizeClasses[size]} hover:bg-opacity-25 hover:shadow-sm`}
       style={style}
-      title={tagInfo.name} // 添加标题属性，提高可访问性
+      title={tagName} // 添加标题属性，提高可访问性
     >
-      {tagInfo.name}
+      {tagName}
     </span>
   );
 };

@@ -9,17 +9,22 @@ import { getToolIconUrl, handleImageError, shimmer, toBase64 } from '@/lib/utils
 import { trackUserAction } from '@/utils/clarity';
 import React from 'react';
 import {useTranslations} from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { localizeTool } from '@/lib/toolLocale';
 
 interface ToolCardProps {
   tool: Tool;
 }
 
 function ToolCard({ tool }: ToolCardProps) {
-  const { id, name, description, url, tags, recommendLevel, accessibility } = tool;
+  const pathname = usePathname();
+  const locale = pathname?.startsWith('/en') ? 'en' : 'zh';
+  const localizedTool = localizeTool(tool, locale);
+  const { id, name, description, url, tags, recommendLevel, accessibility } = localizedTool;
   const tAccess = useTranslations('Access');
   
   // 使用工具函数获取图标URL
-  const iconUrl = getToolIconUrl(tool);
+  const iconUrl = getToolIconUrl(localizedTool);
   
   // 处理工具卡片点击
   const handleToolClick = () => {

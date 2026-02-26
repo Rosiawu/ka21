@@ -12,6 +12,10 @@ export default function LocaleToggle({ isIcon = false }: { isIcon?: boolean }) {
 
   // 根据路径推断当前语言（默认 zh）
   const currentLocale: AppLocale = (pathname?.startsWith('/en') ? 'en' : 'zh');
+  const localeLabels: Record<AppLocale, string> =
+    currentLocale === 'en'
+      ? { zh: 'Chinese', en: 'English' }
+      : localeNames;
 
   // 处理语言切换事件
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -37,14 +41,14 @@ export default function LocaleToggle({ isIcon = false }: { isIcon?: boolean }) {
       {/* 使用 emoji 作为语言图标，避免引入额外依赖 */}
       <span role="img" aria-label="language">🌐</span>
       <select
-        aria-label="切换语言"
+        aria-label={currentLocale === 'en' ? 'Switch language' : '切换语言'}
         className="bg-transparent text-sm outline-none hover:opacity-80 cursor-pointer"
         value={currentLocale}
         onChange={handleChange}
       >
         {supportedLocales.map((loc) => (
           <option key={loc} value={loc} className="text-black dark:text-white">
-            {isIcon ? loc : localeNames[loc]}
+            {isIcon ? loc : localeLabels[loc]}
           </option>
         ))}
       </select>

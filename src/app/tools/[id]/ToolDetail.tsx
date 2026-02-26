@@ -8,8 +8,9 @@ import RecommendBadge from '@/components/RecommendBadge';
 import { useRouter } from '@/i18n/navigation';
 import { getToolIconUrl } from '@/lib/utils';
 import React from 'react';
-import {useTranslations} from 'next-intl';
+import { usePathname } from 'next/navigation';
 import { findTutorialById } from '@/data/tutorials';
+import { localizeTool } from '@/lib/toolLocale';
 
 // 类型定义
 interface ArticleLike {
@@ -37,10 +38,24 @@ function GuideSection({ guide }: { guide: Guide }) {
 }
 
 function ToolDetail({ tool }: { tool: Tool }) {
-  const tTool = useTranslations('ToolDetail');
+  const pathname = usePathname();
+  const isEn = pathname?.startsWith('/en');
+  const localizedTool = localizeTool(tool, isEn ? 'en' : 'zh');
   // 使用工具函数获取图标URL
-  const iconUrl = getToolIconUrl(tool);
+  const iconUrl = getToolIconUrl(localizedTool);
   const router = useRouter();
+  const text = {
+    back: isEn ? 'Back' : '返回',
+    tutorialPrefix: isEn ? 'Tutorial' : '教程',
+    sourceNotFound: isEn ? 'Not found' : '未找到',
+    visitOfficial: isEn ? 'Visit Official Site' : '访问官网',
+    guideTitle: isEn ? 'Guide' : '使用指南',
+    relatedArticles: isEn ? 'Related Articles' : '相关文章',
+    articleCount: (count: number) => (isEn ? `${count} articles` : `共 ${count} 篇`),
+    collapseArticles: isEn ? 'Collapse' : '收起文章',
+    viewAllArticles: (count: number) => (isEn ? `View all ${count} articles` : `查看全部 ${count} 篇文章`),
+    communityReviews: isEn ? 'Community Reviews' : '群友点评',
+  };
   
   // 添加相关文章展开状态
   const [expandArticles, setExpandArticles] = React.useState(false);
@@ -58,9 +73,9 @@ function ToolDetail({ tool }: { tool: Tool }) {
   // 创建一个函数来获取相关教程
   const getRelatedTutorials = (): ArticleLike[] => {
     // 优先使用relatedTutorials字段
-    if (tool.relatedTutorials && tool.relatedTutorials.length > 0) {
+    if (localizedTool.relatedTutorials && localizedTool.relatedTutorials.length > 0) {
       // 尝试从tutorials.json中获取完整教程数据
-      return tool.relatedTutorials.map((tutorialId: string) => {
+      return localizedTool.relatedTutorials.map((tutorialId: string) => {
         const tutorial = findTutorialById(tutorialId);
         if (tutorial) {
           return {
@@ -72,9 +87,9 @@ function ToolDetail({ tool }: { tool: Tool }) {
         }
         // 如果找不到对应教程，返回一个基本的未找到信息
         return {
-          title: `教程 ${tutorialId}`,
+          title: `${text.tutorialPrefix} ${tutorialId}`,
           url: '#', // 占位符
-          source: '未找到',
+          source: text.sourceNotFound,
           publishDate: ''
         };
       }).filter((t: ArticleLike) => t.url !== '#'); // 过滤掉找不到的教程
@@ -82,7 +97,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
     
     // TODO: [后期优化] 当教程数据完全迁移后，移除此兼容层，参考TODO.md中的"移除兼容层"任务
     // 向后兼容：如果没有relatedTutorials或者查找失败，回退到使用relatedArticles
-    return (tool.relatedArticles || []);
+    return (localizedTool.relatedArticles || []);
   };
   
   // 获取相关教程
@@ -113,7 +128,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            {tTool('back')}
+            {text.back}
           </button>
 
           {/* 工具基本信息展示 */}
@@ -123,7 +138,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
                 {iconUrl ? (
                   <Image
                     src={iconUrl}
-                    alt={tool.name}
+                    alt={localizedTool.name}
                     fill
                     className="object-contain rounded-lg"
                     priority
@@ -156,33 +171,33 @@ function ToolDetail({ tool }: { tool: Tool }) {
               {/* 工具详情 */}
               <div className="flex-1">
                 <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <h1 className="text-2xl font-bold">{tool.name}</h1>
+                  <h1 className="text-2xl font-bold">{localizedTool.name}</h1>
                   
                   <div className="flex gap-2 flex-wrap">
-                    {tool.recommendLevel && (
-                      <RecommendBadge level={tool.recommendLevel} size="md" variant="pill" />
+                    {localizedTool.recommendLevel && (
+                      <RecommendBadge level={localizedTool.recommendLevel} size="md" variant="pill" />
                     )}
                     
-                    {tool.accessibility && (
-                      <AccessibilityBadge accessibility={tool.accessibility} size="md" variant="pill" />
+                    {localizedTool.accessibility && (
+                      <AccessibilityBadge accessibility={localizedTool.accessibility} size="md" variant="pill" />
                     )}
                   </div>
                 </div>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{tool.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{localizedTool.description}</p>
                 
                 <div className="flex flex-wrap gap-3">
-                  {tool.tags && tool.tags.length > 0 && (
-                    <AiTagGroup tags={tool.tags} maxTags={5} size="md" />
+                  {localizedTool.tags && localizedTool.tags.length > 0 && (
+                    <AiTagGroup tags={localizedTool.tags} maxTags={5} size="md" />
                   )}
                   
                   <a 
-                    href={tool.url} 
+                    href={localizedTool.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 border border-blue-500 text-blue-600 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
                   >
-                    访问官网
+                    {text.visitOfficial}
                     <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -193,11 +208,11 @@ function ToolDetail({ tool }: { tool: Tool }) {
           </div>
           
           {/* 工具指南区域 */}
-          {tool.guides && tool.guides.length > 0 && (
+          {localizedTool.guides && localizedTool.guides.length > 0 && (
             <div className="bg-white dark:bg-slate-800 shadow-sm rounded-xl p-6 mb-6">
-              <h2 className="text-xl font-bold mb-4 pb-2 border-b dark:border-slate-700">使用指南</h2>
+              <h2 className="text-xl font-bold mb-4 pb-2 border-b dark:border-slate-700">{text.guideTitle}</h2>
               <div>
-                {tool.guides.map((guide, index) => (
+                {localizedTool.guides.map((guide, index) => (
                   <GuideSection key={index} guide={guide} />
                 ))}
               </div>
@@ -208,9 +223,9 @@ function ToolDetail({ tool }: { tool: Tool }) {
           {relatedTutorials && relatedTutorials.length > 0 && (
             <div className="bg-white dark:bg-slate-800 shadow-sm rounded-xl p-6 mb-6">
               <div className="flex justify-between items-center mb-4 pb-2 border-b dark:border-slate-700">
-                <h2 className="text-xl font-bold">相关文章</h2>
+                <h2 className="text-xl font-bold">{text.relatedArticles}</h2>
                 <span className="text-sm text-gray-500 dark:text-gray-400">
-                  共 {relatedTutorials.length} 篇
+                  {text.articleCount(relatedTutorials.length)}
                 </span>
               </div>
               
@@ -257,14 +272,14 @@ function ToolDetail({ tool }: { tool: Tool }) {
                 >
                   {expandArticles ? (
                     <span className="flex items-center justify-center">
-                      收起文章
+                      {text.collapseArticles}
                       <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                       </svg>
                     </span>
                   ) : (
                     <span className="flex items-center justify-center">
-                      查看全部 {relatedTutorials.length} 篇文章
+                      {text.viewAllArticles(relatedTutorials.length)}
                       <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -276,11 +291,11 @@ function ToolDetail({ tool }: { tool: Tool }) {
           )}
           
           {/* 群友评价区域 */}
-          {tool.groupComments && tool.groupComments.length > 0 && (
+          {localizedTool.groupComments && localizedTool.groupComments.length > 0 && (
             <div className="bg-white dark:bg-slate-800 shadow-sm rounded-xl p-6">
-              <h2 className="text-xl font-bold mb-4 pb-2 border-b dark:border-slate-700">群友点评</h2>
+              <h2 className="text-xl font-bold mb-4 pb-2 border-b dark:border-slate-700">{text.communityReviews}</h2>
               <div className="space-y-4">
-                {tool.groupComments.map((comment, index) => (
+                {localizedTool.groupComments.map((comment, index) => (
                   <div key={index} className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                     <p className="text-gray-800 dark:text-gray-200 whitespace-pre-wrap mb-2">{comment.content}</p>
                     <div className="flex items-center justify-between text-sm">

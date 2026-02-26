@@ -6,8 +6,9 @@ import {
   SEARCH_INTENT_RULES,
   SearchIntentRule,
 } from "@/data/searchIntents";
-import { TOOL_ONE_LINERS } from "@/data/toolOneLiners";
+import { TOOL_ONE_LINERS, TOOL_ONE_LINERS_EN } from "@/data/toolOneLiners";
 import { Tool } from "@/lib/types";
+import { localizeTool } from "@/lib/toolLocale";
 
 export interface RankedToolRecommendation {
   tool: Tool;
@@ -35,6 +36,7 @@ interface RecommendOptions {
   maxTools?: number;
   maxTutorials?: number;
   maxSuggestions?: number;
+  locale?: "zh" | "en";
 }
 
 interface ExpandedQueryInfo {
@@ -45,6 +47,57 @@ interface ExpandedQueryInfo {
 const visibleTools: Tool[] = (toolsData.tools as Tool[]).filter((tool) => tool.isVisible !== false);
 
 const normalize = (value: string): string => value.trim().toLowerCase().replace(/\s+/g, "");
+
+const HOT_SEARCH_QUERIES_EN: string[] = [
+  "DeepSeek",
+  "ChatGPT",
+  "Claude",
+  "AI image generation",
+  "AI video generation",
+  "PPT",
+  "Feishu Bitable",
+  "AI coding",
+  "AI agents",
+  "Productivity tools",
+];
+
+const INTENT_LABEL_EN: Record<string, string> = {
+  "office-efficiency": "Office Productivity",
+  "ppt-doc": "PPT & Docs",
+  "writing-copy": "Writing & Copywriting",
+  "image-design": "Image & Design",
+  "video-create": "Video Creation",
+  "coding-dev": "Coding & Development",
+  "audio-podcast": "Audio & Podcast",
+  "agent-automation": "Agents & Automation",
+};
+
+const INTENT_RELATED_QUERIES_EN: Record<string, string[]> = {
+  "office-efficiency": ["Productivity tools", "Feishu Bitable", "Automation workflow", "Office AI"],
+  "ppt-doc": ["PPT", "AI slides", "Presentation generation", "Document generation"],
+  "writing-copy": ["AI writing", "Copy generation", "Newsletter formatting", "Content summary"],
+  "image-design": ["AI image generation", "AI design", "Poster generation", "Image editing"],
+  "video-create": ["AI video generation", "Video editing", "Storyboard generation", "Short film creation"],
+  "coding-dev": ["AI coding", "Code generation", "Dev assistant", "Beginner coding AI"],
+  "audio-podcast": ["AI audio", "Podcast creation", "Text to speech", "Music generation"],
+  "agent-automation": ["AI agents", "Automation workflows", "No-code agents", "Agent tools"],
+};
+
+const TUTORIAL_CATEGORY_LABEL_EN: Record<string, string> = {
+  "AI效率": "AI Productivity",
+  "AI图像": "AI Imaging",
+  "AI视频": "AI Video",
+  "AI编程": "AI Coding",
+  "AI音频": "AI Audio",
+  "AI智能体": "AI Agents",
+  "AI大模型": "AI LLMs",
+  "飞书多维表格": "Feishu Bitable",
+  "AI绘画": "AI Drawing",
+  "AI设计": "AI Design",
+  "AI播客": "AI Podcast",
+  "AI通用智能体": "General AI Agents",
+  "AI办公": "AI Office",
+};
 
 const includesKeyword = (text: string, keyword: string): boolean => {
   const normalizedText = normalize(text);
@@ -61,7 +114,27 @@ const scoreKeywordMatch = (query: string, keyword: string): number => {
   return 0;
 };
 
-const getCategoryFallbackComment = (tool: Tool): string => {
+const getCategoryFallbackComment = (tool: Tool, locale: "zh" | "en"): string => {
+  if (locale === "en") {
+    switch (tool.toolCategory) {
+      case "writing":
+        return "Great for both chat and writing, ideal for content creation and daily productivity.";
+      case "image":
+        return "Balances image quality and speed, ideal for design and visual expression.";
+      case "video":
+        return "Covers creation through editing for short-form and creative video workflows.";
+      case "audio":
+        return "Useful for voiceover and audio generation in podcast and content scenarios.";
+      case "office":
+        return "Focused on office collaboration and document output for frequent work tasks.";
+      case "coding":
+        return "A developer-focused assistant that boosts coding and debugging efficiency.";
+      case "utils":
+      default:
+        return "Lightweight, practical utility tools for high-frequency tasks.";
+    }
+  }
+
   switch (tool.toolCategory) {
     case "writing":
       return "对话和写作兼顾，适合内容创作与日常提效。";
@@ -81,10 +154,53 @@ const getCategoryFallbackComment = (tool: Tool): string => {
   }
 };
 
-const getToolComment = (tool: Tool): string => {
-  const custom = TOOL_ONE_LINERS[tool.id];
+const getToolComment = (tool: Tool, locale: "zh" | "en"): string => {
+  const custom = locale === "en" ? TOOL_ONE_LINERS_EN[tool.id] : TOOL_ONE_LINERS[tool.id];
   if (custom) return custom;
-  return getCategoryFallbackComment(tool);
+  return getCategoryFallbackComment(tool, locale);
+};
+
+const getIntentLabel = (intent: SearchIntentRule, locale: "zh" | "en"): string => {
+  if (locale === "en") {
+    return INTENT_LABEL_EN[intent.id] || intent.label;
+  }
+  return intent.label;
+};
+
+const getRelatedQueries = (intent: SearchIntentRule, locale: "zh" | "en"): string[] => {
+  if (locale === "en") {
+    return INTENT_RELATED_QUERIES_EN[intent.id] || intent.relatedQueries;
+  }
+  return intent.relatedQueries;
+};
+
+const getHotQueries = (locale: "zh" | "en"): string[] => {
+  return locale === "en" ? HOT_SEARCH_QUERIES_EN : HOT_SEARCH_QUERIES;
+};
+
+const getReasonSegment = (
+  intent: SearchIntentRule,
+  type: "category" | "tag" | "tutorialCategory",
+  locale: "zh" | "en"
+): string => {
+  const label = getIntentLabel(intent, locale);
+  if (locale === "en") {
+    if (type === "category") return `${label} · Category Match`;
+    if (type === "tag") return `${label} · Tag Match`;
+    return `${label} · Tutorial Category Match`;
+  }
+  if (type === "category") return `${label}·分类匹配`;
+  if (type === "tag") return `${label}·标签匹配`;
+  return `${label}·教程分类匹配`;
+};
+
+const getSemanticReason = (locale: "zh" | "en"): string => {
+  return locale === "en" ? "Keyword Semantic Match" : "关键词语义匹配";
+};
+
+const localizeTutorialCategory = (category: string, locale: "zh" | "en"): string => {
+  if (locale !== "en") return category;
+  return TUTORIAL_CATEGORY_LABEL_EN[category] || category;
 };
 
 const expandQueryInfo = (query: string): ExpandedQueryInfo => {
@@ -142,11 +258,13 @@ const collectMatchedIntents = (
 const buildSuggestions = (
   query: string,
   matchedIntents: SearchIntentRule[],
+  locale: "zh" | "en",
   maxSuggestions: number
 ): string[] => {
   const normalizedQuery = normalize(query);
-  const intentQueries = matchedIntents.flatMap((intent) => intent.relatedQueries);
-  const base = normalizedQuery ? [...intentQueries, ...HOT_SEARCH_QUERIES] : HOT_SEARCH_QUERIES;
+  const intentQueries = matchedIntents.flatMap((intent) => getRelatedQueries(intent, locale));
+  const hotQueries = getHotQueries(locale);
+  const base = normalizedQuery ? [...intentQueries, ...hotQueries] : hotQueries;
 
   const unique: string[] = [];
   for (const candidate of base) {
@@ -162,7 +280,7 @@ const buildSuggestions = (
   }
 
   if (unique.length === 0) {
-    return HOT_SEARCH_QUERIES.slice(0, maxSuggestions);
+    return hotQueries.slice(0, maxSuggestions);
   }
   return unique;
 };
@@ -170,6 +288,7 @@ const buildSuggestions = (
 const rankTools = (
   queryTerms: string[],
   matchedIntents: SearchIntentRule[],
+  locale: "zh" | "en",
   maxTools: number
 ): RankedToolRecommendation[] => {
   const ranked = visibleTools
@@ -186,11 +305,11 @@ const rankTools = (
         }
         if (intent.toolCategories?.includes(tool.toolCategory || "utils")) {
           score += 16;
-          reasons.push(`${intent.label}·分类匹配`);
+          reasons.push(getReasonSegment(intent, "category", locale));
         }
         if ((intent.toolTags || []).some((tag) => tagSet.has(tag))) {
           score += 12;
-          reasons.push(`${intent.label}·标签匹配`);
+          reasons.push(getReasonSegment(intent, "tag", locale));
         }
         if (intent.keywords.some((keyword) => includesKeyword(searchableText, keyword))) {
           score += 8;
@@ -208,8 +327,8 @@ const rankTools = (
         if (tagMatch) score += 14;
       }
 
-      const reason = reasons.length > 0 ? reasons[0] : "关键词语义匹配";
-      return { tool, score, reason, comment: getToolComment(tool) };
+      const reason = reasons.length > 0 ? reasons[0] : getSemanticReason(locale);
+      return { tool: localizeTool(tool, locale), score, reason, comment: getToolComment(tool, locale) };
     })
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score || (a.tool.displayOrder || 9999) - (b.tool.displayOrder || 9999));
@@ -220,6 +339,7 @@ const rankTools = (
 const rankTutorials = (
   queryTerms: string[],
   matchedIntents: SearchIntentRule[],
+  locale: "zh" | "en",
   maxTutorials: number
 ): RankedTutorialRecommendation[] => {
   const ranked = tutorials
@@ -238,7 +358,7 @@ const rankTutorials = (
         }
         if (intent.tutorialCategories?.includes(tutorial.category)) {
           score += 16;
-          reasons.push(`${intent.label}·教程分类匹配`);
+          reasons.push(getReasonSegment(intent, "tutorialCategory", locale));
         }
         if ((intent.tutorialKeywords || []).some((keyword) => includesKeyword(searchableText, keyword))) {
           score += 12;
@@ -256,8 +376,8 @@ const rankTutorials = (
         if (skillMatch) score += 12;
       }
 
-      const reason = reasons.length > 0 ? reasons[0] : "关键词语义匹配";
-      return { tutorial, score, reason };
+      const reason = reasons.length > 0 ? reasons[0] : getSemanticReason(locale);
+      return { tutorial: { ...tutorial, category: localizeTutorialCategory(tutorial.category, locale) }, score, reason };
     })
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score);
@@ -272,6 +392,7 @@ export function getSearchIntentRecommendations(
   const maxTools = options.maxTools ?? 3;
   const maxTutorials = options.maxTutorials ?? 3;
   const maxSuggestions = options.maxSuggestions ?? 8;
+  const locale = options.locale === "en" ? "en" : "zh";
   const normalizedQuery = normalize(query);
   const expandedQueryInfo = expandQueryInfo(query);
   const matchedIntents = collectMatchedIntents(
@@ -282,9 +403,9 @@ export function getSearchIntentRecommendations(
   return {
     query,
     normalizedQuery,
-    matchedIntentLabels: matchedIntents.map((intent) => intent.label),
-    suggestedQueries: buildSuggestions(query, matchedIntents, maxSuggestions),
-    recommendedTools: rankTools(expandedQueryInfo.terms, matchedIntents, maxTools),
-    recommendedTutorials: rankTutorials(expandedQueryInfo.terms, matchedIntents, maxTutorials),
+    matchedIntentLabels: matchedIntents.map((intent) => getIntentLabel(intent, locale)),
+    suggestedQueries: buildSuggestions(query, matchedIntents, locale, maxSuggestions),
+    recommendedTools: rankTools(expandedQueryInfo.terms, matchedIntents, locale, maxTools),
+    recommendedTutorials: rankTutorials(expandedQueryInfo.terms, matchedIntents, locale, maxTutorials),
   };
 }

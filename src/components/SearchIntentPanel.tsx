@@ -3,6 +3,7 @@
 import Link from "@/i18n/Link";
 import { getSearchIntentRecommendations } from "@/lib/searchIntent";
 import { useMemo } from "react";
+import { useLocale } from "next-intl";
 
 interface SearchIntentPanelProps {
   query: string;
@@ -19,12 +20,29 @@ export default function SearchIntentPanel({
   maxTools = 3,
   maxTutorials = 3,
 }: SearchIntentPanelProps) {
+  const isEn = useLocale() === "en";
   const result = useMemo(
-    () => getSearchIntentRecommendations(query, { maxTools, maxTutorials, maxSuggestions: 10 }),
-    [query, maxTools, maxTutorials]
+    () =>
+      getSearchIntentRecommendations(query, {
+        maxTools,
+        maxTutorials,
+        maxSuggestions: 10,
+        locale: isEn ? "en" : "zh",
+      }),
+    [query, maxTools, maxTutorials, isEn]
   );
 
   const hasQuery = Boolean(result.normalizedQuery);
+  const text = {
+    title: isEn ? "You may want to search" : "猜你想搜",
+    subtitle: isEn ? "Intent-based recommendations for tools and tutorials" : "基于关键词意图，联动推荐工具和教程",
+    matched: isEn ? "Matched" : "命中",
+    tools: isEn ? "Tool Recommendations" : "工具推荐",
+    tutorials: isEn ? "Tutorial Recommendations" : "教程推荐",
+    emptyTools: isEn ? "No strong tool match yet. Try one of the suggested queries above." : "暂无强匹配工具，可尝试上方热门关键词。",
+    emptyTutorials: isEn ? "No strong tutorial match yet. Try one of the suggested queries above." : "暂无强匹配教程，可尝试上方热门关键词。",
+    reason: isEn ? "Match Logic" : "命中逻辑",
+  };
 
   return (
     <section
@@ -32,12 +50,12 @@ export default function SearchIntentPanel({
     >
       <div className="flex items-center justify-between gap-3 mb-3">
         <div>
-          <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">猜你想搜</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400">基于关键词意图，联动推荐工具和教程</p>
+          <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100">{text.title}</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400">{text.subtitle}</p>
         </div>
         {hasQuery && result.matchedIntentLabels.length > 0 && (
           <span className="text-xs px-2 py-1 rounded-full bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300">
-            命中: {result.matchedIntentLabels.slice(0, 2).join(" / ")}
+            {text.matched}: {result.matchedIntentLabels.slice(0, 2).join(" / ")}
           </span>
         )}
       </div>
@@ -58,9 +76,9 @@ export default function SearchIntentPanel({
       {hasQuery && (
         <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-3">
-            <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">工具推荐</h4>
+            <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">{text.tools}</h4>
             {result.recommendedTools.length === 0 ? (
-              <p className="text-xs text-slate-500 dark:text-slate-400">暂无强匹配工具，可尝试上方热门关键词。</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{text.emptyTools}</p>
             ) : (
               <ul className="space-y-2">
                 {result.recommendedTools.map(({ tool, reason, comment }) => (
@@ -72,7 +90,7 @@ export default function SearchIntentPanel({
                       <p className="text-sm font-medium text-slate-900 dark:text-slate-100 line-clamp-1">{tool.name}</p>
                       <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-2">{comment}</p>
                       <p className="text-[11px] text-slate-400 dark:text-slate-500 line-clamp-1 mt-0.5">
-                        命中逻辑: {reason}
+                        {text.reason}: {reason}
                       </p>
                     </Link>
                   </li>
@@ -82,9 +100,9 @@ export default function SearchIntentPanel({
           </div>
 
           <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-3">
-            <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">教程推荐</h4>
+            <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">{text.tutorials}</h4>
             {result.recommendedTutorials.length === 0 ? (
-              <p className="text-xs text-slate-500 dark:text-slate-400">暂无强匹配教程，可尝试上方热门关键词。</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{text.emptyTutorials}</p>
             ) : (
               <ul className="space-y-2">
                 {result.recommendedTutorials.map(({ tutorial, reason }) => (

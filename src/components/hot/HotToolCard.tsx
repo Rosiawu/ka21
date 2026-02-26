@@ -7,6 +7,8 @@ import { Tool } from '@/lib/types';
 import { useHotAnalytics } from '@/lib/hot-analytics';
 import { getToolIconUrl, handleImageError } from '@/lib/utils';
 import {useTranslations} from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { localizeTool } from '@/lib/toolLocale';
 
 interface HotToolCardProps {
   tool: Tool;
@@ -25,6 +27,9 @@ export function HotToolCard({
   isFeatured = false,
   className = ''
 }: HotToolCardProps) {
+  const pathname = usePathname();
+  const locale = pathname?.startsWith('/en') ? 'en' : 'zh';
+  const localizedTool = localizeTool(tool, locale);
   const { trackClick } = useHotAnalytics();
   const tHot = useTranslations('Hot');
 
@@ -36,8 +41,8 @@ export function HotToolCard({
       }
     } catch {}
     const computedFeatured = typeof isFeatured === 'boolean' ? isFeatured : tool.recommendLevel === 'high';
-    const recommendLevel = tool.recommendLevel || 'undefined';
-    trackClick(categoryKey, categoryTitle, tool.id, position, computedFeatured, recommendLevel);
+    const recommendLevel = localizedTool.recommendLevel || 'undefined';
+    trackClick(categoryKey, categoryTitle, localizedTool.id, position, computedFeatured, recommendLevel);
   };
 
   return (
@@ -51,14 +56,14 @@ export function HotToolCard({
         ${className}
       `}
       onClick={handleClick}
-      aria-label={tHot('viewToolAria', {name: tool.name, desc: tool.description})}
+      aria-label={tHot('viewToolAria', {name: localizedTool.name, desc: localizedTool.description})}
     >
       {/* 工具图标 */}
       <div className="flex items-start space-x-3">
         <div className="flex-shrink-0">
           <Image
-            src={getToolIconUrl(tool) || ''}
-            alt={tool.name}
+            src={getToolIconUrl(localizedTool) || ''}
+            alt={localizedTool.name}
             width={40}
             height={40}
             className="w-10 h-10 rounded-lg object-cover"
@@ -70,9 +75,9 @@ export function HotToolCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-center space-x-2 mb-1">
             <h3 className="text-sm font-medium text-gray-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate">
-              {tool.name}
+              {localizedTool.name}
             </h3>
-            {tool.recommendLevel === 'high' && (
+            {localizedTool.recommendLevel === 'high' && (
               <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300">
                 {tHot('featuredBadge')}
               </span>
@@ -81,7 +86,7 @@ export function HotToolCard({
           </div>
           
           <p className="text-xs text-gray-600 dark:text-slate-400 line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-slate-300">
-            {tool.description}
+            {localizedTool.description}
           </p>
         </div>
       </div>

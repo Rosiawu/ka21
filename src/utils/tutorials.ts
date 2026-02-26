@@ -28,3 +28,35 @@ export function getCategoryColor(category: string): string {
   }
 }
 
+export function localizeTutorialCategory(category: string, locale: "zh" | "en"): string {
+  if (locale !== "en") return category;
+
+  const enMap: Record<string, string> = {
+    "AI效率": "AI Productivity",
+    "AI图像": "AI Imaging",
+    "AI视频": "AI Video",
+    "AI编程": "AI Coding",
+    "AI音频": "AI Audio",
+    "AI智能体": "AI Agents",
+    "AI大模型": "AI LLMs",
+    "飞书多维表格": "Feishu Bitable",
+    "AI绘画": "AI Drawing",
+    "AI设计": "AI Design",
+    "AI播客": "AI Podcast",
+    "AI通用智能体": "General AI Agents",
+    "AI办公": "AI Office",
+    "商业应用": "Business Use Cases",
+    "学术研究": "Academic Research",
+    "技术教程": "Technical Tutorials",
+  };
+
+  return enMap[category] || category;
+}
+
+export function localizeDifficultyLevel(level: string, locale: "zh" | "en"): string {
+  if (locale !== "en") return level;
+  if (level === "小白入门") return "Beginner";
+  if (level === "萌新进阶") return "Intermediate";
+  if (level === "高端玩家") return "Advanced";
+  return level;
+}

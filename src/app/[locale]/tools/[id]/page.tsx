@@ -7,36 +7,39 @@ import { Tool } from '@/lib/types';
 import { withBaseMeta } from '@/lib/withBaseMeta';
 import StructuredData from '@/components/StructuredData';
 import { generateHreflangMetadata } from '@/lib/hreflang';
+import { localizeTool } from '@/lib/toolLocale';
 
 export async function generateMetadata({
   params,
 }: {
   params: { id: string, locale: string }
 }, parent: ResolvingMetadata): Promise<Metadata> {
+  const isEn = params.locale === 'en';
   const tool = toolsData.tools.find(t => t.id === params.id);
 
   if (!tool) {
     return withBaseMeta({
-      title: '工具不存在 - KA21工具导航',
+      title: isEn ? 'Tool Not Found - KA21 Tools' : '工具不存在 - KA21工具导航',
     }, parent);
   }
 
   const typedTool = tool as Tool;
+  const localizedTool = localizeTool(typedTool, isEn ? 'en' : 'zh');
   const iconUrl = typedTool.icons?.svg || typedTool.icons?.png || typedTool.icon || '';
 
   // 生成hreflang标签（工具详情页路径）
   const hreflangConfig = generateHreflangMetadata(params.locale, `tools/${params.id}`);
 
   return withBaseMeta({
-    title: `${tool.name} - KA21工具导航`,
-    description: tool.description,
+    title: `${localizedTool.name} - ${isEn ? 'KA21 Tools' : 'KA21工具导航'}`,
+    description: localizedTool.description,
     alternates: {
       canonical: hreflangConfig.canonical,
       languages: hreflangConfig.languages
     },
     openGraph: {
-      title: `${tool.name} - KA21工具导航`,
-      description: tool.description,
+      title: `${localizedTool.name} - ${isEn ? 'KA21 Tools' : 'KA21工具导航'}`,
+      description: localizedTool.description,
       type: 'website',
       images: iconUrl ? [iconUrl] : [],
     },
@@ -46,19 +49,19 @@ export async function generateMetadata({
 export default function Page({
   params,
 }: {
-  params: { id: string }
+  params: { id: string; locale: string }
 }) {
   const foundTool = toolsData.tools.find(t => t.id === params.id);
   if (!foundTool || !validateTool(foundTool) || foundTool.isVisible === false) {
     notFound();
   }
   const tool: Tool = foundTool as Tool;
+  const localizedTool = localizeTool(tool, params.locale === 'en' ? 'en' : 'zh');
 
   return (
     <>
-      <StructuredData tool={tool} type="Tool" />
-      <ToolDetail tool={tool} />
+      <StructuredData tool={localizedTool} type="Tool" locale={params.locale} />
+      <ToolDetail tool={localizedTool} />
     </>
   );
 }
-

@@ -13,7 +13,7 @@ import LoadingState from './LoadingState'; // 加载状态组件
 import ErrorState from './ErrorState'; // 错误状态组件
 import { TOOL_CATEGORIES } from '@/data/toolCategories'; // 工具分类数据
 import useDebounce from '@/hooks/useDebounce'; // 防抖Hook
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {filterTools} from '@/utils/filterTools';
 import ToolCategorySection from '@/components/ToolCategorySection';
 import useCategoryMeta from '@/hooks/useCategoryMeta';
@@ -43,6 +43,7 @@ export default function ToolList({
   error = null, // 错误信息，默认为null
   selectedToolCategory: initialSelectedToolCategory = null // 初始选中的工具分类，默认为null
 }: ToolListProps) {
+  const isEn = useLocale() === 'en';
   // 文案翻译：搜索与通用、工具列表命名空间
   const tSearch = useTranslations('Search');
   const tCommon = useTranslations('Common');
@@ -146,7 +147,7 @@ export default function ToolList({
   if (error) { // 如果有错误
     return (
       <ErrorState 
-        message="加载工具列表时出错，请稍后重试" // 错误提示信息
+        message={isEn ? 'Failed to load tool list. Please try again later.' : '加载工具列表时出错，请稍后重试'} // 错误提示信息
         retryAction={() => window.location.reload()} // 重试操作：刷新页面
       />
     );
@@ -154,7 +155,7 @@ export default function ToolList({
   
   // 如果正在加载，显示加载状态
   if (isLoading) { // 如果正在加载
-    return <LoadingState message="正在加载工具列表..." />; // 显示加载状态组件
+    return <LoadingState message={isEn ? 'Loading tools...' : '正在加载工具列表...'} />; // 显示加载状态组件
   }
 
   // ========== 渲染逻辑 ==========
@@ -187,9 +188,9 @@ export default function ToolList({
                   return (
                     <>
                       {name} {/* 分类名称（本地化） */}
-                      {cat?.description && ( // 如果有分类描述
+                      {meta.description && ( // 如果有分类描述
                         <span className="ml-2 text-xs text-gray-500 dark:text-neutral-400 whitespace-nowrap"> {/* 描述文本样式 */}
-                          {cat.description} {/* 描述（如需多语言，可扩展消息映射） */}
+                          {meta.description} {/* 描述（如需多语言，可扩展消息映射） */}
                         </span>
                       )}
                     </>

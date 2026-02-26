@@ -2,7 +2,7 @@
 
 // 引入React相关Hook和组件
 import { useState, useRef, useEffect, useMemo } from 'react'; // React核心Hook
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import ToolList from '@/components/ToolList'; // 工具列表组件
 import toolsData from '@/data/tools.json'; // 工具数据JSON文件
 import { Tool } from '@/lib/types'; // 工具类型定义
@@ -24,6 +24,7 @@ import SearchIntentPanel from './SearchIntentPanel'; // 搜索意图推荐组件
 import { trackUserAction, trackPageView, setTag } from '@/utils/clarity'; // 埋点分析工具
 import useDebounce from '@/hooks/useDebounce'; // 防抖Hook
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
+import { localizeTutorialCategory } from '@/utils/tutorials';
 
 /**
  * 首页内容组件
@@ -32,6 +33,7 @@ import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
  * - 支持键盘快捷键和响应式设计
  */
 export default function HomeContent({ subtitle }: { subtitle?: string }) {
+  const isEn = useLocale() === 'en';
   const tHome = useTranslations('Home');
   const tCommon = useTranslations('Common');
   // 返回首页时若存在保存的滚动位置，则恢复
@@ -50,6 +52,21 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     } catch {}
   }, []);
   const tHot = useTranslations('Hot');
+  const composerText = {
+    label: isEn ? 'Conversation input' : '对话输入框',
+    placeholder: isEn
+      ? 'What do you want to do today? Tell me naturally and I will find tools and tutorials for you.'
+      : '今天想做什么？像聊天一样告诉我，我来帮你找工具和教程。',
+    mode: isEn ? 'Chat mode' : '对话模式',
+    intent: isEn ? 'Intent matching enabled' : '意图匹配已开启',
+    understanding: isEn ? 'Understanding your request' : '正在理解你的需求',
+    clear: isEn ? 'Clear input' : '清空输入',
+    send: isEn ? 'Send' : '发送',
+    examples: isEn
+      ? 'Try: storyboard for a short drama | write a launch post | tools that auto-summarize spreadsheets'
+      : '试试这样问: 做短剧分镜 | 写一段发布文案 | 找能自动汇总表格的工具',
+    tutorialImage: isEn ? 'Tutorial cover' : '教程图片',
+  };
   // ========== 状态管理 ==========
   
   // 搜索相关状态
@@ -319,13 +336,13 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
               onSubmit={handleSearchSubmit}
               className="rounded-[2rem] border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)] dark:shadow-[0_10px_30px_rgba(2,6,23,0.45)] backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5 transition-all focus-within:border-primary-400 focus-within:shadow-[0_14px_35px_rgba(59,130,246,0.18)]"
             >
-              <label htmlFor="search" className="sr-only">对话输入框</label>
+              <label htmlFor="search" className="sr-only">{composerText.label}</label>
               <textarea
                 ref={searchInputRef}
                 id="search"
                 rows={2}
                 className="w-full resize-none bg-transparent text-base sm:text-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
-                placeholder="今天想做什么？像聊天一样告诉我，我来帮你找工具和教程。"
+                placeholder={composerText.placeholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleComposerKeyDown}
@@ -340,16 +357,16 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
                     <i className="fas fa-comments text-[11px]"></i>
-                    对话模式
+                    {composerText.mode}
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-primary-50 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300 border border-primary-100 dark:border-primary-800/60">
                     <i className="fas fa-wand-magic-sparkles text-[11px]"></i>
-                    意图匹配已开启
+                    {composerText.intent}
                   </span>
                   {isSearchPending && (
                     <span className="inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                       <span className="w-3 h-3 border-2 border-primary-400 border-t-transparent rounded-full animate-spin"></span>
-                      正在理解你的需求
+                      {composerText.understanding}
                     </span>
                   )}
                 </div>
@@ -360,7 +377,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       type="button"
                       onClick={() => setSearchQuery('')}
                       className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                      aria-label="清空输入"
+                      aria-label={composerText.clear}
                     >
                       <i className="fas fa-xmark"></i>
                     </button>
@@ -370,14 +387,14 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                     disabled={!searchQuery.trim()}
                     className="h-11 px-4 inline-flex items-center gap-2 rounded-full bg-slate-900 text-white dark:bg-primary-500 dark:text-white enabled:hover:bg-slate-700 dark:enabled:hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                   >
-                    <span className="text-sm">发送</span>
+                    <span className="text-sm">{composerText.send}</span>
                     <i className="fas fa-paper-plane text-xs"></i>
                   </button>
                 </div>
               </div>
 
               <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-                试试这样问: 做短剧分镜 | 写一段发布文案 | 找能自动汇总表格的工具
+                {composerText.examples}
               </p>
             </form>
           </div>
@@ -493,7 +510,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                                       // 图片加载失败时使用CSS生成的占位图
                                       const target = e.target as HTMLImageElement;
                                       target.onerror = null; // 防止无限循环
-                                      target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="288" height="144" viewBox="0 0 288 144"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="288" height="144" fill="url(%23grad)" /><text x="50%" y="50%" font-family="Arial" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">教程图片</text></svg>';
+                                      target.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="288" height="144" viewBox="0 0 288 144"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="288" height="144" fill="url(%23grad)" /><text x="50%" y="50%" font-family="Arial" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">${composerText.tutorialImage}</text></svg>`;
                                     }}
                                   />
                                 </div>
@@ -508,7 +525,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                                     tutorial.category === '学术研究' ? 'bg-indigo-500' :
                                     'bg-red-500'
                                   } text-white text-xs font-medium rounded-md`}>
-                                    {tutorial.category}
+                                    {localizeTutorialCategory(tutorial.category, isEn ? 'en' : 'zh')}
                                   </span>
                                 </div>
                               </div>
