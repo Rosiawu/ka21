@@ -1675,11 +1675,25 @@
       "recommendReason": "让AI自动拆解任务、搜索、阅读并筛选最适合自己的开源仓库。",
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/cevPo6QMgbDLusN5jZPbjia57PbwOIoTQAYs49qnvxmqls8AoAjwVYXCdbZN4zR1V1aBemvS8mdibXzCabicSCRLyDhXZdt7ayZ2Z2NxpfZHFM/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-谷歌上新NanoBanana2性价比王者来了附5-0",
+      "title": "谷歌上新Nano Banana 2！性价比王者来了！（附5种使用途径和超全测试集）",
+      "description": "百图测试又来了，前方高能，不要眨眼！",
+      "url": "https://mp.weixin.qq.com/s/-X9uagypDsVnY0tV-N2KMg",
+      "source": "赛博小熊猫Loki",
+      "publishDate": "2026-02-27",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "百图测试又来了，前方高能，不要眨眼！",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMm9NdZe5bJ4HHSjyDWt9ApcnprRwBDrpOZD9iceGReBkb8ib0nXVEyANia7souiaD6TT8UzQ0ps8sEyibVYZC2zicoYPuCDGwbmY08JYE/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-02-26T07:35:49.539Z",
-    "count": 92
+    "updatedAt": "2026-02-27T08:42:07.011Z",
+    "count": 93
   }
 }
