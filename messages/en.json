@@ -130,10 +130,11 @@
   }
   ,
   "Hot": {
-    "title": "Hot Recommendations",
-    "subtitle": "Curated quality AI tools to boost productivity",
+    "title": "Weekly Picks",
+    "subtitle": "Manually updated each week with the tools worth trying first",
     "changeButton": "Change",
     "featuredBadge": "Featured",
+    "viewAll": "View all",
     "viewToolAria": "Learn about {name} - {desc}",
     "debug": {
       "panelTitle": "Debug Info",

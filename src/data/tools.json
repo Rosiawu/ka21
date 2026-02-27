@@ -139,6 +139,53 @@
       ]
     },
     {
+      "id": "codex",
+      "name": "Codex",
+      "description": "OpenAI 推出的 AI 编码助手！Codex 面向真实项目开发场景，支持代码理解、实现方案生成、重构和调试建议，适合用于提升开发效率与交付质量。",
+      "icon": "/icons/codex.png",
+      "url": "https://chatgpt.com/",
+      "tags": [
+        "ai-code",
+        "ai-assistant",
+        "development"
+      ],
+      "recommendLevel": "high",
+      "accessibility": "需要代理",
+      "displayOrder": 2,
+      "groupComments": [
+        {
+          "content": "更偏工程实战的 AI 编码助手，适合代码实现、重构和问题定位，和现有开发流程兼容度高。",
+          "author": "群友分享",
+          "createdAt": "2026-02-27",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 代码实现建议\n2. 复杂代码理解\n3. 重构与优化建议\n4. 调试与错误定位\n5. 多文件协同分析\n6. 开发流程提效",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 打开 Codex 工作环境\n2. 提供任务目标或代码上下文\n3. 让 AI 生成或改写代码\n4. 运行验证并迭代调整\n5. 合并到项目分支",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 关键逻辑需人工复核\n2. 注意敏感信息保护\n3. 建议配合测试使用\n4. 大改动分步提交",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-02-27T00:00:00Z",
+      "updatedAt": "2026-02-27T00:00:00Z",
+      "toolCategory": "coding",
+      "icons": {
+        "png": "/icons/codex.png"
+      },
+      "isVisible": true
+    },
+    {
       "id": "chatgpt",
       "name": "ChatGPT",
       "description": "OpenAI开发的AI对话助手！ChatGPT是全球最受欢迎的AI语言模型之一，能够进行自然流畅的对话交流。它支持多语言交互，可以帮助用户完成写作、编程、分析等各种任务，具备强大的知识储备和理解能力。",

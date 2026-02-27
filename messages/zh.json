@@ -130,10 +130,11 @@
   }
   ,
   "Hot": {
-    "title": "热门推荐",
-    "subtitle": "精选优质AI工具，提升你的工作效率",
+    "title": "本周精选",
+    "subtitle": "每周手动更新，直接看最值得试的工具",
     "changeButton": "换一换",
     "featuredBadge": "精选",
+    "viewAll": "查看全部",
     "viewToolAria": "了解 {name} - {desc}",
     "debug": {
       "panelTitle": "调试信息",

@@ -1,198 +1,107 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { HotCategory } from './HotCategory';
-import { FeaturedToolsManager, FeaturedToolWithMeta, getPageSize } from '@/lib/featured';
-import { FeaturedCategory, FeaturedConfig } from '@/types/featured';
-import { Tool } from '@/lib/types';
+import React, { useMemo } from 'react';
+import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
+import Link from '@/i18n/Link';
 import featuredConfig from '@/data/featured.json';
 import toolsData from '@/data/tools.json';
-import {useTranslations} from 'next-intl';
+import weeklyPicksData from '@/data/weekly-picks.json';
+import { Tool } from '@/lib/types';
+import { getToolIconUrl, handleImageError } from '@/lib/utils';
+import { localizeTool } from '@/lib/toolLocale';
+import { useHotAnalytics } from '@/lib/hot-analytics';
 
 interface HotSectionProps {
   className?: string;
+  title?: string;
+  subtitle?: string;
 }
 
-export function HotSection({ className = '', title, subtitle }: HotSectionProps & {title?: string; subtitle?: string}) {
+interface WeeklyPicksConfig {
+  toolIds?: string[];
+  maxItems?: number;
+}
+
+export function HotSection({ className = '', title, subtitle }: HotSectionProps) {
   const tHot = useTranslations('Hot');
-  const [categories, setCategories] = useState<Array<{
-    key: string;
-    category: FeaturedCategory;
-    initialTools: FeaturedToolWithMeta[];
-    backupPool: Tool[];
-  }>>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [pageSize, setPageSize] = useState(3); // SSR默认值，客户端会更新
-  const [manager, setManager] = useState<FeaturedToolsManager | null>(null);
+  const locale = useLocale() === 'en' ? 'en' : 'zh';
+  const { trackClick } = useHotAnalytics();
+  const resolvedTitle = title ?? tHot('title');
+  const resolvedSubtitle = subtitle ?? tHot('subtitle');
 
-  // 初始化数据
-  useEffect(() => {
-    const initializeData = () => {
-      try {
-        // 设置正确的页面大小（仅在客户端）
-        const correctPageSize = getPageSize();
-        setPageSize(correctPageSize);
-        
-        // 验证并转换配置
-        const config = featuredConfig as unknown as FeaturedConfig;
-        const tools = toolsData.tools as Tool[];
-        
-        // 创建管理器
-        // 创建共享管理器实例（全局去重 + 主分类锁定在此集中处理）
-        const newManager = new FeaturedToolsManager(config, tools);
-        setManager(newManager);
-        // 获取所有分类数据
-        const categoryData = newManager.getCategoryTools();
-        
-        // 按配置的order排序
-        const orderedCategories = config.order
-          .map((categoryKey: string) => {
-            const categoryInfo = categoryData.find(cd => cd.category.title === config.categories[categoryKey].title);
-            if (!categoryInfo) return null;
-            return {
-              key: categoryKey,
-              category: categoryInfo.category,
-              initialTools: newManager.getInitialDisplayTools(categoryKey, pageSize),
-              backupPool: categoryInfo.backupPool,
-            };
-          })
-          .filter((v): v is { key: string; category: FeaturedCategory; initialTools: FeaturedToolWithMeta[]; backupPool: Tool[] } => Boolean(v));
-
-        setCategories(orderedCategories);
-        // 首屏回写全局显示状态（客户端水合后，用于跨分类去重）
-        try {
-          orderedCategories.forEach(({ key, initialTools }) => {
-            newManager.updateGlobalDisplayState(key, initialTools.map(t => t.tool.id));
-          });
-        } catch {}
-        setIsLoading(false);
-      } catch (error) {
-        console.error('初始化热门推荐数据失败:', error);
-        setIsLoading(false);
-      }
-    };
-
-    initializeData();
-  }, [pageSize]);
-
-  // 监听窗口大小变化
-  useEffect(() => {
-    const handleResize = () => {
-      const newPageSize = getPageSize();
-      if (newPageSize !== pageSize) {
-        setPageSize(newPageSize);
-      }
-    };
-
-    // 使用防抖优化性能
-    const debouncedResize = debounce(handleResize, 250);
-    window.addEventListener('resize', debouncedResize);
-    return () => window.removeEventListener('resize', debouncedResize);
-  }, [pageSize]);
-
-  // 防抖函数
-  function debounce<T extends (...args: unknown[]) => void>(
-    func: T,
-    wait: number
-  ): (...args: Parameters<T>) => void {
-    let timeout: NodeJS.Timeout | null = null;
-    return (...args: Parameters<T>) => {
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), wait);
-    };
-  }
-
-  if (isLoading) {
-    return (
-      <section className={`py-8 ${className}`}>
-        {/* 标题骨架屏 */}
-        <div className="text-center mb-8">
-          <div className="h-8 bg-gray-200 rounded-lg w-48 mx-auto mb-4 animate-pulse"></div>
-          <div className="h-4 bg-gray-200 rounded-lg w-64 mx-auto animate-pulse"></div>
-        </div>
-
-        {/* 分类骨架屏（自适应列数） */}
-        <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-white rounded-xl border border-gray-200 p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gray-200 rounded-lg animate-pulse"></div>
-                  <div>
-                    <div className="h-5 bg-gray-200 rounded w-24 mb-1 animate-pulse"></div>
-                    <div className="h-3 bg-gray-200 rounded w-32 animate-pulse"></div>
-                  </div>
-                </div>
-                <div className="h-8 bg-gray-200 rounded-lg w-16 animate-pulse"></div>
-              </div>
-
-              {/* 工具卡片骨架屏 */}
-              <div className="space-y-3">
-                {Array.from({ length: pageSize }).map((_, j) => (
-                  <div key={j} className="p-4 border border-gray-200 rounded-lg">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-10 h-10 bg-gray-200 rounded-lg animate-pulse"></div>
-                      <div className="flex-1">
-                        <div className="h-4 bg-gray-200 rounded w-20 mb-2 animate-pulse"></div>
-                        <div className="h-3 bg-gray-200 rounded w-full animate-pulse"></div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex justify-center pt-4 border-t border-gray-100">
-                <div className="h-8 bg-gray-200 rounded-lg w-20 animate-pulse"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+  const picks = useMemo(() => {
+    const config = weeklyPicksData as WeeklyPicksConfig;
+    const toolMap = new Map(
+      (toolsData.tools as Tool[])
+        .filter((tool) => tool.isVisible !== false)
+        .map((tool) => [tool.id, tool])
     );
-  }
 
-  if (categories.length === 0) {
-    return null; // 如果没有数据，不显示板块
-  }
+    const fallbackToolIds = (featuredConfig.order || []).flatMap((categoryKey) => {
+      const key = categoryKey as keyof typeof featuredConfig.categories;
+      return featuredConfig.categories[key]?.featured_tools || [];
+    });
+    const sourceIds = config.toolIds && config.toolIds.length > 0 ? config.toolIds : fallbackToolIds;
+    const maxItems = Math.min(Math.max(config.maxItems || 6, 1), 8);
+
+    return sourceIds
+      .map((id) => toolMap.get(id))
+      .filter((tool): tool is Tool => Boolean(tool))
+      .slice(0, maxItems)
+      .map((tool) => localizeTool(tool, locale));
+  }, [locale]);
+
+  if (picks.length === 0) return null;
 
   return (
-    <section className={`py-8 ${className}`}>
-      {/* 板块标题 */}
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold flex items-center">
-          <span className="inline-block mr-3 w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
-            <i className="fas fa-fire text-orange-500"></i>
+    <section className={`py-4 ${className}`}>
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center">
+          <span className="inline-flex items-center justify-center mr-2 w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/30">
+            <i className="fas fa-fire text-orange-500 text-sm"></i>
           </span>
-          {title ?? tHot('title')}
-          <span className="hidden sm:inline-block ml-3 text-sm font-normal text-slate-500 dark:text-slate-400">{subtitle ?? tHot('subtitle')}</span>
+          {resolvedTitle}
+          <span className="hidden md:inline ml-2 text-xs font-normal text-slate-500 dark:text-slate-400">
+            {resolvedSubtitle}
+          </span>
         </h2>
+        <Link
+          href="/tools"
+          className="text-xs sm:text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300"
+        >
+          {tHot('viewAll')}
+        </Link>
       </div>
 
-      {/* 分类网格 - 自适应列数 */}
-      <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
-        {categories.map(({ key, category, initialTools, backupPool }) => (
-          <HotCategory
-            key={key}
-            category={category}
-            initialTools={initialTools}
-            backupPool={backupPool}
-            categoryKey={key}
-            manager={manager}
-          />
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-2 sm:gap-3">
+        {picks.map((tool, index) => (
+          <Link
+            key={tool.id}
+            href={`/tools/${tool.id}`}
+            className="group min-w-0 rounded-lg border border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-900/60 p-3 hover:border-primary-300 dark:hover:border-primary-500/60 hover:bg-primary-50/60 dark:hover:bg-primary-900/20 transition-colors"
+            onClick={() => {
+              const recommendLevel = tool.recommendLevel || 'undefined';
+              trackClick('weekly_picks', resolvedTitle, tool.id, index + 1, true, recommendLevel);
+            }}
+            aria-label={tHot('viewToolAria', { name: tool.name, desc: tool.description })}
+          >
+            <div className="flex items-center gap-2.5">
+              <Image
+                src={getToolIconUrl(tool) || ''}
+                alt={tool.name}
+                width={28}
+                height={28}
+                className="w-7 h-7 rounded-md object-cover flex-shrink-0"
+                onError={handleImageError}
+              />
+              <p className="text-sm font-medium text-slate-900 dark:text-slate-100 truncate group-hover:text-primary-700 dark:group-hover:text-primary-300">
+                {tool.name}
+              </p>
+            </div>
+          </Link>
         ))}
       </div>
-
-      {/* 调试信息 */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="mt-8 p-4 bg-gray-50 dark:bg-slate-800/50 dark:border dark:border-slate-700/50 rounded-lg">
-          <h3 className="text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">{tHot('debug.panelTitle')}</h3>
-          <div className="text-xs text-gray-600 dark:text-slate-400 space-y-1">
-            <div>{tHot('debug.pageSize')}: {pageSize}</div>
-            <div>{tHot('debug.categoryCount')}: {categories.length}</div>
-            <div>{tHot('debug.windowSize')}: {typeof window !== 'undefined' ? `${window.innerWidth}px` : 'SSR'}</div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

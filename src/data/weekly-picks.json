@@ -1,0 +1,11 @@
+{
+  "maxItems": 6,
+  "toolIds": [
+    "chatgpt",
+    "jm",
+    "lovart",
+    "minimax-audio",
+    "feishu-base",
+    "codex"
+  ]
+}
