@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from '@/i18n/Link';
 import { Tool } from '@/lib/types';
-import AiTagGroup from './AiTagGroup';
 import RecommendBadge from './RecommendBadge';
 import { getToolIconUrl, handleImageError, shimmer, toBase64 } from '@/lib/utils';
 import { trackUserAction } from '@/utils/clarity';
@@ -11,6 +10,15 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { localizeTool } from '@/lib/toolLocale';
+import DifficultyBadge from './DifficultyBadge';
+import {
+  getCoreScenarioColorClass,
+  getCoreScenarioLabel,
+  getToolHiddenTaxonomyTags,
+  inferToolDifficulty,
+  resolveToolCoreScenarios,
+  serializeTagsForTelemetry,
+} from '@/lib/coreTaxonomy';
 
 interface ToolCardProps {
   tool: Tool;
@@ -22,6 +30,8 @@ function ToolCard({ tool }: ToolCardProps) {
   const localizedTool = localizeTool(tool, locale);
   const { id, name, description, url, tags, recommendLevel, accessibility } = localizedTool;
   const tAccess = useTranslations('Access');
+  const toolDifficulty = inferToolDifficulty(localizedTool);
+  const coreScenarios = resolveToolCoreScenarios(localizedTool).slice(0, 2);
   
   // 使用工具函数获取图标URL
   const iconUrl = getToolIconUrl(localizedTool);
@@ -38,6 +48,8 @@ function ToolCard({ tool }: ToolCardProps) {
       tool_id: id,
       tool_name: name,
       tool_category: tags?.[0] || 'uncategorized',
+      core_scenarios: coreScenarios.join('|'),
+      hidden_taxonomy_tags: serializeTagsForTelemetry(getToolHiddenTaxonomyTags(localizedTool), 20),
       recommend_level: recommendLevel?.toString() || 'none',
       accessibility: accessibility?.toString() || 'unknown'
     });
@@ -90,11 +102,16 @@ function ToolCard({ tool }: ToolCardProps) {
               {description}
             </p>
             
-            <div className="mt-1.5">
-              {/* 只显示AI标签组 */}
-              {tags && tags.length > 0 && (
-                <AiTagGroup tags={tags} maxTags={3} className="mt-1" />
-              )}
+            <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+              <DifficultyBadge level={toolDifficulty} size="sm" />
+              {coreScenarios.map((scenarioId) => (
+                <span
+                  key={scenarioId}
+                  className={`inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium text-white ${getCoreScenarioColorClass(scenarioId)}`}
+                >
+                  {getCoreScenarioLabel(scenarioId, locale)}
+                </span>
+              ))}
             </div>
           </div>
         </div>

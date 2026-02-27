@@ -3,9 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import type { TutorialsJson, TutorialData } from '@/types/tutorials';
 import { fetchFromGitHub, updateGitHubFile } from '@/lib/github';
-
-// 动态引入 node-fetch 避免构建问题
-const fetch = globalThis.fetch;
+import { getPrimaryCoreScenario, resolveTutorialCoreScenarios } from '@/lib/coreTaxonomy';
 
 type DifficultyLevel = '小白入门' | '萌新进阶' | '高端玩家';
 
@@ -144,6 +142,14 @@ export async function POST(request: Request) {
       category = matched;
     }
 
+    // 统一写入核心场景标签，旧分类通过映射层兼容
+    category = getPrimaryCoreScenario(
+      resolveTutorialCoreScenarios({
+        category,
+        skillTags: payload.skillTags || [],
+      })
+    );
+
     const difficulty: DifficultyLevel =
       payload.difficultyLevel || '萌新进阶';
 
@@ -202,4 +208,3 @@ export async function POST(request: Request) {
     );
   }
 }
-

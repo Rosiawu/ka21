@@ -2,7 +2,6 @@
 
 import { Guide, Tool } from '@/lib/types';
 import Image from 'next/image';
-import AiTagGroup from '@/components/AiTagGroup';
 import AccessibilityBadge from '@/components/AccessibilityBadge';
 import RecommendBadge from '@/components/RecommendBadge';
 import { useRouter } from '@/i18n/navigation';
@@ -11,6 +10,8 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import { findTutorialById } from '@/data/tutorials';
 import { localizeTool } from '@/lib/toolLocale';
+import DifficultyBadge from '@/components/DifficultyBadge';
+import { getCoreScenarioColorClass, getCoreScenarioLabel, inferToolDifficulty, resolveToolCoreScenarios } from '@/lib/coreTaxonomy';
 
 // 类型定义
 interface ArticleLike {
@@ -41,6 +42,9 @@ function ToolDetail({ tool }: { tool: Tool }) {
   const pathname = usePathname();
   const isEn = pathname?.startsWith('/en');
   const localizedTool = localizeTool(tool, isEn ? 'en' : 'zh');
+  const locale = isEn ? 'en' : 'zh';
+  const coreScenarios = resolveToolCoreScenarios(localizedTool);
+  const toolDifficulty = inferToolDifficulty(localizedTool);
   // 使用工具函数获取图标URL
   const iconUrl = getToolIconUrl(localizedTool);
   const router = useRouter();
@@ -187,9 +191,15 @@ function ToolDetail({ tool }: { tool: Tool }) {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{localizedTool.description}</p>
                 
                 <div className="flex flex-wrap gap-3">
-                  {localizedTool.tags && localizedTool.tags.length > 0 && (
-                    <AiTagGroup tags={localizedTool.tags} maxTags={5} size="md" />
-                  )}
+                  <DifficultyBadge level={toolDifficulty} size="md" />
+                  {coreScenarios.map((scenarioId) => (
+                    <span
+                      key={scenarioId}
+                      className={`inline-flex items-center px-2.5 py-1 rounded-md text-sm font-medium text-white ${getCoreScenarioColorClass(scenarioId)}`}
+                    >
+                      {getCoreScenarioLabel(scenarioId, locale)}
+                    </span>
+                  ))}
                   
                   <a 
                     href={localizedTool.url} 

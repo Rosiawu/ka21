@@ -13,6 +13,12 @@
  */
 
 import { USE_NEW_TUTORIALS_SOURCE } from '@/lib/config';
+import {
+  type CoreScenarioId,
+  getPrimaryCoreScenario,
+  getTutorialHiddenTaxonomyTags,
+  resolveTutorialCoreScenarios,
+} from '@/lib/coreTaxonomy';
 // 导入tutorials.json的类型定义
 import type { TutorialsJson, TutorialData } from '@/types/tutorials';
 
@@ -55,6 +61,9 @@ export interface Tutorial {
   category: string;               // 分类
   difficultyLevel: DifficultyLevel; // 难度级别
   skillTags: string[];            // 技能标签
+  coreScenarios: CoreScenarioId[]; // 核心场景标签（显性）
+  primaryScenario: CoreScenarioId; // 主场景标签（显性）
+  hiddenTags: string[];           // 细分标签（隐性，供检索/埋点）
   recommendReason?: string;       // 推荐理由
   relatedTools?: string[];        // 关联的工具ID
 }
@@ -151,6 +160,11 @@ const loadTutorialsFromJson = (): Tutorial[] => {
     }
     
     // 确保教程数据符合Tutorial接口要求
+    const coreScenarios = resolveTutorialCoreScenarios({
+      category: tutorial.category,
+      skillTags: tutorial.skillTags || [],
+    });
+
     return {
       id: tutorial.id,
       title: tutorial.title,
@@ -162,6 +176,12 @@ const loadTutorialsFromJson = (): Tutorial[] => {
       category: tutorial.category,
       difficultyLevel: tutorial.difficultyLevel as DifficultyLevel,
       skillTags: tutorial.skillTags || [],
+      coreScenarios,
+      primaryScenario: getPrimaryCoreScenario(coreScenarios),
+      hiddenTags: getTutorialHiddenTaxonomyTags({
+        category: tutorial.category,
+        skillTags: tutorial.skillTags || [],
+      }),
       recommendReason: tutorial.recommendReason,
       relatedTools: tutorial.relatedTools || []
     };

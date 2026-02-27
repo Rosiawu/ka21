@@ -1,5 +1,5 @@
 import { Tool } from "@/lib/types";
-import { getAiTagLabel } from "@/lib/aiTags";
+import { getCoreScenarioLabel, resolveToolCoreScenarios } from "@/lib/coreTaxonomy";
 
 type ToolLocale = "zh" | "en";
 
@@ -99,11 +99,11 @@ export function getLocalizedToolDescription(tool: Tool, locale: ToolLocale): str
 
   const localizedName = getLocalizedToolName(tool, "en");
   const categoryText = CATEGORY_DESC_EN[tool.toolCategory || "utils"] || "AI workflows";
-  const tagLabels = (tool.tags || [])
+  const scenarioLabels = resolveToolCoreScenarios(tool)
     .slice(0, 2)
-    .map((tag) => getAiTagLabel(tag, "en"))
+    .map((scenarioId) => getCoreScenarioLabel(scenarioId, "en"))
     .filter(Boolean);
-  const tagText = tagLabels.length > 0 ? ` Key features include ${tagLabels.join(" and ")}.` : "";
+  const tagText = scenarioLabels.length > 0 ? ` Key scenarios include ${scenarioLabels.join(" and ")}.` : "";
 
   return `${localizedName} is an AI tool for ${categoryText}.${tagText}`;
 }
@@ -116,4 +116,3 @@ export function localizeTool(tool: Tool, locale: ToolLocale): Tool {
     description: getLocalizedToolDescription(tool, "en"),
   };
 }
-

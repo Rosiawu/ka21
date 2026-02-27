@@ -1,5 +1,6 @@
 import {Tool, ToolCategoryId} from '@/lib/types';
 import {TOOL_CATEGORIES} from '@/data/toolCategories';
+import { getToolSearchAliasTokens, matchesTaxonomyToken } from '@/lib/coreTaxonomy';
 
 export interface FilterOptions {
   query?: string;
@@ -19,10 +20,10 @@ export function filterTools(tools: Tool[], opts: FilterOptions = {}): Tool[] {
       const inName = tool.name.toLowerCase().includes(normalizedQuery);
       const inDesc = tool.description.toLowerCase().includes(normalizedQuery);
       const inTags = Array.isArray(tool.tags) && tool.tags.some(tag => tag.toLowerCase().includes(normalizedQuery));
-      if (!(inName || inDesc || inTags)) return false;
+      const inMappedAliases = matchesTaxonomyToken(normalizedQuery, getToolSearchAliasTokens(tool));
+      if (!(inName || inDesc || inTags || inMappedAliases)) return false;
     }
 
     return true;
   });
 }
-

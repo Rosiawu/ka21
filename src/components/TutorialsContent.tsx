@@ -6,15 +6,24 @@ import { useSearchParams, usePathname } from 'next/navigation';
 import { tutorials, Tutorial, sortTutorials, TutorialSortMethod, DifficultyLevel } from '@/data/tutorials';
 import { useMediaQuery } from '@/hooks/useMediaQuery'; // 引入媒体查询钩子
 import DifficultyBadge from './DifficultyBadge';
-import SkillTag from './SkillTag';
 import { getCategoryColor, localizeTutorialCategory } from '@/utils/tutorials';
+import {
+  type CoreScenarioId,
+  getCoreScenarioAliases,
+  getCoreScenarioIds,
+  getTutorialHiddenTaxonomyTags,
+  getTutorialSearchAliasTokens,
+  matchesTaxonomyToken,
+  serializeTagsForTelemetry,
+} from '@/lib/coreTaxonomy';
+import { setTag, trackUserAction } from '@/utils/clarity';
 
 /**
  * 教程标签组件
  */
-const TutorialTag = ({ category, isEn }: { category: string; isEn: boolean }) => (
-  <span className={`px-2 py-0.5 ${getCategoryColor(category)} text-white text-xs font-medium rounded-md`}>
-    {localizeTutorialCategory(category, isEn ? 'en' : 'zh')}
+const TutorialTag = ({ scenario, isEn }: { scenario: string; isEn: boolean }) => (
+  <span className={`px-2 py-0.5 ${getCategoryColor(scenario)} text-white text-xs font-medium rounded-md`}>
+    {localizeTutorialCategory(scenario, isEn ? 'en' : 'zh')}
   </span>
 );
 
@@ -109,7 +118,7 @@ const TutorialCard = ({
             <DifficultyBadge level={tutorial.difficultyLevel} size="sm" />
           </div>
           <div className="absolute bottom-2 left-2 z-10">
-            <TutorialTag category={tutorial.category} isEn={isEn} />
+            <TutorialTag scenario={tutorial.primaryScenario || tutorial.category} isEn={isEn} />
           </div>
         </div>
         <div className={`${isMobile ? 'p-2' : 'p-3'} flex-grow`}>
@@ -124,19 +133,6 @@ const TutorialCard = ({
               {tutorial.author}
             </span>
           </p>
-          
-          {/* 技能标签 */}
-          {tutorial.skillTags && tutorial.skillTags.length > 0 && (
-            <div className="mt-2 flex flex-wrap gap-1">
-              {tutorial.skillTags.slice(0, 2).map((tag, index) => (
-                <SkillTag key={index} tag={tag} />
-              ))}
-              {tutorial.skillTags.length > 2 && (
-                <span className="text-xs text-gray-500">+{tutorial.skillTags.length - 2}</span>
-              )}
-            </div>
-          )}
-          
           {/* 推荐理由 */}
           {tutorial.recommendReason && (
             <div className="mt-2 text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/30 p-1.5 rounded line-clamp-3 italic">
@@ -165,9 +161,8 @@ export default function TutorialsContent() {
   const searchParams = useSearchParams();
   const queryParam = searchParams.get('q') || '';
   const [searchQuery, setSearchQuery] = useState(queryParam);
-  const [categoryFilter, setCategoryFilter] = useState<string>('');
+  const [categoryFilter, setCategoryFilter] = useState<CoreScenarioId | ''>('');
   const [difficultyFilter, setDifficultyFilter] = useState<DifficultyLevel | ''>('');
-  const [skillFilter, setSkillFilter] = useState<string>('');
   const [sortMethod, setSortMethod] = useState<TutorialSortMethod>('latest');
   const [filteredTutorials, setFilteredTutorials] = useState<Tutorial[]>([]);
   const isMobile = useMediaQuery('(max-width: 767px)');
@@ -193,10 +188,8 @@ export default function TutorialsContent() {
     sortLatest: isEn ? 'Newest first' : '最新优先',
     sortOldest: isEn ? 'Oldest first' : '最早优先',
     sortDifficulty: isEn ? 'Easy to hard' : '从易到难',
-    categoryTitle: isEn ? 'Content Categories' : '内容分类',
-    allCategories: isEn ? 'All Categories' : '全部分类',
-    skillTitle: isEn ? 'Tool/Skill Tags' : '工具/技能标签',
-    allSkills: isEn ? 'All Skills' : '全部技能',
+    categoryTitle: isEn ? 'Core Scenarios' : '核心场景',
+    allCategories: isEn ? 'All Scenarios' : '全部场景',
     resultCount: (count: number) => (isEn ? `Found ${count} matching tutorials` : `找到 ${count} 个符合条件的教程`),
     resetFilters: isEn ? 'Reset Filters' : '重置筛选',
     noResultTitle: isEn ? 'No matching tutorials found' : '未找到匹配的教程',
@@ -246,26 +239,30 @@ export default function TutorialsContent() {
   const [formDifficulty, setFormDifficulty] = useState<DifficultyLevel>('萌新进阶');
   const [formSkillTags, setFormSkillTags] = useState('');
 
-  // 获取所有分类
-  const categories = Array.from(new Set(tutorials.map(tutorial => tutorial.category)));
-  
-  // 获取所有技能标签
-  const allSkillTags = Array.from(
-    new Set(
-      tutorials.flatMap(tutorial => tutorial.skillTags || [])
-    )
-  ).sort();
+  // 只展示核心场景标签（显性）
+  const categories = getCoreScenarioIds().filter((scenarioId) =>
+    tutorials.some((tutorial) => tutorial.coreScenarios.includes(scenarioId))
+  );
   
   // 当URL参数变化时更新搜索查询
   useEffect(() => {
     setSearchQuery(queryParam);
   }, [queryParam]);
 
+  useEffect(() => {
+    const hiddenTutorialTags = tutorials.flatMap((tutorial) => getTutorialHiddenTaxonomyTags(tutorial));
+    setTag('taxonomy_version', 'difficulty-scenario-v1');
+    setTag('hidden_tutorial_tag_count', String(new Set(hiddenTutorialTags).size));
+    setTag('hidden_tutorial_tags_sample', serializeTagsForTelemetry(hiddenTutorialTags));
+  }, []);
+
   // 自动根据标题/摘要匹配一个默认分类
   const guessCategory = (title: string, summary: string): string => {
     if (!categories.length) return '';
-    const text = `${title} ${summary}`;
-    const matched = categories.find(c => c && text.includes(c));
+    const text = `${title} ${summary}`.toLowerCase();
+    const matched = categories.find((scenarioId) =>
+      getCoreScenarioAliases(scenarioId).some((alias) => text.includes(alias.toLowerCase()))
+    );
     return matched || categories[0];
   };
 
@@ -405,13 +402,14 @@ export default function TutorialsContent() {
       filtered = filtered.filter(tutorial => 
         tutorial.title.toLowerCase().includes(query) || 
         tutorial.description.toLowerCase().includes(query) ||
-        tutorial.author.toLowerCase().includes(query)
+        tutorial.author.toLowerCase().includes(query) ||
+        matchesTaxonomyToken(query, getTutorialSearchAliasTokens(tutorial))
       );
     }
     
-    // 分类筛选
+    // 场景筛选
     if (categoryFilter) {
-      filtered = filtered.filter(tutorial => tutorial.category === categoryFilter);
+      filtered = filtered.filter(tutorial => tutorial.coreScenarios.includes(categoryFilter));
     }
     
     // 难度筛选
@@ -419,18 +417,19 @@ export default function TutorialsContent() {
       filtered = filtered.filter(tutorial => tutorial.difficultyLevel === difficultyFilter);
     }
     
-    // 技能筛选
-    if (skillFilter) {
-      filtered = filtered.filter(tutorial => 
-        tutorial.skillTags && tutorial.skillTags.some(tag => tag === skillFilter)
-      );
-    }
-    
     // 排序
     filtered = sortTutorials(filtered, sortMethod);
     
     setFilteredTutorials(filtered);
-  }, [searchQuery, categoryFilter, difficultyFilter, skillFilter, sortMethod]);
+  }, [searchQuery, categoryFilter, difficultyFilter, sortMethod]);
+
+  useEffect(() => {
+    trackUserAction('tutorial_filter_change', {
+      tutorial_difficulty: difficultyFilter || 'all',
+      tutorial_scenario: categoryFilter || 'all',
+      tutorial_sort: sortMethod,
+    });
+  }, [categoryFilter, difficultyFilter, sortMethod]);
   
   return (
     <div className="min-h-screen w-full bg-neutral-50 dark:bg-neutral-900">
@@ -538,7 +537,7 @@ export default function TutorialsContent() {
                       <option value="">{text.chooseCategory}</option>
                       {categories.map((c) => (
                         <option key={c} value={c}>
-                          {c}
+                          {localizeTutorialCategory(c, isEn ? 'en' : 'zh')}
                         </option>
                       ))}
                     </select>
@@ -722,9 +721,9 @@ export default function TutorialsContent() {
             </div>
           </div>
           
-          {/* 3. 分类系统分层 */}
+          {/* 3. 核心场景标签（显性） */}
           <div className="mb-6 space-y-4">
-            {/* 主要分类 */}
+            {/* 核心场景 */}
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-3">
                 <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
                   <i className="fas fa-folder mr-2 text-primary-500"></i>
@@ -752,37 +751,6 @@ export default function TutorialsContent() {
                 ))}
               </div>
             </div>
-            
-            {/* 工具/技能标签 */}
-            {allSkillTags.length > 0 && (
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-3">
-                <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
-                  <i className="fas fa-tags mr-2 text-primary-500"></i>
-                  {text.skillTitle}
-                </h3>
-                <div className="flex flex-wrap gap-2 overflow-x-auto py-1 no-scrollbar">
-                  <button 
-                    className={`px-2 py-1 rounded-full text-xs font-medium transition-colors ${
-                      !skillFilter ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                    }`}
-                    onClick={() => setSkillFilter('')}
-                >
-                    {text.allSkills}
-                  </button>
-                  {allSkillTags.map(tag => (
-                    <button 
-                      key={tag}
-                      className={`px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${
-                        skillFilter === tag ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-                      }`}
-                      onClick={() => setSkillFilter(tag)}
-                    >
-                      {tag}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
           
           {/* 结果计数 */}
@@ -792,13 +760,12 @@ export default function TutorialsContent() {
             </div>
             
             {/* 重置按钮 */}
-            {(searchQuery || categoryFilter || difficultyFilter || skillFilter || sortMethod !== 'latest') && (
+            {(searchQuery || categoryFilter || difficultyFilter || sortMethod !== 'latest') && (
               <button 
                 onClick={() => {
                   setSearchQuery('');
                   setCategoryFilter('');
                   setDifficultyFilter('');
-                  setSkillFilter('');
                   setSortMethod('latest');
                 }}
                 className="text-xs px-2 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 rounded transition-colors flex items-center"
@@ -836,7 +803,6 @@ export default function TutorialsContent() {
                   setSearchQuery('');
                   setCategoryFilter('');
                   setDifficultyFilter('');
-                  setSkillFilter('');
                   setSortMethod('latest');
                 }}
                 className="mt-4 px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"

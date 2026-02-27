@@ -25,6 +25,15 @@ import { trackUserAction, trackPageView, setTag } from '@/utils/clarity'; // 埋
 import useDebounce from '@/hooks/useDebounce'; // 防抖Hook
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
 import { localizeTutorialCategory } from '@/utils/tutorials';
+import { getCategoryColor } from '@/utils/tutorials';
+import {
+  getToolHiddenTaxonomyTags,
+  getToolSearchAliasTokens,
+  getTutorialHiddenTaxonomyTags,
+  getTutorialSearchAliasTokens,
+  matchesTaxonomyToken,
+  serializeTagsForTelemetry,
+} from '@/lib/coreTaxonomy';
 
 /**
  * 首页内容组件
@@ -117,6 +126,13 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       trackPageView('首页', 'home'); // 记录页面访问
       setTag('page_type', 'home'); // 设置页面类型标签
       setTag('total_tools', visibleTools.length.toString()); // 设置工具总数标签
+      const hiddenToolTags = visibleTools.flatMap((tool) => getToolHiddenTaxonomyTags(tool));
+      const hiddenTutorialTags = tutorials.flatMap((tutorial) => getTutorialHiddenTaxonomyTags(tutorial));
+      setTag('taxonomy_version', 'difficulty-scenario-v1');
+      setTag('hidden_tool_tag_count', String(new Set(hiddenToolTags).size));
+      setTag('hidden_tutorial_tag_count', String(new Set(hiddenTutorialTags).size));
+      setTag('hidden_tool_tags_sample', serializeTagsForTelemetry(hiddenToolTags));
+      setTag('hidden_tutorial_tags_sample', serializeTagsForTelemetry(hiddenTutorialTags));
       
       setIsLoading(false); // 设置加载状态为false
     } catch (err) {
@@ -197,7 +213,8 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       tutorial.title.toLowerCase().includes(query) || 
       tutorial.description.toLowerCase().includes(query) ||
       tutorial.author.toLowerCase().includes(query) ||
-      tutorial.category.toLowerCase().includes(query)
+      tutorial.category.toLowerCase().includes(query) ||
+      matchesTaxonomyToken(query, getTutorialSearchAliasTokens(tutorial))
     ).slice(0, 6); // 显示匹配的前6个教程用于轮播
   }, [debouncedSearchQuery]);
   
@@ -291,7 +308,8 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     return toolsList.filter(tool =>
       tool.name.toLowerCase().includes(query) ||
       tool.description.toLowerCase().includes(query) ||
-      tool.tags.some(tag => tag.toLowerCase().includes(query))
+      tool.tags.some(tag => tag.toLowerCase().includes(query)) ||
+      matchesTaxonomyToken(query, getToolSearchAliasTokens(tool))
     );
   }, [toolsList, debouncedSearchQuery]);
 
@@ -516,16 +534,8 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                                 </div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                                 <div className="absolute bottom-2 left-2 z-10">
-                                  <span className={`px-2 py-0.5 ${
-                                    tutorial.category === '飞书多维表格' ? 'bg-blue-500' :
-                                    tutorial.category === 'AI大模型' ? 'bg-purple-500' :
-                                    tutorial.category === 'AI绘画' ? 'bg-pink-500' :
-                                    tutorial.category === 'AI效率' ? 'bg-green-500' :
-                                    tutorial.category === '商业应用' ? 'bg-orange-500' :
-                                    tutorial.category === '学术研究' ? 'bg-indigo-500' :
-                                    'bg-red-500'
-                                  } text-white text-xs font-medium rounded-md`}>
-                                    {localizeTutorialCategory(tutorial.category, isEn ? 'en' : 'zh')}
+                                  <span className={`px-2 py-0.5 ${getCategoryColor(tutorial.primaryScenario || tutorial.category)} text-white text-xs font-medium rounded-md`}>
+                                    {localizeTutorialCategory(tutorial.primaryScenario || tutorial.category, isEn ? 'en' : 'zh')}
                                   </span>
                                 </div>
                               </div>

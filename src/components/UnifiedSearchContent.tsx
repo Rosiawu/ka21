@@ -16,6 +16,7 @@ import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
 import SearchIntentPanel from '@/components/SearchIntentPanel'; // 搜索意图推荐
 import { trackUserAction } from '@/utils/clarity'; // 搜索行为埋点
 import { useLocale } from 'next-intl';
+import { getToolSearchAliasTokens, getTutorialSearchAliasTokens, matchesTaxonomyToken } from '@/lib/coreTaxonomy';
 
 /**
  * 统一搜索内容组件
@@ -184,7 +185,8 @@ export default function UnifiedSearchContent() {
     const matchedTools = tools.filter(tool => 
       tool.name.toLowerCase().includes(query) || // 工具名称包含查询词
       tool.description.toLowerCase().includes(query) || // 工具描述包含查询词
-      (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(query))) // 工具标签包含查询词
+      (tool.tags && tool.tags.some(tag => tag.toLowerCase().includes(query))) || // 工具标签包含查询词
+      matchesTaxonomyToken(query, getToolSearchAliasTokens(tool))
     );
     
     // 过滤教程：匹配标题、描述、作者或分类
@@ -192,7 +194,8 @@ export default function UnifiedSearchContent() {
       tutorial.title.toLowerCase().includes(query) || // 教程标题包含查询词
       tutorial.description.toLowerCase().includes(query) || // 教程描述包含查询词
       tutorial.author.toLowerCase().includes(query) || // 教程作者包含查询词
-      tutorial.category.toLowerCase().includes(query) // 教程分类包含查询词
+      tutorial.category.toLowerCase().includes(query) || // 教程分类包含查询词
+      matchesTaxonomyToken(query, getTutorialSearchAliasTokens(tutorial))
     );
     
     setFilteredTools(matchedTools); // 设置过滤后的工具列表

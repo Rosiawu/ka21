@@ -1,3 +1,26 @@
+import {
+  type CoreScenarioId,
+  getCoreScenarioColorClass,
+  getCoreScenarioLabel,
+} from '@/lib/coreTaxonomy';
+
+const CORE_SCENARIO_IDS: CoreScenarioId[] = [
+  'content-writing',
+  'image-design',
+  'video-creation',
+  'audio-podcast',
+  'office-productivity',
+  'coding-development',
+  'agent-automation',
+  'learning-research',
+  'commerce-marketing',
+  'data-analysis',
+];
+
+function isCoreScenarioId(value: string): value is CoreScenarioId {
+  return CORE_SCENARIO_IDS.includes(value as CoreScenarioId);
+}
+
 /**
  * 教程分类到颜色的映射函数
  * - DRY：统一管理分类颜色，避免多处硬编码
@@ -7,6 +30,10 @@
  * @returns Tailwind CSS背景颜色类名
  */
 export function getCategoryColor(category: string): string {
+  if (isCoreScenarioId(category)) {
+    return getCoreScenarioColorClass(category);
+  }
+
   // 根据教程分类返回对应的Tailwind CSS背景颜色类
   switch (category) {
     case '飞书多维表格':
@@ -29,6 +56,10 @@ export function getCategoryColor(category: string): string {
 }
 
 export function localizeTutorialCategory(category: string, locale: "zh" | "en"): string {
+  if (isCoreScenarioId(category)) {
+    return getCoreScenarioLabel(category, locale);
+  }
+
   if (locale !== "en") return category;
 
   const enMap: Record<string, string> = {

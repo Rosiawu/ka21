@@ -5,6 +5,7 @@ import { Tutorial } from '@/data/tutorials'; // 引入教程数据类型定义
 import { getCategoryColor, localizeTutorialCategory } from '@/utils/tutorials'; // 引入获取分类颜色的工具函数
 import {useTranslations} from 'next-intl';
 import { usePathname } from 'next/navigation';
+import DifficultyBadge from './DifficultyBadge';
 
 // 定义教程卡片组件的属性接口
 interface TutorialCardProps {
@@ -25,7 +26,8 @@ export default function TutorialCard({ tutorial }: TutorialCardProps) {
   const tHome = useTranslations('Home');
   const pathname = usePathname();
   const locale = pathname?.startsWith('/en') ? 'en' : 'zh';
-  const localizedCategory = localizeTutorialCategory(tutorial.category, locale);
+  const scenarioTag = tutorial.primaryScenario || tutorial.category;
+  const localizedCategory = localizeTutorialCategory(scenarioTag, locale);
   const fallbackImageLabel = locale === 'en' ? 'Tutorial cover' : '教程图片';
   return (
     // 外层链接容器，点击整个卡片跳转到教程页面
@@ -61,9 +63,12 @@ export default function TutorialCard({ tutorial }: TutorialCardProps) {
           {/* 图片底部渐变遮罩，用于文字可读性 */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           {/* 分类标签容器 */}
+          <div className="absolute top-3 right-3 z-10">
+            <DifficultyBadge level={tutorial.difficultyLevel} size="sm" />
+          </div>
           <div className="absolute bottom-3 left-3 z-10">
             {/* 分类标签 */}
-            <span className={`px-2 py-1 ${getCategoryColor(tutorial.category)} text-white text-xs font-medium rounded-md`}>
+            <span className={`px-2 py-1 ${getCategoryColor(scenarioTag)} text-white text-xs font-medium rounded-md`}>
               {localizedCategory} {/* 显示教程分类名称 */}
             </span>
           </div>

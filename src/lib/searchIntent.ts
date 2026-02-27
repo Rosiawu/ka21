@@ -9,6 +9,11 @@ import {
 import { TOOL_ONE_LINERS, TOOL_ONE_LINERS_EN } from "@/data/toolOneLiners";
 import { Tool } from "@/lib/types";
 import { localizeTool } from "@/lib/toolLocale";
+import {
+  getToolSearchAliasTokens,
+  getTutorialSearchAliasTokens,
+  matchesTaxonomyToken,
+} from "@/lib/coreTaxonomy";
 
 export interface RankedToolRecommendation {
   tool: Tool;
@@ -296,6 +301,7 @@ const rankTools = (
       let score = 0;
       const reasons: string[] = [];
       const tagSet = new Set(tool.tags || []);
+      const mappedAliasTokens = getToolSearchAliasTokens(tool);
       const searchableText = `${tool.name} ${tool.description} ${(tool.tags || []).join(" ")}`;
 
       for (const intent of matchedIntents) {
@@ -322,9 +328,11 @@ const rankTools = (
         const tagMatch = queryTerms.some((term) =>
           (tool.tags || []).some((tag) => includesKeyword(tag, term))
         );
+        const aliasMatch = queryTerms.some((term) => matchesTaxonomyToken(term, mappedAliasTokens));
         if (nameMatch) score += 25;
         if (descMatch) score += 15;
         if (tagMatch) score += 14;
+        if (aliasMatch) score += 10;
       }
 
       const reason = reasons.length > 0 ? reasons[0] : getSemanticReason(locale);
@@ -347,6 +355,7 @@ const rankTutorials = (
       let score = 0;
       const reasons: string[] = [];
       const skills = tutorial.skillTags || [];
+      const mappedAliasTokens = getTutorialSearchAliasTokens(tutorial);
       const searchableText = `${tutorial.title} ${tutorial.description} ${tutorial.category} ${skills.join(
         " "
       )}`;
@@ -370,10 +379,12 @@ const rankTutorials = (
         const descMatch = queryTerms.some((term) => includesKeyword(tutorial.description, term));
         const categoryMatch = queryTerms.some((term) => includesKeyword(tutorial.category, term));
         const skillMatch = queryTerms.some((term) => skills.some((skill) => includesKeyword(skill, term)));
+        const aliasMatch = queryTerms.some((term) => matchesTaxonomyToken(term, mappedAliasTokens));
         if (titleMatch) score += 24;
         if (descMatch) score += 14;
         if (categoryMatch) score += 12;
         if (skillMatch) score += 12;
+        if (aliasMatch) score += 10;
       }
 
       const reason = reasons.length > 0 ? reasons[0] : getSemanticReason(locale);
