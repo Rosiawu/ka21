@@ -1,0 +1,74 @@
+<view class="container">
+  <view class="section">
+    <text class="section-title">搜索工具</text>
+    <view class="search-row">
+      <input
+        class="search-input"
+        value="{{keyword}}"
+        placeholder="输入工具名、分类或标签"
+        bindinput="onKeywordInput"
+      />
+      <button class="clear-btn" bindtap="onClearKeyword">清空</button>
+    </view>
+    <scroll-view class="category-scroll" scroll-x>
+      <view class="chip-row nowrap">
+        <view
+          class="chip {{categoryId === item.id ? 'active' : ''}}"
+          wx:for="{{categories}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="onCategoryTap"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="section">
+    <view class="row space-between">
+      <text class="section-title">工具列表</text>
+      <text class="muted">共 {{tools.length}} 个</text>
+    </view>
+    <text class="muted" wx:if="{{loadError}}">加载错误：{{loadError}}</text>
+
+    <view wx:if="{{!tools.length}}" class="empty-wrap">
+      <text class="empty-text">没有匹配的工具，换个关键词试试</text>
+    </view>
+
+    <view
+      wx:for="{{tools}}"
+      wx:key="id"
+      class="card tool-card"
+      data-id="{{item.id}}"
+      bindtap="onTapTool"
+    >
+      <view class="row tool-row">
+        <image class="tool-icon" src="{{item.icon}}" mode="aspectFit" />
+        <view class="tool-body">
+          <view class="row space-between title-row">
+            <text class="tool-name">{{item.name}}</text>
+            <text class="tool-category">{{item.categoryLabel}}</text>
+          </view>
+          <text class="tool-description">{{item.description}}</text>
+          <view class="row badges">
+            <view class="status-badge {{item.recommendClass}}">
+              <text class="status-badge-text">{{item.recommendText}}</text>
+            </view>
+            <view class="status-badge {{item.accessClass}}">
+              <text class="status-badge-text">{{item.accessText}}</text>
+            </view>
+            <button
+              class="official-btn"
+              data-url="{{item.url}}"
+              data-title="{{item.name}}官网"
+              catchtap="onOpenOfficial"
+            >
+              官网
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

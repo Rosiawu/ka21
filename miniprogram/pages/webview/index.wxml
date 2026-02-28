@@ -1,0 +1,7 @@
+<view wx:if="{{error}}" class="container">
+  <view class="section">
+    <text>{{error}}</text>
+  </view>
+</view>
+
+<web-view wx:else src="{{url}}"></web-view>

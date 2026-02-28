@@ -1,0 +1,9 @@
+{
+  "desc": "KA21 mini program sitemap",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}

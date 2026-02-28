@@ -1,0 +1,58 @@
+<view class="container" wx:if="{{tool}}">
+  <view class="section">
+    <view class="head">
+      <image class="icon" src="{{tool.icon}}" mode="aspectFit" />
+      <view class="meta">
+        <text class="name">{{tool.name}}</text>
+        <text class="category">{{tool.categoryLabel}}</text>
+        <view class="row badges">
+          <text class="badge {{tool.recommendClass}}">
+            {{tool.recommendText}}
+          </text>
+          <text class="badge {{tool.accessClass}}">
+            {{tool.accessibility || '未知'}}
+          </text>
+        </view>
+      </view>
+    </view>
+    <text class="description">{{tool.description}}</text>
+    <button class="official-btn" bindtap="onOpenOfficial">访问官网</button>
+  </view>
+
+  <view class="section" wx:if="{{tool.guides && tool.guides.length}}">
+    <text class="section-title">使用指南</text>
+    <view class="guide-card" wx:for="{{tool.guides}}" wx:key="index">
+      <text class="guide-title">{{item.title}}</text>
+      <text class="guide-content">{{item.content}}</text>
+    </view>
+  </view>
+
+  <view class="section" wx:if="{{relatedTutorials.length}}">
+    <text class="section-title">相关文章</text>
+    <view
+      class="related-card"
+      wx:for="{{relatedTutorials}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onOpenTutorial"
+    >
+      <text class="related-title">{{item.title}}</text>
+      <text class="related-meta">{{item.publishDate}} · {{item.author}}</text>
+    </view>
+  </view>
+
+  <view class="section" wx:if="{{tool.groupComments && tool.groupComments.length}}">
+    <text class="section-title">群友点评</text>
+    <view class="comment-card" wx:for="{{tool.groupComments}}" wx:key="index">
+      <text class="comment-content">{{item.content}}</text>
+      <text class="comment-meta">{{item.author}} {{item.createdAt ? ('· ' + item.createdAt) : ''}}</text>
+      <text class="comment-review" wx:if="{{item.reviewType}}">{{item.reviewType}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="container" wx:else>
+  <view class="section empty-wrap">
+    <text class="empty-text">没有找到这个工具</text>
+  </view>
+</view>

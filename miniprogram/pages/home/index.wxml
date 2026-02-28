@@ -1,0 +1,101 @@
+<view class="container">
+  <view class="section hero">
+    <text class="hero-title">一站式AI工具与教程</text>
+    <text class="hero-subtitle">把网站完整内容迁移到微信小程序：工具、教程、团队信息全保留。</text>
+    <view class="search-row">
+      <input
+        class="search-input"
+        placeholder="搜索工具名、标签、功能..."
+        value="{{keyword}}"
+        bindinput="onKeywordInput"
+        bindconfirm="onSearchConfirm"
+      />
+      <button class="search-btn" bindtap="onSearchConfirm">搜索</button>
+    </view>
+    <view class="quick-actions">
+      <button class="quick-btn" data-keyword="AI绘图" bindtap="onQuickSearch">AI绘图</button>
+      <button class="quick-btn" data-keyword="AI编程" bindtap="onQuickSearch">AI编程</button>
+      <button class="quick-btn" data-keyword="AI视频" bindtap="onQuickSearch">AI视频</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">数据总览</text>
+    <text class="muted" wx:if="{{loadError}}">加载错误：{{loadError}}</text>
+    <view class="stats-grid">
+      <view class="stat-card">
+        <text class="stat-value">{{stats.toolCount}}</text>
+        <text class="stat-label">工具数量</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value">{{stats.tutorialCount}}</text>
+        <text class="stat-label">教程数量</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value">{{stats.categoryCount}}</text>
+        <text class="stat-label">分类数量</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">工具分类</text>
+    <view class="chip-row">
+      <view
+        class="chip"
+        wx:for="{{categories}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onTapCategory"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="row space-between">
+      <text class="section-title">热门工具</text>
+      <text class="muted">点击查看详情</text>
+    </view>
+    <view class="tool-grid">
+      <view
+        class="card tool-card"
+        wx:for="{{hotTools}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="onTapTool"
+      >
+        <view class="tool-head">
+          <image class="tool-icon" src="{{item.icon}}" mode="aspectFit" />
+          <view class="tool-main">
+            <text class="tool-name">{{item.name}}</text>
+            <text class="tool-category">{{item.categoryLabel}}</text>
+          </view>
+        </view>
+        <text class="tool-desc">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="row space-between">
+      <text class="section-title">最新教程</text>
+      <text class="muted">打开即看原文</text>
+    </view>
+    <view
+      class="tutorial-card"
+      wx:for="{{latestTutorials}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onTapTutorial"
+    >
+      <image class="tutorial-cover" src="{{item.imageUrl}}" mode="aspectFill" />
+      <view class="tutorial-content">
+        <text class="tutorial-title">{{item.title}}</text>
+        <text class="tutorial-meta">{{item.publishDate}} · {{item.author}}</text>
+        <text class="tutorial-reason">{{item.recommendReason}}</text>
+      </view>
+    </view>
+  </view>
+</view>

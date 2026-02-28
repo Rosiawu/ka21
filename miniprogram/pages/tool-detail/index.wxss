@@ -1,0 +1,115 @@
+.head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16rpx;
+}
+
+.icon {
+  width: 94rpx;
+  height: 94rpx;
+  border-radius: 16rpx;
+  background: #f8fafc;
+}
+
+.meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.category {
+  display: block;
+  margin-top: 6rpx;
+  color: #64748b;
+  font-size: 24rpx;
+}
+
+.badges {
+  margin-top: 10rpx;
+  gap: 10rpx;
+  flex-wrap: wrap;
+}
+
+.description {
+  display: block;
+  margin-top: 18rpx;
+  line-height: 1.7;
+  color: #334155;
+  font-size: 27rpx;
+}
+
+.official-btn {
+  margin-top: 20rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  border: none;
+  border-radius: 16rpx;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-size: 30rpx;
+}
+
+.guide-card,
+.related-card,
+.comment-card {
+  margin-top: 14rpx;
+  border-radius: 14rpx;
+  border: 1rpx solid #e2e8f0;
+  padding: 16rpx;
+}
+
+.guide-title,
+.related-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.guide-content {
+  display: block;
+  margin-top: 10rpx;
+  line-height: 1.65;
+  color: #334155;
+  white-space: pre-wrap;
+  font-size: 25rpx;
+}
+
+.related-meta,
+.comment-meta {
+  display: block;
+  margin-top: 8rpx;
+  color: #64748b;
+  font-size: 22rpx;
+}
+
+.comment-content {
+  display: block;
+  line-height: 1.6;
+  color: #334155;
+  font-size: 25rpx;
+}
+
+.comment-review {
+  display: inline-block;
+  margin-top: 8rpx;
+  border-radius: 999rpx;
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 4rpx 12rpx;
+  font-size: 20rpx;
+}
+
+.empty-wrap {
+  text-align: center;
+  padding: 40rpx 10rpx;
+}
+
+.empty-text {
+  color: #64748b;
+}

@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="section">
+    <text class="section-title">关于KA21</text>
+    <text class="intro">
+      KA21工具导航由跨行业团队维护，核心目标是提供真实可用的AI工具与教程，帮助用户在微信内快速找到合适的工具方案。
+    </text>
+    <text class="intro">
+      当前小程序已同步网站完整内容：工具库、教程库、工具详情、团队成员信息。
+    </text>
+  </view>
+
+  <view class="section">
+    <view class="row space-between">
+      <text class="section-title">团队成员</text>
+      <text class="muted">共 {{teamMembers.length}} 人</text>
+    </view>
+    <text class="muted" wx:if="{{loadError}}">加载错误：{{loadError}}</text>
+
+    <view class="member-card" wx:for="{{teamMembers}}" wx:key="id">
+      <view class="row">
+        <image class="avatar" src="{{item.avatar}}" mode="aspectFill" />
+        <view class="member-main">
+          <text class="name">{{item.name}}</text>
+          <text class="title">{{item.title}}</text>
+          <text class="location">{{item.location}} · {{item.specialty}}</text>
+        </view>
+      </view>
+      <text class="desc">{{item.description}}</text>
+      <view class="chip-row">
+        <text class="chip" wx:for="{{item.skills}}" wx:key="*this">{{item}}</text>
+      </view>
+
+      <view class="wechat-row">
+        <text class="wechat-label">公众号：{{item.wechatAccount}}</text>
+        <image
+          class="wechat-qr"
+          src="{{item.wechatQR}}"
+          mode="aspectFill"
+          data-url="{{item.wechatQR}}"
+          bindtap="onPreviewQR"
+        />
+      </view>
+    </view>
+  </view>
+</view>

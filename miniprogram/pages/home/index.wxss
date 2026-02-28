@@ -1,0 +1,191 @@
+.hero {
+  background: linear-gradient(140deg, #0f4cd6, #1d77ff 60%, #74b2ff);
+  color: #ffffff;
+}
+
+.hero-title {
+  display: block;
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.search-row {
+  margin-top: 22rpx;
+  display: flex;
+  gap: 16rpx;
+}
+
+.search-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14rpx;
+  height: 78rpx;
+  padding: 0 20rpx;
+  color: #111827;
+}
+
+.search-btn {
+  margin: 0;
+  border: none;
+  height: 78rpx;
+  line-height: 78rpx;
+  border-radius: 14rpx;
+  background: #111827;
+  color: #ffffff;
+  padding: 0 32rpx;
+  font-size: 28rpx;
+}
+
+.quick-actions {
+  margin-top: 18rpx;
+  display: flex;
+  gap: 10rpx;
+}
+
+.quick-btn {
+  margin: 0;
+  height: 62rpx;
+  line-height: 62rpx;
+  border-radius: 999rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-size: 24rpx;
+  padding: 0 24rpx;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14rpx;
+}
+
+.stat-card {
+  background: #f8fafc;
+  border-radius: 14rpx;
+  padding: 18rpx;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #0f4cd6;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #64748b;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14rpx;
+}
+
+.tool-card {
+  padding: 16rpx;
+}
+
+.tool-head {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+}
+
+.tool-icon {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 12rpx;
+  background: #f8fafc;
+}
+
+.tool-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.tool-name {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.tool-category {
+  display: block;
+  margin-top: 4rpx;
+  font-size: 22rpx;
+  color: #667085;
+}
+
+.tool-desc {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #475467;
+  line-height: 1.5;
+}
+
+.tutorial-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16rpx;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid #eef2f7;
+}
+
+.tutorial-card:last-child {
+  border-bottom: none;
+}
+
+.tutorial-cover {
+  width: 176rpx;
+  height: 110rpx;
+  border-radius: 12rpx;
+  background: #eef2f7;
+  flex-shrink: 0;
+}
+
+.tutorial-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.tutorial-title {
+  display: -webkit-box;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tutorial-meta {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #667085;
+}
+
+.tutorial-reason {
+  display: -webkit-box;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #475467;
+  line-height: 1.45;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

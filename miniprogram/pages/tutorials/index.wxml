@@ -1,0 +1,71 @@
+<view class="container">
+  <view class="section">
+    <text class="section-title">筛选教程</text>
+    <input
+      class="search-input"
+      value="{{keyword}}"
+      placeholder="搜索标题、作者、关键词"
+      bindinput="onKeywordInput"
+    />
+
+    <text class="filter-label">分类</text>
+    <scroll-view class="filter-scroll" scroll-x>
+      <view class="chip-row nowrap">
+        <view
+          class="chip {{category === item ? 'active' : ''}}"
+          wx:for="{{categories}}"
+          wx:key="item"
+          data-value="{{item}}"
+          bindtap="onSelectCategory"
+        >
+          {{item === 'all' ? '全部' : item}}
+        </view>
+      </view>
+    </scroll-view>
+
+    <text class="filter-label">难度</text>
+    <view class="chip-row">
+      <view
+        class="chip {{difficulty === item ? 'active' : ''}}"
+        wx:for="{{difficulties}}"
+        wx:key="item"
+        data-value="{{item}}"
+        bindtap="onSelectDifficulty"
+      >
+        {{item === 'all' ? '全部' : item}}
+      </view>
+    </view>
+    <button class="reset-btn" bindtap="onResetFilters">重置筛选</button>
+  </view>
+
+  <view class="section">
+    <view class="row space-between">
+      <text class="section-title">教程列表</text>
+      <text class="muted">共 {{tutorials.length}} 篇</text>
+    </view>
+    <text class="muted" wx:if="{{loadError}}">加载错误：{{loadError}}</text>
+
+    <view wx:if="{{!tutorials.length}}" class="empty-wrap">
+      <text class="empty-text">没有找到匹配的教程</text>
+    </view>
+
+    <view
+      wx:for="{{tutorials}}"
+      wx:key="id"
+      class="tutorial-card"
+      data-id="{{item.id}}"
+      bindtap="onOpenTutorial"
+    >
+      <image class="cover" src="{{item.imageUrl}}" mode="aspectFill" />
+      <view class="body">
+        <text class="title">{{item.title}}</text>
+        <text class="meta">{{item.publishDate}} · {{item.author}}</text>
+        <view class="row chips">
+          <text class="badge badge-access-direct">{{item.category}}</text>
+          <text class="badge badge-access-proxy">{{item.difficultyLevel}}</text>
+        </view>
+        <text class="reason">{{item.recommendReason}}</text>
+      </view>
+    </view>
+  </view>
+</view>

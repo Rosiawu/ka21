@@ -1,0 +1,70 @@
+.intro {
+  display: block;
+  margin-top: 10rpx;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.member-card {
+  margin-top: 16rpx;
+  border: 1rpx solid #e2e8f0;
+  border-radius: 16rpx;
+  padding: 16rpx;
+}
+
+.avatar {
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 50%;
+  margin-right: 14rpx;
+  flex-shrink: 0;
+}
+
+.member-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.title,
+.location {
+  display: block;
+  margin-top: 4rpx;
+  font-size: 24rpx;
+  color: #64748b;
+}
+
+.desc {
+  display: block;
+  margin-top: 10rpx;
+  line-height: 1.55;
+  color: #334155;
+  font-size: 25rpx;
+}
+
+.wechat-row {
+  margin-top: 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+}
+
+.wechat-label {
+  font-size: 24rpx;
+  color: #1f2937;
+  flex: 1;
+}
+
+.wechat-qr {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #e2e8f0;
+  flex-shrink: 0;
+}

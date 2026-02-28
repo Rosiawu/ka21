@@ -1,0 +1,138 @@
+.article-head {
+  overflow: hidden;
+}
+
+.cover {
+  width: 100%;
+  height: 320rpx;
+  border-radius: 16rpx;
+  background: #e2e8f0;
+  margin-bottom: 16rpx;
+}
+
+.title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.meta {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #64748b;
+}
+
+.chips {
+  margin-top: 12rpx;
+  gap: 10rpx;
+  flex-wrap: wrap;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 10rpx;
+  margin-top: 10rpx;
+}
+
+.bullet-dot {
+  color: #2563eb;
+  line-height: 1.6;
+}
+
+.bullet-text {
+  flex: 1;
+  color: #334155;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.content-list {
+  margin-top: 8rpx;
+}
+
+.content-heading {
+  display: block;
+  margin-top: 18rpx;
+  color: #0f172a;
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.paragraph {
+  display: block;
+  margin-top: 14rpx;
+  color: #1f2937;
+  font-size: 28rpx;
+  line-height: 1.75;
+}
+
+.content-quote {
+  display: block;
+  margin-top: 14rpx;
+  padding: 14rpx 16rpx;
+  border-left: 6rpx solid #93c5fd;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 26rpx;
+  line-height: 1.7;
+}
+
+.content-list-item {
+  display: block;
+  margin-top: 10rpx;
+  color: #1f2937;
+  font-size: 27rpx;
+  line-height: 1.7;
+}
+
+.content-image {
+  width: 100%;
+  margin-top: 16rpx;
+  border-radius: 12rpx;
+  background: #e2e8f0;
+}
+
+.source-box {
+  gap: 12rpx;
+}
+
+.source-label {
+  display: block;
+  color: #334155;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.source-url {
+  display: block;
+  color: #64748b;
+  font-size: 22rpx;
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+.copy-btn {
+  margin-top: 14rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  border-radius: 14rpx;
+  border: 1rpx solid #cbd5e1;
+  background: #ffffff;
+  color: #1d4ed8;
+  font-size: 25rpx;
+}
+
+.empty-wrap {
+  text-align: center;
+  padding: 40rpx 20rpx;
+}
+
+.empty-text {
+  color: #64748b;
+  font-size: 28rpx;
+}

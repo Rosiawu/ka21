@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "id": "writing",
+      "name": "✍️ 写文案",
+      "description": "写作、聊天、智能问答",
+      "icon": "https://ka21.tools/icons/categories/pen.svg"
+    },
+    {
+      "id": "image",
+      "name": "🎨 做设计",
+      "description": "画图、修图、海报设计",
+      "icon": "https://ka21.tools/icons/categories/palette.svg"
+    },
+    {
+      "id": "video",
+      "name": "🎬 剪视频",
+      "description": "视频生成、剪辑、特效",
+      "icon": "https://ka21.tools/icons/categories/chart.svg"
+    },
+    {
+      "id": "audio",
+      "name": "🎧 听声音",
+      "description": "配音、音乐、语音转文字",
+      "icon": "https://ka21.tools/icons/categories/headset.svg"
+    },
+    {
+      "id": "office",
+      "name": "💼 办办公",
+      "description": "PPT、文档、表格处理",
+      "icon": "https://ka21.tools/icons/categories/briefcase.svg"
+    },
+    {
+      "id": "coding",
+      "name": "💻 写代码",
+      "description": "代码生成、编程助手",
+      "icon": "https://ka21.tools/icons/categories/chip.svg"
+    },
+    {
+      "id": "utils",
+      "name": "🔧 小工具",
+      "description": "效率神器、实用工具",
+      "icon": "https://ka21.tools/icons/categories/settings.svg"
+    }
+  ]
+}

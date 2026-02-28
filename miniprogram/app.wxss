@@ -1,0 +1,93 @@
+page {
+  background: #f5f7fb;
+  color: #1f2937;
+  font-size: 28rpx;
+}
+
+.container {
+  padding: 24rpx;
+}
+
+.section {
+  margin-top: 24rpx;
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 24rpx;
+  box-shadow: 0 12rpx 40rpx rgba(15, 23, 42, 0.06);
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+
+.muted {
+  color: #667085;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.chip {
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 24rpx;
+}
+
+.chip.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.card {
+  border-radius: 18rpx;
+  background: #ffffff;
+  border: 1rpx solid #eef2f7;
+  padding: 18rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.badge {
+  border-radius: 999rpx;
+  padding: 6rpx 14rpx;
+  font-size: 22rpx;
+}
+
+.badge-high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge-medium {
+  background: #dcfce7;
+  color: #14532d;
+}
+
+.badge-low {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.badge-access-direct {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.badge-access-proxy {
+  background: #ede9fe;
+  color: #4c1d95;
+}
