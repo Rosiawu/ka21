@@ -13,6 +13,7 @@
     "convert-icons": "node scripts/convert-icons.js",
     "optimize-images": "node scripts/optimize-images.js",
     "export:miniapp-data": "tsx scripts/export-miniapp-data.ts",
+    "cache:miniapp-fulltext": "tsx scripts/cache-miniapp-tutorial-fulltext.ts",
     "validate-featured": "tsx scripts/validate-featured.ts",
     "check-i18n-keys": "tsx scripts/check-i18n-keys.ts",
     "prebuild": "npm run validate-featured && npm run check-i18n-keys"
