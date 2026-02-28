@@ -211,11 +211,11 @@ export default function LayoutContainers({
               <div className="flex flex-col items-center">
                 <div className="flex flex-row gap-6 justify-center items-center">
                   <div className="flex flex-col items-center">
-                    <Image src="/images/social/wechat-qr.png" alt={tCommon('wechatLabel')} className="w-20 h-20 rounded" width={80} height={80} />
+                    <Image src="/images/social/wechat-contact-green.png" alt={tCommon('wechatLabel')} className="w-20 h-20 rounded" width={80} height={80} />
                     <span className="mt-2 text-xs text-neutral-500">{tCommon('wechatLabel')}</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <Image src="/images/social/wechat-official-qr.png" alt={tCommon('officialAccountLabel')} className="w-20 h-20" width={80} height={80} />
+                    <Image src="/images/social/wechat-official-haoke.png" alt={tCommon('officialAccountLabel')} className="w-20 h-20" width={80} height={80} />
                     <span className="mt-2 text-xs text-neutral-500">{tCommon('officialAccountLabel')}</span>
                   </div>
                 </div>
