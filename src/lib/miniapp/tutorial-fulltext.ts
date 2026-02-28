@@ -245,12 +245,27 @@ export function extractBlocksFromHtml(html: string, targetUrl: URL): ContentBloc
     walk(node);
   }
 
-  return blocks
+  const filtered = blocks
     .filter((block) => {
       if (block.type === 'image') return true;
       return normalizeText(block.text).length > 1;
     })
     .slice(0, 500);
+
+  const hasTextBlock = filtered.some((block) => block.type !== 'image');
+  if (hasTextBlock) {
+    return filtered;
+  }
+
+  // Some WeChat pages wrap正文 in deeply nested inline tags; fallback to raw root text slicing.
+  const plainText = normalizeText(root.text());
+  const fallbackTexts = splitFallbackParagraphs(plainText).slice(0, 120);
+  if (!fallbackTexts.length) {
+    return filtered;
+  }
+
+  const textBlocks: ContentBlock[] = fallbackTexts.map((text) => ({ type: 'paragraph', text }));
+  return [...filtered, ...textBlocks].slice(0, 500);
 }
 
 export async function fetchAndExtractFulltext(

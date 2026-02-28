@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-28T06:35:31.016Z",
+  "updatedAt": "2026-02-28T06:38:23.730Z",
   "total": 93,
   "items": [
     {
@@ -19963,14 +19963,345 @@
       "title": "用手机豆包，让表情包过上精致人生（聚焦拆解豆包智能体生成器和图生图升级以及AI图编辑）",
       "blocks": [
         {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3J67XqVibKoPeQ2iaib1sxNA6Jl5ribrSNVKPoArwSqfSCX8Z4OpjjlHOBIw/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
           "type": "paragraph",
-          "text": "这篇文章详细介绍了豆包智能体生成器的使用方法，以及如何利用它快速制作个性化表情包"
+          "text": "深度体验手机豆包智能体生成器+升级版的垫图生成创作后，它给我一种非常富有的感觉：你要的我给你最好的，你要但没说的，我也给你最好的。测试体验结束，我立刻把之前的表情包升级版应用构想实现了，实现原本4步的用户体验流程简化到2步，把静态表情包质量提升到80分+效果。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JuAmjsUgF8L1fialDXbyRXzLd0qND3BnTppQbWZo3upYs9Rmv0OKSWgQ/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "这次教程我将全程用豆包APP来进行操作，全文无广无收费，图文占比高，阅读体验舒适。目的是让大部分人都能看懂，随时随地自己动手制作出专属表情包。"
+        },
+        {
+          "type": "paragraph",
+          "text": "本次教程主要为3大部分：表情包提示词智能体使用说明、手机豆包智能体制作秘籍（只体验可跳过）、生成精装表情包后的图片编辑技巧（没钱的看，有钱的有跳过的权利）。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3J0TB5xcTZoVeDMiaGxaIWfozMhDnQZfNc1jCf8U4jiadwfvJUTmHH6e0A/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "本次案例将用箱子的专属IP金鱼神来做演示，我让他作为第一批豆包技术改革红利鱼，现在的它神采奕奕还穿了小衣服，过上了精致又丰富多彩的鱼生。大家请看升级前和升级后对比，就明白了为什么技术发展可以带动鱼民过上好日子！（想开一点，也可以靠p图走上人生巅峰）"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JfGMJLsXsFhSgkVbdR1Id8jHCNiaorHf2VYXrS13TNq5ynibIGwmCc2Rw/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "heading",
+          "text": "表情包提示词智能体使用说明"
+        },
+        {
+          "type": "paragraph",
+          "text": "经过我30多轮的表情包生图测试、调试、迭代，表情包提示词智能体输出基本稳定。表情包提示词智能体使用豆包链接（在我的公众号工具栏也有我的豆包智能体卡片）：https://doubao.com/bot/sxtt2yCb"
+        },
+        {
+          "type": "paragraph",
+          "text": "跳转前请先阅读使用说明，方便大家发挥出智能体百分之百的能力。已经给大家整理好了3张使用卡片，感谢此次案例演示的模特-前行鱼。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JnR0uY87uEVh72a9ib4msqfoUuWyvhGjPWtIRRN51oYqA0e4Jib9pxdbg/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JmLFsbLvncALKpMUe2CcgDITjSdN2riaGkibQ6k4kgaUAIQJ4sibiarn11g/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3Jxc1Ibq5Kt3qA0oN7RlPhd3C0qddIt4lm5SNnsgTUWuYXRZmeVVz9Pg/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "最后推文写着写着豆包的Seedance 1.0 pro 高品质模型也上了，每天有5次使用额度。我用手机实现了表情包图片变视频，如果做动态表情包效果非常不错呢！这次我邀请到了从四川旅游回来的女将军做我的女嘉宾。（动态表情包教程指路——公众号阿真lrene《零基础玩转可灵AI图转视频&动态表情包与Gif制作全攻略》—重点看视频转gif动图的方式、上架动态表情注意事项）"
+        },
+        {
+          "type": "heading",
+          "text": "豆包智能体开发秘籍"
+        },
+        {
+          "type": "paragraph",
+          "text": "以上文我的表情包提示词智能体为例子，给大家讲解豆包智能体的制作流程。我的讲述共分为四部分：体验亮点、新建简易智能体、调试及迭代智能体、开发者和使用者权限的区别。"
+        },
+        {
+          "type": "paragraph",
+          "text": "我整体使用下来的评价是：有亮点、适合智能体学习者打磨能力、体验流畅、模型聪明"
+        },
+        {
+          "type": "heading",
+          "text": "体验亮点：声音选择&声音克隆、以及可以选择可见范围"
+        },
+        {
+          "type": "paragraph",
+          "text": "智能体声音选择：从在一点可以看出豆包展示了雄厚的声音能力，选择的时候我的手指一直往下划，然后都没有划到头。这数量之多，单单一个男声霸总就给了4种豪华配置。（曾经不屑一顾，现在听取哇声一片）"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JQBJQDD3ALB7WDhIdlt67cJhRWayDJ0IUSicjfevGLMgmxVYNgpBOgWA/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "智能体声音克隆：大概克隆流程就是给一段话，读完就克隆好了，这里要记住选择克隆的声音只有开发者本人可以编辑，可以调音高和语速。（更多玩法，请大家自行探索吧！我还克隆了自己的广普，你们用的时候就能听到啦）"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JXOgmVR6mbJdqhRCW01ibqlCdOetGkbkVVL74iaiaD05Y1hicb3nf3puicMw/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JR5TOB5WetvkQThTpoprcuzMfBEhP9ib75aBuiaak88uv7BibibnVYQuyIQ/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "智能体使用范围：有三种选择，如下图。入口在智能体设定里可以选择。这三个选择我都觉得非常不错，可以畅想不少日常场景使用，包括一些商业化场景（这里希望豆包功能可以加上知识库）"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3J5iayzialbIDH4jVs3RRC4HuP42m9u6TJS8ibegGfD41vJT3SoPtM0NoRw/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "heading",
+          "text": "新建简易智能体"
+        },
+        {
+          "type": "paragraph",
+          "text": "讲究快速、明确表达需求让模型理解"
+        },
+        {
+          "type": "paragraph",
+          "text": "1.选择豆包下方对话标签，进入选择AI智能体生成器聊天栏进入页面"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JsTAvUbGiaHLhVibqialpfPvTEQfQticibWzQDQicYlj4DYRic7x2D7dAuraeg/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "2.通过和AI机器人聊天交流得到智能体的基础限定，我给大家提供我的案例思路，希望对大家有所启发。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JG9OVyhNIib6D7XU1K7PWkRLh9M5POJe0mNgMlZ8G37KpbXyb9yQeeHg/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "3.和生成器对话，对话完成后它贴心整理好之前沟通内容作为你的智能体基础设定，你选择点击完成创建智能体。你还可以编辑自己智能体头像和聊天背景。记得如果要重新做，需要重新开启新话题，不然会和之前的混一起。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JgFwfJGougzQmib87kAY9SpfCkbAIfibABmkhx8HSaicGBiaA0nMMvPddlQ/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "heading",
+          "text": "调试及迭代智能体"
+        },
+        {
+          "type": "paragraph",
+          "text": "考验发现问题-明确需求-解决问题的能力"
+        },
+        {
+          "type": "paragraph",
+          "text": "这是拉开自己和别人智能体差距最重要的一步，创建智能体门槛不高，但是制作好的智能体是需要长期的训练和实践经验学习出来的能力。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JMEuKajnw8KqibBwicXZNfsCVB56mic2D0WLZG5CscPUyVfvKnuOW78m6w/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "豆包智能体调试和迭代中最关键的修改参数位置"
+        },
+        {
+          "type": "paragraph",
+          "text": "调试和迭代智能体是一个枯燥但充满挑战的过程。通过运行不同案例，发现并解决每一轮次中出现的问题，优化提示词。然后，用之前的案例测试调整后的结果，分析提示词与图片生成的匹配度。"
+        },
+        {
+          "type": "paragraph",
+          "text": "这一不断测试和迭代的过程，虽问题频出，却能极大提升解决问题的能力。随着问题逐一被攻克，那种成就感难以言表。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JfXic9RMxHAModPu4nd7pOiaoaIAXJS41bhgJf5FJ3lICa75fMsk9zgYg/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "我以我的豆包智能体迭代过程中的问题举例，方便大家理解"
+        },
+        {
+          "type": "paragraph",
+          "text": "例子一：表情包角色一致性的三重门"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JAMlYVC0jyZnqdxcPlGgTWKP1VqVfBPeyciaXRicaSBOksgyJht1ic4tJQ/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "例子2：让表情包表情变化丰富"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3J6MYpibZ1dkaYH1I4PCdVOkiaSHYAh8FMYFeMPViabIwD0utxG8cENylEw/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "heading",
+          "text": "智能体开发者和用户的权限区别"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_png/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JrQ2zoEhS8GNFRicM7ricLAIicEUrDZeWTEm66ToCns4qL81vbjXYb5icgA/640?wx_fmt=png&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "heading",
+          "text": "表情包生成的AI图片编辑技巧"
+        },
+        {
+          "type": "paragraph",
+          "text": "除了图片生成不满意，选择重新生成外，同时还有其他图片编辑操作。掌握AI图片编辑能力，这不仅能提升判断和修复作品的能力，还能在大量制作时节省时间和金钱，一举两得。"
+        },
+        {
+          "type": "heading",
+          "text": "豆包的AI编辑操作路径"
+        },
+        {
+          "type": "paragraph",
+          "text": "点击豆包生成好的图片右下角“AI编辑”功能，进入图片编辑页面"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JmprwvO11qpffBdt84btPBEegmg0HAk4aZdO09JkvswMVpPR6TrF1xA/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "上图为AI编辑功能位置"
+        },
+        {
+          "type": "paragraph",
+          "text": "在输入对话框中输入编辑修改指令，或者选择想要的功能：修改尺寸-比例、扩图、消除、变清晰"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JwbNJ9tOYkhYEU5qOXtsUsJiaURiaxBE94z0aRgcpyCytbA7PB29Frbew/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "heading",
+          "text": "针对表情包生图情况中常见问题解决方式"
+        },
+        {
+          "type": "paragraph",
+          "text": "1、针对图片生成中没有出现想要的元素"
+        },
+        {
+          "type": "paragraph",
+          "text": "建议在小助手中重新生成提示词，输入的时候给想要的元素多加形容词，这样子会提升元素在提示词生成结果的占比。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JmpicCFzdwJKpQibibYmqVdY7z1I6ibGqc7iawZHLUY8OE2rlUQCtUKcE9Tw/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "2.针对图片生成很满意，但是对文字生成不满"
+        },
+        {
+          "type": "paragraph",
+          "text": "万能处理公式：先AI消除后添加编辑修改指令。"
+        },
+        {
+          "type": "paragraph",
+          "text": "部分修改指令我放在下面，需要可以直接复制使用。这里也依托了豆包图生图升级，让指令响应更加准确。"
+        },
+        {
+          "type": "paragraph",
+          "text": "请为图中表情包配文：×××。文字大小占图片四分之一。"
+        },
+        {
+          "type": "paragraph",
+          "text": "配上文本框，文本框里面的文字为：×××。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3J0nStHbkvJZ0h1wYXrhLM6PnO1iausk9cRGOq7ISm0jXF54fFnohzgFg/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "3、表情包不够清晰"
+        },
+        {
+          "type": "paragraph",
+          "text": "点击生成图片的右下角AI编辑功能，选中输入框上方的变清晰按钮，这样表情包清晰度就会提升了"
+        },
+        {
+          "type": "paragraph",
+          "text": "4、下载保存的图片有水印"
+        },
+        {
+          "type": "paragraph",
+          "text": "因为是手机也非常好处理，第一种方式智能点：有些手机图片编辑就有AI功能，可以使用消除功能，涂抹水印位置就能解决水印。第二种简单粗暴，直接用原生相机的图片裁切功能，1:1比例裁切图片去除水印部分就OK了。"
+        },
+        {
+          "type": "heading",
+          "text": "结言"
+        },
+        {
+          "type": "paragraph",
+          "text": "记得在4月底我第一次发表情包制作流程，用了gemini 2.5pro，用了GPT-4o，再用图像处理工具才完成了整个流程，那时候我把推文发朋友圈有人留言问没有更简单的呢？（想必这也是大部分用户的想法）我那时候给他回复，请他等下。"
+        },
+        {
+          "type": "paragraph",
+          "text": "现在终于等到了，非常开心！让我们一起振臂高呼：豆包，是人民的豆包！感谢豆包在大模型领域的努力和技术迭代，让大部分用户享受到创作的乐趣。"
+        },
+        {
+          "type": "image",
+          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JLp0vr09QSgIDQYhU5ThVzF482sPE61sDRDjrJnJfT70aWqZic210CpQ/640?wx_fmt=jpeg&from=appmsg",
+          "alt": ""
+        },
+        {
+          "type": "paragraph",
+          "text": "那么接下来，我替大家发出PUA的信号：下一步，豆包能不能再次成为智能体即应用的领先者呢？"
+        },
+        {
+          "type": "paragraph",
+          "text": "最后大家在使用以及制作豆包表情包智能体和表情包生图遇到的问题，都可以在评论区截图留言看到会回复，我尽量为大家在创作中遇到的问题提供切实可行的解决方案。"
+        },
+        {
+          "type": "paragraph",
+          "text": "创作不易，觉得我写的不错，一键三连哦！"
         }
       ],
-      "fallback": true,
-      "source": "fallback-summary",
-      "cachedAt": "2026-02-28T06:35:22.389Z",
-      "error": "empty-blocks"
+      "fallback": false,
+      "source": "wechat-fulltext",
+      "cachedAt": "2026-02-28T06:38:23.730Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-告别水印烦恼！这几款AI消除神器，我猜你会需要它！​-0",
