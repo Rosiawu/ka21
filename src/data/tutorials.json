@@ -1717,11 +1717,25 @@
       "recommendReason": "视频分镜skill下载和使用一键打包！",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/m1eibvmmT3sicp6fch1fKY53OxDBjPTC1iaoiaHXfpg60GpXayBk4qojJgdDJ9icQNnyC7ePo068ThSMOm85tiavURhIMaQSgk1dS7U36CxwkFRt4/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-转给你那位想养虾的朋友OpenClaw保姆级部署-0",
+      "title": "转给你那位想养虾🦞的朋友！OpenClaw🦞保姆级部署教程，我把坑都踩完了，按步骤做就能成。",
+      "description": "最近 OpenClaw （别称“小龙虾🦞”）的热度太夸张，“养虾”从零到一指南。",
+      "url": "https://mp.weixin.qq.com/s/iG3dEGTNNr4CM3Ep7d-Lnw",
+      "source": "Open烫水",
+      "publishDate": "2026-03-01",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "最近 OpenClaw （别称“小龙虾🦞”）的热度太夸张，“养虾”从零到一指南。",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/T8lDbHpgVxKe4rtAApU6CWfiaOVDSswibW0haoIG0MLttibcJGtO7nbwgXuG7BUpX4W9ySBDz2J4gv9BYoPgAeoFYlibuzQ1HMxJdx60rIgW8fQ/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-02-28T14:43:33.383Z",
-    "count": 95
+    "updatedAt": "2026-03-01T05:36:57.174Z",
+    "count": 96
   }
 }
