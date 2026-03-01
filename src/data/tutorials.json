@@ -1731,11 +1731,25 @@
       "recommendReason": "最近 OpenClaw （别称“小龙虾🦞”）的热度太夸张，“养虾”从零到一指南。",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/T8lDbHpgVxKe4rtAApU6CWfiaOVDSswibW0haoIG0MLttibcJGtO7nbwgXuG7BUpX4W9ySBDz2J4gv9BYoPgAeoFYlibuzQ1HMxJdx60rIgW8fQ/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-同事都在偷偷用NanoBanana231套模板做-0",
+      "title": "同事都在偷偷用：Nano Banana 2 + 31 套模板，做出高级感配图",
+      "description": "Nano Banana 2 负责生成，Lovart 负责一键纠错编辑。",
+      "url": "https://mp.weixin.qq.com/s/e02rNHnYkkCoie4e5i1nOg",
+      "source": "水的实践说",
+      "publishDate": "2026-03-01",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "Nano Banana 2 负责生成，Lovart 负责一键纠错编辑。",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ls0ATlDTNndOTNlCib3iauPYM7avEGhq4IAncYehp4gMxibBG2xdpVpQPMjAWFia9WK9DwaqzooxANdfL0PU0d6WXpsmPbqg5Y6Miba6dxoDvtibo/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-01T05:36:57.174Z",
-    "count": 96
+    "updatedAt": "2026-03-01T15:51:39.505Z",
+    "count": 97
   }
 }
