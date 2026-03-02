@@ -27,45 +27,13 @@ function getAccessMeta(accessibility) {
   return { className: 'badge-access-proxy' };
 }
 
-function resolveLocalIconPath(rawPath) {
-  if (!rawPath || typeof rawPath !== 'string') {
-    return '';
-  }
-
-  var normalized = rawPath;
-  if (normalized.indexOf('http://') === 0 || normalized.indexOf('https://') === 0) {
-    normalized = normalized.replace(/^https?:\/\/[^/]+/, '');
-  }
-
-  if (normalized.indexOf('/icons/') === 0) {
-    return '/public' + normalized;
-  }
-  if (normalized.indexOf('icons/') === 0) {
-    return '/public/' + normalized;
-  }
-
-  return rawPath;
-}
-
-function getHostname(url) {
-  if (!url || typeof url !== 'string') {
-    return '';
-  }
-  var match = url.match(/^https?:\/\/([^/]+)/i);
-  return match && match[1] ? match[1].toLowerCase() : '';
-}
-
-function canOpenInWebview(url) {
-  var host = getHostname(url);
-  return host === 'ka21.tools' || host === 'www.ka21.tools';
-}
-
 Page({
   data: {
     keyword: '',
     categoryId: 'all',
     categories: [],
     tools: [],
+    activeToolId: '',
     loadError: '',
   },
 
@@ -83,10 +51,38 @@ Page({
     this.initData();
   },
 
+  onShow: function () {
+    var pendingKeyword = wx.getStorageSync('home_intent_tools_keyword');
+    var pendingCategory = wx.getStorageSync('home_intent_tools_category');
+    if (!pendingKeyword && !pendingCategory) {
+      return;
+    }
+    wx.removeStorageSync('home_intent_tools_keyword');
+    wx.removeStorageSync('home_intent_tools_category');
+    this.setData({
+      keyword: pendingKeyword || '',
+      categoryId: pendingCategory || 'all',
+    });
+    this.applyFilters();
+  },
+
+  onUnload: function () {
+    if (this._activeTimer) {
+      clearTimeout(this._activeTimer);
+      this._activeTimer = null;
+    }
+    if (this._navigateTimer) {
+      clearTimeout(this._navigateTimer);
+      this._navigateTimer = null;
+    }
+  },
+
   initData: function () {
     try {
       var categoriesData = require('../../data/categories.js').categories || [];
       var toolsData = require('../../data/tools.js').tools || [];
+      var weeklyPicksData = require('../../data/weekly-picks.js').weeklyPicks || {};
+      var contentUtils = require('../../utils/content');
 
       var categories = [{ id: 'all', name: '全部' }];
       var map = {};
@@ -102,11 +98,18 @@ Page({
         var tool = toolsData[i];
         normalizedTools.push(
           Object.assign({}, tool, {
-            icon: resolveLocalIconPath(tool.icon),
+            icon: contentUtils.resolveAssetPath(tool.icon),
           })
         );
       }
+      var featuredToolOrderMap = {};
+      var weeklyToolIds = Array.isArray(weeklyPicksData.toolIds) ? weeklyPicksData.toolIds : [];
+      for (i = 0; i < weeklyToolIds.length; i += 1) {
+        featuredToolOrderMap[weeklyToolIds[i]] = i;
+      }
+
       this._allTools = normalizedTools;
+      this._featuredToolOrderMap = featuredToolOrderMap;
 
       this.setData({
         categories: categories,
@@ -135,6 +138,29 @@ Page({
     var categoryId = event.currentTarget.dataset.id || 'all';
     this.setData({ categoryId: categoryId });
     this.applyFilters();
+  },
+
+  onToolTouchStart: function (event) {
+    var id = event.currentTarget.dataset.id;
+    if (!id) {
+      return;
+    }
+    if (this._activeTimer) {
+      clearTimeout(this._activeTimer);
+      this._activeTimer = null;
+    }
+    this.setData({ activeToolId: id });
+  },
+
+  onToolTouchEnd: function () {
+    var self = this;
+    if (this._activeTimer) {
+      clearTimeout(this._activeTimer);
+    }
+    this._activeTimer = setTimeout(function () {
+      self.setData({ activeToolId: '' });
+      self._activeTimer = null;
+    }, 150);
   },
 
   applyFilters: function () {
@@ -197,43 +223,52 @@ Page({
       }
     }
 
-    return result;
+    return this.prioritizeTools(result);
+  },
+
+  prioritizeTools: function (list) {
+    var featuredToolOrderMap = this._featuredToolOrderMap || {};
+    var prioritized = [];
+    var remaining = [];
+
+    for (var i = 0; i < list.length; i += 1) {
+      var tool = list[i];
+      var rank = featuredToolOrderMap[tool.id];
+      if (typeof rank === 'number') {
+        if (!prioritized[rank]) {
+          prioritized[rank] = [];
+        }
+        prioritized[rank].push(tool);
+      } else {
+        remaining.push(tool);
+      }
+    }
+
+    var ordered = [];
+    for (var j = 0; j < prioritized.length; j += 1) {
+      if (prioritized[j] && prioritized[j].length) {
+        ordered = ordered.concat(prioritized[j]);
+      }
+    }
+    return ordered.concat(remaining);
   },
 
   onTapTool: function (event) {
+    var self = this;
     var id = event.currentTarget.dataset.id;
     if (!id) {
       return;
     }
-    wx.navigateTo({
-      url: '/pages/tool-detail/index?id=' + encode(id),
-    });
-  },
-
-  onOpenOfficial: function (event) {
-    var url = event.currentTarget.dataset.url;
-    var title = event.currentTarget.dataset.title || '官网';
-    if (!url) {
-      return;
+    if (this._navigateTimer) {
+      clearTimeout(this._navigateTimer);
+      this._navigateTimer = null;
     }
-    if (!canOpenInWebview(url)) {
-      wx.setClipboardData({
-        data: url,
-        success: function () {
-          wx.showModal({
-            title: '已复制链接',
-            content: '该网站无法在小程序内直接打开。请粘贴到浏览器或聊天窗口访问。',
-            showCancel: false,
-          });
-        },
-        fail: function () {
-          wx.showToast({ title: '复制链接失败', icon: 'none' });
-        },
+    this.setData({ activeToolId: id });
+    this._navigateTimer = setTimeout(function () {
+      wx.navigateTo({
+        url: '/pages/tool-detail/index?id=' + encode(id),
       });
-      return;
-    }
-    wx.navigateTo({
-      url: '/pages/webview/index?url=' + encode(url) + '&title=' + encode(title),
-    });
+      self._navigateTimer = null;
+    }, 110);
   },
 });

@@ -36,6 +36,22 @@
 
 .tool-card {
   margin-top: 14rpx;
+  border-radius: 22rpx;
+  border: 2rpx solid #e2e8f3;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
+  box-shadow:
+    0 14rpx 32rpx rgba(15, 23, 42, 0.08),
+    0 4rpx 10rpx rgba(15, 23, 42, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.tool-card-hover,
+.tool-card-active {
+  transform: translateY(-10rpx) scale(1.01);
+  border-color: #c1cfe7;
+  box-shadow:
+    0 30rpx 60rpx rgba(15, 23, 42, 0.22),
+    0 12rpx 24rpx rgba(15, 23, 42, 0.14);
 }
 
 .tool-row {
@@ -109,18 +125,6 @@
   font-weight: 600;
   line-height: 50rpx;
   text-align: center;
-}
-
-.official-btn {
-  margin: 0;
-  height: 52rpx;
-  line-height: 52rpx;
-  border-radius: 999rpx;
-  border: 1rpx solid #c7d2fe;
-  background: #ffffff;
-  color: #1d4ed8;
-  font-size: 22rpx;
-  padding: 0 18rpx;
 }
 
 .empty-wrap {

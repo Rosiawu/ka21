@@ -25,6 +25,7 @@ export type FulltextCacheItem = {
   url: string;
   title: string;
   blocks: ContentBlock[];
+  cover?: string;
   fallback: boolean;
   source: 'wechat-fulltext' | 'fallback-summary' | 'runtime-fulltext';
   cachedAt: string;
@@ -268,10 +269,36 @@ export function extractBlocksFromHtml(html: string, targetUrl: URL): ContentBloc
   return [...filtered, ...textBlocks].slice(0, 500);
 }
 
+function extractCoverFromHtml(html: string, finalUrlObj: URL): string {
+  const $ = cheerio.load(html);
+  const fromMeta =
+    $('meta[property="og:image"]').attr('content') ||
+    $('meta[name="twitter:image"]').attr('content') ||
+    $('meta[itemprop="image"]').attr('content') ||
+    '';
+  const normalizedMeta = absolutizeUrl(fromMeta, finalUrlObj);
+  if (normalizedMeta) return normalizedMeta;
+
+  const coverMatch =
+    html.match(/var\s+msg_cdn_url\s*=\s*"([^"]+)"/) ||
+    html.match(/var\s+msg_cdn_url\s*=\s*'([^']+)'/);
+  if (coverMatch && coverMatch[1]) {
+    return absolutizeUrl(coverMatch[1], finalUrlObj);
+  }
+
+  const firstImg =
+    $('#js_content img[data-src]').first().attr('data-src') ||
+    $('#js_content img').first().attr('src') ||
+    $('.rich_media_content img[data-src]').first().attr('data-src') ||
+    $('.rich_media_content img').first().attr('src') ||
+    '';
+  return absolutizeUrl(firstImg, finalUrlObj);
+}
+
 export async function fetchAndExtractFulltext(
   sourceUrl: string,
   options?: { timeoutMs?: number },
-): Promise<{ blocks: ContentBlock[]; finalUrl: string; title: string }> {
+): Promise<{ blocks: ContentBlock[]; finalUrl: string; title: string; cover: string }> {
   const timeoutMs = options?.timeoutMs ?? 20_000;
   const target = new URL(sourceUrl);
 
@@ -299,6 +326,7 @@ export async function fetchAndExtractFulltext(
     const finalUrl = response.url || target.toString();
     const finalUrlObj = new URL(finalUrl);
     const blocks = extractBlocksFromHtml(html, finalUrlObj);
+    const cover = extractCoverFromHtml(html, finalUrlObj);
 
     const $ = cheerio.load(html);
     const title =
@@ -315,6 +343,7 @@ export async function fetchAndExtractFulltext(
       blocks,
       finalUrl,
       title,
+      cover,
     };
   } finally {
     clearTimeout(timer);

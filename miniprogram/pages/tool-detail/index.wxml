@@ -6,17 +6,26 @@
         <text class="name">{{tool.name}}</text>
         <text class="category">{{tool.categoryLabel}}</text>
         <view class="row badges">
-          <text class="badge {{tool.recommendClass}}">
-            {{tool.recommendText}}
-          </text>
-          <text class="badge {{tool.accessClass}}">
-            {{tool.accessibility || '未知'}}
-          </text>
+          <view class="status-badge {{tool.recommendClass}}">
+            <text class="status-badge-text">{{tool.recommendText}}</text>
+          </view>
+          <view class="status-badge {{tool.accessClass}}">
+            <text class="status-badge-text">{{tool.accessibility || '未知'}}</text>
+          </view>
         </view>
       </view>
     </view>
     <text class="description">{{tool.description}}</text>
-    <button class="official-btn" bindtap="onOpenOfficial">访问官网</button>
+    <text class="intro-hint">本页已展示工具简介，继续下滑可看使用指南和相关文章。</text>
+  </view>
+
+  <view class="section" wx:if="{{tool.groupComments && tool.groupComments.length}}">
+    <text class="section-title">群友点评</text>
+    <view class="comment-card" wx:for="{{tool.groupComments}}" wx:key="index">
+      <text class="comment-content">{{item.content}}</text>
+      <text class="comment-meta">{{item.author}} {{item.createdAt ? ('· ' + item.createdAt) : ''}}</text>
+      <text class="comment-review" wx:if="{{item.reviewType}}">{{item.reviewType}}</text>
+    </view>
   </view>
 
   <view class="section" wx:if="{{tool.guides && tool.guides.length}}">
@@ -38,15 +47,6 @@
     >
       <text class="related-title">{{item.title}}</text>
       <text class="related-meta">{{item.publishDate}} · {{item.author}}</text>
-    </view>
-  </view>
-
-  <view class="section" wx:if="{{tool.groupComments && tool.groupComments.length}}">
-    <text class="section-title">群友点评</text>
-    <view class="comment-card" wx:for="{{tool.groupComments}}" wx:key="index">
-      <text class="comment-content">{{item.content}}</text>
-      <text class="comment-meta">{{item.author}} {{item.createdAt ? ('· ' + item.createdAt) : ''}}</text>
-      <text class="comment-review" wx:if="{{item.reviewType}}">{{item.reviewType}}</text>
     </view>
   </view>
 </view>

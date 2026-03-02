@@ -1,11 +1,17 @@
-<view class="container">
+<view class="about-page container">
   <view class="section">
-    <text class="section-title">关于KA21</text>
+    <text class="section-title">我们的目标</text>
     <text class="intro">
-      KA21工具导航由跨行业团队维护，核心目标是提供真实可用的AI工具与教程，帮助用户在微信内快速找到合适的工具方案。
+      我们志在成为AI工具评测圈的“米其林”，坚持高标准筛选，实行末位淘汰制。
     </text>
     <text class="intro">
-      当前小程序已同步网站完整内容：工具库、教程库、工具详情、团队成员信息。
+      只为用户保留100个真正好用的AI牛马。
+    </text>
+    <text class="intro">
+      从2025年2月建站至今，我们始终保持初心，亲自体验每一款工具，用实测结果说话。
+    </text>
+    <text class="intro">
+      只为给用户提供最真实可靠的AI工具指南。
     </text>
   </view>
 
@@ -18,28 +24,67 @@
 
     <view class="member-card" wx:for="{{teamMembers}}" wx:key="id">
       <view class="row">
-        <image class="avatar" src="{{item.avatar}}" mode="aspectFill" />
+        <image
+          wx:if="{{item.avatar}}"
+          class="avatar"
+          src="{{item.avatar}}"
+          mode="aspectFill"
+          data-index="{{index}}"
+          binderror="onAvatarError"
+        />
+        <view wx:else class="avatar avatar-placeholder">待补充</view>
         <view class="member-main">
           <text class="name">{{item.name}}</text>
           <text class="title">{{item.title}}</text>
           <text class="location">{{item.location}} · {{item.specialty}}</text>
+          <text class="nickname" wx:if="{{item.nickname}}">昵称：{{item.nickname}}</text>
         </view>
       </view>
       <text class="desc">{{item.description}}</text>
-      <view class="chip-row">
+      <view class="chip-row" wx:if="{{item.skills && item.skills.length}}">
+        <text class="chip chip-title">能力标签</text>
         <text class="chip" wx:for="{{item.skills}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="chip-row" wx:if="{{item.aiTools && item.aiTools.length}}">
+        <text class="chip chip-title">常用AI工具</text>
+        <text class="chip chip-secondary" wx:for="{{item.aiTools}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="detail-group" wx:if="{{item.projectHighlights && item.projectHighlights.length}}">
+        <text class="detail-title">项目亮点</text>
+        <text class="detail-line" wx:for="{{item.projectHighlights}}" wx:key="*this">· {{item}}</text>
+      </view>
+      <view class="chip-row" wx:if="{{item.personalTraits && item.personalTraits.length}}">
+        <text class="chip chip-title">个人特质</text>
+        <text class="chip chip-outline" wx:for="{{item.personalTraits}}" wx:key="*this">{{item}}</text>
       </view>
 
       <view class="wechat-row">
         <text class="wechat-label">公众号：{{item.wechatAccount}}</text>
         <image
+          wx:if="{{item.wechatQR}}"
           class="wechat-qr"
           src="{{item.wechatQR}}"
-          mode="aspectFill"
+          mode="aspectFit"
           data-url="{{item.wechatQR}}"
+          data-index="{{index}}"
           bindtap="onPreviewQR"
+          binderror="onQRError"
         />
+        <view wx:else class="wechat-qr wechat-qr-placeholder">二维码待补充</view>
       </view>
     </view>
+  </view>
+
+  <view class="section">
+    <text class="section-title">关于KA21</text>
+    <text class="intro">
+      KA21工具导航由18位来自各个领域的专业人士共同维护，我们以用户视角而非技术开发者身份，用心体验每一款AI工具。
+    </text>
+    <text class="intro">
+      凭借在各自行业的实践经验，我们精心筛选、深入评测并真诚推荐那些确实能提升效率的AI工具。
+    </text>
+    <text class="intro">
+      让你在日新月异的AI世界中轻松找到最适合自己的AI工具。
+    </text>
   </view>
 </view>

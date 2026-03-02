@@ -52,20 +52,38 @@
     <view
       wx:for="{{tutorials}}"
       wx:key="id"
-      class="tutorial-card"
+      class="tutorial-card {{activeTutorialId === item.id ? 'tutorial-card-active' : ''}}"
+      hover-class="tutorial-card-hover"
+      hover-start-time="20"
+      hover-stay-time="220"
       data-id="{{item.id}}"
+      bindtouchstart="onTutorialTouchStart"
+      bindtouchend="onTutorialTouchEnd"
+      bindtouchcancel="onTutorialTouchEnd"
       bindtap="onOpenTutorial"
     >
-      <image class="cover" src="{{item.imageUrl}}" mode="aspectFill" />
-      <view class="body">
-        <text class="title">{{item.title}}</text>
-        <text class="meta">{{item.publishDate}} · {{item.author}}</text>
-        <view class="row chips">
-          <text class="badge badge-access-direct">{{item.category}}</text>
-          <text class="badge badge-access-proxy">{{item.difficultyLevel}}</text>
+      <view class="tutorial-main">
+        <image
+          wx:if="{{item.imageUrl}}"
+          class="cover"
+          src="{{item.imageUrl}}"
+          mode="aspectFill"
+          data-id="{{item.id}}"
+          binderror="onCoverError"
+        />
+        <view wx:else class="cover-placeholder">
+          <text class="cover-placeholder-text">{{item.coverText}}</text>
         </view>
-        <text class="reason">{{item.recommendReason}}</text>
+        <view class="body">
+          <text class="title">{{item.title}}</text>
+          <text class="meta">{{item.publishDate}} · {{item.author}}</text>
+          <view class="row chips">
+            <text class="badge badge-access-direct">{{item.category}}</text>
+            <text class="badge badge-access-proxy">{{item.difficultyLevel}}</text>
+          </view>
+        </view>
       </view>
+      <text class="reason">{{item.recommendReason}}</text>
     </view>
   </view>
 </view>

@@ -4,9 +4,16 @@
     "pages/tools/index",
     "pages/tool-detail/index",
     "pages/tutorials/index",
-    "pages/tutorial-detail/index",
     "pages/about/index",
     "pages/webview/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pkg-tutorial",
+      "pages": [
+        "pages/tutorial-detail/index"
+      ]
+    }
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

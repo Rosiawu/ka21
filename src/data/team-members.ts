@@ -228,6 +228,26 @@ export const teamMembers: TeamMember[] = [
     personalTraits: ["创意思维", "技术探索", "学习精神", "专业实践"]
   },
   {
+    id: "tangshui",
+    name: "烫水",
+    title: "AI产品经理",
+    avatar: "/images/team/avatar-tangshui.png",
+    location: "北京",
+    specialty: "AI产品经理,编程,vibecoding",
+    mbti: "ENFP",
+    nickname: "烫水 / 热到融化",
+    wechatQR: "/images/team/qr-tangshui.png",
+    wechatAccount: "Open烫水",
+    aiTools: ["Claude Code"],
+    description: "我是烫水（热҈到҈融҈化҈），985工科研二在读，AI产品经理。当我用vibecoding闭环了多款产品后，我确信，编程不是工具，而是产品思维的延伸。",
+    skills: ["AI产品设计", "编程开发（vibecoding）", "产品创业"],
+    projectHighlights: [
+      "求职类：Agent对话式交互简历工具《职白简历》 https://www.gamets.online",
+      "学术类：医学垂直领域《小师弟医学文献综述》 http://xsdref.com"
+    ],
+    personalTraits: ["🚀 产品闭环思维", "💡 创新创业精神", "🌱 持续迭代成长", "🧠 跨领域整合能力"]
+  },
+  {
     id: "Seele",
     name: "Seele",
     title: "数据分析师",

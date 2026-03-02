@@ -6,6 +6,20 @@ function encode(value) {
   return encodeURIComponent(value || '');
 }
 
+function decode(value) {
+  try {
+    return decodeURIComponent(value || '');
+  } catch (error) {
+    return value || '';
+  }
+}
+
+function getCoverText(title) {
+  var text = toText(title).trim();
+  if (!text) return '教程';
+  return text.slice(0, 2);
+}
+
 Page({
   data: {
     keyword: '',
@@ -14,10 +28,20 @@ Page({
     categories: ['all'],
     difficulties: ['all', '小白入门', '萌新进阶', '高端玩家'],
     tutorials: [],
+    activeTutorialId: '',
     loadError: '',
   },
 
-  onLoad: function () {
+  onLoad: function (options) {
+    var keyword = decode((options && options.keyword) || '');
+    var category = decode((options && options.category) || 'all');
+    var difficulty = decode((options && options.difficulty) || 'all');
+    this.setData({
+      keyword: keyword,
+      category: category || 'all',
+      difficulty: difficulty || 'all',
+    });
+
     try {
       this._allTutorials = require('../../data/tutorials.js').tutorials || [];
 
@@ -39,6 +63,31 @@ Page({
       console.error('tutorials onLoad failed:', error);
       this.setData({ loadError: message, tutorials: [] });
       wx.showToast({ title: '教程加载失败', icon: 'none' });
+    }
+  },
+
+  onShow: function () {
+    var pendingKeyword = wx.getStorageSync('home_intent_tutorials_keyword');
+    if (!pendingKeyword) {
+      return;
+    }
+    wx.removeStorageSync('home_intent_tutorials_keyword');
+    this.setData({
+      keyword: pendingKeyword,
+      category: 'all',
+      difficulty: 'all',
+    });
+    this.applyFilters();
+  },
+
+  onUnload: function () {
+    if (this._activeTimer) {
+      clearTimeout(this._activeTimer);
+      this._activeTimer = null;
+    }
+    if (this._navigateTimer) {
+      clearTimeout(this._navigateTimer);
+      this._navigateTimer = null;
     }
   },
 
@@ -64,6 +113,29 @@ Page({
       difficulty: 'all',
     });
     this.applyFilters();
+  },
+
+  onTutorialTouchStart: function (event) {
+    var id = event.currentTarget.dataset.id;
+    if (!id) {
+      return;
+    }
+    if (this._activeTimer) {
+      clearTimeout(this._activeTimer);
+      this._activeTimer = null;
+    }
+    this.setData({ activeTutorialId: id });
+  },
+
+  onTutorialTouchEnd: function () {
+    var self = this;
+    if (this._activeTimer) {
+      clearTimeout(this._activeTimer);
+    }
+    this._activeTimer = setTimeout(function () {
+      self.setData({ activeTutorialId: '' });
+      self._activeTimer = null;
+    }, 150);
   },
 
   applyFilters: function () {
@@ -102,7 +174,16 @@ Page({
         }
       }
 
-      this.setData({ tutorials: result, loadError: '' });
+      var normalized = [];
+      for (var j = 0; j < result.length; j += 1) {
+        normalized.push(
+          Object.assign({}, result[j], {
+            coverText: getCoverText(result[j].title),
+          })
+        );
+      }
+
+      this.setData({ tutorials: normalized, loadError: '' });
     } catch (error) {
       var message = error && error.message ? error.message : String(error);
       console.error('tutorials applyFilters failed:', error);
@@ -110,13 +191,46 @@ Page({
     }
   },
 
+  onCoverError: function (event) {
+    var id = event.currentTarget.dataset.id;
+    if (!id) return;
+
+    var tutorials = (this.data.tutorials || []).slice();
+    var updated = false;
+    for (var i = 0; i < tutorials.length; i += 1) {
+      var item = tutorials[i];
+      if (item.id !== id) continue;
+
+      if (item.coverFallback && item.imageUrl !== item.coverFallback) {
+        tutorials[i] = Object.assign({}, item, { imageUrl: item.coverFallback });
+      } else {
+        tutorials[i] = Object.assign({}, item, { imageUrl: '' });
+      }
+      updated = true;
+      break;
+    }
+
+    if (updated) {
+      this.setData({ tutorials: tutorials });
+    }
+  },
+
   onOpenTutorial: function (event) {
+    var self = this;
     var id = event.currentTarget.dataset.id;
     if (!id) {
       return;
     }
-    wx.navigateTo({
-      url: '/pages/tutorial-detail/index?id=' + encode(id),
-    });
+    if (this._navigateTimer) {
+      clearTimeout(this._navigateTimer);
+      this._navigateTimer = null;
+    }
+    this.setData({ activeTutorialId: id });
+    this._navigateTimer = setTimeout(function () {
+      wx.navigateTo({
+        url: '/pkg-tutorial/pages/tutorial-detail/index?id=' + encode(id),
+      });
+      self._navigateTimer = null;
+    }, 110);
   },
 });

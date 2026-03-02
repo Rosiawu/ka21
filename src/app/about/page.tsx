@@ -19,7 +19,7 @@ export async function generateMetadata(
       title: isEn ? 'About Us - KA21 Tools' : '关于我们 - KA21工具导航',
       description: isEn
         ? 'Meet the KA21 team of professionals exploring and reviewing practical AI tools.'
-        : '了解KA21工具导航背后的18位专业团队成员，来自各个领域的专业人士共同探索和评测AI工具',
+        : '了解KA21工具导航背后的专业团队成员，来自各个领域的专业人士共同探索和评测AI工具',
       alternates: {
         canonical: hreflangConfig.canonical,
         languages: hreflangConfig.languages
@@ -31,11 +31,12 @@ export async function generateMetadata(
 
 export default function AboutPage({ params }: { params?: { locale?: string } }) {
   const isEn = params?.locale === 'en';
+  const teamCount = teamMembers.length;
   const text = {
     title: isEn ? 'About Us' : '关于我们',
     intro1: isEn
-      ? 'KA21 Tools is maintained by 18 professionals from diverse fields. We evaluate AI tools from a user perspective, not just a developer perspective.'
-      : 'KA21工具导航由18位来自各个领域的专业人士共同维护，我们以用户视角而非技术开发者身份，用心体验每一款AI工具。',
+      ? `KA21 Tools is maintained by ${teamCount} professionals from diverse fields. We evaluate AI tools from a user perspective, not just a developer perspective.`
+      : `KA21工具导航由${teamCount}位来自各个领域的专业人士共同维护，我们以用户视角而非技术开发者身份，用心体验每一款AI工具。`,
     intro2: isEn
       ? 'With real-world experience from our industries, we carefully select, deeply test, and honestly recommend tools that truly improve productivity.'
       : '凭借在各自行业的实践经验，我们精心筛选、深入评测并真诚推荐那些确实能提升效率的AI工具。',

@@ -23,20 +23,6 @@ function uniqueNonEmpty(list) {
   return out;
 }
 
-var MINIAPP_IMAGE_PROXY_PREFIX = 'https://ka21.tools/api/miniapp/image-proxy?url=';
-
-function toMiniappImageUrl(rawSrc) {
-  var src = (rawSrc || '').trim();
-  if (!src) return '';
-  if (src.indexOf(MINIAPP_IMAGE_PROXY_PREFIX) === 0) {
-    return src;
-  }
-  if (src.indexOf('http://') === 0 || src.indexOf('https://') === 0) {
-    return MINIAPP_IMAGE_PROXY_PREFIX + encodeURIComponent(src);
-  }
-  return src;
-}
-
 function splitParagraphs(text) {
   var raw = (text || '').replace(/\r/g, '\n').trim();
   if (!raw) return [];
@@ -127,7 +113,7 @@ function normalizeBlocks(blocks) {
     if (type === 'image') {
       var src = (item.src || '').trim();
       if (src) {
-        out.push({ type: 'image', src: toMiniappImageUrl(src), alt: (item.alt || '').trim() });
+        out.push({ type: 'image', src: src, alt: (item.alt || '').trim() });
       }
       continue;
     }

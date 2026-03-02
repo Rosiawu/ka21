@@ -1,21 +1,84 @@
 <view class="container">
   <view class="section hero">
-    <text class="hero-title">一站式AI工具与教程</text>
-    <text class="hero-subtitle">把网站完整内容迁移到微信小程序：工具、教程、团队信息全保留。</text>
+    <text class="hero-title">AI对话助手</text>
+    <text class="hero-subtitle">直接告诉我你想做什么，我帮你匹配工具和教程。</text>
+    <view class="assistant-bubble">
+      <text class="assistant-label">助手</text>
+      <text class="assistant-text">例如：口播视频、搞视频、做个海报、帮我写代码。</text>
+    </view>
     <view class="search-row">
       <input
         class="search-input"
-        placeholder="搜索工具名、标签、功能..."
+        placeholder="直接输入需求，如：口播视频 / 搞视频"
         value="{{keyword}}"
         bindinput="onKeywordInput"
         bindconfirm="onSearchConfirm"
       />
-      <button class="search-btn" bindtap="onSearchConfirm">搜索</button>
+      <button class="search-btn" bindtap="onSearchConfirm">帮我匹配</button>
     </view>
     <view class="quick-actions">
-      <button class="quick-btn" data-keyword="AI绘图" bindtap="onQuickSearch">AI绘图</button>
-      <button class="quick-btn" data-keyword="AI编程" bindtap="onQuickSearch">AI编程</button>
-      <button class="quick-btn" data-keyword="AI视频" bindtap="onQuickSearch">AI视频</button>
+      <button class="quick-btn" data-keyword="口播视频" bindtap="onQuickSearch">口播视频</button>
+      <button class="quick-btn" data-keyword="搞视频" bindtap="onQuickSearch">搞视频</button>
+      <button class="quick-btn" data-keyword="海报设计" bindtap="onQuickSearch">海报设计</button>
+      <button class="quick-btn" data-keyword="代码调试" bindtap="onQuickSearch">代码调试</button>
+    </view>
+
+    <view class="intent-result" wx:if="{{hasIntentResult}}">
+      <view class="intent-head">
+        <text class="intent-tag">已识别：{{intentLabel}}</text>
+        <text class="intent-reply">{{intentReply}}</text>
+      </view>
+
+      <view class="intent-block">
+        <view class="row space-between">
+          <text class="intent-title">推荐工具</text>
+          <text class="intent-link" bindtap="onGoAllTools">查看全部</text>
+        </view>
+        <view wx:if="{{intentTools.length}}">
+          <view class="intent-tools-grid">
+            <view
+              class="intent-tool-cell"
+              wx:for="{{intentTools}}"
+              wx:key="id"
+              data-id="{{item.id}}"
+              bindtap="onTapTool"
+            >
+              <text class="intent-tool-name">{{item.name}}</text>
+              <image
+                wx:if="{{item.icon}}"
+                class="intent-tool-icon"
+                src="{{item.icon}}"
+                mode="aspectFit"
+                data-id="{{item.id}}"
+                binderror="onIntentToolIconError"
+              />
+              <view wx:else class="intent-tool-icon-fallback">{{item.iconText}}</view>
+              <text class="intent-tool-meta">{{item.categoryLabelPlain}}</text>
+            </view>
+          </view>
+        </view>
+        <text class="intent-empty" wx:else>暂未匹配到工具</text>
+      </view>
+
+      <view class="intent-block">
+        <view class="row space-between">
+          <text class="intent-title">推荐教程</text>
+          <text class="intent-link" bindtap="onGoAllTutorials">查看全部</text>
+        </view>
+        <view wx:if="{{intentTutorials.length}}">
+          <view
+            class="intent-item"
+            wx:for="{{intentTutorials}}"
+            wx:key="id"
+            data-id="{{item.id}}"
+            bindtap="onTapTutorial"
+          >
+            <text class="intent-item-name">{{item.title}}</text>
+            <text class="intent-item-meta">{{item.author}} · {{item.difficultyLevel}}</text>
+          </view>
+        </view>
+        <text class="intent-empty" wx:else>暂未匹配到教程</text>
+      </view>
     </view>
   </view>
 
@@ -67,7 +130,15 @@
         bindtap="onTapTool"
       >
         <view class="tool-head">
-          <image class="tool-icon" src="{{item.icon}}" mode="aspectFit" />
+          <image
+            wx:if="{{item.icon}}"
+            class="tool-icon"
+            src="{{item.icon}}"
+            mode="aspectFit"
+            data-id="{{item.id}}"
+            binderror="onHotToolIconError"
+          />
+          <view wx:else class="tool-icon-fallback">{{item.iconText}}</view>
           <view class="tool-main">
             <text class="tool-name">{{item.name}}</text>
             <text class="tool-category">{{item.categoryLabel}}</text>

@@ -39,8 +39,14 @@
     <view
       wx:for="{{tools}}"
       wx:key="id"
-      class="card tool-card"
+      class="card tool-card {{activeToolId === item.id ? 'tool-card-active' : ''}}"
+      hover-class="tool-card-hover"
+      hover-start-time="20"
+      hover-stay-time="220"
       data-id="{{item.id}}"
+      bindtouchstart="onToolTouchStart"
+      bindtouchend="onToolTouchEnd"
+      bindtouchcancel="onToolTouchEnd"
       bindtap="onTapTool"
     >
       <view class="row tool-row">
@@ -58,14 +64,6 @@
             <view class="status-badge {{item.accessClass}}">
               <text class="status-badge-text">{{item.accessText}}</text>
             </view>
-            <button
-              class="official-btn"
-              data-url="{{item.url}}"
-              data-title="{{item.name}}官网"
-              catchtap="onOpenOfficial"
-            >
-              官网
-            </button>
           </view>
         </view>
       </view>

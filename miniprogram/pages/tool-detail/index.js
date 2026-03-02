@@ -27,19 +27,6 @@ function getAccessMeta(accessibility) {
   return { className: 'badge-access-proxy' };
 }
 
-function getHostname(url) {
-  if (!url || typeof url !== 'string') {
-    return '';
-  }
-  var match = url.match(/^https?:\/\/([^/]+)/i);
-  return match && match[1] ? match[1].toLowerCase() : '';
-}
-
-function canOpenInWebview(url) {
-  var host = getHostname(url);
-  return host === 'ka21.tools' || host === 'www.ka21.tools';
-}
-
 Page({
   data: {
     tool: null,
@@ -98,35 +85,11 @@ Page({
     }
   },
 
-  onOpenOfficial() {
-    var tool = this.data.tool;
-    if (!tool || !tool.url) return;
-    if (!canOpenInWebview(tool.url)) {
-      wx.setClipboardData({
-        data: tool.url,
-        success: function () {
-          wx.showModal({
-            title: '已复制链接',
-            content: '该网站无法在小程序内直接打开。请粘贴到浏览器或聊天窗口访问。',
-            showCancel: false,
-          });
-        },
-        fail: function () {
-          wx.showToast({ title: '复制链接失败', icon: 'none' });
-        },
-      });
-      return;
-    }
-    wx.navigateTo({
-      url: '/pages/webview/index?url=' + encode(tool.url) + '&title=' + encode(tool.name),
-    });
-  },
-
   onOpenTutorial(event) {
     var id = event.currentTarget.dataset.id;
     if (!id) return;
     wx.navigateTo({
-      url: '/pages/tutorial-detail/index?id=' + encode(id),
+      url: '/pkg-tutorial/pages/tutorial-detail/index?id=' + encode(id),
     });
   },
 });

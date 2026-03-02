@@ -14,7 +14,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMm9NdZe5bJ4HHSjyDWt9ApcnprRwBDrpOZD9iceGReBkb8ib0nXVEyANia7souiaD6TT8UzQ0ps8sEyibVYZC2zicoYPuCDGwbmY08JYE/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMm9NdZe5bJ4HHSjyDWt9ApcnprRwBDrpOZD9iceGReBkb8ib0nXVEyANia7souiaD6TT8UzQ0ps8sEyibVYZC2zicoYPuCDGwbmY08JYE/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMm9NdZe5bJ4HHSjyDWt9ApcnprRwBDrpOZD9iceGReBkb8ib0nXVEyANia7souiaD6TT8UzQ0ps8sEyibVYZC2zicoYPuCDGwbmY08JYE/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-龙虾Token焦虑自救指南-0",
@@ -30,7 +31,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/MoZfoickyLB1ssU7AOjFHVJKX0Bx1GkKMezCf5CsEvrJWnzAXz4fB4z5BWwp8TIEzAXvA5tUtGN6KeS0emd63EIVogawGmJSXanabbegUrcM/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "David",
-      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/MoZfoickyLB1ssU7AOjFHVJKX0Bx1GkKMezCf5CsEvrJWnzAXz4fB4z5BWwp8TIEzAXvA5tUtGN6KeS0emd63EIVogawGmJSXanabbegUrcM/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/MoZfoickyLB1ssU7AOjFHVJKX0Bx1GkKMezCf5CsEvrJWnzAXz4fB4z5BWwp8TIEzAXvA5tUtGN6KeS0emd63EIVogawGmJSXanabbegUrcM/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-装上这个Skills让整个GitHub为你打工-0",
@@ -46,7 +48,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/cevPo6QMgbDLusN5jZPbjia57PbwOIoTQAYs49qnvxmqls8AoAjwVYXCdbZN4zR1V1aBemvS8mdibXzCabicSCRLyDhXZdt7ayZ2Z2NxpfZHFM/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "云舒（哈皮狗狗教主）",
-      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/cevPo6QMgbDLusN5jZPbjia57PbwOIoTQAYs49qnvxmqls8AoAjwVYXCdbZN4zR1V1aBemvS8mdibXzCabicSCRLyDhXZdt7ayZ2Z2NxpfZHFM/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/cevPo6QMgbDLusN5jZPbjia57PbwOIoTQAYs49qnvxmqls8AoAjwVYXCdbZN4zR1V1aBemvS8mdibXzCabicSCRLyDhXZdt7ayZ2Z2NxpfZHFM/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-豆包Seedance20实测也来了多个视频生成怎-0",
@@ -62,7 +65,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/VV0r92V7YpeTlNzSicnoYECPWfzrTSicolI8QMcSWCwgdoxJZ1CDV8p68MDoZGbYpS5qEY9ep9yicm9U8JgTPlswdFrzO9dJMua7YkO8Sx20Aw/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "蜡笔不是小芯",
-      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/VV0r92V7YpeTlNzSicnoYECPWfzrTSicolI8QMcSWCwgdoxJZ1CDV8p68MDoZGbYpS5qEY9ep9yicm9U8JgTPlswdFrzO9dJMua7YkO8Sx20Aw/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/VV0r92V7YpeTlNzSicnoYECPWfzrTSicolI8QMcSWCwgdoxJZ1CDV8p68MDoZGbYpS5qEY9ep9yicm9U8JgTPlswdFrzO9dJMua7YkO8Sx20Aw/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-可灵30太贵用不起lovart4毛钱起真香-0",
@@ -78,7 +82,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib3hzeKedibj8y8yhunGoESXt3vX2VKt93ic9bFmyM6VNpqibnTXoNRQgIM1xpEffxXpHzt0OCblTn9XcZib0NzqZhFS6VbAjHytick25icLjjuViaA/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "AI半吊子",
-      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib3hzeKedibj8y8yhunGoESXt3vX2VKt93ic9bFmyM6VNpqibnTXoNRQgIM1xpEffxXpHzt0OCblTn9XcZib0NzqZhFS6VbAjHytick25icLjjuViaA/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib3hzeKedibj8y8yhunGoESXt3vX2VKt93ic9bFmyM6VNpqibnTXoNRQgIM1xpEffxXpHzt0OCblTn9XcZib0NzqZhFS6VbAjHytick25icLjjuViaA/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-一张图一句话就能做视频的时代来了即梦Seedan-0",
@@ -94,7 +99,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/15amGy0JsPicam257Mib6nXibqBiaHJsza7O0VKR0ibRA99iaJlwJib4keG517oqicknV2jTAicniaKic6dO94Xn4HsGsrWONJ6tdntRVO4hsjGfibxy550/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "哆啦A梦鱼鱼",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/15amGy0JsPicam257Mib6nXibqBiaHJsza7O0VKR0ibRA99iaJlwJib4keG517oqicknV2jTAicniaKic6dO94Xn4HsGsrWONJ6tdntRVO4hsjGfibxy550/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/15amGy0JsPicam257Mib6nXibqBiaHJsza7O0VKR0ibRA99iaJlwJib4keG517oqicknV2jTAicniaKic6dO94Xn4HsGsrWONJ6tdntRVO4hsjGfibxy550/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-即梦Seedance20实测一张九宫格分镜一句提-0",
@@ -110,7 +116,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/VV0r92V7YpeTlNzSicnoYECPWfzrTSicolI8QMcSWCwgdoxJZ1CDV8p68MDoZGbYpS5qEY9ep9yicm9U8JgTPlswdFrzO9dJMua7YkO8Sx20Aw/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "蜡笔不是小芯",
-      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/VV0r92V7YpeTlNzSicnoYECPWfzrTSicolI8QMcSWCwgdoxJZ1CDV8p68MDoZGbYpS5qEY9ep9yicm9U8JgTPlswdFrzO9dJMua7YkO8Sx20Aw/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/VV0r92V7YpeTlNzSicnoYECPWfzrTSicolI8QMcSWCwgdoxJZ1CDV8p68MDoZGbYpS5qEY9ep9yicm9U8JgTPlswdFrzO9dJMua7YkO8Sx20Aw/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-承认吧99的AI热点普通人根本用不上-0",
@@ -126,7 +133,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMmicZZJywTHwseAWD4Pv4pv2DIHDj7ZaRGOic7jUhxaxRVGoiaHnvLaWJvmldDaZ7QWHYuVicRQtic9ktloDmj6ica7GbOy1SxSJe9xGc/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "Loki2046",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMmicZZJywTHwseAWD4Pv4pv2DIHDj7ZaRGOic7jUhxaxRVGoiaHnvLaWJvmldDaZ7QWHYuVicRQtic9ktloDmj6ica7GbOy1SxSJe9xGc/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMmicZZJywTHwseAWD4Pv4pv2DIHDj7ZaRGOic7jUhxaxRVGoiaHnvLaWJvmldDaZ7QWHYuVicRQtic9ktloDmj6ica7GbOy1SxSJe9xGc/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-一觉醒来Kimi的VibeCoding已经是钮祜-0",
@@ -142,7 +150,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiadEkSGUGT8hYZdERk2cdPfgQFeNuujWQAnNo6f7YLicqjz5jX2Tjslo898ic4iaIblPv8y4kSoCPlGLw/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "阿真",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiadEkSGUGT8hYZdERk2cdPfgQFeNuujWQAnNo6f7YLicqjz5jX2Tjslo898ic4iaIblPv8y4kSoCPlGLw/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiadEkSGUGT8hYZdERk2cdPfgQFeNuujWQAnNo6f7YLicqjz5jX2Tjslo898ic4iaIblPv8y4kSoCPlGLw/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-IP动态表情包批量制作进阶法AI工作流探索-0",
@@ -158,7 +167,8 @@ module.exports = {
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViawPFpsD57saPv9qL4eErp7nk7V8TE8RJln2qcVjiaLQb1zLvEM9owTHOmXibRvficWmr4FrTiclc2ZOSg/0?wx_fmt=jpeg",
       "relatedTools": [],
       "author": "箱子大魔王",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViawPFpsD57saPv9qL4eErp7nk7V8TE8RJln2qcVjiaLQb1zLvEM9owTHOmXibRvficWmr4FrTiclc2ZOSg/0?wx_fmt=jpeg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViawPFpsD57saPv9qL4eErp7nk7V8TE8RJln2qcVjiaLQb1zLvEM9owTHOmXibRvficWmr4FrTiclc2ZOSg/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-免费视频切片分析脚本再创作可复用的分镜反推工作流-0",
@@ -178,7 +188,8 @@ module.exports = {
       "customImageUrl": "/images/tutorials/video-storyboard-workflow-001.jpg",
       "relatedTools": [],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/video-storyboard-workflow-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiafM10Picic2SfWyzyq0WiagfiacCy5wN0D06vm9P9HJLX682vdAgn9iaT5tyvVlcU1KbCgbzVriaJs5KYWg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/video-storyboard-workflow-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-2026最佳AI工具推荐让你一整年效率拉满-0",
@@ -198,7 +209,8 @@ module.exports = {
       "customImageUrl": "/images/tutorials/ai-tools-2026-001.jpg",
       "relatedTools": [],
       "author": "袋鼠帝",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-tools-2026-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/3QzcPBL9P1AM9aia3IybAViaEL1j24mwMJxrsiaIXb57u6K1wJHyeNR4KqDwwm4iblPZMrbbGJ8D8Pl37OytKWdDMw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-tools-2026-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我用3500字提示词把AI-PPT拉回可控区间-0",
@@ -218,7 +230,8 @@ module.exports = {
       "customImageUrl": "/images/tutorials/ai-ppt-prompt-engineering-001.jpg",
       "relatedTools": [],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-ppt-prompt-engineering-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs91tJ1uNiatO3VUlKm0l7ypy9riaGJpGK6h6FsNM4X7qDmxbCNMc6Kfde5dExPG95jl0bEvrqwtKibBA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-ppt-prompt-engineering-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-腾讯IMA任务模式实测知识库终于能直接生成PPT了-0",
@@ -240,7 +253,8 @@ module.exports = {
         "ima"
       ],
       "author": "蜡笔",
-      "imageUrl": "https://ka21.tools/images/tutorials/ima-task-mode-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP5n1LGicVbryIgY5DkROKKyho5R0xWxegxC7UibZj6jhOnFGvNhN8fWNU9dQBcCiaibz4iasVCyL301N9Q/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ima-task-mode-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-2025年终复盘AI-PPT的疯狂进化史-0",
@@ -260,7 +274,8 @@ module.exports = {
       "customImageUrl": "/images/tutorials/ai-ppt-evolution-001.jpg",
       "relatedTools": [],
       "author": "蜡笔",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-ppt-evolution-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP54Z1uLjTOSWaGJHBEBVzWzwib3cpTzPLafXk6qwNzZC1EibjibBQlR8lkkiaPVNoNjheD5FibvclYHs4A/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-ppt-evolution-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Lovart正式冲击PPT赛道-0",
@@ -282,7 +297,8 @@ module.exports = {
         "lovart"
       ],
       "author": "栗噔噔",
-      "imageUrl": "https://ka21.tools/images/tutorials/lovart-ppt-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/XBgibQDyDF3icTC81a7r26jdibfic8kVtHLp4uXFlJjVLQQV6X1kYyTMxApvV4JAUKqzeFH4MEbnhM5DdtSkiaZAricQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/lovart-ppt-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-一个杯子引发的AI电商全案设计落地方案探索-0",
@@ -302,7 +318,8 @@ module.exports = {
       "customImageUrl": "/images/tutorials/ai-ecommerce-design-001.jpg",
       "relatedTools": [],
       "author": "明冥箱子",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-ecommerce-design-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaw8Ugd2Tk0zNiaYsIBxL0cF7OAudWewXO6KHncsbpWp890qdV7T5JnZcsrxPBFV25icMBwN45zuMOpw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-ecommerce-design-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-阿真-飞书多维表格应用模式-从表格到应用的跨越-0",
@@ -323,7 +340,8 @@ module.exports = {
         "feishu-base"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/feishu-base-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeAjwJJ6TgJCicfniaDLXdb0Hr9RlWA1lb7a5r8N2ZIff3f8kNfqQWVEq6zkicpGkUuQ2pC8oWVal54A/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/feishu-base-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-教爸妈用豆包AI真正走进家庭的温暖故事-0",
@@ -343,7 +361,8 @@ module.exports = {
         "doubao"
       ],
       "author": "硅基Seele",
-      "imageUrl": "https://ka21.tools/images/tutorials/doubao-family-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP9yunPGeZYsB1SEVffGYibwNYb2Zeo6vUAlVF0iaDOfMNhQzbhl2LTlTEXv1DFtuicDySOyaJ16fx5Zw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/doubao-family-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-KA21宣传KT板设计任务完整复盘-0",
@@ -368,7 +387,8 @@ module.exports = {
         "ima"
       ],
       "author": "明冥箱子",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-design-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxUicTvLYMP22mq9zzjSDG3BO1Hru48DBjjzqAMbnXkfL8Z5L0K7O0moUgNoY98EtsbOjEY7CHicLdw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-design-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-liblib-2-0-深度体验-一个平台搞定全部ai创作-0",
@@ -387,7 +407,8 @@ module.exports = {
       "customImageUrl": "/images/tutorials/liblib-2-0-001.jpg",
       "relatedTools": [],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/liblib-2-0-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsibXT2ZcyYiaDKe7ickeKWbJ9NhibTF90p92s9MUaOLPIKvrLSw5qhMG7aCtaCibjLfsY3nnGsZ3D0InDA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/liblib-2-0-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我用8小时做了一张专辑Tunee包揽了词曲演唱和MV-0",
@@ -409,7 +430,8 @@ module.exports = {
         "tunee"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/tunee-music-creation-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs8lw8al97skjNibncRaDehr229olplVfosWBnjtpdOUvXSxbS28FicibAic6vMtHUIxzlSowdeuURiaYmA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/tunee-music-creation-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-PS危谷歌新模型实测人物一致性稳了P图绝了-0",
@@ -432,7 +454,8 @@ module.exports = {
         "flowith"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/gemini-image-editing-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs8vSFCZRwpCKu61SeSVwjn09Co2obScacqeEbWeQtQBTEicIgfnrqPSHwiavLTia3Z6pA9ibOgAA1mibww/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/gemini-image-editing-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-IP动画进阶创作教程结合emoji图片生成以及短片创作智能体Seko-0",
@@ -456,7 +479,8 @@ module.exports = {
         "emoji-person"
       ],
       "author": "明冥箱子",
-      "imageUrl": "https://ka21.tools/images/tutorials/ip-animation-creation-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaz6OLJkKZUGcpc4nYKksYJrGUtWGz5XHkomE5szicuJ4OecQPCfibl85ZS6OLibTmWdGq85oViayjslUQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ip-animation-creation-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-即梦Agent内测：从参考生成到批量创作五大功能全面测评-0",
@@ -478,7 +502,8 @@ module.exports = {
         "jm"
       ],
       "author": "蜡笔进化论",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-009.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB3oBKcAFuLuHPic7DrYnOvPebW3oe0T9K5RLy1rQEAevtUIkn9Uy77fQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-009.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Seko保姆级玩法教程，丝滑转场和对口型太惊艳了-0",
@@ -498,7 +523,8 @@ module.exports = {
         "aigc-video"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/aigc-video-004.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacZc5mVmBL7w68XAQKrxicuKwHlKYAORZa4KQ7WoNuVYctrgzP6lPyMjw7HOwjXKwHEibJRPrvPTC0w/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/aigc-video-004.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-新手必看：Seko视频Agent深度测评-0",
@@ -520,7 +546,8 @@ module.exports = {
         "aigc-video"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/aigc-video-003.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsicgcImn4ibQVpPCJdaoS6bndfgI7f6FLIdRJIraPg96VZgjic7Gz8dZtIDkEFVahG2CWibDn6HImcqoQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/aigc-video-003.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Context is all you need：一文彻底搞懂上下文工程-0",
@@ -544,7 +571,8 @@ module.exports = {
         "claude"
       ],
       "author": "郭美青聊AI",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-guide-004.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/KujplMh4qUmfGq4ZvaElfgDHPoMqG9M2LjUxOJZwCJCJQuPAett9SibCiaX12gpuGF9T3gzXCYZERxyPkHZ2PAwA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-guide-004.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-ima更新盘点：知识库不再只是仓库，而是AI工作台了！-0",
@@ -566,7 +594,8 @@ module.exports = {
         "ima"
       ],
       "author": "蜡笔进化论",
-      "imageUrl": "https://ka21.tools/images/tutorials/ima-005.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5bgdibacqLqLoptwsibyQ2s4VO5icH3bhCGpYA4aplZGyenkWKPTq4a5yg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ima-005.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-保姆级!无需魔法0 基础也能 3分钟装好「沉浸式翻译」浏览器插件-0",
@@ -586,7 +615,8 @@ module.exports = {
         "immersive-translation"
       ],
       "author": "蜡笔进化论",
-      "imageUrl": "https://ka21.tools/images/tutorials/immersive-translation-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP5mURGEormqenBPiamuzA0FW5D6icmAeQicyd0ibJGRD9LzWSbbK4FU219ialicfiaVyUVicmiafY02LyA24KQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/immersive-translation-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-2025上半年，我的常用AI绘图工具盘点-0",
@@ -609,7 +639,8 @@ module.exports = {
         "ideogram"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-painting-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsViccupIk9dottuPM8CEkAKTglbcPsg7ARNiaTCjSvDRyIq88yVnlq2LQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-painting-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-RAG天花板！从0到1打造商用Agent-0",
@@ -633,7 +664,8 @@ module.exports = {
         "ragflow"
       ],
       "author": "袋鼠帝",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-agent-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/3QzcPBL9P1BI5spAKzZhZza24DIZfygCRnHuF8wn5Lwol8G6V31IibLGTZcPptribTGbwKwOSUzNScj2MATYHia0g/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-agent-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-免费不限次的AI生图神器！全面测评「豆包超能创意2-0」-0",
@@ -655,7 +687,8 @@ module.exports = {
         "doubao"
       ],
       "author": "栗噔噔",
-      "imageUrl": "https://ka21.tools/images/tutorials/doubao-003.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/XBgibQDyDF391luEvfkiakWPEznrUK7htJOXCicQt47Ud3l1PF8afnA1TagXruPue89SOVqiaYumuJRIBqxQ9M6oBA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/doubao-003.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-3小时拿下2130元顶格赔偿AI维权实录-0",
@@ -679,7 +712,8 @@ module.exports = {
         "chatgpt"
       ],
       "author": "硅基Seele",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-law-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP8U1xNar8LJlYyk4BRp2QN28ic5BicmiaG5QDQj4ic7BQdbqn7Shn8rpe7eqZooYU47GnTtunzmhB8QWg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-law-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-AI综合实践之IP动画视频入门级教程-0",
@@ -700,7 +734,8 @@ module.exports = {
         "aigc-video"
       ],
       "author": "明冥箱子",
-      "imageUrl": "https://ka21.tools/images/tutorials/aigc-video-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxzuWrLjD30hndbKvnd1qB3uHdegkLnEV4sia2Ufr1qLJe0JsCsDzQ6YuQH5vMLjjPrURTqUkNexew/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/aigc-video-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-淘宝比价，我只用5分钟，就扒光了1000家店的底价-0",
@@ -721,7 +756,8 @@ module.exports = {
         "chatgpt"
       ],
       "author": "靠谱瓦叔AI趣探",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-guide-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXbANDwkwzHU9EDeKVZEQs5GbQjq78UK5zbp4tUwZwylqVHoefADCsDt2LJ7bB8mSnWHj8rteyibneg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-guide-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-最强中文TTS！设计任何音色+情感注入，效果绝了～-0",
@@ -744,7 +780,8 @@ module.exports = {
         "minimax-audio"
       ],
       "author": "袋鼠帝",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-audio-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/3QzcPBL9P1APvprjV6PukHlRibia0d6GTjKwfCiaLlGKAovDGOiamkNt8PXtopKEjiaBB21Z4tfckicZZrUcNvpJcGwg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-audio-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-为了成为ClaudeCode高手，我雇了个AI当教练-0",
@@ -765,7 +802,25 @@ module.exports = {
         "claude"
       ],
       "author": "云舒",
-      "imageUrl": "https://ka21.tools/images/tutorials/claude-003.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/ThHvgaTIUCZTCO2a55mvjEOGic5wFs697icFAjTYmz6x19icjX800G9hkNwHZNF1cJicPnDIKG5SJiaE5QHPAV7tibWg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/claude-003.jpg"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-我TMD受够了删掉132G截图后才发现原来可以这-0",
+      "title": "我TMD受够了！删掉132G截图后，才发现原来可以这样“榨干”小红书",
+      "description": "我受够了！删掉132G的灵感截图后，我用这套土法把小红书榨干了。",
+      "url": "https://mp.weixin.qq.com/s/2iX0HOTjdU9NgXO1M1_3Cg",
+      "source": "靠谱瓦叔AI趣探",
+      "publishDate": "2025-07-07",
+      "difficultyLevel": "萌新进阶",
+      "category": "AI办公",
+      "skillTags": [],
+      "recommendReason": "我受够了！删掉132G的灵感截图后，我用这套土法把小红书榨干了。",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXYfMvicG16S8CGK224IwPrPKMApCowkoFibgGcq1R8Xfyrt4KmTEER1M1Yw541VNYKSSjUTg77ciaMSA/0?wx_fmt=jpeg",
+      "relatedTools": [],
+      "author": "靠谱瓦叔AI趣探",
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXYfMvicG16S8CGK224IwPrPKMApCowkoFibgGcq1R8Xfyrt4KmTEER1M1Yw541VNYKSSjUTg77ciaMSA/0?wx_fmt=jpeg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-告别水印烦恼！这几款AI消除神器，我猜你会需要它！​-0",
@@ -787,7 +842,8 @@ module.exports = {
         "cleanup-pictures"
       ],
       "author": "霏霏同学",
-      "imageUrl": "https://ka21.tools/images/tutorials/watermark-removal-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/rIR6vmPDKicYlgn9YwR5hetibAGEXPBAKef21VomPal9sW0yjJKPdPPqicyeGsMGMJ0dro92uRkh9S4kvY9TNibic2Q/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/watermark-removal-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我用AI上线一个插件后，整理了一份小白也能用的AI编程指南-0",
@@ -808,7 +864,8 @@ module.exports = {
         "deepseek"
       ],
       "author": "云舒",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-programming-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/ThHvgaTIUCYDr1y9baPNEcAmFLghGXXaccZNYxgT04JQ0usoFww1RCGqSGP05hcnR6svaLHycH3nibicKewj7q5g/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-programming-001.jpg"
     },
     {
       "id": "tutorial-feishu-《潘多拉の魔盒》制作过程全回顾-0",
@@ -829,7 +886,8 @@ module.exports = {
         "aigc-video"
       ],
       "author": "小强",
-      "imageUrl": "https://ka21.tools/images/tutorials/aigc-video-001.jpg"
+      "imageUrl": "https://ka21.tools/images/tutorials/aigc-video-001.jpg",
+      "coverFallback": ""
     },
     {
       "id": "tutorial-mp-weixin-qq-com-用手机豆包，让表情包过上精致人生-1",
@@ -850,7 +908,8 @@ module.exports = {
         "doubao"
       ],
       "author": "明冥箱子",
-      "imageUrl": "https://ka21.tools/images/tutorials/doubao-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JZswdNrqEIvpzImx3lcF9QUhwxmicmZXsibCRWJvUnZlicVwePIkG8brjg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/doubao-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-无限画布+多模态AI=王炸？这个Agent比你用过的所有AI工具都聪明！-0",
@@ -870,7 +929,8 @@ module.exports = {
         "hatch"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/hatch-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs8JgKwB2aBticKibVlLMFYbxyRj9icbjxRNo0uTmQko7SdPs2ONeudBqtkdItKGHVDL7MWVfLh0w9UAQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/hatch-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-22款GPT-4o提示词，轻松搞定高质量AI绘图-0",
@@ -890,7 +950,8 @@ module.exports = {
         "chatgpt"
       ],
       "author": "树语牧歌",
-      "imageUrl": "https://ka21.tools/images/tutorials/chatgpt-004.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP7VXq7wSgg9QfB3EJeCd6f5I93UNXiarWkjWJL9ibmxBhTJt2bLDuCFtD9xJMCNr9zdjpWiccPJ3Sjxw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/chatgpt-004.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-原来，我写过豆包的18种不同教学场景下用法-0",
@@ -910,7 +971,8 @@ module.exports = {
         "doubao"
       ],
       "author": "英语好课研磨",
-      "imageUrl": "https://ka21.tools/images/tutorials/doubao-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhq5Qj7H7ms6myToRnhw6kyKtYXMzL9icNkFB9B6ibD9KJn2tWAKB4sOtRicArcrppHNkzAaeUnq1Sp8A/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/doubao-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-爆火的毛茸茸女将军打卡视频，如何用天工MCP虚拟机全自动做好？-0",
@@ -930,7 +992,8 @@ module.exports = {
         "tiangong"
       ],
       "author": "英语好课研磨",
-      "imageUrl": "https://ka21.tools/images/tutorials/tiangong-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhptoibj7TZt6DGWG4jjrhncpHB4s8cKGoiag7tvLdL9OjIdeX8cJibOnYn9jQugicEmqpLG0efruFIvxw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/tiangong-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-4000字长文+案例对比3个agent AI工具：Flowith, Lovart和Skywork-0",
@@ -953,7 +1016,8 @@ module.exports = {
         "flowith"
       ],
       "author": "英语好课研磨",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-guide-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhqXzFa3shLy3bzxVCaOTNr97FWicMTkIOoI8rl3cJJgHsiasHSMia7oaGDIiax4cAIoWHy2jicMsCZNOrA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-guide-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-万字长文打造flowith保姆级教程-快速上手-0",
@@ -973,7 +1037,8 @@ module.exports = {
         "flowith"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/flowith-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsicIELbedf1Ziat1poTpDF4rXkYhcEKHgw0sVQlibjpQZFO5wNOndHpv3CTxIGALw8OpsKpoqdzzGmZg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/flowith-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-使用flowith重构表情包设计流程-1",
@@ -993,7 +1058,8 @@ module.exports = {
         "flowith"
       ],
       "author": "明冥箱子",
-      "imageUrl": "https://ka21.tools/images/tutorials/flowith-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxFibJoFCQeMPiblZxMrKO5KeRRpOlSE7S2oaBK0IiaTVwcOAeMibk7rJsjP6rBF7nEQ5Y7p4ZfYdnxyw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/flowith-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Dify、n8n、Coze、Fastgpt、Ragflow到底该怎么选？超详细指南-0",
@@ -1021,7 +1087,8 @@ module.exports = {
         "ragflow"
       ],
       "author": "袋鼠帝",
-      "imageUrl": "https://ka21.tools/images/tutorials/ai-guide-003.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/3QzcPBL9P1Agcagib89iaycOKHKfl5ZB8uQooZet98PgGa4OaB1Zzb1JywNibEKQcekB9ic5YVXtMSHLiahiaibic8JOTQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ai-guide-003.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-弹射起床抢邀请码-30个case告诉你1分钟生成的播客有多香-0",
@@ -1041,7 +1108,8 @@ module.exports = {
         "listenhub"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/listenhub-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHexuPicfg2Z1ibppYtCFZCBqib7Q4SXvKppf2PkqvcQ1mF60JdK0QpHAbQg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/listenhub-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-适合设计agent的提示词-能让lovart作图更好看更高效-0",
@@ -1061,7 +1129,8 @@ module.exports = {
         "lovart"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/lovart-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacBJlmTQDJmZOpKSPrF3kk00AS6hicAiaVAMmJfBAgVLicia8lV9gny3ugM6L5eWdp3SIgaiaEV9w4ibGtg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/lovart-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-4000字实测-lovart-ai-提示词模版大放送--1",
@@ -1081,7 +1150,8 @@ module.exports = {
         "lovart"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/lovart-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs8SqXQGlzaEsj8FHA6ghibZESvU7cmcy2MFNSGkZoaLIh8WTlgcla2b8gcTO6ZEkSiaodRUpl0hxkibQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/lovart-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-notebooklm之外-还有这种国产ai播客神器-0",
@@ -1101,7 +1171,8 @@ module.exports = {
         "youdao-fm"
       ],
       "author": "Simonlin的精神世界",
-      "imageUrl": "https://ka21.tools/images/tutorials/youdao-fm-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Fec4MzfqiaOEjibSOcyRc6J78UMLfiawL96fxtzUcWkFN9o0LY46icI1nfN1YKXxXuic0VtkDL9jAd3x9NHRZBE5Wpw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/youdao-fm-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-用-ai-花三分钟写个html小游戏-编程小白也能秒变游戏大-9",
@@ -1121,7 +1192,8 @@ module.exports = {
         "deepseek"
       ],
       "author": "人工智能怨气指南",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-010.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/j8aBYW69YPjRIdv7ovo4v0EycYu99hKGC4yYOCsibXP0jKKz7LKvN4dYr3H5EdibwmuHdsXgDnTe5Np3HQgzZkfQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-010.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-9500-提示词实测-ai绘画的3个-哇噻-不可能-创意-最-6",
@@ -1140,7 +1212,8 @@ module.exports = {
         "jm"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-007.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsibw21zDyhgPZrkJGgNIUJAL6XeWq5TLNtyrLicOzdrwB2Liaz0BXWf1OYjuvcP40jhZ1UkyPFxFyiaIA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-007.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-收藏学习搭建个人知识库从这篇保姆级ima指南开始-0",
@@ -1161,7 +1234,8 @@ module.exports = {
         "ima"
       ],
       "author": "硅基Seele",
-      "imageUrl": "https://ka21.tools/images/tutorials/ima-006.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicPibJPkUWfdJmGlRkjZOMmHyC4CH0bl7pIu3QaEY7WuE6U4K2YE10Xcboqnom2icTJHLOLCNWdgSNXMg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ima-006.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-即梦ai字体我有点玩明白了-用这套prompt提效50--3",
@@ -1180,7 +1254,8 @@ module.exports = {
         "jm"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-004.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaezw3JNzKqX201oEz0DP4uryjhwuDKfbEBmIrfj88267JVIbGJ8ypdlJgbbicFAia59iaO0UPlDhagJA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-004.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我有了一个数字分身-24小时可以回答你的ai教学问题-3",
@@ -1199,7 +1274,8 @@ module.exports = {
         "ima"
       ],
       "author": "英语好课研磨",
-      "imageUrl": "https://ka21.tools/images/tutorials/ima-003.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhomLR4eXrXT9t2R2a08DWjzibqKxvXwE6Z769I2wbmVZzWLhicoC9zwTibetjD8jbzI1sYBGI1sYmtvw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ima-003.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-小白也能写出专业文生图prompt-超棒的提示词框架-ai生-4",
@@ -1218,7 +1294,8 @@ module.exports = {
         "jm"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-005.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeAXCYGbibYLuMdhsF2QrpG2OCarXaMkSfH9mwvS1T1liac2BjMjvn93mJcNxgtibN8GFVgvtWKWoJIw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-005.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-即梦3-0创意字体-解锁14座城市的独特文化符号-5",
@@ -1237,7 +1314,8 @@ module.exports = {
         "jm"
       ],
       "author": "树语牧歌",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-006.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP5Wgmsa70ewc307Gob86qROclicLNe0V3XtShfrAJtoxRdHMLolRQD3dD7ibxs6qutJjuMaf02Bd6Uw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-006.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-零基础玩转可灵ai图转视频-动态表情包与gif制作全攻略-0",
@@ -1257,7 +1335,8 @@ module.exports = {
         "kling-ai"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/kling-ai-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiadLV5NAVKCvJ7EBnqpDHhmcm1Zk7sMosf6lzOEmXJxwUEH9bws8y5LdxZcRZuho0jy8t3hB3XRumg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/kling-ai-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-chatgpt-4o或ai制作表情包上架微信喂饭级教程-不会-1",
@@ -1276,7 +1355,8 @@ module.exports = {
         "chatgpt"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/chatgpt-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiafAvcwxbqNqlKiau2CGGG2CSgAiaTWtnv9Jq2tUBEVZ82PVhOBjtgEGb3T3zMibSH8ibdcyf0s4x49Rxw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/chatgpt-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-普通人的ai改图指南-gpt-4o如何改变生活的每个角落-1-2",
@@ -1295,7 +1375,8 @@ module.exports = {
         "chatgpt"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/chatgpt-003.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsic6XrShgm3wRRJlcQsW4BncLfHCKj6ZfqwVf8bxuqd88e8fWOPkODrNYLVjtuuia446DM0CE3D9eBw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/chatgpt-003.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-理科老师狂喜-ai一键生成互动公式动画-再也不用求flash-8",
@@ -1316,7 +1397,8 @@ module.exports = {
         "claude"
       ],
       "author": "硅基Seele",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-009.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP8fc9Mw89FnBMmFs8xibicn0udDuaOPVlOQOELpjwkDTB68UhJib45VdvqTfX5fsEYMOCcMsbpuVLECQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-009.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-实测20组chatgpt-4o画图案例-细致到堪比绣花针的a-0",
@@ -1335,7 +1417,8 @@ module.exports = {
         "chatgpt"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/chatgpt-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiafriab1175KUHmtdgPaUcJ0VAnpuSqibF2QicFTPJDHFG4DLB9aoDW1WIFBLZDibgZxEgRDkahFwZxoVw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/chatgpt-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-电商如何利用ai降本增效-电商小白入门选哪个a1--4",
@@ -1354,7 +1437,8 @@ module.exports = {
         "ima"
       ],
       "author": "霏霏同学",
-      "imageUrl": "https://ka21.tools/images/tutorials/ima-004.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/rIR6vmPDKicaPTQK2mlRTNjF2M2zv7JTIDXx2TIq4NF7yhe7FPsWmywPVU48HxdbVuYDibOnCuybuib3UIUcwibgzQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ima-004.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-claude制作ppt图表-在线编辑与ppt直接修改图表的技-0",
@@ -1373,7 +1457,8 @@ module.exports = {
         "claude"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/claude-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacMn0cb6HJ9L3Z73AQd0ria07LB2A77jYCSib2g5dXahmWQt3A2Pjj2xpVc58iagib6aZrEjj2XiaHmBlw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/claude-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-自己的专属知识库-妈妈再也不担心我问的问题ai乱回答了-2",
@@ -1392,7 +1477,8 @@ module.exports = {
         "ima"
       ],
       "author": "人工智能怨气指南",
-      "imageUrl": "https://ka21.tools/images/tutorials/ima-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/j8aBYW69YPjpusrI1nrd55stkxE39QxicxkWvHJhQJCV5KsDzzH2V8BCSMsicgR1iba69fhkAxHyEAPtbqB1h9Pgw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ima-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-16组案例测试gemini-2-0-说是言出法随的当下p图王-0",
@@ -1411,7 +1497,8 @@ module.exports = {
         "gemini"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/gemini-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacLppdXriasOAKRFDVvJKewzicmvCQX1jpmmoiaZSoWuRLzG1XAyKQN8jBmbYheGgb1atZe8HfKekRUQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/gemini-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-ima知识库真香-工作党大学生教师皆适用--1",
@@ -1430,7 +1517,8 @@ module.exports = {
         "ima"
       ],
       "author": "树语牧歌",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-008.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP6MAXIQaHdJG54ibskW8C7oCictT1NmuWtjalX9cgJHiad4rQkqjj6pkOynLib2QnSr2qiagKYoD0twS7w/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-008.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-流程图也可以优雅生成-再也不折磨自己了-1",
@@ -1449,7 +1537,8 @@ module.exports = {
         "napkin"
       ],
       "author": "硅基Seele",
-      "imageUrl": "https://ka21.tools/images/tutorials/napkin-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP9nkjO3wlibhBdcRAphCqTAw4wX18dThGY4pwPOWcvjxqmiaxgjapHxpqJ7phj7qrCV8aYiaP5pShwWQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/napkin-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-ideogram这么玩-ai做logo一分钟40个不是梦-附-0",
@@ -1468,7 +1557,8 @@ module.exports = {
         "ideogram"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/ideogram-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiafZ673p4PuqgBQuzN1oT3QOz5adAHV41zZamE4zq2ianq3msR7iaDO2Nlo4jpicXrPc3Amep0ORydkFA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ideogram-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0",
@@ -1497,7 +1587,8 @@ module.exports = {
         "ai-huazuo"
       ],
       "author": "靠谱瓦叔AI趣探",
-      "imageUrl": "https://ka21.tools/images/tutorials/hotpot-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXaR07oZFSxib0KNkaibgfvia30kibkgacM4Q0WdH4KXAQrow6W3IpqZ2clpLyujN9m3icbn0bIxtWWJxaQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/hotpot-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-ai-狂飙时代-小白也能玩转飞书多维表格-6",
@@ -1516,7 +1607,8 @@ module.exports = {
         "feishu-base"
       ],
       "author": "霏霏同学",
-      "imageUrl": "https://ka21.tools/images/tutorials/feishu-base-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/rIR6vmPDKicaoVMqnFuJANoLgukg5CtaQhy4riaSGopCbmzRibayqaJuWSv0VmfxXAUBib94b1VfPOzKicjzFddWumw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/feishu-base-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-接入deepseek后的自由画布-做ppt还真的有点强--0",
@@ -1535,7 +1627,8 @@ module.exports = {
         "freedraw"
       ],
       "author": "数字生命卡兹克",
-      "imageUrl": "https://ka21.tools/images/tutorials/ziyouhuabu-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURqv2a9ly5GH2r3ySogDICQbw2h55RHhpoAYLZGZjANvOqqWeJuVtMsXQpTslVia5gg6A1ibC5DM868w/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ziyouhuabu-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-扣子丨来学一个超简单的扣子coze入门案例-制作日签海报--0",
@@ -1554,7 +1647,8 @@ module.exports = {
         "coze"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/coze-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacqxCFDsreojsibj7rzAPs0K9kh1rREsRibQHpBddGiaFiaxf5vicZtnVqt1oaVYtpouia8d9fFYwrWkRew/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/coze-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-deepseek赋能多维表格-自动写口播文案-生成分镜-工作-5",
@@ -1575,7 +1669,8 @@ module.exports = {
         "feishu-base"
       ],
       "author": "职场AI智多星",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-006.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/DzKXF0rI5svBUhuoXjAHyqzFoL81E4EGy6V77fxNU7776aSsEfxTez2YV3qMGXGxo1BfWYcbiaa8lb67XgQNV7A/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-006.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-安利一个我目前觉得最好用的ai知识库-腾讯ima-0",
@@ -1594,7 +1689,8 @@ module.exports = {
         "ima"
       ],
       "author": "数字生命卡兹克",
-      "imageUrl": "https://ka21.tools/images/tutorials/ima-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURosfFrtiaMa0PJrpK5TTfg0et96kWbUDBjqrIYicnKKt2cJ5kN7Cyr6rgZOOgNCw3iaChQWVJVcxFLZw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ima-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-claude-3-7与deepseek比美-7",
@@ -1614,7 +1710,8 @@ module.exports = {
         "deepseek"
       ],
       "author": "AI乘风破浪",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-008.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/8Y7dwAPIcZIqIj3eHiaNdrUsrMAWstEotgfyj101UXcibiaS6zonMOfTwlLcckvc5lA7zjXJxicEt8iax6xBUFSltZg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-008.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-零门槛教程-手把手教你用3款工具一键生成-万物开花-爆款特效-0",
@@ -1633,7 +1730,8 @@ module.exports = {
         "jm"
       ],
       "author": "靠谱瓦叔AI趣探",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXYXOqB8icxkzfWA6MWicibXToznpdsrusSgNyGlqOm2QMd6vGGfxk7eFHSW2UIa3tn1HUL4qb4T6Nazg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级本地部署大模型教程-6",
@@ -1653,7 +1751,8 @@ module.exports = {
         "deepseek"
       ],
       "author": "八爪鱼威廉",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-007.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/2IswqKIx37oWN4B13UO8PiblZdcyglFSciaNC97jsT3KBuOsCicWavr15HDT13POeHWktQ1XZM8Jsaz3HIgzJXV3g/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-007.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-今日份ai赋能-如何用ai文生图-2",
@@ -1672,7 +1771,8 @@ module.exports = {
         "jm"
       ],
       "author": "树语牧歌",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-003.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP63DB2rCWC1mzibPD0Uls3ewasAw0tN45VtWUia32BhcfTsY5QrnkOt3MY1QSd5qpyYoOEOx2pTxicbA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-003.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-高颜值思维导图-ppt-小红书-公众号必备神器-零门槛-不会-0",
@@ -1691,7 +1791,8 @@ module.exports = {
         "napkin"
       ],
       "author": "职场AI智多星",
-      "imageUrl": "https://ka21.tools/images/tutorials/napkin-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/DzKXF0rI5svAyiaRQc7ia98sNpkFr4DjWgO30bwH9jr0S1icdc7XFZY3VCY2YRg8Gwyybup72Rd8r6Y3tI54P0Rog/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/napkin-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级-飞书多维表格-x-deepsee-0",
@@ -1712,7 +1813,8 @@ module.exports = {
         "feishu-base"
       ],
       "author": "八爪鱼威廉",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/2IswqKIx37ria53ibnibmcS2icWfbg4Mc8VqhIMo5FDVmbpYxbQBe2weCMMTLmpChXD2MW60TBVCv5x4bWl6sLksBg/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我的-ai-日报模板-在飞书产品群火了--2",
@@ -1733,7 +1835,8 @@ module.exports = {
         "feishu-base"
       ],
       "author": "赛博小熊猫Loki",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-003.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsibYlbFt9TuhWFpBUColGKCWgUznDXz0Qd9M4iaic3JdoLOtq0ONiaOfL8MYo495s8RPpUxGLIa0DeViaA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-003.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-deepseek-与飞书多维表格第一弹-教师备课辅助丨附模板-1",
@@ -1754,7 +1857,8 @@ module.exports = {
         "feishu-base"
       ],
       "author": "硅基Seele",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP8hWG8ia5B3a0TInCNnueczfkc8NMOeImwjqibsWakuVIxF51sKFbw32icia2GZCgjQt87tdd40uHJ3HA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-leonardo-ai-手机客户端-免费用户也能玩得开心--0",
@@ -1774,7 +1878,8 @@ module.exports = {
         "leonardo"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/leonardo-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiae6LgxJw5KNoz3zwShfVfMqUa9G2xUriaIibLmfCNT3tq4rYeTtqf5LdKkQ0nDTPic2PB1lOUJE13SUA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/leonardo-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-爆肝整理国内ai生图工具免费指南-亲测好用工具-图片效果对比-1",
@@ -1793,7 +1898,8 @@ module.exports = {
         "jm"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/jm-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsygbiaFROWysUDBK0sLTXibgWtaSH9tiaLsLRaib1eHGd5VH7K4ibztIvvtCA/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/jm-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-deepseek-飞书多维表格-做了提示词2-0小助手和一个-4",
@@ -1814,7 +1920,8 @@ module.exports = {
         "feishu-base"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-005.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacbks4Xib9lW7zH69RaWK2GKGqXnGrnYia7EeguOia7h066INgElICkI0B1VUxvahdVlmAIzEzsUtlqw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-005.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-效率大翻倍-把deepseek装进飞书表格-自动反推ai绘图-3",
@@ -1835,7 +1942,8 @@ module.exports = {
         "feishu-base"
       ],
       "author": "阿真lrene",
-      "imageUrl": "https://ka21.tools/images/tutorials/deepseek-004.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaefW7iaD22c8R8kNa4zUuw4pdxaKEglFSGk7wbEo44xk01cQibQroWBFNenAbE9smCN6yq3u9zLtib3g/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/deepseek-004.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-面试3个画图的外籍ai员工-谁审美最好-0",
@@ -1855,7 +1963,8 @@ module.exports = {
         "mistral"
       ],
       "author": "英语好课研磨",
-      "imageUrl": "https://ka21.tools/images/tutorials/mistral-001.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhqq3aax4bsbTHmEr7siaU1HUycvFKmRgMDj4PtHwTsWAicelVzty7qMtmVSTByX1I4VVlRBibqXsmePQ/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/mistral-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-不得不说-百度自由画布-能快速从视频-链接和ppt中生成新课-1",
@@ -1874,7 +1983,8 @@ module.exports = {
         "freedraw"
       ],
       "author": "英语好课研磨",
-      "imageUrl": "https://ka21.tools/images/tutorials/ziyouhuabu-002.jpg"
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhoc9R0Y3WEUXdnK9pia1hEiaZrdcZJJH0TferwRxvuKlS6dfzWdZcVmW3vefMbReZRtzIpicoDOECWZw/0?wx_fmt=jpeg",
+      "coverFallback": "https://ka21.tools/images/tutorials/ziyouhuabu-002.jpg"
     }
   ]
 };

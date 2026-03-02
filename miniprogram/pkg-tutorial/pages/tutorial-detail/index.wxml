@@ -1,0 +1,63 @@
+<view class="container" wx:if="{{tutorial}}">
+  <view class="section article-head">
+    <image wx:if="{{tutorial.imageUrl}}" class="cover" src="{{tutorial.imageUrl}}" mode="aspectFill" />
+    <text class="title">{{tutorial.title}}</text>
+    <text class="meta">{{tutorial.publishDate}} · {{tutorial.author || tutorial.source}}</text>
+
+    <view class="row chips">
+      <text class="badge badge-access-direct">{{tutorial.category || '教程'}}</text>
+      <text class="badge badge-access-proxy">{{tutorial.difficultyLevel || '通用'}}</text>
+    </view>
+  </view>
+
+  <view class="section" wx:if="{{highlights.length}}">
+    <text class="section-title">要点速览</text>
+    <view class="bullet" wx:for="{{highlights}}" wx:key="index">
+      <text class="bullet-dot">•</text>
+      <text class="bullet-text">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="row space-between">
+      <text class="section-title">教程全文（小程序内）</text>
+    </view>
+    <text class="muted" wx:if="{{usingFallback}}">当前显示摘要版。</text>
+
+    <view class="content-list">
+      <block wx:for="{{contentBlocks}}" wx:key="index">
+        <text wx:if="{{item.type === 'heading'}}" class="content-heading">{{item.text}}</text>
+        <text wx:if="{{item.type === 'paragraph'}}" class="paragraph">{{item.text}}</text>
+        <text wx:if="{{item.type === 'quote'}}" class="content-quote">{{item.text}}</text>
+        <text wx:if="{{item.type === 'list'}}" class="content-list-item">• {{item.text}}</text>
+        <image
+          wx:if="{{item.type === 'image'}}"
+          class="content-image"
+          src="{{item.src}}"
+          mode="widthFix"
+          data-src="{{item.src}}"
+          bindtap="onPreviewImage"
+        />
+      </block>
+    </view>
+  </view>
+
+  <view class="section" wx:if="{{relatedToolNames.length}}">
+    <text class="section-title">相关工具</text>
+    <view class="chip-row">
+      <view class="chip" wx:for="{{relatedToolNames}}" wx:key="index">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="section source-box">
+    <text class="source-label">原文链接</text>
+    <text class="source-url">{{tutorial.url}}</text>
+    <button class="copy-btn" bindtap="onCopySource">复制原文链接</button>
+  </view>
+</view>
+
+<view class="container" wx:else>
+  <view class="section empty-wrap">
+    <text class="empty-text">{{loadError || '教程加载失败'}}</text>
+  </view>
+</view>
