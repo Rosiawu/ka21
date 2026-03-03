@@ -1745,11 +1745,25 @@
       "recommendReason": "Nano Banana 2 负责生成，Lovart 负责一键纠错编辑。",
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ls0ATlDTNndOTNlCib3iauPYM7avEGhq4IAncYehp4gMxibBG2xdpVpQPMjAWFia9WK9DwaqzooxANdfL0PU0d6WXpsmPbqg5Y6Miba6dxoDvtibo/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-这套简历优化prompt分享给大家让你的简历瞬间-0",
+      "title": "这套简历优化prompt，分享给大家，让你的简历瞬间“高级”起来了",
+      "description": "年后找工作必备：一个超好用的简历优化prompt用起来~",
+      "url": "https://mp.weixin.qq.com/s/XQi14CiDBP3Rq6RvCDp7vQ",
+      "source": "蜡笔不是小芯",
+      "publishDate": "2026-03-03",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "年后找工作必备：一个超好用的简历优化prompt用起来~",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/VV0r92V7YpdswO9xPn0hgxhR5XA3MnSOrmyO6HZ1nkhzs9HZ9Npm1nial9cUuEGNBb2Doz6vK5NPjXF9jdUyWGoyxxdxHoPWnmCniaAPg0kR0/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-01T15:51:39.505Z",
-    "count": 97
+    "updatedAt": "2026-03-03T00:19:13.290Z",
+    "count": 98
   }
 }
