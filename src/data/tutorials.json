@@ -1759,11 +1759,25 @@
       "recommendReason": "年后找工作必备：一个超好用的简历优化prompt用起来~",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/VV0r92V7YpdswO9xPn0hgxhR5XA3MnSOrmyO6HZ1nkhzs9HZ9Npm1nial9cUuEGNBb2Doz6vK5NPjXF9jdUyWGoyxxdxHoPWnmCniaAPg0kR0/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-Windows安装OpenClaw保姆级教程集成-0",
+      "title": "Windows安装OpenClaw保姆级教程: 集成Deepseek+飞书, 1小时搞定你的私人AI助手",
+      "description": "OpenClaw入门到精通第一集",
+      "url": "https://mp.weixin.qq.com/s/7AFWS6ZqYzSnzLU9Iiimig",
+      "source": "刀哥",
+      "publishDate": "2026-03-02",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "OpenClaw入门到精通第一集",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ibC4PtEcYeBvpqsqHib70NopGr8ic7IErSFF9Cv20gIyCZX77gqGqZ4xpiaSqUHLuWAMtqvwmPRezibL5eT2H9GrGwJU7vlCLUzdCRdOjybFzWI8/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-03T00:19:13.290Z",
-    "count": 98
+    "updatedAt": "2026-03-03T16:16:58.246Z",
+    "count": 99
   }
 }
