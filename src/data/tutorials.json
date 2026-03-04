@@ -1787,11 +1787,25 @@
       "recommendReason": "大家好，我是刀哥。做过大厂研发、做过出海硬件，现在挖掘AI圈一手更新，深耕 AI 视频、AI 编程。上次出完Windows教程之后，有不少粉丝问有没有Mac教程，mac安装非常简单，但考虑到小白可能连Terminal都没用过，也没敲过任何命令，还是详细写一写！首先介绍下Terminal终端，它就是输入一些命令的地方。把四个手指放在触摸板上合拢，打开应用浏览：然后搜索框里输入Ter就显示终端了，点开",
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ibC4PtEcYeBt7FY9bYHwvMhHyrOd6N9RtGbsZyMJtMhouo5iaG7zGUKRoJCQJ6R9tDm9fBYibK9wMU6Omz9zWr5WveeqHiaWlCI17hetlKpVKdw/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-OpenClaw从新手到进阶飞书多Agent协作-0",
+      "title": "OpenClaw 从新手到进阶：飞书多 Agent 协作、Skills推荐、人格配置、Memory保姆级教程",
+      "description": "很多人把 OpenClaw 跑起来，却发现自己的“龙虾”干不了活。问题通常不在模型，而在配置。这篇文章从人格、记忆、skills 到多 Agent 协作，一步步教你把一只龙虾养成一整个 AI 团队。",
+      "url": "https://mp.weixin.qq.com/s/1t8M2C5pAlvZLxh9elv_4w",
+      "source": "Open烫水",
+      "publishDate": "2026-03-04",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "很多人把 OpenClaw 跑起来，却发现自己的“龙虾”干不了活。问题通常不在模型，而在配置。这篇文章从人格、记忆、skills 到多 Agent 协作，一步步教你把一只龙虾养成一整个 AI 团队。",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/T8lDbHpgVxJPlYMHYkhqTzIjUDSGkwghfSUT4XufEtj8xDg3ic6IoxebOCfyAibSK7POQGmHicHF82620Jjh81oFfh8VtW2ZIaViaicicic9vichs8o/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-03T16:17:35.653Z",
-    "count": 100
+    "updatedAt": "2026-03-04T12:39:39.922Z",
+    "count": 101
   }
 }
