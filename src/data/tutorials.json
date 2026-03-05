@@ -1801,11 +1801,25 @@
       "recommendReason": "很多人把 OpenClaw 跑起来，却发现自己的“龙虾”干不了活。问题通常不在模型，而在配置。这篇文章从人格、记忆、skills 到多 Agent 协作，一步步教你把一只龙虾养成一整个 AI 团队。",
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/T8lDbHpgVxJPlYMHYkhqTzIjUDSGkwghfSUT4XufEtj8xDg3ic6IoxebOCfyAibSK7POQGmHicHF82620Jjh81oFfh8VtW2ZIaViaicicic9vichs8o/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-聊聊龙虾的Heartbeat设计哲学-0",
+      "title": "聊聊龙虾的 Heartbeat 设计哲学",
+      "description": "一个被误解的功能，一个被低估的设计。",
+      "url": "https://mp.weixin.qq.com/s/_Go-3PHMCPOeP3jmgu3wMw",
+      "source": "郭美青Andy",
+      "publishDate": "2026-03-05",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "一个被误解的功能，一个被低估的设计。",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/SQLMuWlOPuFL7voRfxNye4l0Xd2RtOYFicKgNGtS3SYmjKwPBiajcyybRFUMdpEVWhbLPMSVTACkciaQcHaMdMfaEC6QUh3wibYvqCB6Yl3VnEM/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-04T12:39:39.922Z",
-    "count": 101
+    "updatedAt": "2026-03-05T16:26:18.195Z",
+    "count": 102
   }
 }
