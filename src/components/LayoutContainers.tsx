@@ -196,7 +196,8 @@ export default function LayoutContainers({
               {/* 左侧：网站简介 */}
               <div>
                 <div className="flex items-center gap-2 h-14 mb-4">
-                  <DynamicLogo size="footer" variant="black" className="w-14 h-14 shrink-0 object-contain" />
+                  <DynamicLogo size="footer" variant="black" className="w-14 h-14 shrink-0 object-contain dark:hidden" />
+                  <DynamicLogo size="footer" variant="white" className="hidden w-14 h-14 shrink-0 object-contain dark:block" />
                   <span className="text-lg font-medium leading-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wide">{tCommon('siteTitle')}</span>
                 </div>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
