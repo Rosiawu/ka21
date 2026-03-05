@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface DynamicLogoProps {
   size?: 'small' | 'medium' | 'footer' | 'large';
   className?: string;
@@ -23,14 +25,14 @@ const DynamicLogo: React.FC<DynamicLogoProps> = ({
   const logoSrc = variant === 'white' ? '/KA21-white.svg?v=1' : '/KA21.svg?v=2';
   
   return (
-    <img
+    <Image
       src={logoSrc}
       alt="数字生命卡兹克-KA21 Logo"
       width={dimensions.width}
       height={dimensions.height}
       className={className}
       style={style}
-      loading="eager"
+      priority
     />
   );
 };
