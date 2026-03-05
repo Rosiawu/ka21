@@ -1,29 +1,18 @@
 'use client';
 
-import Image from 'next/image';
-import { useEffect, useMemo, useState } from 'react';
-import { useTheme } from 'next-themes';
-
 interface DynamicLogoProps {
   size?: 'small' | 'medium' | 'footer' | 'large';
   className?: string;
   style?: React.CSSProperties;
+  variant?: 'black' | 'white';
 }
 
-const DynamicLogo: React.FC<DynamicLogoProps> = ({ size = 'medium', className = '', style = {} }) => {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // 等待客户端完成 Hydration 再读取主题，避免闪烁和服务端不一致。
-  const isDark = useMemo(() => {
-    if (!mounted) return false;
-    return resolvedTheme === 'dark';
-  }, [mounted, resolvedTheme]);
-
+const DynamicLogo: React.FC<DynamicLogoProps> = ({
+  size = 'medium',
+  className = '',
+  style = {},
+  variant = 'black'
+}) => {
   const dimensions = {
     small: { width: 24, height: 24 },
     medium: { width: 40, height: 40 },
@@ -31,18 +20,17 @@ const DynamicLogo: React.FC<DynamicLogoProps> = ({ size = 'medium', className = 
     large: { width: 180, height: 180 },
   }[size];
   
-  // 根据主题选择 logo 图像。
-  const logoSrc = isDark ? '/KA21-white.png?v=1' : '/KA21.png?v=1';
+  const logoSrc = variant === 'white' ? '/KA21-white.svg?v=1' : '/KA21.svg?v=2';
   
   return (
-    <Image
+    <img
       src={logoSrc}
       alt="数字生命卡兹克-KA21 Logo"
       width={dimensions.width}
       height={dimensions.height}
       className={className}
       style={style}
-      priority
+      loading="eager"
     />
   );
 };

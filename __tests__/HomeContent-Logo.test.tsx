@@ -20,7 +20,7 @@ describe('Logo Component Integration', () => {
     expect(img).toBeInTheDocument();
     expect(img).toHaveAttribute('src', '/KA21.svg');
     expect(img).toHaveAttribute('alt', 'KA21');
-    expect(img).toHaveClass('h-10'); // large size class
+    expect(img).toHaveClass('h-24'); // large size class
     expect(container).toHaveClass('h-24'); // custom className
   });
 
@@ -29,13 +29,10 @@ describe('Logo Component Integration', () => {
     
     const img = screen.getByRole('img');
     expect(img).toHaveClass(
-      'h-10', // size class
+      'h-24', // size class
       'transition-transform', 
       'duration-200',
-      'hover:scale-105',
-      'dark:invert', 
-      'dark:brightness-0', 
-      'dark:contrast-200'
+      'hover:scale-105'
     );
   });
 

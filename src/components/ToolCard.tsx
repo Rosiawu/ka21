@@ -56,7 +56,7 @@ function ToolCard({ tool }: ToolCardProps) {
   };
   
   return (
-    <div className="tool-card group relative bg-white dark:bg-neutral-800 rounded-xl shadow-soft dark:shadow-none overflow-hidden border border-neutral-200/70 dark:border-neutral-700/70 flex flex-col h-full hover:border-primary-300 dark:hover:border-primary-700">
+    <div className="tool-card group relative bg-white dark:bg-neutral-900 rounded-xl shadow-soft dark:shadow-none overflow-hidden border border-neutral-200/70 dark:border-neutral-700/80 flex flex-col h-full hover:border-primary-300 dark:hover:border-primary-700">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
       
       {/* 右上角必入标签 */}

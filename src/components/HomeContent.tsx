@@ -21,6 +21,7 @@ import { getVisibleTools } from '@/utils/sortTools'; // 获取可见工具函数
 import StatsDisplay from './StatsDisplay'; // 统计显示组件
 import { HotSection } from '@/components/hot'; // 热门推荐区域组件
 import SearchIntentPanel from './SearchIntentPanel'; // 搜索意图推荐组件
+import DevLogPreviewSection from './DevLogPreviewSection';
 import { trackUserAction, trackPageView, setTag } from '@/utils/clarity'; // 埋点分析工具
 import useDebounce from '@/hooks/useDebounce'; // 防抖Hook
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
@@ -76,6 +77,20 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       : '试试这样问: 做短剧分镜 | 写一段发布文案 | 找能自动汇总表格的工具',
     tutorialImage: isEn ? 'Tutorial cover' : '教程图片',
   };
+  const spotlightPodcast = {
+    tag: isEn ? 'Featured Podcast' : '播客推荐',
+    title: isEn ? 'Lamp Under The Light' : '灯下白',
+    subtitle: isEn
+      ? 'Xiaoyuzhou Podcast: real conversations from the AI community'
+      : '小宇宙播客：走进 AI 圈的真实对话',
+    description: isEn
+      ? 'Direct access to the Lamp Under The Light episode page.'
+      : '首页直达《灯下白》节目页，一键点击即可收听最新内容。',
+    cta: isEn ? 'Listen on Xiaoyuzhou' : '去小宇宙收听',
+    note: isEn ? 'Open episode page' : '点击打开节目页',
+    logoAlt: isEn ? 'Lamp Under The Light podcast logo' : '灯下白播客 Logo',
+  };
+  const podcastEpisodeUrl = 'https://www.xiaoyuzhoufm.com/episodes/69a69588de29766da93ec01b';
   // ========== 状态管理 ==========
   
   // 搜索相关状态
@@ -322,30 +337,84 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   };
   
   return (
-    <div className="relative overflow-hidden pb-24">
-      {/* 背景装饰 */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-200/30 dark:bg-primary-900/20 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-purple-200/30 dark:bg-purple-900/20 rounded-full blur-3xl"></div>
+    <div className="relative overflow-hidden pb-24 bg-transparent">
       
       <div className="container mx-auto px-3 sm:px-4 py-6">
         <div className="max-w-8xl mx-auto">
           {/* 主标题区域 */}
-          <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl mb-2">
-              <div className="flex items-center justify-center">
-                <Logo size="large" />
+          <div className="mb-8">
+            <div className="mx-auto max-w-5xl">
+              <div className="mb-2 grid grid-cols-1 gap-3 sm:grid-cols-[260px_minmax(0,1fr)] sm:gap-4">
+                <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
+                  <div
+                    className="flex h-[220px] w-[220px] items-center justify-center rounded-3xl border bg-white shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
+                    style={{ borderColor: 'rgba(200,180,125,0.55)', backgroundColor: '#ffffff' }}
+                  >
+                    <Logo size="large" variant="black" className="dark:hidden" />
+                    <Logo size="large" variant="white" className="hidden dark:flex" />
+                  </div>
+                </h1>
+
+                <a
+                  href={podcastEpisodeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    trackUserAction('podcast_entry_click', {
+                      entry: 'home_logo_side_dark_card',
+                      podcast: 'dengxiaobai',
+                    });
+                  }}
+                  className="inline-flex h-[220px] w-full items-center justify-between gap-4 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-4 py-3 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)]"
+                  aria-label={`${spotlightPodcast.title} - ${spotlightPodcast.note}`}
+                >
+                  <span className="flex min-w-0 items-center gap-4 max-w-[410px]">
+                    <span className="inline-flex h-[84px] w-[84px] shrink-0 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/20 bg-black/45">
+                      <Image
+                        src="/images/podcast/dengxiabai-logo-official.png"
+                        alt={spotlightPodcast.logoAlt}
+                        width={72}
+                        height={72}
+                        className="h-[58px] w-[58px] object-contain"
+                      />
+                    </span>
+
+                    <span className="min-w-0 leading-tight">
+                      <span className="inline-flex rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2.5 py-[2px] text-[11px] font-semibold text-[#e7cd8b]">
+                        {spotlightPodcast.tag}
+                      </span>
+                      <span className="mt-1.5 block text-[44px] leading-[0.92] font-extrabold tracking-tight text-white sm:text-[48px]">
+                        {spotlightPodcast.title}
+                      </span>
+                      <span className="mt-1 block truncate text-[16px] font-semibold text-slate-200">
+                        {spotlightPodcast.subtitle}
+                      </span>
+                      <span className="mt-1 block truncate text-sm text-slate-300/85">
+                        {spotlightPodcast.description}
+                      </span>
+                    </span>
+                  </span>
+
+                  <span className="shrink-0 inline-flex w-[208px] items-center justify-center rounded-full bg-white px-4 py-2 text-[17px] font-semibold text-slate-900">
+                    {spotlightPodcast.cta}
+                    <i className="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                  </span>
+                </a>
               </div>
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg text-slate-700 dark:text-slate-300">
-              {(() => {
-                const text = subtitle ?? tHome('subtitle');
-                if (process.env.NODE_ENV !== 'production') {
-                  // eslint-disable-next-line no-console
-                  console.info('[i18n][client] HomeContent subtitle =', text);
-                }
-                return text;
-              })()}
-            </p>
+
+              <div className="mt-3 flex min-h-[56px] w-full items-center justify-center px-2">
+                <p className="text-center text-lg text-slate-700 dark:text-slate-300">
+                  {(() => {
+                    const text = subtitle ?? tHome('subtitle');
+                    if (process.env.NODE_ENV !== 'production') {
+                      // eslint-disable-next-line no-console
+                      console.info('[i18n][client] HomeContent subtitle =', text);
+                    }
+                    return text;
+                  })()}
+                </p>
+              </div>
+            </div>
           </div>
           
           {/* 对话式输入框 */}
@@ -690,6 +759,8 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
               </Link>
             </div>
           </section>
+
+          {!isSearching && !isSearchPending && <DevLogPreviewSection isEn={isEn} />}
           
           {/* 工具分类列表 - 使用新的ToolCategorySection组件 */}
           {!isSearching && !isSearchPending && (

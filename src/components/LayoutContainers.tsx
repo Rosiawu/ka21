@@ -116,7 +116,7 @@ export default function LayoutContainers({
   }, [mobileOpen]);
 
   return (
-    <div className="dual-container">
+    <div className="dual-container site-atmosphere">
       {/* 左侧容器 - 侧边栏 */}
       <div id="left-container" ref={leftRef} className={leftContainerClass}>
         <Suspense fallback={<SidebarSkeleton />}>
@@ -133,7 +133,7 @@ export default function LayoutContainers({
         {/* 顶部导航 */}
         <header
           ref={headerRef}
-          className="relative top-0 z-40 backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border-b border-neutral-200/50 dark:border-slate-700/50"
+          className="site-glass-header relative top-0 z-40 border-b border-neutral-200/50 dark:border-slate-700/50"
           style={{
             willChange: 'transform',
             transform: headerHidden ? 'translateY(-100%)' : 'translateY(0)',
@@ -178,25 +178,25 @@ export default function LayoutContainers({
           </div>
 
           {/* 移动端菜单容器（预留） */}
-          <div id="mobileMenu" className="hidden md:hidden bg-white dark:bg-slate-900 border-t border-neutral-200 dark:border-slate-700">
+          <div id="mobileMenu" className="site-glass-panel hidden md:hidden border-t border-neutral-200 dark:border-slate-700">
             <div className="py-2 space-y-1 px-4"></div>
           </div>
         </header>
 
         {/* 主内容区 */}
-        <main className="flex-grow">
+        <main className="site-main-content flex-grow">
           {children}
           <BackToTopButton />
         </main>
 
         {/* 页脚 */}
-        <footer id="main-footer" className="bg-white dark:bg-slate-900 border-t border-neutral-200 dark:border-slate-700 py-10 mt-16">
+        <footer id="main-footer" className="site-glass-footer border-t border-neutral-200 dark:border-slate-700 py-10 mt-16">
           <div className="max-w-8xl mx-auto px-3 sm:px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* 左侧：网站简介 */}
               <div>
                 <div className="flex items-center gap-2 h-14 mb-4">
-                  <DynamicLogo size="footer" className="w-14 h-14 shrink-0 object-contain" />
+                  <DynamicLogo size="footer" variant="black" className="w-14 h-14 shrink-0 object-contain" />
                   <span className="text-lg font-medium leading-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wide">{tCommon('siteTitle')}</span>
                 </div>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">

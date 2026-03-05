@@ -56,7 +56,7 @@ describe('Logo Component', () => {
     const img = screen.getByRole('img');
     
     expect(container).toHaveClass('w-32');
-    expect(img).toHaveClass('h-10');
+    expect(img).toHaveClass('h-24');
   });
 
   test('applies custom className', () => {
@@ -80,23 +80,21 @@ describe('Logo Component', () => {
     expect(container).toHaveClass('flex', 'items-center', 'justify-center');
   });
 
-  test('applies dark mode classes', () => {
+  test('does not apply dark mode invert classes', () => {
     render(<Logo />);
     
     const img = screen.getByRole('img');
-    expect(img).toHaveClass('dark:invert', 'dark:brightness-0', 'dark:contrast-200');
+    expect(img).not.toHaveClass('dark:invert', 'dark:brightness-0', 'dark:contrast-200');
   });
 
-  test('applies all transition and dark mode classes together', () => {
+  test('applies transition classes without dark mode inversion', () => {
     render(<Logo />);
     
     const img = screen.getByRole('img');
     expect(img).toHaveClass(
       'transition-transform', 
       'duration-200',
-      'dark:invert', 
-      'dark:brightness-0', 
-      'dark:contrast-200'
+      'hover:scale-105'
     );
   });
 
@@ -114,10 +112,7 @@ describe('Logo Component', () => {
     expect(img).toHaveClass(
       'transition-transform', 
       'duration-200',
-      'hover:scale-105',
-      'dark:invert', 
-      'dark:brightness-0', 
-      'dark:contrast-200'
+      'hover:scale-105'
     );
   });
 });

@@ -43,6 +43,11 @@ function buildMenuItems(
       href: `/search?category=${category.id}`
     })),
     {
+      name: tCommon('menuDevLog'),
+      icon: 'fa-pen-to-square',
+      href: '/devlog'
+    },
+    {
       name: tCommon('menuAiLibrary'),
       icon: 'fa-book',
       href: 'https://wcnsh3l3tys6.feishu.cn/wiki/Iui9wlWCtiI3gDkhz2wcL6YCnuh?table=tbljal7aWPWXgJUE&view=vew3Xh17va'
@@ -148,14 +153,24 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
   };
 
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-slate-900">
+    <div className="site-glass-sidebar flex h-full flex-col">
       {/* 侧边栏头部 */}
       <div className="flex items-center justify-between px-4 py-4 border-b border-slate-200/70 dark:border-slate-800/70">
         <div className={`flex items-center transition-all duration-300 overflow-hidden w-full`}>
           <Link href="/" className={`flex items-center`}>
-            <DynamicLogo 
-              size={collapsed ? "small" : "medium"} 
-              className="text-primary-600 flex-shrink-0"
+            <DynamicLogo
+              size={collapsed ? "small" : "medium"}
+              variant="black"
+              className="text-primary-600 flex-shrink-0 dark:hidden"
+              style={{
+                width: collapsed ? '24px' : '40px',
+                height: collapsed ? '24px' : '40px'
+              }}
+            />
+            <DynamicLogo
+              size={collapsed ? "small" : "medium"}
+              variant="white"
+              className="text-primary-600 hidden flex-shrink-0 dark:block"
               style={{
                 width: collapsed ? '24px' : '40px',
                 height: collapsed ? '24px' : '40px'
@@ -177,7 +192,7 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
         {/* 折叠按钮 */}
         <button 
           onClick={toggleSidebar}
-          className={`${collapsed ? 'absolute right-1 top-4' : ''} w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-200/80 dark:hover:bg-slate-800/80 text-slate-500 transition-colors hidden lg:flex`}
+          className={`${collapsed ? 'absolute right-1 top-4' : ''} hidden h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-white/65 dark:hover:bg-slate-800/65 lg:flex`}
           aria-label={collapsed ? tCommon('sidebarExpand') : tCommon('sidebarCollapse')}
         >
           <i className={`fas ${collapsed ? 'fa-chevron-right' : 'fa-chevron-left'} text-sm`}></i>
@@ -185,7 +200,7 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
       </div>
       
       {/* 导航内容 */}
-      <nav className="overflow-y-auto flex-grow bg-slate-50 dark:bg-slate-900 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700 scrollbar-track-transparent flex flex-col items-start px-1">
+      <nav className="flex flex-grow flex-col items-start overflow-y-auto bg-transparent px-1 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700 scrollbar-track-transparent">
         <div className={`p-2 ${collapsed ? 'space-y-3' : 'space-y-1'}`}>
           {menuItems.map((item, index) => (
             <div key={index} className="mb-1">
@@ -218,13 +233,12 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
                 </>
               ) : (
                 // 无子菜单的项目或折叠状态
-                item.href && (item.href === '/tutorials' || item.href.startsWith('http')) ? (
-                  // 萌新教程和外部链接使用handleLinkClick
+                item.href && (item.href.startsWith('http') || (!item.categoryId && item.href !== '/')) ? (
+                  // 直达页与外部链接使用handleLinkClick
                   <button
                     onClick={() => handleLinkClick(item.href || '/')}
                     className={`flex items-center justify-start w-full pl-2 pr-3 py-2 rounded-lg text-slate-700 hover:text-primary-600 hover:bg-primary-50/70 dark:text-slate-300 dark:hover:text-primary-400 dark:hover:bg-primary-900/10 transition-colors duration-200 group overflow-hidden ${
-                      (item.href === pathname && item.href !== '/' && !currentCategory) ||
-                      (item.href === '/tutorials' && pathname === '/tutorials')
+                      (item.href === pathname && item.href !== '/' && !currentCategory)
                       ? 'bg-primary-50/70 dark:bg-primary-900/10 text-primary-600 dark:text-primary-400' : ''
                     }`}
                     title={item.name}
