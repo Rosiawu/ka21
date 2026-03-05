@@ -61,7 +61,8 @@ function splitParagraphs(text) {
 }
 
 function getToolNameMap() {
-  var tools = require('../../../data/tools.js').tools || [];
+  var snapshot = require('../../../utils/sync-data').getData();
+  var tools = snapshot.tools || [];
   var map = {};
   for (var i = 0; i < tools.length; i += 1) {
     map[tools[i].id] = tools[i].name;
@@ -162,13 +163,15 @@ Page({
 
   onLoad: function (options) {
     var id = decode((options && options.id) || '');
+    this._tutorialId = id;
     if (!id) {
       this.setData({ loadError: '缺少教程ID' });
       return;
     }
 
     try {
-      var tutorials = require('../../../data/tutorials.js').tutorials || [];
+      var snapshot = require('../../../utils/sync-data').getData();
+      var tutorials = snapshot.tutorials || [];
       var toolNameMap = getToolNameMap();
 
       var tutorial = null;
@@ -211,6 +214,27 @@ Page({
       var message = error && error.message ? error.message : String(error);
       console.error('tutorial-detail onLoad failed:', error);
       this.setData({ loadError: message });
+    }
+
+    this.syncLatestData();
+  },
+
+  syncLatestData: function () {
+    var self = this;
+    var id = this._tutorialId;
+    if (!id) return;
+    try {
+      var syncStore = require('../../../utils/sync-data');
+      syncStore.syncRemote({
+        force: false,
+        success: function (result) {
+          if (result && result.changed) {
+            self.onLoad({ id: encode(id) });
+          }
+        },
+      });
+    } catch (error) {
+      console.warn('tutorial-detail syncLatestData failed:', error);
     }
   },
 

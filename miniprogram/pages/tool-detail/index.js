@@ -36,6 +36,7 @@ Page({
 
   onLoad(options) {
     var id = decode((options && options.id) || '');
+    this._toolId = id;
     if (!id) {
       wx.showToast({ title: '缺少工具ID', icon: 'none' });
       return;
@@ -82,6 +83,27 @@ Page({
       console.error('tool-detail onLoad failed:', error);
       this.setData({ loadError: message });
       wx.showToast({ title: '详情加载失败', icon: 'none' });
+    }
+
+    this.syncLatestData();
+  },
+
+  syncLatestData: function () {
+    var self = this;
+    var id = this._toolId;
+    if (!id) return;
+    try {
+      var syncStore = require('../../utils/sync-data');
+      syncStore.syncRemote({
+        force: false,
+        success: function (result) {
+          if (result && result.changed) {
+            self.onLoad({ id: encode(id) });
+          }
+        },
+      });
+    } catch (error) {
+      console.warn('tool-detail syncLatestData failed:', error);
     }
   },
 

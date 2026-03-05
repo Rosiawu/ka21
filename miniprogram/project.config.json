@@ -1,7 +1,36 @@
 {
   "description": "KA21 微信小程序",
   "packOptions": {
-    "ignore": [],
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "assets/team-jpg"
+      },
+      {
+        "type": "folder",
+        "value": "tutorial-covers"
+      },
+      {
+        "type": "file",
+        "value": "data/tools.json"
+      },
+      {
+        "type": "file",
+        "value": "data/tutorials.json"
+      },
+      {
+        "type": "file",
+        "value": "data/categories.json"
+      },
+      {
+        "type": "file",
+        "value": "data/team-members.json"
+      },
+      {
+        "type": "file",
+        "value": "data/weekly-picks.json"
+      }
+    ],
     "include": []
   },
   "setting": {

@@ -16,7 +16,11 @@
     "cache:miniapp-fulltext": "tsx scripts/cache-miniapp-tutorial-fulltext.ts",
     "validate-featured": "tsx scripts/validate-featured.ts",
     "check-i18n-keys": "tsx scripts/check-i18n-keys.ts",
-    "prebuild": "npm run validate-featured && npm run check-i18n-keys"
+    "prebuild": "npm run validate-featured && npm run check-i18n-keys",
+    "analytics:report": "tsx scripts/generate-goaccess-report.ts",
+    "analytics:open": "npm run analytics:report -- --open",
+    "analytics:serve": "python3 -m http.server 8787 --directory analytics-reports",
+    "analytics:panel": "node scripts/open-analytics-panel.js"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.0",

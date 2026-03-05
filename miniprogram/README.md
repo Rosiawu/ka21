@@ -41,3 +41,19 @@ npm run export:miniapp-data
 ```bash
 MINIAPP_ASSET_BASE_URL=https://your-domain.com npm run export:miniapp-data
 ```
+
+## 4. 自动实时同步（无需每次重新发版）
+
+小程序已支持在启动时自动请求网页侧快照接口：
+
+- `https://ka21.tools/api/miniapp/snapshot`
+
+行为说明：
+
+- 启动后会自动拉取最新 `tools/tutorials/categories/teamMembers/weeklyPicks`
+- 拉取成功后写入本地缓存，页面优先读缓存数据
+- 拉取失败时自动回退到包内数据，不影响可用性
+
+微信小程序后台需要配置请求合法域名：
+
+- `https://ka21.tools`

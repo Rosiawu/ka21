@@ -1,37 +1,9 @@
-const TEAM_ASSET_PREFIX = '../../assets/team-jpg';
-const DEFAULT_AVATAR = `${TEAM_ASSET_PREFIX}/avatar-wuman.jpg`;
-const DEFAULT_QR = `${TEAM_ASSET_PREFIX}/qr-wuman.png`;
-const TEAM_LOCAL_IDS = {
-  wuman: true,
-  cool: true,
-  xiaojinyu: true,
-  azhen: true,
-  loki: true,
-  washu: true,
-  labi: true,
-  william: true,
-  beiguo: true,
-  jinwei: true,
-  rongrong: true,
-  yoji: true,
-  feifei: true,
-  seele: true,
-  tangshui: true,
-};
-
-function normalizeId(id) {
-  return String(id || '').toLowerCase().trim();
-}
+const DEFAULT_AVATAR = 'https://ka21.tools/images/team/avatar-wuman.png';
+const DEFAULT_QR = 'https://ka21.tools/images/team/qr-wuman.png';
 
 function normalizeMemberAssets(member) {
-  var normalizedId = normalizeId(member.id);
-  var useLocalAsset = !!TEAM_LOCAL_IDS[normalizedId];
-  var avatar = useLocalAsset
-    ? `${TEAM_ASSET_PREFIX}/avatar-${normalizedId}.jpg`
-    : (member.avatar || '');
-  var qr = useLocalAsset
-    ? `${TEAM_ASSET_PREFIX}/qr-${normalizedId}.png`
-    : (member.wechatQR || '');
+  var avatar = member.avatar || DEFAULT_AVATAR;
+  var qr = member.wechatQR || DEFAULT_QR;
   return Object.assign({}, member, {
     avatar: avatar,
     wechatQR: qr,
@@ -57,6 +29,26 @@ Page({
       console.error('about onLoad failed:', error);
       this.setData({ loadError: message });
       wx.showToast({ title: '关于页加载失败', icon: 'none' });
+    }
+
+    this.syncLatestData();
+  },
+
+  syncLatestData: function () {
+    var self = this;
+    try {
+      var syncStore = require('../../utils/sync-data');
+      syncStore.syncRemote({
+        force: false,
+        success: function (result) {
+          if (!result || !result.changed) return;
+          var content = require('../../utils/content');
+          var members = content.getTeamMembers().map(normalizeMemberAssets);
+          self.setData({ teamMembers: members, loadError: '' });
+        },
+      });
+    } catch (error) {
+      console.warn('about syncLatestData failed:', error);
     }
   },
 

@@ -49,6 +49,7 @@ Page({
     });
 
     this.initData();
+    this.syncLatestData();
   },
 
   onShow: function () {
@@ -66,6 +67,23 @@ Page({
     this.applyFilters();
   },
 
+  syncLatestData: function () {
+    var self = this;
+    try {
+      var syncStore = require('../../utils/sync-data');
+      syncStore.syncRemote({
+        force: false,
+        success: function (result) {
+          if (result && result.changed) {
+            self.initData();
+          }
+        },
+      });
+    } catch (error) {
+      console.warn('tools syncLatestData failed:', error);
+    }
+  },
+
   onUnload: function () {
     if (this._activeTimer) {
       clearTimeout(this._activeTimer);
@@ -79,9 +97,10 @@ Page({
 
   initData: function () {
     try {
-      var categoriesData = require('../../data/categories.js').categories || [];
-      var toolsData = require('../../data/tools.js').tools || [];
-      var weeklyPicksData = require('../../data/weekly-picks.js').weeklyPicks || {};
+      var snapshot = require('../../utils/sync-data').getData();
+      var categoriesData = snapshot.categories || [];
+      var toolsData = snapshot.tools || [];
+      var weeklyPicksData = snapshot.weeklyPicks || {};
       var contentUtils = require('../../utils/content');
 
       var categories = [{ id: 'all', name: '全部' }];

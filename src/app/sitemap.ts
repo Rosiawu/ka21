@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const basePages = [
     '',
     '/about',
+    '/devlog',
     '/search',
     '/unified-search',
     '/tutorials',

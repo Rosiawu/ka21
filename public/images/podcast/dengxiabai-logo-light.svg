@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <defs>
+    <linearGradient id="dengxiabai-cone-light" x1="120" y1="36" x2="120" y2="228" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.52"/>
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="dengxiabai-glow-light" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(120 116) rotate(90) scale(78 78)">
+      <stop stop-color="#000000" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M120 34L218 218H22L120 34Z" fill="url(#dengxiabai-cone-light)"/>
+  <circle cx="120" cy="114" r="76" fill="url(#dengxiabai-glow-light)"/>
+  <path d="M120 54L188 122L120 190L52 122L120 54Z" stroke="#0B0F18" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 78V190" stroke="#0B0F18" stroke-width="10" stroke-linecap="round"/>
+  <path d="M120 124L162 166" stroke="#0B0F18" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 166L78 124" stroke="#0B0F18" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M52 122L38 136" stroke="#0B0F18" stroke-width="10" stroke-linecap="round"/>
+  <path d="M188 122L202 136" stroke="#0B0F18" stroke-width="10" stroke-linecap="round"/>
+</svg>

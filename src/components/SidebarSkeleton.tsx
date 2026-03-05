@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function SidebarSkeleton() {
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-slate-900">
+    <div className="site-glass-sidebar flex h-full flex-col">
       <div className="flex items-center justify-between px-4 py-4 border-b border-slate-200/70 dark:border-slate-800/70">
         <div className="w-8 h-8 bg-slate-200 dark:bg-slate-800 rounded-md animate-pulse"></div>
       </div>
@@ -14,4 +14,3 @@ export default function SidebarSkeleton() {
     </div>
   );
 }
-

@@ -63,6 +63,39 @@ const INTENT_CATEGORY_BOOST = {
   writing: { writing: 30, office: 15, utils: 10 },
 };
 
+const HOME_REMAINING_PRIORITY_IDS = [
+  'claude',
+  'gemini',
+  'cursor',
+  'trae',
+  'deepseek',
+  'doubao',
+  'tongyi-efficiency',
+  'notebooklm',
+  'kling-ai',
+  'jm-video',
+  'veo',
+  'runway',
+  'vidu',
+  'seko',
+  'hailuo',
+  'midjourney',
+  'ideogram',
+  'recraft',
+  'coze',
+  'ima',
+];
+
+const HOME_CATEGORY_SCORE = {
+  coding: 36,
+  office: 34,
+  writing: 30,
+  image: 26,
+  video: 24,
+  audio: 20,
+  utils: 16,
+};
+
 function encode(value) {
   return encodeURIComponent(value || '');
 }
@@ -173,6 +206,53 @@ function clearIconInList(list, id) {
   return next;
 }
 
+function getHomeBaseScore(tool, priorityMap) {
+  var score = 0;
+  if (priorityMap[tool.id] !== undefined) {
+    score += 220 - priorityMap[tool.id] * 8;
+  }
+
+  if (tool.recommendLevel === 'high') score += 70;
+  else if (tool.recommendLevel === 'medium') score += 40;
+  else score += 10;
+
+  if (tool.accessibility === '直接访问') score += 20;
+
+  score += HOME_CATEGORY_SCORE[tool.toolCategory] || 8;
+  return score;
+}
+
+function sortToolsForHome(tools, featuredOrderMap, priorityMap) {
+  var list = (tools || []).slice();
+  list.sort(function (a, b) {
+    var aFeatured = featuredOrderMap[a.id];
+    var bFeatured = featuredOrderMap[b.id];
+    var aInFeatured = typeof aFeatured === 'number';
+    var bInFeatured = typeof bFeatured === 'number';
+
+    if (aInFeatured && bInFeatured) return aFeatured - bFeatured;
+    if (aInFeatured) return -1;
+    if (bInFeatured) return 1;
+
+    var aPriority = priorityMap[a.id];
+    var bPriority = priorityMap[b.id];
+    var aHasPriority = typeof aPriority === 'number';
+    var bHasPriority = typeof bPriority === 'number';
+    if (aHasPriority && bHasPriority) return aPriority - bPriority;
+    if (aHasPriority) return -1;
+    if (bHasPriority) return 1;
+
+    var scoreDiff = getHomeBaseScore(b, priorityMap) - getHomeBaseScore(a, priorityMap);
+    if (scoreDiff !== 0) return scoreDiff;
+
+    var orderDiff = (a.displayOrder || 9999) - (b.displayOrder || 9999);
+    if (orderDiff !== 0) return orderDiff;
+
+    return (a.name || '').localeCompare(b.name || '');
+  });
+  return list;
+}
+
 Page({
   data: {
     keyword: '',
@@ -196,20 +276,30 @@ Page({
   onLoad() {
     try {
       const content = require('../../utils/content');
+      const syncStore = require('../../utils/sync-data');
       this._content = content;
+      const snapshot = syncStore.getData();
       const tools = content.getTools();
       const tutorials = content.getTutorials();
       const categories = content.getCategories();
-      this._allTools = tools;
-      this._allTutorials = tutorials;
-      var weeklyPicksData = require('../../data/weekly-picks.js').weeklyPicks || {};
+      var weeklyPicksData = snapshot.weeklyPicks || {};
       var weeklyMap = {};
+      var featuredOrderMap = {};
+      var remainingPriorityMap = {};
       var weeklyToolIds = Array.isArray(weeklyPicksData.toolIds) ? weeklyPicksData.toolIds : [];
       for (var i = 0; i < weeklyToolIds.length; i += 1) {
         weeklyMap[weeklyToolIds[i]] = 10;
+        featuredOrderMap[weeklyToolIds[i]] = i;
+      }
+      for (var j = 0; j < HOME_REMAINING_PRIORITY_IDS.length; j += 1) {
+        remainingPriorityMap[HOME_REMAINING_PRIORITY_IDS[j]] = j;
       }
       this._weeklyPickMap = weeklyMap;
-      const hotTools = tools.slice(0, 8).map(function (tool) {
+      const sortedTools = sortToolsForHome(tools, featuredOrderMap, remainingPriorityMap);
+      this._allTools = sortedTools;
+      this._allTutorials = tutorials;
+
+      const hotTools = sortedTools.slice(0, 8).map(function (tool) {
         return Object.assign({}, tool, {
           categoryLabel: content.getCategoryLabel(tool.toolCategory),
           iconText: getIconText(tool.name),
@@ -236,6 +326,25 @@ Page({
         title: '首页数据加载失败',
         icon: 'none',
       });
+    }
+
+    this.syncLatestData();
+  },
+
+  syncLatestData: function () {
+    var self = this;
+    try {
+      var syncStore = require('../../utils/sync-data');
+      syncStore.syncRemote({
+        force: false,
+        success: function (result) {
+          if (result && result.changed) {
+            self.onLoad();
+          }
+        },
+      });
+    } catch (error) {
+      console.warn('home syncLatestData failed:', error);
     }
   },
 

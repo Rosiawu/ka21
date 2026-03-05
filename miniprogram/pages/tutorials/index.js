@@ -43,7 +43,8 @@ Page({
     });
 
     try {
-      this._allTutorials = require('../../data/tutorials.js').tutorials || [];
+      var snapshot = require('../../utils/sync-data').getData();
+      this._allTutorials = snapshot.tutorials || [];
 
       var categories = ['all'];
       for (var i = 0; i < this._allTutorials.length; i += 1) {
@@ -64,6 +65,8 @@ Page({
       this.setData({ loadError: message, tutorials: [] });
       wx.showToast({ title: '教程加载失败', icon: 'none' });
     }
+
+    this.syncLatestData();
   },
 
   onShow: function () {
@@ -78,6 +81,35 @@ Page({
       difficulty: 'all',
     });
     this.applyFilters();
+  },
+
+  syncLatestData: function () {
+    var self = this;
+    try {
+      var syncStore = require('../../utils/sync-data');
+      syncStore.syncRemote({
+        force: false,
+        success: function (result) {
+          if (!result || !result.changed) return;
+
+          var snapshot = syncStore.getData();
+          self._allTutorials = snapshot.tutorials || [];
+
+          var categories = ['all'];
+          for (var i = 0; i < self._allTutorials.length; i += 1) {
+            var category = self._allTutorials[i].category;
+            if (category && categories.indexOf(category) === -1) {
+              categories.push(category);
+            }
+          }
+
+          self.setData({ categories: categories, loadError: '' });
+          self.applyFilters();
+        },
+      });
+    } catch (error) {
+      console.warn('tutorials syncLatestData failed:', error);
+    }
   },
 
   onUnload: function () {

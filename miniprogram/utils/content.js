@@ -1,7 +1,4 @@
-const toolsData = require('../data/tools.js');
-const tutorialsData = require('../data/tutorials.js');
-const categoriesData = require('../data/categories.js');
-const teamData = require('../data/team-members.js');
+const syncData = require('./sync-data');
 const ASSET_BASE_URL = 'https://ka21.tools';
 const BUNDLED_ICON_FILES = {
   'chatglm.png': true,
@@ -64,12 +61,18 @@ function resolveLocalIconPath(rawPath) {
   if (!rawPath || typeof rawPath !== 'string') {
     return '';
   }
+  var normalized = rawPath.trim();
 
-  if (rawPath.startsWith('/public/')) {
-    return rawPath;
+  if (normalized.indexOf('/public/icons/') === 0 || normalized.indexOf('public/icons/') === 0) {
+    var iconName = normalized.split('/').pop();
+    return iconName ? '/icons/' + iconName : '';
   }
-  if (rawPath.startsWith('public/')) {
-    return '/' + rawPath;
+
+  if (normalized.indexOf('/public/') === 0) {
+    return normalized;
+  }
+  if (normalized.indexOf('public/') === 0) {
+    return '/' + normalized;
   }
 
   return '';
@@ -151,52 +154,61 @@ function normalizeMember(member) {
   });
 }
 
-const tools = (toolsData.tools || []).map(normalizeTool);
-const tutorials = (tutorialsData.tutorials || []).map(normalizeTutorial);
-const categories = (categoriesData.categories || []).map(normalizeCategory);
-const teamMembers = (teamData.teamMembers || []).map(normalizeMember);
-
-const toolById = {};
-tools.forEach((tool) => {
-  toolById[tool.id] = tool;
-});
-
-const tutorialById = {};
-tutorials.forEach((tutorial) => {
-  tutorialById[tutorial.id] = tutorial;
-});
+function getNormalizedDataset() {
+  var raw = syncData.getData();
+  return {
+    tools: (raw.tools || []).map(normalizeTool),
+    tutorials: (raw.tutorials || []).map(normalizeTutorial),
+    categories: (raw.categories || []).map(normalizeCategory),
+    teamMembers: (raw.teamMembers || []).map(normalizeMember),
+  };
+}
 
 function getTools() {
-  return tools;
+  return getNormalizedDataset().tools;
 }
 
 function getToolById(id) {
-  return toolById[id] || null;
+  var list = getTools();
+  for (var i = 0; i < list.length; i += 1) {
+    if (list[i].id === id) {
+      return list[i];
+    }
+  }
+  return null;
 }
 
 function getTutorials() {
-  return tutorials;
+  return getNormalizedDataset().tutorials;
 }
 
 function getTutorialById(id) {
-  return tutorialById[id] || null;
+  var list = getTutorials();
+  for (var i = 0; i < list.length; i += 1) {
+    if (list[i].id === id) {
+      return list[i];
+    }
+  }
+  return null;
 }
 
 function getCategories() {
-  return categories;
+  return getNormalizedDataset().categories;
 }
 
 function getTeamMembers() {
-  return teamMembers;
+  return getNormalizedDataset().teamMembers;
 }
 
 function getCategoryLabel(categoryId) {
+  var categories = getCategories();
   const match = categories.find((item) => item.id === categoryId);
   return match ? match.name : '未分类';
 }
 
 function searchTools(keyword, categoryId) {
   const lowerKeyword = safeText(keyword).trim().toLowerCase();
+  const tools = getTools();
   return tools.filter((tool) => {
     const categoryOk = !categoryId || categoryId === 'all' || tool.toolCategory === categoryId;
     if (!categoryOk) return false;
@@ -216,6 +228,7 @@ function searchTools(keyword, categoryId) {
 
 function searchTutorials(keyword, category, difficulty) {
   const lowerKeyword = safeText(keyword).trim().toLowerCase();
+  const tutorials = getTutorials();
   return tutorials.filter((tutorial) => {
     const categoryOk = !category || category === 'all' || tutorial.category === category;
     const difficultyOk = !difficulty || difficulty === 'all' || tutorial.difficultyLevel === difficulty;
