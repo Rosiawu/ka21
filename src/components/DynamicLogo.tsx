@@ -22,7 +22,7 @@ const DynamicLogo: React.FC<DynamicLogoProps> = ({
     large: { width: 180, height: 180 },
   }[size];
   
-  const logoSrc = variant === 'white' ? '/KA21-white.svg?v=1' : '/KA21.svg?v=2';
+  const logoSrc = variant === 'white' ? '/KA21-white.svg' : '/KA21.svg';
   
   return (
     <Image
@@ -32,6 +32,7 @@ const DynamicLogo: React.FC<DynamicLogoProps> = ({
       height={dimensions.height}
       className={className}
       style={style}
+      unoptimized
       priority
     />
   );
