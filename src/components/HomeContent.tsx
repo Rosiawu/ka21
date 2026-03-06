@@ -361,12 +361,12 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 <div className="sm:block">
                   <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
                     <div
-                      className="relative flex h-[176px] w-full items-center justify-center rounded-3xl border bg-white px-3 pb-8 pt-3 shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px] sm:px-0 sm:pb-0 sm:pt-0"
+                      className="relative flex h-[196px] w-full items-center justify-center rounded-3xl border bg-white px-3 pb-8 pt-3 shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px] sm:px-4 sm:pb-10 sm:pt-4"
                       style={{ borderColor: 'rgba(200,180,125,0.55)', backgroundColor: '#ffffff' }}
                     >
                       <Logo size="large" variant="black" className="dark:hidden" />
                       <Logo size="large" variant="white" className="hidden dark:flex" />
-                      <p className="absolute inset-x-3 bottom-4 text-center text-[12px] leading-snug text-slate-700 dark:text-slate-300 sm:hidden">
+                      <p className="absolute inset-x-3 bottom-4 text-center text-[12px] leading-snug text-slate-700 dark:text-slate-300 sm:inset-x-4 sm:bottom-5 sm:text-[13px]">
                         <span className="block">{mobileSubtitleParts[0]}</span>
                         {mobileSubtitleParts[1] ? <span className="block">{mobileSubtitleParts[1]}</span> : null}
                       </p>
@@ -384,25 +384,30 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       podcast: 'dengxiaobai',
                     });
                   }}
-                  className="inline-flex h-[176px] w-full flex-col justify-between gap-3 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-3 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
+                  className="inline-flex h-[196px] w-full flex-col justify-between gap-2 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-2.5 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
                   aria-label={`${spotlightPodcast.title} - ${spotlightPodcast.note}`}
                 >
-                  <span className="flex min-w-0 w-full items-start gap-2.5 sm:max-w-[410px] sm:items-center sm:gap-4">
-                    <span className="inline-flex h-[52px] w-[52px] shrink-0 items-center justify-center overflow-hidden rounded-[1.1rem] border border-white/20 bg-black/45 sm:h-[84px] sm:w-[84px] sm:rounded-[1.25rem]">
-                      <Image
-                        src="/images/podcast/dengxiabai-logo-official.png"
-                        alt={spotlightPodcast.logoAlt}
-                        width={72}
-                        height={72}
-                        className="h-[48px] w-[48px] object-cover object-[50%_42%] sm:h-[76px] sm:w-[76px]"
-                      />
-                    </span>
-
-                    <span className="min-w-0 leading-tight">
-                      <span className="inline-flex rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2 py-[2px] text-[10px] font-semibold text-[#e7cd8b] sm:px-2.5 sm:text-[11px]">
+                  <span className="flex min-w-0 w-full flex-col items-start gap-2 sm:max-w-[410px] sm:flex-row sm:items-center sm:gap-4">
+                    <span className="flex items-center gap-2.5 sm:block">
+                      <span className="inline-flex h-[52px] w-[52px] shrink-0 items-center justify-center overflow-hidden rounded-[1.1rem] border border-white/20 bg-black/45 sm:h-[84px] sm:w-[84px] sm:rounded-[1.25rem]">
+                        <Image
+                          src="/images/podcast/dengxiabai-logo-official.png"
+                          alt={spotlightPodcast.logoAlt}
+                          width={72}
+                          height={72}
+                          className="h-[48px] w-[48px] object-cover object-[50%_42%] sm:h-[76px] sm:w-[76px]"
+                        />
+                      </span>
+                      <span className="inline-flex rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2 py-[2px] text-[10px] font-semibold text-[#e7cd8b] sm:hidden">
                         {spotlightPodcast.tag}
                       </span>
-                      <span className="mt-1.5 block text-[28px] leading-[0.94] font-extrabold tracking-tight text-white sm:text-[48px] sm:leading-[0.92]">
+                    </span>
+
+                    <span className="min-w-0 w-full leading-tight">
+                      <span className="hidden rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2.5 py-[2px] text-[11px] font-semibold text-[#e7cd8b] sm:inline-flex">
+                        {spotlightPodcast.tag}
+                      </span>
+                          <span className="mt-1 block whitespace-nowrap text-[clamp(1.75rem,7vw,2.6rem)] leading-[0.94] font-extrabold tracking-tight text-white sm:mt-1.5 sm:text-[48px] sm:leading-[0.92]">
                         {spotlightPodcast.title}
                       </span>
                       <span className="mt-1 hidden line-clamp-1 text-[12px] font-semibold text-slate-200 sm:block sm:text-[16px]">
@@ -417,24 +422,13 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                     </span>
                   </span>
 
-                  <span className="inline-flex w-full shrink-0 items-center justify-center gap-1.5 rounded-full bg-white px-3 py-2 text-[14px] font-semibold text-slate-900 sm:w-[208px] sm:px-4 sm:text-[17px]">
+                  <span className="inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 self-center rounded-full bg-white px-3 text-[14px] font-semibold text-slate-900 sm:h-auto sm:w-[208px] sm:px-4 sm:py-2 sm:text-[17px]">
                     <span>{spotlightPodcast.cta}</span>
-                    <i className="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
+                    <i className="fas fa-arrow-up-right-from-square text-sm"></i>
                   </span>
                 </a>
               </div>
 
-              <div className="mt-3 hidden min-h-[56px] w-full items-center justify-center px-2 sm:flex">
-                <p className="text-center text-lg text-slate-700 dark:text-slate-300">
-                  {(() => {
-                    if (process.env.NODE_ENV !== 'production') {
-                      // eslint-disable-next-line no-console
-                      console.info('[i18n][client] HomeContent subtitle =', homeSubtitle);
-                    }
-                    return homeSubtitle;
-                  })()}
-                </p>
-              </div>
             </div>
           </div>
           

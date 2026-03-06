@@ -7,7 +7,7 @@ describe('mobile responsive guardrails', () => {
   test('home hero keeps mobile-first podcast card structure', () => {
     const content = read('src/components/HomeContent.tsx');
     expect(content).toContain('grid-cols-2');
-    expect(content).toContain('h-[176px] w-full');
+    expect(content).toContain('h-[196px] w-full');
     expect(content).toContain('w-full flex-col justify-between');
     expect(content).toContain('sm:flex-row');
     expect(content).toContain('w-full shrink-0');
@@ -16,14 +16,13 @@ describe('mobile responsive guardrails', () => {
 
   test('home logo and composer rows include mobile fallback classes', () => {
     const content = read('src/components/HomeContent.tsx');
-    expect(content).toContain('h-[176px] w-full');
+    expect(content).toContain('h-[196px] w-full');
     expect(content).toContain('sm:h-[220px] sm:w-[220px]');
-    expect(content).toContain('relative flex h-[176px] w-full');
+    expect(content).toContain('relative flex h-[196px] w-full');
     expect(content).toContain('absolute inset-x-3 bottom-4');
     expect(content).toContain('text-center text-[12px] leading-snug');
     expect(content).toContain('mobileSubtitleParts[0]');
     expect(content).toContain('sm:hidden');
-    expect(content).toContain('hidden min-h-[56px]');
     expect(content).toContain('flex flex-col items-stretch');
     expect(content).toContain('sm:flex-row sm:items-center');
   });
@@ -31,7 +30,9 @@ describe('mobile responsive guardrails', () => {
   test('podcast card keeps only mobile listen hint under the title', () => {
     const content = read('src/components/HomeContent.tsx');
     expect(content).toContain("cta: isEn ? 'Tap to listen' : '点击收听'");
-    expect(content).toContain('inline-flex w-full shrink-0 items-center justify-center gap-1.5');
+    expect(content).toContain('inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 self-center');
+    expect(content).toContain('whitespace-nowrap text-[clamp(1.75rem,7vw,2.6rem)]');
+    expect(content).toContain('w-full flex-col items-start gap-2 sm:max-w-[410px] sm:flex-row');
   });
 
   test('tutorial carousel arrows stay hidden on small screens', () => {
