@@ -214,6 +214,7 @@ export default function SearchContent() {
                 text={typeof window !== 'undefined' ? window.location.href : ''}
                 label={tSearch('shareResults')}
                 copiedLabel={tSearch('linkCopied')}
+                enableNativeShare
               />
             </div>
           )}
