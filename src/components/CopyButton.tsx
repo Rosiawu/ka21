@@ -35,12 +35,51 @@ export default function CopyButton({
     const isWeChatBrowser = typeof navigator !== 'undefined' && /MicroMessenger/i.test(navigator.userAgent);
     const isMobileBrowser = typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
+    const attemptOpenWeChat = async () => {
+      if (typeof window === 'undefined') return false;
+
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      let hiddenTriggered = false;
+
+      const onVisibilityChange = () => {
+        if (document.hidden) hiddenTriggered = true;
+      };
+      document.addEventListener('visibilitychange', onVisibilityChange, { once: true });
+
+      // Strategy 1: universal weixin scheme
+      window.location.href = 'weixin://';
+
+      if (isAndroid) {
+        // Strategy 2: Android intent fallback
+        setTimeout(() => {
+          window.location.href = 'intent://dl/chat#Intent;scheme=weixin;package=com.tencent.mm;end';
+        }, 250);
+      } else if (isIOS) {
+        // Strategy 2 for iOS: chat deep link
+        setTimeout(() => {
+          window.location.href = 'weixin://dl/chat';
+        }, 250);
+      }
+
+      return await new Promise<boolean>((resolve) => {
+        setTimeout(() => {
+          document.removeEventListener('visibilitychange', onVisibilityChange);
+          resolve(hiddenTriggered);
+        }, 1200);
+      });
+    };
+
     const fallbackToCopyAndHint = async (hintText: string) => {
       const copiedInFallback = await copy(shareText);
       if (copiedInFallback) {
         if (typeof window !== 'undefined') {
           if (preferWechatLaunch && isMobileBrowser && !isWeChatBrowser) {
-            window.location.href = 'weixin://dl/chat';
+            const opened = await attemptOpenWeChat();
+            if (!opened) {
+              window.alert('链接已复制。当前浏览器禁止直接拉起微信，请手动打开微信后粘贴发送。');
+              return;
+            }
           }
           window.alert(hintText);
         }
@@ -72,8 +111,12 @@ export default function CopyButton({
     const ok = await copy(shareText);
     if (ok) {
       if (preferWechatLaunch && isMobileBrowser && typeof window !== 'undefined') {
-        window.location.href = 'weixin://dl/chat';
-        window.alert('链接已复制，已尝试打开微信。请在微信聊天窗口粘贴并发送。');
+        const opened = await attemptOpenWeChat();
+        if (opened) {
+          window.alert('链接已复制，已尝试打开微信。请在微信聊天窗口粘贴并发送。');
+        } else {
+          window.alert('链接已复制。当前浏览器禁止直接拉起微信，请手动打开微信后粘贴发送。');
+        }
       }
       return;
     }
