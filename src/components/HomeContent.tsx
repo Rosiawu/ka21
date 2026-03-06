@@ -584,14 +584,14 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                     <div className="flex gap-4 pb-4 pl-8 pr-8">
                       {/* 渲染教程卡片 */}
                       {filteredTutorials.map((tutorial) => (
-                        <div key={tutorial.id} className="flex-shrink-0 w-72 h-full">
+                        <div key={tutorial.id} className="flex-shrink-0 w-72">
                           <a 
                             href={tutorial.url} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="block h-full group"
+                            className="block group"
                           >
-                            <article className="tool-card bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent">
+                            <article className="tool-card bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden h-[400px] flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent">
                               <div className="relative w-full h-36 overflow-hidden bg-gradient-to-r from-gray-100 to-slate-200 dark:from-gray-800 dark:to-slate-900">
                                 <div className="absolute inset-0 flex items-center justify-center">
                                   <Image 
@@ -619,28 +619,29 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                                 </div>
                               </div>
                               
-                              <div className="p-3 flex-grow">
-                                <h3 className="font-bold text-base mb-1 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">{tutorial.title}</h3>
-                                <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center flex-wrap gap-y-1 mb-1">
-                                  <span className="flex items-center mr-2">
+                              <div className="p-2.5 flex min-h-0 flex-1 flex-col">
+                                <h3 className="min-h-[2.8rem] font-bold text-base mb-1 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">{tutorial.title}</h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-2 whitespace-nowrap overflow-hidden">
+                                  <span className="flex items-center shrink-0">
                                     <i className="fas fa-calendar-alt mr-1"></i>
                                     {tutorial.publishDate}
                                   </span>
-                                  <span className="flex items-center">
+                                  <span className="flex items-center min-w-0 truncate">
                                     <i className="fas fa-user-edit mr-1"></i>
-                                    {tutorial.author}
+                                    <span className="truncate">{tutorial.author}</span>
                                   </span>
                                 </p>
                                 
                                 {/* 推荐理由 */}
                                 {tutorial.recommendReason && (
-                                  <div className="mt-1 text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/30 p-1.5 rounded line-clamp-3 italic">
+                                  <div className="mt-1 h-[62px] text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/30 p-1.5 rounded line-clamp-3 italic overflow-hidden">
                                     <i className="fas fa-thumbs-up text-primary-500 mr-1"></i>
                                     {tutorial.recommendReason}
                                   </div>
                                 )}
+                                {!tutorial.recommendReason && <div className="mt-1 h-[62px]" aria-hidden="true"></div>}
                                 
-                                <div className="text-sm font-medium text-primary-600 dark:text-primary-400 flex items-center group-hover:translate-x-1 transition-transform duration-300 mt-1">
+                                <div className="text-sm font-medium text-primary-600 dark:text-primary-400 flex items-center group-hover:translate-x-1 transition-transform duration-300 mt-auto pt-1.5">
                                   {tHome('readMore')}
                                   <i className="fas fa-arrow-right ml-1 group-hover:ml-2 transition-all duration-300"></i>
                                 </div>
