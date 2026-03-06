@@ -30,6 +30,17 @@ export default function CopyButton({
 
   const handleClick = React.useCallback(async () => {
     const shareText = text || (typeof window !== 'undefined' ? window.location.href : '');
+    const isWeChatBrowser = typeof navigator !== 'undefined' && /MicroMessenger/i.test(navigator.userAgent);
+
+    if (isWeChatBrowser) {
+      const copiedInWeChat = await copy(shareText);
+      if (copiedInWeChat) {
+        window.alert('链接已复制。请点击微信右上角“...”后选择“发送给朋友”，并粘贴链接发送。');
+      } else if (typeof window !== 'undefined') {
+        window.prompt('请手动复制以下链接后，在微信中发送：', shareText);
+      }
+      return;
+    }
 
     if (enableNativeShare && typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
       try {
