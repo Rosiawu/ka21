@@ -593,22 +593,24 @@ export default function TutorialsContent() {
                 </h3>
               <div className="flex items-center gap-2 overflow-x-auto py-1 no-scrollbar">
                 <button 
-                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                  className={`scenario-chip inline-flex min-w-[88px] shrink-0 items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                     !categoryFilter ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                   }`}
+                  style={{ whiteSpace: 'nowrap', writingMode: 'horizontal-tb', textOrientation: 'mixed', minWidth: '88px' }}
                   onClick={() => setCategoryFilter('')}
                 >
-                  {text.allCategories}
+                  <span className="inline-block whitespace-nowrap">{text.allCategories}</span>
                 </button>
                 {categories.map(category => (
                   <button 
                     key={category}
-                    className={`px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors ${
+                    className={`scenario-chip inline-flex shrink-0 items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                       categoryFilter === category ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                     }`}
+                    style={{ whiteSpace: 'nowrap', writingMode: 'horizontal-tb', textOrientation: 'mixed' }}
                     onClick={() => setCategoryFilter(category)}
                   >
-                    {localizeTutorialCategory(category, isEn ? 'en' : 'zh')}
+                    <span className="inline-block whitespace-nowrap">{localizeTutorialCategory(category, isEn ? 'en' : 'zh')}</span>
                   </button>
                 ))}
               </div>
