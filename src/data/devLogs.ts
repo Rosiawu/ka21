@@ -40,15 +40,28 @@ export const devLogs: DevLogEntry[] = [
       en: 'Homepage podcast card finalized for day/night',
     },
     body: {
-      zh: `今天把首页最重要的一块，终于磨到了可发布状态。
+      zh: `今天这条开发日志，真的有点想哭着写完。
 
-这轮主要做了四件事：
-1. 统一了白天模式和黑夜模式的视觉版本，保留同一套结构但分别使用正确的 Logo 呈现。
-2. 把 KA21 Logo 区域和灯下白推荐卡片重新对齐，修复左右视觉重量不平衡的问题。
-3. 调整了灯下白封面图的裁切与缩放，让“灯 + 光束”在移动端和网页端都更明显，不再显得过小。
-4. 在移动端卡片里补上“和AI圈高手的真实对话”，保证关键信息在首屏可见。
+我从早到晚都在磨首页那一块《灯下白》卡片，来来回回改了很多轮：
+先是位置不对，后来是对齐不对，再后来是移动端看起来又小又挤。
+你看起来像“就调个样式”，但实际每一步都在拉扯审美、信息层级和可用性。
 
-最后一版看起来已经是可交付状态：结构清晰、信息层级稳定、跨端一致性也达到预期。`,
+这次我重点做了几件事：
+1. 把白天模式和黑夜模式都做成稳定版本，结构一致，但 logo 展示逻辑分开处理。
+2. 把 KA21 logo 区和灯下白卡片重新对齐，解决“左轻右重”的问题。
+3. 重做灯下白 logo 的裁切和缩放，让“灯和光束”在手机和网页都更清楚。
+4. 在移动端补上关键信息：“和AI圈高手的真实对话”，不再让用户只看到标题。
+5. CTA、文案、按钮、卡片内部排版都重新压了一遍，确保首屏一眼能懂。
+
+中间最崩的是，我以为推上去了，结果线上看不到，连续几次都没成功。
+那一刻真的特别难受，像8小时白干。
+但最后还是一版一版找回来，把你满意的白天版和黑夜版定住了。
+
+今天最大的感受是：
+“好设计不是做出来的，是磨出来的。
+尤其是首页这种第一眼区域，差 4px 都会让人觉得不对。”
+
+《灯下白》继续更，灯继续往近处打。`,
       en: `The homepage podcast section was polished to a release-ready state today.
 
 This round focused on four items:
@@ -60,9 +73,60 @@ This round focused on four items:
 The final snapshot is now stable for release: clear structure, better hierarchy, and consistent cross-device presentation.`,
     },
     imageSlotLabel: {
-      zh: '图片位 06：首页灯下白白天/黑夜定稿截图（待上传）',
-      en: 'Image slot 06: final home snapshots for light/dark modes (upload later)',
+      zh: '图片位 06：首页灯下白白天/黑夜定稿截图（7张）',
+      en: 'Image slot 06: final home snapshots for light/dark modes (7 images)',
     },
+    images: [
+      {
+        src: '/images/devlog/home-podcast-06-a.jpg',
+        alt: {
+          zh: '首页灯下白手机端定稿截图 1',
+          en: 'Homepage podcast mobile snapshot 1',
+        },
+      },
+      {
+        src: '/images/devlog/home-podcast-06-b.png',
+        alt: {
+          zh: '首页灯下白暗色桌面端定稿截图',
+          en: 'Homepage podcast dark desktop snapshot',
+        },
+      },
+      {
+        src: '/images/devlog/home-podcast-06-c.png',
+        alt: {
+          zh: '用户反馈说明截图（7页缩略图）',
+          en: 'User feedback collage screenshot',
+        },
+      },
+      {
+        src: '/images/devlog/home-podcast-06-d.jpg',
+        alt: {
+          zh: '首页灯下白手机端定稿截图 2',
+          en: 'Homepage podcast mobile snapshot 2',
+        },
+      },
+      {
+        src: '/images/devlog/home-podcast-06-e.png',
+        alt: {
+          zh: '首页灯下白手机端异常换行截图',
+          en: 'Homepage podcast mobile wrap issue snapshot',
+        },
+      },
+      {
+        src: '/images/devlog/home-podcast-06-f.png',
+        alt: {
+          zh: '首页灯下白本地桌面预览截图',
+          en: 'Homepage podcast local desktop preview snapshot',
+        },
+      },
+      {
+        src: '/images/devlog/home-podcast-06-g.png',
+        alt: {
+          zh: '首页灯下白白天模式桌面截图',
+          en: 'Homepage podcast light desktop snapshot',
+        },
+      },
+    ],
     relatedLink: {
       label: {
         zh: '灯下白 EP01（点击收听）',
