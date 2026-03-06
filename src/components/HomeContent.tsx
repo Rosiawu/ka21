@@ -18,7 +18,6 @@ import { sortByDefaultOrder } from '@/utils/sortTools'; // 默认排序工具函
 import ToolSortControls, { SortMethod } from './ToolSortControls'; // 排序控制组件
 import { applySorting } from '@/utils/sortTools'; // 应用排序函数
 import { getVisibleTools } from '@/utils/sortTools'; // 获取可见工具函数
-import StatsDisplay from './StatsDisplay'; // 统计显示组件
 import { HotSection } from '@/components/hot'; // 热门推荐区域组件
 import SearchIntentPanel from './SearchIntentPanel'; // 搜索意图推荐组件
 import DevLogPreviewSection from './DevLogPreviewSection';
@@ -62,6 +61,13 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     } catch {}
   }, []);
   const tHot = useTranslations('Hot');
+  const homeSubtitle = subtitle ?? tHome('subtitle');
+  const mobileSubtitleParts = (() => {
+    const separator = homeSubtitle.includes('，') ? '，' : homeSubtitle.includes(',') ? ',' : '';
+    if (!separator) return [homeSubtitle];
+    const [head, ...rest] = homeSubtitle.split(separator);
+    return rest.length > 0 ? [`${head}${separator}`, rest.join(separator).trim()] : [homeSubtitle];
+  })();
   const composerText = {
     label: isEn ? 'Conversation input' : '对话输入框',
     placeholder: isEn
@@ -86,7 +92,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     description: isEn
       ? 'Direct access to the Lamp Under The Light episode page.'
       : '首页直达《灯下白》节目页，一键点击即可收听最新内容。',
-    cta: isEn ? 'Listen on Xiaoyuzhou' : '去小宇宙收听',
+    cta: isEn ? 'Tap to listen' : '点击收听',
     note: isEn ? 'Open episode page' : '点击打开节目页',
     logoAlt: isEn ? 'Lamp Under The Light podcast logo' : '灯下白播客 Logo',
   };
@@ -315,6 +321,12 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   }, [toolsList, isLoading, error]);
   
   const [sortMethod, setSortMethod] = useState<SortMethod>('default');
+  const utilsCount = useMemo(
+    () => toolsList.filter((tool) => tool.toolCategory === 'utils').length,
+    [toolsList]
+  );
+  const coreToolCount = toolsList.length - utilsCount;
+  const tutorialCount = tutorials.length;
   
   // 搜索结果排序
   const filteredTools = useMemo(() => {
@@ -345,15 +357,21 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
           <div className="mb-8">
             <div className="mx-auto max-w-5xl">
               <div className="mb-2 grid grid-cols-2 gap-3 sm:grid-cols-[260px_minmax(0,1fr)] sm:gap-4">
-                <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
-                  <div
-                    className="flex h-[176px] w-full items-center justify-center rounded-3xl border bg-white shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px]"
-                    style={{ borderColor: 'rgba(200,180,125,0.55)', backgroundColor: '#ffffff' }}
-                  >
-                    <Logo size="large" variant="black" className="dark:hidden" />
-                    <Logo size="large" variant="white" className="hidden dark:flex" />
-                  </div>
-                </h1>
+                <div className="sm:block">
+                  <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
+                    <div
+                      className="relative flex h-[176px] w-full items-center justify-center rounded-3xl border bg-white px-3 pb-8 pt-3 shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px] sm:px-0 sm:pb-0 sm:pt-0"
+                      style={{ borderColor: 'rgba(200,180,125,0.55)', backgroundColor: '#ffffff' }}
+                    >
+                      <Logo size="large" variant="black" className="dark:hidden" />
+                      <Logo size="large" variant="white" className="hidden dark:flex" />
+                      <p className="absolute inset-x-3 bottom-4 text-center text-[12px] leading-snug text-slate-700 dark:text-slate-300 sm:hidden">
+                        <span className="block">{mobileSubtitleParts[0]}</span>
+                        {mobileSubtitleParts[1] ? <span className="block">{mobileSubtitleParts[1]}</span> : null}
+                      </p>
+                    </div>
+                  </h1>
+                </div>
 
                 <a
                   href={podcastEpisodeUrl}
@@ -375,7 +393,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                         alt={spotlightPodcast.logoAlt}
                         width={72}
                         height={72}
-                        className="h-[36px] w-[36px] object-contain sm:h-[58px] sm:w-[58px]"
+                        className="h-[48px] w-[48px] object-cover object-[50%_42%] sm:h-[76px] sm:w-[76px]"
                       />
                     </span>
 
@@ -386,7 +404,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       <span className="mt-1.5 block text-[28px] leading-[0.94] font-extrabold tracking-tight text-white sm:text-[48px] sm:leading-[0.92]">
                         {spotlightPodcast.title}
                       </span>
-                      <span className="mt-1 block line-clamp-2 text-[12px] font-semibold text-slate-200 sm:line-clamp-1 sm:text-[16px]">
+                      <span className="mt-1 hidden line-clamp-1 text-[12px] font-semibold text-slate-200 sm:block sm:text-[16px]">
                         {spotlightPodcast.subtitle}
                       </span>
                       <span className="mt-1 hidden line-clamp-2 text-[11px] text-slate-300/85 sm:block sm:text-sm">
@@ -395,22 +413,21 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                     </span>
                   </span>
 
-                  <span className="inline-flex w-full shrink-0 items-center justify-center rounded-full bg-white px-3 py-2 text-[14px] font-semibold text-slate-900 sm:w-[208px] sm:px-4 sm:text-[17px]">
-                    {spotlightPodcast.cta}
+                  <span className="inline-flex w-full shrink-0 items-center justify-center gap-1.5 rounded-full bg-white px-3 py-2 text-[14px] font-semibold text-slate-900 sm:w-[208px] sm:px-4 sm:text-[17px]">
+                    <span>{spotlightPodcast.cta}</span>
                     <i className="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
                   </span>
                 </a>
               </div>
 
-              <div className="mt-3 flex min-h-[56px] w-full items-center justify-center px-2">
+              <div className="mt-3 hidden min-h-[56px] w-full items-center justify-center px-2 sm:flex">
                 <p className="text-center text-lg text-slate-700 dark:text-slate-300">
                   {(() => {
-                    const text = subtitle ?? tHome('subtitle');
                     if (process.env.NODE_ENV !== 'production') {
                       // eslint-disable-next-line no-console
-                      console.info('[i18n][client] HomeContent subtitle =', text);
+                      console.info('[i18n][client] HomeContent subtitle =', homeSubtitle);
                     }
-                    return text;
+                    return homeSubtitle;
                   })()}
                 </p>
               </div>
@@ -491,11 +508,6 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
               query={searchQuery}
               onQuerySelect={handleIntentQuerySelect}
             />
-          </div>
-          
-          {/* 添加工具和教程统计数据 */}
-          <div className="mb-12 max-w-4xl mx-auto">
-            <StatsDisplay />
           </div>
           
           {/* 热门推荐板块（显式传入本地化标题，规避上下文异常导致的错语种） */}
@@ -769,6 +781,23 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">{tHome('allCategoriesTitle')}</h2>
                 <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
                   {tHome('allCategoriesDesc')}
+                </p>
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
+                  <span className="inline-flex items-center">
+                    <span className="mr-1.5 text-xl font-bold text-primary-600 dark:text-primary-400">{coreToolCount}</span>
+                    {isEn ? 'featured tools' : '精选AI工具'}
+                  </span>
+                  <span className="inline-flex items-center">
+                    <span className="mr-1.5 text-xl font-bold text-primary-600 dark:text-primary-400">{utilsCount}</span>
+                    {isEn ? 'utility tools' : '四次元小工具'}
+                  </span>
+                  <span className="inline-flex items-center">
+                    <span className="mr-1.5 text-xl font-bold text-primary-600 dark:text-primary-400">{tutorialCount}</span>
+                    {isEn ? 'starter tutorials' : '萌新教程'}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                  {isEn ? 'Low-value listings are removed. Only useful AI tools stay.' : '末位淘汰，只留好用的AI牛马'}
                 </p>
               </div>
               

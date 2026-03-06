@@ -18,8 +18,20 @@ describe('mobile responsive guardrails', () => {
     const content = read('src/components/HomeContent.tsx');
     expect(content).toContain('h-[176px] w-full');
     expect(content).toContain('sm:h-[220px] sm:w-[220px]');
+    expect(content).toContain('relative flex h-[176px] w-full');
+    expect(content).toContain('absolute inset-x-3 bottom-4');
+    expect(content).toContain('text-center text-[12px] leading-snug');
+    expect(content).toContain('mobileSubtitleParts[0]');
+    expect(content).toContain('sm:hidden');
+    expect(content).toContain('hidden min-h-[56px]');
     expect(content).toContain('flex flex-col items-stretch');
     expect(content).toContain('sm:flex-row sm:items-center');
+  });
+
+  test('podcast card keeps only mobile listen hint under the title', () => {
+    const content = read('src/components/HomeContent.tsx');
+    expect(content).toContain("cta: isEn ? 'Tap to listen' : '点击收听'");
+    expect(content).toContain('inline-flex w-full shrink-0 items-center justify-center gap-1.5');
   });
 
   test('tutorial carousel arrows stay hidden on small screens', () => {
@@ -40,6 +52,14 @@ describe('mobile responsive guardrails', () => {
     expect(read('src/components/UnifiedSearchContent.tsx')).toContain('page-shell py-6');
     expect(read('src/components/TutorialsContent.tsx')).toContain('page-shell relative z-10 py-6');
     expect(read('src/app/tools/[id]/ToolDetail.tsx')).toContain('page-shell py-6');
+  });
+
+  test('home category header contains merged stats instead of a standalone stats card', () => {
+    const content = read('src/components/HomeContent.tsx');
+    expect(content).not.toContain('<StatsDisplay />');
+    expect(content).toContain("featured tools' : '精选AI工具");
+    expect(content).toContain("utility tools' : '四次元小工具");
+    expect(content).toContain("starter tutorials' : '萌新教程");
   });
 
   test('tutorial listing reuses shared tutorial card instead of a mobile-only variant', () => {

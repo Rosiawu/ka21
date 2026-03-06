@@ -11,6 +11,7 @@ interface SearchIntentPanelProps {
   className?: string;
   maxTools?: number;
   maxTutorials?: number;
+  compact?: boolean;
 }
 
 export default function SearchIntentPanel({
@@ -19,6 +20,7 @@ export default function SearchIntentPanel({
   className = "",
   maxTools = 3,
   maxTutorials = 3,
+  compact = false,
 }: SearchIntentPanelProps) {
   const isEn = useLocale() === "en";
   const result = useMemo(
@@ -42,7 +44,37 @@ export default function SearchIntentPanel({
     emptyTools: isEn ? "No strong tool match yet. Try one of the suggested queries above." : "暂无强匹配工具，可尝试上方热门关键词。",
     emptyTutorials: isEn ? "No strong tutorial match yet. Try one of the suggested queries above." : "暂无强匹配教程，可尝试上方热门关键词。",
     reason: isEn ? "Match Logic" : "命中逻辑",
+    quickTags: isEn ? "Suggestions" : "联想标签",
   };
+
+  if (compact) {
+    return (
+      <div className={className}>
+        <div className="mb-2 flex items-center justify-between gap-2">
+          <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
+            {text.quickTags}
+          </span>
+          {hasQuery && result.matchedIntentLabels.length > 0 ? (
+            <span className="rounded-full bg-primary-50 px-2 py-0.5 text-[11px] text-primary-700 dark:bg-primary-900/30 dark:text-primary-300">
+              {result.matchedIntentLabels.slice(0, 1).join(" / ")}
+            </span>
+          ) : null}
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {result.suggestedQueries.map((keyword) => (
+            <button
+              key={keyword}
+              type="button"
+              onClick={() => onQuerySelect(keyword)}
+              className="rounded-full border border-slate-200/80 bg-slate-50 px-3 py-1.5 text-xs text-slate-700 transition-colors hover:bg-primary-50 hover:text-primary-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-primary-900/30 dark:hover:text-primary-300"
+            >
+              {keyword}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section
