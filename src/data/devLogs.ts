@@ -133,7 +133,7 @@ export const devLogs: DevLogEntry[] = [
   {
     id: 'home-podcast-polish-2026-03-06',
     version: '共创 06',
-    date: '2026-03-06',
+    date: '2026-03-05',
     timelineTitle: {
       zh: '首页灯下白卡片白天/黑夜版定稿',
       en: 'Homepage podcast card finalized for day/night',
