@@ -10,6 +10,7 @@ interface CopyButtonProps {
   failedLabel?: string;
   className?: string;
   enableNativeShare?: boolean;
+  preferWechatLaunch?: boolean;
 }
 
 export default function CopyButton({
@@ -18,7 +19,8 @@ export default function CopyButton({
   copiedLabel,
   failedLabel,
   className,
-  enableNativeShare = false
+  enableNativeShare = false,
+  preferWechatLaunch = false
 }: CopyButtonProps) {
   const {copy, copied} = useClipboard();
   const [failed, setFailed] = React.useState(false);
@@ -31,14 +33,27 @@ export default function CopyButton({
   const handleClick = React.useCallback(async () => {
     const shareText = text || (typeof window !== 'undefined' ? window.location.href : '');
     const isWeChatBrowser = typeof navigator !== 'undefined' && /MicroMessenger/i.test(navigator.userAgent);
+    const isMobileBrowser = typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    if (isWeChatBrowser) {
-      const copiedInWeChat = await copy(shareText);
-      if (copiedInWeChat) {
-        window.alert('链接已复制。请点击微信右上角“...”后选择“发送给朋友”，并粘贴链接发送。');
-      } else if (typeof window !== 'undefined') {
+    const fallbackToCopyAndHint = async (hintText: string) => {
+      const copiedInFallback = await copy(shareText);
+      if (copiedInFallback) {
+        if (typeof window !== 'undefined') {
+          if (preferWechatLaunch && isMobileBrowser && !isWeChatBrowser) {
+            window.location.href = 'weixin://dl/chat';
+          }
+          window.alert(hintText);
+        }
+        return;
+      }
+
+      if (typeof window !== 'undefined') {
         window.prompt('请手动复制以下链接后，在微信中发送：', shareText);
       }
+    };
+
+    if (isWeChatBrowser) {
+      await fallbackToCopyAndHint('链接已复制。请点击微信右上角“...”后选择“发送给朋友”，并粘贴链接发送。');
       return;
     }
 
@@ -55,13 +70,19 @@ export default function CopyButton({
     }
 
     const ok = await copy(shareText);
-    if (!ok) {
-      showTemporaryFailedState();
-      if (typeof window !== 'undefined') {
-        window.prompt('复制失败，请手动复制以下链接：', shareText);
+    if (ok) {
+      if (preferWechatLaunch && isMobileBrowser && typeof window !== 'undefined') {
+        window.location.href = 'weixin://dl/chat';
+        window.alert('链接已复制，已尝试打开微信。请在微信聊天窗口粘贴并发送。');
       }
+      return;
     }
-  }, [copy, enableNativeShare, showTemporaryFailedState, text]);
+
+    showTemporaryFailedState();
+    if (typeof window !== 'undefined') {
+      window.prompt('复制失败，请手动复制以下链接：', shareText);
+    }
+  }, [copy, enableNativeShare, preferWechatLaunch, showTemporaryFailedState, text]);
 
   return (
     <button

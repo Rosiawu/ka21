@@ -221,6 +221,7 @@ export default function SearchContent() {
                 label={tSearch('shareResults')}
                 copiedLabel={tSearch('linkCopied')}
                 enableNativeShare
+                preferWechatLaunch
               />
             </div>
           )}
