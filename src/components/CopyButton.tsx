@@ -11,6 +11,7 @@ interface CopyButtonProps {
   className?: string;
   enableNativeShare?: boolean;
   preferWechatLaunch?: boolean;
+  wechatShareReady?: boolean;
 }
 
 export default function CopyButton({
@@ -20,7 +21,8 @@ export default function CopyButton({
   failedLabel,
   className,
   enableNativeShare = false,
-  preferWechatLaunch = false
+  preferWechatLaunch = false,
+  wechatShareReady = false
 }: CopyButtonProps) {
   const {copy, copied} = useClipboard();
   const [failed, setFailed] = React.useState(false);
@@ -92,6 +94,10 @@ export default function CopyButton({
     };
 
     if (isWeChatBrowser) {
+      if (wechatShareReady) {
+        window.alert('已启用微信分享。请点击微信右上角“...”后选择“发送给朋友”或“分享到朋友圈”。');
+        return;
+      }
       await fallbackToCopyAndHint('链接已复制。请点击微信右上角“...”后选择“发送给朋友”，并粘贴链接发送。');
       return;
     }
@@ -125,7 +131,7 @@ export default function CopyButton({
     if (typeof window !== 'undefined') {
       window.prompt('复制失败，请手动复制以下链接：', shareText);
     }
-  }, [copy, enableNativeShare, preferWechatLaunch, showTemporaryFailedState, text]);
+  }, [copy, enableNativeShare, preferWechatLaunch, showTemporaryFailedState, text, wechatShareReady]);
 
   return (
     <button

@@ -262,6 +262,8 @@ MIT License
 - `NEXT_PUBLIC_DEEPSEEK_API_KEY`：供 `ChatWidget` 使用的大模型 API Key
 - `NEXT_PUBLIC_DEEPSEEK_API_URL`：大模型服务地址（默认 `https://api.deepseek.com/v1/chat/completions`）
 - `NEXT_PUBLIC_ENABLE_AI_ASSISTANT`：是否启用 AI 助手（默认 false）
+- `WECHAT_APP_ID`：微信公众号 AppID（用于微信内 H5 右上角分享签名）
+- `WECHAT_APP_SECRET`：微信公众号 AppSecret（用于获取 `jsapi_ticket`）
 
 示例：
 
@@ -270,6 +272,8 @@ NEXT_PUBLIC_CLARITY_ID=your-clarity-project-id
 NEXT_PUBLIC_DEEPSEEK_API_KEY=your-deepseek-key
 NEXT_PUBLIC_DEEPSEEK_API_URL=https://api.deepseek.com/v1/chat/completions
 NEXT_PUBLIC_ENABLE_AI_ASSISTANT=true
+WECHAT_APP_ID=wx1234567890abcdef
+WECHAT_APP_SECRET=your-wechat-app-secret
 ```
 
 ## 构建校验与脚本

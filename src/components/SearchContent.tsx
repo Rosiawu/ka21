@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import ToolList from '@/components/ToolList';
 import toolsData from '@/data/tools.json';
@@ -16,6 +16,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import FilterChip from '@/components/FilterChip';
 import CopyButton from '@/components/CopyButton';
 import { buildSearchUrl } from '@/utils/buildSearchUrl';
+import useWeChatShare from '@/hooks/useWeChatShare';
 
 const allTools = toolsData.tools as Tool[];
 if (!validateTools(allTools)) {
@@ -89,6 +90,25 @@ export default function SearchContent() {
     if (!isMissing) return val;
     return undefined;
   })() : null;
+
+  const shareData = useMemo(() => {
+    const link = typeof window !== 'undefined' ? window.location.href.split('#')[0] : '';
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const title = searchQuery
+      ? `KA21 搜索结果：${searchQuery}`
+      : categoryName
+        ? `KA21 工具分类：${categoryName}`
+        : 'KA21 AI牛马库';
+
+    return {
+      title,
+      desc: 'KA21 工具导航只收录亲测好用的 AI 工具，帮你快速找到靠谱工具。',
+      link,
+      imgUrl: `${origin}/KA21.png`
+    };
+  }, [categoryName, searchQuery]);
+
+  const { isWeChat, ready: wechatShareReady } = useWeChatShare(shareData);
 
   return (
     <div className="relative overflow-hidden">
@@ -222,6 +242,7 @@ export default function SearchContent() {
                 copiedLabel={tSearch('linkCopied')}
                 enableNativeShare
                 preferWechatLaunch
+                wechatShareReady={isWeChat && wechatShareReady}
               />
             </div>
           )}
