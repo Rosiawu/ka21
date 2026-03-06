@@ -29,26 +29,32 @@ export default function CopyButton({
   }, []);
 
   const handleClick = React.useCallback(async () => {
+    const shareText = text || (typeof window !== 'undefined' ? window.location.href : '');
+
     if (enableNativeShare && typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
       try {
-        await navigator.share({url: text});
+        await navigator.share({url: shareText});
         return;
       } catch (e) {
-        const isAbort = e instanceof DOMException && e.name === 'AbortError';
+        const isAbort = typeof e === 'object' && e !== null && 'name' in e && (e as {name?: string}).name === 'AbortError';
         if (isAbort) {
           return;
         }
       }
     }
 
-    const ok = await copy(text);
+    const ok = await copy(shareText);
     if (!ok) {
       showTemporaryFailedState();
+      if (typeof window !== 'undefined') {
+        window.prompt('复制失败，请手动复制以下链接：', shareText);
+      }
     }
   }, [copy, enableNativeShare, showTemporaryFailedState, text]);
 
   return (
     <button
+      type="button"
       onClick={handleClick}
       className={className || 'inline-flex items-center px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors'}
       aria-live="polite"
