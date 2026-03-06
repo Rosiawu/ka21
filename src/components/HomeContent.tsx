@@ -422,7 +422,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                     </span>
                   </span>
 
-                  <span className="inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 self-center rounded-full bg-white px-3 text-[14px] font-semibold text-slate-900 sm:h-auto sm:w-[208px] sm:px-4 sm:py-2 sm:text-[17px]">
+                  <span className="home-podcast-cta inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 self-center rounded-full px-3 text-[14px] font-semibold sm:h-auto sm:w-[208px] sm:px-4 sm:py-2 sm:text-[17px]">
                     <span>{spotlightPodcast.cta}</span>
                     <i className="fas fa-arrow-up-right-from-square text-sm"></i>
                   </span>

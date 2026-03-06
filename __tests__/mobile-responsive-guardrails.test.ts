@@ -30,9 +30,17 @@ describe('mobile responsive guardrails', () => {
   test('podcast card keeps only mobile listen hint under the title', () => {
     const content = read('src/components/HomeContent.tsx');
     expect(content).toContain("cta: isEn ? 'Tap to listen' : '点击收听'");
-    expect(content).toContain('inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 self-center');
+    expect(content).toContain('home-podcast-cta inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 self-center');
     expect(content).toContain('whitespace-nowrap text-[clamp(1.75rem,7vw,2.6rem)]');
     expect(content).toContain('w-full flex-col items-start gap-2 sm:max-w-[410px] sm:flex-row');
+  });
+
+  test('podcast cta uses an explicit theme-safe class instead of bg-white utilities', () => {
+    const home = read('src/components/HomeContent.tsx');
+    const css = read('src/app/globals.css');
+    expect(home).toContain('home-podcast-cta');
+    expect(css).toContain('.home-podcast-cta');
+    expect(css).toContain('.dark .home-podcast-cta');
   });
 
   test('tutorial carousel arrows stay hidden on small screens', () => {
