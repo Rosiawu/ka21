@@ -28,6 +28,50 @@ export type DevLogEntry = {
 
 export const devLogs: DevLogEntry[] = [
   {
+    id: 'home-podcast-polish-2026-03-06',
+    version: '共创 06',
+    date: '2026-03-06',
+    timelineTitle: {
+      zh: '首页灯下白卡片白天/黑夜版定稿',
+      en: 'Homepage podcast card finalized for day/night',
+    },
+    cardTitle: {
+      zh: '首页灯下白卡片白天/黑夜版定稿',
+      en: 'Homepage podcast card finalized for day/night',
+    },
+    body: {
+      zh: `今天把首页最重要的一块，终于磨到了可发布状态。
+
+这轮主要做了四件事：
+1. 统一了白天模式和黑夜模式的视觉版本，保留同一套结构但分别使用正确的 Logo 呈现。
+2. 把 KA21 Logo 区域和灯下白推荐卡片重新对齐，修复左右视觉重量不平衡的问题。
+3. 调整了灯下白封面图的裁切与缩放，让“灯 + 光束”在移动端和网页端都更明显，不再显得过小。
+4. 在移动端卡片里补上“和AI圈高手的真实对话”，保证关键信息在首屏可见。
+
+最后一版看起来已经是可交付状态：结构清晰、信息层级稳定、跨端一致性也达到预期。`,
+      en: `The homepage podcast section was polished to a release-ready state today.
+
+This round focused on four items:
+1. Finalized both light and dark mode variants with the same layout structure and correct logo usage.
+2. Realigned the KA21 logo block and the podcast recommendation card to fix left-right visual imbalance.
+3. Tuned podcast logo crop/scale so the lamp and beam are clearly visible on both mobile and desktop.
+4. Added a mobile-only key line: “Real conversations with AI leaders,” so the core value is visible above the fold.
+
+The final snapshot is now stable for release: clear structure, better hierarchy, and consistent cross-device presentation.`,
+    },
+    imageSlotLabel: {
+      zh: '图片位 06：首页灯下白白天/黑夜定稿截图（待上传）',
+      en: 'Image slot 06: final home snapshots for light/dark modes (upload later)',
+    },
+    relatedLink: {
+      label: {
+        zh: '灯下白 EP01（点击收听）',
+        en: 'Lamp Under the Light EP01',
+      },
+      href: 'https://www.xiaoyuzhoufm.com/episodes/69a69588de29766da93ec01b',
+    },
+  },
+  {
     id: 'podcast-guest-4',
     version: '共创 05',
     date: '2026-03-06',
