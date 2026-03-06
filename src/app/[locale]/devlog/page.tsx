@@ -36,7 +36,6 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
       ? 'The build notes are open and transparent. Every small iteration is documented.'
       : '建站过程公开透明，每一次小步迭代都记录在这里。',
     backHome: isEn ? 'Back to Home' : '返回首页',
-    imageSlotTitle: isEn ? 'Image slot reserved' : '图片位已预留',
   };
 
   return (
@@ -124,7 +123,6 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
               </p>
 
               <div className="mt-4 rounded-xl border-2 border-dashed border-purple-200 dark:border-purple-700/50 bg-purple-50/40 dark:bg-purple-900/20 p-4">
-                <p className="text-sm font-medium text-purple-700 dark:text-purple-300 mb-2">{text.imageSlotTitle}</p>
                 <div className="rounded-lg border border-purple-200/80 dark:border-purple-700/40 bg-white/80 dark:bg-slate-900/50 p-3 text-sm text-slate-600 dark:text-slate-300">
                   {log.images && log.images.length > 0 ? (
                     <DevLogImageCarousel images={log.images} isEn={isEn} />

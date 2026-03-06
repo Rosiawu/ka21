@@ -109,14 +109,6 @@ export default function DevLogImageCarousel({ images, isEn }: Props) {
 
   return (
     <div className="space-y-3">
-      {images.length > 2 && (
-        <p className="text-xs text-slate-500 dark:text-slate-400">
-          {isEn
-            ? `Shows 2 cards first. Swipe left/right to browse all ${images.length} images.`
-            : `默认先看到 2 张卡片，左右滑动可查看全部 ${images.length} 张。`}
-        </p>
-      )}
-
       <div className="relative rounded-2xl border border-indigo-100/80 bg-gradient-to-br from-white to-indigo-50/50 p-2 sm:p-3 shadow-[0_12px_30px_rgba(99,102,241,0.10)] dark:border-slate-700/70 dark:from-slate-900/80 dark:to-slate-900/60 dark:shadow-none">
         <div
           ref={trackRef}
