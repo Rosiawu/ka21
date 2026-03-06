@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter, useParams } from 'next/navigation';
 import ToolList from '@/components/ToolList';
 import toolsData from '@/data/tools.json';
 import { Tool, ToolCategoryId } from '@/lib/types';
@@ -32,8 +32,16 @@ export default function SearchContent() {
   const tCategoryDesc = useTranslations('CategoryDesc');
   const searchParams = useSearchParams();
   const router = useRouter();
+  const params = useParams<{ locale?: string; category?: string }>();
+  const locale = params?.locale || 'zh';
   const searchQuery = searchParams.get('q') || '';
-  const categoryParam = searchParams.get('category') as ToolCategoryId | null;
+  const categoryFromPath = params?.category || null;
+  const categoryFromQuery = searchParams.get('category');
+  const rawCategoryParam = categoryFromPath || categoryFromQuery;
+  const categoryParam = (
+    rawCategoryParam &&
+    TOOL_CATEGORIES.some(cat => cat.id === rawCategoryParam)
+  ) ? (rawCategoryParam as ToolCategoryId) : null;
 
   const [sortMethod, setSortMethod] = useState<SortMethod>('default');
   const [inputValue, setInputValue] = useState(searchQuery);
@@ -68,7 +76,12 @@ export default function SearchContent() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
-    router.push(buildSearchUrl({ q: inputValue.trim(), category: categoryParam }));
+    const qs = buildSearchUrl({
+      q: inputValue.trim(),
+      category: categoryParam,
+      basePath: `/${locale}/search`
+    });
+    router.push(qs);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -92,8 +105,10 @@ export default function SearchContent() {
   })() : null;
 
   const shareData = useMemo(() => {
-    const link = typeof window !== 'undefined' ? window.location.href.split('#')[0] : '';
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const link = categoryParam && !searchQuery
+      ? `${origin}/${locale}/search/${categoryParam}`
+      : (typeof window !== 'undefined' ? window.location.href.split('#')[0] : '');
     const title = searchQuery
       ? `KA21 搜索结果：${searchQuery}`
       : categoryName
@@ -106,7 +121,7 @@ export default function SearchContent() {
       link,
       imgUrl: `${origin}/KA21.png`
     };
-  }, [categoryName, searchQuery]);
+  }, [categoryName, categoryParam, locale, searchQuery]);
 
   const { isWeChat, ready: wechatShareReady } = useWeChatShare(shareData);
 
@@ -166,7 +181,11 @@ export default function SearchContent() {
                   type="button"
                   onClick={() => {
                     setInputValue('');
-                    router.push(buildSearchUrl({ category: categoryParam }));
+                    if (categoryParam) {
+                      router.push(`/${locale}/search/${categoryParam}`);
+                    } else {
+                      router.push(`/${locale}/search`);
+                    }
                   }}
                   className="absolute inset-y-0 right-12 flex items-center pr-2 text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                 >
@@ -204,7 +223,11 @@ export default function SearchContent() {
                       prefix={tSearch('categoryPrefix')}
                       label={categoryName}
                       onRemove={() => {
-                        router.push(buildSearchUrl({ q: searchQuery || undefined }));
+                        if (searchQuery) {
+                          router.push(`/${locale}/search?q=${encodeURIComponent(searchQuery)}`);
+                        } else {
+                          router.push(`/${locale}`);
+                        }
                       }}
                     />
                   )}
@@ -213,7 +236,11 @@ export default function SearchContent() {
                       prefix={tSearch('searchPrefix')}
                       label={searchQuery}
                       onRemove={() => {
-                        router.push(buildSearchUrl({ category: categoryParam || undefined }));
+                        if (categoryParam) {
+                          router.push(`/${locale}/search/${categoryParam}`);
+                        } else {
+                          router.push(`/${locale}`);
+                        }
                       }}
                     />
                   )}
@@ -237,7 +264,7 @@ export default function SearchContent() {
           {(searchQuery || categoryParam) && (
             <div className="relative z-20 mt-8 flex justify-center">
               <CopyButton
-                text={typeof window !== 'undefined' ? window.location.href : ''}
+                text={shareData.link}
                 label={tSearch('shareResults')}
                 copiedLabel={tSearch('linkCopied')}
                 enableNativeShare
