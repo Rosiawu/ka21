@@ -92,6 +92,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     description: isEn
       ? 'Direct access to the Lamp Under The Light episode page.'
       : '首页直达《灯下白》节目页，一键点击即可收听最新内容。',
+    mobileSubline: isEn ? 'Real conversations with AI leaders' : '和AI圈高手的真实对话',
     cta: isEn ? 'Tap to listen' : '点击收听',
     note: isEn ? 'Open episode page' : '点击打开节目页',
     logoAlt: isEn ? 'Lamp Under The Light podcast logo' : '灯下白播客 Logo',
@@ -409,6 +410,9 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       </span>
                       <span className="mt-1 hidden line-clamp-2 text-[11px] text-slate-300/85 sm:block sm:text-sm">
                         {spotlightPodcast.description}
+                      </span>
+                      <span className="mt-1 block line-clamp-1 text-[12px] font-semibold text-slate-200 sm:hidden">
+                        {spotlightPodcast.mobileSubline}
                       </span>
                     </span>
                   </span>
