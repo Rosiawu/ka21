@@ -239,7 +239,7 @@ export default function UnifiedSearchContent() {
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-200/30 dark:bg-primary-900/20 rounded-full blur-3xl"></div> {/* 右上角背景装饰 */}
       <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-purple-200/30 dark:bg-purple-900/20 rounded-full blur-3xl"></div> {/* 左下角背景装饰 */}
       
-      <div className="container mx-auto px-3 sm:px-4 py-6"> {/* 内容容器 */}
+      <div className="page-shell py-6"> {/* 内容容器 */}
         <div className="max-w-8xl mx-auto"> {/* 最大宽度容器 */}
           {/* 页面标题 */}
           <div className="mb-8 text-center"> {/* 标题区域 */}
@@ -280,7 +280,7 @@ export default function UnifiedSearchContent() {
                 }}
               />
 
-              <div className="mt-4 flex items-center justify-between gap-3">
+              <div className="mt-4 flex flex-col items-stretch justify-between gap-3 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
                     <i className="fas fa-comments text-[11px]"></i>
@@ -292,7 +292,7 @@ export default function UnifiedSearchContent() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-end gap-2">
                   {inputValue && (
                     <button
                       type="button"

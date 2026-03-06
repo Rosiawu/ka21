@@ -95,7 +95,7 @@ export default function SearchContent() {
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-200/30 dark:bg-primary-900/20 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-purple-200/30 dark:bg-purple-900/20 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto px-3 sm:px-4 py-6">
+      <div className="page-shell py-6">
         <div className="max-w-8xl mx-auto">
           <div className="mb-8 text-center">
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl mb-2">

@@ -60,7 +60,7 @@ export default function AboutPage({ params }: { params?: { locale?: string } }) 
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 relative">
+    <div className="page-shell relative py-8">
       {/* 背景装饰 */}
       <div className="absolute top-20 right-0 -z-10 transform translate-x-1/3">
         <div className="w-72 h-72 bg-indigo-400/10 dark:bg-indigo-400/5 rounded-full blur-3xl"></div>

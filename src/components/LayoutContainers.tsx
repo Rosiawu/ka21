@@ -140,7 +140,7 @@ export default function LayoutContainers({
             transition: 'transform 0.3s ease-in-out'
           }}
         >
-          <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+          <div className="page-shell flex h-16 items-center justify-between sm:px-6">
             {/* 移动端菜单按钮 */}
             <button
               id="mobileMenuButton"
@@ -161,7 +161,7 @@ export default function LayoutContainers({
             </div>
 
             {/* 工具按钮（主题切换、语言切换、提交工具） */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center gap-1.5 sm:gap-3">
               <ThemeToggle />
               <Suspense fallback={null}>
                 <LocaleToggle />
@@ -170,9 +170,11 @@ export default function LayoutContainers({
                 href="https://y9bogpjyql.feishu.cn/share/base/form/shrcnxbOdZQKp3Js9QTo1lvRMIe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 px-4 py-2 rounded-md font-semibold bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow hover:from-purple-600 hover:to-pink-600 transition-colors"
+                aria-label={tCommon('submitTool')}
+                className="ml-1 inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 px-3 text-sm font-semibold text-white shadow transition-colors hover:from-purple-600 hover:to-pink-600 sm:ml-2 sm:px-4"
               >
-                {tCommon('submitTool')}
+                <i className="fas fa-plus text-xs" aria-hidden="true"></i>
+                <span className="hidden sm:inline">{tCommon('submitTool')}</span>
               </a>
             </div>
           </div>

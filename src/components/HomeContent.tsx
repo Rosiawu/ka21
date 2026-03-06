@@ -337,17 +337,17 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   };
   
   return (
-    <div className="relative overflow-hidden pb-24 bg-transparent">
+    <div className="relative overflow-x-clip pb-24 bg-transparent">
       
-      <div className="container mx-auto px-3 sm:px-4 py-6">
+      <div className="page-shell py-6">
         <div className="max-w-8xl mx-auto">
           {/* 主标题区域 */}
           <div className="mb-8">
             <div className="mx-auto max-w-5xl">
-              <div className="mb-2 grid grid-cols-1 gap-3 sm:grid-cols-[260px_minmax(0,1fr)] sm:gap-4">
+              <div className="mb-2 grid grid-cols-2 gap-3 sm:grid-cols-[260px_minmax(0,1fr)] sm:gap-4">
                 <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
                   <div
-                    className="flex h-[220px] w-[220px] items-center justify-center rounded-3xl border bg-white shadow-[0_10px_24px_rgba(15,23,42,0.10)]"
+                    className="flex h-[176px] w-full items-center justify-center rounded-3xl border bg-white shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px]"
                     style={{ borderColor: 'rgba(200,180,125,0.55)', backgroundColor: '#ffffff' }}
                   >
                     <Logo size="large" variant="black" className="dark:hidden" />
@@ -365,37 +365,37 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       podcast: 'dengxiaobai',
                     });
                   }}
-                  className="inline-flex h-[220px] w-full items-center justify-between gap-4 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-4 py-3 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)]"
+                  className="inline-flex h-[176px] w-full flex-col justify-between gap-3 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-3 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
                   aria-label={`${spotlightPodcast.title} - ${spotlightPodcast.note}`}
                 >
-                  <span className="flex min-w-0 items-center gap-4 max-w-[410px]">
-                    <span className="inline-flex h-[84px] w-[84px] shrink-0 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/20 bg-black/45">
+                  <span className="flex min-w-0 w-full items-start gap-2.5 sm:max-w-[410px] sm:items-center sm:gap-4">
+                    <span className="inline-flex h-[52px] w-[52px] shrink-0 items-center justify-center overflow-hidden rounded-[1.1rem] border border-white/20 bg-black/45 sm:h-[84px] sm:w-[84px] sm:rounded-[1.25rem]">
                       <Image
                         src="/images/podcast/dengxiabai-logo-official.png"
                         alt={spotlightPodcast.logoAlt}
                         width={72}
                         height={72}
-                        className="h-[58px] w-[58px] object-contain"
+                        className="h-[36px] w-[36px] object-contain sm:h-[58px] sm:w-[58px]"
                       />
                     </span>
 
                     <span className="min-w-0 leading-tight">
-                      <span className="inline-flex rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2.5 py-[2px] text-[11px] font-semibold text-[#e7cd8b]">
+                      <span className="inline-flex rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2 py-[2px] text-[10px] font-semibold text-[#e7cd8b] sm:px-2.5 sm:text-[11px]">
                         {spotlightPodcast.tag}
                       </span>
-                      <span className="mt-1.5 block text-[44px] leading-[0.92] font-extrabold tracking-tight text-white sm:text-[48px]">
+                      <span className="mt-1.5 block text-[28px] leading-[0.94] font-extrabold tracking-tight text-white sm:text-[48px] sm:leading-[0.92]">
                         {spotlightPodcast.title}
                       </span>
-                      <span className="mt-1 block truncate text-[16px] font-semibold text-slate-200">
+                      <span className="mt-1 block line-clamp-2 text-[12px] font-semibold text-slate-200 sm:line-clamp-1 sm:text-[16px]">
                         {spotlightPodcast.subtitle}
                       </span>
-                      <span className="mt-1 block truncate text-sm text-slate-300/85">
+                      <span className="mt-1 hidden line-clamp-2 text-[11px] text-slate-300/85 sm:block sm:text-sm">
                         {spotlightPodcast.description}
                       </span>
                     </span>
                   </span>
 
-                  <span className="shrink-0 inline-flex w-[208px] items-center justify-center rounded-full bg-white px-4 py-2 text-[17px] font-semibold text-slate-900">
+                  <span className="inline-flex w-full shrink-0 items-center justify-center rounded-full bg-white px-3 py-2 text-[14px] font-semibold text-slate-900 sm:w-[208px] sm:px-4 sm:text-[17px]">
                     {spotlightPodcast.cta}
                     <i className="fas fa-arrow-up-right-from-square ml-2 text-sm"></i>
                   </span>
@@ -440,7 +440,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 }}
               />
 
-              <div className="mt-4 flex items-center justify-between gap-3">
+              <div className="mt-4 flex flex-col items-stretch justify-between gap-3 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
                     <i className="fas fa-comments text-[11px]"></i>
@@ -458,7 +458,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                   )}
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-end gap-2">
                   {searchQuery && (
                     <button
                       type="button"
@@ -643,7 +643,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                   </div>
                   
                   {/* 滚动指示器和按钮 */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+                  <div className="absolute left-0 top-1/2 z-10 hidden -translate-y-1/2 sm:block">
                     <button 
                       className="bg-white/80 dark:bg-slate-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
                       aria-label={tHome('scrollLeft')}
@@ -675,7 +675,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                     </button>
                   </div>
                   
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+                  <div className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 sm:block">
                     <button 
                       className="bg-white/80 dark:bg-slate-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
                       aria-label={tHome('scrollRight')}

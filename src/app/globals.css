@@ -53,6 +53,29 @@ body {
   background: var(--background);
 }
 
+.page-shell {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .page-shell {
+    max-width: 1536px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 /* 自定义滚动条 */
 ::-webkit-scrollbar {
   width: 6px;

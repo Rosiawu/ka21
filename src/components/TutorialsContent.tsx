@@ -1,12 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
 import { tutorials, Tutorial, sortTutorials, TutorialSortMethod, DifficultyLevel } from '@/data/tutorials';
-import { useMediaQuery } from '@/hooks/useMediaQuery'; // 引入媒体查询钩子
-import DifficultyBadge from './DifficultyBadge';
-import { getCategoryColor, localizeTutorialCategory } from '@/utils/tutorials';
+import { localizeTutorialCategory } from '@/utils/tutorials';
+import TutorialCard from './TutorialCard';
 import {
   type CoreScenarioId,
   getCoreScenarioAliases,
@@ -17,140 +15,6 @@ import {
   serializeTagsForTelemetry,
 } from '@/lib/coreTaxonomy';
 import { setTag, trackUserAction } from '@/utils/clarity';
-
-/**
- * 教程标签组件
- */
-const TutorialTag = ({ scenario, isEn }: { scenario: string; isEn: boolean }) => (
-  <span className={`px-2 py-0.5 ${getCategoryColor(scenario)} text-white text-xs font-medium rounded-md`}>
-    {localizeTutorialCategory(scenario, isEn ? 'en' : 'zh')}
-  </span>
-);
-
-/**
- * 教程卡片组件 - 优化移动端交互和布局
- */
-const TutorialCard = ({ 
-  tutorial, 
-  showDelete, 
-  onDelete,
-  isEn,
-}: { 
-  tutorial: Tutorial; 
-  showDelete: boolean; 
-  onDelete: (id: string) => void;
-  isEn: boolean;
-}) => {
-  const isMobile = useMediaQuery('(max-width: 767px)');
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  // 触摸反馈效果
-  const handleTouchStart = () => {
-    if (isMobile && cardRef.current) {
-      cardRef.current.style.transform = 'scale(0.98)';
-      cardRef.current.style.opacity = '0.9';
-    }
-  };
-  
-  const handleTouchEnd = () => {
-    if (isMobile && cardRef.current) {
-      cardRef.current.style.transform = 'scale(1)';
-      cardRef.current.style.opacity = '1';
-    }
-  };
-
-  return (
-    <div className="relative h-full group/card">
-      {showDelete && (
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            if (window.confirm(isEn
-              ? `Delete "${tutorial.title}"?\n\nThis will submit code changes to GitHub and trigger redeployment.`
-              : `确定要删除 "${tutorial.title}" 吗？\n\n这将提交代码变更到 GitHub 并触发重新部署。`
-            )) {
-              onDelete(tutorial.id);
-            }
-          }}
-          className="absolute -top-2 -right-2 z-30 bg-red-500 hover:bg-red-600 text-white w-8 h-8 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
-          title={isEn ? 'Delete tutorial' : '删除此教程'}
-        >
-          <i className="fas fa-trash text-xs"></i>
-        </button>
-      )}
-      <a 
-        href={tutorial.url} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="block h-full group"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        onTouchCancel={handleTouchEnd}
-      >
-        <article 
-          ref={cardRef}
-          className={`tool-card bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent ${showDelete ? 'ring-2 ring-red-500/20' : ''}`}
-          style={{ transition: 'transform 0.2s, opacity 0.2s' }}
-        >
-          <div className={`relative w-full ${isMobile ? 'h-28' : 'h-36'} overflow-hidden bg-gradient-to-r from-gray-100 to-slate-200 dark:from-gray-800 dark:to-slate-900`}>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Image 
-              src={tutorial.imageUrl} 
-              alt={tutorial.title} 
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 288px"
-              className="object-cover transform group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-              placeholder="blur"
-              blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48cmVjdCBpZD0iciIgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiNmNGY0ZjUiIC8+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0ib3BhY2l0eSIgdmFsdWVzPSIwLjU7MTswLjUiIGR1cj0iMnMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPjwvc3ZnPg=="
-              onError={(e) => {
-                // 图片加载失败时使用CSS生成的占位图
-                const target = e.target as HTMLImageElement;
-                // 使用一个默认的渐变背景作为图片
-                target.onerror = null; // 防止无限循环
-                target.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="288" height="144" viewBox="0 0 288 144"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23667eea;stop-opacity:1" /><stop offset="100%" style="stop-color:%23764ba2;stop-opacity:1" /></linearGradient></defs><rect width="288" height="144" fill="url(%23grad)" /><text x="50%" y="50%" font-family="Arial" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">${isEn ? 'Tutorial cover' : '教程图片'}</text></svg>`;
-              }}
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-          <div className="absolute top-2 right-2 z-10">
-            <DifficultyBadge level={tutorial.difficultyLevel} size="sm" />
-          </div>
-          <div className="absolute bottom-2 left-2 z-10">
-            <TutorialTag scenario={tutorial.primaryScenario || tutorial.category} isEn={isEn} />
-          </div>
-        </div>
-        <div className={`${isMobile ? 'p-2' : 'p-3'} flex-grow`}>
-          <h3 className={`font-bold ${isMobile ? 'text-sm' : 'text-base'} mb-1 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200`}>{tutorial.title}</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center flex-wrap gap-y-1 mb-1">
-            <span className="flex items-center mr-2">
-              <i className="fas fa-calendar-alt mr-1"></i>
-              {tutorial.publishDate}
-            </span>
-            <span className="flex items-center">
-              <i className="fas fa-user-edit mr-1"></i>
-              {tutorial.author}
-            </span>
-          </p>
-          {/* 推荐理由 */}
-          {tutorial.recommendReason && (
-            <div className="mt-2 text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/30 p-1.5 rounded line-clamp-3 italic">
-              <i className="fas fa-thumbs-up text-primary-500 mr-1"></i>
-              {tutorial.recommendReason}
-            </div>
-          )}
-          
-          <div className={`text-sm font-medium text-primary-600 dark:text-primary-400 flex items-center ${isMobile ? '' : 'group-hover:translate-x-1'} transition-transform duration-300 mt-1`}>
-            {isEn ? 'Read more' : '阅读全文'}
-            <i className={`fas fa-arrow-right ml-1 ${isMobile ? '' : 'group-hover:ml-2'} transition-all duration-300`}></i>
-          </div>
-        </div>
-      </article>
-    </a>
-    </div>
-  );
-};
 
 /**
  * 教程列表内容组件
@@ -165,8 +29,6 @@ export default function TutorialsContent() {
   const [difficultyFilter, setDifficultyFilter] = useState<DifficultyLevel | ''>('');
   const [sortMethod, setSortMethod] = useState<TutorialSortMethod>('latest');
   const [filteredTutorials, setFilteredTutorials] = useState<Tutorial[]>([]);
-  const isMobile = useMediaQuery('(max-width: 767px)');
-
   const [showImportForm, setShowImportForm] = useState(false);
   const [importUrl, setImportUrl] = useState('');
   const [importLoading, setImportLoading] = useState(false);
@@ -437,7 +299,7 @@ export default function TutorialsContent() {
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-200/30 dark:bg-primary-900/20 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-purple-200/30 dark:bg-purple-900/20 rounded-full blur-3xl"></div>
       
-      <div className="container mx-auto px-3 sm:px-4 py-6 relative z-10">
+      <div className="page-shell relative z-10 py-6">
         <div className="max-w-8xl mx-auto">
           {/* 页面标题 */}
           <div className="text-center mb-6 relative group">
@@ -617,10 +479,10 @@ export default function TutorialsContent() {
           {/* 1. 难度筛选选项卡 - 整体样式优化，更贴近图片 */}
           <div className="mb-6">
             <div className="flex justify-center">
-              <div className="flex w-full max-w-4xl rounded-lg shadow-sm overflow-hidden">
+              <div className="hide-scrollbar flex w-full max-w-4xl gap-2 overflow-x-auto rounded-lg sm:overflow-hidden sm:gap-0 sm:shadow-sm">
                 {/* 全部 - 深色背景 */}
                 <button
-                  className={`flex-1 py-2.5 text-center text-sm font-medium transition-colors flex items-center justify-center ${
+                  className={`inline-flex min-w-[132px] flex-1 items-center justify-center rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors sm:min-w-0 sm:rounded-none ${
                     difficultyFilter === '' 
                       ? 'bg-gray-800 text-white' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -634,7 +496,7 @@ export default function TutorialsContent() {
                 {/* 小白入门 - 绿色背景 */}
                 <button
                   key="小白入门"
-                  className={`flex-1 py-2.5 text-center text-sm font-medium transition-colors flex items-center justify-center ${
+                  className={`inline-flex min-w-[132px] flex-1 items-center justify-center rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors sm:min-w-0 sm:rounded-none ${
                     difficultyFilter === '小白入门' 
                       ? 'bg-green-100 text-green-800' 
                       : 'bg-green-50 text-gray-700 hover:bg-green-100'
@@ -648,7 +510,7 @@ export default function TutorialsContent() {
                 {/* 萌新进阶 - 蓝色背景 */}
                 <button
                   key="萌新进阶"
-                  className={`flex-1 py-2.5 text-center text-sm font-medium transition-colors flex items-center justify-center ${
+                  className={`inline-flex min-w-[132px] flex-1 items-center justify-center rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors sm:min-w-0 sm:rounded-none ${
                     difficultyFilter === '萌新进阶' 
                       ? 'bg-blue-100 text-blue-800' 
                       : 'bg-blue-50 text-gray-700 hover:bg-blue-100'
@@ -662,7 +524,7 @@ export default function TutorialsContent() {
                 {/* 高端玩家 - 紫色背景 */}
                 <button
                   key="高端玩家"
-                  className={`flex-1 py-2.5 text-center text-sm font-medium transition-colors flex items-center justify-center ${
+                  className={`inline-flex min-w-[132px] flex-1 items-center justify-center rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors sm:min-w-0 sm:rounded-none ${
                     difficultyFilter === '高端玩家' 
                       ? 'bg-purple-100 text-purple-800' 
                       : 'bg-purple-50 text-gray-700 hover:bg-purple-100'
@@ -754,7 +616,7 @@ export default function TutorialsContent() {
           </div>
           
           {/* 结果计数 */}
-          <div className="mb-4 flex justify-between items-center">
+          <div className="mb-4 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
             <div className="text-sm text-slate-600 dark:text-slate-400">
               {text.resultCount(filteredTutorials.length)}
             </div>
@@ -777,14 +639,14 @@ export default function TutorialsContent() {
           </div>
           
           {/* 教程列表 - 移动端使用紧凑网格布局 */}
-          <div className={`grid grid-cols-2 ${isMobile ? 'gap-2' : 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4'}`}>
+          <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
             {filteredTutorials.map(tutorial => (
               <div key={tutorial.id}>
                 <TutorialCard 
                   tutorial={tutorial} 
                   showDelete={showImportForm} 
                   onDelete={handleDeleteTutorial}
-                  isEn={isEn}
+                  showRecommendReason={true}
                 />
               </div>
             ))}

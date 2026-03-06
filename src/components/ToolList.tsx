@@ -211,7 +211,7 @@ export default function ToolList({
           </h2>
           
           {filteredTools.length > 0 ? ( // 如果有过滤后的工具
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"> {/* 响应式网格布局 */}
+            <div className="grid grid-cols-1 gap-3 min-[380px]:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"> {/* 响应式网格布局 */}
               {filteredTools.map(tool => ( // 遍历过滤后的工具
                 <ToolCard key={tool.id} tool={tool} /> // 渲染工具卡片组件
               ))}
