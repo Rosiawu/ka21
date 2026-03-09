@@ -1871,11 +1871,25 @@
       "recommendReason": "目前电脑端豆包输入法平替——闪电说，提升输入效率四倍！",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/AJa20SqCrzDpXicXGJCB9PCXGIlNNCjtRf08e7mmiabhb0MkVFf8dGs03StUmJg1JictPcvIdo5SSQEXFAIOg4eIt6yvf8xz2jx24CKZFLZs9c/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-让完美使用飞书文档和在飞书中流式输出-0",
+      "title": "让🦞完美使用飞书文档和在飞书中流式输出",
+      "description": "直接和龙虾发下面2个消息，就可以在飞书文档流式输出。",
+      "url": "https://mp.weixin.qq.com/s/xI5e0JcOCK_rkMWQiymiWg",
+      "source": "AI猫工头",
+      "publishDate": "2026-03-09",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "直接和龙虾发下面2个消息，就可以在飞书文档流式输出。",
+      "customImageUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/ib3hzeKedibj8KrxgaoiaialSNbW8UeGib4623iaNQ4mysD6VLiaCsz687lTdTLS9BqCJctshb5Bz3Go89ryAvRMfCV3T4TYgThMYghrVzt1aMp5ibk/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-09T02:01:43.805Z",
-    "count": 106
+    "updatedAt": "2026-03-09T14:46:20.830Z",
+    "count": 107
   }
 }
