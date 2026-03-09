@@ -3778,6 +3778,53 @@ module.exports = {
       "displayOrder": 300
     },
     {
+      "id": "pixpin",
+      "name": "PixPin",
+      "description": "免费全能截图工具。PixPin 把截图、贴图、长截图、OCR 和录屏整合到一个桌面工具里，适合日常办公、内容整理和做教程时快速取图与标注。",
+      "icon": "https://ka21.tools/icons/pixpin.png",
+      "url": "https://pixpin.cn/",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "截图、贴图、长截图、OCR、录屏一套装全，做资料整理和教程演示时很顺手。",
+          "author": "站内整理",
+          "createdAt": "2026-03-09",
+          "reviewType": "基于官网功能信息整理"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 区域截图与窗口截图\n2. 长截图拼接\n3. 图片贴屏展示\n4. OCR 文字识别\n5. 屏幕录制与 GIF 导出",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 下载并安装 PixPin\n2. 设置常用快捷键\n3. 选择截图或录屏模式\n4. 需要时直接标注或 OCR\n5. 导出图片、文字或录屏结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 这是桌面端工具，不是纯网页工具\n2. 不同系统支持能力以官方下载页为准\n3. 部分会员功能需要单独查看说明",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-09T00:00:00Z",
+      "updatedAt": "2026-03-09T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/pixpin.png"
+      },
+      "isVisible": true,
+      "displayOrder": 300,
+      "relatedTutorials": []
+    },
+    {
       "id": "veo",
       "name": "Google Veo",
       "description": "Google DeepMind推出的最强视频生成模型，能够生成高达4K分辨率的视频，支持电影级视觉效果和精确的物理模拟。提供强大的创意控制功能，包括故事板和视频扩展，是目前视频生成领域的顶尖工具。",

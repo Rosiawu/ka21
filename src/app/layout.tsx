@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter, Noto_Sans_SC } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 // 说明：移除 next/font/google，保障离线构建
 import Script from 'next/script';
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -82,6 +83,7 @@ export default async function RootLayout({
             {children}
           </ErrorBoundary>
         </ThemeProvider>
+        <Analytics />
 
         {/* 页面行为相关脚本已迁移至客户端布局容器组件 */}
       </body>

@@ -28,6 +28,81 @@ export type DevLogEntry = {
 
 export const devLogs: DevLogEntry[] = [
   {
+    id: 'timeline-swipe-finish-2026-03-07',
+    version: '共创 08',
+    date: '2026-03-07',
+    timelineTitle: {
+      zh: '时间轴终于能滑着看了，预览也终于稳住了',
+      en: 'Timeline now swipes smoothly and preview is stable',
+    },
+    cardTitle: {
+      zh: '时间轴终于能滑着看了，预览也终于稳住了',
+      en: 'Timeline now swipes smoothly and preview is stable',
+    },
+    body: {
+      zh: `今天这条，主打一个“把体验抹平”。
+
+我一直觉得开发日志这块不该是死板三宫格。
+它本来就应该像时间线一样，能左右滑着看，轻一点，顺一点，像在翻大家一起写下来的过程。
+
+所以这次我做了三件事：
+1. 把首页开发日志从固定排布改成横向滑动时间轴。
+2. 补上左右切换箭头和圆点定位，手机滑、桌面点，都能走。
+3. 把交互细节重新收紧，保证卡片吸附、阅读节奏和点击路径都更清楚。
+
+中间也踩坑了。
+一度是“看起来启动了，但预览就是打不开”。
+最后我把本地服务方式改成持续运行，才把这个问题彻底摁住。
+那一刻就一个感受：有些bug不是难，是烦，但不清掉就永远卡在喉咙里。
+
+今天没有加新花活，
+但我把“看起来小、实际很影响使用”的地方又往前推了一步。
+这个网站不是我一个人写给自己看的，
+是我们这群人要一起长期用的，所以这些细节值得反复打磨。`,
+      en: `Today was about smoothing the experience.
+
+I refactored the devlog area from a fixed grid into a horizontal timeline, added arrow navigation and dot indicators, and tightened interaction details so snap, reading rhythm, and click paths feel clearer.
+
+The tricky part was preview stability: it looked started but the page would not open. I switched to a persistent local dev-server workflow and stabilized it.
+
+No flashy feature today, but a lot of small friction points were removed. These details matter because this site is built for long-term co-creation and daily use.`,
+    },
+    imageSlotLabel: {
+      zh: '图片位 08：时间轴滑动与预览稳定性调优截图（4张）',
+      en: 'Image slot 08: timeline swipe and preview stability snapshots (4 images)',
+    },
+    images: [
+      {
+        src: '/images/devlog/co-create-08-1.png',
+        alt: {
+          zh: '开发日志区横向时间轴效果截图 1',
+          en: 'Devlog horizontal timeline snapshot 1',
+        },
+      },
+      {
+        src: '/images/devlog/co-create-08-2.png',
+        alt: {
+          zh: '开发日志区横向时间轴效果截图 2',
+          en: 'Devlog horizontal timeline snapshot 2',
+        },
+      },
+      {
+        src: '/images/devlog/co-create-08-3.png',
+        alt: {
+          zh: '开发日志区横向时间轴效果截图 3',
+          en: 'Devlog horizontal timeline snapshot 3',
+        },
+      },
+      {
+        src: '/images/devlog/co-create-08-4.png',
+        alt: {
+          zh: '提交记录与迭代结果截图',
+          en: 'Commit history and iteration result snapshot',
+        },
+      },
+    ],
+  },
+  {
     id: 'mobile-adaptation-battle-2026-03-06',
     version: '共创 07',
     date: '2026-03-06',
