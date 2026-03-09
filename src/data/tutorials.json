@@ -1843,11 +1843,25 @@
       "recommendReason": "这篇都是实战经验，包括skills下载，养虾技巧，以及最重要的救虾流程。看完你至少能少走很多弯路，关键时候还能把你的龙虾救回来。",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/T8lDbHpgVxLBiatrnSQXT5Rco2qqqDC7x87L7XSkBpicRjBpRgItEZCZI77tZYA7EF8znw1N8icD15WEXLJE7oIqURiaib2H2FekBI3sIfk51fiaU/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-实操保姆级拆解AI自动化SOP四步法从选题配图到-0",
+      "title": "【实操】保姆级拆解AI自动化SOP四步法，从选题、配图到排版全自动",
+      "description": "让 AI 主动来理解我们的需求，并自动调度相关工具进行制作。",
+      "url": "https://mp.weixin.qq.com/s/wxjR1dS2eYUxm7Q9eXqWhw?scene=1",
+      "source": "靠谱瓦叔AI趣探",
+      "publishDate": "2026-03-09",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "让 AI 主动来理解我们的需求，并自动调度相关工具进行制作。",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/ic8BH9EFusn7zuMiaicSvv0pXiaA50SwOGHxkzkEnhBhR1nB9hdiax4EJ5tIjgS0gfMyKU7ZJXgTEj7UFib3V0h8EbCBlRLnWWmFLva0nKHH0Hzdc/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-07T02:12:54.776Z",
-    "count": 104
+    "updatedAt": "2026-03-09T01:30:48.530Z",
+    "count": 105
   }
 }
