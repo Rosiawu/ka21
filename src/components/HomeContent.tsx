@@ -93,7 +93,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     description: isEn
       ? 'Choose your preferred platform and start listening right from the homepage.'
       : '点击任意播客节目图标即可收听。',
-    mobileSubline: isEn ? 'Real conversations with AI leaders' : '和AI圈高手的真实对话',
+    mobileSubline: isEn ? 'Real conversations with AI leaders' : '点击图标收听AI圈高手真实访谈',
     cta: isEn ? 'Listen now' : '点击收听',
     note: isEn ? 'Open podcast page' : '点击打开节目页',
     logoAlt: isEn ? 'Lamp Under The Light podcast logo' : '灯下白播客 Logo',
