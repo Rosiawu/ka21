@@ -101,48 +101,56 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     {
       id: 'xiaoyuzhou',
       name: '小宇宙',
+      shortLabel: isEn ? 'XYZ' : '小宇宙',
       href: 'https://www.xiaoyuzhoufm.com/podcast/69a44f5aa19c08db64bbd8a7',
       logo: 'https://www.google.com/s2/favicons?domain=www.xiaoyuzhoufm.com&sz=128',
     },
     {
       id: 'apple',
       name: '苹果播客',
+      shortLabel: isEn ? 'Apple' : '苹果',
       href: 'https://podcasts.apple.com/cn/podcast/%E7%81%AF%E4%B8%8B%E7%99%BD/id1883429226',
       logo: 'https://www.google.com/s2/favicons?domain=podcasts.apple.com&sz=128',
     },
     {
       id: 'lizhi',
       name: '荔枝',
+      shortLabel: '荔枝',
       href: 'https://m.lizhi.fm/voicesheet/5500330523200853569',
       logo: 'https://www.google.com/s2/favicons?domain=m.lizhi.fm&sz=128',
     },
     {
       id: 'ximalaya',
       name: '喜马拉雅',
+      shortLabel: isEn ? 'XMly' : '喜马',
       href: 'https://www.ximalaya.com/album/33817634',
       logo: 'https://www.google.com/s2/favicons?domain=www.ximalaya.com&sz=128',
     },
     {
       id: 'wangyiyun',
       name: '网易云音乐',
+      shortLabel: isEn ? 'NCM' : '网易云',
       href: 'https://music.163.com/#/djradio?id=1487456047',
       logo: 'https://www.google.com/s2/favicons?domain=music.163.com&sz=128',
     },
     {
       id: 'qingting',
       name: '蜻蜓FM',
+      shortLabel: isEn ? 'QTFM' : '蜻蜓',
       href: 'https://m.qtfm.cn/vchannels/526838',
       logo: 'https://www.google.com/s2/favicons?domain=m.qtfm.cn&sz=128',
     },
     {
       id: 'youtube',
       name: 'YouTube',
+      shortLabel: 'YT',
       href: 'https://www.youtube.com/channel/UC4vwgT8e3dYo0ra_bDqIq9A',
       logo: 'https://www.google.com/s2/favicons?domain=www.youtube.com&sz=128',
     },
     {
       id: 'spotify',
       name: 'Spotify',
+      shortLabel: 'SP',
       href: 'https://open.spotify.com/show/7s1L3Bl9QD3tWTmGnPW4y0?si=jNefx-5VRfiW8N9r-OD25Q',
       logo: 'https://www.google.com/s2/favicons?domain=open.spotify.com&sz=128',
     },
@@ -480,11 +488,12 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                         aria-label={`${spotlightPodcast.title} - ${platform.name}`}
                         title={platform.name}
                       >
+                        <span className="home-podcast-platform-label sm:hidden">{platform.shortLabel}</span>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={platform.logo}
                           alt={`${platform.name} logo`}
-                          className="home-podcast-platform-logo"
+                          className="home-podcast-platform-logo hidden sm:block"
                           loading="lazy"
                         />
                       </a>

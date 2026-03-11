@@ -1176,6 +1176,15 @@ body::after {
     0 4px 12px -10px rgba(15, 23, 42, 0.9);
 }
 
+.home-podcast-platform-label {
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgba(241, 245, 249, 0.96);
+  white-space: nowrap;
+}
+
 @media (max-width: 639px) {
   .home-podcast-platforms {
     align-self: stretch;
@@ -1186,9 +1195,19 @@ body::after {
     min-width: 34px;
     border-radius: 12px;
     border-color: rgba(255, 255, 255, 0.1);
+    padding: 0 4px;
     box-shadow:
       0 8px 16px -14px rgba(2, 6, 23, 0.88),
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .home-podcast-platform-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
   }
 
   .home-podcast-platform-logo {
