@@ -174,10 +174,17 @@ After a few more rounds, the eight shortcuts finally became stable: visible on m
     },
     images: [
       {
-        src: '/images/devlog/co-create-09-1.png',
+        src: '/images/devlog/co-create-09-01.png',
         alt: {
-          zh: '灯下白播客首页移动端调整后截图',
-          en: 'Mobile podcast homepage after adjustment',
+          zh: '灯下白播客首页移动端调整截图 1',
+          en: 'Mobile podcast homepage adjustment screenshot 1',
+        },
+      },
+      {
+        src: '/images/devlog/co-create-09-02.png',
+        alt: {
+          zh: '灯下白播客首页移动端调整截图 2',
+          en: 'Mobile podcast homepage adjustment screenshot 2',
         },
       },
     ],
