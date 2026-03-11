@@ -80,7 +80,7 @@ After fixing that, I checked the utility section again and got even more annoyed
 So I kept tracing it and found the real cause: default sorting had pushed both tools too far back inside the utility group.
 
 In the end, what I finished was not just “adding two tools”.
-I made sure they were actually visible in the place users would notice first, and then I wrapped it up with a clean git push.`,
+I made sure they were actually visible in the place users would notice first.`,
     },
     imageSlotLabel: {
       zh: '图片位 10：为自媒体内容创作者加上两个小工具（3张截图）',
