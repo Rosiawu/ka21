@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>灯下白 | 播客播放量追踪</title>
+    <link rel="stylesheet" href="/podcast-dashboard/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-brand">
+          <div class="hero-logo-shell">
+            <img
+              class="hero-show-logo"
+              src="/podcast-dashboard/dengxiabai-logo.png"
+              alt="灯下白 logo"
+            />
+          </div>
+          <div class="hero-copy-block">
+            <p class="eyebrow">Podcast Tracker</p>
+            <h1 id="show-name">灯下白播客</h1>
+            <p id="hero-copy" class="hero-copy">欢迎点击右边你喜欢的平台收听并订阅</p>
+          </div>
+        </div>
+        <div id="hero-links" class="hero-links"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>灯下白播客节目数据一览</h2>
+        </div>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <div class="chart-title">按日按节目堆叠总播放</div>
+            <div id="total-trend-chart" class="chart-box"></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">按日按平台堆叠总播放</div>
+            <div id="platform-bar-chart" class="chart-box"></div>
+          </div>
+          <div class="chart-card chart-card-wide">
+            <div class="chart-title">每期节目发布后 Day 1 - Day 15 总播放对比</div>
+            <div id="episode-bar-chart" class="chart-box"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>最新概览</h2>
+          <p id="snapshot-meta" class="muted">还没有快照</p>
+        </div>
+        <div id="overview-cards" class="cards"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>平台总播放</h2>
+          <p class="muted">这里记录你在各后台看到的节目总播放量。</p>
+        </div>
+        <div id="platform-summary" class="summary-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>单集表现</h2>
+          <p class="muted">按照最新快照展示每一集的跨平台播放求和与平台拆分。</p>
+        </div>
+        <div class="table-wrap">
+          <table id="episode-summary-table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <details class="panel collapse-panel">
+        <summary class="collapse-summary">
+          <div class="panel-head">
+            <h2>快照历史</h2>
+            <p class="muted">点击展开内部分析明细</p>
+          </div>
+        </summary>
+        <div class="table-wrap">
+          <table id="history-table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>单集快照历史</h3>
+          <p class="muted">每一集单独保留按日期记录的平台播放量快照。</p>
+        </div>
+        <div id="episode-history" class="episode-history-grid"></div>
+      </details>
+    </main>
+
+    <script type="module" src="/podcast-dashboard/app.js"></script>
+  </body>
+  </html>
