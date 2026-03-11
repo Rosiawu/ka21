@@ -2420,6 +2420,179 @@
       "displayOrder": 100
     },
     {
+      "id": "bmmd",
+      "name": "bm.md",
+      "description": "更好用的 Markdown 排版助手。支持一键适配微信公众号、知乎专栏、掘金、网页与图片，适合把 Markdown 快速整理成可发布版式。",
+      "icon": "https://ka21.tools/icons/bmmd.png",
+      "url": "https://bm.md/",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "纯免费，页面清晰大方。",
+          "author": "Rosia 推荐",
+          "createdAt": "2026-03-11",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. Markdown 在线编辑\n2. 一键排版美化\n3. 适配公众号与专栏平台\n4. 导出网页或图片\n5. 快速发布内容",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 打开 bm.md\n2. 粘贴或编写 Markdown\n3. 选择目标平台样式\n4. 预览排版效果\n5. 复制或导出结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 重点适合内容排版，不是通用笔记库\n2. 发布前建议再检查平台样式细节\n3. 图片与特殊组件效果以目标平台为准",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-11T00:00:00Z",
+      "updatedAt": "2026-03-11T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/bmmd.png"
+      },
+      "isVisible": true,
+      "displayOrder": 160,
+      "relatedTutorials": []
+    },
+    {
+      "id": "gofullpage",
+      "name": "GoFullPage",
+      "description": "Chrome 上很稳的整页截图插件。点一下就能把当前网页从上到下完整截下来，特别适合存长网页、教程、文档和灵感页。",
+      "icon": "https://ka21.tools/icons/gofullpage.png",
+      "url": "https://chromewebstore.google.com/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en-US&utm_source=ext_sidebar",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "这个截屏的小插件是绝对的神器，你就看着它给你从上到下在网页上截图，那种快乐简直了。这个是属于包工头大喊大叫系列的更新！！！",
+          "author": "Rosia 推荐",
+          "createdAt": "2026-03-11",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 整页网页截图\n2. 自动滚动拼接\n3. 导出图片或 PDF\n4. 保留长网页完整结构\n5. 适合教程与资料归档",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 安装 Chrome 插件\n2. 打开要截图的网页\n3. 点击 GoFullPage 图标\n4. 等它自动从上到下截图\n5. 导出 PNG 或 PDF",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 这是 Chrome 扩展，不是独立网页工具\n2. 部分动态页面可能受懒加载影响\n3. 截图前建议先让页面内容加载完整",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-11T00:00:00Z",
+      "updatedAt": "2026-03-11T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/gofullpage.png"
+      },
+      "isVisible": true,
+      "displayOrder": 165,
+      "relatedTutorials": []
+    },
+    {
+      "id": "ai2word",
+      "name": "AI2Word",
+      "description": "内容格式转换！AI2Word是一款AI内容格式转换工具，支持多种AI模型(如DeepSeek)的对话记录转换为规范的文档格式。它能帮助用户快速整理AI对话内容，将聊天记录转换成易读的文档形式，提高内容整理效率。",
+      "icon": "https://ka21.tools/icons/ai2word.svg",
+      "url": "https://ai2word.dawne.cn",
+      "tags": [
+        "ai-assistant",
+        "productivity",
+        "automation"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "非常实用的AI对话整理工具，可以快速把AI对话转成文档格式，支持DeepSeek等多个模型",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 复制AI对话内容\n2. 粘贴到转换框中\n3. 点击转换按钮\n4. 复制转换后的格式化文档",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. 支持多种AI模型对话格式\n2. 一键转换文档格式\n3. 简单易用无需登录\n4. 完全免费使用",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true,
+      "displayOrder": 170,
+      "relatedTutorials": []
+    },
+    {
+      "id": "bibigpt",
+      "name": "BibiGPT",
+      "description": "音视频内容总结！BibiGPT是一款AI视频内容总结工具，支持B站、YouTube等平台的视频内容一键总结。它能快速生成视频字幕、内容要点、章节总结等，帮助用户快速了解视频核心内容，提高学习和信息获取效率。",
+      "icon": "https://ka21.tools/icons/bibigpt.png",
+      "url": "https://bibigpt.co",
+      "tags": [
+        "productivity",
+        "automation"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "非常实用的视频内容总结工具，支持B站和YouTube，可以快速了解视频核心内容",
+          "author": "群友分享",
+          "createdAt": "2025-02-24",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "使用步骤",
+          "content": "1. 复制视频链接\n2. 粘贴到BibiGPT\n3. 等待AI分析总结\n4. 获取视频内容摘要",
+          "type": "text"
+        },
+        {
+          "title": "特色功能",
+          "content": "1. 支持多平台视频\n2. 智能内容提取\n3. 章节自动分割\n4. 关键点突出显示",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-02-24T00:00:00Z",
+      "updatedAt": "2025-02-24T00:00:00Z",
+      "toolCategory": "utils",
+      "isVisible": true,
+      "displayOrder": 180,
+      "relatedTutorials": []
+    },
+    {
       "id": "remove-bg",
       "name": "Remove.bg",
       "description": "Remove.bg是一款100%全自动的AI背景消除工具，只需上传图片点击一键即可去除背景，无需登录，操作简单便捷。它能够智能识别前景主体，精准分离背景，适用于人像、产品、动物等多种图片类型，是电商产品图、个人头像、设计素材处理的理想工具。",
@@ -2991,85 +3164,6 @@
       "toolCategory": "utils",
       "isVisible": true,
       "displayOrder": 200,
-      "relatedTutorials": []
-    },
-    {
-      "id": "bibigpt",
-      "name": "BibiGPT",
-      "description": "音视频内容总结！BibiGPT是一款AI视频内容总结工具，支持B站、YouTube等平台的视频内容一键总结。它能快速生成视频字幕、内容要点、章节总结等，帮助用户快速了解视频核心内容，提高学习和信息获取效率。",
-      "icon": "https://ka21.tools/icons/bibigpt.png",
-      "url": "https://bibigpt.co",
-      "tags": [
-        "productivity",
-        "automation"
-      ],
-      "recommendLevel": "low",
-      "accessibility": "直接访问",
-      "groupComments": [
-        {
-          "content": "非常实用的视频内容总结工具，支持B站和YouTube，可以快速了解视频核心内容",
-          "author": "群友分享",
-          "createdAt": "2025-02-24",
-          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
-        }
-      ],
-      "guides": [
-        {
-          "title": "使用步骤",
-          "content": "1. 复制视频链接\n2. 粘贴到BibiGPT\n3. 等待AI分析总结\n4. 获取视频内容摘要",
-          "type": "text"
-        },
-        {
-          "title": "特色功能",
-          "content": "1. 支持多平台视频\n2. 智能内容提取\n3. 章节自动分割\n4. 关键点突出显示",
-          "type": "text"
-        }
-      ],
-      "createdAt": "2025-02-24T00:00:00Z",
-      "updatedAt": "2025-02-24T00:00:00Z",
-      "toolCategory": "utils",
-      "isVisible": true,
-      "displayOrder": 300,
-      "relatedTutorials": []
-    },
-    {
-      "id": "ai2word",
-      "name": "AI2Word",
-      "description": "内容格式转换！AI2Word是一款AI内容格式转换工具，支持多种AI模型(如DeepSeek)的对话记录转换为规范的文档格式。它能帮助用户快速整理AI对话内容，将聊天记录转换成易读的文档形式，提高内容整理效率。",
-      "icon": "https://ka21.tools/icons/ai2word.svg",
-      "url": "https://ai2word.dawne.cn",
-      "tags": [
-        "ai-assistant",
-        "productivity",
-        "automation"
-      ],
-      "recommendLevel": "low",
-      "accessibility": "直接访问",
-      "groupComments": [
-        {
-          "content": "非常实用的AI对话整理工具，可以快速把AI对话转成文档格式，支持DeepSeek等多个模型",
-          "author": "群友分享",
-          "createdAt": "2025-02-24",
-          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
-        }
-      ],
-      "guides": [
-        {
-          "title": "使用步骤",
-          "content": "1. 复制AI对话内容\n2. 粘贴到转换框中\n3. 点击转换按钮\n4. 复制转换后的格式化文档",
-          "type": "text"
-        },
-        {
-          "title": "特色功能",
-          "content": "1. 支持多种AI模型对话格式\n2. 一键转换文档格式\n3. 简单易用无需登录\n4. 完全免费使用",
-          "type": "text"
-        }
-      ],
-      "createdAt": "2025-02-24T00:00:00Z",
-      "updatedAt": "2025-02-24T00:00:00Z",
-      "toolCategory": "utils",
-      "isVisible": true,
-      "displayOrder": 300,
       "relatedTutorials": []
     },
     {
@@ -3825,100 +3919,6 @@
       "relatedTutorials": []
     },
     {
-      "id": "gofullpage",
-      "name": "GoFullPage",
-      "description": "Chrome 上很稳的整页截图插件。点一下就能把当前网页从上到下完整截下来，特别适合存长网页、教程、文档和灵感页。",
-      "icon": "https://ka21.tools/icons/gofullpage.png",
-      "url": "https://chromewebstore.google.com/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en-US&utm_source=ext_sidebar",
-      "tags": [
-        "productivity",
-        "utility"
-      ],
-      "recommendLevel": "low",
-      "accessibility": "直接访问",
-      "groupComments": [
-        {
-          "content": "这个截屏的小插件是绝对的神器，你就看着它给你从上到下在网页上截图，那种快乐简直了。这个是属于包工头大喊大叫系列的更新！！！",
-          "author": "Rosia 推荐",
-          "createdAt": "2026-03-11",
-          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
-        }
-      ],
-      "guides": [
-        {
-          "title": "主要功能",
-          "content": "1. 整页网页截图\n2. 自动滚动拼接\n3. 导出图片或 PDF\n4. 保留长网页完整结构\n5. 适合教程与资料归档",
-          "type": "text"
-        },
-        {
-          "title": "使用步骤",
-          "content": "1. 安装 Chrome 插件\n2. 打开要截图的网页\n3. 点击 GoFullPage 图标\n4. 等它自动从上到下截图\n5. 导出 PNG 或 PDF",
-          "type": "text"
-        },
-        {
-          "title": "注意事项",
-          "content": "1. 这是 Chrome 扩展，不是独立网页工具\n2. 部分动态页面可能受懒加载影响\n3. 截图前建议先让页面内容加载完整",
-          "type": "注意事项"
-        }
-      ],
-      "createdAt": "2026-03-11T00:00:00Z",
-      "updatedAt": "2026-03-11T00:00:00Z",
-      "toolCategory": "utils",
-      "icons": {
-        "png": "/icons/gofullpage.png"
-      },
-      "isVisible": true,
-      "displayOrder": 300,
-      "relatedTutorials": []
-    },
-    {
-      "id": "bmmd",
-      "name": "bm.md",
-      "description": "更好用的 Markdown 排版助手。支持一键适配微信公众号、知乎专栏、掘金、网页与图片，适合把 Markdown 快速整理成可发布版式。",
-      "icon": "https://ka21.tools/icons/bmmd.png",
-      "url": "https://bm.md/",
-      "tags": [
-        "productivity",
-        "utility"
-      ],
-      "recommendLevel": "low",
-      "accessibility": "直接访问",
-      "groupComments": [
-        {
-          "content": "纯免费，页面清晰大方。",
-          "author": "Rosia 推荐",
-          "createdAt": "2026-03-11",
-          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
-        }
-      ],
-      "guides": [
-        {
-          "title": "主要功能",
-          "content": "1. Markdown 在线编辑\n2. 一键排版美化\n3. 适配公众号与专栏平台\n4. 导出网页或图片\n5. 快速发布内容",
-          "type": "text"
-        },
-        {
-          "title": "使用步骤",
-          "content": "1. 打开 bm.md\n2. 粘贴或编写 Markdown\n3. 选择目标平台样式\n4. 预览排版效果\n5. 复制或导出结果",
-          "type": "text"
-        },
-        {
-          "title": "注意事项",
-          "content": "1. 重点适合内容排版，不是通用笔记库\n2. 发布前建议再检查平台样式细节\n3. 图片与特殊组件效果以目标平台为准",
-          "type": "注意事项"
-        }
-      ],
-      "createdAt": "2026-03-11T00:00:00Z",
-      "updatedAt": "2026-03-11T00:00:00Z",
-      "toolCategory": "utils",
-      "icons": {
-        "png": "/icons/bmmd.png"
-      },
-      "isVisible": true,
-      "displayOrder": 300,
-      "relatedTutorials": []
-    },
-    {
       "id": "veo",
       "name": "Google Veo",
       "description": "Google DeepMind推出的最强视频生成模型，能够生成高达4K分辨率的视频，支持电影级视觉效果和精确的物理模拟。提供强大的创意控制功能，包括故事板和视频扩展，是目前视频生成领域的顶尖工具。",
@@ -4021,7 +4021,7 @@
         "ai-image",
         "video-editing"
       ],
-      "recommendLevel": "low",
+      "recommendLevel": "medium",
       "accessibility": "需要代理",
       "groupComments": [
         {

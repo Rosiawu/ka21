@@ -298,7 +298,7 @@
         "ai-image",
         "video-editing"
       ],
-      "recommendLevel": "low",
+      "recommendLevel": "medium",
       "accessibility": "需要代理",
       "groupComments": [
         {
@@ -3117,7 +3117,7 @@
       "updatedAt": "2025-02-24T00:00:00Z",
       "toolCategory": "utils",
       "isVisible": true,
-      "displayOrder": 300
+      "displayOrder": 180
     },
     {
       "id": "ai2word",
@@ -3130,7 +3130,7 @@
         "productivity",
         "automation"
       ],
-      "recommendLevel": "low",
+      "recommendLevel": "medium",
       "accessibility": "直接访问",
       "groupComments": [
         {
@@ -3156,7 +3156,7 @@
       "updatedAt": "2025-02-24T00:00:00Z",
       "toolCategory": "utils",
       "isVisible": true,
-      "displayOrder": 300
+      "displayOrder": 170
     },
     {
       "id": "artifig",
@@ -5041,7 +5041,7 @@
         "productivity",
         "utility"
       ],
-      "recommendLevel": "low",
+      "recommendLevel": "medium",
       "accessibility": "直接访问",
       "groupComments": [
         {
@@ -5075,7 +5075,7 @@
         "png": "/icons/gofullpage.png"
       },
       "isVisible": true,
-      "displayOrder": 300
+      "displayOrder": 165
     },
     {
       "id": "bmmd",
@@ -5087,7 +5087,7 @@
         "productivity",
         "utility"
       ],
-      "recommendLevel": "low",
+      "recommendLevel": "medium",
       "accessibility": "直接访问",
       "groupComments": [
         {
@@ -5121,7 +5121,7 @@
         "png": "/icons/bmmd.png"
       },
       "isVisible": true,
-      "displayOrder": 300
+      "displayOrder": 160
     }
   ]
 }
