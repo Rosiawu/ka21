@@ -90,14 +90,63 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       ? 'Xiaoyuzhou Podcast: real conversations from the AI community'
       : '小宇宙播客：走进 AI 圈的真实对话',
     description: isEn
-      ? 'Direct access to the Lamp Under The Light episode page.'
-      : '首页直达《灯下白》节目页，一键点击即可收听最新内容。',
+      ? 'Choose your preferred platform and start listening right from the homepage.'
+      : '点击任意播客节目图标即可收听。',
     mobileSubline: isEn ? 'Real conversations with AI leaders' : '和AI圈高手的真实对话',
-    cta: isEn ? 'Tap to listen' : '点击收听',
-    note: isEn ? 'Open episode page' : '点击打开节目页',
+    cta: isEn ? 'Listen now' : '点击收听',
+    note: isEn ? 'Open podcast page' : '点击打开节目页',
     logoAlt: isEn ? 'Lamp Under The Light podcast logo' : '灯下白播客 Logo',
   };
-  const podcastEpisodeUrl = 'https://www.xiaoyuzhoufm.com/episodes/69a69588de29766da93ec01b';
+  const podcastPlatforms = [
+    {
+      id: 'xiaoyuzhou',
+      name: '小宇宙',
+      href: 'https://www.xiaoyuzhoufm.com/podcast/69a44f5aa19c08db64bbd8a7',
+      logo: 'https://www.google.com/s2/favicons?domain=www.xiaoyuzhoufm.com&sz=128',
+    },
+    {
+      id: 'apple',
+      name: '苹果播客',
+      href: 'https://podcasts.apple.com/cn/podcast/%E7%81%AF%E4%B8%8B%E7%99%BD/id1883429226',
+      logo: 'https://www.google.com/s2/favicons?domain=podcasts.apple.com&sz=128',
+    },
+    {
+      id: 'lizhi',
+      name: '荔枝',
+      href: 'https://m.lizhi.fm/voicesheet/5500330523200853569',
+      logo: 'https://www.google.com/s2/favicons?domain=m.lizhi.fm&sz=128',
+    },
+    {
+      id: 'ximalaya',
+      name: '喜马拉雅',
+      href: 'https://www.ximalaya.com/album/33817634',
+      logo: 'https://www.google.com/s2/favicons?domain=www.ximalaya.com&sz=128',
+    },
+    {
+      id: 'wangyiyun',
+      name: '网易云音乐',
+      href: 'https://music.163.com/#/djradio?id=1487456047',
+      logo: 'https://www.google.com/s2/favicons?domain=music.163.com&sz=128',
+    },
+    {
+      id: 'qingting',
+      name: '蜻蜓FM',
+      href: 'https://m.qtfm.cn/vchannels/526838',
+      logo: 'https://www.google.com/s2/favicons?domain=m.qtfm.cn&sz=128',
+    },
+    {
+      id: 'youtube',
+      name: 'YouTube',
+      href: 'https://www.youtube.com/channel/UC4vwgT8e3dYo0ra_bDqIq9A',
+      logo: 'https://www.google.com/s2/favicons?domain=www.youtube.com&sz=128',
+    },
+    {
+      id: 'spotify',
+      name: 'Spotify',
+      href: 'https://open.spotify.com/show/7s1L3Bl9QD3tWTmGnPW4y0?si=jNefx-5VRfiW8N9r-OD25Q',
+      logo: 'https://www.google.com/s2/favicons?domain=open.spotify.com&sz=128',
+    },
+  ] as const;
   // ========== 状态管理 ==========
   
   // 搜索相关状态
@@ -374,16 +423,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                   </h1>
                 </div>
 
-                <a
-                  href={podcastEpisodeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    trackUserAction('podcast_entry_click', {
-                      entry: 'home_logo_side_dark_card',
-                      podcast: 'dengxiaobai',
-                    });
-                  }}
+                <div
                   className="inline-flex h-[196px] w-full flex-col justify-between gap-2 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-2.5 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
                   aria-label={`${spotlightPodcast.title} - ${spotlightPodcast.note}`}
                 >
@@ -422,11 +462,35 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                     </span>
                   </span>
 
-                  <span className="home-podcast-cta inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 self-center rounded-full px-3 text-[14px] font-semibold sm:h-auto sm:w-[208px] sm:px-4 sm:py-2 sm:text-[17px]">
-                    <span>{spotlightPodcast.cta}</span>
-                    <i className="fas fa-arrow-up-right-from-square text-sm"></i>
+                  <span className="home-podcast-platforms grid w-full shrink-0 grid-cols-4 gap-2 sm:w-[312px] sm:grid-cols-4">
+                    {podcastPlatforms.map((platform) => (
+                      <a
+                        key={platform.id}
+                        href={platform.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => {
+                          trackUserAction('podcast_entry_click', {
+                            entry: `home_podcast_platform_${platform.id}`,
+                            podcast: 'dengxiaobai',
+                            platform: platform.id,
+                          });
+                        }}
+                        className={`home-podcast-platform-chip home-podcast-platform-${platform.id}`}
+                        aria-label={`${spotlightPodcast.title} - ${platform.name}`}
+                        title={platform.name}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={platform.logo}
+                          alt={`${platform.name} logo`}
+                          className="home-podcast-platform-logo"
+                          loading="lazy"
+                        />
+                      </a>
+                    ))}
                   </span>
-                </a>
+                </div>
               </div>
 
             </div>
