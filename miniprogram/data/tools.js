@@ -3825,6 +3825,100 @@ module.exports = {
       "relatedTutorials": []
     },
     {
+      "id": "gofullpage",
+      "name": "GoFullPage",
+      "description": "Chrome 上很稳的整页截图插件。点一下就能把当前网页从上到下完整截下来，特别适合存长网页、教程、文档和灵感页。",
+      "icon": "https://ka21.tools/icons/gofullpage.png",
+      "url": "https://chromewebstore.google.com/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en-US&utm_source=ext_sidebar",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "这个截屏的小插件是绝对的神器，你就看着它给你从上到下在网页上截图，那种快乐简直了。这个是属于包工头大喊大叫系列的更新！！！",
+          "author": "Rosia 推荐",
+          "createdAt": "2026-03-11",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 整页网页截图\n2. 自动滚动拼接\n3. 导出图片或 PDF\n4. 保留长网页完整结构\n5. 适合教程与资料归档",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 安装 Chrome 插件\n2. 打开要截图的网页\n3. 点击 GoFullPage 图标\n4. 等它自动从上到下截图\n5. 导出 PNG 或 PDF",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 这是 Chrome 扩展，不是独立网页工具\n2. 部分动态页面可能受懒加载影响\n3. 截图前建议先让页面内容加载完整",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-11T00:00:00Z",
+      "updatedAt": "2026-03-11T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/gofullpage.png"
+      },
+      "isVisible": true,
+      "displayOrder": 300,
+      "relatedTutorials": []
+    },
+    {
+      "id": "bmmd",
+      "name": "bm.md",
+      "description": "更好用的 Markdown 排版助手。支持一键适配微信公众号、知乎专栏、掘金、网页与图片，适合把 Markdown 快速整理成可发布版式。",
+      "icon": "https://ka21.tools/icons/bmmd.png",
+      "url": "https://bm.md/",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "low",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "纯免费，页面清晰大方。",
+          "author": "Rosia 推荐",
+          "createdAt": "2026-03-11",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. Markdown 在线编辑\n2. 一键排版美化\n3. 适配公众号与专栏平台\n4. 导出网页或图片\n5. 快速发布内容",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 打开 bm.md\n2. 粘贴或编写 Markdown\n3. 选择目标平台样式\n4. 预览排版效果\n5. 复制或导出结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 重点适合内容排版，不是通用笔记库\n2. 发布前建议再检查平台样式细节\n3. 图片与特殊组件效果以目标平台为准",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-11T00:00:00Z",
+      "updatedAt": "2026-03-11T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/bmmd.png"
+      },
+      "isVisible": true,
+      "displayOrder": 300,
+      "relatedTutorials": []
+    },
+    {
       "id": "veo",
       "name": "Google Veo",
       "description": "Google DeepMind推出的最强视频生成模型，能够生成高达4K分辨率的视频，支持电影级视觉效果和精确的物理模拟。提供强大的创意控制功能，包括故事板和视频扩展，是目前视频生成领域的顶尖工具。",
