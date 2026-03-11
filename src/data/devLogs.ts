@@ -52,7 +52,7 @@ export const devLogs: DevLogEntry[] = [
 先是预览炸了。
 页面一直加载失败，我还以为是新工具写坏了。
 结果往下一查，发现根本不是它俩的问题，
-是首页教程里有微信图床的 `http` 图片，Next 的图片白名单没放行，整个首页直接被拖死。
+是首页教程里有微信图床的“http”图片，Next 的图片白名单没放行，整个首页直接被拖死。
 
 我把这个坑补完之后，又去首页看“小工具”，
 结果更气了：
@@ -83,9 +83,32 @@ In the end, what I finished was not just “adding two tools”.
 I made sure they were actually visible in the place users would notice first, and then I wrapped it up with a clean git push.`,
     },
     imageSlotLabel: {
-      zh: '图片位 10：小工具上新相关截图（待整理存储）',
-      en: 'Image slot 10: utility update screenshots (to be stored)',
+      zh: '图片位 10：为自媒体内容创作者加上两个小工具（3张截图）',
+      en: 'Image slot 10: two utility tools for content creators (3 screenshots)',
     },
+    images: [
+      {
+        src: '/images/devlog/co-create-10-1.png',
+        alt: {
+          zh: '小工具分类页中展示 GoFullPage 与 bm.md 的截图',
+          en: 'Utility category page showing GoFullPage and bm.md',
+        },
+      },
+      {
+        src: '/images/devlog/co-create-10-2.png',
+        alt: {
+          zh: 'GoFullPage 在 Chrome 应用商店中的页面截图',
+          en: 'GoFullPage page in the Chrome Web Store',
+        },
+      },
+      {
+        src: '/images/devlog/co-create-10-3.png',
+        alt: {
+          zh: 'bm.md 的编辑器与移动端预览截图',
+          en: 'bm.md editor and mobile preview screenshot',
+        },
+      },
+    ],
     relatedLinks: [
       {
         label: {
