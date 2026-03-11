@@ -1187,6 +1187,16 @@ body::after {
   color: rgba(241, 245, 249, 0.96);
 }
 
+.home-podcast-platform-youtube .home-podcast-platform-brand {
+  color: #ff3b30;
+  filter: drop-shadow(0 4px 10px rgba(255, 59, 48, 0.22));
+}
+
+.home-podcast-platform-spotify .home-podcast-platform-brand {
+  color: #1ed760;
+  filter: drop-shadow(0 4px 10px rgba(30, 215, 96, 0.22));
+}
+
 @media (max-width: 639px) {
   .home-podcast-platforms {
     align-self: stretch;

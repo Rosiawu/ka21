@@ -44,6 +44,8 @@ describe('mobile responsive guardrails', () => {
     expect(home).toContain('className={`home-podcast-platform-brand ${platform.brandIcon}`}');
     expect(css).toContain('.home-podcast-platforms');
     expect(css).toContain('.home-podcast-platform-brand');
+    expect(css).toContain('.home-podcast-platform-youtube .home-podcast-platform-brand');
+    expect(css).toContain('.home-podcast-platform-spotify .home-podcast-platform-brand');
     expect(css).toContain('min-height: 34px;');
     expect(css).toContain('min-width: 34px;');
     expect(css).toContain('font-size: 16px;');
