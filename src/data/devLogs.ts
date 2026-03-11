@@ -28,6 +28,138 @@ export type DevLogEntry = {
 
 export const devLogs: DevLogEntry[] = [
   {
+    id: 'utils-ranking-fix-2026-03-11',
+    version: '共创 10',
+    date: '2026-03-11',
+    timelineTitle: {
+      zh: '为自媒体内容创作者加上两个小工具！',
+      en: 'Added two utility tools for content creators',
+    },
+    cardTitle: {
+      zh: '为自媒体内容创作者加上两个小工具！',
+      en: 'Added two utility tools for content creators',
+    },
+    body: {
+      zh: `今天牛牛酱来问我，排版的工具哪个好，我才意识到，好多小工具都是我自己脑袋里知道，但牛马库里还没有收录的呢。
+
+于是今天本来只是想往“小工具”里加两个我自己真觉得好用的东西：
+一个是整页截图插件 GoFullPage，
+一个是 Markdown 排版工具 bm.md。
+
+按理说，这种活应该很轻，补数据、补 logo、写一句推荐语，结束。
+结果根本不是！！
+
+先是预览炸了。
+页面一直加载失败，我还以为是新工具写坏了。
+结果往下一查，发现根本不是它俩的问题，
+是首页教程里有微信图床的 `http` 图片，Next 的图片白名单没放行，整个首页直接被拖死。
+
+我把这个坑补完之后，又去首页看“小工具”，
+结果更气了：
+条目明明已经加进去了，但你就是看不见。
+
+继续追。
+最后发现不是没加成功，
+是默认排序把它们压到小工具分组后面去了。
+也就是说，数据在，页面也在，只是埋得太深，肉眼看起来像“压根没有”。
+
+所以我今天最后做的，不只是把两个工具加进去，
+而是把它们真正推到用户能第一眼看到的位置，排序更新也是学问啊。 搞完了之后，直接 Git and Push。`,
+      en: `Niuniu asked me which layout tool was worth using, and that was the moment I realized a lot of utility tools existed only in my head, not yet in the KA21 library.
+
+So today I meant to add just two tools I genuinely like:
+GoFullPage for full-page screenshots, and bm.md for Markdown layout.
+
+It looked simple at first: add the data, add the logo, write one short recommendation, done.
+But it was not simple at all.
+
+Preview broke first. I thought the new tools had caused it, but the actual issue came from tutorial covers using an HTTP WeChat image host that was not allowed by the Next image whitelist, which dragged the whole homepage down.
+
+After fixing that, I checked the utility section again and got even more annoyed: the entries were already there, but visually they still looked missing.
+
+So I kept tracing it and found the real cause: default sorting had pushed both tools too far back inside the utility group.
+
+In the end, what I finished was not just “adding two tools”.
+I made sure they were actually visible in the place users would notice first, and then I wrapped it up with a clean git push.`,
+    },
+    imageSlotLabel: {
+      zh: '图片位 10：小工具上新相关截图（待整理存储）',
+      en: 'Image slot 10: utility update screenshots (to be stored)',
+    },
+    relatedLinks: [
+      {
+        label: {
+          zh: '小工具：bm.md',
+          en: 'Utility: bm.md',
+        },
+        href: 'https://bm.md/',
+      },
+      {
+        label: {
+          zh: '小工具：GoFullPage',
+          en: 'Utility: GoFullPage',
+        },
+        href: 'https://chromewebstore.google.com/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en-US&utm_source=ext_sidebar',
+      },
+    ],
+  },
+  {
+    id: 'podcast-mobile-icons-2026-03-11',
+    version: '共创 09',
+    date: '2026-03-11',
+    timelineTitle: {
+      zh: '灯下白播客首页调整',
+      en: 'Homepage podcast card adjustment',
+    },
+    cardTitle: {
+      zh: '灯下白播客首页调整',
+      en: 'Homepage podcast card adjustment',
+    },
+    body: {
+      zh: `今天继续打磨首页那张《灯下白》卡片的外观。
+
+一开始看起来像是“小问题”：
+手机上 8 个播客渠道挤成一团， logo 根本出不来。
+但真改起来才发现，问题不是排版一个点，而是移动端、外链图标、加载稳定性全缠在一起。
+
+Codex先把卡片的高度和内部间距重新压了一遍，
+让手机端先有足够空间把 8 个入口放下。
+结果我一看，说不对，logo 还是密密麻麻。
+
+后来Codex换了思路：
+能落本地的 logo 全部落本地，
+YouTube 和 Spotify 这种再单独补品牌图标和颜色，
+不再赌浏览器那一刻能不能把外链图标加载出来。
+
+中间还来回改了几轮。
+一会儿是文字 fallback 太土，
+一会儿是 logo 虽然出来了，但品牌颜色不对。
+最后才把这 8 个入口真正收拾到一个能看的状态：
+手机上能完整看到，颜色也对，点进去也可以听播客了。`,
+      en: `Today we kept polishing the look of the homepage podcast card.
+
+What looked like a small issue turned out to be a combined problem of mobile layout, external icon loading, and rendering stability.
+
+Codex first tightened the card height and spacing so mobile had enough room for all eight podcast shortcuts.
+That still was not enough, so the strategy changed: every logo that could be stored locally was moved into local assets, while YouTube and Spotify were given explicit brand icons and colors instead of relying on live favicon fetches.
+
+After a few more rounds, the eight shortcuts finally became stable: visible on mobile, visually correct, and clickable for listening.`,
+    },
+    imageSlotLabel: {
+      zh: '图片位 09：灯下白播客首页移动端调整截图',
+      en: 'Image slot 09: mobile podcast homepage adjustment',
+    },
+    images: [
+      {
+        src: '/images/devlog/co-create-09-1.png',
+        alt: {
+          zh: '灯下白播客首页移动端调整后截图',
+          en: 'Mobile podcast homepage after adjustment',
+        },
+      },
+    ],
+  },
+  {
     id: 'timeline-swipe-finish-2026-03-07',
     version: '共创 08',
     date: '2026-03-07',
