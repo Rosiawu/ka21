@@ -45,6 +45,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   const isEn = useLocale() === 'en';
   const tHome = useTranslations('Home');
   const tCommon = useTranslations('Common');
+  const podcastDashboardHref = '/podcast';
   // 返回首页时若存在保存的滚动位置，则恢复
   useEffect(() => {
     try {
@@ -101,58 +102,50 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     {
       id: 'xiaoyuzhou',
       name: '小宇宙',
-      shortLabel: isEn ? 'XYZ' : '小宇宙',
       href: 'https://www.xiaoyuzhoufm.com/podcast/69a44f5aa19c08db64bbd8a7',
-      logo: 'https://www.google.com/s2/favicons?domain=www.xiaoyuzhoufm.com&sz=128',
+      logo: '/images/podcast/platforms/xiaoyuzhou.ico',
     },
     {
       id: 'apple',
       name: '苹果播客',
-      shortLabel: isEn ? 'Apple' : '苹果',
       href: 'https://podcasts.apple.com/cn/podcast/%E7%81%AF%E4%B8%8B%E7%99%BD/id1883429226',
-      logo: 'https://www.google.com/s2/favicons?domain=podcasts.apple.com&sz=128',
+      logo: '/images/podcast/platforms/apple.ico',
     },
     {
       id: 'lizhi',
       name: '荔枝',
-      shortLabel: '荔枝',
       href: 'https://m.lizhi.fm/voicesheet/5500330523200853569',
-      logo: 'https://www.google.com/s2/favicons?domain=m.lizhi.fm&sz=128',
+      logo: '/images/podcast/platforms/lizhi.ico',
     },
     {
       id: 'ximalaya',
       name: '喜马拉雅',
-      shortLabel: isEn ? 'XMly' : '喜马',
       href: 'https://www.ximalaya.com/album/33817634',
-      logo: 'https://www.google.com/s2/favicons?domain=www.ximalaya.com&sz=128',
+      logo: '/images/podcast/platforms/ximalaya.ico',
     },
     {
       id: 'wangyiyun',
       name: '网易云音乐',
-      shortLabel: isEn ? 'NCM' : '网易云',
       href: 'https://music.163.com/#/djradio?id=1487456047',
-      logo: 'https://www.google.com/s2/favicons?domain=music.163.com&sz=128',
+      logo: '/images/podcast/platforms/wangyiyun.ico',
     },
     {
       id: 'qingting',
       name: '蜻蜓FM',
-      shortLabel: isEn ? 'QTFM' : '蜻蜓',
       href: 'https://m.qtfm.cn/vchannels/526838',
-      logo: 'https://www.google.com/s2/favicons?domain=m.qtfm.cn&sz=128',
+      logo: '/images/podcast/platforms/qingting.ico',
     },
     {
       id: 'youtube',
       name: 'YouTube',
-      shortLabel: 'YT',
       href: 'https://www.youtube.com/channel/UC4vwgT8e3dYo0ra_bDqIq9A',
-      logo: 'https://www.google.com/s2/favicons?domain=www.youtube.com&sz=128',
+      brandIcon: 'fab fa-youtube',
     },
     {
       id: 'spotify',
       name: 'Spotify',
-      shortLabel: 'SP',
       href: 'https://open.spotify.com/show/7s1L3Bl9QD3tWTmGnPW4y0?si=jNefx-5VRfiW8N9r-OD25Q',
-      logo: 'https://www.google.com/s2/favicons?domain=open.spotify.com&sz=128',
+      brandIcon: 'fab fa-spotify',
     },
   ] as const;
   // ========== 状态管理 ==========
@@ -434,6 +427,25 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 <div
                   className="inline-flex h-[212px] w-full flex-col justify-between gap-2 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-2.5 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
                   aria-label={`${spotlightPodcast.title} - ${spotlightPodcast.note}`}
+                  role="link"
+                  tabIndex={0}
+                  onClick={() => {
+                    trackUserAction('podcast_dashboard_click', {
+                      entry: 'home_podcast_card',
+                      podcast: 'dengxiaobai',
+                    });
+                    router.push(podcastDashboardHref);
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      trackUserAction('podcast_dashboard_click', {
+                        entry: 'home_podcast_card_keyboard',
+                        podcast: 'dengxiaobai',
+                      });
+                      router.push(podcastDashboardHref);
+                    }
+                  }}
                 >
                   <span className="flex min-w-0 w-full flex-col items-start gap-1.5 sm:max-w-[410px] sm:flex-row sm:items-center sm:gap-4">
                     <span className="flex items-center gap-2.5 sm:block">
@@ -477,7 +489,8 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                         href={platform.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={() => {
+                        onClick={(event) => {
+                          event.stopPropagation();
                           trackUserAction('podcast_entry_click', {
                             entry: `home_podcast_platform_${platform.id}`,
                             podcast: 'dengxiaobai',
@@ -488,14 +501,17 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                         aria-label={`${spotlightPodcast.title} - ${platform.name}`}
                         title={platform.name}
                       >
-                        <span className="home-podcast-platform-label sm:hidden">{platform.shortLabel}</span>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={platform.logo}
-                          alt={`${platform.name} logo`}
-                          className="home-podcast-platform-logo hidden sm:block"
-                          loading="lazy"
-                        />
+                        {'logo' in platform ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={platform.logo}
+                            alt={`${platform.name} logo`}
+                            className="home-podcast-platform-logo"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <i className={`home-podcast-platform-brand ${platform.brandIcon}`} aria-hidden="true"></i>
+                        )}
                       </a>
                     ))}
                   </span>

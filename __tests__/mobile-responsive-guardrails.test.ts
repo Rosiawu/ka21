@@ -38,13 +38,15 @@ describe('mobile responsive guardrails', () => {
     const home = read('src/components/HomeContent.tsx');
     const css = read('src/app/globals.css');
     expect(home).toContain('home-podcast-platforms grid w-full shrink-0 grid-cols-4 gap-1.5');
-    expect(home).toContain('home-podcast-platform-label sm:hidden');
-    expect(home).toContain('className="home-podcast-platform-logo hidden sm:block"');
+    expect(home).toContain("logo: '/images/podcast/platforms/xiaoyuzhou.ico'");
+    expect(home).toContain("brandIcon: 'fab fa-youtube'");
+    expect(home).toContain('className="home-podcast-platform-logo"');
+    expect(home).toContain('className={`home-podcast-platform-brand ${platform.brandIcon}`}');
     expect(css).toContain('.home-podcast-platforms');
-    expect(css).toContain('.home-podcast-platform-label');
+    expect(css).toContain('.home-podcast-platform-brand');
     expect(css).toContain('min-height: 34px;');
     expect(css).toContain('min-width: 34px;');
-    expect(css).toContain('font-size: 10px;');
+    expect(css).toContain('font-size: 16px;');
   });
 
   test('podcast cta uses an explicit theme-safe class instead of bg-white utilities', () => {
