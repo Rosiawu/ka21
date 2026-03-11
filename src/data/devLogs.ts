@@ -64,7 +64,7 @@ export const devLogs: DevLogEntry[] = [
 也就是说，数据在，页面也在，只是埋得太深，肉眼看起来像“压根没有”。
 
 所以我今天最后做的，不只是把两个工具加进去，
-而是把它们真正推到用户能第一眼看到的位置，排序更新也是学问啊。 搞完了之后，直接 Git and Push。`,
+而是把它们真正推到用户能第一眼看到的位置，排序更新也是学问啊。`,
       en: `Niuniu asked me which layout tool was worth using, and that was the moment I realized a lot of utility tools existed only in my head, not yet in the KA21 library.
 
 So today I meant to add just two tools I genuinely like:
@@ -95,7 +95,7 @@ I made sure they were actually visible in the place users would notice first, an
         },
       },
       {
-        src: '/images/devlog/co-create-10-2.png',
+        src: '/images/devlog/co-create-10-2b.png',
         alt: {
           zh: 'GoFullPage 在 Chrome 应用商店中的页面截图',
           en: 'GoFullPage page in the Chrome Web Store',
