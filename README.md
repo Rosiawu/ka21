@@ -31,7 +31,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/Rosiawu/ka21-tools.git
+git clone https://github.com/Rosiawu/ka21.git
 cd ka21-tools
 
 # 安装依赖
