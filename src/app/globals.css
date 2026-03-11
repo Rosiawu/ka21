@@ -1177,15 +1177,24 @@ body::after {
 }
 
 @media (max-width: 639px) {
+  .home-podcast-platforms {
+    align-self: stretch;
+  }
+
   .home-podcast-platform-chip {
-    min-height: 46px;
-    min-width: 46px;
-    border-radius: 16px;
+    min-height: 34px;
+    min-width: 34px;
+    border-radius: 12px;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 8px 16px -14px rgba(2, 6, 23, 0.88),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
   }
 
   .home-podcast-platform-logo {
-    width: 22px;
-    height: 22px;
-    flex-basis: 22px;
+    width: 16px;
+    height: 16px;
+    flex-basis: 16px;
+    border-radius: 5px;
   }
 }

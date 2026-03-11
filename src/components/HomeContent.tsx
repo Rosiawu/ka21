@@ -410,7 +410,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 <div className="sm:block">
                   <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
                     <div
-                      className="relative flex h-[196px] w-full items-center justify-center rounded-3xl border bg-white px-3 pb-8 pt-3 shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px] sm:px-4 sm:pb-10 sm:pt-4"
+                      className="relative flex h-[212px] w-full items-center justify-center rounded-3xl border bg-white px-3 pb-8 pt-3 shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px] sm:px-4 sm:pb-10 sm:pt-4"
                       style={{ borderColor: 'rgba(200,180,125,0.55)', backgroundColor: '#ffffff' }}
                     >
                       <Logo size="large" variant="black" className="dark:hidden" />
@@ -424,10 +424,10 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 </div>
 
                 <div
-                  className="inline-flex h-[196px] w-full flex-col justify-between gap-2 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-2.5 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
+                  className="inline-flex h-[212px] w-full flex-col justify-between gap-2 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-2.5 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
                   aria-label={`${spotlightPodcast.title} - ${spotlightPodcast.note}`}
                 >
-                  <span className="flex min-w-0 w-full flex-col items-start gap-2 sm:max-w-[410px] sm:flex-row sm:items-center sm:gap-4">
+                  <span className="flex min-w-0 w-full flex-col items-start gap-1.5 sm:max-w-[410px] sm:flex-row sm:items-center sm:gap-4">
                     <span className="flex items-center gap-2.5 sm:block">
                       <span className="inline-flex h-[52px] w-[52px] shrink-0 items-center justify-center overflow-hidden rounded-[1.1rem] border border-white/20 bg-black/45 sm:h-[84px] sm:w-[84px] sm:rounded-[1.25rem]">
                         <Image
@@ -447,7 +447,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       <span className="hidden rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2.5 py-[2px] text-[11px] font-semibold text-[#e7cd8b] sm:inline-flex">
                         {spotlightPodcast.tag}
                       </span>
-                          <span className="mt-1 block whitespace-nowrap text-[clamp(1.75rem,7vw,2.6rem)] leading-[0.94] font-extrabold tracking-tight text-white sm:mt-1.5 sm:text-[48px] sm:leading-[0.92]">
+                      <span className="mt-0.5 block whitespace-nowrap text-[clamp(1.5rem,6.4vw,2.35rem)] leading-[0.94] font-extrabold tracking-tight text-white sm:mt-1.5 sm:text-[48px] sm:leading-[0.92]">
                         {spotlightPodcast.title}
                       </span>
                       <span className="mt-1 hidden line-clamp-1 text-[12px] font-semibold text-slate-200 sm:block sm:text-[16px]">
@@ -456,13 +456,13 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       <span className="mt-1 hidden line-clamp-2 text-[11px] text-slate-300/85 sm:block sm:text-sm">
                         {spotlightPodcast.description}
                       </span>
-                      <span className="mt-1 block line-clamp-1 text-[12px] font-semibold text-slate-200 sm:hidden">
+                      <span className="mt-0.5 block line-clamp-1 text-[11px] font-semibold text-slate-200 sm:hidden">
                         {spotlightPodcast.mobileSubline}
                       </span>
                     </span>
                   </span>
 
-                  <span className="home-podcast-platforms grid w-full shrink-0 grid-cols-4 gap-2 sm:w-[312px] sm:grid-cols-4">
+                  <span className="home-podcast-platforms grid w-full shrink-0 grid-cols-4 gap-1.5 sm:w-[312px] sm:grid-cols-4 sm:gap-2">
                     {podcastPlatforms.map((platform) => (
                       <a
                         key={platform.id}
