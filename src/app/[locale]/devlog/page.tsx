@@ -59,7 +59,7 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/devlog/submit"
+                href="/devlog/mobile-submit?v=20260312b"
                 className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700 transition-colors hover:bg-amber-100 dark:border-amber-700/70 dark:bg-amber-950/30 dark:text-amber-300 dark:hover:bg-amber-950/50"
               >
                 <i className="fas fa-wand-magic-sparkles text-xs" aria-hidden="true"></i>
