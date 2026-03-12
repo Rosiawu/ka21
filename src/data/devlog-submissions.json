@@ -1,8 +1,32 @@
 {
-  "entries": [],
+  "entries": [
+    {
+      "id": "devlog-mmmw5to6-1773285096822",
+      "version": "共创 01",
+      "date": "2026-03-12",
+      "timelineTitle": {
+        "zh": "中文测试",
+        "en": "中文测试"
+      },
+      "cardTitle": {
+        "zh": "中文测试",
+        "en": "中文测试"
+      },
+      "body": {
+        "zh": "今天补一条手机直发的开发日志。\n\n今天测试手机提交\n\n记录人：test",
+        "en": "今天补一条手机直发的开发日志。\n\n今天测试手机提交\n\n记录人：test"
+      },
+      "imageSlotLabel": {
+        "zh": "手机提交开发日志图片位：中文测试（待补图）",
+        "en": "Mobile devlog image slot: 中文测试 (pending upload)"
+      },
+      "relatedLinks": [],
+      "images": []
+    }
+  ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T00:00:00.000Z",
-    "count": 0
+    "updatedAt": "2026-03-12T03:11:36.823Z",
+    "count": 1
   }
 }
