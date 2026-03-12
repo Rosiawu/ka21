@@ -1,88 +1,50 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
 import Link from '@/i18n/Link';
 import { useState } from 'react';
 
-function readFilesAsDataUrls(files: FileList) {
-  return Promise.all(
-    Array.from(files)
-      .slice(0, 6)
-      .map(
-        (file) =>
-          new Promise<string>((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve(typeof reader.result === 'string' ? reader.result : '');
-            reader.onerror = () => reject(new Error('read-file-failed'));
-            reader.readAsDataURL(file);
-          })
-      )
-  );
-}
-
 export default function EventSubmitPageContent({ locale }: { locale: string }) {
   const isEn = locale === 'en';
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
   const [sourceUrl, setSourceUrl] = useState('');
-  const [organizer, setOrganizer] = useState('');
-  const [author, setAuthor] = useState('');
-  const [eventDate, setEventDate] = useState('');
-  const [deadline, setDeadline] = useState('');
-  const [location, setLocation] = useState('');
-  const [sourceLabel, setSourceLabel] = useState('');
-  const [tags, setTags] = useState('');
-  const [images, setImages] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState('');
   const [successUrl, setSuccessUrl] = useState('');
 
-  const canSubmit = title.trim().length > 0 && summary.trim().length > 0 && sourceUrl.trim().length > 0;
+  const canSubmit = sourceUrl.trim().length > 0;
 
   const text = {
-    badge: isEn ? 'Mobile Event Wand' : '赛事魔法棒',
-    title: isEn ? 'Post an event thread from your phone' : '用手机把外面看到的赛事帖捞回来',
+    badge: isEn ? 'Event Wand' : '赛事魔法棒',
+    title: isEn ? 'Paste one link, publish one event post' : '只贴一个链接，自动生成赛事帖',
     subtitle: isEn
-      ? 'Paste the original post link, write a short summary, add a poster screenshot if needed, and publish it to the event board.'
-      : '把外部原帖链接贴进来，顺手写一句摘要，必要时传张海报截图，就能发到赛事区。',
+      ? 'Users only need to paste the original link. We parse the article, fill the event fields, and submit it to GitHub automatically.'
+      : '用户只需要粘贴原帖链接。系统会自动解析文章、补齐赛事字段，并直接提交到 GitHub。',
     back: isEn ? 'Back to event board' : '返回赛事区',
-    titleLabel: isEn ? 'Event title' : '赛事标题',
-    titlePlaceholder: isEn ? 'What is this event called?' : '赛事名、招募名、挑战赛名',
-    summaryLabel: isEn ? 'What should people know?' : '一句话说清楚这帖值不值得看',
-    summaryPlaceholder: isEn
-      ? 'Summarize the key info: who can join, why it matters, what makes it worth opening.'
-      : '把关键信息捋顺：适合谁、奖励是什么、值得点开的原因是什么。',
     sourceUrlLabel: isEn ? 'Original post link' : '原帖链接',
-    sourceUrlPlaceholder: isEn ? 'Paste the public link here' : '把你在外面看到的公开链接贴这里',
-    organizerLabel: isEn ? 'Organizer (optional)' : '主办方（可选）',
-    organizerPlaceholder: isEn ? 'Brand, studio, platform...' : '品牌、机构、平台名都可以',
-    authorLabel: isEn ? 'Your nickname (optional)' : '投稿人昵称（可选）',
-    authorPlaceholder: isEn ? 'Who spotted this?' : '谁顺手捞的这条帖子',
-    eventDateLabel: isEn ? 'Event date (optional)' : '赛事时间（可选）',
-    deadlineLabel: isEn ? 'Deadline (optional)' : '截止时间（可选）',
-    locationLabel: isEn ? 'Location / format (optional)' : '地点 / 形式（可选）',
-    locationPlaceholder: isEn ? 'Online, Shanghai, hybrid...' : '线上、上海、线下、混合都可以',
-    sourceLabelLabel: isEn ? 'Source label (optional)' : '来源标签（可选）',
-    sourceLabelPlaceholder: isEn ? 'Example: WeChat, Xiaohongshu, official website' : '例如：公众号、小红书、官网',
-    tagsLabel: isEn ? 'Tags (comma-separated)' : '标签（用逗号分隔）',
-    tagsPlaceholder: isEn ? 'AI video, design, hackathon' : 'AI视频，设计，比赛，黑客松',
-    upload: isEn ? 'Add poster screenshots' : '上传海报截图',
-    uploadHint: isEn ? 'Up to 6 images. The first one becomes the cover.' : '最多 6 张图，第一张会自动做封面。',
-    submit: isEn ? 'Publish to event board' : '发到赛事区',
-    submitting: isEn ? 'Publishing...' : '发布中...',
-    success: isEn ? 'Submitted. Wait for auto deploy, then open the event board.' : '提交成功。等自动部署完成后，去赛事区就能看到。',
+    sourceUrlPlaceholder: isEn
+      ? 'Paste a public WeChat post or event page link'
+      : '把公众号文章或公开赛事页面链接贴进来',
+    tipsTitle: isEn ? 'What gets auto-filled' : '会自动补哪些字段',
+    tipsBody: isEn
+      ? 'Title, summary, organizer, date, deadline, location, tags, cover, and source label.'
+      : '标题、摘要、主办方、时间、截止、地点、标签、封面图、来源标签都会尽量自动补齐。',
+    submit: isEn ? 'Parse and publish' : '解析并发到赛事区',
+    submitting: isEn ? 'Parsing and publishing...' : '解析并提交中...',
+    success: isEn
+      ? 'Submitted. Wait for auto deploy, then open the event board.'
+      : '提交成功。等自动部署完成后，去赛事区就能看到。',
+    openEvent: isEn ? 'Open the new event post' : '打开新赛事帖',
+    errorWechat: isEn
+      ? 'WeChat blocked this article with a verification page. Try opening the source once in a normal browser or use another public link.'
+      : '这条公众号链接当前被微信验证页拦住了，先用普通浏览器打开一次原文，或者换一个公开可访问链接再试。',
+    errorDuplicate: isEn ? 'This link already exists in the event board.' : '这条链接已经在赛事区里了。',
   };
 
-  const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.files?.length) return;
-    try {
-      const nextImages = await readFilesAsDataUrls(event.target.files);
-      setImages(nextImages.filter(Boolean));
-      setMessage('');
-    } catch {
-      setMessage(isEn ? 'Image read failed.' : '图片读取失败。');
-    }
+  const humanizeMessage = (raw: string) => {
+    if (raw === 'wechat-verification-required') return text.errorWechat;
+    if (raw === 'duplicate-source-url') return text.errorDuplicate;
+    if (raw === 'invalid-source-url') return isEn ? 'Invalid URL.' : '链接格式不对。';
+    if (raw === 'missing-source-url') return isEn ? 'Please paste a link first.' : '先贴一个链接。';
+    return raw || (isEn ? 'Submit failed.' : '提交失败。');
   };
 
   const handleSubmit = async () => {
@@ -90,42 +52,22 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
     setSubmitting(true);
     setMessage('');
     setSuccessUrl('');
+
     try {
       const response = await fetch('/api/events/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title,
-          summary,
-          sourceUrl,
-          organizer,
-          author,
-          eventDate,
-          deadline,
-          location,
-          sourceLabel,
-          tags: tags.split(',').map((tag) => tag.trim()).filter(Boolean),
-          images,
-        }),
+        body: JSON.stringify({ sourceUrl }),
       });
       const result = await response.json();
       if (!result.success) {
-        setMessage(result.message || (isEn ? 'Submit failed.' : '提交失败。'));
+        setMessage(humanizeMessage(result.message));
         return;
       }
+
       setMessage(text.success);
       setSuccessUrl(`/${locale}/events#${result.data.id}`);
-      setTitle('');
-      setSummary('');
       setSourceUrl('');
-      setOrganizer('');
-      setAuthor('');
-      setEventDate('');
-      setDeadline('');
-      setLocation('');
-      setSourceLabel('');
-      setTags('');
-      setImages([]);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : (isEn ? 'Submit failed.' : '提交失败。'));
     } finally {
@@ -155,130 +97,21 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
         </section>
 
         <section className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-950/85 sm:p-6">
-          <div className="space-y-4">
-            <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.titleLabel}</span>
-              <input
-                value={title}
-                onChange={(event) => setTitle(event.target.value)}
-                placeholder={text.titlePlaceholder}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-              />
-            </label>
+          <div className="rounded-[1.5rem] border border-emerald-200/80 bg-emerald-50/80 p-4 text-sm text-slate-700 dark:border-emerald-800/50 dark:bg-emerald-950/20 dark:text-slate-200">
+            <p className="font-semibold text-slate-900 dark:text-slate-100">{text.tipsTitle}</p>
+            <p className="mt-1 leading-6">{text.tipsBody}</p>
+          </div>
 
-            <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.summaryLabel}</span>
-              <textarea
-                value={summary}
-                onChange={(event) => setSummary(event.target.value)}
-                placeholder={text.summaryPlaceholder}
-                className="min-h-[180px] w-full rounded-[1.5rem] border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-6 text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-              />
-            </label>
-
+          <div className="mt-5 space-y-4">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.sourceUrlLabel}</span>
-              <input
+              <textarea
                 value={sourceUrl}
                 onChange={(event) => setSourceUrl(event.target.value)}
                 placeholder={text.sourceUrlPlaceholder}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+                className="min-h-[150px] w-full rounded-[1.5rem] border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-6 text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
               />
             </label>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <label className="block">
-                <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.organizerLabel}</span>
-                <input
-                  value={organizer}
-                  onChange={(event) => setOrganizer(event.target.value)}
-                  placeholder={text.organizerPlaceholder}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.authorLabel}</span>
-                <input
-                  value={author}
-                  onChange={(event) => setAuthor(event.target.value)}
-                  placeholder={text.authorPlaceholder}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.eventDateLabel}</span>
-                <input
-                  value={eventDate}
-                  onChange={(event) => setEventDate(event.target.value)}
-                  placeholder="2026-04-18"
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.deadlineLabel}</span>
-                <input
-                  value={deadline}
-                  onChange={(event) => setDeadline(event.target.value)}
-                  placeholder="2026-04-10"
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.locationLabel}</span>
-                <input
-                  value={location}
-                  onChange={(event) => setLocation(event.target.value)}
-                  placeholder={text.locationPlaceholder}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.sourceLabelLabel}</span>
-                <input
-                  value={sourceLabel}
-                  onChange={(event) => setSourceLabel(event.target.value)}
-                  placeholder={text.sourceLabelPlaceholder}
-                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-                />
-              </label>
-            </div>
-
-            <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.tagsLabel}</span>
-              <input
-                value={tags}
-                onChange={(event) => setTags(event.target.value)}
-                placeholder={text.tagsPlaceholder}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
-              />
-            </label>
-
-            <div className="rounded-[1.5rem] border border-dashed border-emerald-300 bg-emerald-50/70 p-4 dark:border-emerald-700/60 dark:bg-emerald-950/20">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div>
-                  <p className="text-sm font-medium text-slate-800 dark:text-slate-100">{text.upload}</p>
-                  <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-300">{text.uploadHint}</p>
-                </div>
-                <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-600 dark:bg-emerald-400 dark:text-slate-950 dark:hover:bg-emerald-300">
-                  <i className="fas fa-image text-xs" aria-hidden="true"></i>
-                  {text.upload}
-                  <input type="file" accept="image/*" multiple className="hidden" onChange={handleImageChange} />
-                </label>
-              </div>
-
-              {images.length > 0 && (
-                <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4">
-                  {images.map((image, index) => (
-                    <img key={index} src={image} alt={`event-upload-${index + 1}`} className="aspect-square rounded-2xl object-cover shadow-sm" />
-                  ))}
-                </div>
-              )}
-            </div>
 
             <button
               type="button"
@@ -295,7 +128,7 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
                 <p>{message}</p>
                 {successUrl && (
                   <Link href={successUrl} className="mt-2 inline-flex items-center gap-2 font-medium text-emerald-700 dark:text-emerald-300">
-                    <span>{isEn ? 'Open the new event post' : '打开新赛事帖'}</span>
+                    <span>{text.openEvent}</span>
                     <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
                   </Link>
                 )}

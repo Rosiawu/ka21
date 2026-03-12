@@ -137,6 +137,7 @@ export async function submitEvent(input: {
   sourceLabel?: string;
   tags?: string[];
   images?: string[];
+  coverImage?: string;
 }) {
   const title = input.title.trim().slice(0, 80);
   const summary = input.summary.trim().slice(0, 1200);
@@ -150,12 +151,16 @@ export async function submitEvent(input: {
   const tags = Array.isArray(input.tags)
     ? input.tags.map((tag) => String(tag).trim()).filter(Boolean).slice(0, 8)
     : [];
+  const coverImage = (input.coverImage || '').trim().slice(0, 1000);
 
   if (!title) throw new Error('missing-title');
   if (!summary) throw new Error('missing-summary');
   if (!sourceUrl) throw new Error('missing-source-url');
 
   const { data, sha } = await readStore();
+  if (data.entries.some((entry) => entry.sourceUrl === sourceUrl)) {
+    throw new Error('duplicate-source-url');
+  }
   const createdAt = nowIso();
   const entryId = `${slugify(title) || 'event'}-${Date.now()}`;
   const imagePaths = await persistImages(input.images || [], entryId, title);
@@ -172,7 +177,7 @@ export async function submitEvent(input: {
     deadline,
     location,
     tags,
-    coverImage: imagePaths[0],
+    coverImage: coverImage || imagePaths[0],
     images: imagePaths,
     createdAt,
   };
