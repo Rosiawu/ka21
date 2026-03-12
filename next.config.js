@@ -17,6 +17,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**',
       },
+      {
+        protocol: 'http',
+        hostname: 'mmbiz.qpic.cn',
+      },
     ],
   },
   poweredByHeader: false,

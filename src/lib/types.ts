@@ -4,7 +4,7 @@ export type RecommendLevel = "high" | "medium" | "low";
 
 export type AccessibilityType = "直接访问" | "需要代理";
 
-export type SortMethod = "recommend" | "newest" | "name" | "default";
+export type SortMethod = "recommend" | "newest" | "name";
 
 export type DifficultyLevel = '小白入门' | '萌新进阶' | '高端玩家';
 
