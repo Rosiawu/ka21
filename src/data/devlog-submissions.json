@@ -1,6 +1,37 @@
 {
   "entries": [
     {
+      "id": "devlog-mmn80vyf-1773305021895",
+      "date": "2026-03-12",
+      "timelineTitle": {
+        "zh": "累了",
+        "en": "累了"
+      },
+      "cardTitle": {
+        "zh": "累了",
+        "en": "累了"
+      },
+      "body": {
+        "zh": "今天补一条手机直发的开发日志。\n\n累了 不想测了",
+        "en": "今天补一条手机直发的开发日志。\n\n累了 不想测了"
+      },
+      "imageSlotLabel": {
+        "zh": "手机提交开发日志配图：累了（1张）",
+        "en": "Mobile devlog images: 累了 (1)"
+      },
+      "relatedLinks": [],
+      "images": [
+        {
+          "src": "/images/devlog/submissions/devlog-mmn80vyf-1773305021895/01-devlog-mmn80vyf.png",
+          "alt": {
+            "zh": "累了 过程截图 1",
+            "en": "累了 progress image 1"
+          }
+        }
+      ],
+      "version": "共创 13"
+    },
+    {
       "id": "devlog-mobile-submit-feature-1773302054389",
       "version": "共创 12",
       "date": "2026-03-12",
@@ -79,7 +110,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T08:20:54Z",
-    "count": 2
+    "updatedAt": "2026-03-12T08:43:42.706Z",
+    "count": 3
   }
 }
