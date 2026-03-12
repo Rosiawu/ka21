@@ -104,15 +104,6 @@ function normalizeText(value) {
   return (value || '').toLowerCase().replace(/\s+/g, '').trim();
 }
 
-function includesAny(text, terms) {
-  for (var i = 0; i < terms.length; i += 1) {
-    if (text.indexOf(terms[i]) !== -1) {
-      return true;
-    }
-  }
-  return false;
-}
-
 function dedupeTerms(terms) {
   var map = {};
   var result = [];
@@ -270,6 +261,7 @@ Page({
     categories: [],
     hotTools: [],
     latestTutorials: [],
+    latestDevLogs: [],
     loadError: '',
   },
 
@@ -306,6 +298,7 @@ Page({
         });
       });
       const latestTutorials = tutorials.slice(0, 6);
+      const latestDevLogs = (content.getDevLogs() || []).slice(0, 3);
 
       this.setData({
         stats: {
@@ -316,6 +309,7 @@ Page({
         categories: categories,
         hotTools: hotTools,
         latestTutorials: latestTutorials,
+        latestDevLogs: latestDevLogs,
         loadError: '',
       });
     } catch (error) {
@@ -567,6 +561,19 @@ Page({
     if (!id) return;
     this.setData({
       hotTools: clearIconInList(this.data.hotTools, id),
+    });
+  },
+
+  openDevlogSubmit: function () {
+    wx.navigateTo({
+      url: '/pages/devlog-submit/index',
+    });
+  },
+
+  openDevlogPage: function () {
+    const webShell = require('../../utils/web-shell');
+    wx.navigateTo({
+      url: '/pages/webview/index?url=' + encodeURIComponent(webShell.getDevlogUrl('zh')),
     });
   },
 });

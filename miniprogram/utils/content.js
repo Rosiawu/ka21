@@ -161,6 +161,7 @@ function getNormalizedDataset() {
     tutorials: (raw.tutorials || []).map(normalizeTutorial),
     categories: (raw.categories || []).map(normalizeCategory),
     teamMembers: (raw.teamMembers || []).map(normalizeMember),
+    devLogs: (raw.devLogs || []).slice(),
   };
 }
 
@@ -198,6 +199,10 @@ function getCategories() {
 
 function getTeamMembers() {
   return getNormalizedDataset().teamMembers;
+}
+
+function getDevLogs() {
+  return getNormalizedDataset().devLogs;
 }
 
 function getCategoryLabel(categoryId) {
@@ -257,6 +262,7 @@ module.exports = {
   getTutorialById,
   getCategories,
   getTeamMembers,
+  getDevLogs,
   getCategoryLabel,
   searchTools,
   searchTutorials,

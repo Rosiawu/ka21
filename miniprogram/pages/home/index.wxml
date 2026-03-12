@@ -22,6 +22,21 @@
       <button class="quick-btn" data-keyword="海报设计" bindtap="onQuickSearch">海报设计</button>
       <button class="quick-btn" data-keyword="代码调试" bindtap="onQuickSearch">代码调试</button>
     </view>
+    <view class="magic-devlog-card" bindtap="openDevlogSubmit">
+      <view class="magic-devlog-badge">
+        <text class="magic-devlog-badge-icon">✦</text>
+        <text class="magic-devlog-badge-text">开发日志魔法棒</text>
+      </view>
+      <view class="magic-devlog-main">
+        <view>
+          <text class="magic-devlog-title">像发朋友圈一样更新网站</text>
+          <text class="magic-devlog-desc">点一下就能提交文字和截图，自动推到 GitHub，站点会跟着更新。</text>
+        </view>
+        <view class="magic-devlog-cta">
+          <text class="magic-devlog-cta-text">去提交</text>
+        </view>
+      </view>
+    </view>
 
     <view class="intent-result" wx:if="{{hasIntentResult}}">
       <view class="intent-head">
@@ -166,6 +181,26 @@
         <text class="tutorial-title">{{item.title}}</text>
         <text class="tutorial-meta">{{item.publishDate}} · {{item.author}}</text>
         <text class="tutorial-reason">{{item.recommendReason}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="row space-between">
+      <text class="section-title">最新开发日志</text>
+      <text class="muted" bindtap="openDevlogPage">查看全部</text>
+    </view>
+    <view
+      class="devlog-card"
+      wx:for="{{latestDevLogs}}"
+      wx:key="id"
+      bindtap="openDevlogPage"
+    >
+      <image wx:if="{{item.imageUrl}}" class="devlog-cover" src="{{item.imageUrl}}" mode="aspectFill"></image>
+      <view class="devlog-content">
+        <text class="devlog-meta">{{item.version}} · {{item.date}}</text>
+        <text class="devlog-title">{{item.title}}</text>
+        <text class="devlog-snippet">{{item.snippet}}</text>
       </view>
     </view>
   </view>

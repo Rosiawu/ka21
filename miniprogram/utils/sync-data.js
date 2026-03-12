@@ -9,6 +9,7 @@ function getBundledData() {
     categories: (require('../data/categories.js').categories || []).slice(),
     teamMembers: (require('../data/team-members.js').teamMembers || []).slice(),
     weeklyPicks: require('../data/weekly-picks.js').weeklyPicks || { toolIds: [], maxItems: 6 },
+    devLogs: (require('../data/devlogs.js').devLogs || []).slice(),
   };
 }
 
@@ -27,6 +28,7 @@ function isValidData(data) {
   if (!isArray(data.categories)) return false;
   if (!isArray(data.teamMembers)) return false;
   if (!data.weeklyPicks || typeof data.weeklyPicks !== 'object') return false;
+  if (!isArray(data.devLogs)) return false;
   return true;
 }
 
@@ -57,6 +59,7 @@ function getData() {
     weeklyPicks: remote.weeklyPicks && typeof remote.weeklyPicks === 'object'
       ? remote.weeklyPicks
       : bundled.weeklyPicks,
+    devLogs: isArray(remote.devLogs) ? remote.devLogs : bundled.devLogs,
   };
 }
 
@@ -136,4 +139,3 @@ module.exports = {
   getData,
   syncRemote,
 };
-

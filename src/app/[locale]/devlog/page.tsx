@@ -36,6 +36,7 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
       ? 'The build notes are open and transparent. Every small iteration is documented.'
       : '建站过程公开透明，每一次小步迭代都记录在这里。',
     backHome: isEn ? 'Back to Home' : '返回首页',
+    submit: isEn ? 'Post from phone' : '手机发一条',
   };
 
   return (
@@ -56,13 +57,22 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
               </h1>
               <p className="mt-3 text-slate-700 dark:text-slate-300">{text.subtitle}</p>
             </div>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-700/70 bg-white/90 dark:bg-slate-900/70 px-4 py-2 text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-white dark:hover:bg-slate-900 transition-colors"
-            >
-              <i className="fas fa-arrow-left text-xs" aria-hidden="true"></i>
-              {text.backHome}
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/devlog/submit"
+                className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700 transition-colors hover:bg-amber-100 dark:border-amber-700/70 dark:bg-amber-950/30 dark:text-amber-300 dark:hover:bg-amber-950/50"
+              >
+                <i className="fas fa-wand-magic-sparkles text-xs" aria-hidden="true"></i>
+                <span>{text.submit}</span>
+              </Link>
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-700/70 bg-white/90 dark:bg-slate-900/70 px-4 py-2 text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-white dark:hover:bg-slate-900 transition-colors"
+              >
+                <i className="fas fa-arrow-left text-xs" aria-hidden="true"></i>
+                {text.backHome}
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -94,21 +104,24 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
                   <div className="flex flex-col gap-2">
                     {allLinks.map((item) => {
                       const isPodcastLink = item.href.includes('xiaoyuzhoufm.com');
+                      const isToolLink = item.href.startsWith('/tools/');
                       return (
                         <a
                           key={item.href}
                           href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          target={isToolLink ? undefined : '_blank'}
+                          rel={isToolLink ? undefined : 'noopener noreferrer'}
                           className="group rounded-lg border border-indigo-200/80 dark:border-indigo-700/60 bg-white/90 dark:bg-slate-900/70 px-3 py-2 hover:border-indigo-300 dark:hover:border-indigo-500 transition-colors"
                         >
                           <span className="inline-flex items-center gap-2 text-indigo-700 dark:text-indigo-300">
-                            <i className={`${isPodcastLink ? 'fas fa-circle-play' : 'fas fa-link'} text-xs`} aria-hidden="true"></i>
+                            <i className={`${isPodcastLink ? 'fas fa-circle-play' : isToolLink ? 'fas fa-screwdriver-wrench' : 'fas fa-link'} text-xs`} aria-hidden="true"></i>
                             {isEn ? item.label.en : item.label.zh}
                           </span>
                           <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">
                             {isPodcastLink
                               ? (isEn ? 'Open episode and listen now' : '点击后可直接收听')
+                              : isToolLink
+                                ? (isEn ? 'Open tool detail page' : '点击直达工具详情页')
                               : (isEn ? 'Open tutorial source' : '点击查看教程原文')}
                           </p>
                         </a>

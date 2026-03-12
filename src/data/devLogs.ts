@@ -26,7 +26,9 @@ export type DevLogEntry = {
   }>;
 };
 
-export const devLogs: DevLogEntry[] = [
+import devLogSubmissions from '@/data/devlog-submissions.json';
+
+const staticDevLogs: DevLogEntry[] = [
   {
     id: 'utils-ranking-fix-2026-03-11',
     version: '共创 10',
@@ -832,6 +834,10 @@ function toTimeValue(dateStr: string): number {
   const value = new Date(dateStr).getTime();
   return Number.isNaN(value) ? 0 : value;
 }
+
+const submittedDevLogs = (devLogSubmissions.entries || []) as DevLogEntry[];
+
+export const devLogs: DevLogEntry[] = [...submittedDevLogs, ...staticDevLogs];
 
 export const sortedDevLogs = [...devLogs].sort((a, b) => {
   const dateDiff = toTimeValue(b.date) - toTimeValue(a.date);
