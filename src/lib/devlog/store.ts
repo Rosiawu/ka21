@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fetchJsonFileFromGitHub, updateGitHubJsonFile } from '@/lib/github';
 import type { DevLogEntry } from '@/data/devLogs';
+import { getHighestDevLogVersion } from '@/data/devLogs';
 import toolsData from '@/data/tools.json';
 
 type DevLogSubmissionFile = {
@@ -185,13 +186,8 @@ function buildVersion(entryCount: number) {
   return `共创 ${String(entryCount).padStart(2, '0')}`;
 }
 
-function parseVersionNumber(version: string) {
-  const match = version.match(/(\d+)/);
-  return match ? Number(match[1]) || 0 : 0;
-}
-
 function buildNextVersion(entries: DevLogEntry[]) {
-  const maxVersion = entries.reduce((max, item) => Math.max(max, parseVersionNumber(item.version)), 0);
+  const maxVersion = getHighestDevLogVersion(entries);
   return buildVersion(maxVersion + 1);
 }
 
