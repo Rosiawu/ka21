@@ -1,11 +1,9 @@
-"use client";
-
 import Image from 'next/image';
 import Link from '@/i18n/Link';
-import { getEventPreviewSnippet, sortedEvents } from '@/data/events';
+import { getEventPreviewSnippet, getSortedEvents } from '@/data/events';
 
-export default function EventPreviewSection({ isEn }: { isEn: boolean }) {
-  const events = sortedEvents.slice(0, 3);
+export default async function EventPreviewSection({ isEn }: { isEn: boolean }) {
+  const events = (await getSortedEvents()).slice(0, 3);
   const text = {
     badge: isEn ? 'Community Events' : '赛事区',
     title: isEn ? 'Fresh event posts from the community' : '从外部帖子里手动捞回来的新鲜赛事帖',

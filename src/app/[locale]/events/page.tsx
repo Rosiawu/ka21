@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from '@/i18n/Link';
 import { withBaseMeta } from '@/lib/withBaseMeta';
 import { generateHreflangMetadata } from '@/lib/hreflang';
-import { sortedEvents } from '@/data/events';
+import { getSortedEvents } from '@/data/events';
 
 export async function generateMetadata(
   { params }: { params: { locale: string } },
@@ -28,8 +28,11 @@ export async function generateMetadata(
   );
 }
 
-export default function EventsPage({ params }: { params: { locale: string } }) {
+export const dynamic = 'force-dynamic';
+
+export default async function EventsPage({ params }: { params: { locale: string } }) {
   const isEn = params.locale === 'en';
+  const sortedEvents = await getSortedEvents();
   const text = {
     title: isEn ? 'Event Board' : '赛事区',
     subtitle: isEn
