@@ -47,12 +47,8 @@ function loadImageElement(file: File) {
 }
 
 async function compressImageFile(file: File) {
-  if (file.size <= 1_200_000) {
-    return file;
-  }
-
   const image = await loadImageElement(file);
-  const maxDimension = 1600;
+  const maxDimension = 1280;
   const scale = Math.min(1, maxDimension / Math.max(image.width, image.height));
   const width = Math.max(1, Math.round(image.width * scale));
   const height = Math.max(1, Math.round(image.height * scale));
@@ -69,9 +65,20 @@ async function compressImageFile(file: File) {
   ctx.fillRect(0, 0, width, height);
   ctx.drawImage(image, 0, 0, width, height);
 
-  const blob = await new Promise<Blob | null>((resolve) => {
-    canvas.toBlob(resolve, 'image/jpeg', 0.82);
-  });
+  const targetSize = 350 * 1024;
+  let quality = 0.78;
+  let blob: Blob | null = null;
+
+  while (quality >= 0.45) {
+    blob = await new Promise<Blob | null>((resolve) => {
+      canvas.toBlob(resolve, 'image/jpeg', quality);
+    });
+
+    if (!blob || blob.size <= targetSize) {
+      break;
+    }
+    quality -= 0.08;
+  }
 
   if (!blob) {
     return file;
@@ -115,6 +122,7 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
     submit: isEn ? 'Submit and push' : '提交并推到 GitHub',
     submitting: isEn ? 'Submitting...' : '提交中...',
     success: isEn ? 'Submitted. Wait for auto deploy, then open the devlog page.' : '提交成功。等自动部署完成后，去开发日志页就能看到。',
+    gatewayFail: isEn ? 'Upload failed before the API returned JSON.' : '上传在到达接口前就失败了。',
   };
 
   const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -152,7 +160,14 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
         method: 'POST',
         body: formData,
       });
-      const result = await response.json();
+      const rawText = await response.text();
+      let result: any = null;
+      try {
+        result = rawText ? JSON.parse(rawText) : null;
+      } catch {
+        setMessage(`${text.gatewayFail} HTTP ${response.status || 0}`);
+        return;
+      }
       if (!result.success) {
         setMessage(result.message || (isEn ? 'Submit failed.' : '提交失败。'));
         return;
