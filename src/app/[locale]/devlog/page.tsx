@@ -37,6 +37,7 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
       : '建站过程公开透明，每一次小步迭代都记录在这里。',
     backHome: isEn ? 'Back to Home' : '返回首页',
     submitHint: isEn ? 'Mobile posting now uses the miniapp native page.' : '手机投稿现在只走小程序原生页。',
+    webSubmit: isEn ? 'Post from web' : '网页提交',
   };
 
   return (
@@ -58,6 +59,13 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
               <p className="mt-3 text-slate-700 dark:text-slate-300">{text.subtitle}</p>
             </div>
             <div className="flex flex-wrap gap-3">
+              <Link
+                href="/devlog/submit"
+                className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/90 px-4 py-2 text-sm font-medium text-indigo-700 transition-colors hover:bg-white dark:border-indigo-700/70 dark:bg-slate-900/70 dark:text-indigo-300 dark:hover:bg-slate-900"
+              >
+                <i className="fas fa-pen-to-square text-xs" aria-hidden="true"></i>
+                <span>{text.webSubmit}</span>
+              </Link>
               <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700 dark:border-amber-700/70 dark:bg-amber-950/30 dark:text-amber-300">
                 <i className="fas fa-mobile-screen-button text-xs" aria-hidden="true"></i>
                 <span>{text.submitHint}</span>
