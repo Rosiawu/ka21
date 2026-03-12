@@ -8,7 +8,7 @@ import { Tool, ToolCategoryId } from '@/lib/types';
 import { validateTools } from '@/lib/validate';
 import { TOOL_CATEGORIES } from '@/data/toolCategories';
 import ToolSortControls, { SortMethod } from './ToolSortControls';
-import { applySorting, sortByDefaultOrder, getVisibleTools } from '@/utils/sortTools';
+import { applySorting, getVisibleTools } from '@/utils/sortTools';
 import { filterTools } from '@/utils/filterTools';
 import useHotkey from '@/hooks/useHotkey';
 import { useTranslations } from 'next-intl';
@@ -43,7 +43,7 @@ export default function SearchContent() {
     TOOL_CATEGORIES.some(cat => cat.id === rawCategoryParam)
   ) ? (rawCategoryParam as ToolCategoryId) : null;
 
-  const [sortMethod, setSortMethod] = useState<SortMethod>('default');
+  const [sortMethod, setSortMethod] = useState<SortMethod>('recommend');
   const [inputValue, setInputValue] = useState(searchQuery);
   const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
   const [sortedTools, setSortedTools] = useState<Tool[]>([]);
@@ -58,18 +58,13 @@ export default function SearchContent() {
         categoryId: categoryParam && TOOL_CATEGORIES.some(cat => cat.id === categoryParam) ? (categoryParam as ToolCategoryId) : undefined
       });
       setFilteredTools(filtered);
-      setSortedTools(sortByDefaultOrder(filtered));
+      setSortedTools(applySorting(filtered, sortMethod));
       setIsLoading(false);
     } catch (e) {
       setError(e as Error);
       setIsLoading(false);
     }
-  }, [searchQuery, categoryParam]);
-
-  useEffect(() => {
-    if (!filteredTools.length) return;
-    setSortedTools(applySorting(filteredTools, sortMethod));
-  }, [filteredTools, sortMethod]);
+  }, [searchQuery, categoryParam, sortMethod]);
 
   const handleSortChange = (method: SortMethod) => setSortMethod(method);
 

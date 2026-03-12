@@ -2,7 +2,7 @@
 
 // 引入React相关Hook和组件
 import { useState, useRef, useEffect, useMemo } from 'react'; // React核心Hook
-import {useLocale, useTranslations} from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import ToolList from '@/components/ToolList'; // 工具列表组件
 import toolsData from '@/data/tools.json'; // 工具数据JSON文件
 import { Tool } from '@/lib/types'; // 工具类型定义
@@ -14,7 +14,7 @@ import Logo from './Logo'; // Logo组件
 import { tutorials } from '@/data/tutorials'; // 教程数据
 import { TOOL_CATEGORIES } from '@/data/toolCategories'; // 工具分类数据
 import ToolCategorySection from './ToolCategorySection'; // 工具分类区域组件
-import { sortByDefaultOrder } from '@/utils/sortTools'; // 默认排序工具函数
+import { sortByRecommendLevel } from '@/utils/sortTools'; // 推荐排序工具函数
 import ToolSortControls, { SortMethod } from './ToolSortControls'; // 排序控制组件
 import { applySorting } from '@/utils/sortTools'; // 应用排序函数
 import { getVisibleTools } from '@/utils/sortTools'; // 获取可见工具函数
@@ -60,7 +60,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
           sessionStorage.removeItem('restore_home_scroll');
         }
       }
-    } catch {}
+    } catch { }
   }, []);
   const tHot = useTranslations('Hot');
   const homeSubtitle = subtitle ?? tHome('subtitle');
@@ -150,19 +150,19 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
     },
   ] as const;
   // ========== 状态管理 ==========
-  
+
   // 搜索相关状态
   const [searchQuery, setSearchQuery] = useState(''); // 搜索输入框的值
   const searchInputRef = useRef<HTMLTextAreaElement>(null); // 搜索输入框的引用，用于聚焦操作
-  
+
   // 数据加载状态
   const [isLoading, setIsLoading] = useState(true); // 是否正在加载数据
   const [error, setError] = useState<Error | null>(null); // 错误信息
   const [toolsList, setToolsList] = useState<Tool[]>([]); // 工具列表数据
-  
+
   // Next.js路由Hook
   const router = useRouter();
-  
+
   // 搜索相关派生状态：由输入值推导，避免不必要的本地状态
   // - isSearching: 使用防抖后的值是否非空
   // - isSearchPending: 输入与防抖值不一致表示仍在等待稳定
@@ -172,29 +172,29 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   const [currentTutorialIndex, setCurrentTutorialIndex] = useState(0); // 当前教程索引
   const tutorialSliderRef = useRef<HTMLDivElement>(null); // 教程轮播容器的引用
   const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null); // 自动轮播定时器的引用
-  
+
   // ========== 计算属性和Hook ==========
-  
+
   // 防抖处理搜索查询，延迟300毫秒，避免频繁搜索
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
-  
+
   // ========== 副作用处理 ==========
-  
+
   // 加载工具数据并进行默认排序
   useEffect(() => {
     try {
       setIsLoading(true); // 设置加载状态为true
-      
+
       // 确保数据结构有效，验证工具数据格式
       if (!validateTools(toolsData.tools)) {
         throw new Error('Invalid tools data structure');
       }
-      
+
       // 使用排序工具函数对工具进行默认排序（使用displayOrder字段优先）
       // 先过滤可见工具，再进行排序
       const visibleTools = getVisibleTools(toolsData.tools); // 获取可见工具
-      setToolsList(sortByDefaultOrder(visibleTools)); // 设置排序后的工具列表
-      
+      setToolsList(sortByRecommendLevel(visibleTools)); // 设置排序后的工具列表
+
       // 跟踪主页访问，用于数据分析
       trackPageView('首页', 'home'); // 记录页面访问
       setTag('page_type', 'home'); // 设置页面类型标签
@@ -206,7 +206,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       setTag('hidden_tutorial_tag_count', String(new Set(hiddenTutorialTags).size));
       setTag('hidden_tool_tags_sample', serializeTagsForTelemetry(hiddenToolTags));
       setTag('hidden_tutorial_tags_sample', serializeTagsForTelemetry(hiddenTutorialTags));
-      
+
       setIsLoading(false); // 设置加载状态为false
     } catch (err) {
       console.error('Error loading tools:', err); // 输出错误信息到控制台
@@ -214,7 +214,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       setIsLoading(false); // 确保加载状态为false
     }
   }, []); // 空依赖数组，只在组件挂载时执行一次
-  
+
   // 键盘快捷键（Ctrl/Cmd + K 聚焦，Esc 在输入聚焦时清空）
   useHotkey([
     {
@@ -230,7 +230,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       },
     },
   ]);
-  
+
   const executeHomeSearch = (rawQuery: string, source: string) => {
     const trimmed = rawQuery.trim();
     if (!trimmed) return;
@@ -268,7 +268,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   // 由数据推导出的 UI 状态（不额外维护本地状态）
   const isSearching = debouncedSearchQuery.trim().length > 0;
   const isSearchPending = searchQuery.trim().length > 0 && searchQuery !== debouncedSearchQuery;
-  
+
   // 实时过滤萌新教程
   const filteredTutorials = useMemo(() => {
     if (!debouncedSearchQuery) {
@@ -280,17 +280,17 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       });
       return sortedTutorials.slice(0, 6); // 显示最新的6个教程用于轮播
     }
-    
+
     const query = debouncedSearchQuery.toLowerCase();
-    return tutorials.filter(tutorial => 
-      tutorial.title.toLowerCase().includes(query) || 
+    return tutorials.filter(tutorial =>
+      tutorial.title.toLowerCase().includes(query) ||
       tutorial.description.toLowerCase().includes(query) ||
       tutorial.author.toLowerCase().includes(query) ||
       tutorial.category.toLowerCase().includes(query) ||
       matchesTaxonomyToken(query, getTutorialSearchAliasTokens(tutorial))
     ).slice(0, 6); // 显示匹配的前6个教程用于轮播
   }, [debouncedSearchQuery]);
-  
+
   // 自动轮播功能
   useEffect(() => {
     // 只有在自动播放启用且有足够的教程时才启动轮播
@@ -299,18 +299,18 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       if (autoPlayIntervalRef.current) {
         clearInterval(autoPlayIntervalRef.current);
       }
-      
+
       // 设置新的自动轮播定时器
       autoPlayIntervalRef.current = setInterval(() => {
         // 向右滚动到下一组教程
         if (tutorialSliderRef.current) {
           const cardsToShow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
           const tutorialCardWidth = 288 + 16; // 教程卡片宽度(w-72 = 288px) + 间距
-          
+
           // 计算下一个索引，确保循环轮播
           const nextIndex = (currentTutorialIndex + 1) % (filteredTutorials.length - cardsToShow + 1);
           setCurrentTutorialIndex(nextIndex);
-          
+
           // 滚动到相应位置
           tutorialSliderRef.current.scrollTo({
             left: nextIndex * tutorialCardWidth,
@@ -318,7 +318,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
           });
         }
       }, 7000); // 7秒轮播一次，给用户更多阅读时间
-      
+
       return () => {
         if (autoPlayIntervalRef.current) {
           clearInterval(autoPlayIntervalRef.current);
@@ -326,7 +326,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       };
     }
   }, [autoPlayEnabled, filteredTutorials.length, currentTutorialIndex]);
-  
+
   // 窗口大小变化时重新计算轮播
   useEffect(() => {
     const handleResize = () => {
@@ -339,27 +339,27 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
         setCurrentTutorialIndex(0);
       }
     };
-    
+
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
+
   // 没有匹配的教程时显示的提示
   const noTutorialsMatch = isSearching && filteredTutorials.length === 0;
-  
+
   // 根据分类对工具进行分组
   const toolsByCategory = useMemo(() => {
     if (isLoading || error) return {};
-    
+
     const groupedTools: Record<string, Tool[]> = {};
-    
+
     // 初始化所有工具分类
     TOOL_CATEGORIES.forEach(category => {
       groupedTools[category.id] = [];
     });
-    
+
     // 将工具按分类分组
     toolsList.forEach(tool => {
       const category = tool.toolCategory || 'misc';
@@ -368,18 +368,18 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       }
       groupedTools[category].push(tool);
     });
-    
+
     return groupedTools;
   }, [toolsList, isLoading, error]);
-  
-  const [sortMethod, setSortMethod] = useState<SortMethod>('default');
+
+  const [sortMethod, setSortMethod] = useState<SortMethod>('recommend');
   const utilsCount = useMemo(
     () => toolsList.filter((tool) => tool.toolCategory === 'utils').length,
     [toolsList]
   );
   const coreToolCount = toolsList.length - utilsCount;
   const tutorialCount = tutorials.length;
-  
+
   // 搜索结果排序
   const filteredTools = useMemo(() => {
     if (!debouncedSearchQuery) return toolsList;
@@ -399,10 +399,10 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   const handleSortChange = (method: SortMethod) => {
     setSortMethod(method);
   };
-  
+
   return (
     <div className="relative overflow-x-clip pb-24 bg-transparent">
-      
+
       <div className="page-shell py-6">
         <div className="max-w-8xl mx-auto">
           {/* 主标题区域 */}
@@ -468,7 +468,11 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       <span className="hidden rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2.5 py-[2px] text-[11px] font-semibold text-[#e7cd8b] sm:inline-flex">
                         {spotlightPodcast.tag}
                       </span>
+<<<<<<< HEAD
+                      <span className="mt-1 block whitespace-nowrap text-[clamp(1.75rem,7vw,2.6rem)] leading-[0.94] font-extrabold tracking-tight text-white sm:mt-1.5 sm:text-[48px] sm:leading-[0.92]">
+=======
                       <span className="mt-0.5 block whitespace-nowrap text-[clamp(1.5rem,6.4vw,2.35rem)] leading-[0.94] font-extrabold tracking-tight text-white sm:mt-1.5 sm:text-[48px] sm:leading-[0.92]">
+>>>>>>> ae0f8d6fdc0d3c50defc09007e7fcb298b33820d
                         {spotlightPodcast.title}
                       </span>
                       <span className="mt-1 hidden line-clamp-1 text-[12px] font-semibold text-slate-200 sm:block sm:text-[16px]">
@@ -521,7 +525,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
 
             </div>
           </div>
-          
+
           {/* 对话式输入框 */}
           <div className="mb-6 relative max-w-5xl mx-auto">
             <form
@@ -597,12 +601,15 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
               onQuerySelect={handleIntentQuerySelect}
             />
           </div>
-          
+
           {/* 热门推荐板块（显式传入本地化标题，规避上下文异常导致的错语种） */}
           <HotSection title={tHot('title')} subtitle={tHot('subtitle')} />
 
+<<<<<<< HEAD
+=======
           {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} />}
           
+>>>>>>> ae0f8d6fdc0d3c50defc09007e7fcb298b33820d
           {/* 萌新教程部分 - 水平滚动布局 */}
           <section id="tutorials" className={`slide-up mb-12 ${isSearching ? 'relative' : ''}`}>
             <div className="flex items-center justify-between mb-4">
@@ -619,7 +626,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 <span className="hidden sm:inline-block ml-3 text-sm font-normal text-slate-500 dark:text-slate-400">{tHome('tutorialsSourceNote')}</span>
               </h2>
               <div className="flex items-center gap-2">
-                <button 
+                <button
                   onClick={() => {
                     // 使用DOM API直接操作，避免增加状态管理负担
                     const tutorialContent = document.querySelector('#tutorial-content');
@@ -647,7 +654,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 </Link>
               </div>
             </div>
-            
+
             <div id="tutorial-content">
               {/* 没有匹配的教程时显示提示 */}
               {noTutorialsMatch ? (
@@ -657,8 +664,8 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                   </div>
                   <h3 className="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">{tHome('noTutorialsTitle')}</h3>
                   <p className="text-slate-500 dark:text-slate-400">{tHome('noTutorialsHint')}</p>
-                  <Link 
-                    href="/tutorials" 
+                  <Link
+                    href="/tutorials"
                     className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700"
                   >
                     {tHome('browseAllTutorials')}
@@ -667,7 +674,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
               ) : (
                 <div className="relative">
                   {/* 水平滚动教程卡片容器 */}
-                  <div 
+                  <div
                     className="overflow-x-auto hide-scrollbar py-4 px-2"
                     ref={tutorialSliderRef}
                     onMouseEnter={() => setAutoPlayEnabled(false)}
@@ -677,16 +684,16 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       {/* 渲染教程卡片 */}
                       {filteredTutorials.map((tutorial) => (
                         <div key={tutorial.id} className="flex-shrink-0 w-72">
-                          <a 
-                            href={tutorial.url} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                          <a
+                            href={tutorial.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="block group"
                           >
                             <article className="tool-card bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden h-[400px] flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent">
                               <div className="relative w-full h-36 overflow-hidden bg-gradient-to-r from-gray-100 to-slate-200 dark:from-gray-800 dark:to-slate-900">
                                 <div className="absolute inset-0 flex items-center justify-center">
-                                  <Image 
+                                  <Image
                                     src={tutorial.imageUrl}
                                     alt={tutorial.title}
                                     fill
@@ -710,7 +717,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                                   </span>
                                 </div>
                               </div>
-                              
+
                               <div className="p-2.5 flex min-h-0 flex-1 flex-col">
                                 <h3 className="min-h-[2.8rem] font-bold text-base mb-1 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">{tutorial.title}</h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-2 whitespace-nowrap overflow-hidden">
@@ -723,7 +730,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                                     <span className="truncate">{tutorial.author}</span>
                                   </span>
                                 </p>
-                                
+
                                 {/* 推荐理由 */}
                                 {tutorial.recommendReason && (
                                   <div className="mt-1 h-[62px] text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/30 p-1.5 rounded line-clamp-3 italic overflow-hidden">
@@ -732,7 +739,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                                   </div>
                                 )}
                                 {!tutorial.recommendReason && <div className="mt-1 h-[62px]" aria-hidden="true"></div>}
-                                
+
                                 <div className="text-sm font-medium text-primary-600 dark:text-primary-400 flex items-center group-hover:translate-x-1 transition-transform duration-300 mt-auto pt-1.5">
                                   {tHome('readMore')}
                                   <i className="fas fa-arrow-right ml-1 group-hover:ml-2 transition-all duration-300"></i>
@@ -744,23 +751,23 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* 滚动指示器和按钮 */}
                   <div className="absolute left-0 top-1/2 z-10 hidden -translate-y-1/2 sm:block">
-                    <button 
+                    <button
                       className="bg-white/80 dark:bg-slate-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
                       aria-label={tHome('scrollLeft')}
                       onClick={() => {
                         // 暂停自动播放
                         setAutoPlayEnabled(false);
-                        
+
                         // 计算教程卡片宽度
                         const tutorialCardWidth = 288 + 16; // 教程卡片宽度(w-72 = 288px) + 间距
-                        
+
                         // 计算前一个索引，确保不会小于0
                         const prevIndex = Math.max(0, currentTutorialIndex - 1);
                         setCurrentTutorialIndex(prevIndex);
-                        
+
                         // 滚动到相应位置
                         const container = tutorialSliderRef.current;
                         if (container) {
@@ -769,7 +776,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                             behavior: 'smooth'
                           });
                         }
-                        
+
                         // 7秒后重新启用自动播放
                         setTimeout(() => setAutoPlayEnabled(true), 7000);
                       }}
@@ -777,25 +784,25 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       <i className="fas fa-chevron-left"></i>
                     </button>
                   </div>
-                  
+
                   <div className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 sm:block">
-                    <button 
+                    <button
                       className="bg-white/80 dark:bg-slate-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
                       aria-label={tHome('scrollRight')}
                       onClick={() => {
                         // 暂停自动播放
                         setAutoPlayEnabled(false);
-                        
+
                         // 计算教程卡片宽度
                         const tutorialCardWidth = 288 + 16; // 教程卡片宽度(w-72 = 288px) + 间距
-                        
+
                         // 计算下一个索引，确保不会超出范围
                         const nextIndex = Math.min(
                           filteredTutorials.length - (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1),
                           currentTutorialIndex + 1
                         );
                         setCurrentTutorialIndex(nextIndex);
-                        
+
                         // 滚动到相应位置
                         const container = tutorialSliderRef.current;
                         if (container) {
@@ -804,7 +811,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                             behavior: 'smooth'
                           });
                         }
-                        
+
                         // 7秒后重新启用自动播放
                         setTimeout(() => setAutoPlayEnabled(true), 7000);
                       }}
@@ -812,24 +819,23 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       <i className="fas fa-chevron-right"></i>
                     </button>
                   </div>
-                  
+
                   {/* 添加轮播指示器 */}
                   <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
                     {Array.from({ length: Math.max(1, filteredTutorials.length - 2) }).map((_, index) => (
-                      <button 
+                      <button
                         key={index}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          currentTutorialIndex === index 
-                            ? 'w-4 bg-primary-500' 
+                        className={`h-2 rounded-full transition-all duration-300 ${currentTutorialIndex === index
+                            ? 'w-4 bg-primary-500'
                             : 'w-2 bg-gray-300 dark:bg-gray-600'
-                        }`}
+                          }`}
                         onClick={() => {
                           // 暂停自动播放
                           setAutoPlayEnabled(false);
-                          
+
                           const tutorialCardWidth = 288 + 16; // 卡片宽度(w-72 = 288px) + 间距
                           setCurrentTutorialIndex(index);
-                          
+
                           const container = tutorialSliderRef.current;
                           if (container) {
                             container.scrollTo({
@@ -837,24 +843,24 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                               behavior: 'smooth'
                             });
                           }
-                          
+
                           // 7秒后重新启用自动播放
                           setTimeout(() => setAutoPlayEnabled(true), 7000);
                         }}
-                        aria-label={tHome('jumpToTutorialPage', {index: index + 1})}
+                        aria-label={tHome('jumpToTutorialPage', { index: index + 1 })}
                       />
                     ))}
                   </div>
                 </div>
               )}
-              
+
               {/* 指示更多内容的指示器 */}
               <div className="text-center mt-4 text-slate-400 text-sm animate-pulse">
                 <i className="fas fa-chevron-down mr-1"></i>
                 {tHome('scrollDownToViewTools')}
               </div>
             </div>
-            
+
             <div className="mt-2 text-center sm:hidden">
               <Link href="/tutorials" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-primary-600 dark:text-primary-400 font-medium text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200">
                 {tCommon('viewAll')} {tHome('tutorials')}
@@ -864,7 +870,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
           </section>
 
           {!isSearching && !isSearchPending && <DevLogPreviewSection isEn={isEn} />}
-          
+
           {/* 工具分类列表 - 使用新的ToolCategorySection组件 */}
           {!isSearching && !isSearchPending && (
             <div className="mt-16 space-y-12">
@@ -891,15 +897,15 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                   {isEn ? 'Low-value listings are removed. Only useful AI tools stay.' : '末位淘汰，只留好用的AI牛马'}
                 </p>
               </div>
-              
+
               <div className="space-y-12">
                 {TOOL_CATEGORIES.map(category => {
                   const categoryTools = toolsByCategory[category.id] || [];
                   // 只显示有工具的分类
                   if (categoryTools.length === 0) return null;
-                  
+
                   return (
-                    <ToolCategorySection 
+                    <ToolCategorySection
                       key={category.id}
                       category={category}
                       tools={categoryTools}
@@ -910,13 +916,13 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
               </div>
             </div>
           )}
-          
+
           {/* 搜索结果 - 使用ToolList组件展示 */}
           {(isSearching || isSearchPending) && (
             <div className="mt-8">
               <ToolSortControls currentSort={sortMethod} onSortChange={handleSortChange} />
-              <ToolList 
-                tools={sortedTools} 
+              <ToolList
+                tools={sortedTools}
                 initialSearchQuery={debouncedSearchQuery}
                 isLoading={isLoading || isSearchPending}
                 error={error}

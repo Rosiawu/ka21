@@ -2,7 +2,7 @@
 
 import {useTranslations} from 'next-intl';
 
-export type SortMethod = 'default' | 'recommend' | 'newest' | 'name';
+export type SortMethod = 'recommend' | 'newest' | 'name';
 
 interface ToolSortControlsProps {
   onSortChange: (method: SortMethod) => void;
@@ -19,17 +19,6 @@ export default function ToolSortControls({ onSortChange, currentSort }: ToolSort
   return (
     <div className="flex flex-wrap items-center gap-2 mb-4">
       <span className="text-sm text-gray-600 dark:text-gray-300 mr-2">{tSort('label')}</span>
-      
-      <button
-        onClick={() => onSortChange('default')}
-        className={`px-3 py-1 text-sm rounded-full transition-colors ${
-          currentSort === 'default'
-            ? 'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300 font-medium'
-            : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
-        }`}
-      >
-        <i className="fas fa-th-list mr-1.5"></i>{tSort('default')}
-      </button>
       
       <button
         onClick={() => onSortChange('recommend')}

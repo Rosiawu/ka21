@@ -34,33 +34,19 @@ const CATEGORY_WEIGHTS: Record<ToolCategoryId, number> = {
 
 /**
  * 按推荐级别排序工具
- * - 优先按推荐级别排序（高推荐优先）
- * - 二级排序：displayOrder（自定义显示顺序）
- * - 三级排序：工具名称（字母顺序）
+ * - 纯粹按推荐级别排序，不考虑displayOrder
+ * - 高推荐级别优先
  * 
  * @param tools 工具数组
  * @returns 排序后的工具数组
  */
 export function sortByRecommendLevel(tools: Tool[]): Tool[] {
   return [...tools].sort((a, b) => { // 创建数组副本并排序
-    // 一级排序：displayOrder（自定义显示顺序）
-    // 如果两个工具都有displayOrder，按数值升序排列
-    if (typeof a.displayOrder === 'number' && typeof b.displayOrder === 'number') {
-      return a.displayOrder - b.displayOrder;
-    }
-    // 如果只有一个有displayOrder，它排在前面
-    if (typeof a.displayOrder === 'number') return -1;
-    if (typeof b.displayOrder === 'number') return 1;
-
-    // 二级排序：推荐级别
+    // 仅按推荐级别排序
     const aWeight = a.recommendLevel ? RECOMMEND_LEVEL_WEIGHTS[a.recommendLevel] : 0; // 工具A的推荐权重
     const bWeight = b.recommendLevel ? RECOMMEND_LEVEL_WEIGHTS[b.recommendLevel] : 0; // 工具B的推荐权重
-    
-    // 如果推荐级别不同，按推荐级别排序（降序）
-    if (bWeight !== aWeight) return bWeight - aWeight;
-    
-    // 三级排序：名称（字母顺序）
-    return a.name.localeCompare(b.name); // 按名称字母顺序排序
+
+    return bWeight - aWeight; // 按推荐级别降序排列
   });
 }
 
@@ -83,7 +69,7 @@ export function sortByCategory(tools: Tool[]): Tool[] {
 
 /**
  * 按更新时间排序工具（最新优先）
- * - 仅按更新时间排序，不考虑displayOrder
+ * - 优先使用updatedAt，如果没有则使用createdAt
  * - 最近更新的工具排在前面
  * 
  * @param tools 工具数组
@@ -91,51 +77,51 @@ export function sortByCategory(tools: Tool[]): Tool[] {
  */
 export function sortByUpdateTime(tools: Tool[]): Tool[] {
   return [...tools].sort((a, b) => { // 创建数组副本并排序
-    // 仅按更新时间排序，不考虑displayOrder
-    const aTime = a.updatedAt ? new Date(a.updatedAt).getTime() : 0; // 工具A的更新时间戳
-    const bTime = b.updatedAt ? new Date(b.updatedAt).getTime() : 0; // 工具B的更新时间戳
-    return bTime - aTime; // 按更新时间降序排列（最新的在前）
+    // 获取工具A的时间戳（优先updatedAt，其次createdAt）
+    const aTime = a.updatedAt
+      ? new Date(a.updatedAt).getTime()
+      : a.createdAt
+        ? new Date(a.createdAt).getTime()
+        : 0;
+
+    // 获取工具B的时间戳（优先updatedAt，其次createdAt）
+    const bTime = b.updatedAt
+      ? new Date(b.updatedAt).getTime()
+      : b.createdAt
+        ? new Date(b.createdAt).getTime()
+        : 0;
+
+    return bTime - aTime; // 按时间降序排列（最新的在前）
   });
 }
 
 /**
  * 按名称字母顺序排序工具
- * - 仅按名称排序，不考虑displayOrder
- * - 使用localeCompare进行本地化字符串比较
+ * - 纯粹按名称排序，不考虑其他因素
  * 
  * @param tools 工具数组
  * @returns 排序后的工具数组
  */
 export function sortByName(tools: Tool[]): Tool[] {
-  // 仅按名称排序，不考虑displayOrder
-  return [...tools].sort((a, b) => a.name.localeCompare(b.name)); // 按名称字母顺序排序
+  return [...tools].sort((a, b) => {
+    // 使用本地化比较，指定中文环境，支持拼音排序
+    return a.name.localeCompare(b.name, 'zh-CN', {
+      numeric: true,        // 数字排序
+      sensitivity: 'base',  // 忽略大小写和重音符号
+      ignorePunctuation: true // 忽略标点符号
+    });
+  });
 }
 
 /**
- * 按默认顺序排序工具 - 使用自定义displayOrder字段，没有则按推荐等级
- * - 优先按displayOrder排序（自定义显示顺序）
- * - 如果没有displayOrder，则按推荐级别排序
- * - 这是最常用的排序方式，平衡了自定义顺序和推荐级别
+ * 按默认顺序排序工具 - 保持原始顺序
+ * - 不进行任何排序，保持工具的原始顺序
  * 
  * @param tools 工具数组
- * @returns 排序后的工具数组
+ * @returns 原始顺序的工具数组
  */
 export function sortByDefaultOrder(tools: Tool[]): Tool[] {
-  return [...tools].sort((a, b) => { // 创建数组副本并排序
-    // 1. 优先按displayOrder排序（如果有该字段）
-    if (typeof a.displayOrder === 'number' && typeof b.displayOrder === 'number') { // 如果两个工具都有displayOrder
-      return a.displayOrder - b.displayOrder; // 数字小的排前面
-    }
-    
-    // 2. 如果只有一个工具有displayOrder，有displayOrder的优先
-    if (typeof a.displayOrder === 'number') return -1; // A有displayOrder，A优先
-    if (typeof b.displayOrder === 'number') return 1;  // B有displayOrder，B优先
-    
-    // 3. 都没有displayOrder则按推荐等级排序
-    const aWeight = a.recommendLevel ? RECOMMEND_LEVEL_WEIGHTS[a.recommendLevel] : 0; // 工具A的推荐权重
-    const bWeight = b.recommendLevel ? RECOMMEND_LEVEL_WEIGHTS[b.recommendLevel] : 0; // 工具B的推荐权重
-    return bWeight - aWeight; // 按推荐级别降序排列
-  });
+  return [...tools]; // 直接返回副本，不进行排序
 }
 
 /**
@@ -154,14 +140,14 @@ export function sortTools(tools: Tool[]): Tool[] {
     if (aRecWeight !== bRecWeight) { // 如果推荐级别不同
       return bRecWeight - aRecWeight; // 按推荐级别降序排列
     }
-    
+
     // 2. 按工具类别排序
     const aCatWeight = a.toolCategory ? CATEGORY_WEIGHTS[a.toolCategory] : 0; // 工具A的分类权重
     const bCatWeight = b.toolCategory ? CATEGORY_WEIGHTS[b.toolCategory] : 0; // 工具B的分类权重
     if (aCatWeight !== bCatWeight) { // 如果分类权重不同
       return bCatWeight - aCatWeight; // 按分类权重降序排列
     }
-    
+
     // 3. 按更新时间排序
     const aTime = a.updatedAt ? new Date(a.updatedAt).getTime() : 0; // 工具A的更新时间戳
     const bTime = b.updatedAt ? new Date(b.updatedAt).getTime() : 0; // 工具B的更新时间戳
@@ -222,16 +208,16 @@ export function filterAndSortByTags(tools: Tool[], selectedTags: string[]): Tool
   if (!selectedTags || selectedTags.length === 0) { // 如果没有选中标签
     return sortTools(tools); // 使用默认多级排序
   }
-  
+
   // 筛选含有选中标签的工具
   const filteredTools = filterByTags(tools, selectedTags); // 使用标签过滤函数
-  
+
   // 计算每个工具匹配的标签数量
   const toolsWithMatchCount = filteredTools.map(tool => ({
     ...tool, // 展开工具的所有属性
     matchCount: selectedTags.filter(tag => tool.tags.includes(tag)).length // 计算匹配的标签数量
   }));
-  
+
   // 先按匹配标签数排序，再使用默认多级排序
   return toolsWithMatchCount.sort((a, b) => {
     // 优先按匹配标签数排序（降序）
@@ -240,7 +226,7 @@ export function filterAndSortByTags(tools: Tool[], selectedTags: string[]): Tool
     if (bWithMatch.matchCount !== aWithMatch.matchCount) { // 如果匹配标签数不同
       return bWithMatch.matchCount - aWithMatch.matchCount; // 按匹配数量降序排列
     }
-    
+
     // 若匹配标签数相同，则使用默认多级排序逻辑
     // 1. 按推荐级别排序
     const aRecWeight = a.recommendLevel ? RECOMMEND_LEVEL_WEIGHTS[a.recommendLevel] : 0; // 工具A的推荐权重
@@ -248,14 +234,14 @@ export function filterAndSortByTags(tools: Tool[], selectedTags: string[]): Tool
     if (aRecWeight !== bRecWeight) { // 如果推荐级别不同
       return bRecWeight - aRecWeight; // 按推荐级别降序排列
     }
-    
+
     // 2. 按工具类别排序
     const aCatWeight = a.toolCategory ? CATEGORY_WEIGHTS[a.toolCategory] : 0; // 工具A的分类权重
     const bCatWeight = b.toolCategory ? CATEGORY_WEIGHTS[b.toolCategory] : 0; // 工具B的分类权重
     if (aCatWeight !== bCatWeight) { // 如果分类权重不同
       return bCatWeight - aCatWeight; // 按分类权重降序排列
     }
-    
+
     // 3. 按更新时间排序
     const aTime = a.updatedAt ? new Date(a.updatedAt).getTime() : 0; // 工具A的更新时间戳
     const bTime = b.updatedAt ? new Date(b.updatedAt).getTime() : 0; // 工具B的更新时间戳
@@ -276,8 +262,6 @@ export function filterAndSortByTags(tools: Tool[], selectedTags: string[]): Tool
  */
 export function applySorting(tools: Tool[], sortMethod: SortMethod): Tool[] {
   switch (sortMethod) { // 根据排序方法选择对应的排序函数
-    case 'default': // 默认排序
-      return sortByDefaultOrder(tools); // 使用默认顺序排序
     case 'recommend': // 推荐排序
       return sortByRecommendLevel(tools); // 使用推荐级别排序
     case 'newest': // 最新排序
@@ -285,7 +269,7 @@ export function applySorting(tools: Tool[], sortMethod: SortMethod): Tool[] {
     case 'name': // 名称排序
       return sortByName(tools); // 使用名称排序
     default: // 默认情况
-      return sortByDefaultOrder(tools); // 默认使用自定义排序
+      return sortByRecommendLevel(tools); // 默认使用推荐排序
   }
 }
 
