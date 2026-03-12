@@ -31,8 +31,8 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/Rosiawu/ka21-tools.git
-cd ka21-tools
+git clone https://github.com/Rosiawu/ka21.git
+cd ka21
 
 # 安装依赖
 npm install

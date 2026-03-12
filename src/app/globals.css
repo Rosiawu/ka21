@@ -1127,3 +1127,99 @@ body::after {
     0 10px 20px -14px rgba(2, 6, 23, 0.72),
     inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
+
+.home-podcast-platforms {
+  align-self: center;
+}
+
+[role='link'][aria-label*='灯下白'],
+[role='link'][aria-label*='Lamp Under The Light'] {
+  cursor: pointer;
+}
+
+.home-podcast-platform-chip {
+  display: inline-flex;
+  min-height: 52px;
+  min-width: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)),
+    rgba(9, 13, 24, 0.46);
+  padding: 0;
+  text-decoration: none;
+  box-shadow:
+    0 12px 24px -18px rgba(2, 6, 23, 0.82),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.home-podcast-platform-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 16px 28px -18px rgba(2, 6, 23, 0.92),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.home-podcast-platform-logo {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  border-radius: 7px;
+  box-shadow:
+    0 10px 16px -12px rgba(255, 255, 255, 0.35),
+    0 4px 12px -10px rgba(15, 23, 42, 0.9);
+}
+
+.home-podcast-platform-brand {
+  font-size: 24px;
+  line-height: 1;
+  color: rgba(241, 245, 249, 0.96);
+}
+
+.home-podcast-platform-youtube .home-podcast-platform-brand {
+  color: #ff3b30;
+  filter: drop-shadow(0 4px 10px rgba(255, 59, 48, 0.22));
+}
+
+.home-podcast-platform-spotify .home-podcast-platform-brand {
+  color: #1ed760;
+  filter: drop-shadow(0 4px 10px rgba(30, 215, 96, 0.22));
+}
+
+@media (max-width: 639px) {
+  .home-podcast-platforms {
+    align-self: stretch;
+  }
+
+  .home-podcast-platform-chip {
+    min-height: 34px;
+    min-width: 34px;
+    border-radius: 12px;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 8px 16px -14px rgba(2, 6, 23, 0.88),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .home-podcast-platform-brand {
+    font-size: 16px;
+  }
+
+  .home-podcast-platform-logo {
+    width: 16px;
+    height: 16px;
+    flex-basis: 16px;
+    border-radius: 5px;
+  }
+}

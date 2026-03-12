@@ -21,6 +21,7 @@ import { getVisibleTools } from '@/utils/sortTools'; // 获取可见工具函数
 import { HotSection } from '@/components/hot'; // 热门推荐区域组件
 import SearchIntentPanel from './SearchIntentPanel'; // 搜索意图推荐组件
 import DevLogPreviewSection from './DevLogPreviewSection';
+import EventPreviewSection from './EventPreviewSection';
 import { trackUserAction, trackPageView, setTag } from '@/utils/clarity'; // 埋点分析工具
 import useDebounce from '@/hooks/useDebounce'; // 防抖Hook
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
@@ -45,6 +46,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
   const isEn = useLocale() === 'en';
   const tHome = useTranslations('Home');
   const tCommon = useTranslations('Common');
+  const podcastDashboardHref = '/podcast';
   // 返回首页时若存在保存的滚动位置，则恢复
   useEffect(() => {
     try {
@@ -90,14 +92,63 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
       ? 'Xiaoyuzhou Podcast: real conversations from the AI community'
       : '小宇宙播客：走进 AI 圈的真实对话',
     description: isEn
-      ? 'Direct access to the Lamp Under The Light episode page.'
-      : '首页直达《灯下白》节目页，一键点击即可收听最新内容。',
-    mobileSubline: isEn ? 'Real conversations with AI leaders' : '和AI圈高手的真实对话',
-    cta: isEn ? 'Tap to listen' : '点击收听',
-    note: isEn ? 'Open episode page' : '点击打开节目页',
+      ? 'Choose your preferred platform and start listening right from the homepage.'
+      : '点击任意播客节目图标即可收听。',
+    mobileSubline: isEn ? 'Real conversations with AI leaders' : '点击图标收听AI圈高手真实访谈',
+    cta: isEn ? 'Listen now' : '点击收听',
+    note: isEn ? 'Open podcast page' : '点击打开节目页',
     logoAlt: isEn ? 'Lamp Under The Light podcast logo' : '灯下白播客 Logo',
   };
-  const podcastEpisodeUrl = 'https://www.xiaoyuzhoufm.com/episodes/69a69588de29766da93ec01b';
+  const podcastPlatforms = [
+    {
+      id: 'xiaoyuzhou',
+      name: '小宇宙',
+      href: 'https://www.xiaoyuzhoufm.com/podcast/69a44f5aa19c08db64bbd8a7',
+      logo: '/images/podcast/platforms/xiaoyuzhou.ico',
+    },
+    {
+      id: 'apple',
+      name: '苹果播客',
+      href: 'https://podcasts.apple.com/cn/podcast/%E7%81%AF%E4%B8%8B%E7%99%BD/id1883429226',
+      logo: '/images/podcast/platforms/apple.ico',
+    },
+    {
+      id: 'lizhi',
+      name: '荔枝',
+      href: 'https://m.lizhi.fm/voicesheet/5500330523200853569',
+      logo: '/images/podcast/platforms/lizhi.ico',
+    },
+    {
+      id: 'ximalaya',
+      name: '喜马拉雅',
+      href: 'https://www.ximalaya.com/album/33817634',
+      logo: '/images/podcast/platforms/ximalaya.ico',
+    },
+    {
+      id: 'wangyiyun',
+      name: '网易云音乐',
+      href: 'https://music.163.com/#/djradio?id=1487456047',
+      logo: '/images/podcast/platforms/wangyiyun.ico',
+    },
+    {
+      id: 'qingting',
+      name: '蜻蜓FM',
+      href: 'https://m.qtfm.cn/vchannels/526838',
+      logo: '/images/podcast/platforms/qingting.ico',
+    },
+    {
+      id: 'youtube',
+      name: 'YouTube',
+      href: 'https://www.youtube.com/channel/UC4vwgT8e3dYo0ra_bDqIq9A',
+      brandIcon: 'fab fa-youtube',
+    },
+    {
+      id: 'spotify',
+      name: 'Spotify',
+      href: 'https://open.spotify.com/show/7s1L3Bl9QD3tWTmGnPW4y0?si=jNefx-5VRfiW8N9r-OD25Q',
+      brandIcon: 'fab fa-spotify',
+    },
+  ] as const;
   // ========== 状态管理 ==========
 
   // 搜索相关状态
@@ -361,7 +412,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                 <div className="sm:block">
                   <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
                     <div
-                      className="relative flex h-[196px] w-full items-center justify-center rounded-3xl border bg-white px-3 pb-8 pt-3 shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px] sm:px-4 sm:pb-10 sm:pt-4"
+                      className="relative flex h-[212px] w-full items-center justify-center rounded-3xl border bg-white px-3 pb-8 pt-3 shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px] sm:px-4 sm:pb-10 sm:pt-4"
                       style={{ borderColor: 'rgba(200,180,125,0.55)', backgroundColor: '#ffffff' }}
                     >
                       <Logo size="large" variant="black" className="dark:hidden" />
@@ -374,20 +425,30 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                   </h1>
                 </div>
 
-                <a
-                  href={podcastEpisodeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div
+                  className="inline-flex h-[212px] w-full flex-col justify-between gap-2 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-2.5 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
+                  aria-label={`${spotlightPodcast.title} - ${spotlightPodcast.note}`}
+                  role="link"
+                  tabIndex={0}
                   onClick={() => {
-                    trackUserAction('podcast_entry_click', {
-                      entry: 'home_logo_side_dark_card',
+                    trackUserAction('podcast_dashboard_click', {
+                      entry: 'home_podcast_card',
                       podcast: 'dengxiaobai',
                     });
+                    router.push(podcastDashboardHref);
                   }}
-                  className="inline-flex h-[196px] w-full flex-col justify-between gap-2 rounded-[2rem] border border-[#c8b47d]/55 bg-[linear-gradient(120deg,#050910_0%,#1B2332_48%,#080C14_100%)] px-3 py-2.5 text-left text-white shadow-[0_14px_28px_rgba(2,6,23,0.35)] sm:h-[220px] sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-4 sm:py-3"
-                  aria-label={`${spotlightPodcast.title} - ${spotlightPodcast.note}`}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      trackUserAction('podcast_dashboard_click', {
+                        entry: 'home_podcast_card_keyboard',
+                        podcast: 'dengxiaobai',
+                      });
+                      router.push(podcastDashboardHref);
+                    }
+                  }}
                 >
-                  <span className="flex min-w-0 w-full flex-col items-start gap-2 sm:max-w-[410px] sm:flex-row sm:items-center sm:gap-4">
+                  <span className="flex min-w-0 w-full flex-col items-start gap-1.5 sm:max-w-[410px] sm:flex-row sm:items-center sm:gap-4">
                     <span className="flex items-center gap-2.5 sm:block">
                       <span className="inline-flex h-[52px] w-[52px] shrink-0 items-center justify-center overflow-hidden rounded-[1.1rem] border border-white/20 bg-black/45 sm:h-[84px] sm:w-[84px] sm:rounded-[1.25rem]">
                         <Image
@@ -407,7 +468,11 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       <span className="hidden rounded-full border border-[#d5bf87]/65 bg-[#d7b971]/10 px-2.5 py-[2px] text-[11px] font-semibold text-[#e7cd8b] sm:inline-flex">
                         {spotlightPodcast.tag}
                       </span>
+<<<<<<< HEAD
                       <span className="mt-1 block whitespace-nowrap text-[clamp(1.75rem,7vw,2.6rem)] leading-[0.94] font-extrabold tracking-tight text-white sm:mt-1.5 sm:text-[48px] sm:leading-[0.92]">
+=======
+                      <span className="mt-0.5 block whitespace-nowrap text-[clamp(1.5rem,6.4vw,2.35rem)] leading-[0.94] font-extrabold tracking-tight text-white sm:mt-1.5 sm:text-[48px] sm:leading-[0.92]">
+>>>>>>> ae0f8d6fdc0d3c50defc09007e7fcb298b33820d
                         {spotlightPodcast.title}
                       </span>
                       <span className="mt-1 hidden line-clamp-1 text-[12px] font-semibold text-slate-200 sm:block sm:text-[16px]">
@@ -416,17 +481,46 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
                       <span className="mt-1 hidden line-clamp-2 text-[11px] text-slate-300/85 sm:block sm:text-sm">
                         {spotlightPodcast.description}
                       </span>
-                      <span className="mt-1 block line-clamp-1 text-[12px] font-semibold text-slate-200 sm:hidden">
+                      <span className="mt-0.5 block line-clamp-1 text-[11px] font-semibold text-slate-200 sm:hidden">
                         {spotlightPodcast.mobileSubline}
                       </span>
                     </span>
                   </span>
 
-                  <span className="home-podcast-cta inline-flex h-11 w-full shrink-0 items-center justify-center gap-1.5 self-center rounded-full px-3 text-[14px] font-semibold sm:h-auto sm:w-[208px] sm:px-4 sm:py-2 sm:text-[17px]">
-                    <span>{spotlightPodcast.cta}</span>
-                    <i className="fas fa-arrow-up-right-from-square text-sm"></i>
+                  <span className="home-podcast-platforms grid w-full shrink-0 grid-cols-4 gap-1.5 sm:w-[312px] sm:grid-cols-4 sm:gap-2">
+                    {podcastPlatforms.map((platform) => (
+                      <a
+                        key={platform.id}
+                        href={platform.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          trackUserAction('podcast_entry_click', {
+                            entry: `home_podcast_platform_${platform.id}`,
+                            podcast: 'dengxiaobai',
+                            platform: platform.id,
+                          });
+                        }}
+                        className={`home-podcast-platform-chip home-podcast-platform-${platform.id}`}
+                        aria-label={`${spotlightPodcast.title} - ${platform.name}`}
+                        title={platform.name}
+                      >
+                        {'logo' in platform ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={platform.logo}
+                            alt={`${platform.name} logo`}
+                            className="home-podcast-platform-logo"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <i className={`home-podcast-platform-brand ${platform.brandIcon}`} aria-hidden="true"></i>
+                        )}
+                      </a>
+                    ))}
                   </span>
-                </a>
+                </div>
               </div>
 
             </div>
@@ -511,6 +605,11 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
           {/* 热门推荐板块（显式传入本地化标题，规避上下文异常导致的错语种） */}
           <HotSection title={tHot('title')} subtitle={tHot('subtitle')} />
 
+<<<<<<< HEAD
+=======
+          {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} />}
+          
+>>>>>>> ae0f8d6fdc0d3c50defc09007e7fcb298b33820d
           {/* 萌新教程部分 - 水平滚动布局 */}
           <section id="tutorials" className={`slide-up mb-12 ${isSearching ? 'relative' : ''}`}>
             <div className="flex items-center justify-between mb-4">

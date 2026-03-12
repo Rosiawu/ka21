@@ -35,6 +35,11 @@ function buildMenuItems(
       icon: 'fa-graduation-cap',
       href: '/tutorials'
     },
+    {
+      name: tCommon('menuEvents'),
+      icon: 'fa-trophy',
+      href: '/events'
+    },
     // 添加分类菜单项
     ...TOOL_CATEGORIES.map(category => ({
       name: tCategories(String(category.id)) || category.name,

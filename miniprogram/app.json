@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/devlog-submit/index",
     "pages/tools/index",
     "pages/tool-detail/index",
     "pages/tutorials/index",

@@ -298,7 +298,7 @@
         "ai-image",
         "video-editing"
       ],
-      "recommendLevel": "low",
+      "recommendLevel": "medium",
       "accessibility": "需要代理",
       "groupComments": [
         {
@@ -3117,7 +3117,7 @@
       "updatedAt": "2025-02-24T00:00:00Z",
       "toolCategory": "utils",
       "isVisible": true,
-      "displayOrder": 300
+      "displayOrder": 180
     },
     {
       "id": "ai2word",
@@ -3130,7 +3130,7 @@
         "productivity",
         "automation"
       ],
-      "recommendLevel": "low",
+      "recommendLevel": "medium",
       "accessibility": "直接访问",
       "groupComments": [
         {
@@ -3156,7 +3156,7 @@
       "updatedAt": "2025-02-24T00:00:00Z",
       "toolCategory": "utils",
       "isVisible": true,
-      "displayOrder": 300
+      "displayOrder": 170
     },
     {
       "id": "artifig",
@@ -5030,6 +5030,190 @@
       },
       "isVisible": true,
       "displayOrder": 300
+    },
+    {
+      "id": "gofullpage",
+      "name": "GoFullPage",
+      "description": "Chrome 上很稳的整页截图插件。点一下就能把当前网页从上到下完整截下来，特别适合存长网页、教程、文档和灵感页。",
+      "icon": "/icons/gofullpage.png",
+      "url": "https://chromewebstore.google.com/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en-US&utm_source=ext_sidebar",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "这个截屏的小插件是绝对的神器，你就看着它给你从上到下在网页上截图，那种快乐简直了。这个是属于包工头大喊大叫系列的更新！！！",
+          "author": "Rosia 推荐",
+          "createdAt": "2026-03-11",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 整页网页截图\n2. 自动滚动拼接\n3. 导出图片或 PDF\n4. 保留长网页完整结构\n5. 适合教程与资料归档",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 安装 Chrome 插件\n2. 打开要截图的网页\n3. 点击 GoFullPage 图标\n4. 等它自动从上到下截图\n5. 导出 PNG 或 PDF",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 这是 Chrome 扩展，不是独立网页工具\n2. 部分动态页面可能受懒加载影响\n3. 截图前建议先让页面内容加载完整",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-11T00:00:00Z",
+      "updatedAt": "2026-03-11T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/gofullpage.png"
+      },
+      "isVisible": true,
+      "displayOrder": 165
+    },
+    {
+      "id": "voyager",
+      "name": "Gemini Voyager",
+      "description": "Gemini 的高效辅助插件。Gemini Voyager 能把对话、标签页与工作流整理得更顺，适合经常用 Gemini 查资料、写内容和反复切换上下文的人。",
+      "icon": "/icons/voyager.png",
+      "url": "https://voyager.nagi.fun/",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "去谷歌水印推荐谷歌最强搭配插件gemini voyager",
+          "author": "猫工头推荐",
+          "createdAt": "2026-03-12",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 辅助整理 Gemini 对话\n2. 标签页与对话标题同步\n3. 更顺手地管理工作流上下文\n4. 保留常用对话与文件夹组织\n5. 适合高频内容创作与资料整理",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 打开官网了解功能并安装插件\n2. 在浏览器中启用 Gemini Voyager\n3. 用 Gemini 进行日常问答或写作\n4. 用文件夹和标题整理对话\n5. 持续沉淀自己的 Gemini 工作流",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 这是配合 Gemini 使用的浏览器插件\n2. 具体支持能力以官方说明和 Chrome 商店页为准\n3. 涉及账号与历史对话数据时建议先看隐私说明",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-12T00:00:00Z",
+      "updatedAt": "2026-03-12T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/voyager.png"
+      },
+      "isVisible": true,
+      "displayOrder": 150
+    },
+    {
+      "id": "slidedeckcleaner",
+      "name": "SlideDeckCleaner",
+      "description": "一键去掉 NotebookLM 导出演示文档水印的在线工具。上传 PDF 后就能快速清掉水印，适合做二次整理、演示修改和内容复用。",
+      "icon": "/icons/slidedeckcleaner.png",
+      "url": "https://www.slidedeckcleaner.com/zh/",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "一键去除掉notebook lm的水印，懂得都懂。",
+          "author": "女将军推荐",
+          "createdAt": "2026-03-12",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 去除 NotebookLM Slides 水印\n2. 在线处理导出的 PDF\n3. 无需注册即可使用\n4. 适合清理演示文稿成品\n5. 处理流程简单直接",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 打开 SlideDeckCleaner\n2. 上传 NotebookLM 导出的演示 PDF\n3. 等待系统自动处理\n4. 下载去水印后的文件\n5. 再做排版或演示修改",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 重点面向 NotebookLM 导出的 slide deck PDF\n2. 处理前建议保留原文件备份\n3. 具体效果和限制以官网当前说明为准",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-12T00:00:00Z",
+      "updatedAt": "2026-03-12T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/slidedeckcleaner.png"
+      },
+      "isVisible": true,
+      "displayOrder": 155
+    },
+    {
+      "id": "bmmd",
+      "name": "bm.md",
+      "description": "更好用的 Markdown 排版助手。支持一键适配微信公众号、知乎专栏、掘金、网页与图片，适合把 Markdown 快速整理成可发布版式。",
+      "icon": "/icons/bmmd.png",
+      "url": "https://bm.md/",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "纯免费，页面清晰大方。",
+          "author": "Rosia 推荐",
+          "createdAt": "2026-03-11",
+          "reviewType": "纯·人工测评·无广告·为爱发电吹爆"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. Markdown 在线编辑\n2. 一键排版美化\n3. 适配公众号与专栏平台\n4. 导出网页或图片\n5. 快速发布内容",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 打开 bm.md\n2. 粘贴或编写 Markdown\n3. 选择目标平台样式\n4. 预览排版效果\n5. 复制或导出结果",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 重点适合内容排版，不是通用笔记库\n2. 发布前建议再检查平台样式细节\n3. 图片与特殊组件效果以目标平台为准",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-11T00:00:00Z",
+      "updatedAt": "2026-03-11T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/bmmd.png"
+      },
+      "isVisible": true,
+      "displayOrder": 160
     }
   ]
 }

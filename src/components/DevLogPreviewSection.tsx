@@ -17,6 +17,8 @@ export default function DevLogPreviewSection({ isEn }: { isEn: boolean }) {
       ? 'Small weekly iterations, clearly documented.'
       : '牛马库建站零零散散小碎片，记录这个网友共创的小破站踉踉跄跄向前走。',
     viewAll: isEn ? 'View full log' : '查看完整日志',
+    submitHint: isEn ? 'Mobile posting now uses the miniapp native page.' : '手机投稿现在只走小程序原生页。',
+    webSubmit: isEn ? 'Post from web' : '网页提交',
     updateTag: isEn ? 'Latest' : '最新',
     openLog: isEn ? 'Open full log' : '看完整图文',
     withImages: isEn ? 'images' : '图',
@@ -90,13 +92,26 @@ export default function DevLogPreviewSection({ isEn }: { isEn: boolean }) {
                 <h2 className="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100 sm:text-2xl">{text.title}</h2>
                 <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{text.subtitle}</p>
               </div>
-              <Link
-                href="/devlog"
-                className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/85 px-4 py-2 text-sm font-medium text-indigo-700 transition-colors hover:bg-white dark:border-indigo-700/70 dark:bg-slate-900/70 dark:text-indigo-300 dark:hover:bg-slate-900"
-              >
-                {text.viewAll}
-                <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
-              </Link>
+              <div className="flex flex-wrap items-center gap-2">
+                <Link
+                  href="/devlog/submit"
+                  className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/85 px-4 py-2 text-sm font-medium text-indigo-700 transition-colors hover:bg-white dark:border-indigo-700/70 dark:bg-slate-900/70 dark:text-indigo-300 dark:hover:bg-slate-900"
+                >
+                  <i className="fas fa-pen-to-square text-xs" aria-hidden="true"></i>
+                  {text.webSubmit}
+                </Link>
+                <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/90 px-4 py-2 text-sm font-medium text-amber-700 dark:border-amber-700/70 dark:bg-amber-950/30 dark:text-amber-300">
+                  <i className="fas fa-mobile-screen-button text-xs" aria-hidden="true"></i>
+                  {text.submitHint}
+                </span>
+                <Link
+                  href="/devlog"
+                  className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/85 px-4 py-2 text-sm font-medium text-indigo-700 transition-colors hover:bg-white dark:border-indigo-700/70 dark:bg-slate-900/70 dark:text-indigo-300 dark:hover:bg-slate-900"
+                >
+                  {text.viewAll}
+                  <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+                </Link>
+              </div>
             </div>
 
             <div className="relative">

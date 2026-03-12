@@ -6,6 +6,7 @@ import tutorialsData from '@/data/tutorials.json';
 import weeklyPicksData from '@/data/weekly-picks.json';
 import { TOOL_CATEGORIES } from '@/data/toolCategories';
 import { teamMembers } from '@/data/team-members';
+import { sortedDevLogs } from '@/data/devLogs';
 
 type ToolRecord = {
   id: string;
@@ -44,7 +45,7 @@ type TutorialRecord = {
   relatedTools?: string[];
 };
 
-const ASSET_BASE_URL = 'https://ka21.tools';
+const ASSET_BASE_URL = 'https://ka21.org';
 const TUTORIAL_CATEGORY_LABEL_MAP: Record<string, string> = {
   'office-productivity': 'AI办公',
 };
@@ -140,6 +141,17 @@ function normalizeWeeklyPicks() {
   };
 }
 
+function normalizeDevLogs() {
+  return sortedDevLogs.slice(0, 12).map((log) => ({
+    id: log.id,
+    version: log.version,
+    date: log.date,
+    title: log.cardTitle.zh,
+    snippet: log.body.zh.split('\n').map((line) => line.trim()).find(Boolean) || '',
+    imageUrl: toAbsoluteAssetUrl(log.images?.[0]?.src || ''),
+  }));
+}
+
 function buildPayload() {
   return {
     tools: normalizeTools(),
@@ -147,6 +159,7 @@ function buildPayload() {
     categories: normalizeCategories(),
     teamMembers: normalizeTeamMembers(),
     weeklyPicks: normalizeWeeklyPicks(),
+    devLogs: normalizeDevLogs(),
   };
 }
 
@@ -174,4 +187,3 @@ export async function GET() {
     },
   );
 }
-

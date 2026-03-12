@@ -1,0 +1,56 @@
+<view class="page">
+  <view class="hero">
+    <view class="badge">魔法棒投稿</view>
+    <view class="title">像发朋友圈一样发开发日志</view>
+    <view class="subtitle">写标题、贴文字、传截图，点一下就自动推到 GitHub，等站点部署完成即可。</view>
+  </view>
+
+  <view class="panel">
+    <view class="label">标题</view>
+    <input
+      class="input"
+      placeholder="今天改了什么？一句话说清楚"
+      value="{{title}}"
+      maxlength="60"
+      bindinput="handleTitleInput"
+    />
+
+    <view class="label">署名（可选）</view>
+    <input
+      class="input"
+      placeholder="你的名字或昵称"
+      value="{{author}}"
+      maxlength="20"
+      bindinput="handleAuthorInput"
+    />
+
+    <view class="label">正文</view>
+    <textarea
+      class="textarea"
+      placeholder="直接写：改了什么、卡在哪、最后怎么搞定的。"
+      value="{{body}}"
+      maxlength="6000"
+      bindinput="handleBodyInput"
+    />
+
+    <view class="upload-row">
+      <view>
+        <view class="label no-gap">截图</view>
+        <view class="hint">最多 9 张。建议发你手机里已经有的过程图。</view>
+      </view>
+      <button class="upload-btn" bindtap="chooseImages">上传图片</button>
+    </view>
+
+    <view wx:if="{{images.length}}" class="image-grid">
+      <image wx:for="{{images}}" wx:key="*this" class="preview" mode="aspectFill" src="{{item}}"></image>
+    </view>
+
+    <button class="submit-btn" loading="{{submitting}}" disabled="{{submitting || !canSubmit}}" bindtap="submitDevlog">
+      提交并推到 GitHub
+    </button>
+
+    <view wx:if="{{message}}" class="message {{submitSuccess ? 'success' : ''}}">
+      <text>{{message}}</text>
+    </view>
+  </view>
+</view>
