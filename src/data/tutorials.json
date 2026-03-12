@@ -1899,11 +1899,25 @@
       "recommendReason": "47 个技能、一句话出完整系统， 加配置文档，3 分钟全自动搞定",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/62UPwaOVsFrJVTvjrbHUjrzsd9doVKbkJ6IiaEGibXNfIaNxhugqYKkSe7t505JQGJzXvPRNDGwuBaVSibvaKLsibichKU8FMSkLOOnxia5RgdmTo/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-图文救星SeedeAI不写提示词生成高清图还带源-0",
+      "title": "图文救星Seede AI，不写提示词、生成高清图还带源文件！",
+      "description": "生图最烦写提示词？Seede AI 决定干掉这个痛点。",
+      "url": "https://mp.weixin.qq.com/s/bcgV_EpsoxhwS39p35wSvw",
+      "source": "阿真",
+      "publishDate": "2026-03-10",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "生图最烦写提示词？Seede AI 决定干掉这个痛点。",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/m1eibvmmT3siciaia0HXXFvDiaLYy9QgaXSduEufCT9KmF4jJWMjOywFw0aYK9MhqFmgItByYn4xibNnyPVV4tJOmMUID1FmlSTDGGHxb99IbqgGE/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T03:25:28.789Z",
-    "count": 108
+    "updatedAt": "2026-03-12T09:59:25.944Z",
+    "count": 109
   }
 }
