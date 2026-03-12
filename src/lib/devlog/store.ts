@@ -77,6 +77,17 @@ function slugify(value: string) {
     .slice(0, 48);
 }
 
+function toAsciiSlug(value: string) {
+  const normalized = value
+    .toLowerCase()
+    .replace(/[\s_]+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 48);
+  return normalized || `devlog-${Date.now().toString(36)}`;
+}
+
 function parseDataUrl(dataUrl: string) {
   const match = dataUrl.match(/^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/);
   if (!match) {
@@ -121,7 +132,11 @@ async function uploadImageToGitHub(filePath: string, base64: string, message: st
     throw new Error('Missing GITHUB_TOKEN or GITHUB_REPO env variables');
   }
 
-  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`;
+  const encodedPath = filePath
+    .split('/')
+    .map((segment) => encodeURIComponent(segment))
+    .join('/');
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${encodedPath}`;
   const res = await fetch(url, {
     method: 'PUT',
     headers: {
@@ -150,10 +165,11 @@ async function uploadImageLocally(relativeFilePath: string, base64: string) {
 
 async function persistImages(images: string[], entryId: string, title: string) {
   const imageDir = `images/devlog/submissions/${entryId}`;
+  const safeTitleSlug = toAsciiSlug(title);
   return Promise.all(
     images.slice(0, 9).map(async (image, index) => {
       const { base64, ext } = parseDataUrl(image);
-      const fileName = `${String(index + 1).padStart(2, '0')}-${slugify(title) || 'devlog'}.${ext}`;
+      const fileName = `${String(index + 1).padStart(2, '0')}-${safeTitleSlug}.${ext}`;
       const relativeFilePath = `${imageDir}/${fileName}`;
       if (isGitHubBackedStore()) {
         await uploadImageToGitHub(`public/${relativeFilePath}`, base64, `feat(devlog): upload image for ${entryId}`);
@@ -336,7 +352,7 @@ export async function submitDevLog(input: {
 
   const { data, sha } = await readStore();
   const date = new Date().toISOString().slice(0, 10);
-  const entryId = `${slugify(title) || 'devlog'}-${Date.now()}`;
+  const entryId = `${toAsciiSlug(title)}-${Date.now()}`;
   const imagePaths = await persistImages(input.images || [], entryId, title);
   const bodyWithAuthor = buildBody(body, author);
 
