@@ -125,7 +125,7 @@ export default async function EventsPage({ params }: { params: { locale: string 
 
                 <div className="space-y-4 p-5">
                   <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
-                    <span>{new Date(event.createdAt).toISOString().slice(0, 10)}</span>
+                    <span>{event.eventDate || new Date(event.createdAt).toISOString().slice(0, 10)}</span>
                     {event.sourceLabel && <span>{event.sourceLabel}</span>}
                     {event.images && event.images.length > 0 && <span>{event.images.length} {text.posterCount}</span>}
                   </div>
