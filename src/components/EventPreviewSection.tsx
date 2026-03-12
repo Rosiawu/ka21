@@ -1,9 +1,37 @@
+"use client";
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from '@/i18n/Link';
-import { getEventPreviewSnippet, getSortedEvents } from '@/data/events';
+import type { EventEntry } from '@/data/events';
+import { getEventPreviewSnippet } from '@/data/events';
 
-export default async function EventPreviewSection({ isEn }: { isEn: boolean }) {
-  const events = (await getSortedEvents()).slice(0, 3);
+export default function EventPreviewSection({ isEn }: { isEn: boolean }) {
+  const [events, setEvents] = useState<EventEntry[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadEvents() {
+      try {
+        const response = await fetch('/api/events', { cache: 'no-store' });
+        const result = await response.json();
+        if (!cancelled && result?.success && Array.isArray(result.data)) {
+          setEvents(result.data.slice(0, 3));
+        }
+      } catch {
+        if (!cancelled) {
+          setEvents([]);
+        }
+      }
+    }
+
+    loadEvents();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const text = {
     badge: isEn ? 'Community Events' : '赛事区',
     title: isEn ? 'Fresh event posts from the community' : '从外部帖子里手动捞回来的新鲜赛事帖',
