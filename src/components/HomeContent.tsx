@@ -600,6 +600,8 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
           
           {/* 热门推荐板块（显式传入本地化标题，规避上下文异常导致的错语种） */}
           <HotSection title={tHot('title')} subtitle={tHot('subtitle')} />
+
+          {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} />}
           
           {/* 萌新教程部分 - 水平滚动布局 */}
           <section id="tutorials" className={`slide-up mb-12 ${isSearching ? 'relative' : ''}`}>
@@ -861,7 +863,6 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
             </div>
           </section>
 
-          {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} />}
           {!isSearching && !isSearchPending && <DevLogPreviewSection isEn={isEn} />}
           
           {/* 工具分类列表 - 使用新的ToolCategorySection组件 */}
