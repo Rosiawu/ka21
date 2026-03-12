@@ -6,7 +6,7 @@ import Link from '@/i18n/Link';
 import type { EventEntry } from '@/data/events';
 import { getEventPreviewSnippet } from '@/data/events';
 
-const HOMEPAGE_EVENT_LIMIT = 2;
+const HOMEPAGE_EVENT_LIMIT = 3;
 const GITHUB_EVENTS_RAW_URL = 'https://raw.githubusercontent.com/Rosiawu/ka21/main/src/data/event-submissions.json';
 
 type EventSubmissionFile = {
@@ -111,11 +111,11 @@ export default function EventPreviewSection({ isEn }: { isEn: boolean }) {
               {text.empty}
             </div>
           ) : (
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-2 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
               {events.map((event) => (
                 <article
                   key={event.id}
-                  className="overflow-hidden rounded-2xl border border-emerald-100 bg-white/92 shadow-[0_8px_24px_rgba(16,185,129,0.08)] dark:border-emerald-900/40 dark:bg-slate-900/72 dark:shadow-none"
+                  className="min-w-[84vw] snap-start overflow-hidden rounded-2xl border border-emerald-100 bg-white/92 shadow-[0_8px_24px_rgba(16,185,129,0.08)] dark:border-emerald-900/40 dark:bg-slate-900/72 dark:shadow-none md:min-w-0"
                 >
                   <div className="relative h-40 overflow-hidden bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/20">
                     {event.coverImage ? (
@@ -123,7 +123,7 @@ export default function EventPreviewSection({ isEn }: { isEn: boolean }) {
                         src={event.coverImage}
                         alt={event.title}
                         fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
+                        sizes="(max-width: 768px) 84vw, (max-width: 1280px) 50vw, 33vw"
                         className="object-cover"
                       />
                     ) : (
