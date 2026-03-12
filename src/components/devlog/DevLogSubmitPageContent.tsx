@@ -5,15 +5,24 @@
 import Link from '@/i18n/Link';
 import { useState } from 'react';
 
-function readFilesAsDataUrls(files: FileList) {
+type UploadImageItem = {
+  file: File;
+  previewUrl: string;
+};
+
+function readFilesForPreview(files: FileList) {
   return Promise.all(
     Array.from(files)
       .slice(0, 9)
       .map(
         (file) =>
-          new Promise<string>((resolve, reject) => {
+          new Promise<UploadImageItem>((resolve, reject) => {
             const reader = new FileReader();
-            reader.onload = () => resolve(typeof reader.result === 'string' ? reader.result : '');
+            reader.onload = () =>
+              resolve({
+                file,
+                previewUrl: typeof reader.result === 'string' ? reader.result : '',
+              });
             reader.onerror = () => reject(new Error('read-file-failed'));
             reader.readAsDataURL(file);
           })
@@ -26,7 +35,7 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [body, setBody] = useState('');
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<UploadImageItem[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState('');
   const [successUrl, setSuccessUrl] = useState('');
@@ -57,8 +66,8 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
   const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files?.length) return;
     try {
-      const nextImages = await readFilesAsDataUrls(event.target.files);
-      setImages(nextImages.filter(Boolean));
+      const nextImages = await readFilesForPreview(event.target.files);
+      setImages(nextImages.filter((item) => item.previewUrl));
       setMessage('');
     } catch {
       setMessage(isEn ? 'Image read failed.' : '图片读取失败。');
@@ -71,10 +80,17 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
     setMessage('');
     setSuccessUrl('');
     try {
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('author', author);
+      formData.append('body', body);
+      images.forEach((item) => {
+        formData.append('images', item.file);
+      });
+
       const response = await fetch('/api/devlog/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, author, body, images }),
+        body: formData,
       });
       const result = await response.json();
       if (!result.success) {
@@ -163,7 +179,7 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
               {images.length > 0 && (
                 <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4">
                   {images.map((image, index) => (
-                    <img key={index} src={image} alt={`devlog-upload-${index + 1}`} className="aspect-square rounded-2xl object-cover shadow-sm" />
+                    <img key={index} src={image.previewUrl} alt={`devlog-upload-${index + 1}`} className="aspect-square rounded-2xl object-cover shadow-sm" />
                   ))}
                 </div>
               )}
