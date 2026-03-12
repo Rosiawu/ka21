@@ -1,4 +1,6 @@
 import * as cheerio from 'cheerio';
+import sharp from 'sharp';
+import { createWorker } from 'tesseract.js';
 
 type ExtractedEventDraft = {
   title: string;
@@ -12,10 +14,14 @@ type ExtractedEventDraft = {
   sourceLabel: string;
   tags: string[];
   coverImage: string;
+  ocrText?: string;
 };
 
 const WECHAT_HOSTNAMES = new Set(['mp.weixin.qq.com', 'mp.weixinqq.com']);
 const NOISY_SUFFIXES = ['向上滑动看下', '阅读全文', '点击查看', '扫码报名', '扫码查看', '了解详情', '一个', '知道了'];
+const OCR_LANG = 'chi_sim';
+const OCR_TIMEOUT_MS = 12000;
+const OCR_CACHE_PATH = '/tmp/ka21-events-tesseract';
 
 function cleanText(value: string) {
   return value
@@ -104,7 +110,7 @@ function pickFirstMatch(text: string, patterns: RegExp[]) {
   return '';
 }
 
-function inferOrganizer(text: string, title: string) {
+function inferOrganizer(text: string) {
   const organizer = pickFirstMatch(text, [
     /(?:主办方|主办单位|主办|发起方|发起单位|发起|举办方|举办单位|承办方|承办单位|联合主办|出品方|出品)[：: ]*([^\n。；]{2,40})/,
     /([^\n。；]{2,30})(?:主办|承办|发起|联合主办|出品)/,
@@ -164,6 +170,49 @@ function detectBlockedWechatPage(html: string) {
   return html.includes('环境异常') && html.includes('完成验证后即可继续访问');
 }
 
+async function extractTextFromImage(imageUrl: string) {
+  if (!imageUrl) return '';
+
+  const response = await fetch(imageUrl, {
+    headers: {
+      'User-Agent':
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+      Referer: 'https://mp.weixin.qq.com/',
+    },
+    cache: 'no-store',
+  });
+
+  if (!response.ok) return '';
+
+  const arrayBuffer = await response.arrayBuffer();
+  const input = Buffer.from(arrayBuffer);
+  const prepared = await sharp(input)
+    .grayscale()
+    .normalize()
+    .sharpen()
+    .resize({ width: 1800, withoutEnlargement: true })
+    .png()
+    .toBuffer();
+
+  const worker = await createWorker(OCR_LANG, 1, {
+    cachePath: OCR_CACHE_PATH,
+    cacheMethod: 'refresh',
+  });
+  try {
+    const result = await Promise.race([
+      worker.recognize(prepared),
+      new Promise<never>((_, reject) => {
+        setTimeout(() => reject(new Error('ocr-timeout')), OCR_TIMEOUT_MS);
+      }),
+    ]);
+    return cleanText(result.data.text || '');
+  } catch {
+    return '';
+  } finally {
+    await worker.terminate();
+  }
+}
+
 async function fetchText(url: string) {
   const response = await fetch(url, {
     headers: {
@@ -213,19 +262,24 @@ export async function extractEventFromSourceUrl(sourceUrl: string): Promise<Extr
         cleanText((mirrorText.split('\n').find((line) => cleanText(line).length > 0) || '')).replace(/^Title:\s*/i, '') ||
         '公众号赛事帖';
       const normalizedMirrorText = cleanText(mirrorText);
+      const coverImage = '';
       const summary = buildSummary(normalizedMirrorText, title);
+      const organizer = inferOrganizer(normalizedMirrorText);
+      const eventDate = inferDateLike(normalizedMirrorText, ['活动时间', '比赛时间', '赛事时间', '举办时间', '时间']);
+      const deadline = inferDateLike(normalizedMirrorText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间', '报名截止时间', '截止日期']);
+      const location = inferLocation(normalizedMirrorText);
       return {
         title,
         summary,
         sourceUrl: target.toString(),
-        organizer: inferOrganizer(normalizedMirrorText, title),
+        organizer,
         author: '',
-        eventDate: inferDateLike(normalizedMirrorText, ['活动时间', '比赛时间', '赛事时间', '举办时间', '时间']),
-        deadline: inferDateLike(normalizedMirrorText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间', '报名截止时间', '截止日期']),
-        location: inferLocation(normalizedMirrorText),
+        eventDate,
+        deadline,
+        location,
         sourceLabel: '公众号',
         tags: inferTags(title, normalizedMirrorText),
-        coverImage: '',
+        coverImage,
       };
     } catch {
       throw new Error('wechat-verification-required');
@@ -272,17 +326,35 @@ export async function extractEventFromSourceUrl(sourceUrl: string): Promise<Extr
     throw new Error('extract-title-failed');
   }
 
+  let organizer = inferOrganizer(bodyText) || author;
+  let eventDate = inferDateLike(bodyText, ['活动时间', '比赛时间', '赛事时间', '举办时间', '时间']) || publishDate;
+  let deadline = inferDateLike(bodyText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间', '报名截止时间', '截止日期']);
+  let location = inferLocation(bodyText);
+  let ocrText = '';
+
+  const needsPosterOcr = Boolean(coverImage) && (!deadline || !location || !organizer);
+  if (needsPosterOcr) {
+    ocrText = await extractTextFromImage(coverImage);
+    if (ocrText) {
+      organizer = organizer || inferOrganizer(ocrText);
+      eventDate = eventDate || inferDateLike(ocrText, ['活动时间', '比赛时间', '赛事时间', '举办时间', '时间']);
+      deadline = deadline || inferDateLike(ocrText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间', '报名截止时间', '截止日期']);
+      location = location || inferLocation(ocrText);
+    }
+  }
+
   return {
     title,
     summary,
     sourceUrl: target.toString(),
-    organizer: inferOrganizer(bodyText, title) || author,
+    organizer,
     author: '',
-    eventDate: inferDateLike(bodyText, ['活动时间', '比赛时间', '赛事时间', '举办时间', '时间']) || publishDate,
-    deadline: inferDateLike(bodyText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间', '报名截止时间', '截止日期']),
-    location: inferLocation(bodyText),
+    eventDate,
+    deadline,
+    location,
     sourceLabel: WECHAT_HOSTNAMES.has(target.hostname) ? '公众号' : finalUrl.hostname.replace(/^www\./, ''),
     tags: inferTags(title, bodyText),
     coverImage,
+    ocrText,
   };
 }
