@@ -6,22 +6,52 @@ import Link from '@/i18n/Link';
 import type { EventEntry } from '@/data/events';
 import { getEventPreviewSnippet } from '@/data/events';
 
+const HOMEPAGE_EVENT_LIMIT = 2;
+const GITHUB_EVENTS_RAW_URL = 'https://raw.githubusercontent.com/Rosiawu/ka21/main/src/data/event-submissions.json';
+
+type EventSubmissionFile = {
+  entries?: EventEntry[];
+};
+
 export default function EventPreviewSection({ isEn }: { isEn: boolean }) {
   const [events, setEvents] = useState<EventEntry[]>([]);
 
   useEffect(() => {
     let cancelled = false;
 
+    const sortEvents = (items: EventEntry[]) =>
+      [...items].sort((a, b) => {
+        const aTime = new Date(a.eventDate || a.createdAt).getTime();
+        const bTime = new Date(b.eventDate || b.createdAt).getTime();
+        return bTime - aTime;
+      });
+
+    async function fetchGithubEvents() {
+      const response = await fetch(GITHUB_EVENTS_RAW_URL, { cache: 'no-store' });
+      const result = await response.json() as EventSubmissionFile;
+      return Array.isArray(result.entries) ? sortEvents(result.entries) : [];
+    }
+
     async function loadEvents() {
       try {
         const response = await fetch('/api/events', { cache: 'no-store' });
         const result = await response.json();
-        if (!cancelled && result?.success && Array.isArray(result.data)) {
-          setEvents(result.data.slice(0, 3));
+        const apiEvents = result?.success && Array.isArray(result.data) ? sortEvents(result.data) : [];
+        const finalEvents = apiEvents.length >= HOMEPAGE_EVENT_LIMIT ? apiEvents : await fetchGithubEvents();
+
+        if (!cancelled) {
+          setEvents(finalEvents.slice(0, HOMEPAGE_EVENT_LIMIT));
         }
       } catch {
-        if (!cancelled) {
-          setEvents([]);
+        try {
+          const fallbackEvents = await fetchGithubEvents();
+          if (!cancelled) {
+            setEvents(fallbackEvents.slice(0, HOMEPAGE_EVENT_LIMIT));
+          }
+        } catch {
+          if (!cancelled) {
+            setEvents([]);
+          }
         }
       }
     }
@@ -81,7 +111,7 @@ export default function EventPreviewSection({ isEn }: { isEn: boolean }) {
               {text.empty}
             </div>
           ) : (
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-2">
               {events.map((event) => (
                 <article
                   key={event.id}
