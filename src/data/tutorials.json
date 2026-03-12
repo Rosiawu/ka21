@@ -1885,11 +1885,25 @@
       "recommendReason": "直接和龙虾发下面2个消息，就可以在飞书文档流式输出。",
       "customImageUrl": "http://mmbiz.qpic.cn/mmbiz_jpg/ib3hzeKedibj8KrxgaoiaialSNbW8UeGib4623iaNQ4mysD6VLiaCsz687lTdTLS9BqCJctshb5Bz3Go89ryAvRMfCV3T4TYgThMYghrVzt1aMp5ibk/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-全网都在装OpenClaw我的龙虾已经在帮我搭飞-0",
+      "title": "全网都在装 OpenClaw，我的龙虾已经在帮我搭飞书多维表格了",
+      "description": "47 个技能、一句话出完整系统， 加配置文档，3 分钟全自动搞定",
+      "url": "https://mp.weixin.qq.com/s/9AH4zOkJ1Ac-Bxaq-dOiRA?scene=1",
+      "source": "李祥瑞",
+      "publishDate": "2026-03-09",
+      "difficultyLevel": "高端玩家",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "47 个技能、一句话出完整系统， 加配置文档，3 分钟全自动搞定",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/62UPwaOVsFrJVTvjrbHUjrzsd9doVKbkJ6IiaEGibXNfIaNxhugqYKkSe7t505JQGJzXvPRNDGwuBaVSibvaKLsibichKU8FMSkLOOnxia5RgdmTo/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-09T14:46:20.830Z",
-    "count": 107
+    "updatedAt": "2026-03-12T03:25:28.789Z",
+    "count": 108
   }
 }
