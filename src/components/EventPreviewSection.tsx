@@ -1,66 +1,13 @@
 "use client";
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from '@/i18n/Link';
 import type { EventEntry } from '@/data/events';
 import { getEventPreviewSnippet } from '@/data/events';
 
 const HOMEPAGE_EVENT_LIMIT = 3;
-const GITHUB_EVENTS_RAW_URL = 'https://raw.githubusercontent.com/Rosiawu/ka21/main/src/data/event-submissions.json';
-
-type EventSubmissionFile = {
-  entries?: EventEntry[];
-};
-
-export default function EventPreviewSection({ isEn }: { isEn: boolean }) {
-  const [events, setEvents] = useState<EventEntry[]>([]);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    const sortEvents = (items: EventEntry[]) =>
-      [...items].sort((a, b) => {
-        const aTime = new Date(a.eventDate || a.createdAt).getTime();
-        const bTime = new Date(b.eventDate || b.createdAt).getTime();
-        return bTime - aTime;
-      });
-
-    async function fetchGithubEvents() {
-      const response = await fetch(GITHUB_EVENTS_RAW_URL, { cache: 'no-store' });
-      const result = await response.json() as EventSubmissionFile;
-      return Array.isArray(result.entries) ? sortEvents(result.entries) : [];
-    }
-
-    async function loadEvents() {
-      try {
-        const response = await fetch('/api/events', { cache: 'no-store' });
-        const result = await response.json();
-        const apiEvents = result?.success && Array.isArray(result.data) ? sortEvents(result.data) : [];
-        const finalEvents = apiEvents.length >= HOMEPAGE_EVENT_LIMIT ? apiEvents : await fetchGithubEvents();
-
-        if (!cancelled) {
-          setEvents(finalEvents.slice(0, HOMEPAGE_EVENT_LIMIT));
-        }
-      } catch {
-        try {
-          const fallbackEvents = await fetchGithubEvents();
-          if (!cancelled) {
-            setEvents(fallbackEvents.slice(0, HOMEPAGE_EVENT_LIMIT));
-          }
-        } catch {
-          if (!cancelled) {
-            setEvents([]);
-          }
-        }
-      }
-    }
-
-    loadEvents();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+export default function EventPreviewSection({ isEn, events }: { isEn: boolean; events: EventEntry[] }) {
+  const visibleEvents = events.slice(0, HOMEPAGE_EVENT_LIMIT);
 
   const text = {
     badge: isEn ? 'Community Events' : '赛事区',
@@ -106,13 +53,13 @@ export default function EventPreviewSection({ isEn }: { isEn: boolean }) {
             </div>
           </div>
 
-          {events.length === 0 ? (
+          {visibleEvents.length === 0 ? (
             <div className="rounded-2xl border border-dashed border-emerald-200 bg-white/75 px-5 py-8 text-sm text-slate-600 dark:border-emerald-800/50 dark:bg-slate-900/55 dark:text-slate-300">
               {text.empty}
             </div>
           ) : (
             <div className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-2 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
-              {events.map((event) => (
+              {visibleEvents.map((event) => (
                 <article
                   key={event.id}
                   className="min-w-[84vw] snap-start overflow-hidden rounded-2xl border border-emerald-100 bg-white/92 shadow-[0_8px_24px_rgba(16,185,129,0.08)] dark:border-emerald-900/40 dark:bg-slate-900/72 dark:shadow-none md:min-w-0"

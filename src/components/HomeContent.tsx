@@ -22,6 +22,7 @@ import { HotSection } from '@/components/hot'; // 热门推荐区域组件
 import SearchIntentPanel from './SearchIntentPanel'; // 搜索意图推荐组件
 import DevLogPreviewSection from './DevLogPreviewSection';
 import EventPreviewSection from './EventPreviewSection';
+import type { EventEntry } from '@/data/events';
 import { trackUserAction, trackPageView, setTag } from '@/utils/clarity'; // 埋点分析工具
 import useDebounce from '@/hooks/useDebounce'; // 防抖Hook
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
@@ -42,7 +43,7 @@ import {
  * - 包含搜索、分类、热门推荐等模块
  * - 支持键盘快捷键和响应式设计
  */
-export default function HomeContent({ subtitle }: { subtitle?: string }) {
+export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle?: string; initialEvents?: EventEntry[] }) {
   const isEn = useLocale() === 'en';
   const tHome = useTranslations('Home');
   const tCommon = useTranslations('Common');
@@ -601,7 +602,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
           {/* 热门推荐板块（显式传入本地化标题，规避上下文异常导致的错语种） */}
           <HotSection title={tHot('title')} subtitle={tHot('subtitle')} />
 
-          {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} />}
+          {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} events={initialEvents} />}
           
           {/* 萌新教程部分 - 水平滚动布局 */}
           <section id="tutorials" className={`slide-up mb-12 ${isSearching ? 'relative' : ''}`}>

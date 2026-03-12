@@ -3,10 +3,12 @@ import {setRequestLocale} from 'next-intl/server';
 import HomeContent from '@/components/HomeContent';
 import ChatWidget from '@/components/ChatWidget';
 import StructuredData from '@/components/StructuredData';
+import { getSortedEvents } from '@/data/events';
 
 export default async function Home({ params }: { params: { locale: string } }) {
   setRequestLocale(params.locale);
   const isEn = params.locale === 'en';
+  const initialEvents = await getSortedEvents();
   // 直接按路径参数加载对应语言消息，避免受 request 级 locale 影响
   type Messages = typeof import('../../../messages/en.json');
   const messages = (await import(`../../../messages/${params.locale}.json`)).default as Messages;
@@ -29,7 +31,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
       />
       <StructuredData type="Organization" locale={params.locale} />
       <Suspense fallback={<div className="relative overflow-hidden animate-pulse" />}>
-        <HomeContent subtitle={subtitle} />
+        <HomeContent subtitle={subtitle} initialEvents={initialEvents.slice(0, 3)} />
         <ChatWidget />
       </Suspense>
     </main>
