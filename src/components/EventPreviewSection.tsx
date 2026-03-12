@@ -1,5 +1,3 @@
-"use client";
-
 import Image from 'next/image';
 import Link from '@/i18n/Link';
 import type { EventEntry } from '@/data/events';
@@ -21,6 +19,7 @@ export default function EventPreviewSection({ isEn, events }: { isEn: boolean; e
     source: isEn ? 'Source post' : '原帖入口',
     online: isEn ? 'Online' : '线上/线下',
     deadline: isEn ? 'Deadline' : '截止',
+    swipeHint: isEn ? 'Swipe to browse more' : '左右滑动查看更多',
   };
 
   return (
@@ -58,11 +57,82 @@ export default function EventPreviewSection({ isEn, events }: { isEn: boolean; e
               {text.empty}
             </div>
           ) : (
-            <div className="-mx-1 flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 pb-2 md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0">
-              {visibleEvents.map((event) => (
+            <div>
+              <div className="mb-3 flex items-center justify-between text-xs text-emerald-700 dark:text-emerald-300 md:hidden">
+                <span>{text.swipeHint}</span>
+                <span>{visibleEvents.length} / {HOMEPAGE_EVENT_LIMIT}</span>
+              </div>
+
+              <div className="-mx-1 flex snap-x snap-mandatory gap-3 overflow-x-auto px-1 pb-2 md:hidden">
+                {visibleEvents.map((event) => (
+                  <article
+                    key={`${event.id}-mobile`}
+                    className="min-w-[76vw] snap-start overflow-hidden rounded-2xl border border-emerald-100 bg-white/92 shadow-[0_8px_24px_rgba(16,185,129,0.08)] dark:border-emerald-900/40 dark:bg-slate-900/72 dark:shadow-none"
+                  >
+                    <div className="relative h-40 overflow-hidden bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/20">
+                      {event.coverImage ? (
+                        <Image
+                          src={event.coverImage}
+                          alt={event.title}
+                          fill
+                          sizes="76vw"
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full items-center justify-center text-4xl text-emerald-500/60">
+                          <i className="fas fa-trophy" aria-hidden="true"></i>
+                        </div>
+                      )}
+                      <div className="absolute left-3 top-3 inline-flex rounded-full bg-white/88 px-2.5 py-1 text-[11px] font-medium text-emerald-700 dark:bg-slate-900/75 dark:text-emerald-300">
+                        {event.sourceLabel || text.source}
+                      </div>
+                    </div>
+
+                    <div className="p-4">
+                      <div className="flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400">
+                        {event.eventDate && <span>{event.eventDate}</span>}
+                        {event.location && <span>{text.online} · {event.location}</span>}
+                      </div>
+                      <h3 className="mt-2 line-clamp-2 text-base font-semibold text-slate-900 dark:text-slate-100">{event.title}</h3>
+                      <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{getEventPreviewSnippet(event.summary)}</p>
+
+                      {event.tags && event.tags.length > 0 && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {event.tags.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300"
+                            >
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="mt-4 flex items-center justify-between gap-3">
+                        <div className="text-xs text-slate-500 dark:text-slate-400">
+                          {event.deadline ? `${text.deadline} ${event.deadline}` : event.organizer || ''}
+                        </div>
+                        <a
+                          href={event.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full border border-emerald-200 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 dark:border-emerald-700/60 dark:text-emerald-300 dark:hover:bg-emerald-950/30"
+                        >
+                          {text.source}
+                          <i className="fas fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="hidden grid-cols-3 gap-4 md:grid">
+                {visibleEvents.map((event) => (
                 <article
-                  key={event.id}
-                  className="min-w-[84vw] snap-start overflow-hidden rounded-2xl border border-emerald-100 bg-white/92 shadow-[0_8px_24px_rgba(16,185,129,0.08)] dark:border-emerald-900/40 dark:bg-slate-900/72 dark:shadow-none md:min-w-0"
+                  key={`${event.id}-desktop`}
+                  className="overflow-hidden rounded-2xl border border-emerald-100 bg-white/92 shadow-[0_8px_24px_rgba(16,185,129,0.08)] dark:border-emerald-900/40 dark:bg-slate-900/72 dark:shadow-none"
                 >
                   <div className="relative h-40 overflow-hidden bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/20">
                     {event.coverImage ? (
@@ -70,7 +140,7 @@ export default function EventPreviewSection({ isEn, events }: { isEn: boolean; e
                         src={event.coverImage}
                         alt={event.title}
                         fill
-                        sizes="(max-width: 768px) 84vw, (max-width: 1280px) 50vw, 33vw"
+                        sizes="(max-width: 1280px) 50vw, 33vw"
                         className="object-cover"
                       />
                     ) : (
@@ -120,7 +190,8 @@ export default function EventPreviewSection({ isEn, events }: { isEn: boolean; e
                     </div>
                   </div>
                 </article>
-              ))}
+                ))}
+              </div>
             </div>
           )}
         </div>

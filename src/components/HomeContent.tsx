@@ -169,7 +169,6 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
   // - isSearchPending: 输入与防抖值不一致表示仍在等待稳定
 
   // 教程轮播相关状态
-  const [autoPlayEnabled, setAutoPlayEnabled] = useState(true); // 是否启用自动轮播
   const [currentTutorialIndex, setCurrentTutorialIndex] = useState(0); // 当前教程索引
   const tutorialSliderRef = useRef<HTMLDivElement>(null); // 教程轮播容器的引用
   const autoPlayIntervalRef = useRef<NodeJS.Timeout | null>(null); // 自动轮播定时器的引用
@@ -292,41 +291,19 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
     ).slice(0, 6); // 显示匹配的前6个教程用于轮播
   }, [debouncedSearchQuery]);
   
-  // 自动轮播功能
+  // 首页不再自动轮播，避免移动端和某些浏览器出现意外跳动或回顶
   useEffect(() => {
-    // 只有在自动播放启用且有足够的教程时才启动轮播
-    if (autoPlayEnabled && filteredTutorials.length > 3) {
-      // 清除现有的定时器
+    if (autoPlayIntervalRef.current) {
+      clearInterval(autoPlayIntervalRef.current);
+      autoPlayIntervalRef.current = null;
+    }
+    return () => {
       if (autoPlayIntervalRef.current) {
         clearInterval(autoPlayIntervalRef.current);
+        autoPlayIntervalRef.current = null;
       }
-      
-      // 设置新的自动轮播定时器
-      autoPlayIntervalRef.current = setInterval(() => {
-        // 向右滚动到下一组教程
-        if (tutorialSliderRef.current) {
-          const cardsToShow = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
-          const tutorialCardWidth = 288 + 16; // 教程卡片宽度(w-72 = 288px) + 间距
-          
-          // 计算下一个索引，确保循环轮播
-          const nextIndex = (currentTutorialIndex + 1) % (filteredTutorials.length - cardsToShow + 1);
-          setCurrentTutorialIndex(nextIndex);
-          
-          // 滚动到相应位置
-          tutorialSliderRef.current.scrollTo({
-            left: nextIndex * tutorialCardWidth,
-            behavior: 'smooth'
-          });
-        }
-      }, 7000); // 7秒轮播一次，给用户更多阅读时间
-      
-      return () => {
-        if (autoPlayIntervalRef.current) {
-          clearInterval(autoPlayIntervalRef.current);
-        }
-      };
-    }
-  }, [autoPlayEnabled, filteredTutorials.length, currentTutorialIndex]);
+    };
+  }, []);
   
   // 窗口大小变化时重新计算轮播
   useEffect(() => {
@@ -671,8 +648,6 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
                   <div 
                     className="overflow-x-auto hide-scrollbar py-4 px-2"
                     ref={tutorialSliderRef}
-                    onMouseEnter={() => setAutoPlayEnabled(false)}
-                    onMouseLeave={() => setAutoPlayEnabled(true)}
                   >
                     <div className="flex gap-4 pb-4 pl-8 pr-8">
                       {/* 渲染教程卡片 */}
@@ -752,9 +727,6 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
                       className="bg-white/80 dark:bg-slate-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
                       aria-label={tHome('scrollLeft')}
                       onClick={() => {
-                        // 暂停自动播放
-                        setAutoPlayEnabled(false);
-                        
                         // 计算教程卡片宽度
                         const tutorialCardWidth = 288 + 16; // 教程卡片宽度(w-72 = 288px) + 间距
                         
@@ -771,8 +743,6 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
                           });
                         }
                         
-                        // 7秒后重新启用自动播放
-                        setTimeout(() => setAutoPlayEnabled(true), 7000);
                       }}
                     >
                       <i className="fas fa-chevron-left"></i>
@@ -784,9 +754,6 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
                       className="bg-white/80 dark:bg-slate-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
                       aria-label={tHome('scrollRight')}
                       onClick={() => {
-                        // 暂停自动播放
-                        setAutoPlayEnabled(false);
-                        
                         // 计算教程卡片宽度
                         const tutorialCardWidth = 288 + 16; // 教程卡片宽度(w-72 = 288px) + 间距
                         
@@ -806,8 +773,6 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
                           });
                         }
                         
-                        // 7秒后重新启用自动播放
-                        setTimeout(() => setAutoPlayEnabled(true), 7000);
                       }}
                     >
                       <i className="fas fa-chevron-right"></i>
@@ -825,9 +790,6 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
                             : 'w-2 bg-gray-300 dark:bg-gray-600'
                         }`}
                         onClick={() => {
-                          // 暂停自动播放
-                          setAutoPlayEnabled(false);
-                          
                           const tutorialCardWidth = 288 + 16; // 卡片宽度(w-72 = 288px) + 间距
                           setCurrentTutorialIndex(index);
                           
@@ -839,8 +801,6 @@ export default function HomeContent({ subtitle, initialEvents = [] }: { subtitle
                             });
                           }
                           
-                          // 7秒后重新启用自动播放
-                          setTimeout(() => setAutoPlayEnabled(true), 7000);
                         }}
                         aria-label={tHome('jumpToTutorialPage', {index: index + 1})}
                       />
