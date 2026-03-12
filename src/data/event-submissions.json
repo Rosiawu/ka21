@@ -1,6 +1,27 @@
 {
   "entries": [
     {
+      "id": "百万-credits-悬赏-秀出你的-workbuddy-claw-实战-1773308003308",
+      "title": "百万 Credits 悬赏 · 秀出你的 WorkBuddy Claw 实战",
+      "summary": "👇 目录 WorkBuddy Claw 是什么？ 参与方式（仅需 3 步）Credits 说明基础奖励一览活动规则WorkBuddy Claw 实战悬赏活动火热开启！ 🔥掏出手机指挥 AI 干活，百万 Credits 为你买单。",
+      "organizer": "WorkBuddy",
+      "author": "",
+      "sourceUrl": "https://mp.weixin.qq.com/s/gOOJuRzERBMwqyifaRYu1g",
+      "sourceLabel": "公众号",
+      "eventDate": "2026-03-10",
+      "deadline": "",
+      "location": "",
+      "tags": [
+        "AI",
+        "视频",
+        "编程",
+        "创作"
+      ],
+      "coverImage": "http://mmecoa.qpic.cn/mmecoa_jpg/ZS8oYianH8vSzTicdyyokpLicxBQPm0Q6VNCSviayY5iaORzXPk2Bp44X1IicYQzOsEkf60gN3UUMYWwagib9MYdl6Lz9bFcdttiaevRuDZOCb5NtoI/0?wx_fmt=jpeg",
+      "images": [],
+      "createdAt": "2026-03-12T09:33:23.308Z"
+    },
+    {
       "id": "中关村北纬龙虾大赛来啦-1773303466869",
       "title": "中关村北纬龙虾大赛来啦!🦞",
       "summary": "OpenClaw玩家集合 专为养虾人设计的——中关村北纬龙虾大赛，正式上线！ 千亿Token奖池、0代码门槛！ 养了这么久的\"虾\"，是时候拉出来遛遛了 你的那只AI龙虾，能干什么？",
@@ -22,7 +43,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T08:17:46.870Z",
-    "count": 1
+    "updatedAt": "2026-03-12T09:33:23.308Z",
+    "count": 2
   }
 }
