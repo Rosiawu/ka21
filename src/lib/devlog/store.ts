@@ -20,6 +20,7 @@ const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
+const MAX_SUBMISSION_WRITE_ATTEMPTS = 4;
 const TOOL_RECORDS = ((toolsData as { tools?: Array<{ id: string; name: string; url?: string; description?: string; tags?: string[] }> }).tools || []).filter(
   (tool) => tool && tool.id && tool.url
 );
@@ -191,6 +192,12 @@ function buildNextVersion(entries: DevLogEntry[]) {
   return buildVersion(maxVersion + 1);
 }
 
+function isGitHubWriteConflict(error: unknown) {
+  if (!(error instanceof Error)) return false;
+  const message = error.message.toLowerCase();
+  return message.includes('409') || message.includes('sha') || message.includes('conflict');
+}
+
 function buildBody(body: string, author: string) {
   const intro = `今天补一条手机直发的开发日志。`;
   const withIntro = body.startsWith(intro) ? body : `${intro}\n\n${body}`;
@@ -346,15 +353,13 @@ export async function submitDevLog(input: {
   if (!title) throw new Error('missing-title');
   if (!body) throw new Error('missing-body');
 
-  const { data, sha } = await readStore();
   const date = new Date().toISOString().slice(0, 10);
   const entryId = `${toAsciiSlug(title)}-${Date.now()}`;
   const imagePaths = await persistImages(input.images || [], entryId, title);
   const bodyWithAuthor = buildBody(body, author);
 
-  const entry: DevLogEntry = {
+  const entryBase: Omit<DevLogEntry, 'version'> = {
     id: entryId,
-    version: buildNextVersion(data.entries),
     date,
     timelineTitle: { zh: title, en: title },
     cardTitle: { zh: title, en: title },
@@ -370,7 +375,27 @@ export async function submitDevLog(input: {
     })),
   };
 
-  data.entries.unshift(entry);
-  await writeStore(data, `feat(devlog): submit ${entryId}`, sha);
-  return entry;
+  let lastError: unknown = null;
+
+  for (let attempt = 0; attempt < MAX_SUBMISSION_WRITE_ATTEMPTS; attempt += 1) {
+    const { data, sha } = await readStore();
+    const entry: DevLogEntry = {
+      ...entryBase,
+      version: buildNextVersion(data.entries),
+    };
+
+    data.entries.unshift(entry);
+
+    try {
+      await writeStore(data, `feat(devlog): submit ${entryId}`, sha);
+      return entry;
+    } catch (error) {
+      lastError = error;
+      if (!isGitHubBackedStore() || !isGitHubWriteConflict(error) || attempt === MAX_SUBMISSION_WRITE_ATTEMPTS - 1) {
+        throw error;
+      }
+    }
+  }
+
+  throw lastError instanceof Error ? lastError : new Error('devlog-write-failed');
 }
