@@ -30,88 +30,11 @@
           }
         }
       ]
-    },
-    {
-      "id": "probe-1773288260805",
-      "version": "共创 03",
-      "date": "2026-03-12",
-      "timelineTitle": {
-        "zh": "probe",
-        "en": "probe"
-      },
-      "cardTitle": {
-        "zh": "probe",
-        "en": "probe"
-      },
-      "body": {
-        "zh": "今天补一条手机直发的开发日志。\n\nprobe",
-        "en": "今天补一条手机直发的开发日志。\n\nprobe"
-      },
-      "imageSlotLabel": {
-        "zh": "手机提交开发日志图片位：probe（待补图）",
-        "en": "Mobile devlog image slot: probe (pending upload)"
-      },
-      "relatedLinks": [],
-      "images": []
-    },
-    {
-      "id": "devlog-mmmw6g8b-1773285126059",
-      "version": "共创 02",
-      "date": "2026-03-12",
-      "timelineTitle": {
-        "zh": "图片测试",
-        "en": "图片测试"
-      },
-      "cardTitle": {
-        "zh": "图片测试",
-        "en": "图片测试"
-      },
-      "body": {
-        "zh": "今天补一条手机直发的开发日志。\n\n今天测试带图提交\n\n记录人：test",
-        "en": "今天补一条手机直发的开发日志。\n\n今天测试带图提交\n\n记录人：test"
-      },
-      "imageSlotLabel": {
-        "zh": "手机提交开发日志配图：图片测试（1张）",
-        "en": "Mobile devlog images: 图片测试 (1)"
-      },
-      "relatedLinks": [],
-      "images": [
-        {
-          "src": "/images/devlog/submissions/devlog-mmmw6g8b-1773285126059/01-devlog-mmmw6g8b.png",
-          "alt": {
-            "zh": "图片测试 过程截图 1",
-            "en": "图片测试 progress image 1"
-          }
-        }
-      ]
-    },
-    {
-      "id": "devlog-mmmw5to6-1773285096822",
-      "version": "共创 01",
-      "date": "2026-03-12",
-      "timelineTitle": {
-        "zh": "中文测试",
-        "en": "中文测试"
-      },
-      "cardTitle": {
-        "zh": "中文测试",
-        "en": "中文测试"
-      },
-      "body": {
-        "zh": "今天补一条手机直发的开发日志。\n\n今天测试手机提交\n\n记录人：test",
-        "en": "今天补一条手机直发的开发日志。\n\n今天测试手机提交\n\n记录人：test"
-      },
-      "imageSlotLabel": {
-        "zh": "手机提交开发日志图片位：中文测试（待补图）",
-        "en": "Mobile devlog image slot: 中文测试 (pending upload)"
-      },
-      "relatedLinks": [],
-      "images": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T04:49:06.708Z",
-    "count": 4
+    "updatedAt": "2026-03-12T04:57:09Z",
+    "count": 1
   }
 }

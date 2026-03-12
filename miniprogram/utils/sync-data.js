@@ -1,6 +1,6 @@
 const STORAGE_KEY = 'miniapp_sync_snapshot_v1';
 const DEFAULT_SYNC_INTERVAL_MS = 5 * 60 * 1000;
-const SNAPSHOT_URL = 'https://ka21.tools/api/miniapp/snapshot';
+const SNAPSHOT_URL = 'https://ka21.org/api/miniapp/snapshot';
 
 function getBundledData() {
   return {

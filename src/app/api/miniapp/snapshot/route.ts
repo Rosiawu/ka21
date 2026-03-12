@@ -45,7 +45,7 @@ type TutorialRecord = {
   relatedTools?: string[];
 };
 
-const ASSET_BASE_URL = 'https://ka21.tools';
+const ASSET_BASE_URL = 'https://ka21.org';
 const TUTORIAL_CATEGORY_LABEL_MAP: Record<string, string> = {
   'office-productivity': 'AI办公',
 };

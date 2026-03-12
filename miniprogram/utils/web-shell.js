@@ -1,4 +1,4 @@
-const BASE_URL = 'https://ka21.tools';
+const BASE_URL = 'https://ka21.org';
 const DEFAULT_LOCALE = 'zh';
 
 function encode(value) {
