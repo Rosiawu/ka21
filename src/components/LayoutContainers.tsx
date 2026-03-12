@@ -2,7 +2,7 @@
 
 import {useEffect, useMemo, useRef, useState} from 'react';
 import {Suspense} from 'react';
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import SidebarWrapper from '@/components/SidebarWrapper';
 import SidebarSkeleton from '@/components/SidebarSkeleton';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -26,6 +26,7 @@ export default function LayoutContainers({
   children: React.ReactNode;
 }) {
   const tCommon = useTranslations('Common');
+  const locale = useLocale();
 
   // 折叠状态：桌面端使用；本地存储持久化
   const {collapsed, toggle: toggleCollapsed} = useSidebarState('sidebarCollapsed');
@@ -190,6 +191,15 @@ export default function LayoutContainers({
           {children}
           <BackToTopButton />
         </main>
+
+        <a
+          href={`/${locale}/events/submit`}
+          aria-label={tCommon('submitEvent')}
+          className="fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 px-4 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(20,184,166,0.28)] transition hover:scale-[1.02] sm:bottom-6 sm:right-6"
+        >
+          <i className="fas fa-wand-magic-sparkles text-xs" aria-hidden="true"></i>
+          <span className="max-w-[8rem] truncate sm:max-w-none">{tCommon('submitEvent')}</span>
+        </a>
 
         {/* 页脚 */}
         <footer id="main-footer" className="site-glass-footer border-t border-neutral-200 dark:border-slate-700 py-10 mt-16">

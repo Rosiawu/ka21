@@ -21,6 +21,7 @@ import { getVisibleTools } from '@/utils/sortTools'; // 获取可见工具函数
 import { HotSection } from '@/components/hot'; // 热门推荐区域组件
 import SearchIntentPanel from './SearchIntentPanel'; // 搜索意图推荐组件
 import DevLogPreviewSection from './DevLogPreviewSection';
+import EventPreviewSection from './EventPreviewSection';
 import { trackUserAction, trackPageView, setTag } from '@/utils/clarity'; // 埋点分析工具
 import useDebounce from '@/hooks/useDebounce'; // 防抖Hook
 import useHotkey from '@/hooks/useHotkey'; // 快捷键Hook
@@ -860,6 +861,7 @@ export default function HomeContent({ subtitle }: { subtitle?: string }) {
             </div>
           </section>
 
+          {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} />}
           {!isSearching && !isSearchPending && <DevLogPreviewSection isEn={isEn} />}
           
           {/* 工具分类列表 - 使用新的ToolCategorySection组件 */}
