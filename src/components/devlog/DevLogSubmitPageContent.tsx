@@ -30,6 +30,59 @@ function readFilesForPreview(files: FileList) {
   );
 }
 
+function loadImageElement(file: File) {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
+    const objectUrl = URL.createObjectURL(file);
+    const image = new Image();
+    image.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      resolve(image);
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      reject(new Error('image-load-failed'));
+    };
+    image.src = objectUrl;
+  });
+}
+
+async function compressImageFile(file: File) {
+  if (file.size <= 1_200_000) {
+    return file;
+  }
+
+  const image = await loadImageElement(file);
+  const maxDimension = 1600;
+  const scale = Math.min(1, maxDimension / Math.max(image.width, image.height));
+  const width = Math.max(1, Math.round(image.width * scale));
+  const height = Math.max(1, Math.round(image.height * scale));
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d');
+
+  if (!ctx) {
+    return file;
+  }
+
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, width, height);
+  ctx.drawImage(image, 0, 0, width, height);
+
+  const blob = await new Promise<Blob | null>((resolve) => {
+    canvas.toBlob(resolve, 'image/jpeg', 0.82);
+  });
+
+  if (!blob) {
+    return file;
+  }
+
+  return new File([blob], `${file.name.replace(/\.[^.]+$/, '') || 'upload'}.jpg`, {
+    type: 'image/jpeg',
+    lastModified: Date.now(),
+  });
+}
+
 export default function DevLogSubmitPageContent({ locale }: { locale: string }) {
   const isEn = locale === 'en';
   const [title, setTitle] = useState('');
@@ -58,6 +111,7 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
       : '直接按你平时说话的方式写：改了什么、卡在哪、最后怎么搞定的。',
     upload: isEn ? 'Add screenshots' : '上传截图',
     hint: isEn ? 'Up to 9 images. Mobile-first, no extra formatting required.' : '最多 9 张图。按手机直觉发就行，不需要额外排版。',
+    compressHint: isEn ? 'Large mobile screenshots are auto-compressed before upload.' : '手机大图会在上传前自动压缩，提交会更稳。',
     submit: isEn ? 'Submit and push' : '提交并推到 GitHub',
     submitting: isEn ? 'Submitting...' : '提交中...',
     success: isEn ? 'Submitted. Wait for auto deploy, then open the devlog page.' : '提交成功。等自动部署完成后，去开发日志页就能看到。',
@@ -67,7 +121,13 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
     if (!event.target.files?.length) return;
     try {
       const nextImages = await readFilesForPreview(event.target.files);
-      setImages(nextImages.filter((item) => item.previewUrl));
+      const compressedImages = await Promise.all(
+        nextImages.map(async (item) => ({
+          ...item,
+          file: await compressImageFile(item.file),
+        }))
+      );
+      setImages(compressedImages.filter((item) => item.previewUrl));
       setMessage('');
     } catch {
       setMessage(isEn ? 'Image read failed.' : '图片读取失败。');
@@ -168,6 +228,7 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
                 <div>
                   <p className="text-sm font-medium text-slate-800 dark:text-slate-100">{text.upload}</p>
                   <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-300">{text.hint}</p>
+                  <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">{text.compressHint}</p>
                 </div>
                 <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-amber-400 dark:text-slate-950 dark:hover:bg-amber-300">
                   <i className="fas fa-image text-xs" aria-hidden="true"></i>
