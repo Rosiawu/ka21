@@ -107,6 +107,10 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
     subtitle: isEn
       ? 'Write a title, add a few screenshots, hit submit, and let GitHub + deployment finish the rest.'
       : '写个标题，配几张截图，点一下提交，剩下的交给 GitHub 和自动部署。',
+    nativeNoticeTitle: isEn ? 'Recommended: use the miniapp native submit page' : '推荐：请改用小程序原生提交页',
+    nativeNoticeBody: isEn
+      ? 'Mobile H5 upload can still be unstable inside WeChat. The miniapp native page is now the official mobile submission path.'
+      : '微信里的手机 H5 上传仍可能不稳定。现在手机正式提交流程已经切到小程序原生页。',
     back: isEn ? 'Back to devlog' : '返回开发日志',
     titleLabel: isEn ? 'Title' : '标题',
     titlePlaceholder: isEn ? 'What changed today?' : '今天改了什么？一句话先说清楚',
@@ -207,6 +211,10 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
         </section>
 
         <section className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-950/85 sm:p-6">
+          <div className="mb-4 rounded-[1.5rem] border border-amber-200 bg-amber-50/80 px-4 py-4 text-sm text-amber-900 dark:border-amber-700/50 dark:bg-amber-950/30 dark:text-amber-100">
+            <p className="font-semibold">{text.nativeNoticeTitle}</p>
+            <p className="mt-1 leading-6 opacity-90">{text.nativeNoticeBody}</p>
+          </div>
           <div className="space-y-4">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.titleLabel}</span>
