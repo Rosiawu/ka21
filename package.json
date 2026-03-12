@@ -34,7 +34,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^10.1.0",
-    "sharp": "^0.34.4"
+    "sharp": "^0.34.4",
+    "tesseract.js": "^7.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
