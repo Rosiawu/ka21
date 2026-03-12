@@ -36,7 +36,7 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
       ? 'The build notes are open and transparent. Every small iteration is documented.'
       : '建站过程公开透明，每一次小步迭代都记录在这里。',
     backHome: isEn ? 'Back to Home' : '返回首页',
-    submit: isEn ? 'Post from phone' : '手机发一条',
+    submitHint: isEn ? 'Mobile posting now uses the miniapp native page.' : '手机投稿现在只走小程序原生页。',
   };
 
   return (
@@ -58,13 +58,10 @@ export default function DevLogPage({ params }: { params: { locale: string } }) {
               <p className="mt-3 text-slate-700 dark:text-slate-300">{text.subtitle}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link
-                href="/devlog/mobile-submit?v=20260312b"
-                className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700 transition-colors hover:bg-amber-100 dark:border-amber-700/70 dark:bg-amber-950/30 dark:text-amber-300 dark:hover:bg-amber-950/50"
-              >
-                <i className="fas fa-wand-magic-sparkles text-xs" aria-hidden="true"></i>
-                <span>{text.submit}</span>
-              </Link>
+              <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700 dark:border-amber-700/70 dark:bg-amber-950/30 dark:text-amber-300">
+                <i className="fas fa-mobile-screen-button text-xs" aria-hidden="true"></i>
+                <span>{text.submitHint}</span>
+              </span>
               <Link
                 href="/"
                 className="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-700/70 bg-white/90 dark:bg-slate-900/70 px-4 py-2 text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-white dark:hover:bg-slate-900 transition-colors"
