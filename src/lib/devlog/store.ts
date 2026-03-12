@@ -129,6 +129,37 @@ async function writeStore(data: DevLogSubmissionFile, message: string, sha?: str
   await writeLocalStore(data);
 }
 
+async function fetchGitHubFileSha(filePath: string) {
+  if (!GITHUB_TOKEN || !GITHUB_REPO) {
+    throw new Error('Missing GITHUB_TOKEN or GITHUB_REPO env variables');
+  }
+
+  const encodedPath = filePath
+    .split('/')
+    .map((segment) => encodeURIComponent(segment))
+    .join('/');
+  const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${encodedPath}?ref=${GITHUB_BRANCH}`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+    cache: 'no-store',
+  });
+
+  if (res.status === 404) {
+    return undefined;
+  }
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => null) as { message?: string } | null;
+    throw new Error(err?.message || `GitHub image SHA fetch error: ${res.status}`);
+  }
+
+  const data = await res.json() as { sha?: string };
+  return data.sha;
+}
+
 async function uploadImageToGitHub(filePath: string, base64: string, message: string) {
   if (!GITHUB_TOKEN || !GITHUB_REPO) {
     throw new Error('Missing GITHUB_TOKEN or GITHUB_REPO env variables');
@@ -139,23 +170,33 @@ async function uploadImageToGitHub(filePath: string, base64: string, message: st
     .map((segment) => encodeURIComponent(segment))
     .join('/');
   const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${encodedPath}`;
-  const res = await fetch(url, {
-    method: 'PUT',
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-      Accept: 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      message,
-      content: base64,
-      branch: GITHUB_BRANCH,
-    }),
-  });
 
-  if (!res.ok) {
+  for (let attempt = 0; attempt < MAX_SUBMISSION_WRITE_ATTEMPTS; attempt += 1) {
+    const sha = await fetchGitHubFileSha(filePath);
+    const res = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
+        Accept: 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message,
+        content: base64,
+        branch: GITHUB_BRANCH,
+        ...(sha ? { sha } : {}),
+      }),
+    });
+
+    if (res.ok) {
+      return;
+    }
+
     const err = await res.json().catch(() => null) as { message?: string } | null;
-    throw new Error(err?.message || `GitHub image upload error: ${res.status}`);
+    const uploadError = new Error(err?.message || `GitHub image upload error: ${res.status}`);
+    if (!isGitHubWriteConflict(uploadError) || attempt === MAX_SUBMISSION_WRITE_ATTEMPTS - 1) {
+      throw uploadError;
+    }
   }
 }
 
