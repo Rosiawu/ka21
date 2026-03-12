@@ -1,6 +1,37 @@
 {
   "entries": [
     {
+      "id": "devlog-mmmw6g8b-1773285126059",
+      "version": "共创 02",
+      "date": "2026-03-12",
+      "timelineTitle": {
+        "zh": "图片测试",
+        "en": "图片测试"
+      },
+      "cardTitle": {
+        "zh": "图片测试",
+        "en": "图片测试"
+      },
+      "body": {
+        "zh": "今天补一条手机直发的开发日志。\n\n今天测试带图提交\n\n记录人：test",
+        "en": "今天补一条手机直发的开发日志。\n\n今天测试带图提交\n\n记录人：test"
+      },
+      "imageSlotLabel": {
+        "zh": "手机提交开发日志配图：图片测试（1张）",
+        "en": "Mobile devlog images: 图片测试 (1)"
+      },
+      "relatedLinks": [],
+      "images": [
+        {
+          "src": "/images/devlog/submissions/devlog-mmmw6g8b-1773285126059/01-devlog-mmmw6g8b.png",
+          "alt": {
+            "zh": "图片测试 过程截图 1",
+            "en": "图片测试 progress image 1"
+          }
+        }
+      ]
+    },
+    {
       "id": "devlog-mmmw5to6-1773285096822",
       "version": "共创 01",
       "date": "2026-03-12",
@@ -26,7 +57,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T03:11:36.823Z",
-    "count": 1
+    "updatedAt": "2026-03-12T03:12:06.815Z",
+    "count": 2
   }
 }
