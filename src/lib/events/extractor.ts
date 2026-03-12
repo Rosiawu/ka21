@@ -15,6 +15,7 @@ type ExtractedEventDraft = {
 };
 
 const WECHAT_HOSTNAMES = new Set(['mp.weixin.qq.com', 'mp.weixinqq.com']);
+const NOISY_SUFFIXES = ['向上滑动看下', '阅读全文', '点击查看', '扫码报名', '扫码查看', '了解详情', '一个', '知道了'];
 
 function cleanText(value: string) {
   return value
@@ -30,6 +31,15 @@ function cleanText(value: string) {
 
 function truncate(value: string, max: number) {
   return value.length > max ? `${value.slice(0, max - 1).trim()}...` : value;
+}
+
+function stripNoisySuffixes(value: string) {
+  let next = cleanText(value);
+  for (const suffix of NOISY_SUFFIXES) {
+    next = next.replace(new RegExp(`${suffix}.*$`), '').trim();
+    next = next.replace(new RegExp(`${suffix}$`), '').trim();
+  }
+  return next;
 }
 
 function matchText(html: string, pattern: RegExp) {
@@ -85,24 +95,45 @@ function extractBodyText(html: string, $: cheerio.CheerioAPI) {
   return cleanText(root.text());
 }
 
+function pickFirstMatch(text: string, patterns: RegExp[]) {
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    const value = stripNoisySuffixes(match?.[1] || match?.[0] || '');
+    if (value) return value;
+  }
+  return '';
+}
+
+function inferOrganizer(text: string, title: string) {
+  const organizer = pickFirstMatch(text, [
+    /(?:主办方|主办单位|主办|发起方|发起单位|发起|举办方|举办单位|承办方|承办单位|联合主办|出品方|出品)[：: ]*([^\n。；]{2,40})/,
+    /([^\n。；]{2,30})(?:主办|承办|发起|联合主办|出品)/,
+  ]);
+  if (organizer) return organizer;
+
+  return '';
+}
+
 function inferLocation(text: string) {
-  const match =
-    text.match(/(线上直播|线上路演|线上|线下|混合|全国可参加|全球可参加)/) ||
-    text.match(/(北京|上海|广州|深圳|杭州|成都|武汉|西安|重庆|南京|苏州|厦门|长沙|天津|青岛)([^，。；\n]{0,12})/);
-  return cleanText(match?.[0] || '');
+  return pickFirstMatch(text, [
+    /(?:活动地点|举办地点|比赛地点|赛事地点|地点|地址|举办形式|活动形式)[：: ]*([^\n。；]{2,40})/,
+    /(线上直播|线上路演|线上参与|线上报名|线上|线下|混合赛制|混合|全国可参加|全球可参加)/,
+    /((?:北京|上海|广州|深圳|杭州|成都|武汉|西安|重庆|南京|苏州|厦门|长沙|天津|青岛)[^，。；\n]{0,18})/,
+  ]);
 }
 
 function inferDateLike(text: string, keywords: string[]) {
   for (const keyword of keywords) {
-    const pattern = new RegExp(`${keyword}[：: ]*([^。；\\n]{0,40}(?:\\d{4}[./-]\\d{1,2}[./-]\\d{1,2}|\\d{1,2}月\\d{1,2}日)[^。；\\n]{0,20})`);
+    const pattern = new RegExp(`${keyword}[：: ]*([^。；\\n]{0,50}(?:\\d{4}[./-]\\d{1,2}[./-]\\d{1,2}|\\d{1,2}月\\d{1,2}日|即日起至)[^。；\\n]{0,30})`);
     const match = text.match(pattern);
-    if (match?.[1]) return cleanText(match[1]);
+    if (match?.[1]) return stripNoisySuffixes(match[1]);
   }
 
   const generic =
-    text.match(/(\d{4}[./-]\d{1,2}[./-]\d{1,2}(?:\s*[-至到]\s*\d{4}[./-]\d{1,2}[./-]\d{1,2})?)/) ||
-    text.match(/(\d{1,2}月\d{1,2}日(?:\s*[-至到]\s*\d{1,2}月\d{1,2}日)?)/);
-  return cleanText(generic?.[1] || '');
+    text.match(/((?:即日起至|截止至|报名截止至)[^。；\n]{0,30}(?:\d{4}[./-]\d{1,2}[./-]\d{1,2}|\d{1,2}月\d{1,2}日))/) ||
+    text.match(/(\d{4}[./-]\d{1,2}[./-]\d{1,2}(?:\s*[-至到~]\s*\d{4}[./-]\d{1,2}[./-]\d{1,2})?)/) ||
+    text.match(/(\d{1,2}月\d{1,2}日(?:\s*[-至到~]\s*\d{1,2}月\d{1,2}日)?)/);
+  return stripNoisySuffixes(generic?.[1] || '');
 }
 
 function inferTags(title: string, text: string) {
@@ -187,10 +218,10 @@ export async function extractEventFromSourceUrl(sourceUrl: string): Promise<Extr
         title,
         summary,
         sourceUrl: target.toString(),
-        organizer: '',
+        organizer: inferOrganizer(normalizedMirrorText, title),
         author: '',
         eventDate: inferDateLike(normalizedMirrorText, ['活动时间', '比赛时间', '赛事时间', '举办时间', '时间']),
-        deadline: inferDateLike(normalizedMirrorText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间']),
+        deadline: inferDateLike(normalizedMirrorText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间', '报名截止时间', '截止日期']),
         location: inferLocation(normalizedMirrorText),
         sourceLabel: '公众号',
         tags: inferTags(title, normalizedMirrorText),
@@ -245,10 +276,10 @@ export async function extractEventFromSourceUrl(sourceUrl: string): Promise<Extr
     title,
     summary,
     sourceUrl: target.toString(),
-    organizer: author,
+    organizer: inferOrganizer(bodyText, title) || author,
     author: '',
     eventDate: inferDateLike(bodyText, ['活动时间', '比赛时间', '赛事时间', '举办时间', '时间']) || publishDate,
-    deadline: inferDateLike(bodyText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间']),
+    deadline: inferDateLike(bodyText, ['报名截止', '截止时间', '征集截止', '投稿截止', '报名时间', '报名截止时间', '截止日期']),
     location: inferLocation(bodyText),
     sourceLabel: WECHAT_HOSTNAMES.has(target.hostname) ? '公众号' : finalUrl.hostname.replace(/^www\./, ''),
     tags: inferTags(title, bodyText),
