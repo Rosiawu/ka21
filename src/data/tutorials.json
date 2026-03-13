@@ -1913,11 +1913,25 @@
       "recommendReason": "生图最烦写提示词？Seede AI 决定干掉这个痛点。",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/m1eibvmmT3siciaia0HXXFvDiaLYy9QgaXSduEufCT9KmF4jJWMjOywFw0aYK9MhqFmgItByYn4xibNnyPVV4tJOmMUID1FmlSTDGGHxb99IbqgGE/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-小龙虾OpenClaw在偷啃这12个技巧帮你省T-0",
+      "title": "小龙虾OpenClaw在“偷啃”？这12个技巧帮你省Token！",
+      "description": "用一只省钱的小龙虾～～",
+      "url": "https://mp.weixin.qq.com/s/tZb7lr2NB1KU82sidlWFxQ?scene=1",
+      "source": "何先森Kevin",
+      "publishDate": "2026-03-13",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "用一只省钱的小龙虾～～",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/NLP7cUicg7G4WO7SFicSmVU8iaHSicY8z0ujezGEtqPmcogQKKTQj8LDYdQB2dicj4x2rjIu0WjezUn0Be1iaHZWsHBaRrmzTMsKqehCjUaJATzuA/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T09:59:25.944Z",
-    "count": 109
+    "updatedAt": "2026-03-13T03:47:13.284Z",
+    "count": 110
   }
 }
