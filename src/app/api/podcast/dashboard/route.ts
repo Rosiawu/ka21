@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
+import { readFile } from 'node:fs/promises';
 
 const config = {
   showName: '灯下白',
@@ -48,7 +49,12 @@ const config = {
   ],
 } as const;
 
-const snapshots = [
+export const dynamic = 'force-dynamic';
+
+const TRACKER_SNAPSHOTS_PATH =
+  '/Users/rosiawoo/Downloads/podcast editing/podcast-stats-tracker/data/snapshots.json';
+
+const fallbackSnapshots = [
   {
     id: 'snapshot-1773134584215',
     date: '2026-03-10',
@@ -129,6 +135,23 @@ const snapshots = [
   },
 ];
 
+type Snapshot = (typeof fallbackSnapshots)[number];
+
+async function loadSnapshots(): Promise<Snapshot[]> {
+  try {
+    const raw = await readFile(TRACKER_SNAPSHOTS_PATH, 'utf8');
+    const parsed = JSON.parse(raw);
+
+    if (!Array.isArray(parsed)) {
+      return fallbackSnapshots;
+    }
+
+    return parsed;
+  } catch {
+    return fallbackSnapshots;
+  }
+}
+
 async function loadEpisodes() {
   const response = await fetch(config.rssUrl, {
     headers: {
@@ -163,7 +186,7 @@ async function loadEpisodes() {
 
 export async function GET() {
   try {
-    const episodes = await loadEpisodes();
+    const [episodes, snapshots] = await Promise.all([loadEpisodes(), loadSnapshots()]);
     return NextResponse.json({ config, episodes, snapshots });
   } catch (error) {
     return NextResponse.json(

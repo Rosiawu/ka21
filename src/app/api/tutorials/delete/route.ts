@@ -2,13 +2,7 @@ import { NextResponse } from 'next/server';
 import { fetchFromGitHub, updateGitHubFile } from '@/lib/github';
 import fs from 'fs/promises';
 import path from 'path';
-import type { TutorialsJson } from '@/types/tutorials';
-
-interface TutorialsMeta {
-  version?: string;
-  updatedAt?: string;
-  count?: number;
-}
+import type { TutorialData, TutorialsJson, TutorialsMeta } from '@/types/tutorials';
 
 const TUTORIALS_PATH = path.join(process.cwd(), 'src', 'data', 'tutorials.json');
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
@@ -22,8 +16,8 @@ export async function POST(request: Request) {
     }
 
     const useGitHub = !!(GITHUB_TOKEN && GITHUB_REPO);
-    let tutorials: { id: string; title?: string; [key: string]: unknown }[] = [];
-    let meta: TutorialsMeta = {};
+    let tutorials: TutorialData[] = [];
+    let meta: Partial<TutorialsMeta> = {};
     let sha = '';
 
     if (useGitHub) {
@@ -63,6 +57,7 @@ export async function POST(request: Request) {
       tutorials: newTutorials as TutorialsJson['tutorials'],
       meta: {
         ...meta,
+        version: meta.version || '1.0.0',
         updatedAt: new Date().toISOString(),
         count: newTutorials.length
       }
