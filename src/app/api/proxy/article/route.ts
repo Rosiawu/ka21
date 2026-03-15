@@ -135,7 +135,6 @@ export async function GET(request: Request) {
   }
 
   try {
-    console.log(`Fetching WeChat URL: ${target.toString()}`);
     const res = await fetch(target.toString(), {
       headers: {
         'User-Agent':
@@ -148,7 +147,6 @@ export async function GET(request: Request) {
     });
 
     if (!res.ok) {
-      console.error(`WeChat fetch failed: ${res.status} ${res.statusText}`);
       return NextResponse.json(
         { success: false, message: `抓取失败，状态码 ${res.status}` },
         { status: 502 },
@@ -156,15 +154,9 @@ export async function GET(request: Request) {
     }
 
     const html = await res.text();
-    console.log(`Fetched HTML length: ${html.length}`);
-    
     const meta = parseWechatHtml(html);
-    console.log('Parsed metadata:', JSON.stringify(meta, null, 2));
 
     if (!meta.title) {
-      console.warn('Failed to extract title from HTML');
-      // 尝试打印一部分 HTML 来调试（仅前 500 字符）
-      console.log('HTML Preview:', html.substring(0, 500));
       return NextResponse.json(
         { success: false, message: '未能从页面中解析出文章信息，可能是因为微信反爬虫限制' },
         { status: 500 },
@@ -183,7 +175,6 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ success: true, data });
   } catch (error) {
-    console.error('Wechat metadata fetch error:', error);
     return NextResponse.json(
       { success: false, message: '抓取或解析微信公众号文章时发生错误: ' + (error instanceof Error ? error.message : String(error)) },
       { status: 500 },

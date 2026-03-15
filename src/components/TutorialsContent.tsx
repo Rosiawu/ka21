@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
 import { tutorials, Tutorial, sortTutorials, TutorialSortMethod, DifficultyLevel } from '@/data/tutorials';
 import { localizeTutorialCategory } from '@/utils/tutorials';
@@ -36,7 +36,7 @@ export default function TutorialsContent() {
   const [saving, setSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
   const [deletingId, setDeletingId] = useState<string | null>(null);
-  const text = {
+  const text = useMemo(() => ({
     title: isEn ? 'Starter Tutorials' : '萌新教程',
     subtitle: isEn
       ? 'Personal write-ups from AI practitioners, sharing practical tips, hands-on workflows, and real use cases.'
@@ -57,19 +57,17 @@ export default function TutorialsContent() {
     noResultTitle: isEn ? 'No matching tutorials found' : '未找到匹配的教程',
     noResultHint: isEn ? 'Try different keywords or filters.' : '请尝试其他搜索词或筛选条件',
     resetAll: isEn ? 'Reset All Filters' : '重置所有筛选',
+    deleteConfirm: isEn ? 'Are you sure you want to delete this tutorial?' : '确定要删除这篇教程吗？',
     deleteSuccess: isEn ? 'Deleted successfully!' : '删除成功！',
     deleteFailedPrefix: isEn ? 'Delete failed:' : '删除失败:',
     deleteRequestError: isEn ? 'Delete request failed' : '删除请求发生错误',
     inputLink: isEn ? 'Please enter a link' : '请输入链接',
     extractFailed: isEn ? 'Extraction failed' : '提取失败',
-    extractSuccess: isEn ? 'Extracted successfully! Please review the form below.' : '提取成功！请检查下方表单内容。',
     autoFilled: isEn ? 'Article metadata auto-filled. Please review and save.' : '已自动填充文章信息，请核对后保存。',
     requestFailed: isEn ? 'Request failed' : '请求失败',
-    unexpectedErrorPrefix: isEn ? 'Unexpected error:' : '发生错误:',
-    likelyReason: isEn ? 'Possible reasons:' : '可能原因：',
-    reasonNetwork: isEn ? 'Network connection issue' : '网络连接问题',
-    reasonInvalidLink: isEn ? 'Invalid link' : '链接无效',
-    reasonBlocked: isEn ? 'Blocked by browser extension' : '浏览器插件拦截',
+    networkOrLinkError: isEn
+      ? 'Request failed. Check network connection or link validity.'
+      : '请求失败，请检查网络连接或链接有效性。',
     requiredLinkTitle: isEn ? 'Link and title are required' : '链接和标题不能为空',
     saveFailed: isEn ? 'Save failed' : '保存失败',
     saveFailedRetry: isEn ? 'Save failed, please try again later' : '保存失败，请稍后再试',
@@ -90,7 +88,7 @@ export default function TutorialsContent() {
     skillPlaceholder: isEn ? 'Example: DeepSeek, AI design' : '例如：DeepSeek, AI绘画',
     saving: isEn ? 'Saving...' : '保存中...',
     confirmAdd: isEn ? 'Add to tutorial data' : '确认添加到教程数据',
-  };
+  }), [isEn]);
 
   const [formTitle, setFormTitle] = useState('');
   const [formAuthor, setFormAuthor] = useState('');
@@ -129,54 +127,40 @@ export default function TutorialsContent() {
   };
 
   const handleFetchWechat = async () => {
-    console.log('>>> handleFetchWechat called', { importUrl });
     if (!importUrl) {
-      alert(text.inputLink);
+      setImportError(text.inputLink);
       return;
     }
-    
+
     try {
       setImportLoading(true);
       setImportError('');
       setSaveMessage('');
-      
-      const targetUrl = `/api/proxy/article?url=${encodeURIComponent(importUrl.trim())}`;
-      console.log('Fetching:', targetUrl);
 
-      const res = await fetch(targetUrl);
-      console.log('Response status:', res.status);
-
+      const res = await fetch(`/api/proxy/article?url=${encodeURIComponent(importUrl.trim())}`);
       const data = await res.json();
-      console.log('Response data:', data);
 
       if (!data.success) {
-        const msg = data.message || text.extractFailed;
-        setImportError(msg);
-        alert(`${text.extractFailed}: ${msg}`);
+        setImportError(data.message || text.extractFailed);
         return;
       }
 
-      const meta = data.data;
+      const meta: { title?: string; summary?: string; author?: string; publishDate?: string; cover?: string } = data.data;
       setFormTitle(meta.title || '');
       setFormSummary(meta.summary || '');
       setFormAuthor(meta.author || '');
       setFormPublishDate(meta.publishDate || new Date().toISOString().split('T')[0]);
       setFormCover(meta.cover || '');
-      
+
       const guessed = guessCategory(meta.title || '', meta.summary || '');
       setFormCategory(guessed);
       setFormDifficulty('萌新进阶');
       setFormSkillTags('');
-      
+
       setSaveMessage(text.autoFilled);
-      alert(text.extractSuccess);
     } catch (error: unknown) {
-      console.error('Fetch error:', error);
       const errorMessage = error instanceof Error ? error.message : text.requestFailed;
-      setImportError(errorMessage);
-      alert(
-        `${text.unexpectedErrorPrefix} ${errorMessage}\n\n${text.likelyReason}\n1. ${text.reasonNetwork}\n2. ${text.reasonInvalidLink}\n3. ${text.reasonBlocked}`
-      );
+      setImportError(`${text.networkOrLinkError} (${errorMessage})`);
     } finally {
       setImportLoading(false);
     }
@@ -220,8 +204,7 @@ export default function TutorialsContent() {
       
       // 如果是本地环境，可以尝试手动更新列表（可选）
       // 但因为是静态数据，最好还是提示重新部署
-    } catch (error) {
-      console.error(error);
+    } catch {
       setImportError(text.saveFailedRetry);
     } finally {
       setSaving(false);
@@ -230,7 +213,10 @@ export default function TutorialsContent() {
   
   const handleDeleteTutorial = async (id: string) => {
     if (deletingId) return;
+    if (!window.confirm(text.deleteConfirm)) return;
     setDeletingId(id);
+    setSaveMessage('');
+    setImportError('');
     try {
       const res = await fetch('/api/tutorials/delete', {
         method: 'POST',
@@ -238,17 +224,15 @@ export default function TutorialsContent() {
         body: JSON.stringify({ id }),
       });
       const data = await res.json();
-      
+
       if (data.success) {
-        alert(data.message || text.deleteSuccess);
-        // 乐观更新：从当前视图中移除
+        setSaveMessage(data.message || text.deleteSuccess);
         setFilteredTutorials(prev => prev.filter(t => t.id !== id));
       } else {
-        alert(`${text.deleteFailedPrefix} ${data.message}`);
+        setImportError(`${text.deleteFailedPrefix} ${data.message}`);
       }
-    } catch (error) {
-      console.error('Delete error:', error);
-      alert(text.deleteRequestError);
+    } catch {
+      setImportError(text.deleteRequestError);
     } finally {
       setDeletingId(null);
     }
@@ -341,14 +325,17 @@ export default function TutorialsContent() {
                       placeholder="https://mp.weixin.qq.com/..."
                       value={importUrl}
                       onChange={(e) => setImportUrl(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !importLoading) {
+                          e.preventDefault();
+                          handleFetchWechat();
+                        }
+                      }}
                     />
                     <button
                       type="button"
                       className="px-3 py-2 text-xs rounded-lg bg-primary-500 text-white hover:bg-primary-600 disabled:opacity-60 relative z-20"
-                      onClick={() => {
-                        console.log('Force click check');
-                        handleFetchWechat();
-                      }}
+                      onClick={handleFetchWechat}
                       disabled={importLoading}
                     >
                       {importLoading ? text.extracting : text.extractInfo}

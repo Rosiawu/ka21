@@ -95,6 +95,38 @@ const snapshots = [
     },
     createdAt: '2026-03-11T06:11:11.638Z',
   },
+  {
+    id: 'snapshot-1773382099951',
+    date: '2026-03-13',
+    note: '自动抓取',
+    platformTotals: {
+      xiaoyuzhou: 121,
+      ximalaya: 178,
+      wangyiyun: 36,
+      youtube: 0,
+    },
+    episodePlays: {
+      '69b184e184bce022f9f4fd5b': {
+        xiaoyuzhou: 11,
+        ximalaya: 54,
+        wangyiyun: 0,
+        youtube: 0,
+      },
+      '69ad0f7dc8cdeb38c26acb2c': {
+        xiaoyuzhou: 37,
+        ximalaya: 57,
+        wangyiyun: 1,
+        youtube: 0,
+      },
+      '69a69588de29766da93ec01b': {
+        xiaoyuzhou: 73,
+        ximalaya: 67,
+        wangyiyun: 35,
+        youtube: 0,
+      },
+    },
+    createdAt: '2026-03-13T06:08:19.951Z',
+  },
 ];
 
 async function loadEpisodes() {
