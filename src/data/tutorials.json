@@ -1927,11 +1927,25 @@
       "recommendReason": "用一只省钱的小龙虾～～",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/NLP7cUicg7G4WO7SFicSmVU8iaHSicY8z0ujezGEtqPmcogQKKTQj8LDYdQB2dicj4x2rjIu0WjezUn0Be1iaHZWsHBaRrmzTMsKqehCjUaJATzuA/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-小山译ClaudeSkill编写与实战指南-0",
+      "title": "[小山译] Claude Skill 编写与实战指南",
+      "description": "完整翻译 Anthropic 的 Skill 实战指南",
+      "url": "https://mp.weixin.qq.com/s/yBpO9uH3sRJmv5zRw05Srg",
+      "source": "洛小山",
+      "publishDate": "2026-03-10",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "完整翻译 Anthropic 的 Skill 实战指南",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/niaWtvtophjen92cCiaibibH6Nrao8GnB8JG9mWcSfAiaVxpyj8Vib0J5qnnC1sXRMww5T1sIFxS0KoxB8o0djEtlEXW20zb3mSRv2orLpMsVfKicY/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-13T03:47:13.284Z",
-    "count": 110
+    "updatedAt": "2026-03-15T01:01:31.139Z",
+    "count": 111
   }
 }
