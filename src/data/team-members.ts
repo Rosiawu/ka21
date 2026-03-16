@@ -126,6 +126,23 @@ export const teamMembers: TeamMember[] = [
     personalTraits: ["系统思维", "项目管理", "技术普及", "知识分享"]
   },
   {
+    id: "Seele",
+    name: "Seele",
+    title: "数据分析师",
+    avatar: "/images/team/avatar-seele.png", // 暂用默认头像，正式上线前需替换
+    location: "北京",
+    specialty: "教育培训,AI培训",
+    mbti: "INTJ",
+    nickname: "豆包儿，边牧",
+    wechatQR: "/images/team/qr-seele.png", // 暂用默认二维码，正式上线前需替换
+    wechatAccount: "一念既出",
+    aiTools: ["飞书多维表格", "ima", "Monica", "ChatGPT"],
+    description: "用数据描绘现实，用AI重塑流程，用言语传递人性。",
+    skills: ["数据分析", "数据可视化", "数据挖掘"],
+    projectHighlights: ["数据分析与可视化", "数据挖掘与分析"],
+    personalTraits: ["数据驱动", "技术探索", "学习精神", "专业实践"]
+  },
+  {
     id: "william",
     name: "William",
     title: "货代海外操作",
@@ -141,6 +158,23 @@ export const teamMembers: TeamMember[] = [
     skills: ["航运物流", "AIGC内容创作","AI理论与原理讲解"],
     projectHighlights: ["航运物流数字化转型实践", "AI技术理论与原理科普", "AIGC创作流程优化"],
     personalTraits: ["专业认证", "理论与实践并重", "教学引导", "持续学习"]
+  },
+  {
+    id: "fenglaoshi",
+    name: "风老师",
+    title: "教育创作者",
+    avatar: "/images/team/avatar-fenglaoshi.jpg",
+    location: "南京",
+    specialty: "教育,AIGC内容创作",
+    mbti: "INTJ",
+    nickname: "风老师",
+    wechatQR: "",
+    wechatAccount: "",
+    aiTools: ["Gemini", "GPT"],
+    description: "AI的问题交给AI去处理",
+    skills: ["教育", "AIGC内容创作"],
+    projectHighlights: [],
+    personalTraits: ["风言风语", "狂热 AI 测评者", "名言“只要学得慢，啥都不用学”"]
   },
   {
     id: "beiguo",
@@ -246,40 +280,6 @@ export const teamMembers: TeamMember[] = [
       "学术类：医学垂直领域《小师弟医学文献综述》 http://xsdref.com"
     ],
     personalTraits: ["🚀 产品闭环思维", "💡 创新创业精神", "🌱 持续迭代成长", "🧠 跨领域整合能力"]
-  },
-  {
-    id: "fenglaoshi",
-    name: "风老师",
-    title: "教育创作者",
-    avatar: "/images/team/avatar-fenglaoshi.jpg",
-    location: "南京",
-    specialty: "教育,AIGC内容创作",
-    mbti: "INTJ",
-    nickname: "风老师",
-    wechatQR: "",
-    wechatAccount: "",
-    aiTools: ["Gemini", "GPT"],
-    description: "AI的问题交给AI去处理",
-    skills: ["教育", "AIGC内容创作"],
-    projectHighlights: [],
-    personalTraits: ["风言风语", "狂热 AI 测评者", "名言“只要学得慢，啥都不用学”"]
-  },
-  {
-    id: "Seele",
-    name: "Seele",
-    title: "数据分析师",
-    avatar: "/images/team/avatar-seele.png", // 暂用默认头像，正式上线前需替换
-    location: "北京",
-    specialty: "教育培训,AI培训",
-    mbti: "INTJ",
-    nickname: "豆包儿，边牧",
-    wechatQR: "/images/team/qr-seele.png", // 暂用默认二维码，正式上线前需替换
-    wechatAccount: "一念既出",
-    aiTools: ["飞书多维表格", "ima", "Monica", "ChatGPT"],
-    description: "用数据描绘现实，用AI重塑流程，用言语传递人性。",
-    skills: ["数据分析", "数据可视化", "数据挖掘"],
-    projectHighlights: ["数据分析与可视化", "数据挖掘与分析"],
-    personalTraits: ["数据驱动", "技术探索", "学习精神", "专业实践"]
   }
 ];
 
