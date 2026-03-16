@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { TeamMember } from '@/types/team';
 import { usePathname } from 'next/navigation';
+import { teamMemberEnProfiles } from '@/data/team-members.en';
 
 interface TeamMemberCardProps {
   member: TeamMember;
@@ -44,6 +45,45 @@ const traitEmojis: Record<string, string> = {
   '理论与实践并重': '⚖️',
   '教学引导': '🧙‍♂️',
   '专业认证': '🏆',
+  'Truth-Seeking Innovation': '✨',
+  'Cross-Disciplinary Builder': '🧩',
+  'Warm and Welcoming': '🤝',
+  'Extremely Curious': '🧠',
+  'Technical Explorer': '🔭',
+  'Systems Thinker': '🔄',
+  'Efficiency First': '⚡',
+  'Lifelong Learner': '📚',
+  'Innovative Thinker': '💡',
+  'User-Centered': '🎯',
+  'Creative Thinker': '💭',
+  'Detail-Oriented': '🔍',
+  'Strong Visual Sensibility': '👁️',
+  'Innovative Aesthetic': '🎨',
+  "Explorer's Mindset": '🧭',
+  'Technically Curious': '🔭',
+  'Creative in Practice': '✨',
+  'Generous with Knowledge': '📢',
+  'Highly Technical': '⚙️',
+  'Innovative in Execution': '💫',
+  'Efficiency Booster': '⏱️',
+  'Solution-Oriented': '🛠️',
+  'Strong Project Management': '📋',
+  'Good at Simplifying Tech': '📡',
+  'Data-Driven': '📊',
+  'Growth-Oriented': '🌱',
+  'Practice-Focused': '🧱',
+  'Professionally Certified': '🏆',
+  'Balances Theory and Practice': '⚖️',
+  'Strong Teaching Instinct': '🧙‍♂️',
+  'Witty and unpredictable': '🌀',
+  'Hardcore AI Reviewer': '🔬',
+  'Strong Design Sense': '🎨',
+  'Education-Minded': '🎓',
+  'Cross-Functional Integrator': '🧩',
+  'Always Refining the Craft': '⚙️',
+  'Passion for Education': '🎓',
+  'Human-Centered': '❤️',
+  'Creative Application': '🎬',
   
   // 默认
   '默认': '✨',
@@ -70,6 +110,7 @@ const getTraitEmoji = (trait: string): string => {
 export default function TeamMemberCard({ member }: TeamMemberCardProps) {
   const pathname = usePathname();
   const isEn = pathname?.startsWith('/en');
+  const localizedMember = isEn ? teamMemberEnProfiles[member.id] : undefined;
   const [isExpanded, setIsExpanded] = useState(false);
   const text = {
     avatar: isEn ? 'avatar' : '头像',
@@ -88,6 +129,17 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
     collapse: isEn ? 'Collapse' : '收起',
     expand: isEn ? 'Learn more' : '了解更多',
   };
+
+  const displayName = localizedMember?.name || member.name;
+  const displayTitle = localizedMember?.title || member.title;
+  const displayLocation = localizedMember?.location || member.location;
+  const displaySpecialty = localizedMember?.specialty || member.specialty;
+  const displayNickname = localizedMember?.nickname || member.nickname;
+  const displayWechatAccount = localizedMember?.wechatAccount || member.wechatAccount;
+  const displayAiTools = localizedMember?.aiTools || member.aiTools;
+  const displayDescription = localizedMember?.description || member.description;
+  const displaySkills = localizedMember?.skills || member.skills;
+  const displayTraits = localizedMember?.personalTraits || member.personalTraits;
   
   // 处理展开/收起状态切换
   const toggleExpand = () => {
@@ -95,7 +147,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
   };
   
   // 将专业领域字符串转换为数组
-  const specialtyTags = member.specialty?.split(',').map(item => item.trim()) || [];
+  const specialtyTags = displaySpecialty?.split(',').map(item => item.trim()) || [];
   
   return (
     <div 
@@ -110,7 +162,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             {member.avatar ? (
               <Image 
                 src={member.avatar} 
-                alt={`${member.name} ${text.avatar}`} 
+                alt={`${displayName} ${text.avatar}`} 
                 width={64} 
                 height={64} 
                 className="w-full h-full object-cover"
@@ -122,19 +174,19 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
               />
             ) : (
               <div className="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl font-bold">
-                {member.name.charAt(0)}
+                {displayName.charAt(0)}
               </div>
             )}
           </div>
           <div className="avatar-ring absolute inset-0 rounded-full border-2 border-indigo-300 dark:border-indigo-500 opacity-50"></div>
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-indigo-900 dark:text-primary-400 shadow-sm">{member.name}</h3>
-          <p className="text-gray-600 dark:text-gray-400 text-sm">{member.location || text.locationFallback}</p>
+          <h3 className="text-2xl font-bold text-indigo-900 dark:text-primary-400 shadow-sm">{displayName}</h3>
+          <p className="text-gray-600 dark:text-gray-400 text-sm">{displayLocation || text.locationFallback}</p>
           <div className="tag-container flex flex-wrap gap-1.5 mt-2">
-            {member.title && (
+            {displayTitle && (
               <span className="tag bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 text-xs px-2 py-1 rounded-full shadow-sm">
-                {member.title}
+                {displayTitle}
               </span>
             )}
             {specialtyTags.slice(0, 1).map((tag, index) => (
@@ -164,7 +216,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       </div>
       
       {/* 个人简介 - 放在专业领域后面 */}
-      {member.description && (
+      {displayDescription && (
         <div className="px-6 py-3">
           <div className="flex items-center mb-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
@@ -175,7 +227,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.bio}</h2>
           </div>
           <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-3 border-l-4 border-indigo-400 dark:border-indigo-500 text-sm text-gray-700 dark:text-gray-300 whitespace-pre-line">
-            {member.description}
+            {displayDescription}
           </div>
         </div>
       )}
@@ -191,13 +243,13 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             MBTI: {member.mbti}
           </div>
         )}
-        {member.nickname && (
+        {displayNickname && (
           <div className="bg-orange-100 dark:bg-orange-900/30 px-2 py-1 text-xs text-orange-800 dark:text-orange-300 rounded-md flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
-            {text.nickname}: {member.nickname}
+            {text.nickname}: {displayNickname}
           </div>
         )}
       </div>
@@ -209,7 +261,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         }`}
       >
         {/* 技术能力 */}
-        {member.skills && member.skills.length > 0 && (
+        {displaySkills && displaySkills.length > 0 && (
           <div className="px-6 py-3">
             <div className="flex items-center mb-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
@@ -220,7 +272,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
               <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.skills}</h2>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              {member.skills.map((skill, index) => (
+              {displaySkills.map((skill, index) => (
                 <div 
                   key={index} 
                   className="skill-card bg-indigo-50 dark:bg-indigo-900/20 p-3 rounded-lg border border-indigo-200 dark:border-indigo-700/30 shadow-sm"
@@ -236,7 +288,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         )}
         
         {/* 常用AI工具 */}
-        {member.aiTools && member.aiTools.length > 0 && (
+        {displayAiTools && displayAiTools.length > 0 && (
           <div className="px-6 py-3">
             <div className="flex items-center mb-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
@@ -246,7 +298,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
               <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.aiTools}</h2>
             </div>
             <div className="flex flex-wrap gap-2">
-              {member.aiTools.map((tool, index) => (
+              {displayAiTools.map((tool, index) => (
                 <span 
                   key={index} 
                   className="bg-purple-100 dark:bg-purple-900/30 px-2 py-1 rounded-md text-purple-800 dark:text-purple-300 text-xs"
@@ -259,7 +311,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         )}
         
         {/* 个人特质 - 添加表情图标 */}
-        {member.personalTraits && (
+        {displayTraits && (
           <div className="px-6 py-3">
             <div className="flex items-center mb-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
@@ -270,8 +322,8 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg p-3 border border-gray-200 dark:border-gray-700 shadow-sm">
               <div className="flex flex-wrap gap-2">
-                {Array.isArray(member.personalTraits) ? 
-                  member.personalTraits.map((trait, index) => {
+                {Array.isArray(displayTraits) ? 
+                  displayTraits.map((trait, index) => {
                     const traitText = typeof trait === 'string' ? trait : trait.label;
                     // 使用特质对应的emoji或使用trait中定义的icon
                     const traitIcon = typeof trait === 'string' ? getTraitEmoji(trait) : (trait.icon || getTraitEmoji(trait.label));
@@ -284,8 +336,8 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                     );
                   }) : 
                   <span className="bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded-md text-indigo-700 dark:text-indigo-300 text-xs">
-                    <span className="mr-1">{getTraitEmoji(member.personalTraits)}</span>
-                    {member.personalTraits}
+                    <span className="mr-1">{getTraitEmoji(displayTraits)}</span>
+                    {displayTraits}
                   </span>
                 }
               </div>
@@ -304,12 +356,12 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                   </svg>
                   <h3 className="text-xs font-semibold text-gray-700 dark:text-gray-300">{text.officialAccount}</h3>
                 </div>
-                <p className="text-xs text-gray-600 dark:text-gray-400 italic">{member.wechatAccount || text.followHint}</p>
+                <p className="text-xs text-gray-600 dark:text-gray-400 italic">{displayWechatAccount || text.followHint}</p>
               </div>
               <div className="qr-code w-16 h-16 bg-white dark:bg-gray-800 border-2 border-indigo-200 dark:border-indigo-700 rounded-lg flex items-center justify-center shadow-sm overflow-hidden">
                 <Image 
                   src={member.wechatQR} 
-                  alt={`${member.name} ${text.accountAlt}`} 
+                  alt={`${displayName} ${text.accountAlt}`} 
                   width={64} 
                   height={64} 
                   className="w-full h-full object-cover"

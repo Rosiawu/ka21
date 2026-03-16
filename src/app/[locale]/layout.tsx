@@ -2,7 +2,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import type {Metadata} from 'next';
 import LocaleTag from '@/components/LocaleTag';
-import LayoutContainers from '@/components/LayoutContainers';
+import LocaleShell from '@/components/LocaleShell';
 import {generateHreflangMetadata} from '@/lib/hreflang';
 
 export function generateStaticParams() {
@@ -58,10 +58,9 @@ export default async function LocaleLayout({
       {/* 设置 Clarity 语言标签 */}
       <LocaleTag locale={params.locale} />
 
-      <LayoutContainers>
+      <LocaleShell>
         {children}
-      </LayoutContainers>
+      </LocaleShell>
     </NextIntlClientProvider>
   );
 }
-

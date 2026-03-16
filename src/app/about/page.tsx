@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { withBaseMeta } from '@/lib/withBaseMeta';
 import type { Metadata, ResolvingMetadata } from 'next';
 import TeamMemberCard from '@/components/TeamMemberCard';
@@ -32,13 +33,14 @@ export async function generateMetadata(
 export default function AboutPage({ params }: { params?: { locale?: string } }) {
   const isEn = params?.locale === 'en';
   const teamCount = teamMembers.length;
+  const homeHref = params?.locale ? `/${params.locale}` : '/';
   const text = {
-    title: isEn ? 'About Us' : '关于我们',
+    homeLabel: isEn ? 'Back Home' : '返回首页',
     missionTitle: isEn ? 'Our Mission' : '我们的目标',
     missionParagraphs: isEn
       ? [
-          `KA21 AI Toolbox is led by Wuman and jointly maintained by ${teamCount} professionals from the Kazike KA21 community, each with a different background. We also appreciate the article support from other AI creators and developer friends. We always start from the user perspective, personally test each AI tool, and evaluate, review, and recommend it based on real practice from our own fields.`,
-          'We want KA21 to become the “Michelin Guide” of AI tool reviews, so our slogan is: “淘汰末位，只为用户保留100个真正好用的AI牛马.” A bit work-flavored, but that is the point.',
+          `KA21 AI Toolbox is led by Man Wu and jointly maintained by ${teamCount} professionals from the Kazike KA21 community, each with a different background. We also appreciate the article support from other AI creators and developer friends. We always start from the user perspective, personally test each AI tool, and evaluate, review, and recommend it based on real practice from our own fields.`,
+          'We want KA21 to become the “Michelin Guide” of AI tool reviews, so our slogan is: “Bottom-rank elimination. We keep only 100 AI workhorses that are actually worth using.” Slightly heavy on the grindset, but that is the point.',
           'Since the site launched in February 2025, we have stayed hands-on, kept testing continuously, and spoken with real experience instead of empty claims.',
         ]
       : [
@@ -50,41 +52,40 @@ export default function AboutPage({ params }: { params?: { locale?: string } }) 
   };
 
   return (
-    <div className="page-shell relative py-8">
+    <div className="about-immersive-page page-shell relative overflow-hidden py-10 sm:py-14">
       {/* 背景装饰 */}
-      <div className="absolute top-20 right-0 -z-10 transform translate-x-1/3">
-        <div className="w-72 h-72 bg-indigo-400/10 dark:bg-indigo-400/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 -z-10 translate-x-1/4 -translate-y-1/4">
+        <div className="h-96 w-96 rounded-full bg-indigo-400/12 blur-3xl dark:bg-indigo-400/6"></div>
       </div>
-      <div className="absolute top-60 left-0 -z-10 transform -translate-x-1/3">
-        <div className="w-72 h-72 bg-purple-400/10 dark:bg-purple-400/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-72 left-0 -z-10 -translate-x-1/3">
+        <div className="h-80 w-80 rounded-full bg-purple-400/12 blur-3xl dark:bg-purple-400/6"></div>
       </div>
-      <div className="absolute bottom-40 right-1/4 -z-10">
-        <div className="w-64 h-64 bg-fuchsia-400/5 dark:bg-fuchsia-400/3 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-24 right-1/4 -z-10">
+        <div className="h-72 w-72 rounded-full bg-fuchsia-400/8 blur-3xl dark:bg-fuchsia-400/5"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative">
-        {/* 页面标题 */}
-        <div className="mb-10">
-          <div className="flex items-center mb-3">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-indigo-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      <div className="relative mx-auto max-w-[1680px]">
+        <div className="mb-6 flex justify-start">
+          <Link
+            href={homeHref}
+            className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-white/85 px-4 py-2 text-sm font-semibold text-indigo-700 shadow-sm backdrop-blur transition hover:border-indigo-300 hover:bg-white hover:text-indigo-900 dark:border-indigo-700/60 dark:bg-slate-900/80 dark:text-indigo-200 dark:hover:border-indigo-500 dark:hover:text-white"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path d="M15 18l-6-6 6-6"></path>
             </svg>
-            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">{text.title}</h1>
-          </div>
+            <span>{text.homeLabel}</span>
+          </Link>
         </div>
 
         {/* 团队使命 */}
-        <div className="mb-10 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-800/50 dark:to-purple-900/30 p-6 rounded-xl shadow-sm border border-indigo-100 dark:border-purple-800/30">
-          <div className="flex items-center mb-3">
+        <div className="mb-12 rounded-[32px] border border-indigo-100/80 bg-gradient-to-br from-white via-indigo-50 to-purple-50 p-7 shadow-[0_24px_80px_rgba(99,102,241,0.12)] dark:border-purple-800/30 dark:from-slate-900/90 dark:via-slate-800/80 dark:to-purple-950/50 sm:p-10">
+          <div className="mb-4 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
-            <h2 className="text-2xl font-bold text-indigo-800 dark:text-indigo-300">{text.missionTitle}</h2>
+            <h1 className="text-2xl font-bold text-indigo-800 dark:text-indigo-300 sm:text-3xl">{text.missionTitle}</h1>
           </div>
-          <div className="text-neutral-700 dark:text-neutral-300 ml-7 space-y-3">
+          <div className="ml-0 space-y-4 text-[15px] leading-8 text-neutral-700 dark:text-neutral-300 sm:ml-7 sm:text-base">
             {text.missionParagraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -102,7 +103,7 @@ export default function AboutPage({ params }: { params?: { locale?: string } }) 
             </svg>
             <h2 className="text-2xl font-bold text-indigo-800 dark:text-indigo-300">{text.membersTitle}</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {teamMembers.map(member => (
               <TeamMemberCard key={member.id} member={member} />
             ))}
