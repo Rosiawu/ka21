@@ -2,16 +2,13 @@
   <view class="section">
     <text class="section-title">我们的目标</text>
     <text class="intro">
-      我们志在成为AI工具评测圈的“米其林”，坚持高标准筛选，实行末位淘汰制。
+      KA21 AI 牛马库工具导航由吴熳牵头，由{{teamMembers.length}}位来自卡兹克KA21社群、背景各异的专业人士共同维护与撰写教程，同时也感谢其他AI博主与开发者朋友的文章支持。我们始终坚持站在用户视角出发，认真体验每一款AI工具，并结合各自行业中的真实实践经验进行筛选、评测与推荐。
     </text>
     <text class="intro">
-      只为用户保留100个真正好用的AI牛马。
+      我们希望把KA21牛马库网站做成AI工具评测圈的“米其林”，所以 slogan 是“末位淘汰，只为用户保留100个真正好用的AI牛马”，班味儿有点重，就这么着吧。
     </text>
     <text class="intro">
-      从2025年2月建站至今，我们始终保持初心，亲自体验每一款工具，用实测结果说话。
-    </text>
-    <text class="intro">
-      只为给用户提供最真实可靠的AI工具指南。
+      从2025年2月建站至今，我们始终坚持亲自上手、持续实测、用真实体验说话。
     </text>
   </view>
 
@@ -73,18 +70,5 @@
         <view wx:else class="wechat-qr wechat-qr-placeholder">二维码待补充</view>
       </view>
     </view>
-  </view>
-
-  <view class="section">
-    <text class="section-title">关于KA21</text>
-    <text class="intro">
-      KA21工具导航由{{teamMembers.length}}位来自各个领域的专业人士共同维护，我们以用户视角而非技术开发者身份，用心体验每一款AI工具。
-    </text>
-    <text class="intro">
-      凭借在各自行业的实践经验，我们精心筛选、深入评测并真诚推荐那些确实能提升效率的AI工具。
-    </text>
-    <text class="intro">
-      让你在日新月异的AI世界中轻松找到最适合自己的AI工具。
-    </text>
   </view>
 </view>

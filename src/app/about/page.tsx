@@ -34,28 +34,18 @@ export default function AboutPage({ params }: { params?: { locale?: string } }) 
   const teamCount = teamMembers.length;
   const text = {
     title: isEn ? 'About Us' : '关于我们',
-    intro1: isEn
-      ? `KA21 Tools is maintained by ${teamCount} professionals from diverse fields. We evaluate AI tools from a user perspective, not just a developer perspective.`
-      : `KA21工具导航由${teamCount}位来自各个领域的专业人士共同维护，我们以用户视角而非技术开发者身份，用心体验每一款AI工具。`,
-    intro2: isEn
-      ? 'With real-world experience from our industries, we carefully select, deeply test, and honestly recommend tools that truly improve productivity.'
-      : '凭借在各自行业的实践经验，我们精心筛选、深入评测并真诚推荐那些确实能提升效率的AI工具。',
-    intro3: isEn
-      ? 'Our goal is to help you quickly find the right AI tools in a fast-changing AI landscape.'
-      : '让您在日新月异的AI世界中轻松找到最适合自己的AI工具。',
     missionTitle: isEn ? 'Our Mission' : '我们的目标',
-    mission1: isEn
-      ? 'We aim to become the \"Michelin Guide\" for AI tool reviews, with strict standards and continuous curation.'
-      : '我们志在成为AI工具评测圈的"米其林"，坚持高标准筛选，实行末位淘汰制。',
-    mission2Prefix: isEn ? 'We keep only ' : '只为用户保留',
-    mission2Highlight: isEn ? '100 truly useful AI tools' : '100个真正好用的AI牛马',
-    mission2Suffix: isEn ? ' for users.' : '。',
-    mission3: isEn
-      ? 'Since launching in February 2025, we have stayed hands-on and evidence-based for every listed tool.'
-      : '从2025年2月建站至今，我们始终保持初心，亲自体验每一款工具，用实测结果说话。',
-    mission4: isEn
-      ? 'Everything we do is to provide a reliable, practical AI tool guide.'
-      : '只为给用户提供最真实可靠的AI工具指南。',
+    missionParagraphs: isEn
+      ? [
+          `KA21 AI Toolbox is led by Wuman and jointly maintained by ${teamCount} professionals from the Kazike KA21 community, each with a different background. We also appreciate the article support from other AI creators and developer friends. We always start from the user perspective, personally test each AI tool, and evaluate, review, and recommend it based on real practice from our own fields.`,
+          'We want KA21 to become the “Michelin Guide” of AI tool reviews, so our slogan is: “淘汰末位，只为用户保留100个真正好用的AI牛马.” A bit work-flavored, but that is the point.',
+          'Since the site launched in February 2025, we have stayed hands-on, kept testing continuously, and spoken with real experience instead of empty claims.',
+        ]
+      : [
+          `KA21 AI 牛马库工具导航由吴熳牵头，由${teamCount}位来自卡兹克KA21社群、背景各异的专业人士共同维护与撰写教程，同时也感谢其他AI博主与开发者朋友的文章支持。我们始终坚持站在用户视角出发，认真体验每一款AI工具，并结合各自行业中的真实实践经验进行筛选、评测与推荐。`,
+          '我们希望把KA21牛马库网站做成AI工具评测圈的“米其林”，所以 slogan 是“末位淘汰，只为用户保留100个真正好用的AI牛马”，班味儿有点重，就这么着吧。',
+          '从2025年2月建站至今，我们始终坚持亲自上手、持续实测、用真实体验说话。',
+        ],
     membersTitle: isEn ? 'Team Members' : '团队成员',
   };
 
@@ -73,7 +63,7 @@ export default function AboutPage({ params }: { params?: { locale?: string } }) 
       </div>
 
       <div className="max-w-7xl mx-auto relative">
-        {/* 页面标题和描述 */}
+        {/* 页面标题 */}
         <div className="mb-10">
           <div className="flex items-center mb-3">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-indigo-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -83,13 +73,6 @@ export default function AboutPage({ params }: { params?: { locale?: string } }) 
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
             <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">{text.title}</h1>
-          </div>
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-800/50 dark:to-purple-900/30 p-6 rounded-xl shadow-sm border border-indigo-100 dark:border-purple-800/30">
-            <p className="text-lg text-neutral-700 dark:text-neutral-300 space-y-2">
-              <span className="block">{text.intro1}</span>
-              <span className="block">{text.intro2}</span>
-              <span className="block">{text.intro3}</span>
-            </p>
           </div>
         </div>
 
@@ -102,14 +85,9 @@ export default function AboutPage({ params }: { params?: { locale?: string } }) 
             <h2 className="text-2xl font-bold text-indigo-800 dark:text-indigo-300">{text.missionTitle}</h2>
           </div>
           <div className="text-neutral-700 dark:text-neutral-300 ml-7 space-y-3">
-            <p>{text.mission1}</p>
-            <p>
-              {text.mission2Prefix}
-              <span className="font-semibold text-indigo-700 dark:text-indigo-300">{text.mission2Highlight}</span>
-              {text.mission2Suffix}
-            </p>
-            <p>{text.mission3}</p>
-            <p>{text.mission4}</p>
+            {text.missionParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </div>
 
