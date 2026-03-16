@@ -59,7 +59,7 @@
       </view>
 
       <view class="wechat-row">
-        <text class="wechat-label">公众号：{{item.wechatAccount}}</text>
+        <text class="wechat-label">公众号：{{item.wechatAccountDisplay}}</text>
         <image
           wx:if="{{item.wechatQR}}"
           class="wechat-qr"
@@ -78,7 +78,7 @@
   <view class="section">
     <text class="section-title">关于KA21</text>
     <text class="intro">
-      KA21工具导航由18位来自各个领域的专业人士共同维护，我们以用户视角而非技术开发者身份，用心体验每一款AI工具。
+      KA21工具导航由{{teamMembers.length}}位来自各个领域的专业人士共同维护，我们以用户视角而非技术开发者身份，用心体验每一款AI工具。
     </text>
     <text class="intro">
       凭借在各自行业的实践经验，我们精心筛选、深入评测并真诚推荐那些确实能提升效率的AI工具。

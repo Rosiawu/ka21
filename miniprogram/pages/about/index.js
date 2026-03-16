@@ -1,12 +1,14 @@
-const DEFAULT_AVATAR = 'https://ka21.tools/images/team/avatar-wuman.png';
-const DEFAULT_QR = 'https://ka21.tools/images/team/qr-wuman.png';
+const LOCAL_AVATAR_BY_ID = {
+  fenglaoshi: '../../public/team/avatar-fenglaoshi.jpg',
+};
 
 function normalizeMemberAssets(member) {
-  var avatar = member.avatar || DEFAULT_AVATAR;
-  var qr = member.wechatQR || DEFAULT_QR;
+  var avatar = LOCAL_AVATAR_BY_ID[member.id] || (typeof member.avatar === 'string' ? member.avatar : '');
+  var qr = typeof member.wechatQR === 'string' ? member.wechatQR : '';
   return Object.assign({}, member, {
     avatar: avatar,
     wechatQR: qr,
+    wechatAccountDisplay: member.wechatAccount || '待补充',
   });
 }
 
@@ -65,7 +67,7 @@ Page({
     var index = event.currentTarget.dataset.index;
     if (index === undefined || index === null) return;
     this.setData({
-      [`teamMembers[${index}].avatar`]: DEFAULT_AVATAR,
+      [`teamMembers[${index}].avatar`]: '',
     });
   },
 
@@ -73,7 +75,7 @@ Page({
     var index = event.currentTarget.dataset.index;
     if (index === undefined || index === null) return;
     this.setData({
-      [`teamMembers[${index}].wechatQR`]: DEFAULT_QR,
+      [`teamMembers[${index}].wechatQR`]: '',
     });
   },
 });

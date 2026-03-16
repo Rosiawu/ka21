@@ -468,6 +468,33 @@ module.exports = {
       ]
     },
     {
+      "id": "fenglaoshi",
+      "name": "风老师",
+      "title": "教育创作者",
+      "avatar": "https://ka21.org/images/team/avatar-fenglaoshi.jpg",
+      "location": "南京",
+      "specialty": "教育,AIGC内容创作",
+      "mbti": "INTJ",
+      "nickname": "风老师",
+      "wechatQR": "",
+      "wechatAccount": "",
+      "aiTools": [
+        "Gemini",
+        "GPT"
+      ],
+      "description": "AI的问题交给AI去处理",
+      "skills": [
+        "教育",
+        "AIGC内容创作"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "风言风语",
+        "狂热 AI 测评者",
+        "名言“只要学得慢，啥都不用学”"
+      ]
+    },
+    {
       "id": "Seele",
       "name": "Seele",
       "title": "数据分析师",
