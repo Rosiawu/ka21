@@ -9,10 +9,10 @@ export const teamMembers: TeamMember[] = [
   {
     id: "wuman",             // 唯一ID，使用姓名拼音，便于识别和引用
     name: "吴熳",            // 显示的姓名
-    title: "AI native 网站开发者",  // 职业/职位，显示在姓名下方
+    title: "AI native 网站开发者，资深英语教师培训专家",  // 职业/职位，显示在姓名下方
     avatar: "/images/team/avatar-wuman.png", // 头像图片路径，推荐尺寸400x400像素
     location: "北京",        // 所在城市
-    specialty: "AI native 网站开发者,灯下白播客主理人,英语教师,AI培训师", // 专业领域，用逗号分隔，会显示为标签
+    specialty: "AI native 网站开发者,资深英语教师培训专家,灯下白播客主理人", // 专业领域，用逗号分隔，会显示为标签
     mbti: "ESFP",           // MBTI性格类型（选填）
     nickname: "女将军/包工头", // 个人昵称/标签（选填）
     wechatQR: "/images/team/qr-wuman.png", // 微信公众号二维码图片路径，推荐尺寸300x300像素
@@ -29,7 +29,7 @@ export const teamMembers: TeamMember[] = [
     title: "运维工程师",
     avatar: "/images/team/avatar-cool.png", // 暂用默认头像，正式上线前需替换
     location: "郑州",
-    specialty: "卡兹克KA21导航站长,企业软件运维工程师",
+    specialty: "KA21 导航站代码主要贡献者,企业软件运维工程师",
     mbti: "ISTJ",
     nickname: "Cool",
     wechatQR: "/images/team/qr-cool.png", // 暂用默认二维码，正式上线前需替换
