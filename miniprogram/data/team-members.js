@@ -3,32 +3,36 @@ module.exports = {
     {
       "id": "wuman",
       "name": "吴熳",
-      "title": "英语教师培训师",
+      "title": "AI native 网站开发者",
       "avatar": "https://ka21.tools/images/team/avatar-wuman.png",
       "location": "北京",
-      "specialty": "英语教学,AI培训",
+      "specialty": "AI native 网站开发者,灯下白播客主理人,英语教师,AI培训师",
       "nickname": "女将军/包工头",
       "wechatQR": "https://ka21.tools/images/team/qr-wuman.png",
       "wechatAccount": "英语好课研磨",
       "aiTools": [
-        "Gemini",
-        "阶跃",
-        "Mistral"
+        "Codex",
+        "Cursor",
+        "Claude",
+        "即梦"
       ],
-      "description": "当我80%的第一步工作都用AI处理的时候，我就知道，AI first 不是一句话，而是一种思维。",
+      "description": "牛马库网站vibe coder，评测过200多种AI工具的狂热爱好者和分享者，代表中国在英国大使馆文教处大会全英发言AI赋能英语教学，得到AI分享嘉宾，95%的工作第一步由AI完成。",
       "skills": [
-        "英语教学",
-        "AI培训"
+        "Coding能力",
+        "英语培训",
+        "AI辅助英语教学"
       ],
       "projectHighlights": [
-        "打造高质量英语教学内容",
-        "创新教学方法结合AI应用"
+        "码龄12天，已成为小程序开发者",
+        "代表中国在英国大使馆文教处大会全英发言AI赋能英语教学",
+        "得到AI分享嘉宾",
+        "95%的工作第一步由AI完成"
       ],
       "personalTraits": [
-        "跨领域学习",
-        "创新思维",
-        "持续成长",
-        "持续学习"
+        "求真创新",
+        "跨界开发者",
+        "热情好客",
+        "好奇心爆棚"
       ]
     },
     {

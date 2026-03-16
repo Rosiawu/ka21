@@ -9,19 +9,19 @@ export const teamMembers: TeamMember[] = [
   {
     id: "wuman",             // 唯一ID，使用姓名拼音，便于识别和引用
     name: "吴熳",            // 显示的姓名
-    title: "英语教师培训师",  // 职业/职位，显示在姓名下方
+    title: "AI native 网站开发者",  // 职业/职位，显示在姓名下方
     avatar: "/images/team/avatar-wuman.png", // 头像图片路径，推荐尺寸400x400像素
     location: "北京",        // 所在城市
-    specialty: "英语教学,AI培训", // 专业领域，用逗号分隔，会显示为标签
+    specialty: "AI native 网站开发者,灯下白播客主理人,英语教师,AI培训师", // 专业领域，用逗号分隔，会显示为标签
     mbti: "ESFP",           // MBTI性格类型（选填）
     nickname: "女将军/包工头", // 个人昵称/标签（选填）
     wechatQR: "/images/team/qr-wuman.png", // 微信公众号二维码图片路径，推荐尺寸300x300像素
     wechatAccount: "英语好课研磨", // 微信公众号名称
-    aiTools: ["Gemini", "阶跃", "Mistral"], // 常用AI工具，显示在卡片背面
-    description: "当我80%的第一步工作都用AI处理的时候，我就知道，AI first 不是一句话，而是一种思维。", // 个人简介，建议50字以内
-    skills: ["英语教学", "AI培训"], // 专业技能，会显示为标签
-    projectHighlights: ["打造高质量英语教学内容", "创新教学方法结合AI应用"],
-    personalTraits: ["跨领域学习", "创新思维", "持续成长", "持续学习"]
+    aiTools: ["Codex", "Cursor", "Claude", "即梦"], // 常用AI工具，显示在卡片背面
+    description: "牛马库网站vibe coder，评测过200多种AI工具的狂热爱好者和分享者，代表中国在英国大使馆文教处大会全英发言AI赋能英语教学，得到AI分享嘉宾，95%的工作第一步由AI完成。", // 个人简介，建议50字以内
+    skills: ["Coding能力", "英语培训", "AI辅助英语教学"], // 专业技能，会显示为标签
+    projectHighlights: ["码龄12天，已成为小程序开发者", "代表中国在英国大使馆文教处大会全英发言AI赋能英语教学", "得到AI分享嘉宾", "95%的工作第一步由AI完成"],
+    personalTraits: ["求真创新", "跨界开发者", "热情好客", "好奇心爆棚"]
   },
   {
     id: "cool",
