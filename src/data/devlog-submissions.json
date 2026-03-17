@@ -1,58 +1,49 @@
 {
   "entries": [
     {
-      "id": "test-1773305201798",
-      "date": "2026-03-12",
+      "id": "devlog-podcast-growth-1773715758",
+      "version": "共创 13",
+      "date": "2026-03-17",
       "timelineTitle": {
-        "zh": "test",
-        "en": "test"
+        "zh": "《灯下白》6天总播放量翻了一倍",
+        "en": "《灯下白》6天总播放量翻了一倍"
       },
       "cardTitle": {
-        "zh": "test",
-        "en": "test"
+        "zh": "《灯下白》6天总播放量翻了一倍",
+        "en": "《灯下白》6天总播放量翻了一倍"
       },
       "body": {
-        "zh": "今天补一条手机直发的开发日志。\n\ntest",
-        "en": "今天补一条手机直发的开发日志。\n\ntest"
+        "zh": "这几天回头看《灯下白》的播放量，我自己都有点恍惚。\n3月11日，跨平台总播放还是 244。\n3月13日，涨到 335。到了3月17日，已经到 509了。\n\n也就是说，6天时间，总播放量翻了一倍。\n\n现在看各个平台也挺有意思：\n喜马拉雅从 116 涨到 205，还是最能打，不愧是最老牌的声音平台，完播率也高，34.81%，猫工头告诉我他买了它的会员，所以喜欢在喜马听。\n小宇宙从 93 涨到 156，涨得也很稳， 而且我最震惊的是，第三期徳沛讲 AI 少儿编程的，完播率高达 60%，也就是说，至少每个人都听了不下 40 分钟。\n网易云从 35 到 47，虽然慢一点，但也一直在往上走。\n这几天又补进了荔枝，一上来就有 100。\nYouTube 现在只有1，但先挂上，慢慢等它发芽。\n\n我越来越能理解，第一期嘉宾刘旭当时那句话了：“你看数据，是能看到很多背后的东西的。”\n\n以前我做内容，更容易凭感觉。\n但现在看着这些数字一点点长出来，会突然意识到，原来真的有人在不同平台上，陆陆续续听到《灯下白》，听到 AI 高手们倾其所有的分享，这种感觉，很好。",
+        "en": "这几天回头看《灯下白》的播放量，我自己都有点恍惚。\n3月11日，跨平台总播放还是 244。\n3月13日，涨到 335。到了3月17日，已经到 509了。\n\n也就是说，6天时间，总播放量翻了一倍。\n\n现在看各个平台也挺有意思：\n喜马拉雅从 116 涨到 205，还是最能打，不愧是最老牌的声音平台，完播率也高，34.81%，猫工头告诉我他买了它的会员，所以喜欢在喜马听。\n小宇宙从 93 涨到 156，涨得也很稳， 而且我最震惊的是，第三期徳沛讲 AI 少儿编程的，完播率高达 60%，也就是说，至少每个人都听了不下 40 分钟。\n网易云从 35 到 47，虽然慢一点，但也一直在往上走。\n这几天又补进了荔枝，一上来就有 100。\nYouTube 现在只有1，但先挂上，慢慢等它发芽。\n\n我越来越能理解，第一期嘉宾刘旭当时那句话了：“你看数据，是能看到很多背后的东西的。”\n\n以前我做内容，更容易凭感觉。\n但现在看着这些数字一点点长出来，会突然意识到，原来真的有人在不同平台上，陆陆续续听到《灯下白》，听到 AI 高手们倾其所有的分享，这种感觉，很好。"
       },
       "imageSlotLabel": {
-        "zh": "手机提交开发日志图片位：test（待补图）",
-        "en": "Mobile devlog image slot: test (pending upload)"
-      },
-      "relatedLinks": [],
-      "images": [],
-      "version": "共创 14"
-    },
-    {
-      "id": "devlog-mmn80vyf-1773305021895",
-      "date": "2026-03-12",
-      "timelineTitle": {
-        "zh": "累了",
-        "en": "累了"
-      },
-      "cardTitle": {
-        "zh": "累了",
-        "en": "累了"
-      },
-      "body": {
-        "zh": "今天补一条手机直发的开发日志。\n\n累了 不想测了",
-        "en": "今天补一条手机直发的开发日志。\n\n累了 不想测了"
-      },
-      "imageSlotLabel": {
-        "zh": "手机提交开发日志配图：累了（1张）",
-        "en": "Mobile devlog images: 累了 (1)"
+        "zh": "手机提交开发日志配图：《灯下白》播放量回看（3张）",
+        "en": "Mobile devlog images: 《灯下白》播放量回看 (3)"
       },
       "relatedLinks": [],
       "images": [
         {
-          "src": "/images/devlog/submissions/devlog-mmn80vyf-1773305021895/01-devlog-mmn80vyf.png",
+          "src": "/images/devlog/submissions/devlog-podcast-growth-1773715758/01-podcast-completion-rate.png",
           "alt": {
-            "zh": "累了 过程截图 1",
-            "en": "累了 progress image 1"
+            "zh": "灯下白第三期 60% 完播率截图",
+            "en": "灯下白第三期 60% completion-rate screenshot"
+          }
+        },
+        {
+          "src": "/images/devlog/submissions/devlog-podcast-growth-1773715758/02-podcast-overview-2026-03-17.png",
+          "alt": {
+            "zh": "灯下白 2026-03-17 跨平台播放概览截图",
+            "en": "灯下白 2026-03-17 cross-platform overview screenshot"
+          }
+        },
+        {
+          "src": "/images/devlog/submissions/devlog-podcast-growth-1773715758/03-podcast-tracker-dashboard.png",
+          "alt": {
+            "zh": "灯下白播客数据看板截图",
+            "en": "灯下白 podcast tracker dashboard screenshot"
           }
         }
-      ],
-      "version": "共创 13"
+      ]
     },
     {
       "id": "devlog-mobile-submit-feature-1773302054389",
@@ -133,7 +124,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T08:46:41.908Z",
-    "count": 4
+    "updatedAt": "2026-03-16T16:00:00.000Z",
+    "count": 3
   }
 }
