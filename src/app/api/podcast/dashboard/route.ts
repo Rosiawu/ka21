@@ -133,6 +133,110 @@ const fallbackSnapshots = [
     },
     createdAt: '2026-03-13T06:08:19.951Z',
   },
+  {
+    id: 'snapshot-1773547662820',
+    date: '2026-03-15',
+    note: '自动抓取',
+    platformTotals: {
+      xiaoyuzhou: 136,
+      ximalaya: 192,
+      wangyiyun: 36,
+      youtube: 0,
+    },
+    episodePlays: {
+      '69b184e184bce022f9f4fd5b': {
+        xiaoyuzhou: 13,
+        ximalaya: 58,
+        wangyiyun: 0,
+        youtube: 0,
+      },
+      '69ad0f7dc8cdeb38c26acb2c': {
+        xiaoyuzhou: 45,
+        ximalaya: 60,
+        wangyiyun: 1,
+        youtube: 0,
+      },
+      '69a69588de29766da93ec01b': {
+        xiaoyuzhou: 78,
+        ximalaya: 74,
+        wangyiyun: 35,
+        youtube: 0,
+      },
+    },
+    createdAt: '2026-03-15T04:07:42.820Z',
+  },
+  {
+    id: 'snapshot-1773669533352',
+    date: '2026-03-16',
+    note: '自动抓取',
+    platformTotals: {
+      xiaoyuzhou: 156,
+      lizhi: 87,
+      ximalaya: 204,
+      wangyiyun: 46,
+      youtube: 0,
+    },
+    episodePlays: {
+      '69b184e184bce022f9f4fd5b': {
+        xiaoyuzhou: 19,
+        lizhi: 21,
+        ximalaya: 65,
+        wangyiyun: 1,
+        youtube: 0,
+      },
+      '69ad0f7dc8cdeb38c26acb2c': {
+        xiaoyuzhou: 52,
+        lizhi: 33,
+        ximalaya: 61,
+        wangyiyun: 10,
+        youtube: 0,
+      },
+      '69a69588de29766da93ec01b': {
+        xiaoyuzhou: 85,
+        lizhi: 33,
+        ximalaya: 78,
+        wangyiyun: 35,
+        youtube: 0,
+      },
+    },
+    createdAt: '2026-03-16T13:58:53.352Z',
+  },
+  {
+    id: 'snapshot-1773760665803',
+    date: '2026-03-17',
+    note: '自动抓取',
+    platformTotals: {
+      xiaoyuzhou: 163,
+      lizhi: 112,
+      ximalaya: 206,
+      wangyiyun: 56,
+      youtube: 1,
+    },
+    episodePlays: {
+      '69b184e184bce022f9f4fd5b': {
+        xiaoyuzhou: 25,
+        lizhi: 24,
+        ximalaya: 67,
+        wangyiyun: 4,
+        youtube: 1,
+      },
+      '69ad0f7dc8cdeb38c26acb2c': {
+        xiaoyuzhou: 52,
+        lizhi: 44,
+        ximalaya: 61,
+        wangyiyun: 15,
+        youtube: 0,
+      },
+      '69a69588de29766da93ec01b': {
+        xiaoyuzhou: 86,
+        lizhi: 44,
+        ximalaya: 78,
+        wangyiyun: 37,
+        youtube: 0,
+      },
+    },
+    createdAt: '2026-03-17T15:17:45.803Z',
+  },
 ];
 
 type Snapshot = (typeof fallbackSnapshots)[number];
