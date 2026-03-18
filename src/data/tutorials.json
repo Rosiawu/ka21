@@ -1941,11 +1941,25 @@
       "recommendReason": "完整翻译 Anthropic 的 Skill 实战指南",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/niaWtvtophjen92cCiaibibH6Nrao8GnB8JG9mWcSfAiaVxpyj8Vib0J5qnnC1sXRMww5T1sIFxS0KoxB8o0djEtlEXW20zb3mSRv2orLpMsVfKicY/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-PUASkill很火但我更想推荐它的反面-0",
+      "title": "PUA Skill很火，但我更想推荐它的反面",
+      "description": "一个用爱解放AI潜能的Skill",
+      "url": "https://mp.weixin.qq.com/s/_IxCPTuYD6dfMOs7uG6WzQ",
+      "source": "光华David",
+      "publishDate": "2026-03-18",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "一个用爱解放AI潜能的Skill",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/MoZfoickyLB0xic0yt2WUhAFZZ6p5nYTXGjiagvcc2kP67vbIpfWTXnaV5EC9iaqXY3pr4q3UM3dFe0Rw41PKxlB6bv4ZZEQvThkpUeasCF0GKg/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-15T01:01:31.139Z",
-    "count": 111
+    "updatedAt": "2026-03-18T01:50:23.899Z",
+    "count": 112
   }
 }
