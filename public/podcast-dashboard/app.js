@@ -35,6 +35,8 @@ const charts = {
 };
 
 const elements = {
+  backHomeLink: document.querySelector("#back-home-link"),
+  backHomeLabel: document.querySelector("#back-home-label"),
   showName: document.querySelector("#show-name"),
   heroCopy: document.querySelector("#hero-copy"),
   heroLinks: document.querySelector("#hero-links"),
@@ -50,6 +52,24 @@ const elements = {
   historyTableBody: document.querySelector("#history-table tbody"),
   episodeHistory: document.querySelector("#episode-history"),
 };
+
+function resolveLocale() {
+  const queryLocale = new URLSearchParams(window.location.search).get("locale");
+  if (queryLocale === "en") {
+    return "en";
+  }
+  return "zh";
+}
+
+function hydrateBackHomeLink() {
+  if (!elements.backHomeLink || !elements.backHomeLabel) {
+    return;
+  }
+
+  const locale = resolveLocale();
+  elements.backHomeLink.href = locale === "en" ? "/en" : "/zh";
+  elements.backHomeLabel.textContent = locale === "en" ? "Back to Home" : "返回首页";
+}
 
 function formatNumber(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) {
@@ -732,6 +752,8 @@ function renderAll() {
 }
 
 async function boot() {
+  hydrateBackHomeLink();
+
   const response = await fetch("/api/podcast/dashboard");
   const data = await response.json();
   state.config = data.config;
