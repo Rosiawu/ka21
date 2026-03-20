@@ -1955,11 +1955,25 @@
       "recommendReason": "一个用爱解放AI潜能的Skill",
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/MoZfoickyLB0xic0yt2WUhAFZZ6p5nYTXGjiagvcc2kP67vbIpfWTXnaV5EC9iaqXY3pr4q3UM3dFe0Rw41PKxlB6bv4ZZEQvThkpUeasCF0GKg/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-ClaudeCode每次都不认识我于是我给它做了-0",
+      "title": "Claude Code每次都不认识我，于是我给它做了一套记忆系统",
+      "description": "让AI从一个每次都要认识我的新同事，变成一个越用越懂我的搭档。",
+      "url": "https://mp.weixin.qq.com/s/wzDi4Ff0U2KsoqtXotjIRw",
+      "source": "云舒",
+      "publishDate": "2026-03-20",
+      "difficultyLevel": "高端玩家",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "让AI从一个每次都要认识我的新同事，变成一个越用越懂我的搭档。",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/cevPo6QMgbCQYyribn8Od9tWJic93J8wlr5GqmhrQSmzvVynSmqlucWTNYiayo00J27Y6UcGibiac7t3W2ekpCbKfI7LtTfIPLQuxZ8ZH1g6RuPE/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-18T01:50:23.899Z",
-    "count": 112
+    "updatedAt": "2026-03-20T01:38:13.917Z",
+    "count": 113
   }
 }
