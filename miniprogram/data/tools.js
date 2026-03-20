@@ -2514,6 +2514,53 @@ module.exports = {
       "relatedTutorials": []
     },
     {
+      "id": "shandianshuo",
+      "name": "闪电说",
+      "description": "语音输入效率工具。闪电说主打把说话更快变成可用文字，适合写文案、回消息、记灵感和需要高频中文输入的场景。",
+      "icon": "https://ka21.tools/icons/shandianshuo.png",
+      "url": "https://shandianshuo.cn/",
+      "tags": [
+        "productivity",
+        "utility"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "语音输入这类工具里，闪电说适合想把说话速度直接变成产出的人，拿来记灵感、写草稿、回消息都很省时间。",
+          "author": "站内整理",
+          "createdAt": "2026-03-20",
+          "reviewType": "基于官网定位整理"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 语音转文字输入\n2. 提升高频中文输入效率\n3. 适合记录灵感和打草稿\n4. 支持日常沟通与内容整理\n5. 减少手打输入负担",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 打开闪电说官网\n2. 按官方说明安装或使用\n3. 在需要输入文字时直接说话\n4. 检查并整理转写结果\n5. 复制到你的文档、聊天或工作流里",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 具体支持平台和安装方式以官网当前说明为准\n2. 语音输入效果会受环境噪音和发音清晰度影响\n3. 敏感内容输入前建议先确认隐私和数据处理方式",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-03-20T00:00:00Z",
+      "updatedAt": "2026-03-20T00:00:00Z",
+      "toolCategory": "utils",
+      "icons": {
+        "png": "/icons/shandianshuo.png"
+      },
+      "isVisible": true,
+      "displayOrder": 158,
+      "relatedTutorials": []
+    },
+    {
       "id": "bmmd",
       "name": "bm.md",
       "description": "更好用的 Markdown 排版助手。支持一键适配微信公众号、知乎专栏、掘金、网页与图片，适合把 Markdown 快速整理成可发布版式。",
