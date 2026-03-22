@@ -275,6 +275,50 @@ const fallbackSnapshots = [
     },
     createdAt: '2026-03-19T03:22:09.976Z',
   },
+  {
+    id: 'snapshot-1774142698726',
+    date: '2026-03-22',
+    note: '自动抓取',
+    platformTotals: {
+      xiaoyuzhou: 305,
+      lizhi: 192,
+      ximalaya: 305,
+      wangyiyun: 84,
+    },
+    episodePlays: {
+      '69bc120a3c625cc5ae2f5160': {
+        xiaoyuzhou: 24,
+        lizhi: 2,
+        ximalaya: 60,
+        wangyiyun: 4,
+      },
+      '69bab249690ca3160f393dc7': {
+        xiaoyuzhou: 47,
+        lizhi: 4,
+        ximalaya: 29,
+        wangyiyun: 15,
+      },
+      '69b184e184bce022f9f4fd5b': {
+        xiaoyuzhou: 57,
+        lizhi: 55,
+        ximalaya: 70,
+        wangyiyun: 10,
+      },
+      '69ad0f7dc8cdeb38c26acb2c': {
+        xiaoyuzhou: 76,
+        lizhi: 67,
+        ximalaya: 65,
+        wangyiyun: 15,
+      },
+      '69a69588de29766da93ec01b': {
+        xiaoyuzhou: 101,
+        lizhi: 64,
+        ximalaya: 81,
+        wangyiyun: 40,
+      },
+    },
+    createdAt: '2026-03-22T01:24:58.726Z',
+  },
 ];
 
 type Snapshot = (typeof fallbackSnapshots)[number];
