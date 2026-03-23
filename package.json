@@ -20,7 +20,8 @@
     "analytics:report": "tsx scripts/generate-goaccess-report.ts",
     "analytics:open": "npm run analytics:report -- --open",
     "analytics:serve": "python3 -m http.server 8787 --directory analytics-reports",
-    "analytics:panel": "node scripts/open-analytics-panel.js"
+    "analytics:panel": "node scripts/open-analytics-panel.js",
+    "podcast:capture-snapshot": "tsx scripts/podcast/capture-snapshot.ts"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.0",
