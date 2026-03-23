@@ -331,6 +331,28 @@ h3 {
   margin-bottom: 18px;
 }
 
+.panel-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.refresh-status {
+  text-align: right;
+}
+
+.refresh-button {
+  min-width: 148px;
+  min-height: 44px;
+  padding: 0 18px;
+}
+
+.refresh-button[disabled] {
+  cursor: progress;
+  opacity: 0.72;
+}
+
 .subsection-head {
   margin: 28px 0 16px;
 }
@@ -772,6 +794,14 @@ tbody tr:last-child td {
   .actions {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .panel-actions {
+    align-items: flex-start;
+  }
+
+  .refresh-status {
+    text-align: left;
   }
 
   .hero-brand {

@@ -41,6 +41,8 @@ const elements = {
   heroCopy: document.querySelector("#hero-copy"),
   heroLinks: document.querySelector("#hero-links"),
   snapshotMeta: document.querySelector("#snapshot-meta"),
+  refreshButton: document.querySelector("#refresh-button"),
+  refreshStatus: document.querySelector("#refresh-status"),
   overviewCards: document.querySelector("#overview-cards"),
   totalTrendChart: document.querySelector("#total-trend-chart"),
   platformBarChart: document.querySelector("#platform-bar-chart"),
@@ -751,18 +753,78 @@ function renderAll() {
   renderEpisodeHistory();
 }
 
-async function boot() {
-  hydrateBackHomeLink();
+function setRefreshUi({ loading = false, message = "" } = {}) {
+  if (elements.refreshButton) {
+    elements.refreshButton.disabled = loading;
+    elements.refreshButton.textContent = loading ? "正在刷新..." : "立即刷新数据";
+  }
 
-  const response = await fetch("/api/podcast/dashboard");
+  if (elements.refreshStatus && message) {
+    elements.refreshStatus.textContent = message;
+  }
+}
+
+async function requestDashboard({ refresh = false } = {}) {
+  const response = await fetch(
+    refresh ? "/api/podcast/dashboard" : "/api/podcast/dashboard?ts=" + Date.now(),
+    {
+      method: refresh ? "POST" : "GET",
+      cache: "no-store",
+      headers: {
+        "cache-control": "no-store",
+        pragma: "no-cache",
+      },
+    },
+  );
   const data = await response.json();
+
+  if (response.ok === false) {
+    throw new Error(data?.message || "数据加载失败");
+  }
+
+  return data;
+}
+
+function applyDashboardData(data) {
   state.config = data.config;
   state.episodes = data.episodes;
   state.snapshots = data.snapshots;
+}
+
+async function refreshDashboard() {
+  setRefreshUi({ loading: true, message: "正在抓取公开数据，通常需要几秒钟..." });
+
+  try {
+    const data = await requestDashboard({ refresh: true });
+    applyDashboardData(data);
+    renderAll();
+
+    const latestDate = data?.snapshot?.date || latestSnapshots().latest?.date || "刚刚";
+    const persistedMessage = data.persisted
+      ? "已刷新到 " + latestDate + "，服务端快照也已更新。"
+      : "已刷新到 " + latestDate + "，当前页面已经显示最新公开数据。";
+    setRefreshUi({ loading: false, message: persistedMessage });
+  } catch (error) {
+    setRefreshUi({
+      loading: false,
+      message: "刷新失败：" + (error instanceof Error ? error.message : "未知错误"),
+    });
+  }
+}
+
+async function boot() {
+  hydrateBackHomeLink();
+
+  const data = await requestDashboard();
+  applyDashboardData(data);
 
   elements.showName.textContent = "灯下白播客";
   if (elements.heroCopy) {
     elements.heroCopy.textContent = "欢迎点击右边你喜欢的平台收听并订阅";
+  }
+  setRefreshUi({ message: "页面会优先显示最新公开快照" });
+  if (elements.refreshButton) {
+    elements.refreshButton.addEventListener("click", refreshDashboard);
   }
   renderAll();
   window.addEventListener("resize", () => {

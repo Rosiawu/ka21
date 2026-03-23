@@ -2,6 +2,7 @@ import * as cheerio from 'cheerio';
 import { execFile as execFileCallback } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { promisify } from 'node:util';
 
 const execFile = promisify(execFileCallback);
@@ -898,8 +899,15 @@ function chinaDateString() {
   }).format(new Date());
 }
 
-async function main() {
-  const dryRun = process.argv.includes('--dry-run');
+export async function captureLiveDashboardData({
+  dryRun = false,
+  persist = true,
+  allowWriteFailure = false,
+}: {
+  dryRun?: boolean;
+  persist?: boolean;
+  allowWriteFailure?: boolean;
+} = {}) {
   const config = await readJson<PodcastConfig>(configPath);
   const snapshots = await readJson<Snapshot[]>(snapshotsPath);
   const episodes = await loadEpisodesFromConfig(config);
@@ -919,8 +927,16 @@ async function main() {
   if (!hasSnapshotData(snapshot)) {
     const sameDayWithData = snapshots.some((item) => item.date === snapshot.date && hasSnapshotData(item));
     if (sameDayWithData) {
-      console.log(JSON.stringify({ skipped: true, reason: 'no_new_data_keep_existing_snapshot' }, null, 2));
-      return;
+      return {
+        dryRun,
+        skipped: true,
+        persisted: false,
+        config,
+        episodes,
+        snapshots,
+        snapshot: null,
+        results: counts.results,
+      };
     }
     throw new Error('No public data captured. Snapshot not written.');
   }
@@ -932,20 +948,50 @@ async function main() {
   );
   const winner = bestSameDay && compareSnapshots(bestSameDay, snapshot) >= 0 ? bestSameDay : snapshot;
 
-  const filtered = snapshots.filter((item) => item.date !== snapshot.date);
-  filtered.push(winner);
-  filtered.sort((a, b) => a.date.localeCompare(b.date) || a.createdAt.localeCompare(b.createdAt));
+  const mergedSnapshots = snapshots.filter((item) => item.date !== snapshot.date);
+  mergedSnapshots.push(winner);
+  mergedSnapshots.sort((a, b) => a.date.localeCompare(b.date) || a.createdAt.localeCompare(b.createdAt));
 
-  if (!dryRun) {
-    await writeJson(snapshotsPath, filtered);
+  let persisted = false;
+  if (!dryRun && persist) {
+    try {
+      await writeJson(snapshotsPath, mergedSnapshots);
+      persisted = true;
+    } catch (error) {
+      if (!allowWriteFailure) {
+        throw error;
+      }
+      console.warn(`[snapshot] Persist skipped: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+
+  return {
+    dryRun,
+    skipped: false,
+    persisted,
+    config,
+    episodes,
+    snapshots: mergedSnapshots,
+    snapshot: winner,
+    results: counts.results,
+  };
+}
+
+async function main() {
+  const dryRun = process.argv.includes('--dry-run');
+  const payload = await captureLiveDashboardData({ dryRun, persist: true });
+
+  if (payload.skipped) {
+    console.log(JSON.stringify({ skipped: true, reason: 'no_new_data_keep_existing_snapshot' }, null, 2));
+    return;
   }
 
   console.log(
     JSON.stringify(
       {
-        dryRun,
-        snapshot: winner,
-        results: counts.results,
+        dryRun: payload.dryRun,
+        snapshot: payload.snapshot,
+        results: payload.results,
       },
       null,
       2,
@@ -953,7 +999,11 @@ async function main() {
   );
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.stack || error.message : String(error));
-  process.exitCode = 1;
-});
+const isDirectRun = Boolean(process.argv[1]) && pathToFileURL(process.argv[1]).href === import.meta.url;
+
+if (isDirectRun) {
+  main().catch((error) => {
+    console.error(error instanceof Error ? error.stack || error.message : String(error));
+    process.exitCode = 1;
+  });
+}

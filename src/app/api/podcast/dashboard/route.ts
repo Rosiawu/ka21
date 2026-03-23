@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { captureLiveDashboardData } from '../../../../../scripts/podcast/capture-snapshot';
 
 const defaultConfig = {
   showName: '灯下白',
@@ -78,6 +79,16 @@ type NextFetchInit = RequestInit & {
 const podcastDataDir = path.join(process.cwd(), 'data', 'podcast-dashboard');
 const trackerConfigPath = path.join(podcastDataDir, 'config.json');
 const trackerSnapshotsPath = path.join(podcastDataDir, 'snapshots.json');
+const noStoreHeaders = {
+  'Cache-Control': 'no-store, max-age=0, must-revalidate',
+};
+
+function jsonResponse(body: unknown, status = 200) {
+  return NextResponse.json(body, {
+    status,
+    headers: noStoreHeaders,
+  });
+}
 
 async function loadConfig(): Promise<PodcastConfig> {
   try {
@@ -143,14 +154,43 @@ export async function GET() {
   try {
     const config = await loadConfig();
     const [episodes, snapshots] = await Promise.all([loadEpisodes(config), loadSnapshots()]);
-    return NextResponse.json({ config, episodes, snapshots });
+    return jsonResponse({ config, episodes, snapshots });
   } catch (error) {
-    return NextResponse.json(
+    return jsonResponse(
       {
         error: 'dashboard_load_failed',
         message: error instanceof Error ? error.message : 'Unknown error',
       },
-      { status: 500 },
+      500,
+    );
+  }
+}
+
+export async function POST() {
+  try {
+    const payload = await captureLiveDashboardData({
+      dryRun: false,
+      persist: true,
+      allowWriteFailure: true,
+    });
+
+    return jsonResponse({
+      config: payload.config,
+      episodes: payload.episodes,
+      snapshots: payload.snapshots,
+      refreshed: true,
+      persisted: payload.persisted,
+      snapshot: payload.snapshot,
+      skipped: payload.skipped,
+      results: payload.results,
+    });
+  } catch (error) {
+    return jsonResponse(
+      {
+        error: 'dashboard_refresh_failed',
+        message: error instanceof Error ? error.message : 'Unknown error',
+      },
+      500,
     );
   }
 }
