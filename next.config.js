@@ -84,6 +84,14 @@ const nextConfig = {
   },
 
   // 添加安全相关配置
+  redirects: async () => [
+    {
+      source: '/',
+      destination: '/zh',
+      permanent: false,
+    },
+  ],
+
   headers: async () => [
     {
       source: '/:path*',

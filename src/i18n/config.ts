@@ -6,6 +6,10 @@ export type AppLocale = typeof supportedLocales[number];
 
 export const defaultLocale: AppLocale = 'zh'; // 明确定义默认语言
 
+export function isSupportedLocale(locale: string): locale is AppLocale {
+  return supportedLocales.includes(locale as AppLocale);
+}
+
 export const localeNames: Record<AppLocale, string> = {
   zh: '中文',
   en: 'English'
