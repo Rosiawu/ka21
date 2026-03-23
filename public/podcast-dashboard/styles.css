@@ -346,6 +346,10 @@ h3 {
   min-width: 148px;
   min-height: 44px;
   padding: 0 18px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
 .refresh-button[disabled] {

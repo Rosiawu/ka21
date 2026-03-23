@@ -99,7 +99,7 @@
           </div>
           <div class="panel-actions">
             <p id="refresh-status" class="muted refresh-status">页面会优先显示最新公开快照</p>
-            <button id="refresh-button" type="button" class="primary-button refresh-button">立即刷新数据</button>
+            <button id="refresh-button" type="button" class="primary-button refresh-button" onclick="window.podcastDashboardRefresh && window.podcastDashboardRefresh(event)">立即刷新数据</button>
           </div>
         </div>
         <div id="overview-cards" class="cards"></div>

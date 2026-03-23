@@ -764,6 +764,22 @@ function setRefreshUi({ loading = false, message = "" } = {}) {
   }
 }
 
+function handleRefreshButtonClick(event) {
+  event?.preventDefault?.();
+  void refreshDashboard();
+}
+
+function bindRefreshButton() {
+  if (!elements.refreshButton || elements.refreshButton.dataset.bound === "1") {
+    return;
+  }
+
+  elements.refreshButton.dataset.bound = "1";
+  elements.refreshButton.onclick = handleRefreshButtonClick;
+}
+
+window.podcastDashboardRefresh = handleRefreshButtonClick;
+
 async function requestDashboard({ refresh = false } = {}) {
   const response = await fetch(
     refresh ? "/api/podcast/dashboard" : "/api/podcast/dashboard?ts=" + Date.now(),
@@ -815,16 +831,17 @@ async function refreshDashboard() {
 async function boot() {
   hydrateBackHomeLink();
 
+  bindRefreshButton();
+  setRefreshUi({ message: "页面会优先显示最新公开快照" });
+
   const data = await requestDashboard();
   applyDashboardData(data);
 
-  elements.showName.textContent = "灯下白播客";
+  if (elements.showName) {
+    elements.showName.textContent = "灯下白播客";
+  }
   if (elements.heroCopy) {
     elements.heroCopy.textContent = "欢迎点击右边你喜欢的平台收听并订阅";
-  }
-  setRefreshUi({ message: "页面会优先显示最新公开快照" });
-  if (elements.refreshButton) {
-    elements.refreshButton.addEventListener("click", refreshDashboard);
   }
   renderAll();
   window.addEventListener("resize", () => {
@@ -833,5 +850,25 @@ async function boot() {
 }
 
 boot().catch((error) => {
-  document.body.innerHTML = `<main class="page"><section class="panel"><h1>加载失败</h1><p class="hero-copy">${error.message}</p></section></main>`;
+  console.error(error);
+  bindRefreshButton();
+  if (elements.snapshotMeta) {
+    elements.snapshotMeta.textContent = "初始数据加载失败";
+  }
+  if (elements.heroCopy) {
+    elements.heroCopy.textContent = "当前公开数据加载失败，可点击右侧按钮重试。";
+  }
+  if (elements.overviewCards) {
+    elements.overviewCards.innerHTML = `
+      <article class="card">
+        <div class="label">加载失败</div>
+        <strong>${error instanceof Error ? error.message : "未知错误"}</strong>
+        <span class="delta flat">可以继续点击“立即刷新数据”重试</span>
+      </article>
+    `;
+  }
+  setRefreshUi({
+    loading: false,
+    message: `初始加载失败：${error instanceof Error ? error.message : "未知错误"}，可点击按钮重试。`,
+  });
 });
