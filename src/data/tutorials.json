@@ -1969,11 +1969,25 @@
       "recommendReason": "让AI从一个每次都要认识我的新同事，变成一个越用越懂我的搭档。",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/cevPo6QMgbCQYyribn8Od9tWJic93J8wlr5GqmhrQSmzvVynSmqlucWTNYiayo00J27Y6UcGibiac7t3W2ekpCbKfI7LtTfIPLQuxZ8ZH1g6RuPE/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-OpenClaw会话历史记录断掉怎么让它自己修好-0",
+      "title": "OpenClaw会话历史记录断掉？怎么让它自己修好自己",
+      "description": "用OpenClaw的朋友可能遇到过这样的情况。昨天还在和它讨论一个项目，今天早上发消息过去，它突然变得像个陌生人。",
+      "url": "https://mp.weixin.qq.com/s/sZOc1QGevaahiR5o6vtDFQ",
+      "source": "Gwaanl",
+      "publishDate": "2026-02-16",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "用OpenClaw的朋友可能遇到过这样的情况。昨天还在和它讨论一个项目，今天早上发消息过去，它突然变得像个陌生人。",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/gq3a9icfIXEbOaibZDJFFytJxSKlyhAu865UqHBL1PCC3w984x1bPKEl8nVKPzOsV6E5dCkz4lyuZ9Q5bfPYtEa9A0nazeKtvKfbtiadyG9Q7k/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-20T01:38:13.917Z",
-    "count": 113
+    "updatedAt": "2026-03-24T10:18:35.241Z",
+    "count": 114
   }
 }
