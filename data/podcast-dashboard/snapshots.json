@@ -358,5 +358,54 @@
       }
     },
     "createdAt": "2026-03-23T07:01:55.058Z"
+  },
+  {
+    "id": "snapshot-1774323820724",
+    "date": "2026-03-24",
+    "note": "自动抓取",
+    "platformTotals": {
+      "xiaoyuzhou": 344,
+      "lizhi": 260,
+      "ximalaya": 329,
+      "wangyiyun": 96,
+      "youtube": 1
+    },
+    "episodePlays": {
+      "69bc120a3c625cc5ae2f5160": {
+        "xiaoyuzhou": 39,
+        "lizhi": 15,
+        "ximalaya": 76,
+        "wangyiyun": 10,
+        "youtube": 0
+      },
+      "69bab249690ca3160f393dc7": {
+        "xiaoyuzhou": 54,
+        "lizhi": 21,
+        "ximalaya": 30,
+        "wangyiyun": 17,
+        "youtube": 0
+      },
+      "69b184e184bce022f9f4fd5b": {
+        "xiaoyuzhou": 65,
+        "lizhi": 67,
+        "ximalaya": 71,
+        "wangyiyun": 10,
+        "youtube": 1
+      },
+      "69ad0f7dc8cdeb38c26acb2c": {
+        "xiaoyuzhou": 79,
+        "lizhi": 79,
+        "ximalaya": 65,
+        "wangyiyun": 17
+      },
+      "69a69588de29766da93ec01b": {
+        "xiaoyuzhou": 107,
+        "lizhi": 78,
+        "ximalaya": 87,
+        "wangyiyun": 42,
+        "youtube": 0
+      }
+    },
+    "createdAt": "2026-03-24T03:43:40.724Z"
   }
 ]
