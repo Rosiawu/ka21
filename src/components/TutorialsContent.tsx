@@ -5,6 +5,7 @@ import { useSearchParams, usePathname } from 'next/navigation';
 import { tutorials, Tutorial, sortTutorials, TutorialSortMethod, DifficultyLevel } from '@/data/tutorials';
 import { localizeTutorialCategory } from '@/utils/tutorials';
 import TutorialCard from './TutorialCard';
+import AdminSessionGate from './admin/AdminSessionGate';
 import {
   type CoreScenarioId,
   getCoreScenarioAliases,
@@ -36,6 +37,7 @@ export default function TutorialsContent() {
   const [saving, setSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [canManageTutorials, setCanManageTutorials] = useState(false);
   const text = useMemo(() => ({
     title: isEn ? 'Starter Tutorials' : '萌新教程',
     subtitle: isEn
@@ -306,42 +308,44 @@ export default function TutorialsContent() {
 
           {/* 管理导入区域 */}
           {showImportForm && (
-            <div className="mb-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-dashed border-primary-200 dark:border-primary-700/60 p-4">
-              <div className="flex items-center justify-between mb-3">
-                <h2 className="text-sm font-semibold text-slate-800 dark:text-slate-100 flex items-center">
-                  <i className="fas fa-magic mr-2 text-primary-500"></i>
-                  {text.importPanelTitle}
-                </h2>
-              </div>
-              <div className="space-y-3">
-                <div>
-                  <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
-                    {text.articleLinkLabel}
-                  </label>
-                  <div className="flex gap-2">
-                    <input
-                      type="url"
-                      className="flex-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-xs focus:outline-none focus:ring-2 focus:ring-primary-500"
-                      placeholder="https://mp.weixin.qq.com/..."
-                      value={importUrl}
-                      onChange={(e) => setImportUrl(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' && !importLoading) {
-                          e.preventDefault();
-                          handleFetchWechat();
-                        }
-                      }}
-                    />
-                    <button
-                      type="button"
-                      className="px-3 py-2 text-xs rounded-lg bg-primary-500 text-white hover:bg-primary-600 disabled:opacity-60 relative z-20"
-                      onClick={handleFetchWechat}
-                      disabled={importLoading}
-                    >
-                      {importLoading ? text.extracting : text.extractInfo}
-                    </button>
+            <div className="mb-6">
+              <AdminSessionGate locale={isEn ? 'en' : 'zh'} onAuthenticatedChange={setCanManageTutorials}>
+                <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-dashed border-primary-200 dark:border-primary-700/60 p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h2 className="text-sm font-semibold text-slate-800 dark:text-slate-100 flex items-center">
+                      <i className="fas fa-magic mr-2 text-primary-500"></i>
+                      {text.importPanelTitle}
+                    </h2>
                   </div>
-                </div>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                        {text.articleLinkLabel}
+                      </label>
+                      <div className="flex gap-2">
+                        <input
+                          type="url"
+                          className="flex-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-xs focus:outline-none focus:ring-2 focus:ring-primary-500"
+                          placeholder="https://mp.weixin.qq.com/..."
+                          value={importUrl}
+                          onChange={(e) => setImportUrl(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' && !importLoading) {
+                              e.preventDefault();
+                              handleFetchWechat();
+                            }
+                          }}
+                        />
+                        <button
+                          type="button"
+                          className="px-3 py-2 text-xs rounded-lg bg-primary-500 text-white hover:bg-primary-600 disabled:opacity-60 relative z-20"
+                          onClick={handleFetchWechat}
+                          disabled={importLoading}
+                        >
+                          {importLoading ? text.extracting : text.extractInfo}
+                        </button>
+                      </div>
+                    </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
                   <div>
@@ -450,16 +454,18 @@ export default function TutorialsContent() {
                   <p className="text-xs text-emerald-600 mt-1">{saveMessage}</p>
                 )}
 
-                <div className="flex justify-end mt-2">
-                  <button
-                    className="px-4 py-2 text-xs rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 disabled:opacity-60"
-                    onClick={handleSaveTutorial}
-                    disabled={saving}
-                  >
-                    {saving ? text.saving : text.confirmAdd}
-                  </button>
+                    <div className="flex justify-end mt-2">
+                      <button
+                        className="px-4 py-2 text-xs rounded-lg bg-emerald-500 text-white hover:bg-emerald-600 disabled:opacity-60"
+                        onClick={handleSaveTutorial}
+                        disabled={saving}
+                      >
+                        {saving ? text.saving : text.confirmAdd}
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </AdminSessionGate>
             </div>
           )}
           
@@ -633,7 +639,7 @@ export default function TutorialsContent() {
               <div key={tutorial.id}>
                 <TutorialCard 
                   tutorial={tutorial} 
-                  showDelete={showImportForm} 
+                  showDelete={showImportForm && canManageTutorials} 
                   onDelete={handleDeleteTutorial}
                   showRecommendReason={true}
                 />

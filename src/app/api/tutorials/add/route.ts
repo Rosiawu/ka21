@@ -5,6 +5,9 @@ import path from 'path';
 import type { TutorialsJson, TutorialData } from '@/types/tutorials';
 import { fetchFromGitHub, updateGitHubFile } from '@/lib/github';
 import { getPrimaryCoreScenario, resolveTutorialCoreScenarios } from '@/lib/coreTaxonomy';
+import { requireAdminAccess } from '@/lib/security/admin';
+import { enforceRateLimit } from '@/lib/security/rate-limit';
+import { safeFetch } from '@/lib/security/safe-fetch';
 
 type DifficultyLevel = '小白入门' | '萌新进阶' | '高端玩家';
 
@@ -35,6 +38,7 @@ const TUTORIALS_PATH = path.join(
 );
 
 const IMAGE_DIR = path.join(process.cwd(), 'public', 'images', 'tutorials');
+const MAX_COVER_BYTES = 8 * 1024 * 1024;
 
 const normalizeDate = (input: string): string => {
   if (/^\d{4}-\d{2}-\d{2}$/.test(input)) return input;
@@ -88,10 +92,26 @@ const inferExtension = (url: string, contentType?: string | null): string => {
 const downloadCoverToLocal = async (coverUrl: string, id: string): Promise<string | null> => {
   try {
     await fs.mkdir(IMAGE_DIR, { recursive: true });
-    const res = await fetch(coverUrl);
+    const res = await safeFetch(coverUrl, {
+      cache: 'no-store',
+    }, {
+      timeoutMs: 12_000,
+    });
     if (!res.ok || !res.body) return null;
 
+    if (!res.headers.get('content-type')?.startsWith('image/')) {
+      return null;
+    }
+
+    const declaredLength = Number(res.headers.get('content-length') || '0');
+    if (declaredLength > MAX_COVER_BYTES) {
+      return null;
+    }
+
     const arrayBuffer = await res.arrayBuffer();
+    if (arrayBuffer.byteLength > MAX_COVER_BYTES) {
+      return null;
+    }
     const buffer = Buffer.from(arrayBuffer);
     const hash = crypto.createHash('md5').update(buffer).digest('hex').slice(0, 10);
     const ext = inferExtension(coverUrl, res.headers.get('content-type'));
@@ -107,6 +127,20 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 
 export async function POST(request: Request) {
+  const adminError = requireAdminAccess(request);
+  if (adminError) {
+    return adminError;
+  }
+
+  const rateLimitResponse = enforceRateLimit(request, {
+    name: 'tutorials-add',
+    limit: 24,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   let payload: AddTutorialPayload;
   try {
     payload = await request.json();
@@ -120,6 +154,32 @@ export async function POST(request: Request) {
   if (!payload.url || !payload.title) {
     return NextResponse.json(
       { success: false, message: 'url 和 title 为必填字段' },
+      { status: 400 },
+    );
+  }
+
+  let normalizedSourceUrl: string;
+  try {
+    const url = new URL(payload.url.trim());
+    if (!['http:', 'https:'].includes(url.protocol)) {
+      throw new Error('invalid');
+    }
+    normalizedSourceUrl = url.toString();
+  } catch {
+    return NextResponse.json(
+      { success: false, message: '教程链接必须是有效的 http(s) 地址' },
+      { status: 400 },
+    );
+  }
+
+  const normalizedTitle = payload.title.trim().slice(0, 120);
+  const normalizedAuthor = (payload.author || '').trim().slice(0, 40);
+  const normalizedSummary = (payload.summary || '').trim().slice(0, 500);
+  const normalizedCover = (payload.cover || '').trim().slice(0, 1000);
+
+  if (!normalizedTitle) {
+    return NextResponse.json(
+      { success: false, message: 'title 不能为空' },
       { status: 400 },
     );
   }
@@ -151,7 +211,7 @@ export async function POST(request: Request) {
       meta = (json.meta as TutorialsMeta) || {};
     }
 
-    if (tutorials.some((t) => t.url === payload.url)) {
+    if (tutorials.some((t) => t.url === normalizedSourceUrl)) {
       return NextResponse.json(
         { success: false, message: '该链接已经在教程列表中' },
         { status: 409 },
@@ -163,7 +223,7 @@ export async function POST(request: Request) {
       const categories = Array.from(
         new Set(tutorials.map((t) => t.category).filter(Boolean)),
       );
-      const combined = `${payload.title} ${payload.summary || ''}`;
+      const combined = `${normalizedTitle} ${normalizedSummary}`;
       const matched =
         categories.find((c) => c && combined.includes(c)) || categories[0] || 'AI效率';
       category = matched;
@@ -183,28 +243,28 @@ export async function POST(request: Request) {
       ? payload.skillTags
       : [];
 
-    const id = generateId(payload.url, payload.title, tutorials);
+    const id = generateId(normalizedSourceUrl, normalizedTitle, tutorials);
 
     let customImageUrl: string | null = null;
-    if (payload.cover) {
-      if (payload.cover.startsWith('http') && !useGitHub) {
-        customImageUrl = await downloadCoverToLocal(payload.cover, id);
+    if (normalizedCover) {
+      if (normalizedCover.startsWith('http') && !useGitHub) {
+        customImageUrl = await downloadCoverToLocal(normalizedCover, id);
       } else {
-        customImageUrl = payload.cover;
+        customImageUrl = normalizedCover;
       }
     }
 
     const newTutorial: TutorialData = {
       id,
-      title: payload.title,
-      description: payload.summary || payload.title,
-      url: payload.url,
-      source: payload.author || '未知作者',
+      title: normalizedTitle,
+      description: normalizedSummary || normalizedTitle,
+      url: normalizedSourceUrl,
+      source: normalizedAuthor || '未知作者',
       publishDate: normalizeDate(payload.publishDate || ''),
       difficultyLevel: difficulty,
       category,
       skillTags,
-      recommendReason: payload.recommendReason || payload.summary || '',
+      recommendReason: (payload.recommendReason || normalizedSummary || '').trim().slice(0, 500),
       customImageUrl,
       relatedTools: [],
     };

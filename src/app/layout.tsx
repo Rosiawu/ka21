@@ -1,29 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, Noto_Sans_SC } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
-// 说明：移除 next/font/google，保障离线构建
 import Script from 'next/script';
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ThemeProvider from '@/components/ThemeProvider';
 import UmamiAnalytics from '@/components/UmamiAnalytics';
 import ClarityAnalytics from '@/components/ClarityAnalytics';
-
-// 优化字体加载
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-  preload: true,
-});
-
-const notoSansSC = Noto_Sans_SC({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
-  variable: '--font-noto-sans-sc',
-  display: 'swap',
-  preload: true,
-});
 
 export const metadata: Metadata = {
   title: {
@@ -76,7 +58,7 @@ export default async function RootLayout({
           enableConsent={true}
         />
       </head>
-      <body className={`${inter.variable} ${notoSansSC.variable} font-sans antialiased transition-colors duration-300`}>
+      <body className="font-sans antialiased transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <ErrorBoundary>
             {/* 将带有多语言文案的 Header/Sidebar/Footer 移至 src/app/[locale]/layout.tsx 中渲染 */}

@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio';
 import sharp from 'sharp';
 import { createWorker } from 'tesseract.js';
+import { safeFetch } from '@/lib/security/safe-fetch';
 
 type ExtractedEventDraft = {
   title: string;
@@ -22,6 +23,8 @@ const NOISY_SUFFIXES = ['向上滑动看下', '阅读全文', '点击查看', '�
 const OCR_LANG = 'chi_sim';
 const OCR_TIMEOUT_MS = 12000;
 const OCR_CACHE_PATH = '/tmp/ka21-events-tesseract';
+const REMOTE_FETCH_TIMEOUT_MS = 12000;
+const MAX_OCR_IMAGE_BYTES = 6 * 1024 * 1024;
 
 function cleanText(value: string) {
   return value
@@ -173,18 +176,25 @@ function detectBlockedWechatPage(html: string) {
 async function extractTextFromImage(imageUrl: string) {
   if (!imageUrl) return '';
 
-  const response = await fetch(imageUrl, {
+  const response = await safeFetch(imageUrl, {
     headers: {
       'User-Agent':
         'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
       Referer: 'https://mp.weixin.qq.com/',
     },
     cache: 'no-store',
+  }, {
+    timeoutMs: REMOTE_FETCH_TIMEOUT_MS,
   });
 
   if (!response.ok) return '';
+  if (!response.headers.get('content-type')?.startsWith('image/')) return '';
+
+  const declaredLength = Number(response.headers.get('content-length') || '0');
+  if (declaredLength > MAX_OCR_IMAGE_BYTES) return '';
 
   const arrayBuffer = await response.arrayBuffer();
+  if (arrayBuffer.byteLength > MAX_OCR_IMAGE_BYTES) return '';
   const input = Buffer.from(arrayBuffer);
   const prepared = await sharp(input)
     .grayscale()
@@ -214,7 +224,7 @@ async function extractTextFromImage(imageUrl: string) {
 }
 
 async function fetchText(url: string) {
-  const response = await fetch(url, {
+  const response = await safeFetch(url, {
     headers: {
       'User-Agent':
         'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
@@ -223,6 +233,8 @@ async function fetchText(url: string) {
       Referer: 'https://mp.weixin.qq.com/',
     },
     cache: 'no-store',
+  }, {
+    timeoutMs: REMOTE_FETCH_TIMEOUT_MS,
   });
 
   if (!response.ok) {
@@ -237,7 +249,14 @@ async function fetchText(url: string) {
 
 async function fetchViaJina(target: URL) {
   const mirrorUrl = `https://r.jina.ai/http://${target.host}${target.pathname}${target.search}`;
-  const response = await fetch(mirrorUrl, { cache: 'no-store' });
+  const response = await safeFetch(
+    mirrorUrl,
+    { cache: 'no-store' },
+    {
+      allowedHostnames: ['r.jina.ai'],
+      timeoutMs: REMOTE_FETCH_TIMEOUT_MS,
+    },
+  );
   if (!response.ok) {
     throw new Error(`mirror-status-${response.status}`);
   }

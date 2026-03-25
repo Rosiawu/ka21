@@ -9,13 +9,16 @@ import StructuredData from '@/components/StructuredData';
 import { generateHreflangMetadata } from '@/lib/hreflang';
 import { localizeTool } from '@/lib/toolLocale';
 
+type ToolDetailPageParams = Promise<{ id: string; locale: string }>;
+
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string, locale: string }
+  params: ToolDetailPageParams
 }, parent: ResolvingMetadata): Promise<Metadata> {
-  const isEn = params.locale === 'en';
-  const tool = toolsData.tools.find(t => t.id === params.id);
+  const { locale, id } = await params;
+  const isEn = locale === 'en';
+  const tool = toolsData.tools.find(t => t.id === id);
 
   if (!tool) {
     return withBaseMeta({
@@ -28,7 +31,7 @@ export async function generateMetadata({
   const iconUrl = typedTool.icons?.svg || typedTool.icons?.png || typedTool.icon || '';
 
   // 生成hreflang标签（工具详情页路径）
-  const hreflangConfig = generateHreflangMetadata(params.locale, `tools/${params.id}`);
+  const hreflangConfig = generateHreflangMetadata(locale, `tools/${id}`);
 
   return withBaseMeta({
     title: `${localizedTool.name} - ${isEn ? 'KA21 Tools' : 'KA21工具导航'}`,
@@ -46,21 +49,22 @@ export async function generateMetadata({
   }, parent);
 }
 
-export default function Page({
+export default async function Page({
   params,
 }: {
-  params: { id: string; locale: string }
+  params: ToolDetailPageParams
 }) {
-  const foundTool = toolsData.tools.find(t => t.id === params.id);
+  const { id, locale } = await params;
+  const foundTool = toolsData.tools.find(t => t.id === id);
   if (!foundTool || !validateTool(foundTool) || foundTool.isVisible === false) {
     notFound();
   }
   const tool: Tool = foundTool as Tool;
-  const localizedTool = localizeTool(tool, params.locale === 'en' ? 'en' : 'zh');
+  const localizedTool = localizeTool(tool, locale === 'en' ? 'en' : 'zh');
 
   return (
     <>
-      <StructuredData tool={localizedTool} type="Tool" locale={params.locale} />
+      <StructuredData tool={localizedTool} type="Tool" locale={locale} />
       <ToolDetail tool={localizedTool} />
     </>
   );

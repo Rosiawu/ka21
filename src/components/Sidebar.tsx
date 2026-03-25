@@ -36,9 +36,19 @@ function buildMenuItems(
       href: '/tutorials'
     },
     {
+      name: tCommon('menuPodcast'),
+      icon: 'fa-podcast',
+      href: '/podcast'
+    },
+    {
       name: tCommon('menuEvents'),
       icon: 'fa-trophy',
       href: '/events'
+    },
+    {
+      name: tCommon('menuDeals'),
+      icon: 'fa-tags',
+      href: '/deals'
     },
     // 添加分类菜单项
     ...TOOL_CATEGORIES.map(category => ({

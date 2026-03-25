@@ -177,6 +177,14 @@ export default function LayoutContainers({
                 <i className="fas fa-plus text-xs" aria-hidden="true"></i>
                 <span className="hidden sm:inline">{tCommon('submitTool')}</span>
               </a>
+              <a
+                href={`/${locale}/deals/submit`}
+                aria-label={tCommon('submitDeal')}
+                className="ml-1 inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 px-3 text-sm font-semibold text-white shadow transition-colors hover:from-orange-600 hover:to-amber-600 sm:px-4"
+              >
+                <i className="fas fa-tags text-xs" aria-hidden="true"></i>
+                <span className="hidden sm:inline">{tCommon('submitDeal')}</span>
+              </a>
             </div>
           </div>
 

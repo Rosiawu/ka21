@@ -3,12 +3,28 @@ import { fetchFromGitHub, updateGitHubFile } from '@/lib/github';
 import fs from 'fs/promises';
 import path from 'path';
 import type { TutorialData, TutorialsJson, TutorialsMeta } from '@/types/tutorials';
+import { requireAdminAccess } from '@/lib/security/admin';
+import { enforceRateLimit } from '@/lib/security/rate-limit';
 
 const TUTORIALS_PATH = path.join(process.cwd(), 'src', 'data', 'tutorials.json');
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 
 export async function POST(request: Request) {
+  const adminError = requireAdminAccess(request);
+  if (adminError) {
+    return adminError;
+  }
+
+  const rateLimitResponse = enforceRateLimit(request, {
+    name: 'tutorials-delete',
+    limit: 24,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   try {
     const { id } = await request.json();
     if (!id) {

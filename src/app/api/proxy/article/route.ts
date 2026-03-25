@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
+import { requireAdminAccess } from '@/lib/security/admin';
+import { enforceRateLimit } from '@/lib/security/rate-limit';
+import { safeFetch } from '@/lib/security/safe-fetch';
 
 interface WechatMetadata {
   title: string;
@@ -107,8 +110,22 @@ const parseWechatHtml = (html: string): Partial<WechatMetadata> => {
 };
 
 export async function GET(request: Request) {
+  const adminError = requireAdminAccess(request);
+  if (adminError) {
+    return adminError;
+  }
+
+  const rateLimitResponse = enforceRateLimit(request, {
+    name: 'wechat-article-proxy',
+    limit: 20,
+    windowMs: 10 * 60 * 1000,
+  });
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
   const { searchParams } = new URL(request.url);
-  const url = searchParams.get('url');
+  const url = searchParams.get('url')?.trim().slice(0, 1000) || '';
 
   if (!url) {
     return NextResponse.json(
@@ -135,7 +152,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const res = await fetch(target.toString(), {
+    const res = await safeFetch(target.toString(), {
       headers: {
         'User-Agent':
           'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
@@ -144,6 +161,9 @@ export async function GET(request: Request) {
         'Referer': 'https://mp.weixin.qq.com/',
         'Cache-Control': 'max-age=0',
       },
+    }, {
+      allowedHostnames: WECHAT_HOSTNAMES,
+      timeoutMs: 12_000,
     });
 
     if (!res.ok) {
@@ -181,4 +201,3 @@ export async function GET(request: Request) {
     );
   }
 }
-

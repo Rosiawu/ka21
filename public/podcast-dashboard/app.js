@@ -2,6 +2,7 @@ const state = {
   config: null,
   episodes: [],
   snapshots: [],
+  isRefreshing: false,
 };
 
 const PLATFORM_COLORS = {
@@ -261,6 +262,32 @@ function shortEpisodeLabel(episode) {
   return title.length > 18 ? `${title.slice(0, 18)}...` : title;
 }
 
+function isMobileViewport() {
+  return window.innerWidth <= 720;
+}
+
+function formatChartDateLabel(date) {
+  if (!isMobileViewport()) {
+    return date;
+  }
+  return String(date).slice(5);
+}
+
+function mobileTooltipConfig(base = {}) {
+  if (!isMobileViewport()) {
+    return base;
+  }
+
+  return {
+    ...base,
+    trigger: "item",
+    confine: true,
+    textStyle: { fontSize: 10, lineHeight: 14 },
+    padding: [6, 8],
+    extraCssText: "max-width: 180px; white-space: normal;",
+  };
+}
+
 function legendEpisodeLabel(episode) {
   const number = episodeNumber(episode);
   const title = String(episode?.title || "").replace(/^\s*\d+\.\s*/, "");
@@ -332,6 +359,7 @@ function renderCharts() {
     .map((episode) => legendEpisodeLabel(episode));
   const dateCount = sorted.length;
   const useHorizontalDailyCharts = dateCount > 10;
+  const compactMobile = isMobileViewport();
 
   const totalTrend = ensureChart("totalTrend", elements.totalTrendChart);
   const platformBar = ensureChart("platformBar", elements.platformBarChart);
@@ -339,8 +367,9 @@ function renderCharts() {
 
   if (totalTrend) {
     const categories = useHorizontalDailyCharts
-      ? [...sorted].reverse().map((snapshot) => snapshot.date)
-      : sorted.map((snapshot) => snapshot.date);
+      ? [...sorted].reverse().map((snapshot) => formatChartDateLabel(snapshot.date))
+      : sorted.map((snapshot) => formatChartDateLabel(snapshot.date));
+    const categoryAxisInterval = compactMobile ? Math.max(0, Math.ceil(categories.length / 4) - 1) : 0;
     const stackSeries = episodeSeriesAsc.map((episode) => {
       const color = episodeColors.get(episode.id) || "#cbd5e1";
       const dataSource = useHorizontalDailyCharts ? [...sorted].reverse() : sorted;
@@ -352,7 +381,7 @@ function renderCharts() {
         itemStyle: translucentBarStyle(color),
         emphasis: { focus: "series" },
         label: {
-          show: true,
+          show: !compactMobile,
           position: useHorizontalDailyCharts ? "right" : "inside",
           color: "#7f8a99",
           fontSize: 11,
@@ -365,38 +394,39 @@ function renderCharts() {
     totalTrend.setOption({
       animationDuration: 400,
       legend: {
+        show: !compactMobile,
         bottom: 0,
         data: episodeLegendDesc,
         textStyle: { color: "#8a97a8" },
         itemWidth: 22,
         itemHeight: 12,
       },
-      grid: { left: 56, right: 24, top: 30, bottom: 88 },
-      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      grid: compactMobile ? { left: 44, right: 14, top: 18, bottom: 18 } : { left: 56, right: 24, top: 30, bottom: 88 },
+      tooltip: mobileTooltipConfig({ trigger: "axis", axisPointer: { type: "shadow" } }),
       xAxis: useHorizontalDailyCharts
         ? {
             type: "value",
             splitLine: { lineStyle: { color: "rgba(215, 223, 233, 0.8)" } },
-            axisLabel: { color: "#8a97a8" },
+            axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
           }
         : {
             type: "category",
             data: categories,
             axisLine: { lineStyle: { color: "rgba(199, 208, 220, 0.65)" } },
-            axisLabel: { color: "#8a97a8" },
+            axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
           },
       yAxis: useHorizontalDailyCharts
         ? {
             type: "category",
             data: categories,
             axisLine: { lineStyle: { color: "rgba(199, 208, 220, 0.65)" } },
-            axisLabel: { color: "#8a97a8" },
+            axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12, interval: categoryAxisInterval, hideOverlap: true },
           }
         : {
             type: "value",
             axisLine: { show: false },
             splitLine: { lineStyle: { color: "rgba(215, 223, 233, 0.8)" } },
-            axisLabel: { color: "#8a97a8" },
+            axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
           },
       series: stackSeries,
     });
@@ -404,8 +434,9 @@ function renderCharts() {
 
   if (platformBar) {
     const categories = useHorizontalDailyCharts
-      ? [...sorted].reverse().map((snapshot) => snapshot.date)
-      : sorted.map((snapshot) => snapshot.date);
+      ? [...sorted].reverse().map((snapshot) => formatChartDateLabel(snapshot.date))
+      : sorted.map((snapshot) => formatChartDateLabel(snapshot.date));
+    const categoryAxisInterval = compactMobile ? Math.max(0, Math.ceil(categories.length / 4) - 1) : 0;
     const platformSeries = platforms.map((platform) => {
       const dataSource = useHorizontalDailyCharts ? [...sorted].reverse() : sorted;
       return {
@@ -416,7 +447,7 @@ function renderCharts() {
         itemStyle: translucentBarStyle(PLATFORM_COLORS[platform.id] || "#cbd5e1"),
         emphasis: { focus: "series" },
         label: {
-          show: true,
+          show: !compactMobile,
           position: useHorizontalDailyCharts ? "right" : "inside",
           color: "#7f8a99",
           fontSize: 11,
@@ -434,35 +465,36 @@ function renderCharts() {
     platformBar.setOption({
       animationDuration: 400,
       legend: {
+        show: !compactMobile,
         bottom: 0,
         data: platforms.map((platform) => platform.name),
         textStyle: { color: "#8a97a8" },
       },
-      grid: { left: 56, right: 24, top: 30, bottom: 82 },
-      tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
+      grid: compactMobile ? { left: 44, right: 14, top: 18, bottom: 18 } : { left: 56, right: 24, top: 30, bottom: 82 },
+      tooltip: mobileTooltipConfig({ trigger: "axis", axisPointer: { type: "shadow" } }),
       xAxis: useHorizontalDailyCharts
         ? {
             type: "value",
             splitLine: { lineStyle: { color: "rgba(215, 223, 233, 0.8)" } },
-            axisLabel: { color: "#8a97a8" },
+            axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
           }
         : {
             type: "category",
             data: categories,
             axisLine: { lineStyle: { color: "rgba(199, 208, 220, 0.65)" } },
-            axisLabel: { color: "#8a97a8" },
+            axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
           },
       yAxis: useHorizontalDailyCharts
         ? {
             type: "category",
             data: categories,
             axisLine: { lineStyle: { color: "rgba(199, 208, 220, 0.65)" } },
-            axisLabel: { color: "#8a97a8" },
+            axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12, interval: categoryAxisInterval, hideOverlap: true },
           }
         : {
             type: "value",
             splitLine: { lineStyle: { color: "rgba(215, 223, 233, 0.8)" } },
-            axisLabel: { color: "#8a97a8" },
+            axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
           },
       series: platformSeries,
     });
@@ -472,30 +504,33 @@ function renderCharts() {
     const recentEpisodes = [...state.episodes]
       .sort((left, right) => episodeNumber(right) - episodeNumber(left))
       .slice(0, 10);
-    const relativeDays = Array.from({ length: 15 }, (_, index) => `Day ${index + 1}`);
+    const relativeDays = Array.from({ length: 15 }, (_, index) => (compactMobile ? `D${index + 1}` : `Day ${index + 1}`));
 
     episodeBar.setOption({
       animationDuration: 400,
       legend: {
+        show: !compactMobile,
         bottom: 0,
         data: recentEpisodes.map((episode) => episode.title),
         textStyle: { color: "#8a97a8" },
       },
-      grid: { left: 56, right: 24, top: 30, bottom: 84 },
-      tooltip: { trigger: "axis" },
+      grid: compactMobile ? { left: 44, right: 14, top: 18, bottom: 24 } : { left: 56, right: 24, top: 30, bottom: 84 },
+      tooltip: mobileTooltipConfig({ trigger: "axis" }),
       xAxis: {
         type: "category",
         data: relativeDays,
         axisLine: { lineStyle: { color: "rgba(199, 208, 220, 0.65)" } },
         axisLabel: {
           color: "#8a97a8",
-          interval: 0,
+          interval: compactMobile ? 2 : 0,
+          fontSize: compactMobile ? 10 : 12,
+          hideOverlap: true,
         },
       },
       yAxis: {
         type: "value",
         splitLine: { lineStyle: { color: "rgba(215, 223, 233, 0.8)" } },
-        axisLabel: { color: "#8a97a8" },
+        axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
       },
       series: recentEpisodes.map((episode) => {
         const color = episodeColors.get(episode.id) || "#cbd5e1";
@@ -510,16 +545,16 @@ function renderCharts() {
           type: "line",
           connectNulls: false,
           smooth: true,
-          showSymbol: true,
-          symbolSize: 8,
+          showSymbol: !compactMobile,
+          symbolSize: compactMobile ? 6 : 8,
           label: {
-            show: true,
+            show: !compactMobile,
             color,
             fontSize: 11,
             formatter: ({ value }) => (value ? formatNumber(value) : ""),
           },
           endLabel: {
-            show: true,
+            show: !compactMobile,
             formatter: shortEpisodeLabel(episode),
             color,
           },
@@ -620,9 +655,9 @@ function renderHeroLinks() {
     .filter((platform) => platform.url)
     .map(
       (platform) => `
-        <a class="hero-link-chip ${platformToneClass(platform.id)}" href="${platform.url}" target="_blank" rel="noreferrer">
+        <a class="hero-link-chip ${platformToneClass(platform.id)}" href="${platform.url}" target="_blank" rel="noreferrer" aria-label="${platform.name}">
           <img class="hero-link-logo" src="${faviconUrl(platform.url)}" alt="${platform.name} logo" loading="lazy" />
-          <span>${platform.name}</span>
+          <span class="hero-link-label">${platform.name}</span>
         </a>
       `,
     )
@@ -754,6 +789,8 @@ function renderAll() {
 }
 
 function setRefreshUi({ loading = false, message = "" } = {}) {
+  state.isRefreshing = loading;
+
   if (elements.refreshButton) {
     elements.refreshButton.disabled = loading;
     elements.refreshButton.textContent = loading ? "正在刷新..." : "立即刷新数据";
@@ -782,7 +819,7 @@ window.podcastDashboardRefresh = handleRefreshButtonClick;
 
 async function requestDashboard({ refresh = false } = {}) {
   const response = await fetch(
-    refresh ? "/api/podcast/dashboard" : "/api/podcast/dashboard?ts=" + Date.now(),
+    refresh ? "/api/podcast/dashboard" : `/api/podcast/dashboard?ts=${Date.now()}`,
     {
       method: refresh ? "POST" : "GET",
       cache: "no-store",
@@ -794,7 +831,7 @@ async function requestDashboard({ refresh = false } = {}) {
   );
   const data = await response.json();
 
-  if (response.ok === false) {
+  if (!response.ok) {
     throw new Error(data?.message || "数据加载失败");
   }
 
@@ -817,20 +854,19 @@ async function refreshDashboard() {
 
     const latestDate = data?.snapshot?.date || latestSnapshots().latest?.date || "刚刚";
     const persistedMessage = data.persisted
-      ? "已刷新到 " + latestDate + "，服务端快照也已更新。"
-      : "已刷新到 " + latestDate + "，当前页面已经显示最新公开数据。";
+      ? `已刷新到 ${latestDate}，服务端快照也已更新。`
+      : `已刷新到 ${latestDate}，当前页面已经显示最新公开数据。`;
     setRefreshUi({ loading: false, message: persistedMessage });
   } catch (error) {
     setRefreshUi({
       loading: false,
-      message: "刷新失败：" + (error instanceof Error ? error.message : "未知错误"),
+      message: `刷新失败：${error instanceof Error ? error.message : "未知错误"}`,
     });
   }
 }
 
 async function boot() {
   hydrateBackHomeLink();
-
   bindRefreshButton();
   setRefreshUi({ message: "页面会优先显示最新公开快照" });
 
@@ -845,6 +881,7 @@ async function boot() {
   }
   renderAll();
   window.addEventListener("resize", () => {
+    renderCharts();
     Object.values(charts).forEach((chart) => chart?.resize());
   });
 }

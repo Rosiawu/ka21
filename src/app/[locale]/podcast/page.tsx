@@ -1,10 +1,13 @@
 import { redirect } from 'next/navigation';
 
-export default function PodcastPage({
+type PodcastPageParams = Promise<{ locale: string }>;
+
+export default async function PodcastPage({
   params,
 }: {
-  params: { locale: string };
+  params: PodcastPageParams;
 }) {
-  const locale = params?.locale === 'en' ? 'en' : 'zh';
+  const { locale: routeLocale } = await params;
+  const locale = routeLocale === 'en' ? 'en' : 'zh';
   redirect(`/podcast-dashboard/index.html?locale=${locale}`);
 }

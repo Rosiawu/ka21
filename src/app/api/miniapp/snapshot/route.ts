@@ -7,6 +7,7 @@ import weeklyPicksData from '@/data/weekly-picks.json';
 import { TOOL_CATEGORIES } from '@/data/toolCategories';
 import { teamMembers } from '@/data/team-members';
 import { sortedDevLogs } from '@/data/devLogs';
+import { listApprovedDeals } from '@/lib/deals/store';
 
 type ToolRecord = {
   id: string;
@@ -152,7 +153,36 @@ function normalizeDevLogs() {
   }));
 }
 
-function buildPayload() {
+async function normalizeDeals() {
+  try {
+    const deals = await listApprovedDeals();
+    return deals
+      .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+      .map((deal) => ({
+        id: deal.id,
+        title: deal.title,
+        sourceName: deal.sourceName,
+        sourceUrl: deal.sourceUrl,
+        priceInfo: deal.priceInfo,
+        benefitInfo: deal.benefitInfo,
+        methodText: deal.methodText,
+        inviteCode: deal.inviteCode,
+        expiresText: deal.expiresText,
+        createdAt: deal.createdAt,
+        contributor: {
+          id: deal.contributor.id,
+          nickname: deal.contributor.nickname,
+          avatarUrl: deal.contributor.avatarUrl,
+        },
+        stats: deal.stats,
+      }));
+  } catch {
+    return [];
+  }
+}
+
+async function buildPayload() {
+  const deals = await normalizeDeals();
   return {
     tools: normalizeTools(),
     tutorials: normalizeTutorials(),
@@ -160,15 +190,16 @@ function buildPayload() {
     teamMembers: normalizeTeamMembers(),
     weeklyPicks: normalizeWeeklyPicks(),
     devLogs: normalizeDevLogs(),
+    deals,
   };
 }
 
-function buildVersion(payload: ReturnType<typeof buildPayload>): string {
+function buildVersion(payload: Awaited<ReturnType<typeof buildPayload>>): string {
   return createHash('sha1').update(JSON.stringify(payload)).digest('hex');
 }
 
 export async function GET() {
-  const payload = buildPayload();
+  const payload = await buildPayload();
   const version = buildVersion(payload);
 
   return NextResponse.json(

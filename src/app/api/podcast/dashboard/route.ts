@@ -3,6 +3,8 @@ import * as cheerio from 'cheerio';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { captureLiveDashboardData } from '../../../../../scripts/podcast/capture-snapshot';
+import { requireAdminAccess } from '@/lib/security/admin';
+import { beginConcurrencyLease, enforceRateLimit } from '@/lib/security/rate-limit';
 
 const defaultConfig = {
   showName: '灯下白',
@@ -166,7 +168,32 @@ export async function GET() {
   }
 }
 
-export async function POST() {
+export async function POST(request: Request) {
+  const adminError = requireAdminAccess(request);
+  if (adminError) {
+    return adminError;
+  }
+
+  const rateLimitResponse = enforceRateLimit(request, {
+    name: 'podcast-dashboard-refresh',
+    limit: 6,
+    windowMs: 60 * 60 * 1000,
+  });
+  if (rateLimitResponse) {
+    return rateLimitResponse;
+  }
+
+  const releaseConcurrency = beginConcurrencyLease('podcast-dashboard-refresh', 1);
+  if (!releaseConcurrency) {
+    return jsonResponse(
+      {
+        error: 'dashboard_refresh_busy',
+        message: 'Refresh already running',
+      },
+      429,
+    );
+  }
+
   try {
     const payload = await captureLiveDashboardData({
       dryRun: false,
@@ -192,5 +219,7 @@ export async function POST() {
       },
       500,
     );
+  } finally {
+    releaseConcurrency();
   }
 }

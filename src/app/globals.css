@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  --font-inter: "Inter";
+  --font-noto-sans-sc: "Noto Sans SC";
   --foreground: #24324c;
   --background: #f5f7fc;
   --primary: #6c74f8;

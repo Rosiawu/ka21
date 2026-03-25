@@ -5,11 +5,14 @@ import { generateHreflangMetadata } from '@/lib/hreflang';
 import { sortedDevLogs } from '@/data/devLogs';
 import DevLogImageCarousel from '@/components/DevLogImageCarousel';
 
+type DevLogPageParams = Promise<{ locale: string }>;
+
 export async function generateMetadata(
-  { params }: { params: { locale: string } },
+  { params }: { params: DevLogPageParams },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const locale = params.locale === 'en' ? 'en' : 'zh';
+  const { locale: routeLocale } = await params;
+  const locale = routeLocale === 'en' ? 'en' : 'zh';
   const isEn = locale === 'en';
   const hreflangConfig = generateHreflangMetadata(locale, 'devlog');
 
@@ -28,8 +31,9 @@ export async function generateMetadata(
   );
 }
 
-export default function DevLogPage({ params }: { params: { locale: string } }) {
-  const isEn = params.locale === 'en';
+export default async function DevLogPage({ params }: { params: DevLogPageParams }) {
+  const { locale } = await params;
+  const isEn = locale === 'en';
   const text = {
     title: isEn ? 'Development Log' : '开发日志',
     subtitle: isEn

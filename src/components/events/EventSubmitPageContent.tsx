@@ -2,6 +2,7 @@
 
 import Link from '@/i18n/Link';
 import { useState } from 'react';
+import AdminSessionGate from '@/components/admin/AdminSessionGate';
 
 type PreviewDraft = {
   title: string;
@@ -187,13 +188,15 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
           </div>
         </section>
 
-        <section className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-950/85 sm:p-6">
-          <div className="rounded-[1.5rem] border border-emerald-200/80 bg-emerald-50/80 p-4 text-sm text-slate-700 dark:border-emerald-800/50 dark:bg-emerald-950/20 dark:text-slate-200">
+        <div className="mt-6">
+          <AdminSessionGate locale={isEn ? 'en' : 'zh'}>
+            <section className="rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-950/85 sm:p-6">
+              <div className="rounded-[1.5rem] border border-emerald-200/80 bg-emerald-50/80 p-4 text-sm text-slate-700 dark:border-emerald-800/50 dark:bg-emerald-950/20 dark:text-slate-200">
             <p className="font-semibold text-slate-900 dark:text-slate-100">{text.tipsTitle}</p>
             <p className="mt-1 leading-6">{text.tipsBody}</p>
-          </div>
+              </div>
 
-          <div className="mt-5 space-y-4">
+              <div className="mt-5 space-y-4">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.sourceUrlLabel}</span>
               <textarea
@@ -348,8 +351,10 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
                 )}
               </div>
             )}
-          </div>
-        </section>
+              </div>
+            </section>
+          </AdminSessionGate>
+        </div>
       </div>
     </div>
   );

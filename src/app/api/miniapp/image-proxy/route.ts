@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { safeFetch } from '@/lib/security/safe-fetch';
 
 const ALLOWED_HOSTS = new Set([
   'mmbiz.qpic.cn',
@@ -34,7 +35,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const upstream = await fetch(targetUrl, {
+    const upstream = await safeFetch(targetUrl, {
       headers: {
         'User-Agent':
           'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger',
@@ -43,6 +44,9 @@ export async function GET(request: Request) {
       },
       cache: 'force-cache',
       next: { revalidate: 86400 },
+    }, {
+      allowedHostnames: ALLOWED_HOSTS,
+      timeoutMs: 10_000,
     });
 
     if (!upstream.ok || !upstream.body) {
@@ -71,4 +75,3 @@ export async function GET(request: Request) {
     return NextResponse.json({ success: false, message }, { status: 502 });
   }
 }
-

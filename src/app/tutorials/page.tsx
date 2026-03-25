@@ -4,12 +4,16 @@ import { withBaseMeta } from '@/lib/withBaseMeta';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { generateHreflangMetadata } from '@/lib/hreflang';
 
+type TutorialsPageParams = Promise<{ locale?: string }>;
+
 export async function generateMetadata(
-  { params }: { params: { locale: string } },
+  { params }: { params?: TutorialsPageParams },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
+  const resolvedParams = params ? await params : undefined;
+  const locale = resolvedParams?.locale === 'en' ? 'en' : 'zh';
   // 生成hreflang标签（教程页面路径）
-  const hreflangConfig = generateHreflangMetadata(params.locale, 'tutorials');
+  const hreflangConfig = generateHreflangMetadata(locale, 'tutorials');
 
   return withBaseMeta(
     {

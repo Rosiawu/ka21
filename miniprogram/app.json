@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/webview/index",
     "pages/home/index",
     "pages/devlog-submit/index",
     "pages/tools/index",
     "pages/tool-detail/index",
     "pages/tutorials/index",
-    "pages/about/index",
-    "pages/webview/index"
+    "pages/about/index"
   ],
   "subPackages": [
     {
@@ -18,34 +18,10 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "KA21工具导航",
+    "navigationBarTitleText": "KA21",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f5f7fb",
     "backgroundTextStyle": "dark"
-  },
-  "tabBar": {
-    "color": "#667085",
-    "selectedColor": "#2563eb",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/home/index",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/tools/index",
-        "text": "工具库"
-      },
-      {
-        "pagePath": "pages/tutorials/index",
-        "text": "教程"
-      },
-      {
-        "pagePath": "pages/about/index",
-        "text": "关于"
-      }
-    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

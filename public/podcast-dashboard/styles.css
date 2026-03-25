@@ -257,12 +257,14 @@ h3 {
   justify-content: center;
   gap: 10px;
   min-height: 44px;
+  min-width: 0;
   padding: 10px 14px;
   border-radius: 999px;
   text-decoration: none;
   font-size: 14px;
   font-weight: 650;
   letter-spacing: -0.01em;
+  color: var(--ink);
   background: rgba(255, 255, 255, 0.46);
   border: 1px solid rgba(192, 203, 219, 0.28);
   box-shadow:
@@ -285,11 +287,16 @@ h3 {
 }
 
 .hero-link-logo {
-  width: 18px;
-  height: 18px;
-  border-radius: 5px;
-  flex: 0 0 18px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  flex: 0 0 22px;
   box-shadow: 0 4px 10px rgba(174, 188, 206, 0.16);
+}
+
+.hero-link-label {
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .panel {
@@ -788,8 +795,16 @@ tbody tr:last-child td {
 
   .hero,
   .panel {
-    padding: 22px;
+    padding: 18px;
     border-radius: 24px;
+  }
+
+  .panel-head {
+    margin-bottom: 14px;
+  }
+
+  .subsection-head {
+    margin: 22px 0 12px;
   }
 
   .hero,
@@ -830,17 +845,51 @@ tbody tr:last-child td {
     min-height: auto;
   }
 
+  .hero-link-chip {
+    gap: 0;
+    min-height: 52px;
+    min-width: 52px;
+    padding: 0;
+    border-radius: 18px;
+  }
+
+  .hero-link-label {
+    display: none;
+  }
+
   h1 {
-    font-size: 38px;
+    font-size: 32px;
+    line-height: 1.02;
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  .chart-card,
+  .episode-history-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .chart-title {
+    margin-bottom: 10px;
+    font-size: 14px;
   }
 
   .card strong,
   .summary-card strong {
     font-size: 34px;
+  }
+
+  .chart-box {
+    height: 248px;
+  }
+}
+
+@media (max-width: 420px) {
+  .chart-box {
+    height: 232px;
   }
 }
 

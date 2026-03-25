@@ -15,9 +15,7 @@ const ReactMarkdown = lazy(() => import('react-markdown'));
 // AI助手功能开关 - 通过环境变量控制是否启用
 const AI_ASSISTANT_ENABLED = process.env.NEXT_PUBLIC_ENABLE_AI_ASSISTANT === 'true'; // AI助手功能开关
 
-// 优先使用环境变量，兼容保留原有常量以不影响现有功能
-const API_KEY = process.env.NEXT_PUBLIC_DEEPSEEK_API_KEY || 'sk-25ae8e061fe242849b93308abc2fc22f'; // DeepSeek API密钥
-const API_URL = process.env.NEXT_PUBLIC_DEEPSEEK_API_URL || 'https://api.deepseek.com/v1/chat/completions'; // DeepSeek API接口地址
+const CHAT_API_URL = '/api/chat';
 
 // ========== 类型定义 ==========
 
@@ -474,16 +472,11 @@ export default function ChatWidget() {
       return;
     }
 
-    // 没有找到工具，使用AI回答
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(CHAT_API_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'deepseek-chat',
           messages: newMessages.map(m => ({ role: m.role, content: m.content }))
         })
       });

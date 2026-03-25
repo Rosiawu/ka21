@@ -1,3 +1,5 @@
+var DEFAULT_URL = 'https://ka21.org';
+
 function decode(value) {
   try {
     return decodeURIComponent(value || '');
@@ -8,29 +10,19 @@ function decode(value) {
 
 Page({
   data: {
-    url: '',
-    title: '内容详情',
+    url: DEFAULT_URL,
     error: '',
   },
 
   onLoad: function (options) {
     var safeOptions = options || {};
-    var url = decode(safeOptions.url || '');
-    var title = decode(safeOptions.title || '内容详情');
+    var url = decode(safeOptions.url || '') || DEFAULT_URL;
 
-    if (!url || !/^https?:\/\//.test(url)) {
+    if (!/^https?:\/\//.test(url)) {
       this.setData({ error: '链接无效，无法打开。' });
       return;
     }
 
-    this.setData({
-      url: url,
-      title: title,
-      error: '',
-    });
-
-    wx.setNavigationBarTitle({
-      title: (title || '内容详情').slice(0, 12),
-    });
+    this.setData({ url: url, error: '' });
   },
 });

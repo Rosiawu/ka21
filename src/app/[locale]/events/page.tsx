@@ -5,11 +5,14 @@ import { withBaseMeta } from '@/lib/withBaseMeta';
 import { generateHreflangMetadata } from '@/lib/hreflang';
 import { getSortedEvents } from '@/data/events';
 
+type EventsPageParams = Promise<{ locale: string }>;
+
 export async function generateMetadata(
-  { params }: { params: { locale: string } },
+  { params }: { params: EventsPageParams },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const locale = params.locale === 'en' ? 'en' : 'zh';
+  const { locale: rawLocale } = await params;
+  const locale = rawLocale === 'en' ? 'en' : 'zh';
   const isEn = locale === 'en';
   const hreflangConfig = generateHreflangMetadata(locale, 'events');
 
@@ -30,8 +33,9 @@ export async function generateMetadata(
 
 export const dynamic = 'force-dynamic';
 
-export default async function EventsPage({ params }: { params: { locale: string } }) {
-  const isEn = params.locale === 'en';
+export default async function EventsPage({ params }: { params: EventsPageParams }) {
+  const { locale } = await params;
+  const isEn = locale === 'en';
   const sortedEvents = await getSortedEvents();
   const text = {
     title: isEn ? 'Event Board' : '赛事区',

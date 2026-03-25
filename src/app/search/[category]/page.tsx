@@ -1,9 +1,12 @@
 import { redirect } from 'next/navigation';
 
-export default function SearchCategoryPage({
+type SearchCategoryPageParams = Promise<{ category: string }>;
+
+export default async function SearchCategoryPage({
   params
 }: {
-  params: { category: string }
+  params: SearchCategoryPageParams
 }) {
-  redirect(`/zh/search/${params.category}`);
+  const { category } = await params;
+  redirect(`/zh/search/${category}`);
 }

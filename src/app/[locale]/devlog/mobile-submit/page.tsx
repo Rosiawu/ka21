@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: '手机端快速提交开发日志，自动写入 GitHub 并等待部署更新。',
 };
 
-export default function DevLogMobileSubmitPage({ params }: { params: { locale: string } }) {
-  return <DevLogSubmitPageContent locale={params.locale === 'en' ? 'en' : 'zh'} />;
+type DevLogMobileSubmitPageParams = Promise<{ locale: string }>;
+
+export default async function DevLogMobileSubmitPage({ params }: { params: DevLogMobileSubmitPageParams }) {
+  const { locale } = await params;
+  return <DevLogSubmitPageContent locale={locale === 'en' ? 'en' : 'zh'} />;
 }

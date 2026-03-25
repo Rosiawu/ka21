@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from '@/i18n/Link';
+import AdminSessionGate from '@/components/admin/AdminSessionGate';
 import type { ChangeEvent, ClipboardEvent } from 'react';
 import { useRef, useState } from 'react';
 
@@ -183,8 +184,10 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
           </div>
         </section>
 
-        <section className="mt-6 rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/85 sm:p-6">
-          <div className="space-y-4">
+        <div className="mt-6">
+          <AdminSessionGate locale={isEn ? 'en' : 'zh'}>
+            <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/85 sm:p-6">
+              <div className="space-y-4">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.titleLabel}</span>
               <input
@@ -272,8 +275,10 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
                 )}
               </div>
             )}
-          </div>
-        </section>
+              </div>
+            </section>
+          </AdminSessionGate>
+        </div>
       </div>
     </div>
   );

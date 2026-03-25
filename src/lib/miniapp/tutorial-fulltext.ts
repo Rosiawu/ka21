@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import { safeFetch } from '@/lib/security/safe-fetch';
 
 export type TutorialRecord = {
   id: string;
@@ -301,51 +302,44 @@ export async function fetchAndExtractFulltext(
 ): Promise<{ blocks: ContentBlock[]; finalUrl: string; title: string; cover: string }> {
   const timeoutMs = options?.timeoutMs ?? 20_000;
   const target = new URL(sourceUrl);
+  const response = await safeFetch(target.toString(), {
+    headers: {
+      'User-Agent':
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'zh-CN,zh;q=0.9',
+      Referer: 'https://mp.weixin.qq.com/',
+    },
+    cache: 'no-store',
+  }, {
+    timeoutMs,
+  });
 
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-  try {
-    const response = await fetch(target.toString(), {
-      signal: controller.signal,
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        Referer: 'https://mp.weixin.qq.com/',
-      },
-      cache: 'no-store',
-    });
-
-    if (!response.ok) {
-      throw new Error(`upstream-status-${response.status}`);
-    }
-
-    const html = await response.text();
-    const finalUrl = response.url || target.toString();
-    const finalUrlObj = new URL(finalUrl);
-    const blocks = extractBlocksFromHtml(html, finalUrlObj);
-    const cover = extractCoverFromHtml(html, finalUrlObj);
-
-    const $ = cheerio.load(html);
-    const title =
-      normalizeText(
-        $('meta[property="og:title"]').attr('content') ||
-          $('meta[name="twitter:title"]').attr('content') ||
-          $('#activity-name').text() ||
-          $('.rich_media_title').text() ||
-          $('title').text() ||
-          '',
-      ) || '';
-
-    return {
-      blocks,
-      finalUrl,
-      title,
-      cover,
-    };
-  } finally {
-    clearTimeout(timer);
+  if (!response.ok) {
+    throw new Error(`upstream-status-${response.status}`);
   }
+
+  const html = await response.text();
+  const finalUrl = response.url || target.toString();
+  const finalUrlObj = new URL(finalUrl);
+  const blocks = extractBlocksFromHtml(html, finalUrlObj);
+  const cover = extractCoverFromHtml(html, finalUrlObj);
+
+  const $ = cheerio.load(html);
+  const title =
+    normalizeText(
+      $('meta[property="og:title"]').attr('content') ||
+        $('meta[name="twitter:title"]').attr('content') ||
+        $('#activity-name').text() ||
+        $('.rich_media_title').text() ||
+        $('title').text() ||
+        '',
+    ) || '';
+
+  return {
+    blocks,
+    finalUrl,
+    title,
+    cover,
+  };
 }

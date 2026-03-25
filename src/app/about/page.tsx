@@ -6,11 +6,14 @@ import TeamMemberCard from '@/components/TeamMemberCard';
 import { teamMembers } from '@/data/team-members';
 import { generateHreflangMetadata } from '@/lib/hreflang';
 
+type AboutPageParams = Promise<{ locale?: string }>;
+
 export async function generateMetadata(
-  { params }: { params?: { locale?: string } },
+  { params }: { params?: AboutPageParams },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const locale = params?.locale === 'en' ? 'en' : 'zh';
+  const resolvedParams = params ? await params : undefined;
+  const locale = resolvedParams?.locale === 'en' ? 'en' : 'zh';
   const isEn = locale === 'en';
   // 生成hreflang标签（关于页面路径）
   const hreflangConfig = generateHreflangMetadata(locale, 'about');
@@ -30,10 +33,11 @@ export async function generateMetadata(
   );
 }
 
-export default function AboutPage({ params }: { params?: { locale?: string } }) {
-  const isEn = params?.locale === 'en';
+export default async function AboutPage({ params }: { params?: AboutPageParams }) {
+  const resolvedParams = params ? await params : undefined;
+  const isEn = resolvedParams?.locale === 'en';
   const teamCount = teamMembers.length;
-  const homeHref = params?.locale ? `/${params.locale}` : '/';
+  const homeHref = resolvedParams?.locale ? `/${resolvedParams.locale}` : '/';
   const text = {
     homeLabel: isEn ? 'Back Home' : '返回首页',
     missionTitle: isEn ? 'Our Mission' : '我们的目标',

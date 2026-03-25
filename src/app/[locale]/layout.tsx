@@ -7,6 +7,8 @@ import LocaleShell from '@/components/LocaleShell';
 import {generateHreflangMetadata} from '@/lib/hreflang';
 import {isSupportedLocale, type AppLocale} from '@/i18n/config';
 
+type LocaleParams = Promise<{locale: string}>;
+
 function requireLocale(locale: string): AppLocale {
   if (!isSupportedLocale(locale)) {
     notFound();
@@ -22,9 +24,10 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params
 }: {
-  params: {locale: string}
+  params: LocaleParams
 }): Promise<Metadata> {
-  const locale = requireLocale(params.locale);
+  const {locale: rawLocale} = await params;
+  const locale = requireLocale(rawLocale);
   // 直接按路径参数加载对应语言的消息，避免依赖 request 级 locale 注入
   type Messages = typeof import('../../../messages/en.json');
   const messages = (await import(`../../../messages/${locale}.json`)).default as Messages;
@@ -48,9 +51,10 @@ export default async function LocaleLayout({
   params
 }: {
   children: React.ReactNode;
-  params: {locale: string};
+  params: LocaleParams;
 }) {
-  const locale = requireLocale(params.locale);
+  const {locale: rawLocale} = await params;
+  const locale = requireLocale(rawLocale);
   // Ensure server-side translations use the active locale
   setRequestLocale(locale);
   // 按路径参数直接加载消息，确保与当前语言一致

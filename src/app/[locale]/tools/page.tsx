@@ -1,9 +1,12 @@
 import { redirect } from 'next/navigation';
 
-export default function ToolsPage({
+type ToolsPageParams = Promise<{ locale: string }>;
+
+export default async function ToolsPage({
   params,
 }: {
-  params: { locale: string };
+  params: ToolsPageParams;
 }) {
-  redirect(`/${params.locale}#all-tools-categories`);
+  const { locale } = await params;
+  redirect(`/${locale}#all-tools-categories`);
 }

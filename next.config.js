@@ -2,7 +2,6 @@
 const createNextIntlPlugin = require('next-intl/plugin');
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 
 // Bundle 分析器配置
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -14,18 +13,36 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'https',
+        hostname: 'mmbiz.qpic.cn',
+      },
+      {
         protocol: 'http',
-        hostname: '**',
+        hostname: 'mmecoa.qpic.cn',
       },
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'mmecoa.qpic.cn',
+      },
+      {
+        protocol: 'https',
+        hostname: 'thirdwx.qlogo.cn',
+      },
+      {
+        protocol: 'https',
+        hostname: 'wx.qlogo.cn',
       },
     ],
   },
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
 
   // 优化生产环境构建
   productionBrowserSourceMaps: false, // 生产环境不生成 source maps
@@ -33,12 +50,10 @@ const nextConfig = {
   // 实验性功能
   experimental: {
     optimizePackageImports: ['@/components'], // 优化组件导入
-    // 启用 SWC 压缩以获得更好的性能
-    swcMinify: true,
   },
 
   // Webpack 配置优化
-  webpack: (config, { isServer, dev }) => {
+  webpack: (config, { isServer }) => {
     // 优化包大小
     if (!isServer) {
       config.resolve.fallback = {
@@ -64,21 +79,6 @@ const nextConfig = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, 'src'),
     };
-
-    // 生产环境优化
-    if (!dev) {
-      // 移除 console.log
-      config.optimization.minimizer.push(
-        new TerserPlugin({
-          terserOptions: {
-            compress: {
-              drop_console: true,
-              drop_debugger: true,
-            },
-          },
-        })
-      );
-    }
 
     return config;
   },

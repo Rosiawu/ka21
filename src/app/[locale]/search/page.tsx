@@ -6,17 +6,20 @@ import { withBaseMeta } from '@/lib/withBaseMeta';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { generateHreflangMetadata } from '@/lib/hreflang';
 
+type SearchPageParams = Promise<{ locale: string }>;
+
 export async function generateMetadata(
-  { params }: { params: { locale: string } },
+  { params }: { params: SearchPageParams },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const isEn = params.locale === 'en';
+  const { locale } = await params;
+  const isEn = locale === 'en';
   const title = isEn ? 'AI Tool Search - KA21 Tools' : 'AI工具搜索 - KA21工具导航';
   const description = isEn
     ? 'Search and discover AI tools with multi-dimensional filters like category and function.'
     : '搜索和发现最适合您的AI工具，支持按类别、功能、难度等多维度筛选';
   // 生成hreflang标签（搜索页面路径）
-  const hreflangConfig = generateHreflangMetadata(params.locale, 'search');
+  const hreflangConfig = generateHreflangMetadata(locale, 'search');
 
   return withBaseMeta(
     {
