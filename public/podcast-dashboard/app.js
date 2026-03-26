@@ -823,7 +823,9 @@ async function requestDashboard({ refresh = false } = {}) {
     {
       method: refresh ? "POST" : "GET",
       cache: "no-store",
+      credentials: "same-origin",
       headers: {
+        ...(refresh ? { "x-ka21-dashboard-refresh": "1" } : {}),
         "cache-control": "no-store",
         pragma: "no-cache",
       },

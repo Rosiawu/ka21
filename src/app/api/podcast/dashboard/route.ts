@@ -81,6 +81,7 @@ type NextFetchInit = RequestInit & {
 const podcastDataDir = path.join(process.cwd(), 'data', 'podcast-dashboard');
 const trackerConfigPath = path.join(podcastDataDir, 'config.json');
 const trackerSnapshotsPath = path.join(podcastDataDir, 'snapshots.json');
+const dashboardRefreshHeader = 'x-ka21-dashboard-refresh';
 const noStoreHeaders = {
   'Cache-Control': 'no-store, max-age=0, must-revalidate',
 };
@@ -90,6 +91,49 @@ function jsonResponse(body: unknown, status = 200) {
     status,
     headers: noStoreHeaders,
   });
+}
+
+function isTrustedDashboardRefreshRequest(request: Request) {
+  if (request.headers.get(dashboardRefreshHeader) !== '1') {
+    return false;
+  }
+
+  const requestOrigin = new URL(request.url).origin;
+  const origin = request.headers.get('origin')?.trim();
+  if (origin && origin === requestOrigin) {
+    return true;
+  }
+
+  const referer = request.headers.get('referer')?.trim();
+  if (!referer) {
+    return false;
+  }
+
+  try {
+    const refererUrl = new URL(referer);
+    return refererUrl.origin === requestOrigin && refererUrl.pathname.startsWith('/podcast-dashboard');
+  } catch {
+    return false;
+  }
+}
+
+function requireDashboardRefreshAccess(request: Request) {
+  const adminError = requireAdminAccess(request);
+  if (!adminError) {
+    return null;
+  }
+
+  if (isTrustedDashboardRefreshRequest(request)) {
+    return null;
+  }
+
+  return jsonResponse(
+    {
+      error: 'dashboard_refresh_forbidden',
+      message: 'Dashboard refresh is only available from the podcast dashboard page',
+    },
+    403,
+  );
 }
 
 async function loadConfig(): Promise<PodcastConfig> {
@@ -169,9 +213,9 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const adminError = requireAdminAccess(request);
-  if (adminError) {
-    return adminError;
+  const accessError = requireDashboardRefreshAccess(request);
+  if (accessError) {
+    return accessError;
   }
 
   const rateLimitResponse = enforceRateLimit(request, {
