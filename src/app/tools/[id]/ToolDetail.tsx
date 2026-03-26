@@ -27,7 +27,7 @@ function GuideSection({ guide }: { guide: Guide }) {
       <h3 className="text-lg font-semibold mb-2 flex items-center">
         <span className={`
           w-2 h-2 rounded-full mr-2
-          ${guide.type === 'text' ? 'bg-blue-500' :
+          ${guide.type === 'text' ? 'bg-primary-500' :
             guide.type === 'video' ? 'bg-green-500' :
             'bg-yellow-500'}
         `}></span>
@@ -117,7 +117,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
         <div className="max-w-8xl mx-auto">
           <button
             onClick={handleBackToHome}
-            className="inline-flex items-center text-blue-500 hover:text-blue-600 mb-6"
+            className="inline-flex items-center text-primary-500 hover:text-primary-600 mb-6"
           >
             <svg
               className="w-5 h-5 mr-2"
@@ -136,7 +136,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
           </button>
 
           {/* 工具基本信息展示 */}
-          <div className="bg-white dark:bg-slate-800 shadow-sm rounded-xl p-6 mb-6">
+          <div className="bg-white dark:bg-gray-800 shadow-sm rounded-xl p-6 mb-6">
             <div className="flex flex-col md:flex-row md:items-start gap-4">
               <div className="relative w-16 h-16 flex-shrink-0">
                 {iconUrl ? (
@@ -205,7 +205,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
                     href={localizedTool.url} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="inline-flex items-center px-4 py-2 border border-blue-500 text-blue-600 rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                    className="inline-flex items-center px-4 py-2 border border-primary-500 text-primary-600 rounded-md hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-colors"
                   >
                     {text.visitOfficial}
                     <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -219,8 +219,8 @@ function ToolDetail({ tool }: { tool: Tool }) {
           
           {/* 工具指南区域 */}
           {localizedTool.guides && localizedTool.guides.length > 0 && (
-            <div className="bg-white dark:bg-slate-800 shadow-sm rounded-xl p-6 mb-6">
-              <h2 className="text-xl font-bold mb-4 pb-2 border-b dark:border-slate-700">{text.guideTitle}</h2>
+            <div className="bg-white dark:bg-gray-800 shadow-sm rounded-xl p-6 mb-6">
+              <h2 className="text-xl font-bold mb-4 pb-2 border-b dark:border-gray-700">{text.guideTitle}</h2>
               <div>
                 {localizedTool.guides.map((guide, index) => (
                   <GuideSection key={index} guide={guide} />
@@ -231,8 +231,8 @@ function ToolDetail({ tool }: { tool: Tool }) {
           
           {/* 相关文章区域 - 支持新旧数据结构 */}
           {relatedTutorials && relatedTutorials.length > 0 && (
-            <div className="bg-white dark:bg-slate-800 shadow-sm rounded-xl p-6 mb-6">
-              <div className="flex justify-between items-center mb-4 pb-2 border-b dark:border-slate-700">
+            <div className="bg-white dark:bg-gray-800 shadow-sm rounded-xl p-6 mb-6">
+              <div className="flex justify-between items-center mb-4 pb-2 border-b dark:border-gray-700">
                 <h2 className="text-xl font-bold">{text.relatedArticles}</h2>
                 <span className="text-sm text-gray-500 dark:text-gray-400">
                   {text.articleCount(relatedTutorials.length)}
@@ -248,7 +248,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
                       href={article.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block p-3 border border-gray-100 dark:border-slate-700 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                      className="block p-3 border border-gray-100 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
                     >
                       <h3 className="font-medium text-gray-900 dark:text-gray-100 mb-1 line-clamp-2">
                         {article.title}
@@ -278,7 +278,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
               {relatedTutorials.length > 3 && (
                 <button
                   onClick={() => setExpandArticles(!expandArticles)}
-                  className="mt-4 w-full text-center text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 py-2 border border-gray-100 dark:border-slate-700 rounded-md hover:bg-gray-50 dark:hover:bg-slate-700/50 transition-colors"
+                  className="mt-4 w-full text-center text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 py-2 border border-gray-100 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
                 >
                   {expandArticles ? (
                     <span className="flex items-center justify-center">
@@ -302,11 +302,11 @@ function ToolDetail({ tool }: { tool: Tool }) {
           
           {/* 群友评价区域 */}
           {localizedTool.groupComments && localizedTool.groupComments.length > 0 && (
-            <div className="bg-white dark:bg-slate-800 shadow-sm rounded-xl p-6">
-              <h2 className="text-xl font-bold mb-4 pb-2 border-b dark:border-slate-700">{text.communityReviews}</h2>
+            <div className="bg-white dark:bg-gray-800 shadow-sm rounded-xl p-6">
+              <h2 className="text-xl font-bold mb-4 pb-2 border-b dark:border-gray-700">{text.communityReviews}</h2>
               <div className="space-y-4">
                 {localizedTool.groupComments.map((comment, index) => (
-                  <div key={index} className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                  <div key={index} className="p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
                     <p className="text-gray-800 dark:text-gray-200 whitespace-pre-wrap mb-2">{comment.content}</p>
                     <div className="flex items-center justify-between text-sm">
                       <div className="text-gray-500 dark:text-gray-400">
@@ -315,7 +315,7 @@ function ToolDetail({ tool }: { tool: Tool }) {
                         {comment.createdAt && <span>{comment.createdAt}</span>}
                       </div>
                       {comment.reviewType && (
-                        <div className="px-2 py-1 bg-blue-100 dark:bg-blue-800/50 text-blue-600 dark:text-blue-300 rounded text-xs">
+                        <div className="px-2 py-1 bg-primary-100 dark:bg-primary-800/50 text-primary-600 dark:text-primary-300 rounded text-xs">
                           {comment.reviewType}
                         </div>
                       )}

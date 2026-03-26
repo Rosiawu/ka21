@@ -55,8 +55,8 @@ export default function TutorialCard({
         rel="noopener noreferrer"
         className="block h-full group active:scale-[0.985]"
       >
-        <article className={`tool-card flex h-full flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm transition-all duration-300 group-hover:border-primary-300 group-hover:shadow-lg dark:bg-slate-800 ${showDelete ? 'ring-2 ring-red-500/20' : ''}`}>
-          <div className="relative h-28 w-full overflow-hidden bg-gradient-to-r from-gray-100 to-slate-200 dark:from-gray-800 dark:to-slate-900 sm:h-36">
+        <article className={`tool-card flex h-full flex-col overflow-hidden rounded-xl border border-transparent bg-white shadow-sm transition-all duration-300 group-hover:border-primary-300 group-hover:shadow-lg dark:bg-gray-800 ${showDelete ? 'ring-2 ring-red-500/20' : ''}`}>
+          <div className="relative h-28 w-full overflow-hidden bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 sm:h-36">
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
                 src={tutorial.imageUrl}
@@ -89,7 +89,7 @@ export default function TutorialCard({
             <h3 className="mb-1 line-clamp-2 text-sm font-bold transition-colors duration-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 sm:text-lg">
               {tutorial.title}
             </h3>
-            <p className="mb-2 flex flex-wrap items-center gap-y-1 text-xs text-slate-500 dark:text-slate-400">
+            <p className="mb-2 flex flex-wrap items-center gap-y-1 text-xs text-gray-500 dark:text-gray-400">
               <span className="mr-3 flex items-center">
                 <i className="fas fa-calendar-alt mr-1"></i>
                 {tutorial.publishDate}
@@ -101,7 +101,7 @@ export default function TutorialCard({
             </p>
 
             {showRecommendReason && tutorial.recommendReason ? (
-              <div className="mt-1 line-clamp-3 rounded bg-slate-100 p-1.5 text-xs italic text-slate-600 dark:bg-slate-700/30 dark:text-slate-300">
+              <div className="mt-1 line-clamp-3 rounded bg-gray-100 p-1.5 text-xs italic text-gray-600 dark:bg-gray-700/30 dark:text-gray-300">
                 <i className="fas fa-thumbs-up mr-1 text-primary-500"></i>
                 {tutorial.recommendReason}
               </div>

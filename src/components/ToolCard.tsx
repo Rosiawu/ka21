@@ -56,8 +56,8 @@ function ToolCard({ tool }: ToolCardProps) {
   };
   
   return (
-    <div className="tool-card group relative bg-white dark:bg-neutral-900 rounded-xl shadow-soft dark:shadow-none overflow-hidden border border-neutral-200/70 dark:border-neutral-700/80 flex flex-col h-full hover:border-primary-300 dark:hover:border-primary-700">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+    <div className="tool-card group relative bg-white dark:bg-neutral-900 rounded-xl shadow-soft dark:shadow-none overflow-hidden border border-gray-200/70 dark:border-gray-700/80 flex flex-col h-full hover:border-[#d4a853]/40 dark:hover:border-[#d4a853]/30 transition-all duration-300 hover:shadow-[0_8px_25px_rgba(224,107,107,0.06)]">
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#d4a853]/60 to-[#e06b6b]/40 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
       
       {/* 右上角必入标签 */}
       {recommendLevel && (
@@ -87,7 +87,7 @@ function ToolCard({ tool }: ToolCardProps) {
                 priority={false}
               />
             ) : (
-              <div className="w-9 h-9 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500">
+              <div className="w-9 h-9 rounded-full bg-rose-50 dark:bg-rose-900/20 flex items-center justify-center text-rose-400">
                 <i className="fas fa-cube text-lg"></i>
               </div>
             )}
@@ -98,7 +98,7 @@ function ToolCard({ tool }: ToolCardProps) {
               <h3 className="text-base font-semibold group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">{name}</h3>
             </div>
             
-            <p className="mt-0.5 text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+            <p className="mt-0.5 text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
               {description}
             </p>
             

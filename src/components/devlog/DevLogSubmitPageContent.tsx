@@ -163,12 +163,12 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
     <div className="page-shell py-6 sm:py-8">
       <div className="mx-auto max-w-4xl">
         <section className="overflow-hidden rounded-[2rem] border border-indigo-200/70 bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,0.22),_transparent_34%),linear-gradient(135deg,_rgba(238,242,255,0.98),_rgba(255,255,255,0.96))] p-5 shadow-[0_16px_45px_rgba(99,102,241,0.10)] dark:border-indigo-700/40 dark:bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,0.18),_transparent_30%),linear-gradient(135deg,_rgba(15,23,42,0.96),_rgba(17,24,39,0.96))] sm:p-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/80 px-3 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-700/60 dark:bg-slate-900/60 dark:text-indigo-300">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/80 px-3 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-700/60 dark:bg-gray-900/60 dark:text-indigo-300">
             <i className="fas fa-pen-to-square text-[11px]" aria-hidden="true"></i>
             {text.badge}
           </span>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50 sm:text-4xl">{text.title}</h1>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600 dark:text-slate-300">{text.subtitle}</p>
+          <h1 className="mt-4 text-3xl font-bold font-serif tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">{text.title}</h1>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-gray-600 dark:text-gray-300">{text.subtitle}</p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50/80 px-4 py-2 text-sm text-amber-800 dark:border-amber-700/50 dark:bg-amber-950/30 dark:text-amber-200">
             <i className="fas fa-mobile-screen-button text-xs" aria-hidden="true"></i>
             {text.mobileHint}
@@ -176,7 +176,7 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
           <div className="mt-5">
             <Link
               href="/devlog"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:bg-slate-900"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900/70 dark:text-gray-200 dark:hover:bg-gray-900"
             >
               <i className="fas fa-arrow-left text-xs" aria-hidden="true"></i>
               {text.back}
@@ -186,48 +186,48 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
 
         <div className="mt-6">
           <AdminSessionGate locale={isEn ? 'en' : 'zh'}>
-            <section className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/85 sm:p-6">
+            <section className="rounded-[2rem] border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-950/85 sm:p-6">
               <div className="space-y-4">
             <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.titleLabel}</span>
+              <span className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{text.titleLabel}</span>
               <input
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
                 placeholder={text.titlePlaceholder}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.authorLabel}</span>
+              <span className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{text.authorLabel}</span>
               <input
                 value={author}
                 onChange={(event) => setAuthor(event.target.value)}
                 placeholder={text.authorPlaceholder}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.bodyLabel}</span>
+              <span className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{text.bodyLabel}</span>
               <textarea
                 value={body}
                 onChange={(event) => setBody(event.target.value)}
                 onPaste={handlePaste}
                 placeholder={text.bodyPlaceholder}
-                className="min-h-[260px] w-full rounded-[1.5rem] border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-6 text-slate-900 outline-none transition focus:border-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+                className="min-h-[260px] w-full rounded-[1.5rem] border border-gray-200 bg-gray-50 px-4 py-4 text-sm leading-6 text-gray-900 outline-none transition focus:border-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               />
             </label>
 
             <div className="rounded-[1.5rem] border border-dashed border-indigo-300 bg-indigo-50/70 p-4 dark:border-indigo-700/60 dark:bg-indigo-950/20">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-800 dark:text-slate-100">{text.uploadLabel}</p>
-                  <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-300">{text.uploadHint}</p>
-                  <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">{text.pasteHint}</p>
+                  <p className="text-sm font-medium text-gray-800 dark:text-gray-100">{text.uploadLabel}</p>
+                  <p className="mt-1 text-xs leading-5 text-gray-600 dark:text-gray-300">{text.uploadHint}</p>
+                  <p className="mt-1 text-xs leading-5 text-gray-500 dark:text-gray-400">{text.pasteHint}</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-indigo-400 dark:text-slate-950 dark:hover:bg-indigo-300">
+                  <label className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-800 dark:bg-indigo-400 dark:text-gray-950 dark:hover:bg-indigo-300">
                     <i className="fas fa-image text-xs" aria-hidden="true"></i>
                     {text.chooseImages}
                     <input ref={fileInputRef} type="file" accept="image/*" multiple className="hidden" onChange={handleFileChange} />
@@ -236,7 +236,7 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
                     <button
                       type="button"
                       onClick={() => setImages([])}
-                      className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-slate-400 hover:text-slate-800 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-600 dark:hover:text-slate-100"
+                      className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 transition hover:border-gray-400 hover:text-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-100"
                     >
                       <i className="fas fa-trash-can text-xs" aria-hidden="true"></i>
                       {text.clearImages}
@@ -265,7 +265,7 @@ export default function DevLogSubmitPageContent({ locale }: { locale: string }) 
             </button>
 
             {message && (
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
+              <div className="rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
                 <p>{message}</p>
                 {successUrl && (
                   <Link href={successUrl} className="mt-2 inline-flex items-center gap-2 font-medium text-indigo-700 dark:text-indigo-300">

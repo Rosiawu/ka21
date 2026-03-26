@@ -176,11 +176,11 @@ export default function ToolList({
       {isFilteredView ? ( // 如果是过滤视图（有搜索或选中分类）
         // 如果是搜索或选择了特定分类的结果，则显示当前选中的分类标题
         <div className="space-y-6"> {/* 过滤视图容器 */}
-          <h2 className="text-xl font-bold text-gray-800 dark:text-neutral-100 border-b border-neutral-200 dark:border-neutral-700 pb-2 flex items-center"> {/* 分类标题 */}
+          <h2 className="text-xl font-bold font-serif text-gray-800 dark:text-neutral-100 border-b border-neutral-200 dark:border-neutral-700 pb-2 flex items-center"> {/* 分类标题 */}
             {selectedToolCategory ? ( // 如果选中了特定分类
               <>
-                <span className="inline-block mr-3 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center"> {/* 分类图标容器 */}
-                  <i className={`fas ${meta.icon} text-sm text-slate-600 dark:text-slate-400`}></i> {/* 分类图标 */}
+                <span className="inline-block mr-3 w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center"> {/* 分类图标容器 */}
+                  <img src={meta.icon} alt="" className="w-4 h-4" /> {/* 分类图标 */}
                 </span>
                 {(() => { // 立即执行函数，获取分类信息
                   const cat = TOOL_CATEGORIES.find(c => c.id === selectedToolCategory); // 查找对应的分类
@@ -199,8 +199,8 @@ export default function ToolList({
               </>
             ) : ( // 否则显示搜索结果标题
               <>
-                <span className="inline-block mr-3 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center"> {/* 搜索图标容器 */}
-                  <i className="fas fa-search text-sm text-slate-600 dark:text-slate-400"></i> {/* 搜索图标 */}
+                <span className="inline-block mr-3 w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center"> {/* 搜索图标容器 */}
+                  <i className="fas fa-search text-sm text-gray-600 dark:text-gray-400"></i> {/* 搜索图标 */}
                 </span>
                 {tSearch('results')}: &quot;{debouncedSearchQuery}&quot; {/* 搜索查询文本 */}
               </>

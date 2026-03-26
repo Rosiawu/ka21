@@ -97,13 +97,13 @@
   }
   ,
   "Categories": {
-    "writing": "✍️ Writing",
-    "image": "🎨 Design",
-    "video": "🎬 Video",
-    "audio": "🎧 Audio",
-    "office": "💼 Office",
-    "coding": "💻 Coding",
-    "utils": "🔧 Utils"
+    "writing": "Writing",
+    "image": "Design",
+    "video": "Video",
+    "audio": "Audio",
+    "office": "Office",
+    "coding": "Coding",
+    "utils": "Utils"
   },
   "ToolList": {
     "emptyTitle": "No matching tools found",

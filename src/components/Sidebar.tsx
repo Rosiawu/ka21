@@ -32,22 +32,22 @@ function buildMenuItems(
   return [
     {
       name: tCommon('menuTutorials'),
-      icon: 'fa-graduation-cap',
+      icon: '/icons/nav/tutorials.svg',
       href: '/tutorials'
     },
     {
       name: tCommon('menuPodcast'),
-      icon: 'fa-podcast',
+      icon: '/icons/nav/podcast.svg',
       href: '/podcast'
     },
     {
       name: tCommon('menuEvents'),
-      icon: 'fa-trophy',
+      icon: '/icons/nav/events.svg',
       href: '/events'
     },
     {
       name: tCommon('menuDeals'),
-      icon: 'fa-tags',
+      icon: '/icons/nav/deals.svg',
       href: '/deals'
     },
     // 添加分类菜单项
@@ -59,17 +59,17 @@ function buildMenuItems(
     })),
     {
       name: tCommon('menuDevLog'),
-      icon: 'fa-pen-to-square',
+      icon: '/icons/nav/devlog.svg',
       href: '/devlog'
     },
     {
       name: tCommon('menuAiLibrary'),
-      icon: 'fa-book',
+      icon: '/icons/nav/ai-library.svg',
       href: 'https://wcnsh3l3tys6.feishu.cn/wiki/Iui9wlWCtiI3gDkhz2wcL6YCnuh?table=tbljal7aWPWXgJUE&view=vew3Xh17va'
     },
     {
       name: tCommon('menuAbout'),
-      icon: 'fa-users',
+      icon: '/icons/nav/about.svg',
       href: '/about'
     }
   ];
@@ -170,7 +170,7 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
   return (
     <div className="site-glass-sidebar flex h-full flex-col">
       {/* 侧边栏头部 */}
-      <div className="flex items-center justify-between px-4 py-4 border-b border-slate-200/70 dark:border-slate-800/70">
+      <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200/50 dark:border-gray-800/50">
         <div className={`flex items-center transition-all duration-300 overflow-hidden w-full`}>
           <Link href="/" className={`flex items-center`}>
             <DynamicLogo
@@ -193,7 +193,7 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
             />
             
             <span 
-              className={`ml-2 text-lg font-semibold text-black dark:text-white whitespace-nowrap transition-all duration-300 tracking-wide ${collapsed ? 'opacity-0 w-0 ml-0' : 'opacity-100'}`}
+              className={`ml-2 text-lg font-serif font-semibold text-black dark:text-white whitespace-nowrap transition-all duration-300 tracking-wide ${collapsed ? 'opacity-0 w-0 ml-0' : 'opacity-100'}`}
               style={{
                 maxWidth: collapsed ? '0' : '200px',
                 letterSpacing: '0.02em'
@@ -207,7 +207,7 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
         {/* 折叠按钮 */}
         <button 
           onClick={toggleSidebar}
-          className={`${collapsed ? 'absolute right-1 top-4' : ''} hidden h-8 w-8 items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-white/65 dark:hover:bg-slate-800/65 lg:flex`}
+          className={`${collapsed ? 'absolute right-1 top-4' : ''} hidden h-8 w-8 items-center justify-center rounded-lg text-gray-500 transition-colors hover:bg-white/65 dark:hover:bg-gray-800/65 lg:flex`}
           aria-label={collapsed ? tCommon('sidebarExpand') : tCommon('sidebarCollapse')}
         >
           <i className={`fas ${collapsed ? 'fa-chevron-right' : 'fa-chevron-left'} text-sm`}></i>
@@ -215,7 +215,7 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
       </div>
       
       {/* 导航内容 */}
-      <nav className="flex flex-grow flex-col items-start overflow-y-auto bg-transparent px-1 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700 scrollbar-track-transparent">
+      <nav className="flex flex-grow flex-col items-start overflow-y-auto bg-transparent px-1 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent">
         <div className={`p-2 ${collapsed ? 'space-y-3' : 'space-y-1'}`}>
           {menuItems.map((item, index) => (
             <div key={index} className="mb-1">
@@ -224,13 +224,13 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
                 <>
                   <button 
                     onClick={() => toggleSubMenu(item.name)}
-                    className="flex items-center justify-start w-full pl-2 pr-3 py-2 rounded-lg text-slate-700 hover:text-primary-600 hover:bg-primary-50/70 dark:text-slate-300 dark:hover:text-primary-400 dark:hover:bg-primary-900/10 transition-colors duration-200 group"
+                    className="flex items-center justify-start w-full pl-2 pr-3 py-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50/70 dark:text-gray-300 dark:hover:text-primary-400 dark:hover:bg-primary-900/10 transition-colors duration-200 group"
                   >
-                    <span className="flex items-center justify-center w-8 h-8 min-w-8 rounded-lg bg-slate-100 dark:bg-slate-800 mr-3 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/20">
-                      <i className={`fas ${item.icon} text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary-600 dark:group-hover:text-primary-400`}></i>
+                    <span className="flex items-center justify-center w-8 h-8 min-w-8 rounded-lg bg-gray-50 dark:bg-gray-800 mr-3 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/20">
+                      <img src={item.icon} alt="" className="w-4 h-4" />
                     </span>
                     <span className="font-medium whitespace-nowrap overflow-hidden text-ellipsis">{item.name}</span>
-                    <i className={`fas fa-chevron-down ml-auto text-xs transform transition-transform text-slate-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 ${expandedMenus[item.name] ? 'rotate-180' : ''}`}></i>
+                    <i className={`fas fa-chevron-down ml-auto text-xs transform transition-transform text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 ${expandedMenus[item.name] ? 'rotate-180' : ''}`}></i>
                   </button>
                   
                   {/* 子菜单 */}
@@ -239,7 +239,7 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
                       <Link 
                         key={subIndex} 
                         href={subItem.href} 
-                        className="block py-2 px-3 text-sm text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 transition-colors whitespace-nowrap rounded-md hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                        className="block py-2 px-3 text-sm text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors whitespace-nowrap rounded-md hover:bg-gray-100 dark:hover:bg-gray-800/50"
                       >
                         {subItem.name}
                       </Link>
@@ -252,20 +252,17 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
                   // 直达页与外部链接使用handleLinkClick
                   <button
                     onClick={() => handleLinkClick(item.href || '/')}
-                    className={`flex items-center justify-start w-full pl-2 pr-3 py-2 rounded-lg text-slate-700 hover:text-primary-600 hover:bg-primary-50/70 dark:text-slate-300 dark:hover:text-primary-400 dark:hover:bg-primary-900/10 transition-colors duration-200 group overflow-hidden ${
+                    className={`flex items-center justify-start w-full pl-2 pr-3 py-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50/70 dark:text-gray-300 dark:hover:text-primary-400 dark:hover:bg-primary-900/10 transition-colors duration-200 group overflow-hidden ${
                       (item.href === pathname && item.href !== '/' && !currentCategory)
                       ? 'bg-primary-50/70 dark:bg-primary-900/10 text-primary-600 dark:text-primary-400' : ''
                     }`}
                     title={item.name}
                   >
-                    <div className={`flex items-center justify-center w-8 h-8 min-w-8 rounded-lg bg-slate-100 dark:bg-slate-800 ${!collapsed && 'mr-3'} group-hover:bg-primary-100 dark:group-hover:bg-primary-900/20 ${
-                      (item.href === pathname && item.href !== '/') 
+                    <div className={`flex items-center justify-center w-8 h-8 min-w-8 rounded-lg bg-gray-50 dark:bg-gray-800 ${!collapsed && 'mr-3'} group-hover:bg-primary-100 dark:group-hover:bg-primary-900/20 ${
+                      (item.href === pathname && item.href !== '/')
                       ? 'bg-primary-100 dark:bg-primary-900/20' : ''
                     }`}>
-                      <i className={`fas ${item.icon} text-sm ${
-                        (item.href === pathname && item.href !== '/') 
-                        ? 'text-primary-600 dark:text-primary-400' : 'text-slate-600 dark:text-slate-400'
-                      } group-hover:text-primary-600 dark:group-hover:text-primary-400`}></i>
+                      <img src={item.icon} alt="" className="w-4 h-4" />
                     </div>
                     <span className={`font-medium whitespace-nowrap overflow-hidden text-ellipsis transition-all duration-300 ${collapsed ? 'w-0 opacity-0' : 'w-auto opacity-100'}`}
                          style={{
@@ -279,7 +276,7 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
                   // 其他菜单项使用handleCategoryClick
                   <button
                     onClick={() => handleCategoryClick(item.categoryId, item.href || '/')}
-                    className={`flex items-center justify-start w-full pl-2 pr-3 py-2 rounded-lg text-slate-700 hover:text-primary-600 hover:bg-primary-50/70 dark:text-slate-300 dark:hover:text-primary-400 dark:hover:bg-primary-900/10 transition-colors duration-200 group overflow-hidden ${
+                    className={`flex items-center justify-start w-full pl-2 pr-3 py-2 rounded-lg text-gray-700 hover:text-primary-600 hover:bg-primary-50/70 dark:text-gray-300 dark:hover:text-primary-400 dark:hover:bg-primary-900/10 transition-colors duration-200 group overflow-hidden ${
                       (item.categoryId && item.categoryId === currentCategory) || 
                       (!item.categoryId && item.href === '/' && !currentCategory && pathname === '/') ||
                       (pathname === '/search' && !currentCategory && item.href === '/')
@@ -287,16 +284,12 @@ export default function Sidebar({ siteTitle, collapsed: controlledCollapsed, onT
                     }`}
                     title={item.name}
                   >
-                    <div className={`flex items-center justify-center w-8 h-8 min-w-8 rounded-lg bg-slate-100 dark:bg-slate-800 ${!collapsed && 'mr-3'} group-hover:bg-primary-100 dark:group-hover:bg-primary-900/20 ${
-                      (item.categoryId && item.categoryId === currentCategory) || 
-                      (!item.categoryId && item.href === '/' && !currentCategory) 
+                    <div className={`flex items-center justify-center w-8 h-8 min-w-8 rounded-lg bg-gray-50 dark:bg-gray-800 ${!collapsed && 'mr-3'} group-hover:bg-primary-100 dark:group-hover:bg-primary-900/20 ${
+                      (item.categoryId && item.categoryId === currentCategory) ||
+                      (!item.categoryId && item.href === '/' && !currentCategory)
                       ? 'bg-primary-100 dark:bg-primary-900/20' : ''
                     }`}>
-                      <i className={`fas ${item.icon} text-sm ${
-                        (item.categoryId && item.categoryId === currentCategory) || 
-                        (!item.categoryId && item.href === '/' && !currentCategory) 
-                        ? 'text-primary-600 dark:text-primary-400' : 'text-slate-600 dark:text-slate-400'
-                      } group-hover:text-primary-600 dark:group-hover:text-primary-400`}></i>
+                      <img src={item.icon} alt="" className="w-4 h-4" />
                     </div>
                     <span className={`font-medium whitespace-nowrap overflow-hidden text-ellipsis transition-all duration-300 ${collapsed ? 'w-0 opacity-0' : 'w-auto opacity-100'}`}
                          style={{

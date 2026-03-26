@@ -104,14 +104,14 @@ export function HotCategory({
   })();
 
   return (
-    <div className="min-w-0 bg-white dark:bg-slate-800/50 dark:backdrop-blur-sm rounded-xl border border-gray-200 dark:border-slate-700/50 p-6 hover:shadow-sm dark:hover:shadow-slate-900/20 transition-shadow">
+    <div className="min-w-0 bg-white dark:bg-gray-800/50 dark:backdrop-blur-sm rounded-xl border border-gray-200 dark:border-gray-700/50 p-6 hover:shadow-sm dark:hover:shadow-gray-900/20 transition-shadow">
       {/* 分类头部 */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-3">
           <div className="text-2xl">{category.icon}</div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100">{displayTitle}</h2>
-            <p className="text-sm text-gray-600 dark:text-slate-400">{displaySubtitle}</p>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{displayTitle}</h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{displaySubtitle}</p>
           </div>
         </div>
         
@@ -124,8 +124,8 @@ export function HotCategory({
               inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium
               transition-colors duration-200
               ${isLoading
-                ? 'bg-gray-100 dark:bg-slate-700 text-gray-400 dark:text-slate-500 cursor-not-allowed'
-                : 'bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-600 active:bg-gray-300 dark:active:bg-slate-500'
+                ? 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 active:bg-gray-300 dark:active:bg-gray-500'
               }
             `}
             aria-label={`${tHot('changeButton')} ${displayTitle}`}
@@ -173,7 +173,7 @@ export function HotCategory({
 
       {/* 调试信息 */}
       {process.env.NODE_ENV === 'development' && (
-        <div className="mt-4 p-2 bg-gray-50 dark:bg-slate-700/50 rounded text-xs text-gray-500 dark:text-slate-400">
+        <div className="mt-4 p-2 bg-gray-50 dark:bg-gray-700/50 rounded text-xs text-gray-500 dark:text-gray-400">
           <div>{tHot('debug.category')}: {categoryKey}</div>
           <div>{tHot('debug.pageSize')}: {pageSize}</div>
           <div>{tHot('debug.current')}: {tools.length}</div>

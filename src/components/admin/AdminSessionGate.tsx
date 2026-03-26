@@ -79,7 +79,7 @@ export default function AdminSessionGate({
 
   if (loading) {
     return (
-      <div className="rounded-[1.5rem] border border-slate-200 bg-white/90 p-4 text-sm text-slate-600 shadow-sm dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300">
+      <div className="rounded-[1.5rem] border border-gray-200 bg-white/90 p-4 text-sm text-gray-600 shadow-sm dark:border-gray-700 dark:bg-gray-900/80 dark:text-gray-300">
         {text.loading}
       </div>
     );
@@ -120,30 +120,30 @@ export default function AdminSessionGate({
   }
 
   return (
-    <div className="rounded-[1.75rem] border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-950/85 sm:p-5">
+    <div className="rounded-[1.75rem] border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-950/85 sm:p-5">
       <div className="max-w-xl space-y-4">
         <div>
-          <h2 className="text-base font-semibold text-slate-900 dark:text-slate-100">{text.title}</h2>
-          <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{text.description}</p>
+          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">{text.title}</h2>
+          <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-300">{text.description}</p>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="block">
-            <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.username}</span>
+            <span className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{text.username}</span>
             <input
               value={username}
               onChange={(event) => setUsername(event.target.value)}
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+              className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-sky-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               autoComplete="username"
             />
           </label>
           <label className="block">
-            <span className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-200">{text.password}</span>
+            <span className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{text.password}</span>
             <input
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+              className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-sky-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
               autoComplete="current-password"
               onKeyDown={(event) => {
                 if (event.key === 'Enter' && !actionPending) {
@@ -165,7 +165,7 @@ export default function AdminSessionGate({
           type="button"
           onClick={() => void login(username, password)}
           disabled={!username.trim() || !password || actionPending}
-          className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-sky-400 dark:text-slate-950 dark:hover:bg-sky-300"
+          className="inline-flex items-center justify-center rounded-full bg-gray-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-sky-400 dark:text-gray-950 dark:hover:bg-sky-300"
         >
           {text.login}
         </button>

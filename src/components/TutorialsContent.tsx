@@ -289,19 +289,19 @@ export default function TutorialsContent() {
         <div className="max-w-8xl mx-auto">
           {/* 页面标题 */}
           <div className="text-center mb-6 relative group">
-            <h1 className="text-3xl font-bold mb-2 text-slate-900 dark:text-white inline-flex items-center gap-2">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+            <h1 className="text-3xl font-bold font-serif mb-2 text-gray-900 dark:text-white inline-flex items-center gap-2">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-purple-600 dark:from-primary-400 dark:to-purple-400">
                 {text.title}
               </span>
               <button
                 onClick={() => setShowImportForm(!showImportForm)}
-                className="opacity-30 hover:opacity-100 transition-opacity text-slate-400 hover:text-primary-500 p-2"
+                className="opacity-30 hover:opacity-100 transition-opacity text-gray-400 hover:text-primary-500 p-2"
                 title={text.importTitle}
               >
                 <i className="fas fa-magic text-lg"></i>
               </button>
             </h1>
-            <p className="text-md text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
+            <p className="text-md text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
               {text.subtitle}
             </p>
           </div>
@@ -310,22 +310,22 @@ export default function TutorialsContent() {
           {showImportForm && (
             <div className="mb-6">
               <AdminSessionGate locale={isEn ? 'en' : 'zh'} onAuthenticatedChange={setCanManageTutorials}>
-                <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-dashed border-primary-200 dark:border-primary-700/60 p-4">
+                <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-dashed border-primary-200 dark:border-primary-700/60 p-4">
                   <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-sm font-semibold text-slate-800 dark:text-slate-100 flex items-center">
+                    <h2 className="text-sm font-semibold text-gray-800 dark:text-gray-100 flex items-center">
                       <i className="fas fa-magic mr-2 text-primary-500"></i>
                       {text.importPanelTitle}
                     </h2>
                   </div>
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                      <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                         {text.articleLinkLabel}
                       </label>
                       <div className="flex gap-2">
                         <input
                           type="url"
-                          className="flex-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-xs focus:outline-none focus:ring-2 focus:ring-primary-500"
+                          className="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-xs focus:outline-none focus:ring-2 focus:ring-primary-500"
                           placeholder="https://mp.weixin.qq.com/..."
                           value={importUrl}
                           onChange={(e) => setImportUrl(e.target.value)}
@@ -349,41 +349,41 @@ export default function TutorialsContent() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                       {text.fieldTitle}
                     </label>
                     <input
-                      className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-900 dark:text-gray-100"
                       value={formTitle}
                       onChange={(e) => setFormTitle(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                       {text.fieldAuthor}
                     </label>
                     <input
-                      className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-900 dark:text-gray-100"
                       value={formAuthor}
                       onChange={(e) => setFormAuthor(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                       {text.fieldDate}
                     </label>
                     <input
-                      className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-900 dark:text-gray-100"
                       value={formPublishDate}
                       onChange={(e) => setFormPublishDate(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                       {text.fieldCategory}
                     </label>
                     <select
-                      className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-900 dark:text-gray-100"
                       value={formCategory}
                       onChange={(e) => setFormCategory(e.target.value)}
                     >
@@ -396,11 +396,11 @@ export default function TutorialsContent() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                       {text.fieldDifficulty}
                     </label>
                     <select
-                      className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-900 dark:text-gray-100"
                       value={formDifficulty}
                       onChange={(e) =>
                         setFormDifficulty(e.target.value as DifficultyLevel)
@@ -412,11 +412,11 @@ export default function TutorialsContent() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                    <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                       {text.fieldCover}
                     </label>
                     <input
-                      className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
+                      className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-900 dark:text-gray-100"
                       value={formCover}
                       onChange={(e) => setFormCover(e.target.value)}
                     />
@@ -424,11 +424,11 @@ export default function TutorialsContent() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                     {text.fieldSummary}
                   </label>
                   <textarea
-                    className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-900 dark:text-gray-100"
                     rows={3}
                     value={formSummary}
                     onChange={(e) => setFormSummary(e.target.value)}
@@ -436,11 +436,11 @@ export default function TutorialsContent() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-slate-600 dark:text-slate-300 mb-1">
+                  <label className="block text-xs font-medium text-gray-600 dark:text-gray-300 mb-1">
                     {text.fieldSkills}
                   </label>
                   <input
-                    className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-xs text-slate-900 dark:text-slate-100"
+                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-xs text-gray-900 dark:text-gray-100"
                     value={formSkillTags}
                     onChange={(e) => setFormSkillTags(e.target.value)}
                     placeholder={text.skillPlaceholder}
@@ -504,13 +504,13 @@ export default function TutorialsContent() {
                 <button
                   key="萌新进阶"
                   className={`inline-flex min-w-[132px] flex-1 items-center justify-center rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors sm:min-w-0 sm:rounded-none ${
-                    difficultyFilter === '萌新进阶' 
-                      ? 'bg-blue-100 text-blue-800' 
-                      : 'bg-blue-50 text-gray-700 hover:bg-blue-100'
+                    difficultyFilter === '萌新进阶'
+                      ? 'bg-primary-100 text-primary-800'
+                      : 'bg-primary-50 text-gray-700 hover:bg-primary-100'
                   }`}
                   onClick={() => setDifficultyFilter('萌新进阶')}
                 >
-                  <i className="fas fa-graduation-cap mr-2 text-blue-600"></i>
+                  <i className="fas fa-graduation-cap mr-2 text-primary-600"></i>
                   {text.intermediate}
                 </button>
                 
@@ -540,16 +540,16 @@ export default function TutorialsContent() {
                   type="text" 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-2 pl-10 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all" 
+                  className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all" 
                   placeholder={text.searchPlaceholder}
                 />
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                   <i className="fas fa-search"></i>
                 </div>
                 {searchQuery && (
                   <button 
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                   >
                     <i className="fas fa-times-circle"></i>
                   </button>
@@ -562,13 +562,13 @@ export default function TutorialsContent() {
                   <select
                     value={sortMethod}
                     onChange={(e) => setSortMethod(e.target.value as TutorialSortMethod)}
-                    className="w-full py-2 px-4 pr-8 appearance-none rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all"
+                    className="w-full py-2 px-4 pr-8 appearance-none rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all"
                   >
                     <option value="latest">{text.sortLatest}</option>
                     <option value="oldest">{text.sortOldest}</option>
                     <option value="difficulty-asc">{text.sortDifficulty}</option>
                   </select>
-                  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
                     <i className="fas fa-sort"></i>
                   </div>
                 </div>
@@ -587,7 +587,7 @@ export default function TutorialsContent() {
               <div className="flex items-center gap-2 overflow-x-auto py-1 no-scrollbar">
                 <button 
                   className={`scenario-chip inline-flex min-w-[88px] shrink-0 items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                    !categoryFilter ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    !categoryFilter ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                   }`}
                   style={{ whiteSpace: 'nowrap', writingMode: 'horizontal-tb', textOrientation: 'mixed', minWidth: '88px' }}
                   onClick={() => setCategoryFilter('')}
@@ -598,7 +598,7 @@ export default function TutorialsContent() {
                   <button 
                     key={category}
                     className={`scenario-chip inline-flex shrink-0 items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                      categoryFilter === category ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                      categoryFilter === category ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                     }`}
                     style={{ whiteSpace: 'nowrap', writingMode: 'horizontal-tb', textOrientation: 'mixed' }}
                     onClick={() => setCategoryFilter(category)}
@@ -612,7 +612,7 @@ export default function TutorialsContent() {
           
           {/* 结果计数 */}
           <div className="mb-4 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
-            <div className="text-sm text-slate-600 dark:text-slate-400">
+            <div className="text-sm text-gray-600 dark:text-gray-400">
               {text.resultCount(filteredTutorials.length)}
             </div>
             
@@ -625,7 +625,7 @@ export default function TutorialsContent() {
                   setDifficultyFilter('');
                   setSortMethod('latest');
                 }}
-                className="text-xs px-2 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 rounded transition-colors flex items-center"
+                className="text-xs px-2 py-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400 rounded transition-colors flex items-center"
               >
                 <i className="fas fa-undo-alt mr-1"></i>
                 {text.resetFilters}
@@ -649,7 +649,7 @@ export default function TutorialsContent() {
           
           {/* 没有结果时显示提示 */}
           {filteredTutorials.length === 0 && (
-            <div className="text-center py-8 bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6 mt-4">
+            <div className="text-center py-8 bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 mt-4">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 mb-4">
                 <i className="fas fa-search text-neutral-400 text-xl"></i>
               </div>

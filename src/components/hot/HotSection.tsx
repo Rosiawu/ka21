@@ -57,12 +57,12 @@ export function HotSection({ className = '', title, subtitle }: HotSectionProps)
   return (
     <section className={`py-4 ${className}`}>
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 flex items-center">
+        <h2 className="text-lg sm:text-xl font-bold font-serif text-gray-900 dark:text-gray-100 flex items-center">
           <span className="inline-flex items-center justify-center mr-2 w-8 h-8 rounded-lg bg-orange-100 dark:bg-orange-900/30">
             <i className="fas fa-fire text-orange-500 text-sm"></i>
           </span>
           {resolvedTitle}
-          <span className="hidden md:inline ml-2 text-xs font-normal text-slate-500 dark:text-slate-400">
+          <span className="hidden md:inline ml-2 text-xs font-normal text-gray-500 dark:text-gray-400">
             {resolvedSubtitle}
           </span>
         </h2>
@@ -79,7 +79,7 @@ export function HotSection({ className = '', title, subtitle }: HotSectionProps)
           <Link
             key={tool.id}
             href={`/tools/${tool.id}`}
-            className="group min-w-0 rounded-lg border border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-900/60 p-3 hover:border-primary-300 dark:hover:border-primary-500/60 hover:bg-primary-50/60 dark:hover:bg-primary-900/20 transition-colors"
+            className="group min-w-0 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/90 dark:bg-gray-900/60 p-3 hover:border-primary-300 dark:hover:border-primary-500/60 hover:bg-primary-50/60 dark:hover:bg-primary-900/20 transition-colors"
             onClick={() => {
               const recommendLevel = tool.recommendLevel || 'undefined';
               trackClick('weekly_picks', resolvedTitle, tool.id, index + 1, true, recommendLevel);
@@ -95,7 +95,7 @@ export function HotSection({ className = '', title, subtitle }: HotSectionProps)
                 className="w-7 h-7 rounded-md object-cover flex-shrink-0"
                 onError={handleImageError}
               />
-              <p className="text-sm font-medium text-slate-900 dark:text-slate-100 truncate group-hover:text-primary-700 dark:group-hover:text-primary-300">
+              <p className="text-sm font-medium text-gray-900 dark:text-gray-100 truncate group-hover:text-primary-700 dark:group-hover:text-primary-300">
                 {tool.name}
               </p>
             </div>

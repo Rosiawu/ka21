@@ -11,7 +11,7 @@ export default function DealsPreviewSection({ isEn, deals }: DealsPreviewSection
     return (
       <section className="mb-10">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold flex items-center">
+          <h2 className="text-2xl font-bold font-serif flex items-center">
             <span className="inline-flex mr-3 w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 items-center justify-center">
               <i className="fas fa-tags text-orange-500"></i>
             </span>
@@ -25,8 +25,8 @@ export default function DealsPreviewSection({ isEn, deals }: DealsPreviewSection
             {isEn ? 'Submit first deal' : '投稿第一条羊毛'}
           </Link>
         </div>
-        <div className="rounded-2xl border border-dashed border-orange-200 dark:border-orange-900/40 bg-white/80 dark:bg-slate-900/60 px-6 py-8 text-center">
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+        <div className="rounded-2xl border border-dashed border-orange-200 dark:border-orange-900/40 bg-white/80 dark:bg-gray-900/60 px-6 py-8 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
             {isEn
               ? 'No deals yet — be the first to share a deal with the community!'
               : '还没有羊毛信息，快来投稿第一条！'}
@@ -41,12 +41,12 @@ export default function DealsPreviewSection({ isEn, deals }: DealsPreviewSection
   return (
     <section className="mb-10">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold flex items-center">
+        <h2 className="text-2xl font-bold font-serif flex items-center">
           <span className="inline-flex mr-3 w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 items-center justify-center">
             <i className="fas fa-tags text-orange-500"></i>
           </span>
           {isEn ? 'Benefit Zone' : '羊毛区'}
-          <span className="ml-3 text-sm font-normal text-slate-500 dark:text-slate-400">
+          <span className="ml-3 text-sm font-normal text-gray-500 dark:text-gray-400">
             {isEn ? 'Community-submitted deals' : '社区投稿的优惠信息'}
           </span>
         </h2>
@@ -73,9 +73,9 @@ export default function DealsPreviewSection({ isEn, deals }: DealsPreviewSection
           <Link
             key={deal.id}
             href={`/deals/${deal.id}`}
-            className="group block rounded-2xl border border-slate-200/80 dark:border-slate-700/60 bg-white/95 dark:bg-slate-900/75 p-4 shadow-sm transition-all hover:shadow-md hover:border-orange-300 dark:hover:border-orange-700"
+            className="group block rounded-2xl border border-gray-200/80 dark:border-gray-700/60 bg-white/95 dark:bg-gray-900/75 p-4 shadow-sm transition-all hover:shadow-md hover:border-orange-300 dark:hover:border-orange-700"
           >
-            <div className="flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
+            <div className="flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500">
               <span>{deal.sourceName || (isEn ? 'Unknown' : '未知来源')}</span>
               {deal.expiresText && (
                 <span className="rounded-full bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 text-emerald-600 dark:text-emerald-400">
@@ -83,11 +83,11 @@ export default function DealsPreviewSection({ isEn, deals }: DealsPreviewSection
                 </span>
               )}
             </div>
-            <h3 className="mt-2 text-sm font-semibold leading-5 text-slate-900 dark:text-slate-100 line-clamp-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+            <h3 className="mt-2 text-sm font-semibold leading-5 text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
               {deal.title}
             </h3>
             {deal.benefitInfo && (
-              <p className="mt-1.5 text-xs leading-4 text-slate-500 dark:text-slate-400 line-clamp-2">
+              <p className="mt-1.5 text-xs leading-4 text-gray-500 dark:text-gray-400 line-clamp-2">
                 {deal.benefitInfo}
               </p>
             )}
@@ -98,12 +98,12 @@ export default function DealsPreviewSection({ isEn, deals }: DealsPreviewSection
                 </span>
               )}
               {deal.inviteCode && (
-                <span className="rounded-full bg-slate-100 dark:bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-slate-600 dark:text-slate-300">
+                <span className="rounded-full bg-gray-100 dark:bg-gray-800 px-2 py-0.5 text-[11px] font-medium text-gray-600 dark:text-gray-300">
                   {isEn ? 'Code' : '码'}: {deal.inviteCode}
                 </span>
               )}
             </div>
-            <div className="mt-3 flex items-center gap-2 text-[11px] text-slate-400 dark:text-slate-500">
+            <div className="mt-3 flex items-center gap-2 text-[11px] text-gray-400 dark:text-gray-500">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={deal.contributor.avatarUrl}
@@ -124,7 +124,7 @@ export default function DealsPreviewSection({ isEn, deals }: DealsPreviewSection
       <div className="mt-3 text-center sm:hidden">
         <Link
           href="/deals"
-          className="inline-flex items-center px-5 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-orange-600 dark:text-orange-400 font-medium text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+          className="inline-flex items-center px-5 py-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-orange-600 dark:text-orange-400 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         >
           {isEn ? 'View all deals' : '查看全部羊毛'}
           <i className="fas fa-chevron-right ml-2"></i>

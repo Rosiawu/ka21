@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/i18n/Link';
 import { withBaseMeta } from '@/lib/withBaseMeta';
 import type { Metadata, ResolvingMetadata } from 'next';
 import TeamMemberCard from '@/components/TeamMemberCard';
@@ -72,7 +72,7 @@ export default async function AboutPage({ params }: { params?: AboutPageParams }
         <div className="mb-6 flex justify-start">
           <Link
             href={homeHref}
-            className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-white/85 px-4 py-2 text-sm font-semibold text-indigo-700 shadow-sm backdrop-blur transition hover:border-indigo-300 hover:bg-white hover:text-indigo-900 dark:border-indigo-700/60 dark:bg-slate-900/80 dark:text-indigo-200 dark:hover:border-indigo-500 dark:hover:text-white"
+            className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-white/85 px-4 py-2 text-sm font-semibold text-indigo-700 shadow-sm backdrop-blur transition hover:border-indigo-300 hover:bg-white hover:text-indigo-900 dark:border-indigo-700/60 dark:bg-gray-900/80 dark:text-indigo-200 dark:hover:border-indigo-500 dark:hover:text-white"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <path d="M15 18l-6-6 6-6"></path>
@@ -82,7 +82,7 @@ export default async function AboutPage({ params }: { params?: AboutPageParams }
         </div>
 
         {/* 团队使命 */}
-        <div className="mb-12 rounded-[32px] border border-indigo-100/80 bg-gradient-to-br from-white via-indigo-50 to-purple-50 p-7 shadow-[0_24px_80px_rgba(99,102,241,0.12)] dark:border-purple-800/30 dark:from-slate-900/90 dark:via-slate-800/80 dark:to-purple-950/50 sm:p-10">
+        <div className="mb-12 rounded-[32px] border border-indigo-100/80 bg-gradient-to-br from-white via-indigo-50 to-purple-50 p-7 shadow-[0_24px_80px_rgba(99,102,241,0.12)] dark:border-purple-800/30 dark:from-gray-900/90 dark:via-gray-800/80 dark:to-purple-950/50 sm:p-10">
           <div className="mb-4 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>

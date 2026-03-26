@@ -48,6 +48,14 @@ export default async function RootLayout({
           referrerPolicy="no-referrer"
         />
 
+        {/* Playfair Display — editorial serif for headings */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
+
         {/* Script动态注入Impact.com验证代码 */}
         <Script id="impact-verification" strategy="beforeInteractive">
           {`

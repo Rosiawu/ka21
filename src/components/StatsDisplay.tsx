@@ -31,36 +31,36 @@ export default function StatsDisplay() {
   const tutorialCount = tutorials.length;
   
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 py-3 px-4 bg-gray-50 dark:bg-slate-900/50 dark:backdrop-blur-sm dark:border dark:border-slate-700/50 rounded-lg my-4 text-center shadow-sm dark:shadow-slate-900/20">
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 py-3 px-4 bg-gray-50 dark:bg-gray-900/50 dark:backdrop-blur-sm dark:border dark:border-gray-700/50 rounded-lg my-4 text-center shadow-sm dark:shadow-gray-900/20">
       {/* 核心AI工具数量统计 */}
       <div className="flex items-center">
         <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{coreToolCount}</span>
-        <span className="ml-2 text-gray-600 dark:text-slate-300">{tStats('coreToolsLabel')}</span>
+        <span className="ml-2 text-gray-600 dark:text-gray-300">{tStats('coreToolsLabel')}</span>
       </div>
 
       {/* 分隔线 - 仅在sm尺寸及以上显示 */}
-      <div className="hidden sm:block h-8 w-px bg-gray-300 dark:bg-slate-600/60"></div>
+      <div className="hidden sm:block h-8 w-px bg-gray-300 dark:bg-gray-600/60"></div>
       
       {/* 四次元小工具数量统计 */}
       <div className="flex items-center">
         <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{utilsCount}</span>
-        <span className="ml-2 text-gray-600 dark:text-slate-300">{tStats('utilsLabel')}</span>
+        <span className="ml-2 text-gray-600 dark:text-gray-300">{tStats('utilsLabel')}</span>
       </div>
       
       {/* 分隔线 - 仅在sm尺寸及以上显示 */}
-      <div className="hidden sm:block h-8 w-px bg-gray-300 dark:bg-slate-600/60"></div>
+      <div className="hidden sm:block h-8 w-px bg-gray-300 dark:bg-gray-600/60"></div>
       
       {/* 教程数量统计 */}
       <div className="flex items-center">
         <span className="text-xl font-bold text-primary-600 dark:text-primary-400">{tutorialCount}</span>
-        <span className="ml-2 text-gray-600 dark:text-slate-300">{tStats('tutorialsLabel')}</span>
+        <span className="ml-2 text-gray-600 dark:text-gray-300">{tStats('tutorialsLabel')}</span>
       </div>
       
       {/* 分隔线 - 仅在sm尺寸及以上显示 */}
-      <div className="hidden sm:block h-8 w-px bg-gray-300 dark:bg-slate-600/60"></div>
+      <div className="hidden sm:block h-8 w-px bg-gray-300 dark:bg-gray-600/60"></div>
       
       {/* 精品策略说明文本 */}
-      <div className="text-sm text-gray-500 dark:text-slate-400">
+      <div className="text-sm text-gray-500 dark:text-gray-400">
         {tStats('strategyNote')}
       </div>
     </div>

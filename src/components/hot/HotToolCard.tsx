@@ -49,10 +49,10 @@ export function HotToolCard({
     <Link
       href={`/tools/${tool.id}`}
       className={`
-        group relative block p-4 rounded-lg border border-gray-200 dark:border-slate-600/50
-        hover:border-blue-300 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:shadow-sm dark:hover:shadow-slate-900/20
+        group relative block p-4 rounded-lg border border-gray-200 dark:border-gray-700/50
+        hover:border-primary-300 dark:hover:border-primary-400 hover:bg-primary-50/50 dark:hover:bg-primary-900/20 hover:shadow-sm
         transition-all duration-200 hover:translate-x-1
-        focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-slate-800
+        focus:outline-none focus:ring-2 focus:ring-primary-400 dark:focus:ring-primary-400 focus:ring-offset-2 dark:focus:ring-offset-gray-800
         ${className}
       `}
       onClick={handleClick}
@@ -74,18 +74,18 @@ export function HotToolCard({
         {/* 工具信息 */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center space-x-2 mb-1">
-            <h3 className="text-sm font-medium text-gray-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate">
+            <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 truncate">
               {localizedTool.name}
             </h3>
             {localizedTool.recommendLevel === 'high' && (
-              <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300">
+              <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-rose-50 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300">
                 {tHot('featuredBadge')}
               </span>
             )}
             {/* 热门推荐页面不显示必入标签，避免同质化 */}
           </div>
           
-          <p className="text-xs text-gray-600 dark:text-slate-400 line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-slate-300">
+          <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2 group-hover:text-gray-700 dark:group-hover:text-gray-300">
             {localizedTool.description}
           </p>
         </div>
@@ -93,7 +93,7 @@ export function HotToolCard({
 
       {/* 位置指示器（仅在调试模式显示） */}
       {process.env.NODE_ENV === 'development' && (
-        <div className="absolute top-1 right-1 text-xs text-gray-400 dark:text-slate-500">
+        <div className="absolute top-1 right-1 text-xs text-gray-400 dark:text-gray-500">
           #{position}
         </div>
       )}

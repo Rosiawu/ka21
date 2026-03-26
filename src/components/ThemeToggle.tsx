@@ -58,7 +58,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={handleToggle}
-      className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-slate-800 transition-colors duration-200"
+      className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-gray-800 transition-colors duration-200"
       aria-label={
         isDark
           ? (isEn ? 'Switch to light mode' : '切换到日间模式')

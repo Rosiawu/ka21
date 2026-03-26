@@ -134,7 +134,7 @@ export default function LayoutContainers({
         {/* 顶部导航 */}
         <header
           ref={headerRef}
-          className="site-glass-header relative top-0 z-40 border-b border-neutral-200/50 dark:border-slate-700/50"
+          className="site-glass-header relative top-0 z-40 border-b border-gray-200/50 dark:border-gray-700/50"
           style={{
             willChange: 'transform',
             transform: headerHidden ? 'translateY(-100%)' : 'translateY(0)',
@@ -146,12 +146,12 @@ export default function LayoutContainers({
             <button
               id="mobileMenuButton"
               ref={mobileBtnRef}
-              className="lg:hidden p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-slate-800 transition-colors duration-200"
+              className="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
               onClick={() => setMobileOpen(v => !v)}
               aria-label="Toggle sidebar"
               aria-expanded={mobileOpen}
             >
-              <svg className="h-5 w-5 dark:text-neutral-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
             </button>
@@ -172,7 +172,7 @@ export default function LayoutContainers({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={tCommon('submitTool')}
-                className="ml-1 inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 px-3 text-sm font-semibold text-white shadow transition-colors hover:from-purple-600 hover:to-pink-600 sm:ml-2 sm:px-4"
+                className="ml-1 inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-[#e06b6b] px-3 text-sm font-semibold text-white shadow transition-colors hover:bg-[#c85a5a] sm:ml-2 sm:px-4"
               >
                 <i className="fas fa-plus text-xs" aria-hidden="true"></i>
                 <span className="hidden sm:inline">{tCommon('submitTool')}</span>
@@ -180,7 +180,7 @@ export default function LayoutContainers({
               <a
                 href={`/${locale}/deals/submit`}
                 aria-label={tCommon('submitDeal')}
-                className="ml-1 inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 px-3 text-sm font-semibold text-white shadow transition-colors hover:from-orange-600 hover:to-amber-600 sm:px-4"
+                className="ml-1 inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-[#d4a853] px-3 text-sm font-semibold text-white shadow transition-colors hover:bg-[#c49a3d] sm:px-4"
               >
                 <i className="fas fa-tags text-xs" aria-hidden="true"></i>
                 <span className="hidden sm:inline">{tCommon('submitDeal')}</span>
@@ -189,7 +189,7 @@ export default function LayoutContainers({
           </div>
 
           {/* 移动端菜单容器（预留） */}
-          <div id="mobileMenu" className="site-glass-panel hidden md:hidden border-t border-neutral-200 dark:border-slate-700">
+          <div id="mobileMenu" className="site-glass-panel hidden md:hidden border-t border-gray-200 dark:border-gray-700">
             <div className="py-2 space-y-1 px-4"></div>
           </div>
         </header>
@@ -203,14 +203,14 @@ export default function LayoutContainers({
         <a
           href={`/${locale}/events/submit`}
           aria-label={tCommon('submitEvent')}
-          className="fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 px-4 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(20,184,166,0.28)] transition hover:scale-[1.02] sm:bottom-6 sm:right-6"
+          className="fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-[#e06b6b] px-4 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(224,107,107,0.2)] transition hover:bg-[#c85a5a] hover:scale-[1.02] sm:bottom-6 sm:right-6"
         >
           <i className="fas fa-wand-magic-sparkles text-xs" aria-hidden="true"></i>
           <span className="max-w-[8rem] truncate sm:max-w-none">{tCommon('submitEvent')}</span>
         </a>
 
         {/* 页脚 */}
-        <footer id="main-footer" className="site-glass-footer border-t border-neutral-200 dark:border-slate-700 py-10 mt-16">
+        <footer id="main-footer" className="site-glass-footer border-t border-gray-200 dark:border-gray-700 py-10 mt-16">
           <div className="max-w-8xl mx-auto px-3 sm:px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* 左侧：网站简介 */}
@@ -218,9 +218,9 @@ export default function LayoutContainers({
                 <div className="flex items-center gap-2 h-14 mb-4">
                   <DynamicLogo size="footer" variant="black" className="w-14 h-14 shrink-0 object-contain dark:hidden" />
                   <DynamicLogo size="footer" variant="white" className="hidden w-14 h-14 shrink-0 object-contain dark:block" />
-                  <span className="text-lg font-medium leading-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent tracking-wide">{tCommon('siteTitle')}</span>
+                  <span className="text-lg font-serif font-medium leading-tight text-[#d4a853] tracking-wide">{tCommon('siteTitle')}</span>
                 </div>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                   {tCommon('footerIntro1')}
                   <br />
                   {tCommon('bookmarkNote')}
@@ -233,17 +233,17 @@ export default function LayoutContainers({
                 <div className="flex flex-row gap-6 justify-center items-center">
                   <div className="flex flex-col items-center">
                     <Image src="/images/social/wechat-contact-green.png" alt={tCommon('wechatLabel')} className="w-20 h-20 rounded" width={80} height={80} />
-                    <span className="mt-2 text-xs text-neutral-500">{tCommon('wechatLabel')}</span>
+                    <span className="mt-2 text-xs text-gray-500">{tCommon('wechatLabel')}</span>
                   </div>
                   <div className="flex flex-col items-center">
                     <Image src="/images/social/wechat-official-haoke.png" alt={tCommon('officialAccountLabel')} className="w-20 h-20" width={80} height={80} />
-                    <span className="mt-2 text-xs text-neutral-500">{tCommon('officialAccountLabel')}</span>
+                    <span className="mt-2 text-xs text-gray-500">{tCommon('officialAccountLabel')}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="border-t border-neutral-200 dark:border-slate-700 mt-10 pt-8 flex flex-col items-center">
+            <div className="border-t border-gray-200 dark:border-gray-700 mt-10 pt-8 flex flex-col items-center">
               <BeianInfo />
             </div>
           </div>
