@@ -31,7 +31,7 @@ export default function BackToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed right-4 bottom-4 p-2.5 rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600 transition-all duration-300 hover:scale-110 z-[9999]"
+      className="fixed right-4 bottom-4 p-2.5 rounded-full bg-primary-500 text-white shadow-lg hover:bg-primary-600 transition-all duration-300 hover:scale-110 z-[9999]"
       aria-label={tCommon('backToTop')}
     >
       <svg 

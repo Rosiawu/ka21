@@ -380,7 +380,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       <div className="px-6 py-4 bg-white dark:bg-gray-800/50 border-t border-indigo-100 dark:border-indigo-800/30">
         <button
           onClick={toggleExpand}
-          className="save-btn bg-indigo-500 hover:bg-indigo-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full text-center transition-colors shadow-sm"
+          className="save-btn bg-indigo-500 hover:bg-indigo-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full text-center transition-colors shadow-sm"
         >
           {isExpanded ? text.collapse : text.expand}
         </button>

@@ -54,18 +54,18 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
       </div>
 
       <div className="max-w-5xl mx-auto">
-        <div className="mb-8 rounded-2xl border border-indigo-100 dark:border-purple-800/40 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-800/60 dark:to-purple-900/30 p-6 sm:p-8 shadow-sm">
+        <div className="mb-8 rounded-2xl border border-indigo-100 dark:border-purple-800/40 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-800/60 dark:to-purple-900/30 p-6 sm:p-8 shadow-sm">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
               <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-300">
                 {text.title}
               </h1>
-              <p className="mt-3 text-slate-700 dark:text-slate-300">{text.subtitle}</p>
+              <p className="mt-3 text-gray-700 dark:text-gray-300">{text.subtitle}</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/devlog/submit"
-                className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/90 px-4 py-2 text-sm font-medium text-indigo-700 transition-colors hover:bg-white dark:border-indigo-700/70 dark:bg-slate-900/70 dark:text-indigo-300 dark:hover:bg-slate-900"
+                className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/90 px-4 py-2 text-sm font-medium text-indigo-700 transition-colors hover:bg-white dark:border-indigo-700/70 dark:bg-gray-900/70 dark:text-indigo-300 dark:hover:bg-gray-900"
               >
                 <i className="fas fa-pen-to-square text-xs" aria-hidden="true"></i>
                 <span>{text.webSubmit}</span>
@@ -76,7 +76,7 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
               </span>
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-700/70 bg-white/90 dark:bg-slate-900/70 px-4 py-2 text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-white dark:hover:bg-slate-900 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-700/70 bg-white/90 dark:bg-gray-900/70 px-4 py-2 text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-white dark:hover:bg-gray-900 transition-colors"
               >
                 <i className="fas fa-arrow-left text-xs" aria-hidden="true"></i>
                 {text.backHome}
@@ -96,15 +96,15 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
             <article
               key={log.id}
               id={log.id}
-              className="rounded-2xl border border-slate-200/80 dark:border-slate-700/70 bg-white/95 dark:bg-slate-900/70 p-5 sm:p-6 shadow-sm"
+              className="rounded-2xl border border-gray-200/80 dark:border-gray-700/70 bg-white/95 dark:bg-gray-900/70 p-5 sm:p-6 shadow-sm"
             >
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center rounded-full bg-indigo-100 dark:bg-indigo-900/40 px-3 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-300">
                   {log.version}
                 </span>
-                <span className="text-sm text-slate-500 dark:text-slate-400">{log.date}</span>
+                <span className="text-sm text-gray-500 dark:text-gray-400">{log.date}</span>
               </div>
-              <h2 className="mt-3 text-xl font-semibold text-slate-900 dark:text-slate-100">
+              <h2 className="mt-3 text-xl font-semibold text-gray-900 dark:text-gray-100">
                 {isEn ? log.cardTitle.en : log.cardTitle.zh}
               </h2>
 
@@ -120,13 +120,13 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
                           href={item.href}
                           target={isToolLink ? undefined : '_blank'}
                           rel={isToolLink ? undefined : 'noopener noreferrer'}
-                          className="group rounded-lg border border-indigo-200/80 dark:border-indigo-700/60 bg-white/90 dark:bg-slate-900/70 px-3 py-2 hover:border-indigo-300 dark:hover:border-indigo-500 transition-colors"
+                          className="group rounded-lg border border-indigo-200/80 dark:border-indigo-700/60 bg-white/90 dark:bg-gray-900/70 px-3 py-2 hover:border-indigo-300 dark:hover:border-indigo-500 transition-colors"
                         >
                           <span className="inline-flex items-center gap-2 text-indigo-700 dark:text-indigo-300">
                             <i className={`${isPodcastLink ? 'fas fa-circle-play' : isToolLink ? 'fas fa-screwdriver-wrench' : 'fas fa-link'} text-xs`} aria-hidden="true"></i>
                             {isEn ? item.label.en : item.label.zh}
                           </span>
-                          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">
+                          <p className="mt-1 text-xs text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">
                             {isPodcastLink
                               ? (isEn ? 'Open episode and listen now' : '点击后可直接收听')
                               : isToolLink
@@ -140,12 +140,12 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
                 </div>
               )}
 
-              <p className="mt-3 whitespace-pre-line leading-[1.5] text-slate-700 dark:text-slate-300">
+              <p className="mt-3 whitespace-pre-line leading-[1.5] text-gray-700 dark:text-gray-300">
                 {bodyText}
               </p>
 
               <div className="mt-4 rounded-xl border-2 border-dashed border-purple-200 dark:border-purple-700/50 bg-purple-50/40 dark:bg-purple-900/20 p-4">
-                <div className="rounded-lg border border-purple-200/80 dark:border-purple-700/40 bg-white/80 dark:bg-slate-900/50 p-3 text-sm text-slate-600 dark:text-slate-300">
+                <div className="rounded-lg border border-purple-200/80 dark:border-purple-700/40 bg-white/80 dark:bg-gray-900/50 p-3 text-sm text-gray-600 dark:text-gray-300">
                   {log.images && log.images.length > 0 ? (
                     <DevLogImageCarousel images={log.images} isEn={isEn} />
                   ) : (

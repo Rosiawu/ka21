@@ -97,13 +97,13 @@
   }
   ,
   "Categories": {
-    "writing": "✍️ 写文案",
-    "image": "🎨 做设计",
-    "video": "🎬 做视频",
-    "audio": "🎧 听声音",
-    "office": "💼 办办公",
-    "coding": "💻 写代码",
-    "utils": "🔧 小工具"
+    "writing": "写文案",
+    "image": "做设计",
+    "video": "做视频",
+    "audio": "听声音",
+    "office": "办办公",
+    "coding": "写代码",
+    "utils": "小工具"
   },
   "ToolList": {
     "emptyTitle": "没有找到匹配的工具",

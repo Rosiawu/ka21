@@ -27,8 +27,8 @@ export default function ToolCategoryFilter({
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div>
-          <h2 className="text-lg font-bold text-slate-800">工具类型分类</h2>
-          <p className="text-sm text-slate-600">按功能类型筛选工具</p>
+          <h2 className="text-lg font-bold text-gray-800">工具类型分类</h2>
+          <p className="text-sm text-gray-600">按功能类型筛选工具</p>
         </div>
         <svg 
           className={`w-5 h-5 text-gray-500 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
@@ -50,22 +50,22 @@ export default function ToolCategoryFilter({
                 selectedCategory === category.id ? null : category.id
               )}
               className={`w-full flex items-center px-3 py-2 rounded-lg transition-all duration-200 ${
-                selectedCategory === category.id 
-                  ? "bg-blue-50 text-blue-600" 
+                selectedCategory === category.id
+                  ? "bg-primary-50 text-primary-600"
                   : "hover:bg-gray-50"
               }`}
             >
               <div className="w-5 h-5 flex-shrink-0 flex items-center justify-center">
                 {/* 使用FontAwesome图标代替Image组件 */}
                 <i className={`fas ${getCategoryIcon(category.id)} ${
-                  selectedCategory === category.id 
-                    ? "text-blue-500" 
+                  selectedCategory === category.id
+                    ? "text-primary-500"
                     : "text-gray-500"
                 }`}></i>
               </div>
               <span className={`ml-2 font-medium text-sm ${
-                selectedCategory === category.id 
-                  ? "text-blue-600" 
+                selectedCategory === category.id
+                  ? "text-primary-600"
                   : "text-gray-700"
               }`}>
                 {category.name}

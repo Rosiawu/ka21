@@ -27,7 +27,7 @@ export default function LLMArticleCard({ article }: { article: LLMArticle }) {
   const getBackgroundStyle = (category: LLMArticle['category']) => {
     switch (category) {
       case '大模型介绍':
-        return 'bg-blue-500'; // 蓝色背景
+        return 'bg-primary-500'; // 主色背景
       case '模型对比':
         return 'bg-purple-500'; // 紫色背景
       case '技术分析':
@@ -44,7 +44,7 @@ export default function LLMArticleCard({ article }: { article: LLMArticle }) {
       rel="noopener noreferrer"
       className="block h-full group"
     >
-      <article className="tool-card bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent">
+      <article className="tool-card bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden h-full flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent">
         {/* 封面区域，根据分类动态设置背景 */}
         <div className={`relative w-full aspect-[2/1] overflow-hidden flex items-center justify-center ${getBackgroundStyle(article.category)}`}>
           {/* 这里可以根据需要添加图标或其他装饰元素 */}
@@ -64,7 +64,7 @@ export default function LLMArticleCard({ article }: { article: LLMArticle }) {
             {article.title}
           </h3>
           
-          <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center flex-wrap gap-y-1 mb-1">
+          <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center flex-wrap gap-y-1 mb-1">
             <span className="flex items-center mr-2">
               <i className="fas fa-calendar-alt mr-1"></i>
               {article.publishDate}
@@ -89,7 +89,7 @@ export default function LLMArticleCard({ article }: { article: LLMArticle }) {
           
           {/* 推荐理由 */}
           {article.recommendReason && (
-            <div className="mt-2 text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/30 p-1.5 rounded line-clamp-3 italic">
+            <div className="mt-2 text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700/30 p-1.5 rounded line-clamp-3 italic">
               <i className="fas fa-thumbs-up text-primary-500 mr-1"></i>
               {article.recommendReason}
             </div>

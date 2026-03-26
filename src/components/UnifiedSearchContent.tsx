@@ -243,7 +243,7 @@ export default function UnifiedSearchContent() {
         <div className="max-w-8xl mx-auto"> {/* 最大宽度容器 */}
           {/* 页面标题 */}
           <div className="mb-8 text-center"> {/* 标题区域 */}
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl mb-2"> {/* 主标题 */}
+            <h1 className="text-2xl font-bold font-serif tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl mb-2"> {/* 主标题 */}
               {searchQuery ? ( // 如果有搜索查询
                 <>
                   {text.titlePrefix}: <span className="text-primary-600 dark:text-primary-400">&quot;{searchQuery}&quot;</span>
@@ -252,7 +252,7 @@ export default function UnifiedSearchContent() {
                 <>{text.titleDefault}</>
               )}
             </h1>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               {totalResults > 0 ? text.subtitleFound(totalResults) : text.subtitleDefault}
             </p>
           </div>
@@ -261,14 +261,14 @@ export default function UnifiedSearchContent() {
           <div className="mb-8 relative max-w-5xl mx-auto">
             <form
               onSubmit={handleSubmit}
-              className="rounded-[2rem] border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)] dark:shadow-[0_10px_30px_rgba(2,6,23,0.45)] backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5 transition-all focus-within:border-primary-400 focus-within:shadow-[0_14px_35px_rgba(59,130,246,0.18)]"
+              className="rounded-[2rem] border border-gray-300/80 dark:border-gray-700 bg-white/90 dark:bg-gray-900/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)] dark:shadow-[0_10px_30px_rgba(2,6,23,0.45)] backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5 transition-all focus-within:border-primary-400 focus-within:shadow-[0_14px_35px_rgba(59,130,246,0.18)]"
             >
               <label htmlFor="search" className="sr-only">{text.composerLabel}</label>
               <textarea
                 ref={searchInputRef}
                 id="search"
                 rows={2}
-                className="w-full resize-none bg-transparent text-base sm:text-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
+                className="w-full resize-none bg-transparent text-base sm:text-lg text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none"
                 placeholder={text.placeholder}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
@@ -282,7 +282,7 @@ export default function UnifiedSearchContent() {
 
               <div className="mt-4 flex flex-col items-stretch justify-between gap-3 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 border border-gray-200/70 dark:border-gray-700">
                     <i className="fas fa-comments text-[11px]"></i>
                     {text.mode}
                   </span>
@@ -300,7 +300,7 @@ export default function UnifiedSearchContent() {
                         setInputValue('');
                         router.push('/unified-search');
                       }}
-                      className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                      className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                       aria-label={text.clear}
                     >
                       <i className="fas fa-xmark"></i>
@@ -309,7 +309,7 @@ export default function UnifiedSearchContent() {
                   <button
                     type="submit"
                     disabled={!inputValue.trim()}
-                    className="h-11 px-4 inline-flex items-center gap-2 rounded-full bg-slate-900 text-white dark:bg-primary-500 dark:text-white enabled:hover:bg-slate-700 dark:enabled:hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                    className="h-11 px-4 inline-flex items-center gap-2 rounded-full bg-gray-900 text-white dark:bg-primary-500 dark:text-white enabled:hover:bg-gray-700 dark:enabled:hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                   >
                     <span className="text-sm">{text.send}</span>
                     <i className="fas fa-paper-plane text-xs"></i>
@@ -317,7 +317,7 @@ export default function UnifiedSearchContent() {
                 </div>
               </div>
 
-              <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+              <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
                 {text.examples}
               </p>
             </form>
@@ -336,20 +336,20 @@ export default function UnifiedSearchContent() {
           {isLoading && (
             <div className="flex items-center justify-center mt-12">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
-              <span className="ml-3 text-slate-600 dark:text-slate-400">{text.loading}</span>
+              <span className="ml-3 text-gray-600 dark:text-gray-400">{text.loading}</span>
             </div>
           )}
           
           {/* 没有结果提示 */}
           {hasNoResults && (
             <div className="flex flex-col items-center justify-center mt-12 text-center">
-              <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-4">
+                <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-2">{text.noResultTitle}</h3>
-              <p className="text-slate-600 dark:text-slate-400 max-w-md">
+              <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2">{text.noResultTitle}</h3>
+              <p className="text-gray-600 dark:text-gray-400 max-w-md">
                 {text.noResultHint}
               </p>
             </div>
@@ -362,9 +362,9 @@ export default function UnifiedSearchContent() {
               {hasTools && (
                 <div className="space-y-6">
                   <div className="flex items-center justify-between flex-wrap gap-y-3">
-                    <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">
+                    <h2 className="text-xl font-bold font-serif text-gray-800 dark:text-gray-100">
                       {text.tools}
-                      <span className="text-sm font-normal text-slate-500 dark:text-slate-400 ml-2">
+                      <span className="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">
                         ({text.resultCount(filteredTools.length)})
                       </span>
                     </h2>
@@ -387,9 +387,9 @@ export default function UnifiedSearchContent() {
               {/* 教程搜索结果部分 */}
               {hasTutorials && (
                 <div className="space-y-6">
-                  <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">
+                  <h2 className="text-xl font-bold font-serif text-gray-800 dark:text-gray-100">
                     {text.tutorials}
-                    <span className="text-sm font-normal text-slate-500 dark:text-slate-400 ml-2">
+                    <span className="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">
                       ({text.resultCount(filteredTutorials.length)})
                     </span>
                   </h2>

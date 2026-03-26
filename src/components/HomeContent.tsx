@@ -398,14 +398,14 @@ export default function HomeContent({
             <div className="mx-auto max-w-5xl">
               <div className="mb-2 grid grid-cols-2 gap-3 sm:grid-cols-[260px_minmax(0,1fr)] sm:gap-4">
                 <div className="sm:block">
-                  <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:text-5xl">
+                  <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:text-5xl">
                     <div
                       className="relative flex h-[212px] w-full items-center justify-center rounded-3xl border bg-white px-3 pb-8 pt-3 shadow-[0_10px_24px_rgba(15,23,42,0.10)] sm:mx-0 sm:h-[220px] sm:w-[220px] sm:px-4 sm:pb-10 sm:pt-4"
                       style={{ borderColor: 'rgba(200,180,125,0.55)', backgroundColor: '#ffffff' }}
                     >
                       <Logo size="large" variant="black" className="dark:hidden" />
                       <Logo size="large" variant="white" className="hidden dark:flex" />
-                      <p className="absolute inset-x-3 bottom-4 text-center text-[12px] leading-snug text-slate-700 dark:text-slate-300 sm:inset-x-4 sm:bottom-5 sm:text-[13px]">
+                      <p className="absolute inset-x-3 bottom-4 text-center text-[12px] leading-snug text-gray-700 dark:text-gray-300 sm:inset-x-4 sm:bottom-5 sm:text-[13px]">
                         <span className="block">{mobileSubtitleParts[0]}</span>
                         {mobileSubtitleParts[1] ? <span className="block">{mobileSubtitleParts[1]}</span> : null}
                       </p>
@@ -459,13 +459,13 @@ export default function HomeContent({
                       <span className="mt-0.5 block whitespace-nowrap text-[clamp(1.5rem,6.4vw,2.35rem)] leading-[0.94] font-extrabold tracking-tight text-white sm:mt-1.5 sm:text-[48px] sm:leading-[0.92]">
                         {spotlightPodcast.title}
                       </span>
-                      <span className="mt-1 hidden line-clamp-1 text-[12px] font-semibold text-slate-200 sm:block sm:text-[16px]">
+                      <span className="mt-1 hidden line-clamp-1 text-[12px] font-semibold text-gray-200 sm:block sm:text-[16px]">
                         {spotlightPodcast.subtitle}
                       </span>
-                      <span className="mt-1 hidden line-clamp-2 text-[11px] text-slate-300/85 sm:block sm:text-sm">
+                      <span className="mt-1 hidden line-clamp-2 text-[11px] text-gray-300/85 sm:block sm:text-sm">
                         {spotlightPodcast.description}
                       </span>
-                      <span className="mt-0.5 block line-clamp-1 text-[11px] font-semibold text-slate-200 sm:hidden">
+                      <span className="mt-0.5 block line-clamp-1 text-[11px] font-semibold text-gray-200 sm:hidden">
                         {spotlightPodcast.mobileSubline}
                       </span>
                     </span>
@@ -514,14 +514,14 @@ export default function HomeContent({
           <div className="mb-6 relative max-w-5xl mx-auto">
             <form
               onSubmit={handleSearchSubmit}
-              className="rounded-[2rem] border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)] dark:shadow-[0_10px_30px_rgba(2,6,23,0.45)] backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5 transition-all focus-within:border-primary-400 focus-within:shadow-[0_14px_35px_rgba(59,130,246,0.18)]"
+              className="rounded-[2rem] border border-gray-200 dark:border-gray-700 bg-white/90 dark:bg-gray-900/80 shadow-[0_10px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-sm px-5 py-4 sm:px-6 sm:py-5 transition-all focus-within:border-primary-400 focus-within:shadow-[0_14px_35px_rgba(224,107,107,0.12)]"
             >
               <label htmlFor="search" className="sr-only">{composerText.label}</label>
               <textarea
                 ref={searchInputRef}
                 id="search"
                 rows={2}
-                className="w-full resize-none bg-transparent text-base sm:text-lg text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
+                className="w-full resize-none bg-transparent text-base sm:text-lg text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none"
                 placeholder={composerText.placeholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -535,7 +535,7 @@ export default function HomeContent({
 
               <div className="mt-4 flex flex-col items-stretch justify-between gap-3 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200/70 dark:border-slate-700">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 border border-gray-200/70 dark:border-gray-700">
                     <i className="fas fa-comments text-[11px]"></i>
                     {composerText.mode}
                   </span>
@@ -544,7 +544,7 @@ export default function HomeContent({
                     {composerText.intent}
                   </span>
                   {isSearchPending && (
-                    <span className="inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                    <span className="inline-flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                       <span className="w-3 h-3 border-2 border-primary-400 border-t-transparent rounded-full animate-spin"></span>
                       {composerText.understanding}
                     </span>
@@ -556,7 +556,7 @@ export default function HomeContent({
                     <button
                       type="button"
                       onClick={() => setSearchQuery('')}
-                      className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                      className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-gray-200 dark:border-gray-700 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                       aria-label={composerText.clear}
                     >
                       <i className="fas fa-xmark"></i>
@@ -565,7 +565,7 @@ export default function HomeContent({
                   <button
                     type="submit"
                     disabled={!searchQuery.trim()}
-                    className="h-11 px-4 inline-flex items-center gap-2 rounded-full bg-slate-900 text-white dark:bg-primary-500 dark:text-white enabled:hover:bg-slate-700 dark:enabled:hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                    className="h-11 px-4 inline-flex items-center gap-2 rounded-full bg-gray-900 text-white dark:bg-primary-500 dark:text-white enabled:hover:bg-gray-700 dark:enabled:hover:bg-primary-400 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                   >
                     <span className="text-sm">{composerText.send}</span>
                     <i className="fas fa-paper-plane text-xs"></i>
@@ -573,7 +573,7 @@ export default function HomeContent({
                 </div>
               </div>
 
-              <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+              <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
                 {composerText.examples}
               </p>
             </form>
@@ -592,9 +592,9 @@ export default function HomeContent({
           {/* 萌新教程部分 - 水平滚动布局 */}
           <section id="tutorials" className={`slide-up mb-12 ${isSearching ? 'relative' : ''}`}>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold flex items-center">
-                <span className="inline-block mr-3 w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
-                  <i className="fas fa-graduation-cap text-blue-500"></i>
+              <h2 className="text-2xl font-bold font-serif flex items-center">
+                <span className="inline-block mr-3 w-10 h-10 rounded-lg bg-rose-50 dark:bg-rose-900/20 flex items-center justify-center">
+                  <i className="fas fa-graduation-cap text-rose-400"></i>
                 </span>
                 {tHome('tutorials')}
                 {isSearching && (
@@ -602,7 +602,7 @@ export default function HomeContent({
                     {tHome('filtered')}
                   </span>
                 )}
-                <span className="hidden sm:inline-block ml-3 text-sm font-normal text-slate-500 dark:text-slate-400">{tHome('tutorialsSourceNote')}</span>
+                <span className="hidden sm:inline-block ml-3 text-sm font-normal text-gray-500 dark:text-gray-400">{tHome('tutorialsSourceNote')}</span>
               </h2>
               <div className="flex items-center gap-2">
                 <button 
@@ -622,7 +622,7 @@ export default function HomeContent({
                       }
                     }
                   }}
-                  className="inline-flex items-center mr-2 text-sm text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
+                  className="inline-flex items-center mr-2 text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
                 >
                   <i id="collapse-icon" className="fas fa-chevron-up mr-1 transition-transform duration-200"></i>
                   <span className="hidden sm:inline">{tHome('collapse')}</span>
@@ -637,12 +637,12 @@ export default function HomeContent({
             <div id="tutorial-content">
               {/* 没有匹配的教程时显示提示 */}
               {noTutorialsMatch ? (
-                <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-8 text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-700 mb-4">
-                    <i className="fas fa-search text-slate-400 text-xl"></i>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-8 text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-700 mb-4">
+                    <i className="fas fa-search text-gray-400 text-xl"></i>
                   </div>
-                  <h3 className="text-lg font-medium text-slate-900 dark:text-slate-100 mb-2">{tHome('noTutorialsTitle')}</h3>
-                  <p className="text-slate-500 dark:text-slate-400">{tHome('noTutorialsHint')}</p>
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{tHome('noTutorialsTitle')}</h3>
+                  <p className="text-gray-500 dark:text-gray-400">{tHome('noTutorialsHint')}</p>
                   <Link 
                     href="/tutorials" 
                     className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700"
@@ -667,8 +667,8 @@ export default function HomeContent({
                             rel="noopener noreferrer" 
                             className="block group"
                           >
-                            <article className="tool-card bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden h-[400px] flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent">
-                              <div className="relative w-full h-36 overflow-hidden bg-gradient-to-r from-gray-100 to-slate-200 dark:from-gray-800 dark:to-slate-900">
+                            <article className="tool-card bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden h-[400px] flex flex-col transition-all duration-300 group-hover:shadow-lg group-hover:border-primary-300 border border-transparent">
+                              <div className="relative w-full h-36 overflow-hidden bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
                                 <div className="absolute inset-0 flex items-center justify-center">
                                   <Image 
                                     src={tutorial.imageUrl}
@@ -697,7 +697,7 @@ export default function HomeContent({
                               
                               <div className="p-2.5 flex min-h-0 flex-1 flex-col">
                                 <h3 className="min-h-[2.8rem] font-bold text-base mb-1 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">{tutorial.title}</h3>
-                                <p className="text-xs text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-2 whitespace-nowrap overflow-hidden">
+                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1 flex items-center gap-2 whitespace-nowrap overflow-hidden">
                                   <span className="flex items-center shrink-0">
                                     <i className="fas fa-calendar-alt mr-1"></i>
                                     {tutorial.publishDate}
@@ -710,7 +710,7 @@ export default function HomeContent({
                                 
                                 {/* 推荐理由 */}
                                 {tutorial.recommendReason && (
-                                  <div className="mt-1 h-[62px] text-xs text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700/30 p-1.5 rounded line-clamp-3 italic overflow-hidden">
+                                  <div className="mt-1 h-[62px] text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700/30 p-1.5 rounded line-clamp-3 italic overflow-hidden">
                                     <i className="fas fa-thumbs-up text-primary-500 mr-1"></i>
                                     {tutorial.recommendReason}
                                   </div>
@@ -732,7 +732,7 @@ export default function HomeContent({
                   {/* 滚动指示器和按钮 */}
                   <div className="absolute left-0 top-1/2 z-10 hidden -translate-y-1/2 sm:block">
                     <button 
-                      className="bg-white/80 dark:bg-slate-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
+                      className="bg-white/80 dark:bg-gray-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
                       aria-label={tHome('scrollLeft')}
                       onClick={() => {
                         // 计算教程卡片宽度
@@ -759,7 +759,7 @@ export default function HomeContent({
                   
                   <div className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 sm:block">
                     <button 
-                      className="bg-white/80 dark:bg-slate-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
+                      className="bg-white/80 dark:bg-gray-800/80 hover:bg-primary-50 dark:hover:bg-primary-900/20 p-3 rounded-full shadow-lg text-primary-600 dark:text-primary-400"
                       aria-label={tHome('scrollRight')}
                       onClick={() => {
                         // 计算教程卡片宽度
@@ -818,14 +818,14 @@ export default function HomeContent({
               )}
               
               {/* 指示更多内容的指示器 */}
-              <div className="text-center mt-4 text-slate-400 text-sm animate-pulse">
+              <div className="text-center mt-4 text-gray-400 text-sm animate-pulse">
                 <i className="fas fa-chevron-down mr-1"></i>
                 {tHome('scrollDownToViewTools')}
               </div>
             </div>
             
             <div className="mt-2 text-center sm:hidden">
-              <Link href="/tutorials" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-primary-600 dark:text-primary-400 font-medium text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200">
+              <Link href="/tutorials" className="inline-flex items-center px-5 py-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
                 {tCommon('viewAll')} {tHome('tutorials')}
                 <i className="fas fa-chevron-right ml-2"></i>
               </Link>
@@ -842,11 +842,11 @@ export default function HomeContent({
           {!isSearching && !isSearchPending && (
             <div className="mt-16 space-y-12">
               <div className="text-center">
-                <h2 id="all-tools-categories" className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">{tHome('allCategoriesTitle')}</h2>
-                <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                <h2 id="all-tools-categories" className="text-2xl font-bold font-serif text-gray-900 dark:text-gray-100 mb-2">{tHome('allCategoriesTitle')}</h2>
+                <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                   {tHome('allCategoriesDesc')}
                 </p>
-                <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-gray-500 dark:text-gray-400">
                   <span className="inline-flex items-center">
                     <span className="mr-1.5 text-xl font-bold text-primary-600 dark:text-primary-400">{coreToolCount}</span>
                     {isEn ? 'featured tools' : '精选AI工具'}
@@ -860,7 +860,7 @@ export default function HomeContent({
                     {isEn ? 'starter tutorials' : '萌新教程'}
                   </span>
                 </div>
-                <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
                   {isEn ? 'Low-value listings are removed. Only useful AI tools stay.' : '末位淘汰，只留好用的AI牛马'}
                 </p>
               </div>

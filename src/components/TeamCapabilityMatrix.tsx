@@ -33,7 +33,7 @@ export default function TeamCapabilityMatrix({ teamMembers, className = '' }: Te
     : [];
   
   return (
-    <div className={`bg-gradient-to-br from-[#f5f3ff] to-purple-50 dark:from-slate-800 dark:to-purple-900/30 rounded-xl shadow-md p-6 border border-indigo-100 dark:border-purple-800/30 ${className}`}>
+    <div className={`bg-gradient-to-br from-[#f5f3ff] to-purple-50 dark:from-gray-800 dark:to-purple-900/30 rounded-xl shadow-md p-6 border border-indigo-100 dark:border-purple-800/30 ${className}`}>
       <div className="flex items-center mb-4">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -41,7 +41,7 @@ export default function TeamCapabilityMatrix({ teamMembers, className = '' }: Te
           <line x1="20" y1="8" x2="20" y2="14"></line>
           <line x1="23" y1="11" x2="17" y2="11"></line>
         </svg>
-        <h2 className="text-xl font-bold text-indigo-800 dark:text-indigo-300">{text.title}</h2>
+        <h2 className="text-xl font-bold font-serif text-indigo-800 dark:text-indigo-300">{text.title}</h2>
       </div>
       
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
@@ -51,7 +51,7 @@ export default function TeamCapabilityMatrix({ teamMembers, className = '' }: Te
             className={`text-center p-3 rounded-lg transition-all hover:shadow-md ${
               selectedCategory === capability.category
                 ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 border-2 border-indigo-400 dark:border-indigo-600 shadow-sm'
-                : 'bg-white dark:bg-slate-800/80 hover:bg-gray-50 dark:hover:bg-slate-700/80'
+                : 'bg-white dark:bg-gray-800/80 hover:bg-gray-50 dark:hover:bg-gray-700/80'
             }`}
             onClick={() => setSelectedCategory(
               selectedCategory === capability.category ? null : capability.category
@@ -61,7 +61,7 @@ export default function TeamCapabilityMatrix({ teamMembers, className = '' }: Te
             <div className="text-xs text-neutral-600 dark:text-neutral-400 truncate">
               {capability.category}
             </div>
-            <div className="mt-1 h-1.5 bg-gray-100 dark:bg-slate-700/70 rounded-full overflow-hidden shadow-inner">
+            <div className="mt-1 h-1.5 bg-gray-100 dark:bg-gray-700/70 rounded-full overflow-hidden shadow-inner">
               <div 
                 className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
                 style={{ width: `${capability.percentage}%` }}

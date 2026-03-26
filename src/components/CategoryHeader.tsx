@@ -17,9 +17,9 @@ export default function CategoryHeader({ categoryId, count, rightSlot, viewAllHr
 
   return (
     <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
-      <h2 className="flex flex-wrap items-center border-b border-neutral-200 pb-2 text-xl font-bold text-gray-800 dark:border-neutral-700 dark:text-neutral-100">
-        <span className="inline-block mr-3 w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-          <i className={`fas ${icon} text-sm text-slate-600 dark:text-slate-400`}></i>
+      <h2 className="flex flex-wrap items-center border-b border-neutral-200 pb-2 text-xl font-bold font-serif text-gray-800 dark:border-neutral-700 dark:text-neutral-100">
+        <span className="inline-block mr-3 w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+          <img src={icon} alt="" className="w-4 h-4" />
         </span>
         {name}
         {description ? (

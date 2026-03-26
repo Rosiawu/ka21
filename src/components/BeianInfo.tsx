@@ -9,7 +9,7 @@ export default function BeianInfo() {
           href="https://ka21.org/zh" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="text-inherit dark:!text-slate-100 hover:text-primary-600 dark:hover:!text-white transition-colors"
+          className="text-inherit dark:!text-gray-100 hover:text-primary-600 dark:hover:!text-white transition-colors"
         >
           KA21 AI牛马库
         </a>

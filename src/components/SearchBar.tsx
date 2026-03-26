@@ -52,7 +52,7 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
   }, []);
 
   return (
-    <div className="flex items-stretch rounded-lg bg-white dark:bg-slate-800 shadow-input dark:shadow-slate-900/20 focus-within:shadow-lg dark:focus-within:shadow-slate-900/30 transition-shadow duration-200 sm:max-w-none max-w-full">
+    <div className="flex items-stretch rounded-lg bg-white dark:bg-gray-800 shadow-input dark:shadow-gray-900/20 focus-within:shadow-lg dark:focus-within:shadow-gray-900/30 transition-shadow duration-200 sm:max-w-none max-w-full">
       {/* 输入框容器 */}
       <div className="flex-1 relative">
         <input
@@ -62,12 +62,12 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           placeholder={tSearch('searchPlaceholder')}
-          className="w-full h-11 px-3 sm:px-5 pl-8 sm:pl-10 text-sm sm:text-base text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-400 outline-none border-none focus:outline-none rounded-l-lg"
+          className="w-full h-11 px-3 sm:px-5 pl-8 sm:pl-10 text-sm sm:text-base text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 outline-none border-none focus:outline-none rounded-l-lg"
           aria-label={tSearch('inputAriaLabel')}
           autoComplete="off"
         />
         <svg
-          className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-slate-500"
+          className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"

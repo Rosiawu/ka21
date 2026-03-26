@@ -109,7 +109,7 @@ export default function DevLogImageCarousel({ images, isEn }: Props) {
 
   return (
     <div className="space-y-3">
-      <div className="relative rounded-2xl border border-indigo-100/80 bg-gradient-to-br from-white to-indigo-50/50 p-2 sm:p-3 shadow-[0_12px_30px_rgba(99,102,241,0.10)] dark:border-slate-700/70 dark:from-slate-900/80 dark:to-slate-900/60 dark:shadow-none">
+      <div className="relative rounded-2xl border border-indigo-100/80 bg-gradient-to-br from-white to-indigo-50/50 p-2 sm:p-3 shadow-[0_12px_30px_rgba(99,102,241,0.10)] dark:border-gray-700/70 dark:from-gray-900/80 dark:to-gray-900/60 dark:shadow-none">
         <div
           ref={trackRef}
           className="devlog-carousel flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 pr-4"
@@ -128,7 +128,7 @@ export default function DevLogImageCarousel({ images, isEn }: Props) {
               <button
                 type="button"
                 onClick={() => setViewerIndex(index)}
-                className="relative w-full h-[250px] sm:h-[290px] overflow-hidden rounded-2xl border border-white/80 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-800 shadow-[0_10px_24px_rgba(71,85,105,0.16)]"
+                className="relative w-full h-[250px] sm:h-[290px] overflow-hidden rounded-2xl border border-white/80 dark:border-gray-700/80 bg-gray-100 dark:bg-gray-800 shadow-[0_10px_24px_rgba(71,85,105,0.16)]"
               >
                 <Image
                   src={img.src}
@@ -146,16 +146,16 @@ export default function DevLogImageCarousel({ images, isEn }: Props) {
                   sizes="(max-width: 640px) 84vw, (max-width: 1024px) 48vw, 420px"
                   className="object-cover"
                 />
-                <span className="absolute left-3 top-3 rounded-full border border-white/50 bg-white/75 px-2.5 py-1 text-[11px] font-medium text-slate-700 backdrop-blur dark:border-slate-700/70 dark:bg-slate-900/70 dark:text-slate-200">
+                <span className="absolute left-3 top-3 rounded-full border border-white/50 bg-white/75 px-2.5 py-1 text-[11px] font-medium text-gray-700 backdrop-blur dark:border-gray-700/70 dark:bg-gray-900/70 dark:text-gray-200">
                   {index + 1}/{images.length}
                 </span>
-                <span className="absolute right-3 bottom-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-white/85 text-slate-700 backdrop-blur transition group-hover:scale-105 dark:border-slate-700/70 dark:bg-slate-900/75 dark:text-slate-200">
+                <span className="absolute right-3 bottom-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/60 bg-white/85 text-gray-700 backdrop-blur transition group-hover:scale-105 dark:border-gray-700/70 dark:bg-gray-900/75 dark:text-gray-200">
                   <i className="fas fa-expand text-[11px]" aria-hidden="true"></i>
                 </span>
               </button>
 
               {img.caption && (
-                <figcaption className="mt-1 px-1 text-xs text-slate-500 dark:text-slate-400">
+                <figcaption className="mt-1 px-1 text-xs text-gray-500 dark:text-gray-400">
                   {isEn ? img.caption.en : img.caption.zh}
                 </figcaption>
               )}
@@ -170,7 +170,7 @@ export default function DevLogImageCarousel({ images, isEn }: Props) {
               aria-label={isEn ? 'Previous image' : '上一张'}
               onClick={() => scrollToIndex(activeIndex - 1)}
               disabled={activeIndex <= 0}
-              className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/70 bg-white/90 text-slate-700 shadow-sm backdrop-blur transition hover:scale-105 hover:bg-white disabled:cursor-not-allowed disabled:opacity-35 dark:border-slate-700/70 dark:bg-slate-900/85 dark:text-slate-200 dark:hover:bg-slate-900"
+              className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/70 bg-white/90 text-gray-700 shadow-sm backdrop-blur transition hover:scale-105 hover:bg-white disabled:cursor-not-allowed disabled:opacity-35 dark:border-gray-700/70 dark:bg-gray-900/85 dark:text-gray-200 dark:hover:bg-gray-900"
             >
               <i className="fas fa-chevron-left text-xs" aria-hidden="true"></i>
             </button>
@@ -179,7 +179,7 @@ export default function DevLogImageCarousel({ images, isEn }: Props) {
               aria-label={isEn ? 'Next image' : '下一张'}
               onClick={() => scrollToIndex(activeIndex + 1)}
               disabled={activeIndex >= images.length - 1}
-              className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/70 bg-white/90 text-slate-700 shadow-sm backdrop-blur transition hover:scale-105 hover:bg-white disabled:cursor-not-allowed disabled:opacity-35 dark:border-slate-700/70 dark:bg-slate-900/85 dark:text-slate-200 dark:hover:bg-slate-900"
+              className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/70 bg-white/90 text-gray-700 shadow-sm backdrop-blur transition hover:scale-105 hover:bg-white disabled:cursor-not-allowed disabled:opacity-35 dark:border-gray-700/70 dark:bg-gray-900/85 dark:text-gray-200 dark:hover:bg-gray-900"
             >
               <i className="fas fa-chevron-right text-xs" aria-hidden="true"></i>
             </button>
@@ -198,7 +198,7 @@ export default function DevLogImageCarousel({ images, isEn }: Props) {
               className={`rounded-full transition-all ${
                 index === activeIndex
                   ? 'h-1.5 w-6 bg-indigo-500 dark:bg-indigo-400'
-                  : 'h-1.5 w-1.5 bg-indigo-200 hover:bg-indigo-300 dark:bg-slate-600 dark:hover:bg-slate-500'
+                  : 'h-1.5 w-1.5 bg-indigo-200 hover:bg-indigo-300 dark:bg-gray-600 dark:hover:bg-gray-500'
               }`}
             />
           ))}
@@ -206,7 +206,7 @@ export default function DevLogImageCarousel({ images, isEn }: Props) {
       )}
 
       {viewerIndex !== null && (
-        <div className="fixed inset-0 z-[90] bg-slate-950/82 backdrop-blur-sm p-3 sm:p-6" onClick={closeViewer}>
+        <div className="fixed inset-0 z-[90] bg-gray-950/82 backdrop-blur-sm p-3 sm:p-6" onClick={closeViewer}>
           <div
             className="mx-auto flex h-full w-full max-w-6xl items-center justify-center"
             onClick={(event) => event.stopPropagation()}

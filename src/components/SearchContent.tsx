@@ -139,7 +139,7 @@ export default function SearchContent() {
       <div className="page-shell relative z-10 py-6">
         <div className="max-w-8xl mx-auto">
           <div className="mb-8 text-center">
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl mb-2">
+            <h1 className="text-2xl font-bold font-serif tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl mb-2">
               {searchQuery && (
                 <>
                   {tSearch('results')}
@@ -153,7 +153,7 @@ export default function SearchContent() {
               )}
               {!searchQuery && !categoryName && <>{tSearch('allTools')}</>}
             </h1>
-            <p className="mx-auto max-w-2xl text-sm text-slate-700 dark:text-slate-300">
+            <p className="mx-auto max-w-2xl text-sm text-gray-700 dark:text-gray-300">
               {categoryDesc || tSearch('subtitle')}
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function SearchContent() {
           <div className="mb-12 relative max-w-lg mx-auto">
             <form onSubmit={handleSubmit} className="relative">
               <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
               </div>
@@ -169,7 +169,7 @@ export default function SearchContent() {
                 ref={searchInputRef}
                 type="text"
                 id="search"
-                className="block w-full p-3 pl-10 text-md border-none ring-1 ring-slate-300 dark:ring-slate-700 rounded-lg bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all"
+                className="block w-full p-3 pl-10 text-md border-none ring-1 ring-gray-300 dark:ring-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 transition-all"
                 placeholder={tSearch('searchPlaceholder')}
                 autoComplete="off"
                 value={inputValue}
@@ -187,7 +187,7 @@ export default function SearchContent() {
                       router.push(`/${locale}/search`);
                     }
                   }}
-                  className="absolute inset-y-0 right-12 flex items-center pr-2 text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+                  className="absolute inset-y-0 right-12 flex items-center pr-2 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>

@@ -93,33 +93,33 @@ export default function ContributorBinder({ locale, onBound }: { locale: string;
   };
 
   return (
-    <section className="rounded-3xl border border-neutral-200 bg-white/95 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-950/80">
+    <section className="rounded-3xl border border-neutral-200 bg-white/95 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-950/80">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-600 dark:text-emerald-400">{isEn ? 'Identity' : '投稿身份'}</p>
-          <h2 className="mt-2 text-xl font-semibold text-slate-900 dark:text-slate-50">{isEn ? 'Bind a contributor profile for this device' : '先给这台设备绑定一个投稿身份'}</h2>
-          <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{isEn ? 'Current repo snapshot keeps the web binder first. Miniapp QR binding is the next integration step.' : '当前仓库版本先保留网页绑定入口。微信小程序扫码绑定是下一步接入点。'}</p>
+          <h2 className="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-50">{isEn ? 'Bind a contributor profile for this device' : '先给这台设备绑定一个投稿身份'}</h2>
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{isEn ? 'Current repo snapshot keeps the web binder first. Miniapp QR binding is the next integration step.' : '当前仓库版本先保留网页绑定入口。微信小程序扫码绑定是下一步接入点。'}</p>
         </div>
         {boundContributor && <a href={`/${locale}/contributors/${boundContributor.id}`} className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700 transition hover:bg-emerald-100 dark:border-emerald-900/70 dark:bg-emerald-950/60 dark:text-emerald-300"><span>{isEn ? 'My profile' : '查看我的主页'}</span></a>}
       </div>
 
       <div className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_auto]">
-        <input type="text" value={nickname} onChange={(event) => setNickname(event.target.value)} placeholder={isEn ? 'Nickname' : '昵称'} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
-        <input type="url" value={avatarUrl} onChange={(event) => setAvatarUrl(event.target.value)} placeholder={isEn ? 'Avatar URL (optional)' : '头像 URL（可留空）'} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100" />
-        <button type="button" onClick={bindIdentity} disabled={saving} className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-slate-100 dark:text-slate-900">{saving ? (isEn ? 'Saving...' : '保存中...') : (isEn ? 'Bind' : '绑定身份')}</button>
+        <input type="text" value={nickname} onChange={(event) => setNickname(event.target.value)} placeholder={isEn ? 'Nickname' : '昵称'} className="rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-emerald-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
+        <input type="url" value={avatarUrl} onChange={(event) => setAvatarUrl(event.target.value)} placeholder={isEn ? 'Avatar URL (optional)' : '头像 URL（可留空）'} className="rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-emerald-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100" />
+        <button type="button" onClick={bindIdentity} disabled={saving} className="rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-gray-100 dark:text-gray-900">{saving ? (isEn ? 'Saving...' : '保存中...') : (isEn ? 'Bind' : '绑定身份')}</button>
       </div>
 
       {boundContributor && (
-        <div className="mt-4 flex items-center gap-3 rounded-2xl bg-slate-50 p-3 dark:bg-slate-900/70">
+        <div className="mt-4 flex items-center gap-3 rounded-2xl bg-gray-50 p-3 dark:bg-gray-900/70">
           <img src={boundContributor.avatarUrl} alt={boundContributor.nickname} className="h-12 w-12 rounded-full border border-white/70 object-cover shadow-sm" />
           <div>
-            <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{boundContributor.nickname}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">ID: {boundContributor.id}</p>
+            <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{boundContributor.nickname}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">ID: {boundContributor.id}</p>
           </div>
         </div>
       )}
 
-      {message && <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{message}</p>}
+      {message && <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">{message}</p>}
     </section>
   );
 }

@@ -5,46 +5,46 @@
 :root {
   --font-inter: "Inter";
   --font-noto-sans-sc: "Noto Sans SC";
-  --foreground: #24324c;
-  --background: #f5f7fc;
-  --primary: #6c74f8;
+  --foreground: #1a1a1a;
+  --background: #ffffff;
+  --primary: #e06b6b;
   --primary-foreground: #ffffff;
-  --secondary: rgba(255, 255, 255, 0.9);
-  --secondary-foreground: #1e293b;
-  --muted: rgba(241, 245, 249, 0.95);
-  --muted-foreground: #64748b;
-  --accent: rgba(248, 250, 252, 0.95);
-  --accent-foreground: #0f172a;
+  --secondary: rgba(255, 255, 255, 0.95);
+  --secondary-foreground: #1a1a1a;
+  --muted: rgba(248, 246, 244, 0.95);
+  --muted-foreground: #6b7280;
+  --accent: rgba(255, 248, 245, 0.6);
+  --accent-foreground: #1a1a1a;
   --destructive: #ef4444;
-  --destructive-foreground: #f8fafc;
-  --border: rgba(148, 163, 184, 0.24);
-  --input: rgba(226, 232, 240, 0.92);
-  --ring: #7b7ef6;
+  --destructive-foreground: #fafafa;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(243, 241, 239, 0.92);
+  --ring: #e06b6b;
   --sidebar-width-expanded: 16rem;
   --sidebar-width-collapsed: 4rem;
-  --sidebar-bg-light: rgba(255, 255, 255, 0.9);
-  --sidebar-bg-dark: rgba(10, 14, 28, 0.78);
-  --sidebar-border-light: rgba(148, 163, 184, 0.24);
-  --sidebar-border-dark: rgba(118, 133, 170, 0.24);
+  --sidebar-bg-light: rgba(255, 255, 255, 0.95);
+  --sidebar-bg-dark: rgba(17, 17, 17, 0.85);
+  --sidebar-border-light: rgba(0, 0, 0, 0.06);
+  --sidebar-border-dark: rgba(255, 255, 255, 0.08);
 }
 
 .dark {
-  --foreground: #e7ebf6;
-  --background: #090d18;
-  --primary: #91a8ff;
+  --foreground: #e8e8e8;
+  --background: #111111;
+  --primary: #f09090;
   --primary-foreground: #ffffff;
-  --secondary: rgba(10, 15, 29, 0.76);
-  --secondary-foreground: #f8fafc;
-  --muted: rgba(17, 25, 43, 0.78);
-  --muted-foreground: #cad3e8;
-  --accent: rgba(20, 28, 46, 0.76);
-  --accent-foreground: #f8fafc;
+  --secondary: rgba(24, 24, 24, 0.76);
+  --secondary-foreground: #fafafa;
+  --muted: rgba(24, 24, 24, 0.78);
+  --muted-foreground: #a0a0a0;
+  --accent: rgba(28, 28, 28, 0.76);
+  --accent-foreground: #fafafa;
   --destructive: #ef4444;
-  --destructive-foreground: #f8fafc;
-  --border: rgba(112, 129, 171, 0.32);
-  --input: rgba(28, 40, 64, 0.8);
-  --ring: #91a8ff;
-  --sidebar-bg-dark: rgba(10, 14, 28, 0.78);
+  --destructive-foreground: #fafafa;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(32, 32, 32, 0.8);
+  --ring: #f09090;
+  --sidebar-bg-dark: rgba(17, 17, 17, 0.85);
 }
 
 body {
@@ -142,27 +142,30 @@ body {
 
 /* 增强暗黑模式下的文字可读性 */
 .dark .text-neutral-400 {
-  color: #cbd5e1 !important;
+  color: #a3a3a3 !important;
 }
 
 .dark .text-neutral-500 {
-  color: #e2e8f0 !important;
+  color: #d4d4d4 !important;
 }
 
 .dark .text-neutral-600 {
-  color: #f1f5f9 !important;
+  color: #e5e5e5 !important;
 }
 
-.dark .text-slate-400 {
-  color: #cbd5e1 !important;
+.dark .text-slate-400,
+.dark .text-gray-400 {
+  color: #a3a3a3 !important;
 }
 
-.dark .text-slate-500 {
-  color: #e2e8f0 !important;
+.dark .text-slate-500,
+.dark .text-gray-500 {
+  color: #d4d4d4 !important;
 }
 
-.dark .text-slate-600 {
-  color: #f1f5f9 !important;
+.dark .text-slate-600,
+.dark .text-gray-600 {
+  color: #e5e5e5 !important;
 }
 
 /* 提高暗黑模式下标签文字可见度的通用样式 */
@@ -206,7 +209,7 @@ html {
 
 /* 分类标题高亮动画 */
 @keyframes highlight {
-  0% { background-color: rgba(79, 131, 251, 0.1); }
+  0% { background-color: rgba(224, 107, 107, 0.08); }
   100% { background-color: transparent; }
 }
 
@@ -453,16 +456,18 @@ html {
 }
 
 /* 暗黑模式下侧边栏样式强化 */
-.dark .sidebar-container .text-slate-700 {
-  color: #f1f5f9 !important;
+.dark .sidebar-container .text-slate-700,
+.dark .sidebar-container .text-gray-700 {
+  color: #e5e5e5 !important;
 }
 
-.dark .sidebar-container .text-slate-600 {
-  color: #e2e8f0 !important;
+.dark .sidebar-container .text-slate-600,
+.dark .sidebar-container .text-gray-600 {
+  color: #d4d4d4 !important;
 }
 
 .dark .sidebar-container .group-hover\:text-primary-600 {
-  color: #93c5fd !important;
+  color: #f09090 !important;
 }
 
 /* 强化暗黑模式下表格和卡片边框的可见度 */
@@ -490,8 +495,8 @@ html {
 }
 
 .dark header {
-  background-color: rgba(15, 23, 42, 0.8) !important;
-  border-color: rgba(30, 41, 59, 0.5) !important;
+  background-color: rgba(17, 17, 17, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 .dark footer {
@@ -506,8 +511,8 @@ html {
 
 /* 暗黑模式下的卡片和容器样式 */
 .dark .tool-card {
-  background-color: rgba(4, 8, 18, 0.94) !important;
-  border-color: rgba(71, 85, 105, 0.52) !important;
+  background-color: rgba(20, 20, 20, 0.94) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .dark .container {
@@ -954,14 +959,14 @@ html {
 
 /* 团队成员卡片自定义样式 */
 .light-purple-bg {
-  background-color: #f5f3ff; /* 浅紫色背景 */
+  background-color: #fff5f5; /* 浅玫瑰背景 */
 }
 
 .avatar-ring {
   position: absolute;
   inset: -3px;
   border-radius: 9999px;
-  border: 2px solid #6366f1;
+  border: 2px solid #d4a853;
   opacity: 0.5;
 }
 
@@ -1001,7 +1006,7 @@ html {
 /* 深色模式适配 */
 @media (prefers-color-scheme: dark) {
   .light-purple-bg {
-    background-color: #1e293b;
+    background-color: #262626;
   }
 }
 
@@ -1031,17 +1036,16 @@ body::after {
 .dark body {
   background-color: var(--background) !important;
   background-image:
-    radial-gradient(circle at 14% 8%, rgba(74, 85, 134, 0.34), transparent 40%),
-    radial-gradient(circle at 86% 18%, rgba(61, 72, 118, 0.26), transparent 34%),
-    linear-gradient(156deg, #080b15 0%, #0c1221 56%, #090d19 100%);
+    radial-gradient(circle at 20% 10%, rgba(224, 107, 107, 0.06), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(212, 168, 83, 0.04), transparent 40%);
 }
 
 .dark body::before {
-  background: rgba(88, 101, 148, 0.2);
+  background: rgba(224, 107, 107, 0.03);
 }
 
 .dark body::after {
-  background: rgba(54, 64, 102, 0.24);
+  background: rgba(212, 168, 83, 0.03);
 }
 
 .site-atmosphere {
@@ -1052,29 +1056,31 @@ body::after {
 .site-glass-footer,
 .site-glass-sidebar,
 .site-glass-panel {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: saturate(130%) blur(16px);
-  -webkit-backdrop-filter: saturate(130%) blur(16px);
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: saturate(120%) blur(16px);
+  -webkit-backdrop-filter: saturate(120%) blur(16px);
 }
 
 .dark .site-glass-header,
 .dark .site-glass-footer,
 .dark .site-glass-sidebar,
 .dark .site-glass-panel {
-  background-color: rgba(9, 14, 28, 0.74) !important;
-  background-image: linear-gradient(162deg, rgba(34, 44, 71, 0.34), rgba(10, 14, 25, 0.1)) !important;
+  background-color: rgba(17, 17, 17, 0.82) !important;
+  background-image: none !important;
 }
 
 .site-atmosphere [class*='bg-white'],
 .site-atmosphere [class*='bg-neutral-50'],
-.site-atmosphere [class*='bg-slate-50'] {
-  background-color: rgba(255, 255, 255, 0.88) !important;
+.site-atmosphere [class*='bg-slate-50'],
+.site-atmosphere [class*='bg-gray-50'] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
 }
 
 .site-atmosphere [class*='border-slate-200'],
 .site-atmosphere [class*='border-neutral-200'],
+.site-atmosphere [class*='border-gray-200'],
 .site-atmosphere [class*='border-indigo-100'] {
-  border-color: rgba(203, 213, 225, 0.82) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 .dark .site-atmosphere [class*='bg-white'],
@@ -1082,29 +1088,31 @@ body::after {
 .dark .site-atmosphere [class*='bg-slate-900'],
 .dark .site-atmosphere [class*='bg-neutral-900'],
 .dark .site-atmosphere [class*='bg-gray-900'],
+.dark .site-atmosphere [class*='bg-gray-800'],
 .dark .site-atmosphere [class*='bg-slate-800'] {
-  background-color: rgba(4, 8, 18, 0.94) !important;
-  background-image: linear-gradient(162deg, rgba(22, 32, 56, 0.28), rgba(3, 7, 16, 0.08));
+  background-color: rgba(20, 20, 20, 0.94) !important;
+  background-image: none;
 }
 
 .dark .site-atmosphere [class*='border-slate-700'],
 .dark .site-atmosphere [class*='border-neutral-700'],
+.dark .site-atmosphere [class*='border-gray-700'],
 .dark .site-atmosphere [class*='border-indigo-700'] {
-  border-color: rgba(106, 124, 169, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .site-atmosphere .tool-card {
-  backdrop-filter: saturate(135%) blur(12px);
-  -webkit-backdrop-filter: saturate(135%) blur(12px);
+  backdrop-filter: saturate(120%) blur(12px);
+  -webkit-backdrop-filter: saturate(120%) blur(12px);
   box-shadow:
-    0 14px 34px -18px rgba(15, 23, 42, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    0 14px 34px -18px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .dark .site-atmosphere .tool-card {
   box-shadow:
-    0 14px 34px -18px rgba(2, 6, 23, 0.68),
-    inset 0 1px 0 rgba(148, 163, 184, 0.12);
+    0 14px 34px -18px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .scenario-chip {
