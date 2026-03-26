@@ -1,5 +1,17 @@
 import type { Metadata, ResolvingMetadata } from 'next';
 
+function cloneMetadataValue<T>(value: T): T {
+  if (value == null) {
+    return value;
+  }
+
+  if (typeof structuredClone === 'function') {
+    return structuredClone(value);
+  }
+
+  return JSON.parse(JSON.stringify(value)) as T;
+}
+
 /**
  * 用于合并父级metadata（特别是icons）的工具函数
  * 确保子页面不会意外覆盖根layout的favicon设置
@@ -17,13 +29,14 @@ export async function withBaseMeta(
   // 合并metadata，overrides会覆盖同名字段，但保留base中不存在于overrides的字段
   const result: Metadata = { 
     ...overrides,
-    // 确保icons始终保留父级设置（除非overrides明确指定了icons）
-    icons: overrides.icons || base.icons,
+    // Next 会在 metadata 解析阶段继续补充 icon descriptor。
+    // 这里必须返回一个可变副本，不能复用父级 metadata 中可能被冻结的对象。
+    icons: cloneMetadataValue(overrides.icons ?? base.icons),
   };
   
   // 保留父级的其他重要字段（如果overrides中没有指定）
   if (!overrides.metadataBase && base.metadataBase) {
-    result.metadataBase = base.metadataBase;
+    result.metadataBase = cloneMetadataValue(base.metadataBase);
   }
   
   return result;

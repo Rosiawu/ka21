@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useMemo, useState } from 'react';
+import Link from '@/i18n/Link';
 import ContributorBinder, { type BoundContributor } from './ContributorBinder';
 import type { DealExtractionResult, DealViewModel } from '@/lib/deals/types';
 
@@ -126,7 +127,7 @@ export default function DealSubmitPageContent({ locale }: { locale: string }) {
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-50">{isEn ? 'Submission input' : '投稿输入'}</h2>
                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{isEn ? 'Paste text, add image proof, and optionally attach a source link.' : '可以直接粘贴文字、补充截图，也可以额外补一个来源链接。'}</p>
               </div>
-              <a href={`/${locale}/deals`} className="text-sm font-medium text-orange-600 transition hover:text-orange-700 dark:text-orange-300">{isEn ? 'View deal feed' : '查看羊毛区'}</a>
+              <Link href="/deals" className="text-sm font-medium text-orange-600 transition hover:text-orange-700 dark:text-orange-300">{isEn ? 'View deal feed' : '查看羊毛区'}</Link>
             </div>
 
             <div className="mt-5 space-y-4">
@@ -170,7 +171,7 @@ export default function DealSubmitPageContent({ locale }: { locale: string }) {
                 <h2 className="mt-2 text-2xl font-semibold">{preview.title || (isEn ? 'Untitled deal' : '未命名羊毛')}</h2>
                 <p className="mt-2 text-sm leading-6">{preview.moderationReason}</p>
               </div>
-              {'id' in preview && preview.id && <a href={`/${locale}/deals/${preview.id}`} className="text-sm font-semibold underline underline-offset-4">{isEn ? 'Open detail page' : '打开详情页'}</a>}
+              {'id' in preview && preview.id && <Link href={`/deals/${preview.id}`} className="text-sm font-semibold underline underline-offset-4">{isEn ? 'Open detail page' : '打开详情页'}</Link>}
             </div>
 
             <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">

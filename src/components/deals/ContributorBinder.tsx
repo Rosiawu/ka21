@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useState } from 'react';
+import Link from '@/i18n/Link';
 
 const CONTRIBUTOR_ID_KEY = 'ka21_deals_contributor_id';
 const CONTRIBUTOR_NICKNAME_KEY = 'ka21_deals_contributor_nickname';
@@ -100,7 +101,7 @@ export default function ContributorBinder({ locale, onBound }: { locale: string;
           <h2 className="mt-2 text-xl font-semibold text-gray-900 dark:text-gray-50">{isEn ? 'Bind a contributor profile for this device' : '先给这台设备绑定一个投稿身份'}</h2>
           <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{isEn ? 'Current repo snapshot keeps the web binder first. Miniapp QR binding is the next integration step.' : '当前仓库版本先保留网页绑定入口。微信小程序扫码绑定是下一步接入点。'}</p>
         </div>
-        {boundContributor && <a href={`/${locale}/contributors/${boundContributor.id}`} className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700 transition hover:bg-emerald-100 dark:border-emerald-900/70 dark:bg-emerald-950/60 dark:text-emerald-300"><span>{isEn ? 'My profile' : '查看我的主页'}</span></a>}
+        {boundContributor && <Link href={`/contributors/${boundContributor.id}`} className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700 transition hover:bg-emerald-100 dark:border-emerald-900/70 dark:bg-emerald-950/60 dark:text-emerald-300"><span>{isEn ? 'My profile' : '查看我的主页'}</span></Link>}
       </div>
 
       <div className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_auto]">
