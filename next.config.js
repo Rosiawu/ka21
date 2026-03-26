@@ -118,4 +118,10 @@ const nextConfig = {
 
 module.exports = withBundleAnalyzer(withNextIntl(nextConfig));
 
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
+if (process.env.NODE_ENV === 'development' && !process.env.CI && !process.env.VERCEL) {
+  import('@opennextjs/cloudflare')
+    .then((m) => m.initOpenNextCloudflareForDev())
+    .catch((error) => {
+      console.warn('[next.config] OpenNext Cloudflare dev init skipped:', error);
+    });
+}
