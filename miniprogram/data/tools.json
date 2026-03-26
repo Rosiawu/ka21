@@ -4,7 +4,7 @@
       "id": "suno",
       "name": "Suno",
       "description": "AI音乐创作平台！Suno是一款革命性的AI音乐创作工具，能够通过文本描述生成完整的音乐作品。它支持多种音乐风格，可以创作歌词、旋律和编曲，让普通用户也能轻松创作专业级音乐。",
-      "icon": "https://ka21.tools/icons/suno.png",
+      "icon": "https://ka21.org/icons/suno.png",
       "url": "https://suno.com",
       "tags": [
         "ai-code",
@@ -48,7 +48,7 @@
       "id": "haimian",
       "name": "海绵音乐",
       "description": "AI驱动的音乐创作平台！海绵音乐是一款由字节跳动开发的AI音乐生成工具，能够通过简单描述快速创建高质量音乐作品。它支持多种音乐风格和场景，提供丰富的旋律和节奏选择，让用户轻松创作专业级音乐，特别适合创作者、短视频制作者和音乐爱好者使用。",
-      "icon": "https://ka21.tools/icons/haimian.png",
+      "icon": "https://ka21.org/icons/haimian.png",
       "url": "https://www.haimian.com/",
       "tags": [
         "ai-audio",
@@ -96,7 +96,7 @@
       "id": "minimax-audio",
       "name": "海螺 (MiniMax Audio)",
       "description": "AI驱动的语音生成平台！海螺(MiniMax Audio)是一款专业的AI语音合成工具，能够生成自然流畅的人声。它支持多种语言和音色，可以快速将文本转换为高质量语音，适用于有声书、广告配音、游戏角色等多种场景。",
-      "icon": "https://ka21.tools/icons/minimax-audio.png",
+      "icon": "https://ka21.org/icons/minimax-audio.png",
       "url": "https://www.minimax.io/audio",
       "tags": [
         "ai-audio",
@@ -144,7 +144,7 @@
       "id": "notebooklm",
       "name": "NotebookLM",
       "description": "Google推出的AI笔记助手！NotebookLM是一款智能文档分析和笔记工具，它能够深入理解用户上传的文档内容，提供智能总结、问答和见解分析。特别适合学术研究、文献阅读和知识管理，可以帮助用户更高效地处理和理解复杂文档。",
-      "icon": "https://ka21.tools/icons/notebooklm.png",
+      "icon": "https://ka21.org/icons/notebooklm.png",
       "url": "https://notebooklm.google",
       "tags": [
         "ai-assistant",
@@ -192,7 +192,7 @@
       "id": "listenhub",
       "name": "ListenHub",
       "description": "ListenHub是一款基于AI技术的播客生成工具，用户可以通过输入话题、粘贴链接或上传文件，快速生成高质量的播客内容。它提供超真实人声效果，支持自然对话式交互，让用户无需搜索即可获取和收听各类信息和热门话题。",
-      "icon": "https://ka21.tools/icons/listenhub.png",
+      "icon": "https://ka21.org/icons/listenhub.png",
       "url": "https://listenhub.ai/zh",
       "tags": [
         "ai-audio",
@@ -235,7 +235,7 @@
       "id": "youdao-fm",
       "name": "有道文档FM",
       "description": "网易有道旗下有声阅读与学习效率工具，可将各类文档和文本内容转换为对话式播客、总结摘要和思维导图，支持多种播客场景和音色，提供实时录音转写和多语言翻译功能，帮助用户随时随地听取文档内容，提升阅读与学习效率。",
-      "icon": "https://ka21.tools/icons/youdao-fm.png",
+      "icon": "https://ka21.org/icons/youdao-fm.png",
       "url": "https://apps.apple.com/cn/app/%E6%9C%89%E9%81%93%E6%96%87%E6%A1%A3fm-%E6%96%87%E6%9C%AC%E6%9C%97%E8%AF%BB-%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3-%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97-%E5%BD%95%E9%9F%B3%E8%BD%AC%E5%86%99/id6738774225",
       "tags": [
         "ai-audio",
@@ -274,7 +274,7 @@
       "id": "mureka",
       "name": "Mureka",
       "description": "Mureka是全球首个融合AI音乐生成、编辑和版权交易的综合平台。它搭载多个专业级AI模型（包括Mureka O1、Mureka V6等），能够基于歌词、提示词或哼唱旋律创作高质量音乐作品。平台提供免版税歌曲生成、多语种支持（最多10种语言）、可定制歌手音色等功能，既适合个人创作者捕捉灵感，也满足专业音乐制作需求。",
-      "icon": "https://ka21.tools/icons/mureka.png",
+      "icon": "https://ka21.org/icons/mureka.png",
       "url": "https://www.mureka.cn/",
       "tags": [
         "ai-audio",
@@ -319,7 +319,7 @@
       "id": "tunee",
       "name": "Tunee",
       "description": "Tunee是一款革命性的AI音乐智能体，通过自然语言对话即可创作完整音乐作品。支持多模态交互（文字、图片、音频、视频），能够生成歌词、旋律、编曲，并提供MV制作、分轨导出、商业授权等全链路服务。让没有音乐基础的用户也能轻松创作专业级音乐，真正实现'人人都能玩点音乐'的愿景。",
-      "icon": "https://ka21.tools/icons/tunee.png",
+      "icon": "https://ka21.org/icons/tunee.png",
       "url": "https://www.tunee.ai",
       "tags": [
         "ai-audio",
@@ -371,7 +371,7 @@
       "id": "wenxinlyrics",
       "name": "文心歌词",
       "description": "百度文心AI歌词创作平台！文心歌词是一款专业的AI歌词创作工具，能根据主题、风格和情感智能生成歌词内容。它支持多种音乐风格，可以快速创作出符合韵律的优质歌词，是音乐创作者的得力助手。",
-      "icon": "https://ka21.tools/icons/wenxinlyrics.png",
+      "icon": "https://ka21.org/icons/wenxinlyrics.png",
       "url": "https://wenxin.baidu.com/wenxin/pc/lyrics",
       "tags": [
         "creativity",
@@ -416,7 +416,7 @@
       "id": "music-hero",
       "name": "Music Hero",
       "description": "AI驱动的音乐创作平台！Music Hero是一款强大的AI音乐生成工具，能够帮助用户快速创作专业级音乐作品。它支持多种音乐风格和乐器，可以根据文本描述或情感提示生成原创音乐，特别适合视频创作者、游戏开发者和音乐爱好者使用。",
-      "icon": "https://ka21.tools/icons/music-hero.png",
+      "icon": "https://ka21.org/icons/music-hero.png",
       "url": "https://musichero.ai/zh-CN",
       "tags": [
         "ai-audio",
@@ -464,7 +464,7 @@
       "id": "elevenlabs-cn",
       "name": "ElevenLabs中文版",
       "description": "专业的AI语音合成平台！ElevenLabs中文版是一款强大的AI配音工具，支持中英日韩等多语言，提供超过900+种真人语音。它能够生成自然流畅的语音内容，支持情感调节和音色克隆，特别适合视频配音、有声书制作等场景。",
-      "icon": "https://ka21.tools/icons/elevenlabs-cn.png",
+      "icon": "https://ka21.org/icons/elevenlabs-cn.png",
       "url": "https://elevenlabscn.com/",
       "tags": [
         "ai-assistant",
@@ -512,7 +512,7 @@
       "id": "ttsmaker",
       "name": "TTSMaker",
       "description": "免费的AI配音神器！TTSMaker（马克配音）是一款专业的文本转语音工具，支持50多种语言和300多种语音风格。它可以用于视频配音、有声书制作、教育培训等场景。特别之处在于完全免费且支持商用，让用户可以轻松创建高质量的AI配音内容。",
-      "icon": "https://ka21.tools/icons/ttsmaker.svg",
+      "icon": "https://ka21.org/icons/ttsmaker.svg",
       "url": "https://ttsmaker.cn/",
       "tags": [
         "ai-assistant",
@@ -560,7 +560,7 @@
       "id": "cursor",
       "name": "Cursor",
       "description": "AI驱动的智能代码编辑器！Cursor是一款革新性的代码编辑器，内置强大的AI助手功能。它不仅提供代码补全、重构建议，还能理解自然语言指令生成代码，解答编程问题。基于VS Code构建，完美继承了其生态系统，同时提供更智能的编程体验。",
-      "icon": "https://ka21.tools/icons/cursor.png",
+      "icon": "https://ka21.org/icons/cursor.png",
       "url": "https://www.cursor.com/",
       "tags": [
         "ai-assistant",
@@ -610,7 +610,7 @@
       "id": "codex",
       "name": "Codex",
       "description": "OpenAI 推出的 AI 编码助手！Codex 面向真实项目开发场景，支持代码理解、实现方案生成、重构和调试建议，适合用于提升开发效率与交付质量。",
-      "icon": "https://ka21.tools/icons/codex.png",
+      "icon": "https://ka21.org/icons/codex.png",
       "url": "https://chatgpt.com/",
       "tags": [
         "ai-code",
@@ -658,7 +658,7 @@
       "id": "windsurf",
       "name": "Windsurf",
       "description": "AI驱动的网页设计工具！Windsurf是一款革新性的网页设计平台，能够通过文本描述快速生成专业级网页。它支持多种设计风格，提供丰富的组件库和模板，让用户无需编码即可创建现代化的响应式网站。",
-      "icon": "https://ka21.tools/icons/windsurf.png",
+      "icon": "https://ka21.org/icons/windsurf.png",
       "url": "https://windsurf.com/",
       "tags": [
         "ai-design",
@@ -706,7 +706,7 @@
       "id": "trae",
       "name": "Trae",
       "description": "AI驱动的桌面助手！Trae 是一款创新的 AI 桌面应用，它能够通过自然语言对话帮助用户完成各种任务。支持文本生成、代码编写、图片处理等功能，内置 Claude 3.5 模型，提供流畅的中文交互体验，是提升工作效率的理想助手。",
-      "icon": "https://ka21.tools/icons/trae.png",
+      "icon": "https://ka21.org/icons/trae.png",
       "url": "https://www.trae.ai/",
       "tags": [
         "ai-assistant",
@@ -756,7 +756,7 @@
       "id": "midjourney",
       "name": "Midjourney",
       "description": "顶级AI绘画工具！Midjourney是目前最受欢迎的AI艺术创作平台之一，能够通过文字描述生成惊艳的艺术作品。它以其独特的艺术风格和高质量的图像生成能力而闻名，特别擅长创作富有艺术感和想象力的画面，广受设计师和艺术创作者欢迎。",
-      "icon": "https://ka21.tools/icons/midjourney.png",
+      "icon": "https://ka21.org/icons/midjourney.png",
       "url": "https://www.midjourney.com/home",
       "tags": [
         "ai-art",
@@ -804,7 +804,7 @@
       "id": "flux",
       "name": "Flux",
       "description": "Black Forest Labs开发的最强开源AI绘画模型！Flux.1系列（Pro, Dev, Schnell）以其惊人的图像质量、极高的提示词还原度和优秀的手指/文本生成能力著称。效果直逼甚至超越Midjourney V6，支持本地部署，是目前最受推崇的开源文生图模型。",
-      "icon": "https://ka21.tools/icons/flux.png",
+      "icon": "https://ka21.org/icons/flux.png",
       "url": "https://bfl.ai/",
       "tags": [
         "ai-image",
@@ -852,7 +852,7 @@
       "toolCategory": "image",
       "name": "Lovart",
       "description": "Lovart是一款专注于设计领域的垂直AI Agent，它通过深度优化设计流程，帮助设计师和创意工作者将灵感转化为专业作品。与通用AI Agent不同，Lovart专注于设计领域，在创意发散和设计执行方面提供极致体验，让设计过程更加高效和专业。",
-      "icon": "https://ka21.tools/icons/lovart.png",
+      "icon": "https://ka21.org/icons/lovart.png",
       "url": "https://www.lovart.ai",
       "tags": [
         "ai-design",
@@ -891,7 +891,7 @@
       "toolCategory": "image",
       "name": "Leonardo.ai",
       "description": "Leonardo是一款强大的AI绘画工具，以其生成帅气人物形象而闻名。它提供每日免费token，支持多种艺术风格，特别擅长生成高质量的人物肖像和场景图。现已推出手机客户端，让免费用户也能随时随地创作。",
-      "icon": "https://ka21.tools/icons/leonardo.png",
+      "icon": "https://ka21.org/icons/leonardo.png",
       "url": "https://leonardo.ai",
       "tags": [
         "ai-image",
@@ -937,7 +937,7 @@
       "id": "ideogram",
       "name": "Ideogram",
       "description": "创意图像生成平台！Ideogram是一款强大的AI文本到图像生成工具，能够将文字描述转换为精美的艺术图像。它支持多种艺术风格，特别擅长生成具有设计感的图像、文字海报和概念艺术。每天提供免费生成额度，适合创意工作者和设计师使用。",
-      "icon": "https://ka21.tools/icons/ideogram.png",
+      "icon": "https://ka21.org/icons/ideogram.png",
       "url": "https://ideogram.ai",
       "tags": [
         "ai-image",
@@ -968,7 +968,7 @@
       "id": "recraft",
       "name": "Recraft",
       "description": "AI设计神器！Recraft是一款强大的AI设计工具，专注于品牌设计和营销物料生成。它能快速生成Logo、海报、社交媒体图片等多种设计素材，支持一键换色、风格迁移、智能布局等功能。适合设计师和营销人员使用，大幅提升设计效率。",
-      "icon": "https://ka21.tools/icons/recraft.png",
+      "icon": "https://ka21.org/icons/recraft.png",
       "url": "https://www.recraft.ai/",
       "tags": [
         "ai-design",
@@ -1016,7 +1016,7 @@
       "id": "anygen",
       "name": "AnyGen",
       "description": "AnyGen 是一款专业的AI设计与文档生成工具，特别擅长将文档一键转化为高质量的演示文稿（PPT）和视觉设计。它不仅仅是简单的生成，更提供了深度协作编辑功能，支持图表、排版和配色的智能优化。适合需要快速产出专业汇报材料、设计草图和结构化内容的职场人士与设计师。",
-      "icon": "https://ka21.tools/icons/anygen.svg",
+      "icon": "https://ka21.org/icons/anygen.svg",
       "url": "https://www.anygen.io/",
       "tags": [
         "ai-design",
@@ -1044,7 +1044,7 @@
       "id": "mistral",
       "name": "Mistral AI",
       "description": "mistral是一款强大的AI绘画工具，每日免费生成3张图，适合快速创意测试。",
-      "icon": "https://ka21.tools/icons/mistral.png",
+      "icon": "https://ka21.org/icons/mistral.png",
       "url": "https://mistral.ai",
       "tags": [
         "ai-image",
@@ -1086,7 +1086,7 @@
       "id": "freedraw",
       "name": "自由画布",
       "description": "AI智能白板工具！自由画布是一款强大的在线协作白板工具，集成了AI绘画、智能图表和文档处理功能。它支持多人实时协作，提供丰富的模板资源，能快速生成专业图表，是团队协作和创意表达的理想工具。",
-      "icon": "https://ka21.tools/icons/freedraw.png",
+      "icon": "https://ka21.org/icons/freedraw.png",
       "url": "https://wenku.baidu.com/board",
       "tags": [
         "ai-assistant",
@@ -1124,7 +1124,7 @@
       "id": "jm",
       "name": "即梦",
       "description": "字节跳动出品的AI创作神器！即梦是剪映旗下的一站式AI创作平台，提供AI绘画、视频创作、图像编辑等多种功能。支持一键生成各类风格图片和视频，内置专业级编辑工具，让创作更简单高效。完全免费，无需注册，适合设计师和内容创作者使用。",
-      "icon": "https://ka21.tools/icons/jm.png",
+      "icon": "https://ka21.org/icons/jm.png",
       "url": "https://jimeng.jianying.com/",
       "displayOrder": 100,
       "tags": [
@@ -1177,7 +1177,7 @@
       "id": "napkin",
       "name": "Napkin",
       "description": "AI驱动的流程图制作工具！Napkin AI能够将文本描述自动转换为专业的流程图和示意图。它使用先进的AI技术理解用户意图，快速生成清晰的可视化图表，特别适合需要快速制作流程图的场景。",
-      "icon": "https://ka21.tools/icons/napkin.png",
+      "icon": "https://ka21.org/icons/napkin.png",
       "url": "https://www.napkin.ai",
       "tags": [
         "ai-assistant",
@@ -1225,7 +1225,7 @@
       "id": "klingai",
       "name": "可图",
       "description": "可图是一款先进的AI图像生成工具，最新的2.0版本新增多参考图功能，允许用户同时上传人物和场景图片，通过简单提示词指引AI生成特定场景下的人物图像。该工具特别适合创作者快速制作角色在不同场景中的视觉内容，操作简便，效果自然。",
-      "icon": "https://ka21.tools/icons/klingai.png",
+      "icon": "https://ka21.org/icons/klingai.png",
       "url": "https://app.klingai.com/cn/image-to-image/multi/new",
       "tags": [
         "ai-image",
@@ -1270,7 +1270,7 @@
       "id": "artifig",
       "name": "Artifig",
       "description": "排版好用的AI！Artifig是一款AI驱动的Figma插件开发工具，它能帮助设计师和开发者快速将创意转化为可用的Figma插件。只需描述你想要的插件功能，Artifig就能自动生成相应的插件代码，大大简化了Figma插件开发流程。",
-      "icon": "https://ka21.tools/icons/artifig.svg",
+      "icon": "https://ka21.org/icons/artifig.svg",
       "url": "https://www.figma.com/community/plugin/1434961364530492108/artifig-ai-turn-ideas-into-live-figma-plugins",
       "tags": [
         "productivity",
@@ -1309,7 +1309,7 @@
       "id": "textbehindimage",
       "name": "TextBehindImage",
       "description": "添加背景文字！TextBehindImage是一款AI驱动的图片文字提取工具，能够识别并提取图片中被遮挡、半透明或水印覆盖的文字。它使用先进的AI技术，帮助用户恢复和获取图片背后的文字内容。",
-      "icon": "https://ka21.tools/icons/textbehindimage.png",
+      "icon": "https://ka21.org/icons/textbehindimage.png",
       "url": "https://textbehindimage.rexanwong.xyz",
       "tags": [
         "ai-assistant",
@@ -1349,7 +1349,7 @@
       "id": "readkidz",
       "name": "ReadKidz",
       "description": "儿童绘本神器！ReadKidz是一款AI驱动的儿童绘本创作工具，能够一站式生成完整的儿童绘本，包括故事内容、配套插图和音频配音。它使用先进的AI技术，帮助家长和教育工作者快速创作适合儿童阅读的绘本作品。",
-      "icon": "https://ka21.tools/icons/readkidz.png",
+      "icon": "https://ka21.org/icons/readkidz.png",
       "url": "https://www.readkidz.com",
       "tags": [
         "creativity",
@@ -1389,7 +1389,7 @@
       "id": "colorify",
       "name": "Colorify",
       "description": "AI智能配色神器！Colorify是一款强大的在线配色工具，使用AI技术帮助用户生成和管理配色方案。它可以从图片中提取配色，生成渐变色，并提供大量预设的配色模板，特别适合设计师和创意工作者使用。",
-      "icon": "https://ka21.tools/icons/colorify.png",
+      "icon": "https://ka21.org/icons/colorify.png",
       "url": "https://colorify.rocks",
       "tags": [
         "ai-assistant",
@@ -1434,7 +1434,7 @@
       "id": "zcoloring",
       "name": "ZColoring",
       "description": "AI智能上色神器！ZColoring是一款专业的AI自动上色工具，可以为黑白图片、线稿和素描添加自然的色彩。它使用先进的AI技术，能够智能识别图像内容，并根据场景和物体特征进行合理的上色处理。特别适合漫画、插画作品的快速上色。",
-      "icon": "https://ka21.tools/icons/zcoloring.png",
+      "icon": "https://ka21.org/icons/zcoloring.png",
       "url": "https://zcoloring.com",
       "tags": [
         "ai-assistant",
@@ -1479,7 +1479,7 @@
       "id": "amymind",
       "name": "AmyMind",
       "description": "智能思维导图工具！AmyMind是一款创新的在线思维导图工具，结合了AI技术和协作功能。它能够帮助用户快速构建思维导图，支持多人实时协作，并提供智能布局和主题推荐。特别适合项目规划、知识管理和头脑风暴场景。",
-      "icon": "https://ka21.tools/icons/amymind.png",
+      "icon": "https://ka21.org/icons/amymind.png",
       "url": "https://amymind.com",
       "tags": [
         "productivity",
@@ -1524,7 +1524,7 @@
       "id": "tripo3d",
       "name": "Tripo3D",
       "description": "AI驱动的3D场景生成工具！Tripo3D是一款创新的3D内容创作平台，能够通过文本描述快速生成3D场景和模型。它支持场景编辑、材质调整、光影效果等专业功能，让3D创作变得简单直观。",
-      "icon": "https://ka21.tools/icons/tripo3d.png",
+      "icon": "https://ka21.org/icons/tripo3d.png",
       "url": "https://www.tripo3d.ai/",
       "tags": [
         "ai-assistant",
@@ -1569,7 +1569,7 @@
       "id": "picwish-sharpener",
       "name": "PicWish 图片增强",
       "description": "AI驱动的图片增强工具！PicWish AI图片增强器能够智能提升图片清晰度和质量。它可以自动修复模糊、低分辨率的图片，增强细节和色彩，让图片更加清晰锐利。特别适合修复老照片、优化产品图片或提升社交媒体内容质量。",
-      "icon": "https://ka21.tools/icons/picwish-sharpener.png",
+      "icon": "https://ka21.org/icons/picwish-sharpener.png",
       "url": "https://picwish.cn/ai-image-sharpener",
       "tags": [
         "ai-image",
@@ -1617,7 +1617,7 @@
       "id": "hotpot-ai",
       "name": "Hotpot AI",
       "description": "多功能AI图像处理平台！Hotpot AI提供多种AI图像处理工具，包括黑白照片上色、图片放大、背景移除、人物照片增强等功能。",
-      "icon": "https://ka21.tools/icons/hotpot-ai.png",
+      "icon": "https://ka21.org/icons/hotpot-ai.png",
       "url": "https://hotpot.ai/colorize-picture",
       "tags": [
         "ai-image",
@@ -1657,7 +1657,7 @@
       "id": "image-colorizer",
       "name": "Image Colorizer",
       "description": "专业的AI照片上色工具！Image Colorizer是一款专注于老照片修复和上色的AI工具，能够将黑白照片转换为自然的彩色图像。它采用先进的深度学习技术，可以智能识别照片中的人物、场景和物体，并赋予它们逼真的色彩，让珍贵的老照片重现生机。",
-      "icon": "https://ka21.tools/icons/image-colorizer.png",
+      "icon": "https://ka21.org/icons/image-colorizer.png",
       "url": "https://imagecolorizer.com/",
       "tags": [
         "ai-image",
@@ -1697,7 +1697,7 @@
       "id": "palette-fm",
       "name": "Palette.fm",
       "description": "智能照片上色专家！Palette.fm是一款强大的AI照片上色工具，专注于将黑白照片转换为逼真的彩色图像。",
-      "icon": "https://ka21.tools/icons/palette-fm.png",
+      "icon": "https://ka21.org/icons/palette-fm.png",
       "url": "https://palette.fm/",
       "tags": [
         "ai-image",
@@ -1737,7 +1737,7 @@
       "id": "media-io-colorizer",
       "name": "Media.io AI Photo Colorizer",
       "description": "专业的AI照片上色工具！Media.io AI Photo Colorizer是一款强大的在线照片上色工具，能够智能将黑白照片转换为彩色图像。",
-      "icon": "https://ka21.tools/icons/media-io-colorizer.png",
+      "icon": "https://ka21.org/icons/media-io-colorizer.png",
       "url": "https://www.media.io/photo-colorizer.html",
       "tags": [
         "ai-image",
@@ -1777,7 +1777,7 @@
       "id": "fotor",
       "name": "Fotor",
       "description": "专业的AI照片编辑平台！Fotor提供全方位的照片编辑功能，包括AI照片上色、人像美化、背景移除等。",
-      "icon": "https://ka21.tools/icons/fotor.png",
+      "icon": "https://ka21.org/icons/fotor.png",
       "url": "https://www.fotor.com/features/colorize-photo/",
       "tags": [
         "ai-image",
@@ -1817,7 +1817,7 @@
       "id": "deep-ai",
       "name": "DeepAI",
       "description": "全能AI创作平台！DeepAI提供多种AI图像处理工具，包括文生图、图片上色、超分辨率、风格迁移等功能。",
-      "icon": "https://ka21.tools/icons/deep-ai.png",
+      "icon": "https://ka21.org/icons/deep-ai.png",
       "url": "https://deepai.org/",
       "tags": [
         "ai-image",
@@ -1857,7 +1857,7 @@
       "id": "vance-ai",
       "name": "VanceAI",
       "description": "专业级AI图像处理平台！VanceAI提供全方位的AI图像增强功能，包括照片上色、图片放大、降噪锐化、人像美化等。",
-      "icon": "https://ka21.tools/icons/vance-ai.png",
+      "icon": "https://ka21.org/icons/vance-ai.png",
       "url": "https://vanceai.com/colorize-photo/",
       "tags": [
         "ai-image",
@@ -1897,7 +1897,7 @@
       "id": "gaituya",
       "name": "改图鸭",
       "description": "国产AI图像处理神器！改图鸭提供一站式AI图像处理解决方案，包括智能抠图、图片放大、老照片修复、人像美化等功能。",
-      "icon": "https://ka21.tools/icons/gaituya.png",
+      "icon": "https://ka21.org/icons/gaituya.png",
       "url": "https://www.gaituya.com/",
       "tags": [
         "ai-image",
@@ -1937,7 +1937,7 @@
       "id": "ai-huazuo",
       "name": "AI画室",
       "description": "智能图像处理工作室！AI画室提供一站式AI图像处理服务，包括老照片修复、黑白照片上色、人像美化等功能。",
-      "icon": "https://ka21.tools/icons/ai-huazuo.png",
+      "icon": "https://ka21.org/icons/ai-huazuo.png",
       "url": "https://www.aihuazuo.com/shangse/",
       "tags": [
         "ai-image",
@@ -1978,7 +1978,7 @@
       "toolCategory": "office",
       "name": "Gamma",
       "description": "AI驱动的演示文稿创作平台！Gamma是一款革新性的演示文稿工具，使用AI技术帮助用户快速创建专业级演示文稿。它能根据简单的文本描述自动生成精美的幻灯片，包含智能排版、主题推荐和内容生成等功能，大大提升演示文稿的制作效率。",
-      "icon": "https://ka21.tools/icons/gamma.png",
+      "icon": "https://ka21.org/icons/gamma.png",
       "url": "https://gamma.app/zh-cn",
       "tags": [
         "ai-assistant",
@@ -2022,7 +2022,7 @@
       "id": "tongyi-efficiency",
       "name": "通义效率",
       "description": "阿里云出品的智能办公助手！通义效率是一款全能型AI办公助手，集成了文档处理、PPT生成、数据分析、文案创作等多种功能。它基于阿里先进的大语言模型，可以帮助用户快速完成各类办公任务，提升工作效率。支持中文优化，操作简单直观。",
-      "icon": "https://ka21.tools/icons/tongyi-efficiency.png",
+      "icon": "https://ka21.org/icons/tongyi-efficiency.png",
       "url": "https://tongyi.aliyun.com/efficiency/home",
       "tags": [
         "ai-assistant",
@@ -2070,7 +2070,7 @@
       "id": "feishu-base",
       "name": "飞书多维表格",
       "description": "字节跳动出品的新一代在线协作表格！飞书多维表格是一款强大的数据协作工具，支持多种视图展示（表格、看板、甘特图等），可以轻松构建轻量级应用。它集成了智能公式、自动化工作流、数据分析等功能，特别适合团队协作和项目管理。",
-      "icon": "https://ka21.tools/icons/feishu-base.png",
+      "icon": "https://ka21.org/icons/feishu-base.png",
       "url": "https://www.feishu.cn/product/base",
       "tags": [
         "productivity",
@@ -2126,7 +2126,7 @@
       "id": "tiangong",
       "name": "天工",
       "description": "昆仑万维出品的中国领先大语言模型平台！天工AI不仅是大语言模型平台，还提供超级智能体功能，专注于智能创作和文档处理。",
-      "icon": "https://ka21.tools/icons/tiangong.png",
+      "icon": "https://ka21.org/icons/tiangong.png",
       "url": "https://www.tiangong.cn/",
       "tags": [
         "ai-chat",
@@ -2174,7 +2174,7 @@
       "id": "tongyi-tingwu",
       "name": "通义听悟",
       "description": "阿里云出品的智能会议助手！通义听悟是一款专业的语音转写和会议记录工具，支持实时语音转写、多语言翻译、会议纪要自动生成等功能。它能够智能识别发言人，提取关键信息，让会议记录更加高效和准确。特别适合需要处理大量会议记录的团队使用。",
-      "icon": "https://ka21.tools/icons/tongyi-tingwu.png",
+      "icon": "https://ka21.org/icons/tongyi-tingwu.png",
       "url": "https://tingwu.aliyun.com/home",
       "tags": [
         "ai-assistant",
@@ -2222,7 +2222,7 @@
       "id": "kimippt",
       "name": "Kimi PPT助手",
       "description": "AI驱动的PPT制作神器！Kimi PPT助手是一款专业的演示文稿智能助手，由月之暗面团队开发。它能根据用户需求自动生成PPT大纲和内容，提供专业的设计建议，支持一键美化，让PPT制作变得简单高效。",
-      "icon": "https://ka21.tools/icons/kimippt.png",
+      "icon": "https://ka21.org/icons/kimippt.png",
       "url": "https://kimi.moonshot.cn/ppt",
       "tags": [
         "ai-assistant",
@@ -2267,7 +2267,7 @@
       "id": "maildrop",
       "name": "MailDrop",
       "description": "免费临时邮箱工具！MailDrop是一个无需注册的一次性邮箱服务，由专业反垃圾邮件公司Heluna提供技术支持。它能帮你在注册网站、订阅服务时保护真实邮箱不被泄露，智能过滤垃圾邮件，适合需要临时邮箱的各种场景。",
-      "icon": "https://ka21.tools/icons/maildrop.png",
+      "icon": "https://ka21.org/icons/maildrop.png",
       "url": "https://maildrop.cc/",
       "tags": [
         "email",
@@ -2320,7 +2320,7 @@
       "id": "mineru",
       "name": "MinerU",
       "description": "大模型时代的文档提取/转换神器！MinerU是一款专业的文档智能解析工具，支持PDF、Word、PPT等多种格式。它能高效提取文档结构和内容，特别适用于机器学习、大模型语料生产、RAG等场景，是AI开发和研究的理想助手。",
-      "icon": "https://ka21.tools/icons/mineru.png",
+      "icon": "https://ka21.org/icons/mineru.png",
       "url": "https://mineru.net/",
       "tags": [
         "ai-assistant",
@@ -2373,7 +2373,7 @@
       "id": "coze",
       "name": "Coze",
       "description": "字节跳动出品的AI助手创建平台！Coze是一个强大的AI应用开发平台，让用户可以轻松创建和部署自己的AI助手。它支持多种场景应用，包括客服、营销、教育等领域，并提供丰富的插件和模型选择。无需编程经验，就能快速构建专业的AI应用。",
-      "icon": "https://ka21.tools/icons/coze.png",
+      "icon": "https://ka21.org/icons/coze.png",
       "url": "https://www.coze.cn/",
       "tags": [
         "ai-assistant",
@@ -2423,7 +2423,7 @@
       "id": "voyager",
       "name": "Gemini Voyager",
       "description": "Gemini 的高效辅助插件。Gemini Voyager 能把对话、标签页与工作流整理得更顺，适合经常用 Gemini 查资料、写内容和反复切换上下文的人。",
-      "icon": "https://ka21.tools/icons/voyager.png",
+      "icon": "https://ka21.org/icons/voyager.png",
       "url": "https://voyager.nagi.fun/",
       "tags": [
         "productivity",
@@ -2470,7 +2470,7 @@
       "id": "slidedeckcleaner",
       "name": "SlideDeckCleaner",
       "description": "一键去掉 NotebookLM 导出演示文档水印的在线工具。上传 PDF 后就能快速清掉水印，适合做二次整理、演示修改和内容复用。",
-      "icon": "https://ka21.tools/icons/slidedeckcleaner.png",
+      "icon": "https://ka21.org/icons/slidedeckcleaner.png",
       "url": "https://www.slidedeckcleaner.com/zh/",
       "tags": [
         "productivity",
@@ -2517,7 +2517,7 @@
       "id": "shandianshuo",
       "name": "闪电说",
       "description": "语音输入效率工具。闪电说主打把说话更快变成可用文字，适合写文案、回消息、记灵感和需要高频中文输入的场景。",
-      "icon": "https://ka21.tools/icons/shandianshuo.png",
+      "icon": "https://ka21.org/icons/shandianshuo.png",
       "url": "https://shandianshuo.cn/",
       "tags": [
         "productivity",
@@ -2564,7 +2564,7 @@
       "id": "bmmd",
       "name": "bm.md",
       "description": "更好用的 Markdown 排版助手。支持一键适配微信公众号、知乎专栏、掘金、网页与图片，适合把 Markdown 快速整理成可发布版式。",
-      "icon": "https://ka21.tools/icons/bmmd.png",
+      "icon": "https://ka21.org/icons/bmmd.png",
       "url": "https://bm.md/",
       "tags": [
         "productivity",
@@ -2611,7 +2611,7 @@
       "id": "gofullpage",
       "name": "GoFullPage",
       "description": "Chrome 上很稳的整页截图插件。点一下就能把当前网页从上到下完整截下来，特别适合存长网页、教程、文档和灵感页。",
-      "icon": "https://ka21.tools/icons/gofullpage.png",
+      "icon": "https://ka21.org/icons/gofullpage.png",
       "url": "https://chromewebstore.google.com/detail/gofullpage-full-page-scre/fdpohaocaechififmbbbbbknoalclacl?hl=en-US&utm_source=ext_sidebar",
       "tags": [
         "productivity",
@@ -2658,7 +2658,7 @@
       "id": "ai2word",
       "name": "AI2Word",
       "description": "内容格式转换！AI2Word是一款AI内容格式转换工具，支持多种AI模型(如DeepSeek)的对话记录转换为规范的文档格式。它能帮助用户快速整理AI对话内容，将聊天记录转换成易读的文档形式，提高内容整理效率。",
-      "icon": "https://ka21.tools/icons/ai2word.svg",
+      "icon": "https://ka21.org/icons/ai2word.svg",
       "url": "https://ai2word.dawne.cn",
       "tags": [
         "ai-assistant",
@@ -2698,7 +2698,7 @@
       "id": "bibigpt",
       "name": "BibiGPT",
       "description": "音视频内容总结！BibiGPT是一款AI视频内容总结工具，支持B站、YouTube等平台的视频内容一键总结。它能快速生成视频字幕、内容要点、章节总结等，帮助用户快速了解视频核心内容，提高学习和信息获取效率。",
-      "icon": "https://ka21.tools/icons/bibigpt.png",
+      "icon": "https://ka21.org/icons/bibigpt.png",
       "url": "https://bibigpt.co",
       "tags": [
         "productivity",
@@ -2737,7 +2737,7 @@
       "id": "remove-bg",
       "name": "Remove.bg",
       "description": "Remove.bg是一款100%全自动的AI背景消除工具，只需上传图片点击一键即可去除背景，无需登录，操作简单便捷。它能够智能识别前景主体，精准分离背景，适用于人像、产品、动物等多种图片类型，是电商产品图、个人头像、设计素材处理的理想工具。",
-      "icon": "https://ka21.tools/icons/remove-bg.png",
+      "icon": "https://ka21.org/icons/remove-bg.png",
       "url": "https://www.remove.bg/zh/upload",
       "tags": [
         "pdf-tools",
@@ -2777,7 +2777,7 @@
       "id": "whimsical",
       "name": "Whimsical",
       "description": "全能协作白板平台！Whimsical是一款专业的在线协作工具，集成了思维导图、流程图、线框图和文档等多种功能。它提供直观的界面设计，支持团队实时协作，是远程团队进行可视化协作的理想选择。",
-      "icon": "https://ka21.tools/icons/whimsical.png",
+      "icon": "https://ka21.org/icons/whimsical.png",
       "url": "https://whimsical.com",
       "tags": [
         "productivity",
@@ -2822,7 +2822,7 @@
       "id": "iconkit",
       "name": "IconKit",
       "description": "图标获取器！IconKit是一款强大的图标设计和管理平台，提供丰富的图标库和编辑功能。支持图标定制、在线编辑、团队协作等功能，并提供API接口，特别适合需要系统化管理图标资源的团队使用。",
-      "icon": "https://ka21.tools/icons/iconkit.png",
+      "icon": "https://ka21.org/icons/iconkit.png",
       "url": "https://iconkit.cn",
       "tags": [
         "ai-code",
@@ -2866,7 +2866,7 @@
       "id": "maoandstar",
       "name": "猫与星",
       "description": "AI童话故事创作工具！猫与星是一款专为儿童设计的AI故事创作应用，可以根据孩子的照片和想象，定制独特的童话故事。它能将孩子变成故事主角，创造专属的奇幻冒险，让每个孩子都拥有自己的童话世界。",
-      "icon": "https://ka21.tools/icons/maoandstar.png",
+      "icon": "https://ka21.org/icons/maoandstar.png",
       "url": "https://apps.apple.com/cn/app/%E7%8C%AB%E4%B8%8E%E6%98%9F-%E5%AE%9A%E5%88%B6%E5%AD%A9%E5%AD%90%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AB%A5%E8%AF%9D%E6%95%85%E4%BA%8B/id6739560324?platform=iphone",
       "tags": [
         "ai-assistant",
@@ -2911,7 +2911,7 @@
       "id": "volcengine",
       "name": "火山引擎",
       "description": "字节跳动企业级技术服务平台！火山引擎是一个综合性的云服务平台，提供强大的计算服务能力，支持快速搭建和部署应用。它具备高效的数据处理与存储能力，提供多种存储方案，深度应用AI技术，并通过多层防护与高可用性架构保障安全与稳定。",
-      "icon": "https://ka21.tools/icons/volcengine.png",
+      "icon": "https://ka21.org/icons/volcengine.png",
       "url": "https://www.volcengine.com/",
       "tags": [
         "ai-code",
@@ -2955,7 +2955,7 @@
       "id": "metaso",
       "name": "秘塔搜索",
       "description": "AI驱动的学术搜索引擎！秘塔搜索是一个专注于学术和知识内容的智能搜索引擎，支持论文、专利、期刊等学术资源的检索。通过AI技术，它能够快速定位相关文献，提供精准的知识图谱和文献分析，是科研工作者的得力助手。",
-      "icon": "https://ka21.tools/icons/metaso.png",
+      "icon": "https://ka21.org/icons/metaso.png",
       "url": "https://metaso.cn/",
       "tags": [
         "ai-search",
@@ -3003,7 +3003,7 @@
       "id": "pdf24",
       "name": "PDF24",
       "description": "PDF24是一款功能全面的PDF处理工具集，提供超过25种免费在线PDF工具，包括PDF转换、合并、分割、压缩、编辑、签署等功能。使用简单直观，无需安装软件，在线即可完成各种PDF文档处理需求。同时提供免费的PDF24 Creator桌面软件版本，适合需要离线处理PDF的用户。",
-      "icon": "https://ka21.tools/icons/pdf24.png",
+      "icon": "https://ka21.org/icons/pdf24.png",
       "url": "https://www.pdf24.org/zh/",
       "tags": [
         "pdf-tools",
@@ -3048,7 +3048,7 @@
       "id": "ilovepdf",
       "name": "iLovePDF",
       "description": "iLovePDF是一款全能PDF在线工具，提供合并、拆分、压缩、格式转换等25+种功能，完全免费且易于使用。可处理PDF转Word、Excel、PPT和图片互转，还支持添加水印、页码、电子签名等高级编辑功能。同时提供桌面和移动应用，满足各种场景下的文档处理需求。",
-      "icon": "https://ka21.tools/icons/ilovepdf.png",
+      "icon": "https://ka21.org/icons/ilovepdf.png",
       "url": "https://www.ilovepdf.com/zh-cn",
       "tags": [
         "pdf-tools",
@@ -3093,7 +3093,7 @@
       "id": "vert",
       "name": "VERT",
       "description": "VERT是一款简洁强大的文件格式转换工具，支持图像、音频、文档和视频多种格式互转。特点是图像、音频和文档处理完全在本地设备上完成，保证隐私安全。",
-      "icon": "https://ka21.tools/icons/vert.png",
+      "icon": "https://ka21.org/icons/vert.png",
       "url": "https://vert.sh/",
       "tags": [
         "file-conversion",
@@ -3138,7 +3138,7 @@
       "id": "autotypesetting",
       "name": "文档排版工具",
       "description": "一款专业的文档排版工具，支持Word、PDF、Excel、CSV和TXT等多种格式文件的智能排版，采用DeepSeek-V3和Claude等AI模型生成高质量排版，特别适合需要发布到公众号等平台的内容创作者使用。",
-      "icon": "https://ka21.tools/icons/autotypesetting.png",
+      "icon": "https://ka21.org/icons/autotypesetting.png",
       "url": "http://autotypesetting.ycgod.online/",
       "tags": [
         "document-formatting",
@@ -3183,7 +3183,7 @@
       "id": "loki-image-toolbox",
       "name": "赛博小熊猫Loki的图片工具箱",
       "description": "图片批处理神器！这是一款轻量级的在线图片处理工具，提供格式转换、压缩优化、尺寸调整、水印处理、艺术滤镜、一键加底、图像拼接和图像分析等功能。无需安装，支持批量处理，适合设计师、营销人员和普通用户使用。",
-      "icon": "https://ka21.tools/icons/loki-image-toolbox.png",
+      "icon": "https://ka21.org/icons/loki-image-toolbox.png",
       "url": "https://loki2046-mao.github.io/Loki-s-Multi-Functional-Image-Toolbox/",
       "tags": [
         "productivity",
@@ -3228,7 +3228,7 @@
       "id": "zhuque",
       "name": "腾讯朱雀AI检测助手",
       "description": "腾讯朱雀AI检测助手是由腾讯混元安全团队朱雀实验室研发的专业AI内容鉴别工具",
-      "icon": "https://ka21.tools/icons/zhuque.png",
+      "icon": "https://ka21.org/icons/zhuque.png",
       "url": "https://matrix.tencent.com/ai-detect/",
       "tags": [
         "ai-detection"
@@ -3271,7 +3271,7 @@
       "id": "yueliu",
       "name": "阅流",
       "description": "阅流是一款面向创意团队的云端资产管理平台，支持音视频、设计类与图像等多种文件统一管理与在线预览。适合品牌、设计、视频团队集中存储、快速查找、便捷分享与协同评审，提高创作与交付效率。",
-      "icon": "https://ka21.tools/icons/yueliu.png",
+      "icon": "https://ka21.org/icons/yueliu.png",
       "url": "https://yueliu.cn/",
       "tags": [
         "media-tools",
@@ -3311,7 +3311,7 @@
       "id": "bwbg",
       "name": "BWBG",
       "description": "背景变黑白神器！BWBG是一款简单易用的黑白背景设计工具，帮助用户快速创建黑白风格的背景图案。适合用于制作简约风格的设计作品、社交媒体封面或者演示文稿背景。",
-      "icon": "https://ka21.tools/icons/bwbg.svg",
+      "icon": "https://ka21.org/icons/bwbg.svg",
       "url": "https://bwbg.rexanwong.xyz",
       "tags": [
         "ai-code",
@@ -3350,7 +3350,7 @@
       "id": "bigjpg",
       "name": "BigJPG",
       "description": "图片无损放大神器！BigJPG是一款基于深度学习的图片无损放大工具，能够将小尺寸图片放大2-4倍而不失真。特别适合动漫图片、插画作品的放大，可以保持边缘清晰，细节丰富。支持多种图片格式，提供免费和付费两种模式。",
-      "icon": "https://ka21.tools/icons/bigjpg.png",
+      "icon": "https://ka21.org/icons/bigjpg.png",
       "url": "https://bigjpg.com",
       "tags": [
         "ai-assistant",
@@ -3395,7 +3395,7 @@
       "id": "gjcool",
       "name": "古籍酷",
       "description": "古籍OCR神器！古籍酷是一款专业的中文古籍AI处理平台，提供古籍OCR识别（准确率高达98.5%）、自动标点、文言文翻译等功能。它使用先进的AI技术，帮助用户快速完成古籍数字化工作，支持批量处理和API调用。",
-      "icon": "https://ka21.tools/icons/gjcool.png",
+      "icon": "https://ka21.org/icons/gjcool.png",
       "url": "https://ocr.gj.cool",
       "tags": [
         "ai-assistant",
@@ -3440,7 +3440,7 @@
       "id": "googlelearning",
       "name": "Google Learning",
       "description": "谷歌AI学习实验室！这是谷歌推出的一系列AI学习实验项目，包括音乐创作、图像生成、声音实验等多个有趣的AI互动体验。通过这些实验，用户可以直观地了解和体验AI技术的各种可能性，非常适合AI学习和教育使用。",
-      "icon": "https://ka21.tools/icons/googlelearning.png",
+      "icon": "https://ka21.org/icons/googlelearning.png",
       "url": "https://learning.google.com/experiments/learn-about/signup",
       "tags": [
         "ai-code",
@@ -3484,7 +3484,7 @@
       "id": "pngfree",
       "name": "PNGFree",
       "description": "AI驱动的PNG图片处理工具！PNGFree是一款专业的PNG图片处理平台，提供AI抠图、背景移除、图片优化等功能。完全免费使用，无水印，支持批量处理。",
-      "icon": "https://ka21.tools/icons/pngfree.png",
+      "icon": "https://ka21.org/icons/pngfree.png",
       "url": "https://pngfree.ai",
       "tags": [
         "ai-assistant",
@@ -3524,7 +3524,7 @@
       "id": "smallpdf",
       "name": "SmallPDF",
       "description": "PDF全能工具箱！SmallPDF是一款专业的在线PDF处理工具，提供PDF转换、压缩、编辑、合并、拆分等多种功能。它使用智能技术优化文件处理效果，支持批量操作，界面简洁易用，是处理PDF文件的理想选择。",
-      "icon": "https://ka21.tools/icons/smallpdf.png",
+      "icon": "https://ka21.org/icons/smallpdf.png",
       "url": "https://smallpdf.com/cn",
       "tags": [
         "ai-writing",
@@ -3568,7 +3568,7 @@
       "id": "pdfcandy",
       "name": "PDFCandy",
       "description": "免费PDF转换神器！PDFCandy是一款功能强大的在线PDF工具，特别擅长PDF和其他格式之间的转换。支持TXT、Word、图片等多种格式互转，所有功能完全免费，无需注册，界面简洁直观。特别适合需要经常处理文档格式转换的用户。",
-      "icon": "https://ka21.tools/icons/pdfcandy.png",
+      "icon": "https://ka21.org/icons/pdfcandy.png",
       "url": "https://pdfcandy.com/cn/txt-to-pdf.html",
       "tags": [
         "ai-writing",
@@ -3612,7 +3612,7 @@
       "id": "onlineconvert",
       "name": "Online-Convert",
       "description": "全能文件转换工具！Online-Convert是一款强大的在线文件转换平台，支持音频、视频、图像、文档、电子书等多种格式的互相转换。它提供高质量的转换效果，操作简单，完全免费，无需安装任何软件。",
-      "icon": "https://ka21.tools/icons/onlineconvert.png",
+      "icon": "https://ka21.org/icons/onlineconvert.png",
       "url": "https://www.online-convert.com/",
       "tags": [
         "productivity",
@@ -3656,7 +3656,7 @@
       "id": "baimiao",
       "name": "白描",
       "description": "AI表格识别神器！白描是一款专业的OCR识别工具，特别擅长将图片中的表格转换为Excel文件。它使用先进的AI技术，能够精确识别复杂表格结构，保持格式完整，支持批量处理，是处理纸质表格电子化的理想选择。",
-      "icon": "https://ka21.tools/icons/baimiao.png",
+      "icon": "https://ka21.org/icons/baimiao.png",
       "url": "https://web.baimiaoapp.com/image-to-excel",
       "tags": [
         "ai-assistant",
@@ -3701,7 +3701,7 @@
       "id": "functionsocr",
       "name": "Functions OCR",
       "description": "高精度OCR识别工具！Functions OCR是一款专业的在线文字识别工具，支持多语言识别，特别擅长处理复杂版面和表格。它采用先进的AI技术，提供高达99%的识别准确率，支持批量处理，是文档数字化的理想选择。",
-      "icon": "https://ka21.tools/icons/functionsocr.svg",
+      "icon": "https://ka21.org/icons/functionsocr.svg",
       "url": "https://functions-ocr.edgeone.app/",
       "tags": [
         "ai-assistant",
@@ -3746,7 +3746,7 @@
       "id": "gaoding",
       "name": "稿定设计",
       "description": "专业在线设计平台！稿定设计是一款强大的在线设计工具，提供海量模板和素材资源。集成了智能抠图、在线编辑、版式设计等功能，支持团队协作，是平面设计、营销物料制作的理想选择。",
-      "icon": "https://ka21.tools/icons/gaoding.png",
+      "icon": "https://ka21.org/icons/gaoding.png",
       "url": "https://www.gaoding.com",
       "tags": [
         "ai-image",
@@ -3791,7 +3791,7 @@
       "id": "qqtools",
       "name": "帮小忙",
       "description": "免费实用工具集合！腾讯浏览器工具箱是一个综合性在线工具平台，集成了格式转换、图片处理、文档编辑、视频处理等多种实用工具。完全免费，无需安装，简单易用，是日常办公的得力助手。",
-      "icon": "https://ka21.tools/icons/qqtools.png",
+      "icon": "https://ka21.org/icons/qqtools.png",
       "url": "https://tool.browser.qq.com",
       "tags": [
         "ai-code",
@@ -3835,7 +3835,7 @@
       "id": "mgx",
       "name": "MGX",
       "description": "创新的多智能体协作框架！MGX是一个强大的多Agent框架，能够模拟软件公司的完整开发流程。它通过多个AI智能体的协作，自动完成从需求分析、系统设计到代码实现的全流程工作，大幅提升软件开发效率。",
-      "icon": "https://ka21.tools/icons/mgx.png",
+      "icon": "https://ka21.org/icons/mgx.png",
       "url": "https://mgx.dev/",
       "tags": [
         "ai-assistant",
@@ -3880,7 +3880,7 @@
       "id": "company-researcher",
       "name": "Company Researcher",
       "description": "国外版企查查!!!AI驱动的企业研究助手！Company Researcher by Exa是一款专业的企业情报搜索工具，能够快速收集和分析公司信息。它利用AI技术从互联网上获取最新的企业数据，包括公司背景、财务状况、产品信息、竞争对手分析等，帮助用户进行深入的企业研究和市场分析。",
-      "icon": "https://ka21.tools/icons/company-researcher.png",
+      "icon": "https://ka21.org/icons/company-researcher.png",
       "url": "https://companyresearcher.exa.ai/",
       "tags": [
         "ai-research",
@@ -3928,7 +3928,7 @@
       "id": "convertio",
       "name": "Convertio",
       "description": "全能文件格式转换工具！Convertio是一款强大的在线文件转换平台，支持超过300种文件格式的互转。从图片、视频、音频到文档，一站式解决各类格式转换需求。操作简单，转换快速，支持批量处理，是文件处理的必备工具。",
-      "icon": "https://ka21.tools/icons/convertio.png",
+      "icon": "https://ka21.org/icons/convertio.png",
       "url": "https://convertio.co/zh/",
       "tags": [
         "file-conversion",
@@ -3976,7 +3976,7 @@
       "id": "jpghd",
       "name": "JPGHD",
       "description": "专业的图片无损放大工具！JPGHD采用先进的AI超分辨率技术，能够将图片放大2-16倍而保持清晰度。特别适合处理老照片、模糊图片和低分辨率图像，支持批量处理，让图片更加清晰锐利。",
-      "icon": "https://ka21.tools/icons/jpghd.png",
+      "icon": "https://ka21.org/icons/jpghd.png",
       "url": "https://jpghd.com/",
       "tags": [
         "ai-image",
@@ -4016,7 +4016,7 @@
       "id": "pixpin",
       "name": "PixPin",
       "description": "免费全能截图工具。PixPin 把截图、贴图、长截图、OCR 和录屏整合到一个桌面工具里，适合日常办公、内容整理和做教程时快速取图与标注。",
-      "icon": "https://ka21.tools/icons/pixpin.png",
+      "icon": "https://ka21.org/icons/pixpin.png",
       "url": "https://pixpin.cn/",
       "tags": [
         "productivity",
@@ -4063,7 +4063,7 @@
       "id": "veo",
       "name": "Google Veo",
       "description": "Google DeepMind推出的最强视频生成模型，能够生成高达4K分辨率的视频，支持电影级视觉效果和精确的物理模拟。提供强大的创意控制功能，包括故事板和视频扩展，是目前视频生成领域的顶尖工具。",
-      "icon": "https://ka21.tools/icons/veo.svg",
+      "icon": "https://ka21.org/icons/veo.svg",
       "url": "https://deepmind.google/models/veo/",
       "tags": [
         "ai-video",
@@ -4085,7 +4085,7 @@
       "id": "vidu",
       "name": "Vidu",
       "description": "AI驱动的视频编辑平台！Vidu是一款智能视频编辑工具，提供AI自动剪辑、字幕生成和视频增强功能。它能快速识别视频中的关键内容，自动生成精彩片段，并支持一键添加字幕和特效，大幅提升视频创作效率。",
-      "icon": "https://ka21.tools/icons/vidu.png",
+      "icon": "https://ka21.org/icons/vidu.png",
       "url": "https://www.vidu.cn/",
       "tags": [
         "ai-video",
@@ -4133,7 +4133,7 @@
       "id": "hailuo",
       "name": "海螺AI",
       "description": "MiniMax推出的AI视频生成大模型，支持高质量文本生成视频（T2V）和图生视频（I2V）。具有电影级画质、超强语义理解和精准的物理规律模拟能力。目前推出的Hailuo 02模型在画面连贯性和动态效果上表现出色，是国产视频模型的佼佼者。",
-      "icon": "https://ka21.tools/icons/hailuo.svg",
+      "icon": "https://ka21.org/icons/hailuo.svg",
       "url": "https://hailuoai.video/",
       "tags": [
         "ai-video",
@@ -4155,7 +4155,7 @@
       "id": "runway",
       "name": "Runway",
       "description": "AI视频创作神器！Runway是一款革命性的AI视频创作平台，提供视频生成、编辑和特效处理等全方位功能。它支持文本生成视频、视频风格迁移、智能抠像、动作捕捉等高级特性，是视频创作者的理想之选。",
-      "icon": "https://ka21.tools/icons/runway.png",
+      "icon": "https://ka21.org/icons/runway.png",
       "url": "https://runwayml.com/",
       "tags": [
         "ai-video",
@@ -4204,7 +4204,7 @@
       "displayOrder": 100,
       "name": "即梦",
       "description": "字节跳动出品的AI创作神器！即梦是剪映旗下的一站式AI创作平台，提供AI绘画、视频创作、图像编辑等多种功能。支持一键生成各类风格图片和视频，内置专业级编辑工具，让创作更简单高效。完全免费，无需注册，适合设计师和内容创作者使用。",
-      "icon": "https://ka21.tools/icons/jm.png",
+      "icon": "https://ka21.org/icons/jm.png",
       "url": "https://jimeng.jianying.com/",
       "tags": [
         "ai-image",
@@ -4257,7 +4257,7 @@
       "displayOrder": 100,
       "name": "可灵",
       "description": "快手出品的AI视频创作平台！KlingAI是一款强大的AI视频生成工具，能够通过文本描述快速创建高质量视频内容。它支持多种视频风格，提供丰富的模板和特效，让用户轻松制作专业级视频，特别适合短视频创作者和营销人员使用。",
-      "icon": "https://ka21.tools/icons/kling-ai.png",
+      "icon": "https://ka21.org/icons/kling-ai.png",
       "url": "https://klingai.kuaishou.com/",
       "tags": [
         "ai-video",
@@ -4306,7 +4306,7 @@
       "id": "seko",
       "name": "Seko",
       "description": "Seko是商汤科技推出的AI视频创作平台，提供无门槛提示词输入、一键成片、首尾帧丝滑转场、对口型播客等功能。支持多种视频比例，具备可视编辑器，可单独修改分镜、配音等元素。适合内容创作者、营销人员快速制作高质量视频。",
-      "icon": "https://ka21.tools/icons/seko.png",
+      "icon": "https://ka21.org/icons/seko.png",
       "url": "https://seko.sensetime.com/explore",
       "tags": [
         "ai-video",
@@ -4366,7 +4366,7 @@
       "id": "chatglm",
       "name": "清影",
       "description": "AI视频创作神器！清影是一款强大的AI视频创作工具，集成了视频生成、编辑和风格化处理等多项功能。它能根据文本描述生成视频内容，支持智能剪辑、风格迁移，让视频创作变得简单高效，适合各类创作者使用。",
-      "icon": "https://ka21.tools/icons/chatglm.png",
+      "icon": "https://ka21.org/icons/chatglm.png",
       "url": "https://chatglm.cn",
       "tags": [
         "ai-assistant",
@@ -4411,7 +4411,7 @@
       "id": "klap",
       "name": "Klap",
       "description": "批量剪辑神器！Klap是一款创新的AI驱动视频编辑工具，能够自动识别视频中的关键时刻，智能生成字幕，并提供多种创意编辑功能。特别适合短视频创作者和内容运营人员使用，可以大大提高视频制作效率。",
-      "icon": "https://ka21.tools/icons/klap.png",
+      "icon": "https://ka21.org/icons/klap.png",
       "url": "https://klap.app",
       "tags": [
         "ai-assistant",
@@ -4456,7 +4456,7 @@
       "id": "kreado-ai",
       "name": "Kreado AI",
       "description": "AI驱动的视频创作平台！Kreado AI是一款强大的AI视频生成工具，能够将文本脚本转换为专业级视频内容。它支持多种语言和场景，提供丰富的虚拟人物和场景模板，可以快速生成新闻报道、产品演示、教育培训等各类视频，特别适合企业营销和内容创作者使用。",
-      "icon": "https://ka21.tools/icons/kreado-ai.png",
+      "icon": "https://ka21.org/icons/kreado-ai.png",
       "url": "https://www.kreadoai.com/?via=cool",
       "tags": [
         "ai-video",
@@ -4504,7 +4504,7 @@
       "id": "chatgpt",
       "name": "ChatGPT",
       "description": "OpenAI开发的AI对话助手！ChatGPT是全球最受欢迎的AI语言模型之一，能够进行自然流畅的对话交流。它支持多语言交互，可以帮助用户完成写作、编程、分析等各种任务，具备强大的知识储备和理解能力。",
-      "icon": "https://ka21.tools/icons/chatgpt.png",
+      "icon": "https://ka21.org/icons/chatgpt.png",
       "url": "https://chat.openai.com/",
       "tags": [
         "ai-chat",
@@ -4557,7 +4557,7 @@
       "id": "claude",
       "name": "Claude",
       "description": "Anthropic开发的顶级AI模型！Claude以其强大的Claude 3系列（Opus、Sonnet、Haiku）闻名，是目前最先进的AI助手之一。它具有超强的多模态能力，可以处理文本、图像、代码等多种任务，理解力和创造力都非常出色。特别是最新的Claude 3 Opus被认为在多项测试中超越了GPT-4。",
-      "icon": "https://ka21.tools/icons/claude.png",
+      "icon": "https://ka21.org/icons/claude.png",
       "url": "https://www.anthropic.com/",
       "tags": [
         "ai-chat",
@@ -4608,7 +4608,7 @@
       "id": "deepseek",
       "name": "DeepSeek",
       "description": "DeepSeek是一款强大的AI助手，能够帮助用户快速获取信息、解决问题和提高工作效率。它使用先进的AI技术，提供智能搜索、知识问答和数据分析等功能。",
-      "icon": "https://ka21.tools/icons/deepseek.png",
+      "icon": "https://ka21.org/icons/deepseek.png",
       "url": "https://deepseek.com",
       "tags": [
         "ai-chat",
@@ -4648,7 +4648,7 @@
       "id": "doubao",
       "name": "豆包",
       "description": "字节跳动出品的AI助手！豆包是一款强大的中文AI对话助手，由抖音团队开发。它支持多轮对话、文本创作、图片生成等功能，能够帮助用户完成写作、编程、设计等各类任务。完全免费，无需注册即可体验基础功能。",
-      "icon": "https://ka21.tools/icons/doubao.png",
+      "icon": "https://ka21.org/icons/doubao.png",
       "url": "https://www.doubao.com/chat/",
       "tags": [
         "ai-assistant",
@@ -4701,7 +4701,7 @@
       "id": "gemini",
       "name": "Gemini",
       "description": "Google最强大的AI模型！Gemini是谷歌推出的新一代多模态AI模型，分为Ultra、Pro和Nano三个版本。它具有强大的多模态理解能力，可以处理文本、图像、音频和代码等多种输入，支持复杂推理和创意生成。作为谷歌最先进的AI模型，它在多项基准测试中展现出卓越性能。",
-      "icon": "https://ka21.tools/icons/gemini.png",
+      "icon": "https://ka21.org/icons/gemini.png",
       "url": "https://gemini.google.com/",
       "tags": [
         "ai-chat",
@@ -4751,7 +4751,7 @@
       "id": "monica",
       "name": "Monica",
       "description": "Monica是一款综合性AI工具平台，集成多种顶级AI模型如GPT-4o、Claude 3.5 Sonnet、Llama等，支持聊天、图像生成、视频创作、音频处理、文档分析等多种功能。它界面简洁直观，工具丰富齐全，是进行各类AI创意工作的一站式解决方案。",
-      "icon": "https://ka21.tools/icons/monica.png",
+      "icon": "https://ka21.org/icons/monica.png",
       "url": "https://monica.im/invitation-affiliate?ref=m2qzmtl&ref_aff=m2qzmtl",
       "tags": [
         "ai-chat",
@@ -4800,7 +4800,7 @@
       "id": "poe",
       "name": "Poe",
       "description": "Quora出品的AI助手聚合平台！Poe提供了包括Claude、GPT-4、Llama等多个顶级AI模型的统一访问界面。它支持实时对话、知识问答、文本创作等功能，免费用户可以使用基础模型，付费用户可以访问更多高级模型。界面简洁，使用便捷。",
-      "icon": "https://ka21.tools/icons/poe.png",
+      "icon": "https://ka21.org/icons/poe.png",
       "url": "https://poe.com/",
       "tags": [
         "ai-chat",
@@ -4848,7 +4848,7 @@
       "id": "ima",
       "name": "ima",
       "description": "腾讯出品的AI知识库管理平台！ima是一款智能的企业知识管理工具，能够帮助团队高效管理和共享知识资产。它支持智能文档分类、全文检索、知识图谱构建、智能问答等功能，让企业知识管理更加系统化和智能化。",
-      "icon": "https://ka21.tools/icons/ima.png",
+      "icon": "https://ka21.org/icons/ima.png",
       "url": "https://ima.qq.com/",
       "tags": [
         "ai-assistant",
@@ -4902,7 +4902,7 @@
       "id": "getbiji",
       "name": "Get笔记",
       "description": "Get笔记是一款专注于知识管理的智能笔记工具，支持多种笔记格式、云端同步、智能分类和标签管理。它提供了丰富的排版功能和协作能力，帮助用户高效整理和分享知识。特别适合学生、研究人员和知识工作者使用。",
-      "icon": "https://ka21.tools/icons/getbiji.png",
+      "icon": "https://ka21.org/icons/getbiji.png",
       "url": "https://www.biji.com",
       "tags": [
         "ai-assistant",
@@ -4945,7 +4945,7 @@
       "id": "grok",
       "name": "Grok",
       "description": "马斯克出品的AI对话助手！Grok是一款由xAI开发的大型语言模型，具有实时网络搜索能力和幽默感。它能够回答复杂问题，提供创意建议，并且敢于挑战常规思维。Grok特别擅长处理技术和科学领域的问题，同时保持对话的轻松有趣。",
-      "icon": "https://ka21.tools/icons/grok.png",
+      "icon": "https://ka21.org/icons/grok.png",
       "url": "https://grok.com/",
       "tags": [
         "ai-chat",
@@ -4993,7 +4993,7 @@
       "id": "heartlight",
       "name": "心光AI",
       "description": "AI驱动的生活记录伴侣！心光AI是一款智能日记和笔记应用，它能帮助用户轻松记录生活点滴，并通过AI技术提供情感分析和写作建议。特色功能包括AI写作助手、情绪分析、智能标签、回忆提醒等，让记录生活变得更有趣味和意义。",
-      "icon": "https://ka21.tools/icons/heartlight.png",
+      "icon": "https://ka21.org/icons/heartlight.png",
       "url": "https://apps.apple.com/cn/app/%E5%BF%83%E5%85%89-ai-%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95%E4%BC%B4%E4%BE%A3-%E6%97%A5%E8%AE%B0%E7%AC%94%E8%AE%B0/id1631169735",
       "tags": [
         "ai-assistant",
@@ -5041,7 +5041,7 @@
       "id": "genspark",
       "name": "GenSpark",
       "description": "Genspark 是一个 AI 驱动的平台，因其创新功能和用户友好的界面而受到关注。它旨在通过提供个性化的网页和对用户查询的上下文准确响应来提高生产力和创造力。",
-      "icon": "https://ka21.tools/icons/genspark.png",
+      "icon": "https://ka21.org/icons/genspark.png",
       "url": "https://www.genspark.ai/agents",
       "tags": [
         "automation"
@@ -5087,7 +5087,7 @@
       "id": "yujing",
       "name": "语鲸",
       "description": "语鲸是一款AI驱动的信息阅读和处理工具，可提高10倍阅读效率。它能够智能总结单文档和多文档，生成多级大纲，支持思维导图转换，提供原文精准定位等功能。支持PDF、Word、PPT等多种文件格式，以及网页链接处理。",
-      "icon": "https://ka21.tools/icons/yujing.png",
+      "icon": "https://ka21.org/icons/yujing.png",
       "url": "https://lingowhale.com/",
       "tags": [
         "ai-assistant"
@@ -5125,7 +5125,7 @@
       "id": "cozekj",
       "name": "扣子空间",
       "description": "coze下面开发的扣子空间，可以快速创建自己的AI助手，并部署到各种平台",
-      "icon": "https://ka21.tools/icons/coze.png",
+      "icon": "https://ka21.org/icons/coze.png",
       "url": "https://www.coze.cn/space-preview",
       "tags": [
         "automation"
@@ -5168,7 +5168,7 @@
       "id": "manus",
       "name": "Manus",
       "description": "Manus 是一款通用型 AI 助手，能将想法转化为行动：不止于思考，更注重成果",
-      "icon": "https://ka21.tools/icons/manus.png",
+      "icon": "https://ka21.org/icons/manus.png",
       "url": "https://manus.im/",
       "tags": [
         "automation"
@@ -5194,7 +5194,7 @@
       "id": "flowith",
       "name": "Flowith",
       "description": "Flowith 2.0 是一个 AI 创作工作空间，面向头脑风暴、深度工作与多模态创作。它整合 ChatGPT、Perplexity、Claude 等多模型，支持与 AI 顺畅协作，把知识转化为作品。借助预构建配方与知识花园（Knowledge Garden），用户可以高效产出文本、图像、交互网页与行业研究等内容。",
-      "icon": "https://ka21.tools/icons/flowith.png",
+      "icon": "https://ka21.org/icons/flowith.png",
       "url": "https://flowith.net/",
       "tags": [
         "automation"
@@ -5229,7 +5229,7 @@
       "id": "hatch",
       "name": "Hatch",
       "description": "Hatch是一款革新性的AI智能体工具，结合无限画布与多模态AI能力，打造全新创意与工作流体验。由Valve和Picnik前创始人创建，它提供了超越传统聊天框的交互方式，在无限画布上实现AI协作创意。",
-      "icon": "https://ka21.tools/icons/hatch.png",
+      "icon": "https://ka21.org/icons/hatch.png",
       "url": "https://hatchcanvas.com/",
       "tags": [
         "ai-agent",
@@ -5277,7 +5277,7 @@
       "id": "nami",
       "name": "纳米AI搜索",
       "description": "专业的AI工具搜索引擎！纳米AI搜索是一个专注于AI领域的智能搜索平台，提供全面的AI工具、模型和教程搜索。",
-      "icon": "https://ka21.tools/icons/nami.png",
+      "icon": "https://ka21.org/icons/nami.png",
       "url": "https://www.n.cn",
       "tags": [
         "automation"

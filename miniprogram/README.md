@@ -24,7 +24,7 @@ npm run export:miniapp-data
 - `miniprogram/data/categories.json`
 - `miniprogram/data/team-members.json`
 
-图片等静态资源默认使用线上地址 `https://ka21.tools`，避免小程序包体超过 2MB 限制。
+图片等静态资源默认使用线上地址 `https://ka21.org`，避免小程序包体超过 2MB 限制。
 
 ## 2. 在微信开发者工具运行
 
@@ -36,17 +36,13 @@ npm run export:miniapp-data
 ## 3. 重要配置说明
 
 - 小程序里教程和官网通过 `web-view` 打开，目标域名必须在微信小程序后台的业务域名白名单中配置。
-- 如果你要改资源域名，可在导出时指定：
-
-```bash
-MINIAPP_ASSET_BASE_URL=https://your-domain.com npm run export:miniapp-data
-```
+- 资源域名现在固定使用 `https://ka21.org`，导出和快照都会走同一条基址，不再支持单独切换。
 
 ## 4. 自动实时同步（无需每次重新发版）
 
 小程序已支持在启动时自动请求网页侧快照接口：
 
-- `https://ka21.tools/api/miniapp/snapshot`
+- `https://ka21.org/api/miniapp/snapshot`
 
 行为说明：
 
@@ -56,4 +52,4 @@ MINIAPP_ASSET_BASE_URL=https://your-domain.com npm run export:miniapp-data
 
 微信小程序后台需要配置请求合法域名：
 
-- `https://ka21.tools`
+- `https://ka21.org`

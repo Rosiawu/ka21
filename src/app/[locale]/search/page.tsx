@@ -14,10 +14,10 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { locale } = await params;
   const isEn = locale === 'en';
-  const title = isEn ? 'AI Tool Search - KA21 Tools' : 'AI工具搜索 - KA21工具导航';
+  const title = isEn ? 'Search Tools and Tutorials - KA21 Tools' : '工具与教程搜索 - KA21工具导航';
   const description = isEn
-    ? 'Search and discover AI tools with multi-dimensional filters like category and function.'
-    : '搜索和发现最适合您的AI工具，支持按类别、功能、难度等多维度筛选';
+    ? 'Search and discover AI tools and tutorials with multi-dimensional filters like category and function.'
+    : '搜索和发现AI工具与教程，支持按类别、功能、难度等多维度筛选';
   // 生成hreflang标签（搜索页面路径）
   const hreflangConfig = generateHreflangMetadata(locale, 'search');
 

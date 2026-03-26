@@ -52,7 +52,7 @@ export function getBaseUrl(): string {
   }
 
   // 生产环境默认值
-  return 'https://ka21.tools';
+  return 'https://ka21.org';
 }
 
 /**

@@ -1,6 +1,29 @@
 {
   "entries": [
     {
+      "id": "devlog-cloudflare-route-pending-2026-03-26",
+      "version": "共创 15",
+      "date": "2026-03-26",
+      "timelineTitle": {
+        "zh": "Cloudflare 自动部署这条线，终于摸到门了",
+        "en": "Cloudflare 自动部署这条线，终于摸到门了"
+      },
+      "cardTitle": {
+        "zh": "Cloudflare 自动部署这条线，终于摸到门了",
+        "en": "Cloudflare 自动部署这条线，终于摸到门了"
+      },
+      "body": {
+        "zh": "今天主要在折腾牛马库迁到 Cloudflare 这条线。\n\n本来以为只是换个平台部署一下，结果真正做下来才发现，OpenNext、Wrangler、Worker、环境变量、GitHub 写回、域名路由，全是一环套一环。中间最绕的是 Cloudflare 里冒出来一个 ka21-tools，我还以为域名搞乱了，后来才确认那只是内部 Worker 名，对外正式域名还是 ka21.org。\n\n现在好的部分是：Cloudflare 构建已经跑通，Worker 也发上去了，ka21.org/* 的路由也挂好了，GitHub 和管理员的 secrets 也都配进去了。卡住的最后一步是域名还在 pending，要等 Spaceship 那边的 nameserver 真正切完，Cloudflare 才会完全接管流量。也就是说，最难的骨架已经搭起来了，就差最后这一刀把线上正式切过去。",
+        "en": "今天主要在折腾牛马库迁到 Cloudflare 这条线。\n\n本来以为只是换个平台部署一下，结果真正做下来才发现，OpenNext、Wrangler、Worker、环境变量、GitHub 写回、域名路由，全是一环套一环。中间最绕的是 Cloudflare 里冒出来一个 ka21-tools，我还以为域名搞乱了，后来才确认那只是内部 Worker 名，对外正式域名还是 ka21.org。\n\n现在好的部分是：Cloudflare 构建已经跑通，Worker 也发上去了，ka21.org/* 的路由也挂好了，GitHub 和管理员的 secrets 也都配进去了。卡住的最后一步是域名还在 pending，要等 Spaceship 那边的 nameserver 真正切完，Cloudflare 才会完全接管流量。也就是说，最难的骨架已经搭起来了，就差最后这一刀把线上正式切过去。"
+      },
+      "imageSlotLabel": {
+        "zh": "纯文字记录：Cloudflare 自动部署迁移",
+        "en": "Text-only devlog: Cloudflare auto-deploy migration"
+      },
+      "relatedLinks": [],
+      "images": []
+    },
+    {
       "id": "devlog-podcast-refresh-stable-2026-03-26",
       "version": "共创 14",
       "date": "2026-03-26",
@@ -162,7 +185,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-16T16:00:00.000Z",
-    "count": 3
+    "updatedAt": "2026-03-26T08:10:00.000Z",
+    "count": 5
   }
 }

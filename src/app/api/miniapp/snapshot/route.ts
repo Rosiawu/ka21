@@ -8,6 +8,7 @@ import { TOOL_CATEGORIES } from '@/data/toolCategories';
 import { teamMembers } from '@/data/team-members';
 import { sortedDevLogs } from '@/data/devLogs';
 import { listApprovedDeals } from '@/lib/deals/store';
+import { MINIAPP_ASSET_BASE_URL } from '@/lib/miniapp/constants';
 
 type ToolRecord = {
   id: string;
@@ -46,7 +47,6 @@ type TutorialRecord = {
   relatedTools?: string[];
 };
 
-const ASSET_BASE_URL = 'https://ka21.org';
 const TUTORIAL_CATEGORY_LABEL_MAP: Record<string, string> = {
   'office-productivity': 'AI办公',
 };
@@ -63,8 +63,8 @@ const MINIAPP_CATEGORY_ICONS: Record<string, string> = {
 function toAbsoluteAssetUrl(rawPath: string | undefined): string {
   if (!rawPath || typeof rawPath !== 'string') return '';
   if (/^https?:\/\//.test(rawPath)) return rawPath;
-  if (rawPath.startsWith('/')) return `${ASSET_BASE_URL}${rawPath}`;
-  return `${ASSET_BASE_URL}/${rawPath.replace(/^\/+/, '')}`;
+  if (rawPath.startsWith('/')) return `${MINIAPP_ASSET_BASE_URL}${rawPath}`;
+  return `${MINIAPP_ASSET_BASE_URL}/${rawPath.replace(/^\/+/, '')}`;
 }
 
 function normalizeTools() {

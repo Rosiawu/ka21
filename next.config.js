@@ -83,15 +83,6 @@ const nextConfig = {
     return config;
   },
 
-  // 添加安全相关配置
-  redirects: async () => [
-    {
-      source: '/',
-      destination: '/zh',
-      permanent: false,
-    },
-  ],
-
   headers: async () => [
     {
       source: '/:path*',
@@ -126,3 +117,5 @@ const nextConfig = {
 };
 
 module.exports = withBundleAnalyzer(withNextIntl(nextConfig));
+
+import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());

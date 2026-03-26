@@ -1,4 +1,4 @@
-var DEFAULT_URL = 'https://ka21.org';
+var DEFAULT_URL = require('../../utils/site-config').SITE_URL;
 
 function decode(value) {
   try {

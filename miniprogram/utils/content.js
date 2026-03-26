@@ -1,5 +1,5 @@
 const syncData = require('./sync-data');
-const ASSET_BASE_URL = 'https://ka21.org';
+const { ASSET_BASE_URL } = require('./site-config');
 const BUNDLED_ICON_FILES = {
   'chatglm.png': true,
   'chatgpt.png': true,

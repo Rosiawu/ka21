@@ -56,8 +56,8 @@
       "customImageUrl": "/images/tutorials/ip-animation-creation-001.jpg",
       "relatedTools": [
         "seko",
-        "roboneo",
-        "emoji-person"
+        "jm",
+        "jm-video"
       ]
     },
     {
@@ -865,7 +865,7 @@
         "deep-ai",
         "vance-ai",
         "gaituya",
-        "xunjie-photo",
+        "picwish-sharpener",
         "jpghd",
         "ai-huazuo"
       ]
@@ -1011,7 +1011,7 @@
       "recommendReason": "这篇文章详细记录了AIGC剧情短片《潘多拉の魔盒》的完整制作过程",
       "customImageUrl": "/images/tutorials/aigc-video-001.jpg",
       "relatedTools": [
-        "aigc-video"
+        "seko"
       ]
     },
     {
@@ -1050,7 +1050,7 @@
       "customImageUrl": "/images/tutorials/watermark-removal-001.jpg",
       "relatedTools": [
         "remove-bg",
-        "cleanup-pictures"
+        "hotpot-ai"
       ]
     },
     {
@@ -1107,7 +1107,7 @@
       "recommendReason": "本教程为AI视频制作入门指南，详细讲解IP动画视频的制作流程，适合初学者快速上手。",
       "customImageUrl": "/images/tutorials/aigc-video-002.jpg",
       "relatedTools": [
-        "aigc-video"
+        "seko"
       ]
     },
     {
@@ -1151,11 +1151,11 @@
       "recommendReason": "本教程详细对比了主流AI工具平台的特点和适用场景，帮助用户选择最适合的工具。",
       "customImageUrl": "/images/tutorials/ai-guide-003.jpg",
       "relatedTools": [
-        "dify",
-        "n8n",
+        "flowith",
+        "feishu-base",
         "coze",
-        "fastgpt",
-        "ragflow"
+        "ima",
+        "notebooklm"
       ]
     },
     {
@@ -1216,9 +1216,9 @@
       "recommendReason": "本教程从0到1详细讲解如何打造商用Agent，包含1G资料的处理方法，是RAG技术的天花板级教程。",
       "customImageUrl": "/images/tutorials/ai-agent-001.jpg",
       "relatedTools": [
-        "dify",
-        "fastgpt",
-        "ragflow"
+        "flowith",
+        "ima",
+        "notebooklm"
       ]
     },
     {
@@ -1256,9 +1256,7 @@
       ],
       "recommendReason": "本教程详细介绍了如何安装和使用沉浸式翻译浏览器插件，无需魔法，小白也能轻松上手。",
       "customImageUrl": "/images/tutorials/immersive-translation-001.jpg",
-      "relatedTools": [
-        "immersive-translation"
-      ]
+      "relatedTools": []
     },
     {
       "id": "tutorial-mp-weixin-qq-com-ima更新盘点：知识库不再只是仓库，而是AI工作台了！-0",
@@ -1319,7 +1317,7 @@
       "recommendReason": "面向新手的Seko视频Agent深度测评，涵盖9个高质量案例与核心能力拆解，帮助快速入门与选型。",
       "customImageUrl": "/images/tutorials/aigc-video-003.jpg",
       "relatedTools": [
-        "aigc-video"
+        "seko"
       ]
     },
     {
@@ -1357,7 +1355,7 @@
       "recommendReason": "Seko保姆级玩法教程，包括丝滑转场和对口型等惊艳功能，适合新手快速上手。",
       "customImageUrl": "/images/tutorials/aigc-video-004.jpg",
       "relatedTools": [
-        "aigc-video"
+        "seko"
       ]
     },
     {

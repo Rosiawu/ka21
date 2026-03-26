@@ -3,7 +3,9 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { useSearchParams, useRouter, useParams } from 'next/navigation';
 import ToolList from '@/components/ToolList';
+import TutorialCard from '@/components/TutorialCard';
 import toolsData from '@/data/tools.json';
+import { tutorials, Tutorial } from '@/data/tutorials';
 import { Tool, ToolCategoryId } from '@/lib/types';
 import { validateTools } from '@/lib/validate';
 import { TOOL_CATEGORIES } from '@/data/toolCategories';
@@ -17,6 +19,7 @@ import FilterChip from '@/components/FilterChip';
 import CopyButton from '@/components/CopyButton';
 import { buildSearchUrl } from '@/utils/buildSearchUrl';
 import useWeChatShare from '@/hooks/useWeChatShare';
+import { getTutorialSearchAliasTokens, matchesTaxonomyToken } from '@/lib/coreTaxonomy';
 
 const allTools = toolsData.tools as Tool[];
 if (!validateTools(allTools)) {
@@ -28,12 +31,14 @@ const tools = getVisibleTools(allTools);
 export default function SearchContent() {
   const tSearch = useTranslations('Search');
   const tCommon = useTranslations('Common');
+  const tHome = useTranslations('Home');
   const tCategories = useTranslations('Categories');
   const tCategoryDesc = useTranslations('CategoryDesc');
   const searchParams = useSearchParams();
   const router = useRouter();
   const params = useParams<{ locale?: string; category?: string }>();
   const locale = params?.locale || 'zh';
+  const isEn = locale === 'en';
   const searchQuery = searchParams.get('q') || '';
   const categoryFromPath = params?.category || null;
   const categoryFromQuery = searchParams.get('category');
@@ -46,6 +51,7 @@ export default function SearchContent() {
   const [sortMethod, setSortMethod] = useState<SortMethod>('default');
   const [inputValue, setInputValue] = useState(searchQuery);
   const [filteredTools, setFilteredTools] = useState<Tool[]>([]);
+  const [filteredTutorials, setFilteredTutorials] = useState<Tutorial[]>([]);
   const [sortedTools, setSortedTools] = useState<Tool[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -57,7 +63,17 @@ export default function SearchContent() {
         query: searchQuery || undefined,
         categoryId: categoryParam && TOOL_CATEGORIES.some(cat => cat.id === categoryParam) ? (categoryParam as ToolCategoryId) : undefined
       });
+      const matchedTutorials = searchQuery
+        ? tutorials.filter((tutorial) =>
+            tutorial.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            tutorial.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            tutorial.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            tutorial.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            matchesTaxonomyToken(searchQuery.toLowerCase(), getTutorialSearchAliasTokens(tutorial))
+          )
+        : [];
       setFilteredTools(filtered);
+      setFilteredTutorials(matchedTutorials);
       setSortedTools(sortByDefaultOrder(filtered));
       setIsLoading(false);
     } catch (e) {
@@ -110,20 +126,23 @@ export default function SearchContent() {
       ? `${origin}/${locale}/search/${categoryParam}`
       : (typeof window !== 'undefined' ? window.location.href.split('#')[0] : '');
     const title = searchQuery
-      ? `KA21 搜索结果：${searchQuery}`
+      ? (isEn ? `KA21 Search Results: ${searchQuery}` : `KA21 搜索结果：${searchQuery}`)
       : categoryName
-        ? `KA21 工具分类：${categoryName}`
-        : 'KA21 AI牛马库';
+        ? (isEn ? `KA21 Tool Category: ${categoryName}` : `KA21 工具分类：${categoryName}`)
+        : (isEn ? 'KA21 AI Resource Hub' : 'KA21 AI牛马库');
 
     return {
       title,
-      desc: 'KA21 工具导航只收录亲测好用的 AI 工具，帮你快速找到靠谱工具。',
+      desc: isEn
+        ? 'KA21 Tools only lists AI tools and tutorials we have personally tested and found genuinely useful.'
+        : 'KA21 工具导航只收录亲测好用的 AI 工具，帮你快速找到靠谱工具。',
       link,
       imgUrl: `${origin}/KA21.png`
     };
-  }, [categoryName, categoryParam, locale, searchQuery]);
+  }, [categoryName, categoryParam, isEn, locale, searchQuery]);
 
   const { isWeChat, ready: wechatShareReady } = useWeChatShare(shareData);
+  const hasTutorials = filteredTutorials.length > 0;
 
   return (
     <div className="relative overflow-hidden">
@@ -259,6 +278,24 @@ export default function SearchContent() {
               error={error}
               selectedToolCategory={categoryParam}
             />
+
+            {!isLoading && hasTutorials && (
+              <section className="space-y-6">
+                <div className="flex items-center justify-between flex-wrap gap-3">
+                  <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">
+                    {tHome('tutorials')}
+                    <span className="text-sm font-normal text-slate-500 dark:text-slate-400 ml-2">
+                      ({tCommon('totalCount', {count: filteredTutorials.length})})
+                    </span>
+                  </h2>
+                </div>
+                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                  {filteredTutorials.map((tutorial) => (
+                    <TutorialCard key={tutorial.id} tutorial={tutorial} />
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
 
           {(searchQuery || categoryParam) && (

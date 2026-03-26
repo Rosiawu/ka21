@@ -48,8 +48,8 @@
   },
   "Search": {
     "results": "搜索结果",
-    "subtitle": "在AI工具导航中找到最适合您的工具",
-    "searchPlaceholder": "搜索AI工具名称、描述...",
+    "subtitle": "在AI工具导航中找到最适合您的工具和教程",
+    "searchPlaceholder": "搜索工具、教程或作者...",
     "searchAction": "搜索",
     "allTools": "所有工具",
     "categoryPrefix": "分类:",
@@ -58,7 +58,7 @@
     "linkCopied": "链接已复制到剪贴板!",
     "breadcrumbLabel": "导航路径",
     "unknownCategory": "未知分类",
-    "inputAriaLabel": "搜索工具",
+    "inputAriaLabel": "搜索工具和教程",
     "clearAction": "清除搜索"
   }
   ,

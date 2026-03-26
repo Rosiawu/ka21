@@ -3,7 +3,7 @@ import toolsData from '@/data/tools.json';
 import { tutorials } from '@/data/tutorials';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ka21.tools';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ka21.org';
   const locales = ['zh', 'en'];
 
   // 基础页面

@@ -48,8 +48,8 @@
   },
   "Search": {
     "results": "Search Results",
-    "subtitle": "Find the most suitable AI tools",
-    "searchPlaceholder": "Search tool name, description...",
+    "subtitle": "Find the most suitable AI tools and tutorials",
+    "searchPlaceholder": "Search tools, tutorials, or authors...",
     "searchAction": "Search",
     "allTools": "All Tools",
     "categoryPrefix": "Category:",
@@ -58,7 +58,7 @@
     "linkCopied": "Link copied to clipboard!",
     "breadcrumbLabel": "Breadcrumb",
     "unknownCategory": "Unknown category",
-    "inputAriaLabel": "Search tools",
+    "inputAriaLabel": "Search tools and tutorials",
     "clearAction": "Clear search"
   }
   ,
