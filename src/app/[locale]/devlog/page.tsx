@@ -1,5 +1,6 @@
 import { sortedDevLogs } from '@/data/devLogs';
 import DevLogImageCarousel from '@/components/DevLogImageCarousel';
+import DevLogHashNavigator from '@/components/DevLogHashNavigator';
 
 type DevLogPageParams = Promise<{ locale: string }>;
 
@@ -40,6 +41,8 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
       </div>
 
       <div className="max-w-5xl mx-auto">
+        <DevLogHashNavigator />
+
         <div className="mb-8 rounded-2xl border border-indigo-100 dark:border-purple-800/40 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-800/60 dark:to-purple-900/30 p-6 sm:p-8 shadow-sm">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
@@ -82,7 +85,7 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
             <article
               key={log.id}
               id={log.id}
-              className="rounded-2xl border border-gray-200/80 dark:border-gray-700/70 bg-white/95 dark:bg-gray-900/70 p-5 sm:p-6 shadow-sm"
+              className="scroll-mt-24 rounded-2xl border border-gray-200/80 bg-white/95 p-5 shadow-sm transition-shadow duration-300 dark:border-gray-700/70 dark:bg-gray-900/70 sm:p-6"
             >
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center rounded-full bg-indigo-100 dark:bg-indigo-900/40 px-3 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-300">

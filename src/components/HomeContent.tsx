@@ -585,7 +585,7 @@ export default function HomeContent({
               onQuerySelect={handleIntentQuerySelect}
             />
           </div>
-          
+
           {/* 热门推荐板块（显式传入本地化标题，规避上下文异常导致的错语种） */}
           <HotSection title={tHot('title')} subtitle={tHot('subtitle')} />
 
@@ -831,12 +831,11 @@ export default function HomeContent({
               </Link>
             </div>
           </section>
-
-          {!isSearching && !isSearchPending && <DevLogPreviewSection isEn={isEn} />}
-
           {!isSearching && !isSearchPending && <DealsPreviewSection isEn={isEn} deals={initialDeals} />}
 
           {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} events={initialEvents} />}
+
+          {!isSearching && !isSearchPending && <DevLogPreviewSection isEn={isEn} />}
 
           {/* 工具分类列表 - 使用新的ToolCategorySection组件 */}
           {!isSearching && !isSearchPending && (
