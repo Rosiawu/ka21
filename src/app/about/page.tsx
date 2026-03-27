@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@/i18n/Link';
+import Link from 'next/link';
 import { withBaseMeta } from '@/lib/withBaseMeta';
 import type { Metadata, ResolvingMetadata } from 'next';
 import TeamMemberCard from '@/components/TeamMemberCard';
