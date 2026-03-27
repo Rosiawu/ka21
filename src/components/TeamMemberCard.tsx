@@ -151,7 +151,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
   
   return (
     <div 
-      className={`rounded-xl shadow-lg overflow-hidden transition-all duration-300 light-purple-bg bg-[#f5f3ff] dark:bg-gray-900 border border-indigo-100 dark:border-indigo-800/30 ${
+      className={`rounded-xl shadow-lg overflow-hidden transition-all duration-300 light-purple-bg bg-white dark:bg-gray-900 border border-rose-100 dark:border-gray-700/30 ${
         isExpanded ? 'sm:col-span-1 md:col-span-1 transform translate-y-0' : 'transform hover:-translate-y-1'
       }`}
     >
@@ -173,26 +173,26 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                 }}
               />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl font-bold">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-[#e06b6b] to-[#d4a853] flex items-center justify-center text-white text-xl font-bold">
                 {displayName.charAt(0)}
               </div>
             )}
           </div>
-          <div className="avatar-ring absolute inset-0 rounded-full border-2 border-indigo-300 dark:border-indigo-500 opacity-50"></div>
+          <div className="avatar-ring absolute inset-0 rounded-full border-2 border-[#d4a853]/50 dark:border-[#d4a853] opacity-50"></div>
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-indigo-900 dark:text-primary-400 shadow-sm">{displayName}</h3>
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-primary-400 shadow-sm">{displayName}</h3>
           <p className="text-gray-600 dark:text-gray-400 text-sm">{displayLocation || text.locationFallback}</p>
           <div className="tag-container flex flex-wrap gap-1.5 mt-2">
             {displayTitle && (
-              <span className="tag bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 text-xs px-2 py-1 rounded-full shadow-sm">
+              <span className="tag bg-rose-50 dark:bg-rose-900/10 text-gray-900 dark:text-primary-300 text-xs px-2 py-1 rounded-full shadow-sm">
                 {displayTitle}
               </span>
             )}
             {specialtyTags.slice(0, 1).map((tag, index) => (
               <span 
                 key={index}
-                className="tag bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 text-xs px-2 py-1 rounded-full shadow-sm"
+                className="tag bg-gold-100 dark:bg-gray-800/30 text-gray-700 dark:text-gray-400 text-xs px-2 py-1 rounded-full shadow-sm"
               >
                 {tag}
               </span>
@@ -204,13 +204,13 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       {/* 专业领域 */}
       <div className="px-6 py-3">
         <div className="flex items-center mb-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#d4a853] mr-2">
             <circle cx="12" cy="12" r="10"></circle>
             <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
           </svg>
           <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.specialty}</h2>
         </div>
-        <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-3 border-l-4 border-indigo-400 dark:border-indigo-500 shadow-sm">
+        <div className="bg-rose-50 dark:bg-rose-900/10 rounded-lg p-3 border-l-4 border-[#d4a853] dark:border-[#d4a853] shadow-sm">
           <p className="text-gray-700 dark:text-gray-300 text-sm">{specialtyTags.join(' · ')}</p>
         </div>
       </div>
@@ -219,14 +219,14 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       {displayDescription && (
         <div className="px-6 py-3">
           <div className="flex items-center mb-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#d4a853] mr-2">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="16" x2="12" y2="12"></line>
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
             </svg>
             <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">{text.bio}</h2>
           </div>
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-3 border-l-4 border-indigo-400 dark:border-indigo-500 text-sm text-gray-700 dark:text-gray-300 whitespace-pre-line">
+          <div className="bg-rose-50 dark:bg-rose-900/10 rounded-lg p-3 border-l-4 border-[#d4a853] dark:border-[#d4a853] text-sm text-gray-700 dark:text-gray-300 whitespace-pre-line">
             {displayDescription}
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       {/* 个人标签信息 - MBTI和昵称 */}
       <div className="px-6 py-3 flex flex-wrap gap-2">
         {member.mbti && (
-          <div className="bg-purple-100 dark:bg-purple-900/30 px-2 py-1 text-xs text-purple-800 dark:text-purple-300 rounded-md flex items-center">
+          <div className="bg-gold-100 dark:bg-gray-800/30 px-2 py-1 text-xs text-gray-700 dark:text-gray-400 rounded-md flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
               <circle cx="12" cy="12" r="10"></circle>
               <path d="M12 2a10 10 0 0 1 10 10"></path>
@@ -264,7 +264,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         {displaySkills && displaySkills.length > 0 && (
           <div className="px-6 py-3">
             <div className="flex items-center mb-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#d4a853] mr-2">
                 <line x1="9" y1="18" x2="15" y2="18"></line>
                 <line x1="10" y1="22" x2="14" y2="22"></line>
                 <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8A6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
@@ -275,9 +275,9 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
               {displaySkills.map((skill, index) => (
                 <div 
                   key={index} 
-                  className="skill-card bg-indigo-50 dark:bg-indigo-900/20 p-3 rounded-lg border border-indigo-200 dark:border-indigo-700/30 shadow-sm"
+                  className="skill-card bg-rose-50 dark:bg-rose-900/10 p-3 rounded-lg border border-rose-200 dark:border-rose-200/50 shadow-sm"
                 >
-                  <h3 className="font-medium text-indigo-700 dark:text-indigo-300 text-xs mb-1">{skill}</h3>
+                  <h3 className="font-medium text-primary-700 dark:text-primary-300 text-xs mb-1">{skill}</h3>
                   <p className="text-xs text-gray-600 dark:text-gray-400">
                     {index === 0 ? text.coreSkill : text.supportSkill}
                   </p>
@@ -291,7 +291,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         {displayAiTools && displayAiTools.length > 0 && (
           <div className="px-6 py-3">
             <div className="flex items-center mb-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#d4a853] mr-2">
                 <path d="M12 8V4m0 4l-4 4m4-4l4 4M4 16v-4a8 8 0 0 1 16 0v4"></path>
                 <path d="M18 18v2a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-2"></path>
               </svg>
@@ -301,7 +301,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
               {displayAiTools.map((tool, index) => (
                 <span 
                   key={index} 
-                  className="bg-purple-100 dark:bg-purple-900/30 px-2 py-1 rounded-md text-purple-800 dark:text-purple-300 text-xs"
+                  className="bg-gold-100 dark:bg-gray-800/30 px-2 py-1 rounded-md text-gray-700 dark:text-gray-400 text-xs"
                 >
                   {tool}
                 </span>
@@ -314,7 +314,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         {displayTraits && (
           <div className="px-6 py-3">
             <div className="flex items-center mb-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#d4a853] mr-2">
                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
               </svg>
@@ -329,13 +329,13 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
                     const traitIcon = typeof trait === 'string' ? getTraitEmoji(trait) : (trait.icon || getTraitEmoji(trait.label));
                     
                     return (
-                      <span key={index} className="bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded-md text-indigo-700 dark:text-indigo-300 text-xs">
+                      <span key={index} className="bg-rose-50 dark:bg-rose-900/10 px-2 py-1 rounded-md text-primary-700 dark:text-primary-300 text-xs">
                         <span className="mr-1">{traitIcon}</span>
                         {traitText}
                       </span>
                     );
                   }) : 
-                  <span className="bg-indigo-50 dark:bg-indigo-900/20 px-2 py-1 rounded-md text-indigo-700 dark:text-indigo-300 text-xs">
+                  <span className="bg-rose-50 dark:bg-rose-900/10 px-2 py-1 rounded-md text-primary-700 dark:text-primary-300 text-xs">
                     <span className="mr-1">{getTraitEmoji(displayTraits)}</span>
                     {displayTraits}
                   </span>
@@ -347,18 +347,18 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         
         {/* 公众号二维码 */}
         {member.wechatQR && (
-          <div className="px-6 py-4 bg-white dark:bg-gray-800 border-t border-indigo-100 dark:border-indigo-800/30">
+          <div className="px-6 py-4 bg-white dark:bg-gray-800 border-t border-rose-100 dark:border-gray-700/30">
             <div className="flex justify-between items-center">
               <div className="w-3/4">
                 <div className="flex items-center mb-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500 mr-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#d4a853] mr-1">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                   </svg>
                   <h3 className="text-xs font-semibold text-gray-700 dark:text-gray-300">{text.officialAccount}</h3>
                 </div>
                 <p className="text-xs text-gray-600 dark:text-gray-400 italic">{displayWechatAccount || text.followHint}</p>
               </div>
-              <div className="qr-code w-16 h-16 bg-white dark:bg-gray-800 border-2 border-indigo-200 dark:border-indigo-700 rounded-lg flex items-center justify-center shadow-sm overflow-hidden">
+              <div className="qr-code w-16 h-16 bg-white dark:bg-gray-800 border-2 border-rose-200 dark:border-indigo-700 rounded-lg flex items-center justify-center shadow-sm overflow-hidden">
                 <Image 
                   src={member.wechatQR} 
                   alt={`${displayName} ${text.accountAlt}`} 
@@ -377,10 +377,10 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       </div>
       
       {/* 展开/收起按钮 */}
-      <div className="px-6 py-4 bg-white dark:bg-gray-800/50 border-t border-indigo-100 dark:border-indigo-800/30">
+      <div className="px-6 py-4 bg-white dark:bg-gray-800/50 border-t border-rose-100 dark:border-gray-700/30">
         <button
           onClick={toggleExpand}
-          className="save-btn bg-indigo-500 hover:bg-indigo-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full text-center transition-colors shadow-sm"
+          className="save-btn bg-rose-500 hover:bg-indigo-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full text-center transition-colors shadow-sm"
         >
           {isExpanded ? text.collapse : text.expand}
         </button>
