@@ -1,34 +1,18 @@
-import type { Metadata, ResolvingMetadata } from 'next';
-import Link from '@/i18n/Link';
-import { withBaseMeta } from '@/lib/withBaseMeta';
-import { generateHreflangMetadata } from '@/lib/hreflang';
 import { sortedDevLogs } from '@/data/devLogs';
 import DevLogImageCarousel from '@/components/DevLogImageCarousel';
 
 type DevLogPageParams = Promise<{ locale: string }>;
 
-export async function generateMetadata(
-  { params }: { params: DevLogPageParams },
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const { locale: routeLocale } = await params;
-  const locale = routeLocale === 'en' ? 'en' : 'zh';
-  const isEn = locale === 'en';
-  const hreflangConfig = generateHreflangMetadata(locale, 'devlog');
+function toLocaleHref(href: string, locale: string): string {
+  if (!href.startsWith('/')) {
+    return href;
+  }
 
-  return withBaseMeta(
-    {
-      title: isEn ? 'Development Log - KA21 Tools' : '开发日志 - KA21工具导航',
-      description: isEn
-        ? 'Track KA21 Tools iterations and recent product updates.'
-        : '记录 KA21 工具导航的版本迭代和近期更新。',
-      alternates: {
-        canonical: hreflangConfig.canonical,
-        languages: hreflangConfig.languages,
-      },
-    },
-    parent,
-  );
+  if (/^\/(zh|en)(\/|$)/.test(href)) {
+    return href;
+  }
+
+  return href === '/' ? `/${locale}` : `/${locale}${href}`;
 }
 
 export default async function DevLogPage({ params }: { params: DevLogPageParams }) {
@@ -43,6 +27,8 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
     submitHint: isEn ? 'Mobile posting now uses the miniapp native page.' : '手机投稿现在只走小程序原生页。',
     webSubmit: isEn ? 'Post from web' : '网页提交',
   };
+  const devlogSubmitHref = toLocaleHref('/devlog/submit', locale);
+  const homeHref = toLocaleHref('/', locale);
 
   return (
     <div className="page-shell relative py-8">
@@ -63,24 +49,24 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
               <p className="mt-3 text-gray-700 dark:text-gray-300">{text.subtitle}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link
-                href="/devlog/submit"
+              <a
+                href={devlogSubmitHref}
                 className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/90 px-4 py-2 text-sm font-medium text-indigo-700 transition-colors hover:bg-white dark:border-indigo-700/70 dark:bg-gray-900/70 dark:text-indigo-300 dark:hover:bg-gray-900"
               >
                 <i className="fas fa-pen-to-square text-xs" aria-hidden="true"></i>
                 <span>{text.webSubmit}</span>
-              </Link>
+              </a>
               <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700 dark:border-amber-700/70 dark:bg-amber-950/30 dark:text-amber-300">
                 <i className="fas fa-mobile-screen-button text-xs" aria-hidden="true"></i>
                 <span>{text.submitHint}</span>
               </span>
-              <Link
-                href="/"
+              <a
+                href={homeHref}
                 className="inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-700/70 bg-white/90 dark:bg-gray-900/70 px-4 py-2 text-sm font-medium text-indigo-700 dark:text-indigo-300 hover:bg-white dark:hover:bg-gray-900 transition-colors"
               >
                 <i className="fas fa-arrow-left text-xs" aria-hidden="true"></i>
                 {text.backHome}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -114,10 +100,11 @@ export default async function DevLogPage({ params }: { params: DevLogPageParams 
                     {allLinks.map((item) => {
                       const isPodcastLink = item.href.includes('xiaoyuzhoufm.com');
                       const isToolLink = item.href.startsWith('/tools/');
+                      const finalHref = isToolLink ? toLocaleHref(item.href, locale) : item.href;
                       return (
                         <a
                           key={item.href}
-                          href={item.href}
+                          href={finalHref}
                           target={isToolLink ? undefined : '_blank'}
                           rel={isToolLink ? undefined : 'noopener noreferrer'}
                           className="group rounded-lg border border-indigo-200/80 dark:border-indigo-700/60 bg-white/90 dark:bg-gray-900/70 px-3 py-2 hover:border-indigo-300 dark:hover:border-indigo-500 transition-colors"
