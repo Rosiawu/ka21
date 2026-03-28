@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-03-27T04:07:11.609Z",
+  "updatedAt": "2026-03-28T03:45:30.989Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "69bd022a2d318777c9df5837",
+      "title": "07. 王帅：从个人知识库到企业级Agent，他在重写信息的使用方式",
+      "pubDate": "Sat, 28 Mar 2026 00:00:00 GMT",
+      "duration": "01:03:35",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69bd022a2d318777c9df5837?utm_source=rss"
+    },
     {
       "id": "69bcbace2d318777c9d271de",
       "title": "06. 思康：从四大到AI创业者，他用十年等一个时刻",
