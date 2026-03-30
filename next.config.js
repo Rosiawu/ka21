@@ -13,6 +13,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'http',
+        hostname: 'mmbiz.qpic.cn',
+      },
+      {
         protocol: 'https',
         hostname: 'mmbiz.qpic.cn',
       },
