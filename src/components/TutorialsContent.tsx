@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { useSearchParams, usePathname } from 'next/navigation';
 import { tutorials, Tutorial, sortTutorials, TutorialSortMethod, DifficultyLevel } from '@/data/tutorials';
 import { localizeTutorialCategory } from '@/utils/tutorials';
@@ -39,6 +39,9 @@ export default function TutorialsContent() {
   const [saveMessage, setSaveMessage] = useState('');
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const { authenticated: canManageTutorials } = useAdminSession();
+  const lastAutoExtractedUrlRef = useRef('');
+  const latestImportUrlRef = useRef('');
+  const fetchSequenceRef = useRef(0);
   const text = useMemo(() => ({
     title: isEn ? 'Starter Tutorials' : '萌新教程',
     subtitle: isEn
@@ -126,28 +129,52 @@ export default function TutorialsContent() {
   }, []);
 
   // 自动根据标题/摘要匹配一个默认分类
-  const guessCategory = (title: string, summary: string): string => {
+  const guessCategory = useCallback((title: string, summary: string): string => {
     if (!categories.length) return '';
     const text = `${title} ${summary}`.toLowerCase();
     const matched = categories.find((scenarioId) =>
       getCoreScenarioAliases(scenarioId).some((alias) => text.includes(alias.toLowerCase()))
     );
     return matched || categories[0];
+  }, [categories]);
+
+  const isWechatArticleUrl = (rawUrl: string) => {
+    try {
+      const parsed = new URL(rawUrl.trim());
+      return (
+        ['http:', 'https:'].includes(parsed.protocol) &&
+        ['mp.weixin.qq.com', 'mp.weixinqq.com'].includes(parsed.hostname) &&
+        parsed.pathname !== '/'
+      );
+    } catch {
+      return false;
+    }
   };
 
-  const handleFetchWechat = async () => {
-    if (!importUrl) {
+  const handleFetchWechat = useCallback(async (sourceUrl = importUrl.trim()) => {
+    if (!sourceUrl) {
       setImportError(text.inputLink);
       return;
     }
+
+    const normalizedUrl = sourceUrl.trim();
+    const requestId = fetchSequenceRef.current + 1;
+    fetchSequenceRef.current = requestId;
 
     try {
       setImportLoading(true);
       setImportError('');
       setSaveMessage('');
 
-      const res = await fetch(`/api/proxy/article?url=${encodeURIComponent(importUrl.trim())}`);
+      const res = await fetch(`/api/proxy/article?url=${encodeURIComponent(normalizedUrl)}`);
       const data = await res.json();
+
+      if (
+        fetchSequenceRef.current !== requestId ||
+        latestImportUrlRef.current !== normalizedUrl
+      ) {
+        return;
+      }
 
       if (!data.success) {
         setImportError(data.message || text.extractFailed);
@@ -168,12 +195,47 @@ export default function TutorialsContent() {
 
       setSaveMessage(text.autoFilled);
     } catch (error: unknown) {
+      if (
+        fetchSequenceRef.current !== requestId ||
+        latestImportUrlRef.current !== normalizedUrl
+      ) {
+        return;
+      }
+
       const errorMessage = error instanceof Error ? error.message : text.requestFailed;
       setImportError(`${text.networkOrLinkError} (${errorMessage})`);
     } finally {
-      setImportLoading(false);
+      if (fetchSequenceRef.current === requestId) {
+        setImportLoading(false);
+      }
     }
-  };
+  }, [guessCategory, importUrl, text]);
+
+  useEffect(() => {
+    latestImportUrlRef.current = importUrl.trim();
+  }, [importUrl]);
+
+  useEffect(() => {
+    if (!showImportForm) {
+      return;
+    }
+
+    const normalizedUrl = importUrl.trim();
+    if (!normalizedUrl || !isWechatArticleUrl(normalizedUrl)) {
+      return;
+    }
+
+    if (normalizedUrl === lastAutoExtractedUrlRef.current) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      lastAutoExtractedUrlRef.current = normalizedUrl;
+      void handleFetchWechat(normalizedUrl);
+    }, 600);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [handleFetchWechat, importUrl, showImportForm]);
 
   const handleSaveTutorial = async () => {
     setImportError('');
@@ -335,7 +397,18 @@ export default function TutorialsContent() {
                           className="flex-1 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 text-xs focus:outline-none focus:ring-2 focus:ring-primary-500"
                           placeholder="https://mp.weixin.qq.com/..."
                           value={importUrl}
-                          onChange={(e) => setImportUrl(e.target.value)}
+                          onChange={(e) => {
+                            const nextUrl = e.target.value;
+                            setImportUrl(nextUrl);
+                            setImportError('');
+                            setSaveMessage('');
+
+                            if (nextUrl.trim() !== lastAutoExtractedUrlRef.current) {
+                              return;
+                            }
+
+                            lastAutoExtractedUrlRef.current = '';
+                          }}
                           onKeyDown={(e) => {
                             if (e.key === 'Enter' && !importLoading) {
                               e.preventDefault();
@@ -346,7 +419,9 @@ export default function TutorialsContent() {
                         <button
                           type="button"
                           className="px-3 py-2 text-xs rounded-lg bg-primary-500 text-white hover:bg-primary-600 disabled:opacity-60 relative z-20"
-                          onClick={handleFetchWechat}
+                          onClick={() => {
+                            void handleFetchWechat();
+                          }}
                           disabled={importLoading}
                         >
                           {importLoading ? text.extracting : text.extractInfo}

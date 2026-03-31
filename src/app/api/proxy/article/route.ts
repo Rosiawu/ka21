@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import * as cheerio from 'cheerio';
 import { enforceRateLimit } from '@/lib/security/rate-limit';
 import { safeFetch } from '@/lib/security/safe-fetch';
@@ -13,6 +15,7 @@ interface WechatMetadata {
 }
 
 const WECHAT_HOSTNAMES = new Set(['mp.weixin.qq.com', 'mp.weixinqq.com']);
+const execFileAsync = promisify(execFile);
 
 const extractByRegex = (html: string, pattern: RegExp): string | undefined => {
   const match = html.match(pattern);
@@ -109,6 +112,70 @@ const parseWechatHtml = (html: string): Partial<WechatMetadata> => {
   };
 };
 
+const buildWechatRequestHeaders = () => ({
+  'User-Agent':
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'Accept-Language': 'zh-CN,zh;q=0.9',
+  'Referer': 'https://mp.weixin.qq.com/',
+  'Cache-Control': 'max-age=0',
+});
+
+function shouldUseCurlFallback(error: unknown) {
+  if (process.env.NODE_ENV === 'production') {
+    return false;
+  }
+
+  const message = error instanceof Error ? error.message : String(error);
+  return (
+    message.includes('ENOTFOUND') ||
+    message.includes('ECONNREFUSED') ||
+    message.includes('unresolved-remote-host')
+  );
+}
+
+async function fetchWechatHtmlWithCurl(url: string) {
+  const headers = buildWechatRequestHeaders();
+  const args = [
+    '-L',
+    '-sS',
+    '--max-time',
+    '12',
+    '-A',
+    headers['User-Agent'],
+    '-H',
+    `Accept: ${headers.Accept}`,
+    '-H',
+    `Accept-Language: ${headers['Accept-Language']}`,
+    '-H',
+    `Referer: ${headers.Referer}`,
+    '-H',
+    `Cache-Control: ${headers['Cache-Control']}`,
+    '-w',
+    '\n__KA21_HTTP_STATUS__:%{http_code}',
+    url,
+  ];
+
+  const { stdout } = await execFileAsync('curl', args, {
+    maxBuffer: 8 * 1024 * 1024,
+  });
+
+  const marker = '\n__KA21_HTTP_STATUS__:';
+  const markerIndex = stdout.lastIndexOf(marker);
+  if (markerIndex === -1) {
+    throw new Error('curl-status-missing');
+  }
+
+  const body = stdout.slice(0, markerIndex);
+  const statusCode = Number(stdout.slice(markerIndex + marker.length).trim());
+
+  if (!Number.isFinite(statusCode) || statusCode >= 400) {
+    throw new Error(`curl-fetch-failed-${statusCode || 'unknown'}`);
+  }
+
+  return body;
+}
+
 export async function GET(request: Request) {
   const tutorialAccessError = requireTutorialImportAccess(request);
   if (tutorialAccessError) {
@@ -152,28 +219,31 @@ export async function GET(request: Request) {
   }
 
   try {
-    const res = await safeFetch(target.toString(), {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        'Referer': 'https://mp.weixin.qq.com/',
-        'Cache-Control': 'max-age=0',
-      },
-    }, {
-      allowedHostnames: WECHAT_HOSTNAMES,
-      timeoutMs: 12_000,
-    });
+    let html = '';
 
-    if (!res.ok) {
-      return NextResponse.json(
-        { success: false, message: `抓取失败，状态码 ${res.status}` },
-        { status: 502 },
-      );
+    try {
+      const res = await safeFetch(target.toString(), {
+        headers: buildWechatRequestHeaders(),
+      }, {
+        allowedHostnames: WECHAT_HOSTNAMES,
+        timeoutMs: 12_000,
+      });
+
+      if (!res.ok) {
+        return NextResponse.json(
+          { success: false, message: `抓取失败，状态码 ${res.status}` },
+          { status: 502 },
+        );
+      }
+
+      html = await res.text();
+    } catch (fetchError) {
+      if (!shouldUseCurlFallback(fetchError)) {
+        throw fetchError;
+      }
+
+      html = await fetchWechatHtmlWithCurl(target.toString());
     }
-
-    const html = await res.text();
     const meta = parseWechatHtml(html);
 
     if (!meta.title) {
