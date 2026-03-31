@@ -1995,11 +1995,25 @@
       "recommendReason": "提示词是 AI 入门的必经之路，看完这个系列，你的提示词技巧将会直接起飞！本期为第一期，也是提示词技巧（上）篇。",
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/r52ZH6tKhcA10rKv0Y2n2trYtFBLHNAjE4AhDYib64PfpBEr19qdLm1PoBPALGVCr3YoCZU7pUPXp8hfoibavwg1uM6lXtYicXBwf9dgmosIpA/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-读了ClaudeCode泄露的源码发现我们都用错-0",
+      "title": "读了Claude Code泄露的源码，发现我们都用错了",
+      "description": "它不是聊天工具，是一个被伪装成终端的 Agent 编排平台整个下午AI圈震动了，原来是Claude居然把自己亲",
+      "url": "https://mp.weixin.qq.com/s/Mpwrk59T2jH1Ls-Vtq3j7Q?scene=1",
+      "source": "黄啊码",
+      "publishDate": "2026-03-31",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "它不是聊天工具，是一个被伪装成终端的 Agent 编排平台整个下午AI圈震动了，原来是Claude居然把自己亲",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/D3bAeh1QWZmUJibE5ibFDLQiatbm7KDiaywourCMTM6vXpd4zyhuJ9zrppRtFTIkMWiaqhmpyTiaREpKSS6vorvibWXtRkN5LwZeEQ1zicWW92X2pZk/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-31T12:18:43.402Z",
-    "count": 115
+    "updatedAt": "2026-03-31T13:19:59.261Z",
+    "count": 116
   }
 }
