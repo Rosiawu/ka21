@@ -8,20 +8,16 @@ import ThemeProvider from '@/components/ThemeProvider';
 import UmamiAnalytics from '@/components/UmamiAnalytics';
 import ClarityAnalytics from '@/components/ClarityAnalytics';
 import { toHtmlLang } from '@/i18n/resolveLocale';
-import { getBaseUrl } from '@/lib/hreflang';
+import { createDefaultIcons, createMetadataBase } from '@/lib/siteMetadata';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getBaseUrl()),
+  metadataBase: createMetadataBase(),
   title: {
     default: 'KA21工具导航 - 一站式AI资源平台',
     template: '%s',
   },
   description: '发现、比较和使用最佳AI工具，提升您的工作效率和创造力',
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/KA21.png',
-  },
+  icons: createDefaultIcons(),
 };
 
 async function getRootLocaleLang() {
