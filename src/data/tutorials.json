@@ -1981,11 +1981,25 @@
       "recommendReason": "用OpenClaw的朋友可能遇到过这样的情况。昨天还在和它讨论一个项目，今天早上发消息过去，它突然变得像个陌生人。",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/gq3a9icfIXEbOaibZDJFFytJxSKlyhAu865UqHBL1PCC3w984x1bPKEl8nVKPzOsV6E5dCkz4lyuZ9Q5bfPYtEa9A0nazeKtvKfbtiadyG9Q7k/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-AI小白入门系列提示词技巧上篇-0",
+      "title": "AI 小白入门系列 —— 提示词技巧 （上篇）",
+      "description": "提示词是 AI 入门的必经之路，看完这个系列，你的提示词技巧将会直接起飞！本期为第一期，也是提示词技巧（上）篇。",
+      "url": "https://mp.weixin.qq.com/s/B7Ll0CM5SFdZ1ZhJ0K1stw",
+      "source": "塔塔",
+      "publishDate": "2026-03-30",
+      "difficultyLevel": "小白入门",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "提示词是 AI 入门的必经之路，看完这个系列，你的提示词技巧将会直接起飞！本期为第一期，也是提示词技巧（上）篇。",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/r52ZH6tKhcA10rKv0Y2n2trYtFBLHNAjE4AhDYib64PfpBEr19qdLm1PoBPALGVCr3YoCZU7pUPXp8hfoibavwg1uM6lXtYicXBwf9dgmosIpA/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-24T10:18:35.241Z",
-    "count": 114
+    "updatedAt": "2026-03-31T12:18:43.402Z",
+    "count": 115
   }
 }
