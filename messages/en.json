@@ -103,7 +103,8 @@
     "audio": "Audio",
     "office": "Office",
     "coding": "Coding",
-    "utils": "Utils"
+    "utils": "Utils",
+    "misc": "Other Tools"
   },
   "ToolList": {
     "emptyTitle": "No matching tools found",
@@ -176,6 +177,7 @@
     "audio": "Voiceover, Music, Speech-to-Text",
     "office": "PPT, Docs, Spreadsheets",
     "coding": "Code Generation, Coding Assistants",
-    "utils": "Productivity Tools, Utilities"
+    "utils": "Productivity Tools, Utilities",
+    "misc": "Tools that have not been mapped to a primary category yet"
   }
 }
