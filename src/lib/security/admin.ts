@@ -223,6 +223,10 @@ export function requireAdminAccess(request: Request) {
   return buildUnauthorizedResponse('admin-auth-required', 401);
 }
 
+export function hasAdminAccess(request: Request) {
+  return requireAdminAccess(request) === null;
+}
+
 export function validateAdminCredentials(username: string, password: string) {
   const config = getAuthConfig();
   if (!config.interactiveAvailable) {

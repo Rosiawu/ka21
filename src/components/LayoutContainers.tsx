@@ -13,6 +13,7 @@ import BeianInfo from '@/components/BeianInfo';
 import Image from 'next/image';
 import useSidebarState from '@/hooks/useSidebarState';
 import useMediaQuery from '@/hooks/useMediaQuery';
+import TutorialWandButton from '@/components/TutorialWandButton';
 
 declare global {
   interface Window {
@@ -200,14 +201,7 @@ export default function LayoutContainers({
           <BackToTopButton />
         </main>
 
-        <a
-          href={`/${locale}/events/submit`}
-          aria-label={tCommon('submitEvent')}
-          className="fixed bottom-5 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-[#e06b6b] px-4 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(224,107,107,0.2)] transition hover:bg-[#c85a5a] hover:scale-[1.02] sm:bottom-6 sm:right-6"
-        >
-          <i className="fas fa-wand-magic-sparkles text-xs" aria-hidden="true"></i>
-          <span className="max-w-[8rem] truncate sm:max-w-none">{tCommon('submitEvent')}</span>
-        </a>
+        <TutorialWandButton locale={locale} />
 
         {/* 页脚 */}
         <footer id="main-footer" className="site-glass-footer border-t border-gray-200 dark:border-gray-700 py-10 mt-16">

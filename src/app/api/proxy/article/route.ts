@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
-import { requireAdminAccess } from '@/lib/security/admin';
 import { enforceRateLimit } from '@/lib/security/rate-limit';
 import { safeFetch } from '@/lib/security/safe-fetch';
+import { requireTutorialImportAccess } from '@/lib/security/tutorial-access';
 
 interface WechatMetadata {
   title: string;
@@ -110,9 +110,9 @@ const parseWechatHtml = (html: string): Partial<WechatMetadata> => {
 };
 
 export async function GET(request: Request) {
-  const adminError = requireAdminAccess(request);
-  if (adminError) {
-    return adminError;
+  const tutorialAccessError = requireTutorialImportAccess(request);
+  if (tutorialAccessError) {
+    return tutorialAccessError;
   }
 
   const rateLimitResponse = enforceRateLimit(request, {

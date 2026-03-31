@@ -5,7 +5,8 @@ import { useSearchParams, usePathname } from 'next/navigation';
 import { tutorials, Tutorial, sortTutorials, TutorialSortMethod, DifficultyLevel } from '@/data/tutorials';
 import { localizeTutorialCategory } from '@/utils/tutorials';
 import TutorialCard from './TutorialCard';
-import AdminSessionGate from './admin/AdminSessionGate';
+import TutorialImportGate from '@/components/tutorials/TutorialImportGate';
+import { useAdminSession } from '@/hooks/useAdminSession';
 import {
   type CoreScenarioId,
   getCoreScenarioAliases,
@@ -37,7 +38,7 @@ export default function TutorialsContent() {
   const [saving, setSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
   const [deletingId, setDeletingId] = useState<string | null>(null);
-  const [canManageTutorials, setCanManageTutorials] = useState(false);
+  const { authenticated: canManageTutorials } = useAdminSession();
   const text = useMemo(() => ({
     title: isEn ? 'Starter Tutorials' : '萌新教程',
     subtitle: isEn
@@ -110,6 +111,12 @@ export default function TutorialsContent() {
   useEffect(() => {
     setSearchQuery(queryParam);
   }, [queryParam]);
+
+  useEffect(() => {
+    if (searchParams.get('import') === '1') {
+      setShowImportForm(true);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const hiddenTutorialTags = tutorials.flatMap((tutorial) => getTutorialHiddenTaxonomyTags(tutorial));
@@ -309,7 +316,7 @@ export default function TutorialsContent() {
           {/* 管理导入区域 */}
           {showImportForm && (
             <div className="mb-6">
-              <AdminSessionGate locale={isEn ? 'en' : 'zh'} onAuthenticatedChange={setCanManageTutorials}>
+              <TutorialImportGate locale={isEn ? 'en' : 'zh'}>
                 <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-dashed border-primary-200 dark:border-primary-700/60 p-4">
                   <div className="flex items-center justify-between mb-3">
                     <h2 className="text-sm font-semibold text-gray-800 dark:text-gray-100 flex items-center">
@@ -465,7 +472,7 @@ export default function TutorialsContent() {
                     </div>
                   </div>
                 </div>
-              </AdminSessionGate>
+              </TutorialImportGate>
             </div>
           )}
           
