@@ -2009,11 +2009,25 @@
       "recommendReason": "它不是聊天工具，是一个被伪装成终端的 Agent 编排平台整个下午AI圈震动了，原来是Claude居然把自己亲",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/D3bAeh1QWZmUJibE5ibFDLQiatbm7KDiaywourCMTM6vXpd4zyhuJ9zrppRtFTIkMWiaqhmpyTiaREpKSS6vorvibWXtRkN5LwZeEQ1zicWW92X2pZk/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-如果AI可以推测空间人类就可以开始造梦-0",
+      "title": "如果AI可以推测空间，人类就可以开始造梦......",
+      "description": "当你第一次拖拽 Multi-Angles 看到画面实时转动的那一刻，你就会理解我为什么专门写了这篇",
+      "url": "https://mp.weixin.qq.com/s/gwZQsiw8mxtlwGkhqQmCmg",
+      "source": "塔塔",
+      "publishDate": "2026-03-31",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "当你第一次拖拽 Multi-Angles 看到画面实时转动的那一刻，你就会理解我为什么专门写了这篇",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/r52ZH6tKhcACJOYBpibVYvYHpRbsO9ajIpE9Y32Via6m52HFvWSYXvIF68poX3t8JTGgGDgd9KaF5OPy6ibcxmLCwSKwxiar6sIib92qkrLFGJc8/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-31T13:19:59.261Z",
-    "count": 116
+    "updatedAt": "2026-03-31T16:06:18.783Z",
+    "count": 117
   }
 }
