@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-03-30T04:18:48.040Z",
+  "updatedAt": "2026-03-31T04:08:17.020Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "69c10b71521e5c0a809b71b1",
+      "title": "08. 李哲：从SEO到GEO，他在AI搜索时代重写营销逻辑",
+      "pubDate": "Tue, 31 Mar 2026 00:00:00 GMT",
+      "duration": "00:54:47",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69c10b71521e5c0a809b71b1?utm_source=rss"
+    },
     {
       "id": "69bd022a2d318777c9df5837",
       "title": "07. 王帅：从个人知识库到企业级Agent，他在重写信息的使用方式",
