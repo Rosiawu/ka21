@@ -9,6 +9,7 @@
 	],
 	"vars": {
 		"NEXT_PUBLIC_SITE_URL": "https://ka21.org",
+		"GITHUB_REPO": "Rosiawu/ka21",
 		"GITHUB_BRANCH": "main"
 	},
 	"assets": {

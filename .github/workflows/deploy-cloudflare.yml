@@ -1,21 +1,22 @@
-name: Update Podcast Dashboard Snapshot
+name: Deploy Cloudflare Worker
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
-  schedule:
-    - cron: '15 1 * * *'
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: podcast-dashboard-update
-  cancel-in-progress: false
+  group: cloudflare-deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  capture:
+  deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
@@ -32,52 +33,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # ── 第一步：抓取播放量，写入本地 JSON ───────────────────────────────────
-      - name: Capture podcast snapshot
-        run: npm run podcast:capture-snapshot
-
-      # ── 第二步：同步到飞书多维表（幂等，失败不影响后续 commit）──────────────
-      - name: Sync to Feishu Bitable
-        if: ${{ env.FEISHU_APP_ID != '' && env.FEISHU_APP_SECRET != '' && env.FEISHU_BASE_TOKEN != '' }}
-        env:
-          FEISHU_APP_ID:     ${{ secrets.FEISHU_APP_ID }}
-          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
-          FEISHU_BASE_TOKEN: ${{ secrets.FEISHU_BASE_TOKEN }}
-        run: |
-          # 将 FEISHU_BASE_TOKEN 写入 schema.json（供脚本读取）
-          mkdir -p scripts/feishu
-          node -e "
-            const s = {
-              app_token: process.env.FEISHU_BASE_TOKEN,
-              tables: JSON.parse(process.env.FEISHU_TABLE_IDS || '{}'),
-              created_at: new Date().toISOString(),
-              updated_at: new Date().toISOString()
-            };
-            require('fs').writeFileSync('scripts/feishu/schema.json', JSON.stringify(s, null, 2));
-          "
-          npm run feishu:podcast:sync || echo "⚠️  飞书同步失败，跳过（本地 JSON 不变）"
-        continue-on-error: true
-
-      # ── 第三步：提交本地 JSON 变更 ───────────────────────────────────────────
-      - name: Commit and push data updates
-        id: commit
-        run: |
-          if git diff --quiet -- data/podcast-dashboard/config.json data/podcast-dashboard/episodes-cache.json data/podcast-dashboard/snapshots.json; then
-            echo "No podcast data changes to commit."
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/podcast-dashboard/config.json data/podcast-dashboard/episodes-cache.json data/podcast-dashboard/snapshots.json
-          git commit -m "chore: update podcast dashboard snapshot"
-          git push
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
-
-      # ── 第四步：有新数据才同步 Worker 运行时密钥并重新部署 ────────────────────
       - name: Prepare Worker runtime secrets
-        if: steps.commit.outputs.has_changes == 'true'
         id: runtime-secrets
         env:
           WORKER_GITHUB_TOKEN: ${{ secrets.WORKER_GITHUB_TOKEN }}
@@ -118,23 +74,23 @@ jobs:
           echo "count=$count" >> "$GITHUB_OUTPUT"
 
       - name: Sync Worker runtime secrets
-        if: steps.commit.outputs.has_changes == 'true' && steps.runtime-secrets.outputs.count != '0'
+        if: steps.runtime-secrets.outputs.count != '0'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npx wrangler secret bulk .cloudflare-runtime-secrets.json
 
       - name: Warn when Worker runtime secrets are missing
-        if: steps.commit.outputs.has_changes == 'true' && steps.runtime-secrets.outputs.count == '0'
+        if: steps.runtime-secrets.outputs.count == '0'
         run: |
           echo "::warning::No Worker runtime secrets were synced. Cloudflare write APIs will stay read-only until WORKER_GITHUB_TOKEN and the related admin/tutorial secrets are configured in GitHub Actions secrets."
 
       - name: Build for Cloudflare
-        if: steps.commit.outputs.has_changes == 'true'
-        run: npx opennextjs-cloudflare build
+        env:
+          NODE_ENV: production
+        run: npm run build:cloudflare
 
       - name: Deploy to Cloudflare Workers
-        if: steps.commit.outputs.has_changes == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
