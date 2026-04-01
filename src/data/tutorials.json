@@ -325,24 +325,6 @@
       ]
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-claude-3-7与deepseek比美-7",
-      "title": "Claude 3.7与DeepSeek比美",
-      "url": "https://mp.weixin.qq.com/s/2eFNS2Ae0NxDgYOr5VthWw",
-      "source": "AI乘风破浪",
-      "publishDate": "2025-02-26",
-      "difficultyLevel": "萌新进阶",
-      "category": "AI大模型",
-      "skillTags": [
-        "DeepSeek",
-        "Claude"
-      ],
-      "recommendReason": "这篇关于DeepSeek的AI大模型教程，对于萌新进阶的用户特别有帮助",
-      "customImageUrl": "/images/tutorials/deepseek-008.jpg",
-      "relatedTools": [
-        "deepseek"
-      ]
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-理科老师狂喜-ai一键生成互动公式动画-再也不用求flash-8",
       "title": "理科老师狂喜！AI一键生成互动公式动画，再也不用求Flash课件了",
       "url": "https://mp.weixin.qq.com/s/bkMQKUMzywUpYqiUKHPsZg",
@@ -462,23 +444,6 @@
       ],
       "recommendReason": "这篇关于即梦的AI绘画教程，对于小白入门的用户特别有帮助",
       "customImageUrl": "/images/tutorials/jm-001.jpg",
-      "relatedTools": [
-        "jm"
-      ]
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-爆肝整理国内ai生图工具免费指南-亲测好用工具-图片效果对比-1",
-      "title": "爆肝整理国内AI生图工具免费指南，亲测好用工具+图片效果对比图！",
-      "url": "https://mp.weixin.qq.com/s/VcuUp5p96jSDYUV9TGzmuA",
-      "source": "阿真lrene",
-      "publishDate": "2025-02-19",
-      "difficultyLevel": "萌新进阶",
-      "category": "AI绘画",
-      "skillTags": [
-        "AI绘画"
-      ],
-      "recommendReason": "这篇关于即梦的AI绘画教程，对于萌新进阶的用户特别有帮助",
-      "customImageUrl": "/images/tutorials/jm-002.jpg",
       "relatedTools": [
         "jm"
       ]
@@ -827,23 +792,6 @@
       ]
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-16组案例测试gemini-2-0-说是言出法随的当下p图王-0",
-      "title": "16组案例测试Gemini 2.0，说是言出法随的当下P图王中王不为过！",
-      "url": "https://mp.weixin.qq.com/s/2nias6lfWaUjjGSxDDaGJA",
-      "source": "阿真lrene",
-      "publishDate": "2025-03-15",
-      "difficultyLevel": "小白入门",
-      "category": "AI效率",
-      "skillTags": [
-        "Gemini"
-      ],
-      "recommendReason": "这篇关于Gemini的AI效率教程，对于小白入门的用户特别有帮助",
-      "customImageUrl": "/images/tutorials/gemini-001.jpg",
-      "relatedTools": [
-        "gemini"
-      ]
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0",
       "title": "爷爷奶奶年轻时要有彩色相机，哪还轮得到我P图？实测12款黑白照修复神器！",
       "url": "https://mp.weixin.qq.com/s/H0Wam2AkaXqD2WIHYWW2Pw",
@@ -921,24 +869,6 @@
       "customImageUrl": "/images/tutorials/lovart-002.jpg",
       "relatedTools": [
         "lovart"
-      ]
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-弹射起床抢邀请码-30个case告诉你1分钟生成的播客有多香-0",
-      "title": "弹射起床抢邀请码!30个case告诉你1分钟生成的播客有多香!",
-      "url": "https://mp.weixin.qq.com/s/wv8eicR4yKr0Wx9VKoFNng",
-      "source": "赛博小熊猫Loki",
-      "publishDate": "2025-05-19",
-      "difficultyLevel": "小白入门",
-      "category": "AI播客",
-      "skillTags": [
-        "AI音频",
-        "内容创作"
-      ],
-      "recommendReason": "这篇关于ListenHub的AI播客教程，对于小白入门的用户特别有帮助",
-      "customImageUrl": "/images/tutorials/listenhub-001.jpg",
-      "relatedTools": [
-        "listenhub"
       ]
     },
     {
@@ -1222,27 +1152,6 @@
       ]
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-2025上半年，我的常用AI绘图工具盘点-0",
-      "title": "2025上半年，我的常用AI绘图工具盘点",
-      "url": "https://mp.weixin.qq.com/s/R0Z2_M_5hWkVgJeBLzbUdA",
-      "source": "阿真lrene",
-      "publishDate": "2025-07-22",
-      "difficultyLevel": "小白入门",
-      "category": "AI绘画",
-      "skillTags": [
-        "AI绘图工具",
-        "工具盘点",
-        "使用心得"
-      ],
-      "recommendReason": "本教程总结了2025年上半年常用的AI绘图工具，包含使用心得和工具对比，帮助用户选择合适工具。",
-      "customImageUrl": "/images/tutorials/ai-painting-001.jpg",
-      "relatedTools": [
-        "midjourney",
-        "leonardo",
-        "ideogram"
-      ]
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-保姆级!无需魔法0 基础也能 3分钟装好「沉浸式翻译」浏览器插件-0",
       "title": "保姆级!无需魔法0 基础也能 3分钟装好「沉浸式翻译」浏览器插件",
       "url": "https://mp.weixin.qq.com/s/7gWTHwjccoUGFh_Z4a4MNA",
@@ -1257,26 +1166,6 @@
       "recommendReason": "本教程详细介绍了如何安装和使用沉浸式翻译浏览器插件，无需魔法，小白也能轻松上手。",
       "customImageUrl": "/images/tutorials/immersive-translation-001.jpg",
       "relatedTools": []
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-ima更新盘点：知识库不再只是仓库，而是AI工作台了！-0",
-      "title": "ima更新盘点：知识库不再只是仓库，而是AI工作台了！",
-      "url": "https://mp.weixin.qq.com/s/eT59Cqq06Mp9S49ZzcWPJw",
-      "source": "蜡笔进化论",
-      "publishDate": "2025-08-07",
-      "difficultyLevel": "萌新进阶",
-      "category": "AI效率",
-      "skillTags": [
-        "ima",
-        "知识库",
-        "AI工作台",
-        "更新盘点"
-      ],
-      "recommendReason": "本教程详细介绍了ima的最新更新，知识库功能升级为AI工作台，功能更强大。",
-      "customImageUrl": "/images/tutorials/ima-005.jpg",
-      "relatedTools": [
-        "ima"
-      ]
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Context is all you need：一文彻底搞懂上下文工程-0",
@@ -1318,26 +1207,6 @@
       "customImageUrl": "/images/tutorials/aigc-video-003.jpg",
       "relatedTools": [
         "seko"
-      ]
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-即梦Agent内测：从参考生成到批量创作五大功能全面测评-0",
-      "title": "即梦Agent内测：从参考生成到批量创作五大功能全面测评",
-      "url": "https://mp.weixin.qq.com/s/S5Kho9F6OxAg5WEUh_pDlA",
-      "source": "蜡笔进化论",
-      "publishDate": "2025-08-14",
-      "difficultyLevel": "小白入门",
-      "category": "AI智能体",
-      "skillTags": [
-        "即梦Agent",
-        "内测",
-        "批量创作",
-        "功能测评"
-      ],
-      "recommendReason": "即梦Agent内测版五大核心功能深度测评，从参考生成到批量创作，全面解析AI智能体的创作能力。",
-      "customImageUrl": "/images/tutorials/jm-009.jpg",
-      "relatedTools": [
-        "jm"
       ]
     },
     {
@@ -1472,26 +1341,6 @@
       "customImageUrl": "/images/tutorials/lovart-ppt-001.jpg",
       "relatedTools": [
         "lovart"
-      ]
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-腾讯IMA任务模式实测知识库终于能直接生成PPT了-0",
-      "title": "腾讯 IMA 任务模式实测：知识库终于能直接生成 PPT 了",
-      "url": "https://mp.weixin.qq.com/s/XICUOKn8pFAIah55jawIFg",
-      "source": "蜡笔",
-      "publishDate": "2025-12-30",
-      "difficultyLevel": "萌新进阶",
-      "category": "AI办公",
-      "skillTags": [
-        "知识库",
-        "IMA",
-        "AI PPT",
-        "内容整理"
-      ],
-      "recommendReason": "实测 IMA 任务模式的知识库转 PPT 能力，拆解边界与局限，理性判断工具价值。",
-      "customImageUrl": "/images/tutorials/ima-task-mode-001.jpg",
-      "relatedTools": [
-        "ima"
       ]
     },
     {
@@ -2027,7 +1876,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-31T16:06:18.783Z",
-    "count": 117
+    "updatedAt": "2026-04-01T00:00:00.000Z",
+    "count": 109
   }
 }

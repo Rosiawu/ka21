@@ -24,6 +24,10 @@
     "analytics:serve": "python3 -m http.server 8787 --directory analytics-reports",
     "analytics:panel": "node scripts/open-analytics-panel.js",
     "podcast:capture-snapshot": "tsx scripts/podcast/capture-snapshot.ts",
+    "feishu:check-auth": "tsx scripts/feishu/check-auth.ts",
+    "feishu:podcast:ensure-base": "tsx scripts/feishu/ensure-base.ts",
+    "feishu:podcast:sync": "tsx scripts/feishu/sync-podcast.ts",
+    "feishu:podcast:export": "tsx scripts/feishu/export-podcast.ts",
     "preview": "npm run build:cloudflare && opennextjs-cloudflare preview",
     "deploy": "npm run build:cloudflare && opennextjs-cloudflare deploy",
     "upload": "npm run build:cloudflare && opennextjs-cloudflare upload",
@@ -46,6 +50,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@larksuiteoapi/node-sdk": "^1.60.0",
     "@next/bundle-analyzer": "15.5.14",
     "@opennextjs/cloudflare": "^1.17.3",
     "@testing-library/jest-dom": "^6.8.0",

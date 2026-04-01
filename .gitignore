@@ -11,6 +11,8 @@
 
 # next.js
 /.next/
+/.next-dev-*/
+/.tsconfig.next-dev-*.json
 /out/
 
 # production
@@ -46,6 +48,14 @@ next-env.d.ts
 
 # Claude IDE
 .claude/
+
+# 飞书多维表 Schema（含 app_token，勿提交）
+scripts/feishu/schema.json
+# 导出临时文件
+*.feishu-export.tmp
+exports/
+__pycache__/
+dreamina-login-qr.png
 
 # Cursor Editor
 .cursor/

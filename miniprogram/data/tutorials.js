@@ -1,6 +1,57 @@
 module.exports = {
   "tutorials": [
     {
+      "id": "tutorial-mp-weixin-qq-com-读了ClaudeCode泄露的源码发现我们都用错-0",
+      "title": "读了Claude Code泄露的源码，发现我们都用错了",
+      "description": "它不是聊天工具，是一个被伪装成终端的 Agent 编排平台整个下午AI圈震动了，原来是Claude居然把自己亲",
+      "url": "https://mp.weixin.qq.com/s/Mpwrk59T2jH1Ls-Vtq3j7Q?scene=1",
+      "source": "黄啊码",
+      "publishDate": "2026-03-31",
+      "difficultyLevel": "萌新进阶",
+      "category": "AI办公",
+      "skillTags": [],
+      "recommendReason": "它不是聊天工具，是一个被伪装成终端的 Agent 编排平台整个下午AI圈震动了，原来是Claude居然把自己亲",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/D3bAeh1QWZmUJibE5ibFDLQiatbm7KDiaywourCMTM6vXpd4zyhuJ9zrppRtFTIkMWiaqhmpyTiaREpKSS6vorvibWXtRkN5LwZeEQ1zicWW92X2pZk/0?wx_fmt=jpeg",
+      "relatedTools": [],
+      "author": "黄啊码",
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/D3bAeh1QWZmUJibE5ibFDLQiatbm7KDiaywourCMTM6vXpd4zyhuJ9zrppRtFTIkMWiaqhmpyTiaREpKSS6vorvibWXtRkN5LwZeEQ1zicWW92X2pZk/0?wx_fmt=jpeg",
+      "coverFallback": ""
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-如果AI可以推测空间人类就可以开始造梦-0",
+      "title": "如果AI可以推测空间，人类就可以开始造梦......",
+      "description": "当你第一次拖拽 Multi-Angles 看到画面实时转动的那一刻，你就会理解我为什么专门写了这篇",
+      "url": "https://mp.weixin.qq.com/s/gwZQsiw8mxtlwGkhqQmCmg",
+      "source": "塔塔",
+      "publishDate": "2026-03-31",
+      "difficultyLevel": "萌新进阶",
+      "category": "AI办公",
+      "skillTags": [],
+      "recommendReason": "当你第一次拖拽 Multi-Angles 看到画面实时转动的那一刻，你就会理解我为什么专门写了这篇",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/r52ZH6tKhcACJOYBpibVYvYHpRbsO9ajIpE9Y32Via6m52HFvWSYXvIF68poX3t8JTGgGDgd9KaF5OPy6ibcxmLCwSKwxiar6sIib92qkrLFGJc8/0?wx_fmt=jpeg",
+      "relatedTools": [],
+      "author": "塔塔",
+      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/r52ZH6tKhcACJOYBpibVYvYHpRbsO9ajIpE9Y32Via6m52HFvWSYXvIF68poX3t8JTGgGDgd9KaF5OPy6ibcxmLCwSKwxiar6sIib92qkrLFGJc8/0?wx_fmt=jpeg",
+      "coverFallback": ""
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-AI小白入门系列提示词技巧上篇-0",
+      "title": "AI 小白入门系列 —— 提示词技巧 （上篇）",
+      "description": "提示词是 AI 入门的必经之路，看完这个系列，你的提示词技巧将会直接起飞！本期为第一期，也是提示词技巧（上）篇。",
+      "url": "https://mp.weixin.qq.com/s/B7Ll0CM5SFdZ1ZhJ0K1stw",
+      "source": "塔塔",
+      "publishDate": "2026-03-30",
+      "difficultyLevel": "小白入门",
+      "category": "AI办公",
+      "skillTags": [],
+      "recommendReason": "提示词是 AI 入门的必经之路，看完这个系列，你的提示词技巧将会直接起飞！本期为第一期，也是提示词技巧（上）篇。",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/r52ZH6tKhcA10rKv0Y2n2trYtFBLHNAjE4AhDYib64PfpBEr19qdLm1PoBPALGVCr3YoCZU7pUPXp8hfoibavwg1uM6lXtYicXBwf9dgmosIpA/0?wx_fmt=jpeg",
+      "relatedTools": [],
+      "author": "塔塔",
+      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/r52ZH6tKhcA10rKv0Y2n2trYtFBLHNAjE4AhDYib64PfpBEr19qdLm1PoBPALGVCr3YoCZU7pUPXp8hfoibavwg1uM6lXtYicXBwf9dgmosIpA/0?wx_fmt=jpeg",
+      "coverFallback": ""
+    },
+    {
       "id": "tutorial-mp-weixin-qq-com-ClaudeCode每次都不认识我于是我给它做了-0",
       "title": "Claude Code每次都不认识我，于是我给它做了一套记忆系统",
       "description": "让AI从一个每次都要认识我的新同事，变成一个越用越懂我的搭档。",
@@ -574,29 +625,6 @@ module.exports = {
       "coverFallback": "https://ka21.org/images/tutorials/ai-ppt-prompt-engineering-001.jpg"
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-腾讯IMA任务模式实测知识库终于能直接生成PPT了-0",
-      "title": "腾讯 IMA 任务模式实测：知识库终于能直接生成 PPT 了",
-      "url": "https://mp.weixin.qq.com/s/XICUOKn8pFAIah55jawIFg",
-      "source": "蜡笔",
-      "publishDate": "2025-12-30",
-      "difficultyLevel": "萌新进阶",
-      "category": "AI办公",
-      "skillTags": [
-        "知识库",
-        "IMA",
-        "AI PPT",
-        "内容整理"
-      ],
-      "recommendReason": "实测 IMA 任务模式的知识库转 PPT 能力，拆解边界与局限，理性判断工具价值。",
-      "customImageUrl": "/images/tutorials/ima-task-mode-001.jpg",
-      "relatedTools": [
-        "ima"
-      ],
-      "author": "蜡笔",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP5n1LGicVbryIgY5DkROKKyho5R0xWxegxC7UibZj6jhOnFGvNhN8fWNU9dQBcCiaibz4iasVCyL301N9Q/0?wx_fmt=jpeg",
-      "coverFallback": "https://ka21.org/images/tutorials/ima-task-mode-001.jpg"
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-2025年终复盘AI-PPT的疯狂进化史-0",
       "title": "2025 年终复盘：AI PPT 的疯狂进化史（含实战案例）",
       "url": "https://mp.weixin.qq.com/s/pXKL1UvIy4JY4INk7-4GLA",
@@ -823,29 +851,6 @@ module.exports = {
       "coverFallback": "https://ka21.org/images/tutorials/ip-animation-creation-001.jpg"
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-即梦Agent内测：从参考生成到批量创作五大功能全面测评-0",
-      "title": "即梦Agent内测：从参考生成到批量创作五大功能全面测评",
-      "url": "https://mp.weixin.qq.com/s/S5Kho9F6OxAg5WEUh_pDlA",
-      "source": "蜡笔进化论",
-      "publishDate": "2025-08-14",
-      "difficultyLevel": "小白入门",
-      "category": "AI智能体",
-      "skillTags": [
-        "即梦Agent",
-        "内测",
-        "批量创作",
-        "功能测评"
-      ],
-      "recommendReason": "即梦Agent内测版五大核心功能深度测评，从参考生成到批量创作，全面解析AI智能体的创作能力。",
-      "customImageUrl": "/images/tutorials/jm-009.jpg",
-      "relatedTools": [
-        "jm"
-      ],
-      "author": "蜡笔进化论",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB3oBKcAFuLuHPic7DrYnOvPebW3oe0T9K5RLy1rQEAevtUIkn9Uy77fQ/0?wx_fmt=jpeg",
-      "coverFallback": "https://ka21.org/images/tutorials/jm-009.jpg"
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-Seko保姆级玩法教程，丝滑转场和对口型太惊艳了-0",
       "title": "Seko保姆级玩法教程，丝滑转场和对口型太惊艳了",
       "url": "https://mp.weixin.qq.com/s/aaY50AjowztpaiSbmbrpJw",
@@ -915,29 +920,6 @@ module.exports = {
       "coverFallback": "https://ka21.org/images/tutorials/ai-guide-004.jpg"
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-ima更新盘点：知识库不再只是仓库，而是AI工作台了！-0",
-      "title": "ima更新盘点：知识库不再只是仓库，而是AI工作台了！",
-      "url": "https://mp.weixin.qq.com/s/eT59Cqq06Mp9S49ZzcWPJw",
-      "source": "蜡笔进化论",
-      "publishDate": "2025-08-07",
-      "difficultyLevel": "萌新进阶",
-      "category": "AI效率",
-      "skillTags": [
-        "ima",
-        "知识库",
-        "AI工作台",
-        "更新盘点"
-      ],
-      "recommendReason": "本教程详细介绍了ima的最新更新，知识库功能升级为AI工作台，功能更强大。",
-      "customImageUrl": "/images/tutorials/ima-005.jpg",
-      "relatedTools": [
-        "ima"
-      ],
-      "author": "蜡笔进化论",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5bgdibacqLqLoptwsibyQ2s4VO5icH3bhCGpYA4aplZGyenkWKPTq4a5yg/0?wx_fmt=jpeg",
-      "coverFallback": "https://ka21.org/images/tutorials/ima-005.jpg"
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-保姆级!无需魔法0 基础也能 3分钟装好「沉浸式翻译」浏览器插件-0",
       "title": "保姆级!无需魔法0 基础也能 3分钟装好「沉浸式翻译」浏览器插件",
       "url": "https://mp.weixin.qq.com/s/7gWTHwjccoUGFh_Z4a4MNA",
@@ -955,30 +937,6 @@ module.exports = {
       "author": "蜡笔进化论",
       "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP5mURGEormqenBPiamuzA0FW5D6icmAeQicyd0ibJGRD9LzWSbbK4FU219ialicfiaVyUVicmiafY02LyA24KQ/0?wx_fmt=jpeg",
       "coverFallback": "https://ka21.org/images/tutorials/immersive-translation-001.jpg"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-2025上半年，我的常用AI绘图工具盘点-0",
-      "title": "2025上半年，我的常用AI绘图工具盘点",
-      "url": "https://mp.weixin.qq.com/s/R0Z2_M_5hWkVgJeBLzbUdA",
-      "source": "阿真lrene",
-      "publishDate": "2025-07-22",
-      "difficultyLevel": "小白入门",
-      "category": "AI绘画",
-      "skillTags": [
-        "AI绘图工具",
-        "工具盘点",
-        "使用心得"
-      ],
-      "recommendReason": "本教程总结了2025年上半年常用的AI绘图工具，包含使用心得和工具对比，帮助用户选择合适工具。",
-      "customImageUrl": "/images/tutorials/ai-painting-001.jpg",
-      "relatedTools": [
-        "midjourney",
-        "leonardo",
-        "ideogram"
-      ],
-      "author": "阿真lrene",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsViccupIk9dottuPM8CEkAKTglbcPsg7ARNiaTCjSvDRyIq88yVnlq2LQ/0?wx_fmt=jpeg",
-      "coverFallback": "https://ka21.org/images/tutorials/ai-painting-001.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-RAG天花板！从0到1打造商用Agent-0",
@@ -1429,27 +1387,6 @@ module.exports = {
       "coverFallback": "https://ka21.org/images/tutorials/ai-guide-003.jpg"
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-弹射起床抢邀请码-30个case告诉你1分钟生成的播客有多香-0",
-      "title": "弹射起床抢邀请码!30个case告诉你1分钟生成的播客有多香!",
-      "url": "https://mp.weixin.qq.com/s/wv8eicR4yKr0Wx9VKoFNng",
-      "source": "赛博小熊猫Loki",
-      "publishDate": "2025-05-19",
-      "difficultyLevel": "小白入门",
-      "category": "AI播客",
-      "skillTags": [
-        "AI音频",
-        "内容创作"
-      ],
-      "recommendReason": "这篇关于ListenHub的AI播客教程，对于小白入门的用户特别有帮助",
-      "customImageUrl": "/images/tutorials/listenhub-001.jpg",
-      "relatedTools": [
-        "listenhub"
-      ],
-      "author": "赛博小熊猫Loki",
-      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHexuPicfg2Z1ibppYtCFZCBqib7Q4SXvKppf2PkqvcQ1mF60JdK0QpHAbQg/0?wx_fmt=jpeg",
-      "coverFallback": "https://ka21.org/images/tutorials/listenhub-001.jpg"
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-适合设计agent的提示词-能让lovart作图更好看更高效-0",
       "title": "适合设计Agent的提示词，能让Lovart作图更好看更高效!",
       "url": "https://mp.weixin.qq.com/s/fzgAQIbYNsc0uqaCX8tSyg",
@@ -1819,26 +1756,6 @@ module.exports = {
       "coverFallback": "https://ka21.org/images/tutorials/ima-002.jpg"
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-16组案例测试gemini-2-0-说是言出法随的当下p图王-0",
-      "title": "16组案例测试Gemini 2.0，说是言出法随的当下P图王中王不为过！",
-      "url": "https://mp.weixin.qq.com/s/2nias6lfWaUjjGSxDDaGJA",
-      "source": "阿真lrene",
-      "publishDate": "2025-03-15",
-      "difficultyLevel": "小白入门",
-      "category": "AI效率",
-      "skillTags": [
-        "Gemini"
-      ],
-      "recommendReason": "这篇关于Gemini的AI效率教程，对于小白入门的用户特别有帮助",
-      "customImageUrl": "/images/tutorials/gemini-001.jpg",
-      "relatedTools": [
-        "gemini"
-      ],
-      "author": "阿真lrene",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacLppdXriasOAKRFDVvJKewzicmvCQX1jpmmoiaZSoWuRLzG1XAyKQN8jBmbYheGgb1atZe8HfKekRUQ/0?wx_fmt=jpeg",
-      "coverFallback": "https://ka21.org/images/tutorials/gemini-001.jpg"
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-ima知识库真香-工作党大学生教师皆适用--1",
       "title": "ima知识库真香（工作党大学生教师皆适用）",
       "url": "https://mp.weixin.qq.com/s/VRkHcRvU48g7PI1v-0x9GA",
@@ -2031,27 +1948,6 @@ module.exports = {
       "coverFallback": "https://ka21.org/images/tutorials/ima-001.jpg"
     },
     {
-      "id": "tutorial-mp-weixin-qq-com-claude-3-7与deepseek比美-7",
-      "title": "Claude 3.7与DeepSeek比美",
-      "url": "https://mp.weixin.qq.com/s/2eFNS2Ae0NxDgYOr5VthWw",
-      "source": "AI乘风破浪",
-      "publishDate": "2025-02-26",
-      "difficultyLevel": "萌新进阶",
-      "category": "AI大模型",
-      "skillTags": [
-        "DeepSeek",
-        "Claude"
-      ],
-      "recommendReason": "这篇关于DeepSeek的AI大模型教程，对于萌新进阶的用户特别有帮助",
-      "customImageUrl": "/images/tutorials/deepseek-008.jpg",
-      "relatedTools": [
-        "deepseek"
-      ],
-      "author": "AI乘风破浪",
-      "imageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/8Y7dwAPIcZIqIj3eHiaNdrUsrMAWstEotgfyj101UXcibiaS6zonMOfTwlLcckvc5lA7zjXJxicEt8iax6xBUFSltZg/0?wx_fmt=jpeg",
-      "coverFallback": "https://ka21.org/images/tutorials/deepseek-008.jpg"
-    },
-    {
       "id": "tutorial-mp-weixin-qq-com-零门槛教程-手把手教你用3款工具一键生成-万物开花-爆款特效-0",
       "title": "零门槛教程！手把手教你用3款工具一键生成【万物开花】爆款特效",
       "url": "https://mp.weixin.qq.com/s/U7rU5gPgPkhRkybjZ2RIiw",
@@ -2218,26 +2114,6 @@ module.exports = {
       "author": "阿真lrene",
       "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiae6LgxJw5KNoz3zwShfVfMqUa9G2xUriaIibLmfCNT3tq4rYeTtqf5LdKkQ0nDTPic2PB1lOUJE13SUA/0?wx_fmt=jpeg",
       "coverFallback": "https://ka21.org/images/tutorials/leonardo-001.jpg"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-爆肝整理国内ai生图工具免费指南-亲测好用工具-图片效果对比-1",
-      "title": "爆肝整理国内AI生图工具免费指南，亲测好用工具+图片效果对比图！",
-      "url": "https://mp.weixin.qq.com/s/VcuUp5p96jSDYUV9TGzmuA",
-      "source": "阿真lrene",
-      "publishDate": "2025-02-19",
-      "difficultyLevel": "萌新进阶",
-      "category": "AI绘画",
-      "skillTags": [
-        "AI绘画"
-      ],
-      "recommendReason": "这篇关于即梦的AI绘画教程，对于萌新进阶的用户特别有帮助",
-      "customImageUrl": "/images/tutorials/jm-002.jpg",
-      "relatedTools": [
-        "jm"
-      ],
-      "author": "阿真lrene",
-      "imageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsygbiaFROWysUDBK0sLTXibgWtaSH9tiaLsLRaib1eHGd5VH7K4ibztIvvtCA/0?wx_fmt=jpeg",
-      "coverFallback": "https://ka21.org/images/tutorials/jm-002.jpg"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-deepseek-飞书多维表格-做了提示词2-0小助手和一个-4",

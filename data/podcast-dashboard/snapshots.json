@@ -755,74 +755,74 @@
     "createdAt": "2026-03-30T04:18:56.428Z"
   },
   {
-    "id": "snapshot-1774930102976",
+    "id": "snapshot-1774961339922",
     "date": "2026-03-31",
     "note": "自动抓取",
     "platformTotals": {
-      "xiaoyuzhou": 654,
-      "lizhi": 498,
+      "xiaoyuzhou": 679,
+      "lizhi": 510,
       "ximalaya": 486,
-      "wangyiyun": 135,
+      "wangyiyun": 136,
       "youtube": 2
     },
     "episodePlays": {
       "69c10b71521e5c0a809b71b1": {
-        "xiaoyuzhou": 6,
+        "xiaoyuzhou": 14,
         "lizhi": 0,
         "ximalaya": 31,
-        "wangyiyun": 0,
+        "wangyiyun": 1,
         "youtube": 1
       },
       "69bd022a2d318777c9df5837": {
-        "xiaoyuzhou": 74,
+        "xiaoyuzhou": 76,
         "lizhi": 8,
         "ximalaya": 47,
         "wangyiyun": 8,
         "youtube": 0
       },
       "69bcbace2d318777c9d271de": {
-        "xiaoyuzhou": 81,
+        "xiaoyuzhou": 83,
         "lizhi": 25,
         "ximalaya": 42,
         "wangyiyun": 6,
         "youtube": 0
       },
       "69bc120a3c625cc5ae2f5160": {
-        "xiaoyuzhou": 69,
-        "lizhi": 55,
+        "xiaoyuzhou": 73,
+        "lizhi": 57,
         "ximalaya": 95,
         "wangyiyun": 11,
         "youtube": 0
       },
       "69bab249690ca3160f393dc7": {
         "xiaoyuzhou": 75,
-        "lizhi": 63,
+        "lizhi": 65,
         "ximalaya": 32,
         "wangyiyun": 20,
         "youtube": 0
       },
       "69b184e184bce022f9f4fd5b": {
-        "xiaoyuzhou": 102,
-        "lizhi": 108,
+        "xiaoyuzhou": 105,
+        "lizhi": 111,
         "ximalaya": 74,
         "wangyiyun": 17,
         "youtube": 1
       },
       "69ad0f7dc8cdeb38c26acb2c": {
-        "xiaoyuzhou": 97,
-        "lizhi": 121,
+        "xiaoyuzhou": 98,
+        "lizhi": 126,
         "ximalaya": 70,
         "wangyiyun": 22
       },
       "69a69588de29766da93ec01b": {
-        "xiaoyuzhou": 150,
+        "xiaoyuzhou": 155,
         "lizhi": 118,
         "ximalaya": 95,
         "wangyiyun": 51,
         "youtube": 0
       }
     },
-    "createdAt": "2026-03-31T04:08:22.976Z"
+    "createdAt": "2026-03-31T12:48:59.922Z"
   },
   {
     "id": "snapshot-1775017356480",

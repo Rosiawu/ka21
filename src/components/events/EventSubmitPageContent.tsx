@@ -211,7 +211,7 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
               type="button"
               onClick={handlePreview}
               disabled={!canPreview || previewing}
-              className="flex w-full items-center justify-center gap-2 rounded-[1.25rem] bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 px-5 py-4 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(20,184,166,0.18)] transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-[1.25rem] bg-[#e06b6b] px-5 py-4 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(224,107,107,0.18)] transition hover:bg-[#c85a5a] hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
             >
               <i className="fas fa-wand-magic-sparkles text-xs" aria-hidden="true"></i>
               {previewing ? text.previewing : text.preview}

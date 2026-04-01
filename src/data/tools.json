@@ -400,6 +400,7 @@
       "accessibility": "直接访问",
       "displayOrder": 4,
       "toolCategory": "chat",
+      "toolCategory": "writing",
       "groupComments": [
         {
           "content": "DeepSeek是一款非常强大的AI助手，能够帮助用户快速获取信息、解决问题和提高工作效率。",
@@ -410,7 +411,6 @@
       ],
       "createdAt": "2025-02-24T00:00:00Z",
       "updatedAt": "2025-02-24T00:00:00Z",
-      "toolCategory": "writing",
       "isVisible": true,
       "relatedTutorials": [
         "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级-飞书多维表格-x-deepsee-0",
@@ -420,7 +420,6 @@
         "tutorial-mp-weixin-qq-com-deepseek-飞书多维表格-做了提示词2-0小助手和一个-4",
         "tutorial-mp-weixin-qq-com-deepseek赋能多维表格-自动写口播文案-生成分镜-工作-5",
         "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级本地部署大模型教程-6",
-        "tutorial-mp-weixin-qq-com-claude-3-7与deepseek比美-7",
         "tutorial-mp-weixin-qq-com-理科老师狂喜-ai一键生成互动公式动画-再也不用求flash-8",
         "tutorial-mp-weixin-qq-com-用-ai-花三分钟写个html小游戏-编程小白也能秒变游戏大-9"
       ]
@@ -617,9 +616,7 @@
         "png": "/icons/gemini.png"
       },
       "isVisible": true,
-      "relatedTutorials": [
-        "tutorial-mp-weixin-qq-com-16组案例测试gemini-2-0-说是言出法随的当下p图王-0"
-      ]
+      "relatedTutorials": []
     },
     {
       "id": "monica",
@@ -1044,7 +1041,6 @@
       "isVisible": true,
       "relatedTutorials": [
         "tutorial-mp-weixin-qq-com-零门槛教程-手把手教你用3款工具一键生成-万物开花-爆款特效-0",
-        "tutorial-mp-weixin-qq-com-爆肝整理国内ai生图工具免费指南-亲测好用工具-图片效果对比-1",
         "tutorial-mp-weixin-qq-com-今日份ai赋能-如何用ai文生图-2",
         "tutorial-mp-weixin-qq-com-即梦ai字体我有点玩明白了-用这套prompt提效50--3",
         "tutorial-mp-weixin-qq-com-小白也能写出专业文生图prompt-超棒的提示词框架-ai生-4",
@@ -1117,7 +1113,6 @@
       "isVisible": true,
       "relatedTutorials": [
         "tutorial-mp-weixin-qq-com-零门槛教程-手把手教你用3款工具一键生成-万物开花-爆款特效-0",
-        "tutorial-mp-weixin-qq-com-爆肝整理国内ai生图工具免费指南-亲测好用工具-图片效果对比-1",
         "tutorial-mp-weixin-qq-com-今日份ai赋能-如何用ai文生图-2",
         "tutorial-mp-weixin-qq-com-即梦ai字体我有点玩明白了-用这套prompt提效50--3",
         "tutorial-mp-weixin-qq-com-小白也能写出专业文生图prompt-超棒的提示词框架-ai生-4",
@@ -2549,9 +2544,7 @@
       "updatedAt": "2025-05-21T00:00:00Z",
       "toolCategory": "audio",
       "isVisible": true,
-      "relatedTutorials": [
-        "tutorial-mp-weixin-qq-com-弹射起床抢邀请码-30个case告诉你1分钟生成的播客有多香-0"
-      ]
+      "relatedTutorials": []
     },
     {
       "id": "youdao-fm",

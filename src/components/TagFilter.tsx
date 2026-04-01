@@ -19,7 +19,7 @@ export default function TagFilter({ tags, selectedTags, onTagSelect }: TagFilter
             px-3 py-1.5 rounded-full text-sm font-medium
             transition-colors duration-200
             ${selectedTags.length === 0
-              ? 'bg-blue-500 text-white'
+              ? 'bg-[#e06b6b] text-white'
               : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}
           `}
         >
@@ -33,7 +33,7 @@ export default function TagFilter({ tags, selectedTags, onTagSelect }: TagFilter
               px-3 py-1.5 rounded-full text-sm font-medium
               transition-colors duration-200
               ${selectedTags.includes(tag)
-                ? 'bg-blue-500 text-white'
+                ? 'bg-[#e06b6b] text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}
             `}
           >

@@ -282,9 +282,9 @@ export default function SearchContent() {
             {!isLoading && hasTutorials && (
               <section className="space-y-6">
                 <div className="flex items-center justify-between flex-wrap gap-3">
-                  <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">
+                  <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100">
                     {tHome('tutorials')}
-                    <span className="text-sm font-normal text-slate-500 dark:text-slate-400 ml-2">
+                    <span className="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">
                       ({tCommon('totalCount', {count: filteredTutorials.length})})
                     </span>
                   </h2>
