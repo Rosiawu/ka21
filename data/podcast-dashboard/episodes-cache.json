@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-04-01T04:22:30.191Z",
+  "updatedAt": "2026-04-02T16:53:02.993Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "69bd17643c625cc5ae4ef65a",
+      "title": "09. Henry：从图像AI到向量数据库，他在底层重建AI的理解方式",
+      "pubDate": "Thu, 02 Apr 2026 00:00:00 GMT",
+      "duration": "01:39:10",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69bd17643c625cc5ae4ef65a?utm_source=rss"
+    },
     {
       "id": "69c10b71521e5c0a809b71b1",
       "title": "08. 李哲：从SEO到GEO，他在AI搜索时代重写营销逻辑",
