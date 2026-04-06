@@ -26,7 +26,8 @@
     "backToTop": "Back to top",
     "retry": "Retry",
     "loadFailed": "Failed to load, please try again later",
-    "totalCount": "{count} items"
+    "totalCount": "{count} items",
+    "menuPersonal": "Personal Site"
   },
   "Home": {
     "subtitle": "Discover, compare and use the best AI tools to boost productivity and creativity",
@@ -60,16 +61,14 @@
     "unknownCategory": "Unknown category",
     "inputAriaLabel": "Search tools and tutorials",
     "clearAction": "Clear search"
-  }
-  ,
+  },
   "Sort": {
     "label": "Sort by:",
     "default": "Default",
     "recommend": "Recommended",
     "newest": "Newest",
     "name": "Name"
-  }
-  ,
+  },
   "TutorialSort": {
     "label": "Sort by:",
     "latestFirst": "Newest first",
@@ -94,8 +93,7 @@
     "utilsLabel": "Utility tools",
     "tutorialsLabel": "Starter tutorials",
     "strategyNote": "We keep only 100 truly useful tools"
-  }
-  ,
+  },
   "Categories": {
     "writing": "Writing",
     "image": "Design",
@@ -113,18 +111,15 @@
   "Error": {
     "generalTitle": "Sorry, something went wrong",
     "generalHint": "We are working to fix this. Please try again later."
-  }
-  ,
+  },
   "Access": {
     "direct": "Direct",
     "proxy": "Proxy",
     "visit": "Visit"
-  }
-  ,
+  },
   "ToolDetail": {
     "back": "Back"
-  }
-  ,
+  },
   "LlmArticles": {
     "title": "LLM Articles",
     "filters": {
@@ -134,8 +129,7 @@
       "analysis": "Technical Analysis"
     },
     "empty": "No articles in this category."
-  }
-  ,
+  },
   "Hot": {
     "title": "Weekly Picks",
     "subtitle": "Manually updated each week with the tools worth trying first",
@@ -168,8 +162,7 @@
       "title": "Learning & Growth",
       "subtitle": "Keep improving with AI by your side"
     }
-  }
-  ,
+  },
   "CategoryDesc": {
     "writing": "Writing, Chat, Q&A",
     "image": "Drawing, Editing, Design",
