@@ -1278,5 +1278,89 @@
       }
     },
     "createdAt": "2026-04-06T16:40:42.013Z"
+  },
+  {
+    "id": "snapshot-1775580717792",
+    "date": "2026-04-08",
+    "note": "自动抓取",
+    "platformTotals": {
+      "xiaoyuzhou": 967,
+      "lizhi": 853,
+      "ximalaya": 677,
+      "wangyiyun": 169,
+      "youtube": 5
+    },
+    "episodePlays": {
+      "69c39bfb4a34541b1bfe40c2": {
+        "xiaoyuzhou": 56,
+        "lizhi": 1,
+        "ximalaya": 50,
+        "wangyiyun": 2,
+        "youtube": 0
+      },
+      "69bd17643c625cc5ae4ef65a": {
+        "xiaoyuzhou": 46,
+        "lizhi": 19,
+        "ximalaya": 77,
+        "wangyiyun": 8,
+        "youtube": 2
+      },
+      "69c10b71521e5c0a809b71b1": {
+        "xiaoyuzhou": 49,
+        "lizhi": 33,
+        "ximalaya": 41,
+        "wangyiyun": 2,
+        "youtube": 2
+      },
+      "69bd022a2d318777c9df5837": {
+        "xiaoyuzhou": 115,
+        "lizhi": 54,
+        "ximalaya": 55,
+        "wangyiyun": 10,
+        "youtube": 0
+      },
+      "69bcbace2d318777c9d271de": {
+        "xiaoyuzhou": 99,
+        "lizhi": 66,
+        "ximalaya": 48,
+        "wangyiyun": 6,
+        "youtube": 0
+      },
+      "69bc120a3c625cc5ae2f5160": {
+        "xiaoyuzhou": 82,
+        "lizhi": 96,
+        "ximalaya": 107,
+        "wangyiyun": 11,
+        "youtube": 0
+      },
+      "69bab249690ca3160f393dc7": {
+        "xiaoyuzhou": 90,
+        "lizhi": 103,
+        "ximalaya": 35,
+        "wangyiyun": 26,
+        "youtube": 0
+      },
+      "69b184e184bce022f9f4fd5b": {
+        "xiaoyuzhou": 112,
+        "lizhi": 155,
+        "ximalaya": 81,
+        "wangyiyun": 17,
+        "youtube": 1
+      },
+      "69ad0f7dc8cdeb38c26acb2c": {
+        "xiaoyuzhou": 114,
+        "lizhi": 162,
+        "ximalaya": 76,
+        "wangyiyun": 22
+      },
+      "69a69588de29766da93ec01b": {
+        "xiaoyuzhou": 204,
+        "lizhi": 164,
+        "ximalaya": 107,
+        "wangyiyun": 65,
+        "youtube": 0
+      }
+    },
+    "createdAt": "2026-04-07T16:51:57.792Z"
   }
 ]
