@@ -1193,10 +1193,48 @@ async function renderSearchPage(rawQuery) {
   }
 }
 
+/* ── 语义同义词映射（教育/AI/英语教学领域） ── */
+const SYN_GROUPS = [
+  ["音频","声音","配音","音视频","朗读","听力","TTS","语音","播客","音乐","播放","录音","耳机","音标"],
+  ["视频","动画","剪辑","字幕","影片","录屏","录课","视频号","视频制作","短视频","Veo","白日梦","sora"],
+  ["图片","配图","画图","绘图","插画","截图","海报","封面","水印","抠图","美图","图","画","壁纸","贴纸"],
+  ["PPT","课件","幻灯片","模板","排版","设计","Canva","自由画布"],
+  ["写作","作文","写","文章","文案","文本","文字","写稿","日记","读后续写","续写"],
+  ["AI","人工智能","智能","GPT","ChatGPT","Deepseek","豆包","Claude","智能体","大模型","模型","Kimi","通义","阶跃","Grok","Gemini"],
+  ["英语","English","口语","听力","阅读","词汇","单词","语法","翻译","发音","英文","课文"],
+  ["教学","课堂","教案","备课","上课","讲课","公开课","教研","微课","说课","赛课"],
+  ["老师","教师","教育者","培训师","名师","教研员"],
+  ["学生","孩子","学员","同学","学习者"],
+  ["工具","软件","网站","APP","应用","平台","插件","小程序"],
+  ["免费","0元","白嫖","不花钱","开源"],
+  ["我","吾","自己","本人","吴熳","Rosia"],
+  ["牛马库","KA21","ka21","社群","社区"],
+  ["灯下白","播客","podcast","小宇宙"],
+  ["考试","高考","中考","试卷","命题","批改","打分","阅卷"],
+  ["绘本","故事","童话","寓言","picture book"],
+  ["思维导图","脑图","mindmap","流程图","可视化","图表","柱状图"],
+  ["数据","分析","统计","表格","Excel","多维表格","飞书"],
+];
+
+function expandQuery(q) {
+  q = q.toLowerCase();
+  const expanded = new Set([q]);
+  for (const grp of SYN_GROUPS) {
+    const lower = grp.map(w => w.toLowerCase());
+    if (lower.some(w => w.includes(q) || q.includes(w))) {
+      lower.forEach(w => expanded.add(w));
+    }
+  }
+  return [...expanded];
+}
+
 const filtered = () => ARTS.filter(a => {
   const ok = curCat==="全部" || a.c===curCat;
-  const q  = curQ.toLowerCase();
-  return ok && (!q || a.t.toLowerCase().includes(q));
+  if (!curQ) return ok;
+  const queries = expandQuery(curQ);
+  const title = a.t.toLowerCase();
+  const matched = queries.some(q => title.includes(q));
+  return ok && matched;
 }).reverse();
 
 function makeThumb(a) {
