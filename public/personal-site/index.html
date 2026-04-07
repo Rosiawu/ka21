@@ -987,9 +987,11 @@ function buildSearchUrl(q) {
   return `${url.pathname}${url.search}${url.hash}`;
 }
 
-const SEARCH_INDEX_PATH = "/api/personal-site/search-index";
+const SEARCH_INDEX_PATH = "search-index.json";
+const SEARCH_INDEX_SCRIPT_PATH = "search-index.js";
 const SEARCH_INDEX_FALLBACK_PATH = "search-index.json";
 let SEARCH_INDEX_PROMISE = null;
+let SEARCH_INDEX_SCRIPT_PROMISE = null;
 
 function normalizeSnippetText(value) {
   return (value || "")
@@ -1002,19 +1004,45 @@ function normalizeSnippetText(value) {
 
 function loadSearchIndex() {
   if (!SEARCH_INDEX_PROMISE) {
-    SEARCH_INDEX_PROMISE = fetch(SEARCH_INDEX_PATH, { cache: "no-store" })
-      .then(async response => {
-        if (response.ok) return response.json();
+    SEARCH_INDEX_PROMISE = loadSearchIndexFromScript()
+      .catch(() => fetch(SEARCH_INDEX_PATH, { cache: "no-store" })
+        .then(async response => {
+          if (response.ok) return response.json();
 
-        const fallbackResponse = await fetch(SEARCH_INDEX_FALLBACK_PATH, { cache: "no-store" });
-        if (!fallbackResponse.ok) {
-          throw new Error(`search-index-status-${response.status}-fallback-${fallbackResponse.status}`);
-        }
-        return fallbackResponse.json();
-      })
+          const fallbackResponse = await fetch(SEARCH_INDEX_FALLBACK_PATH, { cache: "no-store" });
+          if (!fallbackResponse.ok) {
+            throw new Error(`search-index-status-${response.status}-fallback-${fallbackResponse.status}`);
+          }
+          return fallbackResponse.json();
+        }))
       .then(payload => Array.isArray(payload?.items) ? payload.items : []);
   }
   return SEARCH_INDEX_PROMISE;
+}
+
+function loadSearchIndexFromScript() {
+  if (Array.isArray(window.__PERSONAL_SEARCH_INDEX__?.items)) {
+    return Promise.resolve(window.__PERSONAL_SEARCH_INDEX__);
+  }
+
+  if (!SEARCH_INDEX_SCRIPT_PROMISE) {
+    SEARCH_INDEX_SCRIPT_PROMISE = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = SEARCH_INDEX_SCRIPT_PATH;
+      script.async = true;
+      script.onload = () => {
+        if (Array.isArray(window.__PERSONAL_SEARCH_INDEX__?.items)) {
+          resolve(window.__PERSONAL_SEARCH_INDEX__);
+        } else {
+          reject(new Error("search-index-script-empty"));
+        }
+      };
+      script.onerror = () => reject(new Error("search-index-script-load-failed"));
+      document.head.appendChild(script);
+    });
+  }
+
+  return SEARCH_INDEX_SCRIPT_PROMISE;
 }
 
 function fallbackSearchResults(rawQuery) {

@@ -49,6 +49,7 @@ const rootDir = path.resolve(__dirname, '..');
 const personalIndexPath = path.join(rootDir, 'public', 'personal-site', 'index.html');
 const personalArticlesPath = path.join(rootDir, 'data', 'personal-site', 'articles.json');
 const searchIndexOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.json');
+const searchIndexScriptOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.js');
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -252,7 +253,11 @@ async function runWithConcurrency<T, R>(
 
 async function writeOutput(searchIndex: SearchIndexFile) {
   await mkdir(path.dirname(searchIndexOutputPath), { recursive: true });
-  await writeFile(searchIndexOutputPath, JSON.stringify(searchIndex, null, 2), 'utf8');
+  const serialized = JSON.stringify(searchIndex, null, 2);
+  await Promise.all([
+    writeFile(searchIndexOutputPath, serialized, 'utf8'),
+    writeFile(searchIndexScriptOutputPath, `window.__PERSONAL_SEARCH_INDEX__ = ${serialized};\n`, 'utf8'),
+  ]);
 }
 
 async function main() {
@@ -288,6 +293,7 @@ async function main() {
   await writeOutput(searchIndex);
 
   console.log(`[personal-fulltext] done search=${searchIndexOutputPath}`);
+  console.log(`[personal-fulltext] done script=${searchIndexScriptOutputPath}`);
   console.log(`[personal-fulltext] summary fetched=${fetched} cached=${cached} reused=${reused} fallback=${fallback}`);
 }
 
