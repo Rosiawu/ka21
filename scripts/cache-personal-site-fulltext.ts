@@ -76,7 +76,7 @@ function parseArgs() {
 }
 
 function parseEmbeddedArticles(rawHtml: string): PersonalArticle[] {
-  const match = rawHtml.match(/const ARTS\s*=\s*(\[[\s\S]*?\]);\s*const MONTHS/s);
+  const match = rawHtml.match(/const ARTS\s*=\s*(\[[\s\S]*?\]);\s*const MONTHS/);
   if (!match?.[1]) {
     throw new Error(`failed-to-extract-arts-array from ${personalIndexPath}`);
   }
