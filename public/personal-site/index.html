@@ -987,7 +987,8 @@ function buildSearchUrl(q) {
   return `${url.pathname}${url.search}${url.hash}`;
 }
 
-const SEARCH_INDEX_PATH = "search-index.json";
+const SEARCH_INDEX_PATH = "/api/personal-site/search-index";
+const SEARCH_INDEX_FALLBACK_PATH = "search-index.json";
 let SEARCH_INDEX_PROMISE = null;
 
 function normalizeSnippetText(value) {
@@ -1002,11 +1003,14 @@ function normalizeSnippetText(value) {
 function loadSearchIndex() {
   if (!SEARCH_INDEX_PROMISE) {
     SEARCH_INDEX_PROMISE = fetch(SEARCH_INDEX_PATH, { cache: "no-store" })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`search-index-status-${response.status}`);
+      .then(async response => {
+        if (response.ok) return response.json();
+
+        const fallbackResponse = await fetch(SEARCH_INDEX_FALLBACK_PATH, { cache: "no-store" });
+        if (!fallbackResponse.ok) {
+          throw new Error(`search-index-status-${response.status}-fallback-${fallbackResponse.status}`);
         }
-        return response.json();
+        return fallbackResponse.json();
       })
       .then(payload => Array.isArray(payload?.items) ? payload.items : []);
   }
