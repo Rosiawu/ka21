@@ -1,4 +1,4 @@
-{
+window.__PERSONAL_SEARCH_INDEX__ = {
   "updatedAt": "2026-04-09T02:23:56.745Z",
   "total": 432,
   "items": [
@@ -5617,4 +5617,4 @@
       "cachedAt": "2026-04-09T02:23:56.745Z"
     }
   ]
-}
+};
