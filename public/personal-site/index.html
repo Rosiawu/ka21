@@ -1366,6 +1366,32 @@ function sbClick(el, href){
 
 if (PAGE_QUERY) renderSearchPage(PAGE_QUERY);
 else render();
+
+// ===== 动态数字同步 =====
+(function syncDynamicCounts() {
+  // 1. 文章数量：从 ARTS 数组动态读取
+  const artCount = ARTS.length;
+  const el = (id) => document.getElementById(id);
+
+  if (el('statsArticleCount')) el('statsArticleCount').textContent = artCount;
+  if (el('writingProjectTag')) el('writingProjectTag').textContent = `Writing · ${artCount} 篇`;
+  if (el('writingProjectPill')) el('writingProjectPill').textContent = `${artCount}篇`;
+  if (el('writingProjectDesc')) el('writingProjectDesc').textContent =
+    `${artCount} 篇日更实操合集，涵盖 AI 画图、视频字幕、作文批改、课件制作等全场景。中文互联网最持续更新的英语 AI 教学实战记录。`;
+  if (el('heroDesc')) el('heroDesc').textContent =
+    `AI 导航网站牛马库 Vibe coder，「灯下白」播客主持人。公众号与视频号「吴熳 Rosia」主理人，14年教育从业者，写过${artCount}篇教学思考，探索 AI 如何真实改变一线课堂与生活。`;
+
+  // 2. 播客集数：从 RSS 异步拉取
+  if (el('statsPodcastCount')) {
+    fetch('https://feed.xyzfm.space/labr6f9g6xvp', {cache: 'no-store'})
+      .then(r => r.text())
+      .then(xml => {
+        const items = (xml.match(/<item>/g) || []).length;
+        if (items > 0) el('statsPodcastCount').textContent = items;
+      })
+      .catch(() => {}); // 拉取失败静默，保留当前值
+  }
+})();
 </script>
 </body>
 </html>
