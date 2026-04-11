@@ -111,6 +111,8 @@ a{text-decoration:none;color:inherit}
   background:var(--surface);
   font:400 13.5px/1 'Inter',sans-serif;
   letter-spacing:-.08px;color:var(--k);
+  -webkit-text-fill-color:var(--k);
+  -webkit-appearance:none;
   outline:none;transition:border-color .15s;
 }
 .search-input::placeholder{color:var(--dim2)}
@@ -159,8 +161,11 @@ a{text-decoration:none;color:inherit}
   .sidebar.open{left:0}
   .main{width:100%}
   .sb-toggle{display:flex}
-  .topbar{padding:0 16px}
-  .search-input{padding-right:74px}
+  .topbar{padding:0 12px;gap:8px}
+  .topbar-title{font-size:13px}
+  .topbar-cta{display:none}
+  .search-wrap{max-width:100%}
+  .search-input{padding-right:74px;font-size:16px;-webkit-text-fill-color:var(--k)}
   .search-go{padding:0 11px;font-size:12px}
 }
 
@@ -272,8 +277,8 @@ a.chip-accent:hover{
 .tag-3{top:70%}
 
 .hero-image img{width:100%;height:100%;object-fit:cover;object-position:40% top;border-radius:0;box-shadow:none;mask-image:linear-gradient(to left, black 60%, transparent 95%), linear-gradient(to top, transparent 0%, black 10%);-webkit-mask-image:linear-gradient(to left, black 60%, transparent 95%), linear-gradient(to top, transparent 0%, black 10%);mask-composite:intersect;-webkit-mask-composite:source-in}
-@media(max-width:768px){.hero-image{position:relative;width:100%;height:280px}.hero-text{width:100%}}
-@media(max-width:640px){.hero-strip{padding:40px 20px 36px}}
+@media(max-width:768px){.hero-image{position:relative;width:100%;height:280px}.hero-text{width:100%}.hero-img-tag{display:none}}
+@media(max-width:640px){.hero-strip{padding:40px 20px 36px}.hero-btns{gap:8px}.btn-white,.btn-ghost{height:44px;padding:0 18px;font-size:14px}}
 
 /* ═══ STATS ROW ════════════════════════════ */
 .stats-bar{
@@ -285,6 +290,8 @@ a.chip-accent:hover{
   .stats-bar{grid-template-columns:repeat(2,1fr)}
   .st:nth-child(2){border-right:none}
   .st:nth-child(3){border-bottom:none}
+  .st{padding:20px 18px}
+  .st-n{font-size:32px;letter-spacing:-1.2px}
 }
 .st{
   padding:28px 32px;
@@ -607,6 +614,18 @@ body.search-mode #about{display:none}
   .search-desc{font-size:15px}
   .search-hit{padding:18px}
   .search-hit-title{font-size:18px}
+}
+@media(max-width:640px){
+  /* touch-friendly filter pills */
+  .f-pill{height:38px;padding:0 16px;font-size:14px}
+  /* larger more button */
+  .more-btn{height:48px;padding:0 32px;font-size:14px}
+  /* chart bars label legibility */
+  .b-lbl{font-size:7px}
+  .chart-box{padding:20px 16px 18px}
+  /* search hit on small screens */
+  .search-hit-title{font-size:16px}
+  .search-hit-line{font-size:13px}
 }
 
 /* ═══ CHART ═════════════════════════════════ */
