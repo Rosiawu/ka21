@@ -774,10 +774,10 @@ body.search-mode #about{display:none}
       <div class="hero-text">
       <span class="hero-eyebrow">Man Wu　教育者 · AI探索者 · 网站开发玩家 · 播客制作者</span>
       <h1 class="hero-h1">吴熳 Rosia</h1>
-      <p class="hero-desc" id="heroDesc">AI 导航网站牛马库 Vibe coder，「灯下白」播客主持人。公众号与视频号「吴熳 Rosia」主理人，14年教育从业者，写过430篇教学思考，探索 AI 如何真实改变一线课堂与生活。</p>
+      <p class="hero-desc" id="heroDesc">AI 导航网站牛马库 Vibe coder，「灯下白」播客主持人。公众号与视频号「吴熳 Rosia」主理人，14年教育从业者，写过433篇教学思考，探索 AI 如何真实改变一线课堂与生活。</p>
       
       <div class="hero-chips">
-        <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5ODU1ODg1Mg==&action=getalbum&album_id=3672103436448808968" target="_blank" class="hero-chip chip-accent" id="heroArticlesChip">☑ 430篇AI赋能教学原创文</a>
+        <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5ODU1ODg1Mg==&action=getalbum&album_id=3672103436448808968" target="_blank" class="hero-chip chip-accent" id="heroArticlesChip">☑ 433篇AI赋能教学原创文</a>
         <a href="https://ka21.org/zh/podcast" target="_blank" class="hero-chip chip-accent">☑ 灯下白播客主理人</a>
         <a href="https://ka21.org/zh" target="_blank" class="hero-chip chip-accent">☑ 牛马库 Vibe coder</a>
         
@@ -792,7 +792,7 @@ body.search-mode #about{display:none}
 
   <!-- STATS -->
   <div class="stats-bar">
-    <div class="st"><div class="st-n" id="statsArticleCount">430</div><div class="st-l">篇原创</div></div>
+    <div class="st"><div class="st-n" id="statsArticleCount">433</div><div class="st-l">篇原创</div></div>
     <div class="st"><div class="st-n">16</div><div class="st-l">个月日更</div></div>
     <div class="st"><div class="st-n">14</div><div class="st-l">年从业</div></div>
     <div class="st"><div class="st-n" id="statsPodcastCount">11</div><div class="st-l">集播客动态更新中</div></div>
@@ -833,10 +833,10 @@ body.search-mode #about{display:none}
         <span class="proj-cta">查看记录 →</span>
       </a>
       <a class="proj-card" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5ODU1ODg1Mg==&action=getalbum&album_id=3672103436448808968" target="_blank">
-        <span class="proj-tag" id="writingProjectTag">Writing · 430 篇</span>
+        <span class="proj-tag" id="writingProjectTag">Writing · 433 篇</span>
         <div class="proj-name">AIGC辅助英语教学合集</div>
-        <p class="proj-desc" id="writingProjectDesc">430 篇日更实操合集，涵盖 AI 画图、视频字幕、作文批改、课件制作等全场景。中文互联网最持续更新的英语 AI 教学实战记录。</p>
-        <div class="proj-pills"><span class="proj-pill" id="writingProjectPill">430篇</span><span class="proj-pill">日更实操</span><span class="proj-pill">可搜索</span></div>
+        <p class="proj-desc" id="writingProjectDesc">433 篇日更实操合集，涵盖 AI 画图、视频字幕、作文批改、课件制作等全场景。中文互联网最持续更新的英语 AI 教学实战记录。</p>
+        <div class="proj-pills"><span class="proj-pill" id="writingProjectPill">433篇</span><span class="proj-pill">日更实操</span><span class="proj-pill">可搜索</span></div>
         <span class="proj-cta">进入合集 →</span>
       </a>
     </div>
@@ -1368,30 +1368,6 @@ if (PAGE_QUERY) renderSearchPage(PAGE_QUERY);
 else render();
 
 // ===== 动态数字同步 =====
-(function syncDynamicCounts() {
-  // 1. 文章数量：从 ARTS 数组动态读取
-  const artCount = ARTS.length;
-  const el = (id) => document.getElementById(id);
-
-  if (el('statsArticleCount')) el('statsArticleCount').textContent = artCount;
-  if (el('writingProjectTag')) el('writingProjectTag').textContent = `Writing · ${artCount} 篇`;
-  if (el('writingProjectPill')) el('writingProjectPill').textContent = `${artCount}篇`;
-  if (el('writingProjectDesc')) el('writingProjectDesc').textContent =
-    `${artCount} 篇日更实操合集，涵盖 AI 画图、视频字幕、作文批改、课件制作等全场景。中文互联网最持续更新的英语 AI 教学实战记录。`;
-  if (el('heroDesc')) el('heroDesc').textContent =
-    `AI 导航网站牛马库 Vibe coder，「灯下白」播客主持人。公众号与视频号「吴熳 Rosia」主理人，14年教育从业者，写过${artCount}篇教学思考，探索 AI 如何真实改变一线课堂与生活。`;
-
-  // 2. 播客集数：从 RSS 异步拉取
-  if (el('statsPodcastCount')) {
-    fetch('https://feed.xyzfm.space/labr6f9g6xvp', {cache: 'no-store'})
-      .then(r => r.text())
-      .then(xml => {
-        const items = (xml.match(/<item>/g) || []).length;
-        if (items > 0) el('statsPodcastCount').textContent = items;
-      })
-      .catch(() => {}); // 拉取失败静默，保留当前值
-  }
-})();
 </script>
 </body>
 </html>
