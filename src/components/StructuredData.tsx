@@ -18,7 +18,7 @@ export default function StructuredData({
   locale = 'zh'
 }: StructuredDataProps) {
   const getStructuredData = () => {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ka21.tools';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ka21.org';
     const isEn = locale === 'en';
     const orgName = isEn ? 'KA21 Tools' : 'KA21工具导航';
     const webName = isEn ? 'KA21: One-stop AI Resource Hub' : '数字生命卡兹克-KA21工具导航';

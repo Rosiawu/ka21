@@ -115,49 +115,49 @@ export default function HomeContent({
       id: 'xiaoyuzhou',
       name: '小宇宙',
       href: 'https://www.xiaoyuzhoufm.com/podcast/69a44f5aa19c08db64bbd8a7',
-      logo: '/images/podcast/platforms/xiaoyuzhou.ico',
+      logo: '/images/podcast/platforms/xiaoyuzhou.png',
     },
     {
       id: 'apple',
       name: '苹果播客',
       href: 'https://podcasts.apple.com/cn/podcast/%E7%81%AF%E4%B8%8B%E7%99%BD/id1883429226',
-      logo: '/images/podcast/platforms/apple.ico',
+      logo: '/images/podcast/platforms/apple.png',
     },
     {
       id: 'lizhi',
       name: '荔枝',
       href: 'https://m.lizhi.fm/voicesheet/5500330523200853569',
-      logo: '/images/podcast/platforms/lizhi.ico',
+      logo: '/images/podcast/platforms/lizhi.png',
     },
     {
       id: 'ximalaya',
       name: '喜马拉雅',
       href: 'https://www.ximalaya.com/album/33817634',
-      logo: '/images/podcast/platforms/ximalaya.ico',
+      logo: '/images/podcast/platforms/ximalaya.png',
     },
     {
       id: 'wangyiyun',
       name: '网易云音乐',
       href: 'https://music.163.com/#/djradio?id=1487456047',
-      logo: '/images/podcast/platforms/wangyiyun.ico',
+      logo: '/images/podcast/platforms/wangyiyun.png',
     },
     {
       id: 'qingting',
       name: '蜻蜓FM',
       href: 'https://m.qtfm.cn/vchannels/526838',
-      logo: '/images/podcast/platforms/qingting.ico',
+      logo: '/images/podcast/platforms/qingting.png',
     },
     {
       id: 'youtube',
       name: 'YouTube',
       href: 'https://www.youtube.com/channel/UC4vwgT8e3dYo0ra_bDqIq9A',
-      brandIcon: 'fab fa-youtube',
+      logo: '/images/podcast/platforms/youtube.png',
     },
     {
       id: 'spotify',
       name: 'Spotify',
       href: 'https://open.spotify.com/show/7s1L3Bl9QD3tWTmGnPW4y0?si=jNefx-5VRfiW8N9r-OD25Q',
-      brandIcon: 'fab fa-spotify',
+      logo: '/images/podcast/platforms/spotify.png',
     },
   ] as const;
   // ========== 状态管理 ==========
@@ -490,17 +490,13 @@ export default function HomeContent({
                         aria-label={`${spotlightPodcast.title} - ${platform.name}`}
                         title={platform.name}
                       >
-                        {'logo' in platform ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={platform.logo}
-                            alt={`${platform.name} logo`}
-                            className="home-podcast-platform-logo"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <i className={`home-podcast-platform-brand ${platform.brandIcon}`} aria-hidden="true"></i>
-                        )}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={platform.logo}
+                          alt={`${platform.name} logo`}
+                          className="home-podcast-platform-logo"
+                          loading="lazy"
+                        />
                       </a>
                     ))}
                   </span>
@@ -585,7 +581,7 @@ export default function HomeContent({
               onQuerySelect={handleIntentQuerySelect}
             />
           </div>
-          
+
           {/* 热门推荐板块（显式传入本地化标题，规避上下文异常导致的错语种） */}
           <HotSection title={tHot('title')} subtitle={tHot('subtitle')} />
 
@@ -831,12 +827,11 @@ export default function HomeContent({
               </Link>
             </div>
           </section>
-
-          {!isSearching && !isSearchPending && <DevLogPreviewSection isEn={isEn} />}
-
           {!isSearching && !isSearchPending && <DealsPreviewSection isEn={isEn} deals={initialDeals} />}
 
           {!isSearching && !isSearchPending && <EventPreviewSection isEn={isEn} events={initialEvents} />}
+
+          {!isSearching && !isSearchPending && <DevLogPreviewSection isEn={isEn} />}
 
           {/* 工具分类列表 - 使用新的ToolCategorySection组件 */}
           {!isSearching && !isSearchPending && (

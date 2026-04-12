@@ -4,11 +4,11 @@
       "id": "wuman",
       "name": "吴熳",
       "title": "AI native 网站开发者",
-      "avatar": "https://ka21.tools/images/team/avatar-wuman.png",
+      "avatar": "https://ka21.org/images/team/avatar-wuman.png",
       "location": "北京",
       "specialty": "资深英语教师培训专家",
       "nickname": "女将军/包工头",
-      "wechatQR": "https://ka21.tools/images/team/qr-wuman.png",
+      "wechatQR": "https://ka21.org/images/team/qr-wuman.png",
       "wechatAccount": "英语好课研磨",
       "aiTools": [
         "Codex",
@@ -39,11 +39,11 @@
       "id": "cool",
       "name": "三金",
       "title": "运维工程师",
-      "avatar": "https://ka21.tools/images/team/avatar-cool.png",
+      "avatar": "https://ka21.org/images/team/avatar-cool.png",
       "location": "郑州",
       "specialty": "KA21 导航站代码主要贡献者,企业软件运维工程师",
       "nickname": "Cool",
-      "wechatQR": "https://ka21.tools/images/team/qr-cool.png",
+      "wechatQR": "https://ka21.org/images/team/qr-cool.png",
       "wechatAccount": "三金的AI工具箱",
       "aiTools": [
         "Cursor",
@@ -71,11 +71,11 @@
       "id": "xiaojinyu",
       "name": "百宝箱子",
       "title": "独立全栈设计师",
-      "avatar": "https://ka21.tools/images/team/avatar-xiaojinyu.png",
+      "avatar": "https://ka21.org/images/team/avatar-xiaojinyu.png",
       "location": "广东湛江",
       "specialty": "图像类提示词工程师",
       "nickname": "小金鱼",
-      "wechatQR": "https://ka21.tools/images/team/qr-xiaojinyu.png",
+      "wechatQR": "https://ka21.org/images/team/qr-xiaojinyu.png",
       "wechatAccount": "明冥箱子",
       "aiTools": [
         "Trae",
@@ -107,11 +107,11 @@
       "id": "azhen",
       "name": "阿真Irene",
       "title": "视觉设计师",
-      "avatar": "https://ka21.tools/images/team/avatar-azhen.png",
+      "avatar": "https://ka21.org/images/team/avatar-azhen.png",
       "location": "深圳",
       "specialty": "品牌设计,AI绘图视频创作",
       "nickname": "毛毛",
-      "wechatQR": "https://ka21.tools/images/team/qr-azhen.png",
+      "wechatQR": "https://ka21.org/images/team/qr-azhen.png",
       "wechatAccount": "阿真Irene",
       "aiTools": [
         "ChatGPT",
@@ -138,11 +138,11 @@
       "id": "loki",
       "name": "赛博小熊猫Loki",
       "title": "K12教育视频部门负责人",
-      "avatar": "https://ka21.tools/images/team/avatar-loki.png",
+      "avatar": "https://ka21.org/images/team/avatar-loki.png",
       "location": "北京",
       "specialty": "AI绘图视频创作测评,课程设计,提示词写作",
       "nickname": "Loki、小熊猫、小能苗",
-      "wechatQR": "https://ka21.tools/images/team/qr-loki.png",
+      "wechatQR": "https://ka21.org/images/team/qr-loki.png",
       "wechatAccount": "赛博小熊猫Loki",
       "aiTools": [
         "Claude",
@@ -174,11 +174,11 @@
       "id": "washu",
       "name": "瓦叔",
       "title": "新媒体直播技术负责人 / AI数字内容策划师 ",
-      "avatar": "https://ka21.tools/images/team/avatar-washu.png",
+      "avatar": "https://ka21.org/images/team/avatar-washu.png",
       "location": "上海",
       "specialty": "新媒体直播技术,AIGC内容创新,音视频制作",
       "nickname": "瓦叔 荷包蛋",
-      "wechatQR": "https://ka21.tools/images/team/qr-washu.png",
+      "wechatQR": "https://ka21.org/images/team/qr-washu.png",
       "wechatAccount": "靠谱瓦叔AI趣探 ",
       "aiTools": [
         "即梦",
@@ -207,11 +207,11 @@
       "id": "labi",
       "name": "蜡笔",
       "title": "信息化项目经理",
-      "avatar": "https://ka21.tools/images/team/avatar-labi.png",
+      "avatar": "https://ka21.org/images/team/avatar-labi.png",
       "location": "深圳",
       "specialty": "信息化系统项目实施,AI绘图",
       "nickname": "蜡笔",
-      "wechatQR": "https://ka21.tools/images/team/qr-labi.png",
+      "wechatQR": "https://ka21.org/images/team/qr-labi.png",
       "wechatAccount": "树语牧歌",
       "aiTools": [
         "即梦",
@@ -240,11 +240,11 @@
       "id": "Seele",
       "name": "Seele",
       "title": "数据分析师",
-      "avatar": "https://ka21.tools/images/team/avatar-seele.png",
+      "avatar": "https://ka21.org/images/team/avatar-seele.png",
       "location": "北京",
       "specialty": "教育培训,AI培训",
       "nickname": "豆包儿，边牧",
-      "wechatQR": "https://ka21.tools/images/team/qr-seele.png",
+      "wechatQR": "https://ka21.org/images/team/qr-seele.png",
       "wechatAccount": "一念既出",
       "aiTools": [
         "飞书多维表格",
@@ -273,11 +273,11 @@
       "id": "william",
       "name": "William",
       "title": "货代海外操作",
-      "avatar": "https://ka21.tools/images/team/avatar-william.png",
+      "avatar": "https://ka21.org/images/team/avatar-william.png",
       "location": "宁波",
       "specialty": "航运物流,AIGC内容创作,AI理论与原理讲解",
       "nickname": "八爪鱼",
-      "wechatQR": "https://ka21.tools/images/team/qr-william.png",
+      "wechatQR": "https://ka21.org/images/team/qr-william.png",
       "wechatAccount": "八爪鱼威廉",
       "aiTools": [
         "字节系/阿里系AI工具"
@@ -304,7 +304,7 @@
       "id": "fenglaoshi",
       "name": "风老师",
       "title": "教育创作者",
-      "avatar": "https://ka21.tools/images/team/avatar-fenglaoshi.jpg",
+      "avatar": "https://ka21.org/images/team/avatar-fenglaoshi.jpg",
       "location": "南京",
       "specialty": "教育,AIGC内容创作",
       "nickname": "风老师",
@@ -330,11 +330,11 @@
       "id": "beiguo",
       "name": "贝果",
       "title": "AI教育产品负责人",
-      "avatar": "https://ka21.tools/images/team/avatar-beiguo.png",
+      "avatar": "https://ka21.org/images/team/avatar-beiguo.png",
       "location": "北京",
       "specialty": "AI教育,AIGC内容创作,产品设计",
       "nickname": "贝果 产品设计 舞蹈博主 宠物博主",
-      "wechatQR": "https://ka21.tools/images/team/qr-beiguo.png",
+      "wechatQR": "https://ka21.org/images/team/qr-beiguo.png",
       "wechatAccount": "人工智能怨气指南",
       "aiTools": [
         "Claude",
@@ -363,11 +363,11 @@
       "id": "jinwei",
       "name": "金威",
       "title": "产品结构设计",
-      "avatar": "https://ka21.tools/images/team/avatar-jinwei.png",
+      "avatar": "https://ka21.org/images/team/avatar-jinwei.png",
       "location": "苏州",
       "specialty": "3D打印,AIGC内容创作",
       "nickname": "乌鸦",
-      "wechatQR": "https://ka21.tools/images/team/qr-jinwei.png",
+      "wechatQR": "https://ka21.org/images/team/qr-jinwei.png",
       "wechatAccount": "科技的美丽世界",
       "aiTools": [
         "Tripo",
@@ -400,11 +400,11 @@
       "id": "rongrong",
       "name": "融融",
       "title": "人力资源管理",
-      "avatar": "https://ka21.tools/images/team/avatar-rongrong.png",
+      "avatar": "https://ka21.org/images/team/avatar-rongrong.png",
       "location": "天津",
       "specialty": "AIGC内容创作,人力资源管理",
       "nickname": "融融",
-      "wechatQR": "https://ka21.tools/images/team/qr-rongrong.png",
+      "wechatQR": "https://ka21.org/images/team/qr-rongrong.png",
       "wechatAccount": "金枝AI育见录",
       "aiTools": [
         "Monica",
@@ -435,11 +435,11 @@
       "id": "yoji",
       "name": "由吉yoji",
       "title": "视觉设计师，自媒体运营",
-      "avatar": "https://ka21.tools/images/team/avatar-yoji.png",
+      "avatar": "https://ka21.org/images/team/avatar-yoji.png",
       "location": "广州",
       "specialty": "AI绘图视频创作,自媒体创作",
       "nickname": "由吉，yoji",
-      "wechatQR": "https://ka21.tools/images/team/qr-yoji.png",
+      "wechatQR": "https://ka21.org/images/team/qr-yoji.png",
       "wechatAccount": "职场AI智多星",
       "aiTools": [
         "ChatGPT",
@@ -468,11 +468,11 @@
       "id": "feifei",
       "name": "霏霏",
       "title": "电商视觉策划/服装陈列师",
-      "avatar": "https://ka21.tools/images/team/avatar-feifei.png",
+      "avatar": "https://ka21.org/images/team/avatar-feifei.png",
       "location": "广州",
       "specialty": "AIGC内容创作（电商）,AI创意探索",
       "nickname": "霏霏",
-      "wechatQR": "https://ka21.tools/images/team/qr-feifei.png",
+      "wechatQR": "https://ka21.org/images/team/qr-feifei.png",
       "wechatAccount": "霏霏同学",
       "aiTools": [
         "扣子空间",
@@ -504,11 +504,11 @@
       "id": "tangshui",
       "name": "烫水",
       "title": "AI产品经理",
-      "avatar": "https://ka21.tools/images/team/avatar-tangshui.png",
+      "avatar": "https://ka21.org/images/team/avatar-tangshui.png",
       "location": "北京",
       "specialty": "AI产品经理,编程,vibecoding",
       "nickname": "烫水 / 热到融化",
-      "wechatQR": "https://ka21.tools/images/team/qr-tangshui.png",
+      "wechatQR": "https://ka21.org/images/team/qr-tangshui.png",
       "wechatAccount": "Open烫水",
       "aiTools": [
         "Claude Code"
@@ -528,6 +528,311 @@
         "💡 创新创业精神",
         "🌱 持续迭代成长",
         "🧠 跨领域整合能力"
+      ]
+    },
+    {
+      "id": "daofang",
+      "name": "倒放",
+      "title": "AI病友",
+      "avatar": "https://ka21.org/images/team/avatar-daofang.png",
+      "location": "杭州",
+      "specialty": "短视频,音乐",
+      "wechatQR": "https://ka21.org/images/team/qr-daofang.jpg",
+      "wechatAccount": "倒放",
+      "aiTools": [
+        "抖音音乐开放平台",
+        "豆包",
+        "Gemini",
+        "Codex"
+      ],
+      "description": "需要脑暴创意突围时可能帮得到，但求别逼太急，不然脑子短路。",
+      "skills": [
+        "短视频创作",
+        "音乐创作"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "感谢 ka21 佬们提携",
+        "创意脑暴",
+        "灵感突围"
+      ]
+    },
+    {
+      "id": "jiyutao",
+      "name": "计育韬",
+      "title": "图书作者 / 交互动画设计师",
+      "avatar": "https://ka21.org/images/team/avatar-jiyutao.png",
+      "location": "上海",
+      "specialty": "交互设计,动画设计",
+      "wechatQR": "https://ka21.org/images/team/qr-jiyutao.jpg",
+      "wechatAccount": "JZCreative",
+      "aiTools": [
+        "Cursor",
+        "即梦",
+        "Gemini"
+      ],
+      "description": "SVG AttributeName 白名单制定人，起草《中小商业企业协会融媒体 SVG 交互设计技术规范》。",
+      "skills": [
+        "交互设计",
+        "动画设计",
+        "SVG 规范制定"
+      ],
+      "projectHighlights": [
+        "《硬核运营：技术流新媒体养成》作者",
+        "《Prezi完全解读》作者"
+      ],
+      "personalTraits": [
+        "长期主义",
+        "技术表达",
+        "规范建设"
+      ]
+    },
+    {
+      "id": "baisuelliot",
+      "name": "白苏Elliot",
+      "title": "Mew.Design 联创",
+      "avatar": "https://ka21.org/images/team/avatar-baisuelliot.jpg",
+      "location": "上海",
+      "specialty": "AI agent,出海,产品",
+      "wechatQR": "https://ka21.org/images/team/qr-baisuelliot.jpg",
+      "wechatAccount": "白苏Elliot",
+      "aiTools": [
+        "Codex",
+        "Claude Code",
+        "OpenCode"
+      ],
+      "description": "干活博主，曾单人手搓百万用户 AI agent。",
+      "skills": [
+        "AI Agent",
+        "出海产品",
+        "产品设计"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "现在是最好的时代",
+        "实干派",
+        "长期搭建"
+      ]
+    },
+    {
+      "id": "hexiansenkevin",
+      "name": "何先森Kevin",
+      "title": "AIGC创作者",
+      "avatar": "https://ka21.org/images/team/avatar-hexiansenkevin.png",
+      "location": "北京",
+      "specialty": "写作,设计,摄影,品牌策划,自媒体运营",
+      "wechatQR": "https://ka21.org/images/team/qr-hexiansenkevin.png",
+      "wechatAccount": "AIGC创意猎人",
+      "aiTools": [
+        "OpenClaw",
+        "Gemini",
+        "NotebookLM",
+        "Lovart",
+        "TapNow"
+      ],
+      "description": "专注于 AIGC 艺术、AI 创新应用、AI 商业观察与个人成长分享。",
+      "skills": [
+        "写作",
+        "品牌策划",
+        "自媒体运营"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "创意观察",
+        "商业敏感度",
+        "持续分享"
+      ]
+    },
+    {
+      "id": "luoxiaoshan",
+      "name": "洛小山",
+      "title": "AI 产品经理",
+      "avatar": "https://ka21.org/images/team/avatar-luoxiaoshan.jpg",
+      "location": "珠海",
+      "specialty": "AI 工程化,AI 模型评估",
+      "wechatQR": "https://ka21.org/images/team/qr-luoxiaoshan.jpg",
+      "wechatAccount": "洛小山",
+      "aiTools": [
+        "Cursor",
+        "XSCT"
+      ],
+      "description": "你学习 AI 的搭子。",
+      "skills": [
+        "AI工程化",
+        "AI模型评估"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "陪伴学习",
+        "产品视角",
+        "方法论导向"
+      ]
+    },
+    {
+      "id": "suanmeizhujiu",
+      "name": "酸梅煮酒",
+      "title": "纪录片导演 / 剪辑师",
+      "avatar": "https://ka21.org/images/team/avatar-suanmeizhujiu.png",
+      "location": "重庆",
+      "specialty": "AI视频,纪录片,摄影,vibecoding",
+      "wechatQR": "https://ka21.org/images/team/qr-suanmeizhujiu.jpg",
+      "wechatAccount": "酸梅煮酒",
+      "aiTools": [
+        "Codex",
+        "ChatGPT",
+        "可灵",
+        "即梦",
+        "Lovart",
+        "Gemini"
+      ],
+      "description": "纪录片独立制作者，AI实干家，一个人一支队伍。",
+      "skills": [
+        "纪录片制作",
+        "剪辑",
+        "AI视频创作"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "一个人就是一支队伍",
+        "独立制作",
+        "实干派"
+      ]
+    },
+    {
+      "id": "tatalab",
+      "name": "TATALAB",
+      "title": "AI 自媒体博主 / 独立开发者",
+      "avatar": "https://ka21.org/images/team/avatar-tatalab.png",
+      "location": "上海 / 杭州",
+      "specialty": "AI设计与生图,创意视频TVC,vibecoding创意项目开发",
+      "wechatQR": "https://ka21.org/images/team/qr-tatalab.jpg",
+      "wechatAccount": "TATALAB",
+      "aiTools": [
+        "Obsidian",
+        "Claude",
+        "即梦",
+        "Lovart",
+        "秒哒"
+      ],
+      "description": "从宝妈到小红书 AI 科技博主，拥有 1.4w+ 粉丝，只用了一年，践行 learn in public，一起学习吧～",
+      "skills": [
+        "AI设计与生图",
+        "创意视频TVC",
+        "独立开发"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "你的 AI 时代课代表",
+        "公开学习",
+        "执行力强"
+      ]
+    },
+    {
+      "id": "huangama",
+      "name": "黄啊码",
+      "title": "创业公司 CTO",
+      "avatar": "https://ka21.org/images/team/avatar-huangama.jpg",
+      "location": "广州",
+      "specialty": "AI Coding,智能体工作流定制",
+      "wechatQR": "https://ka21.org/images/team/qr-huangama.jpg",
+      "wechatAccount": "黄啊码",
+      "aiTools": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "即梦"
+      ],
+      "description": "人工训练师、人工智能讲师，擅长企业业务梳理和 AI 转型。",
+      "skills": [
+        "AI Coding",
+        "智能体工作流",
+        "企业 AI 转型"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "跟 AI 相处久了更像 AI 分身",
+        "企业落地",
+        "系统梳理"
+      ]
+    },
+    {
+      "id": "yuntian",
+      "name": "云天AI探索",
+      "title": "AI产品经理 / 极限运动达人",
+      "avatar": "https://ka21.org/images/team/avatar-yuntian.jpg",
+      "location": "北京",
+      "specialty": "AI编程,AIPPT,AI出海,创意探索",
+      "wechatQR": "https://ka21.org/images/team/qr-yuntian.jpg",
+      "wechatAccount": "云天AI探索",
+      "aiTools": [
+        "Gemini",
+        "CodeBuddy",
+        "Claude Code",
+        "YouMind",
+        "ListenHub"
+      ],
+      "description": "探索 AI 生产力革新，放大被低估的价值。",
+      "skills": [
+        "AI编程",
+        "AIPPT",
+        "AI出海"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "极限运动",
+        "价值放大器",
+        "创意探索"
+      ]
+    },
+    {
+      "id": "tuhuijiscott",
+      "name": "兔会计Scott",
+      "title": "锐意知能创始人 / 财AI客厅社群主理人",
+      "avatar": "https://ka21.org/images/team/avatar-tuhuijiscott.jpg",
+      "location": "北京",
+      "specialty": "项目管理AI,财务 AI 落地,德国见闻,培训与演讲",
+      "wechatQR": "https://ka21.org/images/team/qr-tuhuijiscott.jpg",
+      "wechatAccount": "兔会",
+      "aiTools": [
+        "Claude",
+        "Codex",
+        "项齐 AI 项目管理",
+        "NotebookLM"
+      ],
+      "description": "专注 Vibe 项目管理，旅德 7 年，拥有 8 年四大与财务经验。",
+      "skills": [
+        "项目管理AI",
+        "财务 AI 落地",
+        "培训与演讲"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "跨界财务视角",
+        "项目管理实践",
+        "全球化经历"
+      ]
+    },
+    {
+      "id": "bierchangbaicao",
+      "name": "比尔尝百草",
+      "title": "AI行业分析师",
+      "avatar": "https://ka21.org/images/team/avatar-bierchangbaicao.jpg",
+      "location": "北京",
+      "specialty": "AI一手新行业动态洞察",
+      "wechatQR": "https://ka21.org/images/team/qr-bierchangbaicao.jpeg",
+      "wechatAccount": "比尔AI新视界",
+      "aiTools": [],
+      "description": "管理咨询背景 AI 行业分析师，持续拆解 AI 行业的真实发展情况。",
+      "skills": [
+        "AI行业洞察",
+        "趋势分析",
+        "咨询研究"
+      ],
+      "projectHighlights": [],
+      "personalTraits": [
+        "行业观察",
+        "真实拆解",
+        "咨询视角"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://ka21.org';
+const { API_BASE_URL } = require('./site-config');
 const CONTRIBUTOR_STORAGE_KEY = 'miniapp_deals_contributor_v1';
 
 function request(options) {

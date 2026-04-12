@@ -1,4 +1,4 @@
-const BASE_URL = 'https://ka21.org';
+const { SITE_URL: BASE_URL } = require('./site-config');
 const DEFAULT_LOCALE = 'zh';
 
 function encode(value) {

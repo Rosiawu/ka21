@@ -2,23 +2,27 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
+import { headers } from 'next/headers';
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ThemeProvider from '@/components/ThemeProvider';
 import UmamiAnalytics from '@/components/UmamiAnalytics';
 import ClarityAnalytics from '@/components/ClarityAnalytics';
+import { toHtmlLang } from '@/i18n/resolveLocale';
+import { createDefaultIcons, createMetadataBase } from '@/lib/siteMetadata';
 
 export const metadata: Metadata = {
+  metadataBase: createMetadataBase(),
   title: {
     default: 'KA21工具导航 - 一站式AI资源平台',
     template: '%s',
   },
   description: '发现、比较和使用最佳AI工具，提升您的工作效率和创造力',
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/KA21.png',
-  },
+  icons: createDefaultIcons(),
 };
+
+async function getRootLocaleLang() {
+  return toHtmlLang((await headers()).get('x-ka21-locale'));
+}
 
 // 根布局：仅承载全局样式/脚本/主题/错误边界等“与语言无关”的外层壳
 export default async function RootLayout({
@@ -26,8 +30,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = await getRootLocaleLang();
+
   return (
-    <html lang="zh-CN" className="scroll-smooth" suppressHydrationWarning>
+    <html lang={lang} className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* 添加 Font Awesome（全局样式依赖） */}
         <link

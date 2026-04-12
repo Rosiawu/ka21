@@ -5,9 +5,9 @@ import path from 'path';
 import type { TutorialsJson, TutorialData } from '@/types/tutorials';
 import { fetchFromGitHub, updateGitHubFile } from '@/lib/github';
 import { getPrimaryCoreScenario, resolveTutorialCoreScenarios } from '@/lib/coreTaxonomy';
-import { requireAdminAccess } from '@/lib/security/admin';
 import { enforceRateLimit } from '@/lib/security/rate-limit';
 import { safeFetch } from '@/lib/security/safe-fetch';
+import { requireTutorialImportAccess } from '@/lib/security/tutorial-access';
 
 type DifficultyLevel = '小白入门' | '萌新进阶' | '高端玩家';
 
@@ -127,9 +127,9 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 
 export async function POST(request: Request) {
-  const adminError = requireAdminAccess(request);
-  if (adminError) {
-    return adminError;
+  const tutorialAccessError = requireTutorialImportAccess(request);
+  if (tutorialAccessError) {
+    return tutorialAccessError;
   }
 
   const rateLimitResponse = enforceRateLimit(request, {

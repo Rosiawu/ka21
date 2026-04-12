@@ -3,7 +3,7 @@ name: Update Podcast Dashboard Snapshot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '15 1 * * *'
+    - cron: '0 16 * * *'
 
 permissions:
   contents: write
@@ -15,7 +15,7 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -26,19 +26,45 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22.17.0
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
+      # ── 第一步：抓取播放量，写入本地 JSON ───────────────────────────────────
       - name: Capture podcast snapshot
         run: npm run podcast:capture-snapshot
 
+      # ── 第二步：同步到飞书多维表（幂等，失败不影响后续 commit）──────────────
+      - name: Sync to Feishu Bitable
+        if: ${{ env.FEISHU_APP_ID != '' && env.FEISHU_APP_SECRET != '' && env.FEISHU_BASE_TOKEN != '' }}
+        env:
+          FEISHU_APP_ID:     ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_BASE_TOKEN: ${{ secrets.FEISHU_BASE_TOKEN }}
+        run: |
+          # 将 FEISHU_BASE_TOKEN 写入 schema.json（供脚本读取）
+          mkdir -p scripts/feishu
+          node -e "
+            const s = {
+              app_token: process.env.FEISHU_BASE_TOKEN,
+              tables: JSON.parse(process.env.FEISHU_TABLE_IDS || '{}'),
+              created_at: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            };
+            require('fs').writeFileSync('scripts/feishu/schema.json', JSON.stringify(s, null, 2));
+          "
+          npm run feishu:podcast:sync || echo "⚠️  飞书同步失败，跳过（本地 JSON 不变）"
+        continue-on-error: true
+
+      # ── 第三步：提交本地 JSON 变更 ───────────────────────────────────────────
       - name: Commit and push data updates
+        id: commit
         run: |
           if git diff --quiet -- data/podcast-dashboard/config.json data/podcast-dashboard/episodes-cache.json data/podcast-dashboard/snapshots.json; then
             echo "No podcast data changes to commit."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -47,3 +73,69 @@ jobs:
           git add data/podcast-dashboard/config.json data/podcast-dashboard/episodes-cache.json data/podcast-dashboard/snapshots.json
           git commit -m "chore: update podcast dashboard snapshot"
           git push
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+      # ── 第四步：有新数据才同步 Worker 运行时密钥并重新部署 ────────────────────
+      - name: Prepare Worker runtime secrets
+        if: steps.commit.outputs.has_changes == 'true'
+        id: runtime-secrets
+        env:
+          WORKER_GITHUB_TOKEN: ${{ secrets.WORKER_GITHUB_TOKEN }}
+          KA21_ADMIN_USERNAME: ${{ secrets.KA21_ADMIN_USERNAME }}
+          KA21_ADMIN_PASSWORD: ${{ secrets.KA21_ADMIN_PASSWORD }}
+          KA21_ADMIN_SESSION_SECRET: ${{ secrets.KA21_ADMIN_SESSION_SECRET }}
+          KA21_ADMIN_BEARER_TOKEN: ${{ secrets.KA21_ADMIN_BEARER_TOKEN }}
+          KA21_TUTORIAL_ACCESS_PASSWORD: ${{ secrets.KA21_TUTORIAL_ACCESS_PASSWORD }}
+          KA21_TUTORIAL_ACCESS_SECRET: ${{ secrets.KA21_TUTORIAL_ACCESS_SECRET }}
+          WECHAT_APP_ID: ${{ secrets.WECHAT_APP_ID }}
+          WECHAT_APP_SECRET: ${{ secrets.WECHAT_APP_SECRET }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const secretMap = {
+            GITHUB_TOKEN: process.env.WORKER_GITHUB_TOKEN,
+            KA21_ADMIN_USERNAME: process.env.KA21_ADMIN_USERNAME,
+            KA21_ADMIN_PASSWORD: process.env.KA21_ADMIN_PASSWORD,
+            KA21_ADMIN_SESSION_SECRET: process.env.KA21_ADMIN_SESSION_SECRET,
+            KA21_ADMIN_BEARER_TOKEN: process.env.KA21_ADMIN_BEARER_TOKEN,
+            KA21_TUTORIAL_ACCESS_PASSWORD: process.env.KA21_TUTORIAL_ACCESS_PASSWORD,
+            KA21_TUTORIAL_ACCESS_SECRET: process.env.KA21_TUTORIAL_ACCESS_SECRET,
+            WECHAT_APP_ID: process.env.WECHAT_APP_ID,
+            WECHAT_APP_SECRET: process.env.WECHAT_APP_SECRET,
+          };
+          const filtered = Object.fromEntries(
+            Object.entries(secretMap).filter(([, value]) => typeof value === 'string' && value.length > 0)
+          );
+          fs.writeFileSync('.cloudflare-runtime-secrets.json', JSON.stringify(filtered, null, 2));
+          console.log(`Prepared ${Object.keys(filtered).length} Worker runtime secrets.`);
+          NODE
+          count=$(node <<'NODE'
+          const fs = require('fs');
+          const data = JSON.parse(fs.readFileSync('.cloudflare-runtime-secrets.json', 'utf8'));
+          process.stdout.write(String(Object.keys(data).length));
+          NODE
+          )
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+      - name: Sync Worker runtime secrets
+        if: steps.commit.outputs.has_changes == 'true' && steps.runtime-secrets.outputs.count != '0'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler secret bulk .cloudflare-runtime-secrets.json
+
+      - name: Warn when Worker runtime secrets are missing
+        if: steps.commit.outputs.has_changes == 'true' && steps.runtime-secrets.outputs.count == '0'
+        run: |
+          echo "::warning::No Worker runtime secrets were synced. Cloudflare write APIs will stay read-only until WORKER_GITHUB_TOKEN and the related admin/tutorial secrets are configured in GitHub Actions secrets."
+
+      - name: Build for Cloudflare
+        if: steps.commit.outputs.has_changes == 'true'
+        run: npx opennextjs-cloudflare build
+
+      - name: Deploy to Cloudflare Workers
+        if: steps.commit.outputs.has_changes == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx opennextjs-cloudflare deploy

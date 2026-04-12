@@ -1,0 +1,97 @@
+name: Deploy Cloudflare Worker
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.17.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Worker runtime secrets
+        id: runtime-secrets
+        env:
+          WORKER_GITHUB_TOKEN: ${{ secrets.WORKER_GITHUB_TOKEN }}
+          KA21_ADMIN_USERNAME: ${{ secrets.KA21_ADMIN_USERNAME }}
+          KA21_ADMIN_PASSWORD: ${{ secrets.KA21_ADMIN_PASSWORD }}
+          KA21_ADMIN_SESSION_SECRET: ${{ secrets.KA21_ADMIN_SESSION_SECRET }}
+          KA21_ADMIN_BEARER_TOKEN: ${{ secrets.KA21_ADMIN_BEARER_TOKEN }}
+          KA21_TUTORIAL_ACCESS_PASSWORD: ${{ secrets.KA21_TUTORIAL_ACCESS_PASSWORD }}
+          KA21_TUTORIAL_ACCESS_SECRET: ${{ secrets.KA21_TUTORIAL_ACCESS_SECRET }}
+          WECHAT_APP_ID: ${{ secrets.WECHAT_APP_ID }}
+          WECHAT_APP_SECRET: ${{ secrets.WECHAT_APP_SECRET }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const secretMap = {
+            GITHUB_TOKEN: process.env.WORKER_GITHUB_TOKEN,
+            KA21_ADMIN_USERNAME: process.env.KA21_ADMIN_USERNAME,
+            KA21_ADMIN_PASSWORD: process.env.KA21_ADMIN_PASSWORD,
+            KA21_ADMIN_SESSION_SECRET: process.env.KA21_ADMIN_SESSION_SECRET,
+            KA21_ADMIN_BEARER_TOKEN: process.env.KA21_ADMIN_BEARER_TOKEN,
+            KA21_TUTORIAL_ACCESS_PASSWORD: process.env.KA21_TUTORIAL_ACCESS_PASSWORD,
+            KA21_TUTORIAL_ACCESS_SECRET: process.env.KA21_TUTORIAL_ACCESS_SECRET,
+            WECHAT_APP_ID: process.env.WECHAT_APP_ID,
+            WECHAT_APP_SECRET: process.env.WECHAT_APP_SECRET,
+          };
+          const filtered = Object.fromEntries(
+            Object.entries(secretMap).filter(([, value]) => typeof value === 'string' && value.length > 0)
+          );
+          fs.writeFileSync('.cloudflare-runtime-secrets.json', JSON.stringify(filtered, null, 2));
+          console.log(`Prepared ${Object.keys(filtered).length} Worker runtime secrets.`);
+          NODE
+          count=$(node <<'NODE'
+          const fs = require('fs');
+          const data = JSON.parse(fs.readFileSync('.cloudflare-runtime-secrets.json', 'utf8'));
+          process.stdout.write(String(Object.keys(data).length));
+          NODE
+          )
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+      - name: Sync Worker runtime secrets
+        if: steps.runtime-secrets.outputs.count != '0'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler secret bulk .cloudflare-runtime-secrets.json
+
+      - name: Warn when Worker runtime secrets are missing
+        if: steps.runtime-secrets.outputs.count == '0'
+        run: |
+          echo "::warning::No Worker runtime secrets were synced. Cloudflare write APIs will stay read-only until WORKER_GITHUB_TOKEN and the related admin/tutorial secrets are configured in GitHub Actions secrets."
+
+      - name: Build for Cloudflare
+        env:
+          NODE_ENV: production
+        run: npm run build:cloudflare
+
+      - name: Deploy to Cloudflare Workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx opennextjs-cloudflare deploy

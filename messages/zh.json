@@ -26,7 +26,8 @@
     "backToTop": "返回顶部",
     "retry": "重试",
     "loadFailed": "加载失败，请稍后重试",
-    "totalCount": "共 {count} 个"
+    "totalCount": "共 {count} 个",
+    "menuPersonal": "个人网站"
   },
   "Home": {
     "subtitle": "真人手测，只留100个好用AI牛马",
@@ -48,8 +49,8 @@
   },
   "Search": {
     "results": "搜索结果",
-    "subtitle": "在AI工具导航中找到最适合您的工具",
-    "searchPlaceholder": "搜索AI工具名称、描述...",
+    "subtitle": "在AI工具导航中找到最适合您的工具和教程",
+    "searchPlaceholder": "搜索工具、教程或作者...",
     "searchAction": "搜索",
     "allTools": "所有工具",
     "categoryPrefix": "分类:",
@@ -58,18 +59,16 @@
     "linkCopied": "链接已复制到剪贴板!",
     "breadcrumbLabel": "导航路径",
     "unknownCategory": "未知分类",
-    "inputAriaLabel": "搜索工具",
+    "inputAriaLabel": "搜索工具和教程",
     "clearAction": "清除搜索"
-  }
-  ,
+  },
   "Sort": {
     "label": "排序方式:",
     "default": "默认排序",
     "recommend": "推荐排序",
     "newest": "最新排序",
     "name": "名称排序"
-  }
-  ,
+  },
   "TutorialSort": {
     "label": "排序方式:",
     "latestFirst": "最新优先",
@@ -94,8 +93,7 @@
     "utilsLabel": "四次元小工具",
     "tutorialsLabel": "萌新教程",
     "strategyNote": "末位淘汰 只留好用100个AI牛马"
-  }
-  ,
+  },
   "Categories": {
     "writing": "写文案",
     "image": "做设计",
@@ -103,7 +101,8 @@
     "audio": "听声音",
     "office": "办办公",
     "coding": "写代码",
-    "utils": "小工具"
+    "utils": "小工具",
+    "misc": "其他工具"
   },
   "ToolList": {
     "emptyTitle": "没有找到匹配的工具",
@@ -112,18 +111,15 @@
   "Error": {
     "generalTitle": "抱歉，出现了一些问题",
     "generalHint": "我们正在努力修复这个问题。请稍后再试。"
-  }
-  ,
+  },
   "Access": {
     "direct": "直达",
     "proxy": "魔法",
     "visit": "访问"
-  }
-  ,
+  },
   "ToolDetail": {
     "back": "返回"
-  }
-  ,
+  },
   "LlmArticles": {
     "title": "大模型文章",
     "filters": {
@@ -133,8 +129,7 @@
       "analysis": "技术分析"
     },
     "empty": "暂无该分类下的文章。"
-  }
-  ,
+  },
   "Hot": {
     "title": "本周精选",
     "subtitle": "每周手动更新，直接看最值得试的工具",
@@ -167,8 +162,7 @@
       "title": "学习成长工具",
       "subtitle": "持续精进，让AI陪你学习"
     }
-  }
-  ,
+  },
   "CategoryDesc": {
     "writing": "写作、聊天、智能问答",
     "image": "画图、修图、海报设计",
@@ -176,6 +170,7 @@
     "audio": "配音、音乐、语音转文字",
     "office": "PPT、文档、表格处理",
     "coding": "代码生成、编程助手",
-    "utils": "效率神器、实用工具"
+    "utils": "效率神器、实用工具",
+    "misc": "尚未归入主分类的其他工具"
   }
 }

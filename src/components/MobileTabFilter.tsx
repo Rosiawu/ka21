@@ -77,21 +77,21 @@ export default function MobileTabFilter({
           onClick={() => selectCategory('all')}
           className={`flex-shrink-0 px-4 py-2 mr-2 rounded-full text-sm whitespace-nowrap transition-colors ${
             !selectedToolCategory 
-              ? 'bg-blue-600 text-white' 
+              ? 'bg-[#e06b6b] text-white'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
           }`}
         >
           全部
         </button>
-        
+
         {TOOL_CATEGORIES.map((cat) => (
           <button
             key={cat.id}
             id={`tab-${cat.id}`}
             onClick={() => selectCategory(cat.id)}
             className={`flex-shrink-0 px-4 py-2 mr-2 rounded-full text-sm whitespace-nowrap transition-colors ${
-              selectedToolCategory === cat.id 
-                ? 'bg-blue-600 text-white' 
+              selectedToolCategory === cat.id
+                ? 'bg-[#e06b6b] text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >

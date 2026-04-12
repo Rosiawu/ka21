@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import { extractEventFromSourceUrl } from '@/lib/events/extractor';
-import { requireAdminAccess } from '@/lib/security/admin';
 import { beginConcurrencyLease, enforceRateLimit } from '@/lib/security/rate-limit';
+import { requireTutorialImportAccess } from '@/lib/security/tutorial-access';
 
 export async function POST(request: Request) {
-  const adminError = requireAdminAccess(request);
-  if (adminError) {
-    return adminError;
+  const tutorialAccessError = requireTutorialImportAccess(request);
+  if (tutorialAccessError) {
+    return tutorialAccessError;
   }
 
   const rateLimitResponse = enforceRateLimit(request, {

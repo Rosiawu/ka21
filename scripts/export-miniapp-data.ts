@@ -8,6 +8,7 @@ import weeklyPicksData from '../src/data/weekly-picks.json';
 import tutorialFulltextData from '../src/data/miniapp-tutorial-fulltext.json';
 import { TOOL_CATEGORIES } from '../src/data/toolCategories';
 import { teamMembers } from '../src/data/team-members';
+import { MINIAPP_ASSET_BASE_URL } from '../src/lib/miniapp/constants';
 
 type ToolRecord = {
   id: string;
@@ -61,7 +62,7 @@ const outputDir = path.join(rootDir, 'miniprogram', 'data');
 const targetPublicDir = path.join(rootDir, 'miniprogram', 'public');
 const tutorialCoverSourceDir = path.join(rootDir, 'public', 'images', 'tutorials');
 const tutorialCoverOutputDir = path.join(rootDir, 'miniprogram', 'tutorial-covers');
-const assetBaseUrl = (process.env.MINIAPP_ASSET_BASE_URL || 'https://ka21.tools').replace(/\/+$/, '');
+const assetBaseUrl = MINIAPP_ASSET_BASE_URL.replace(/\/+$/, '');
 
 const MINIAPP_CATEGORY_ICONS: Record<string, string> = {
   writing: '/icons/categories/pen.svg',

@@ -1,11 +1,12 @@
 module.exports = {
-  "updatedAt": "2026-02-28T06:38:23.730Z",
-  "total": 93,
+  "updatedAt": "2026-04-01T07:45:31.493Z",
+  "total": 106,
   "items": [
     {
       "id": "tutorial-mp-weixin-qq-com-liblib-2-0-深度体验-一个平台搞定全部ai创作-0",
       "url": "https://mp.weixin.qq.com/s/5gxIVENZfSMY4VI2f8XiKg",
       "title": "别再死磕AI模型了，你的精力正在被严重消耗。",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsibXT2ZcyYiaDKe7ickeKWbJ9NhibTF90p92s9MUaOLPIKvrLSw5qhMG7aCtaCibjLfsY3nnGsZ3D0InDA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -14,12 +15,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:11.714Z"
+      "cachedAt": "2026-02-28T10:38:17.072Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-PS危谷歌新模型实测人物一致性稳了P图绝了-0",
       "url": "https://mp.weixin.qq.com/s/KVnOqlsk-c_RHIGfDBjWww",
       "title": "PS危！谷歌香蕉模型实测：人物一致性稳了，P图绝了！（内附教程，这3个地方能用到它！）",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs8vSFCZRwpCKu61SeSVwjn09Co2obScacqeEbWeQtQBTEicIgfnrqPSHwiavLTia3Z6pA9ibOgAA1mibww/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -504,12 +506,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:11.454Z"
+      "cachedAt": "2026-02-28T10:38:17.403Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-IP动画进阶创作教程结合emoji图片生成以及短片创作智能体Seko-0",
       "url": "https://mp.weixin.qq.com/s/Edy7hWhWVpcoCwcpgTFlpA",
       "title": "IP动画进阶创作教程|结合emoji图片生成以及短片创作智能体Seko",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaz6OLJkKZUGcpc4nYKksYJrGUtWGz5XHkomE5szicuJ4OecQPCfibl85ZS6OLibTmWdGq85oViayjslUQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -518,12 +521,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:11.218Z"
+      "cachedAt": "2026-02-28T10:38:16.428Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我用AI上线一个插件后，整理了一份小白也能用的AI编程指南-0",
       "url": "https://mp.weixin.qq.com/s/ZtCOjDWcJvG8xcPOa5lFaQ",
       "title": "我用AI上线一个插件后，整理了一份小白也能用的AI编程指南",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/ThHvgaTIUCYDr1y9baPNEcAmFLghGXXaccZNYxgT04JQ0usoFww1RCGqSGP05hcnR6svaLHycH3nibicKewj7q5g/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -1119,12 +1123,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:10.942Z"
+      "cachedAt": "2026-02-28T10:38:16.760Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我用8小时做了一张专辑Tunee包揽了词曲演唱和MV-0",
       "url": "https://mp.weixin.qq.com/s/iE-fpSXzwxiSL00A4ooNZQ",
       "title": "我用8小时做了一张专辑，Tunee包揽了词曲演唱和MV",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs8lw8al97skjNibncRaDehr229olplVfosWBnjtpdOUvXSxbS28FicibAic6vMtHUIxzlSowdeuURiaYmA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -1468,12 +1473,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:10.709Z"
+      "cachedAt": "2026-02-28T10:38:17.735Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-无限画布+多模态AI=王炸？这个Agent比你用过的所有AI工具都聪明！-0",
       "url": "https://mp.weixin.qq.com/s/WtxPQsvm_N9Db-HH6VvRVw",
       "title": "无限画布+多模态AI=王炸？这个Agent比你用过的所有AI工具都聪明！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs8JgKwB2aBticKibVlLMFYbxyRj9icbjxRNo0uTmQko7SdPs2ONeudBqtkdItKGHVDL7MWVfLh0w9UAQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -2086,12 +2092,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:11.931Z"
+      "cachedAt": "2026-02-28T10:38:18.121Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-22款GPT-4o提示词，轻松搞定高质量AI绘图-0",
       "url": "https://mp.weixin.qq.com/s/GBE1O_ZWv8PfyVITLZFW5A",
       "title": "《收藏必备！22款GPT-4o提示词，轻松搞定高质量AI绘图》",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP7VXq7wSgg9QfB3EJeCd6f5I93UNXiarWkjWJL9ibmxBhTJt2bLDuCFtD9xJMCNr9zdjpWiccPJ3Sjxw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -2589,12 +2596,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:12.424Z"
+      "cachedAt": "2026-02-28T10:38:18.446Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-原来，我写过豆包的18种不同教学场景下用法-0",
       "url": "https://mp.weixin.qq.com/s/i37MEU_Vrq4wQFLjWFxOIA",
       "title": "原来，我写过豆包的18种不同教学场景下用法……｜吴熳教学思考258",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhq5Qj7H7ms6myToRnhw6kyKtYXMzL9icNkFB9B6ibD9KJn2tWAKB4sOtRicArcrppHNkzAaeUnq1Sp8A/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -2674,12 +2682,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:12.166Z"
+      "cachedAt": "2026-02-28T10:38:18.787Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-爆火的毛茸茸女将军打卡视频，如何用天工MCP虚拟机全自动做好？-0",
       "url": "https://mp.weixin.qq.com/s/qRqAm73xgxZ4RzSm6EYvgQ",
       "title": "爆火的毛茸茸女将军打卡视频，如何用天工MCP虚拟机全自动做好？｜吴熳教学思考256",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhptoibj7TZt6DGWG4jjrhncpHB4s8cKGoiag7tvLdL9OjIdeX8cJibOnYn9jQugicEmqpLG0efruFIvxw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -2759,12 +2768,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:12.623Z"
+      "cachedAt": "2026-02-28T10:38:19.093Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-4000字长文+案例对比3个agent AI工具：Flowith, Lovart和Skywork-0",
       "url": "https://mp.weixin.qq.com/s/ksnvb58XR9jdNomtpWRwqQ",
       "title": "4000字长文+案例对比3个agent AI工具：Flowith, Lovart和Skywork｜吴熳教学思考251",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhqXzFa3shLy3bzxVCaOTNr97FWicMTkIOoI8rl3cJJgHsiasHSMia7oaGDIiax4cAIoWHy2jicMsCZNOrA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -2844,12 +2854,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:13.228Z"
+      "cachedAt": "2026-02-28T10:38:19.741Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级-飞书多维表格-x-deepsee-0",
       "url": "https://mp.weixin.qq.com/s/IyHPUsLaHUmxB2fyvdgh4A",
       "title": "这是一份手把手教你的保姆级 飞书多维表格 x deepseek应用教程",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/2IswqKIx37ria53ibnibmcS2icWfbg4Mc8VqhIMo5FDVmbpYxbQBe2weCMMTLmpChXD2MW60TBVCv5x4bWl6sLksBg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -3624,12 +3635,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:12.809Z"
+      "cachedAt": "2026-02-28T10:38:19.412Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-deepseek-与飞书多维表格第一弹-教师备课辅助丨附模板-1",
       "url": "https://mp.weixin.qq.com/s/GPziiTBvpwhc4rZKIQo6dQ",
       "title": "DeepSeek 与飞书多维表格第一弹，教师备课辅助丨附模板",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP8hWG8ia5B3a0TInCNnueczfkc8NMOeImwjqibsWakuVIxF51sKFbw32icia2GZCgjQt87tdd40uHJ3HA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -3846,12 +3858,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:13.020Z"
+      "cachedAt": "2026-02-28T10:38:20.040Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我的-ai-日报模板-在飞书产品群火了--2",
       "url": "https://mp.weixin.qq.com/s/bcq455ix38j9o8wnLXEPdw",
       "title": "我的【AI 日报模板】在飞书产品群火了！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsibYlbFt9TuhWFpBUColGKCWgUznDXz0Qd9M4iaic3JdoLOtq0ONiaOfL8MYo495s8RPpUxGLIa0DeViaA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -4215,12 +4228,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:13.456Z"
+      "cachedAt": "2026-02-28T10:38:20.417Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-效率大翻倍-把deepseek装进飞书表格-自动反推ai绘图-3",
       "url": "https://mp.weixin.qq.com/s/1WUe_mNbxjpNnCrHEuFsEw",
       "title": "效率大翻倍！把DeepSeek装进飞书表格，自动反推AI绘图咒语丨附模板",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaefW7iaD22c8R8kNa4zUuw4pdxaKEglFSGk7wbEo44xk01cQibQroWBFNenAbE9smCN6yq3u9zLtib3g/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -4500,12 +4514,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:13.709Z"
+      "cachedAt": "2026-02-28T10:38:20.714Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-deepseek-飞书多维表格-做了提示词2-0小助手和一个-4",
       "url": "https://mp.weixin.qq.com/s/HESO4TCixsOz-nVLGT_BTQ",
       "title": "DeepSeek+飞书多维表格，做了提示词2.0小助手和一个有趣的表格！模板请查收",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacbks4Xib9lW7zH69RaWK2GKGqXnGrnYia7EeguOia7h066INgElICkI0B1VUxvahdVlmAIzEzsUtlqw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -4631,12 +4646,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:13.899Z"
+      "cachedAt": "2026-02-28T10:38:21.031Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-deepseek赋能多维表格-自动写口播文案-生成分镜-工作-5",
       "url": "https://mp.weixin.qq.com/s/ia8fXAcDcCC_3a3Ln5fI3Q",
       "title": "DeepSeek赋能多维表格，自动写口播文案，生成分镜，工作流详细拆解",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/DzKXF0rI5svBUhuoXjAHyqzFoL81E4EGy6V77fxNU7776aSsEfxTez2YV3qMGXGxo1BfWYcbiaa8lb67XgQNV7A/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -4928,12 +4944,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:14.308Z"
+      "cachedAt": "2026-02-28T10:38:21.340Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-这是一份手把手教你的保姆级本地部署大模型教程-6",
       "url": "https://mp.weixin.qq.com/s/sEJffFI2AHHxGNxAmTy_PA",
       "title": "这是一份手把手教你的保姆级本地部署大模型教程",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/2IswqKIx37oWN4B13UO8PiblZdcyglFSciaNC97jsT3KBuOsCicWavr15HDT13POeHWktQ1XZM8Jsaz3HIgzJXV3g/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -5196,98 +5213,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:14.093Z"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-claude-3-7与deepseek比美-7",
-      "url": "https://mp.weixin.qq.com/s/2eFNS2Ae0NxDgYOr5VthWw",
-      "title": "Claude 3.7与DeepSeek比美",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "话说DeepSeek刚出道那会儿，就以一手好文笔惊艳四座。坊间传闻，DeepSeek的训练语料可是找北大中文系的大神们亲自操刀标注的。这下子，咱总算明白为啥人家文笔这么好了，北大中文系的高材生，妙笔生花那还不是理所应当的嘛！"
-        },
-        {
-          "type": "paragraph",
-          "text": "再看看OpenAI和Gemini，在中文的理解和表达上，总感觉还差那么点儿意思。OpenAI呢，更擅长写那种像论文一样严谨、格式化的东西，可能跟他们一直宣称用代码喂养ChatGPT有关，妥妥的“理工直男”范儿。至于Gemini，估计是油管上的视频刷多了（毕竟谷歌确实用油管视频来训练模型），中文内容倒是能输出，但总感觉有点儿散，离“优美”二字还差得远呢。"
-        },
-        {
-          "type": "paragraph",
-          "text": "而咱们的DeepSeek，那可真是“可盐可甜”！既能化身贴吧里“口吐芬芳”的“老哥”，也能秒变温柔体贴的“知心闺蜜”，寂寞时给你送温暖，开心时陪你一起嗨。不管是工作上需要的那种严肃正经的公文，还是能把情绪价值拉满的“小作文”，DeepSeek都能轻松hold住。可以说，DeepSeek直接刷新了整个中文社区对生成式AI模型的认知！"
-        },
-        {
-          "type": "paragraph",
-          "text": "说到这儿，就不得不提一下Claude，它可是我之前的心头好。在DeepSeek横空出世之前，Claude就以出色的交互能力和极具美感的文字生成能力而闻名。直到现在，大名鼎鼎的AI编程工具Cursor还宣称，在他们的统计数据中，绝大多数用户仍然认为Claude 3.5 Sonnet是使用体验最佳的代码生成模型。这当然也跟Claude的创始人制定的技术路线有关，他们一直非常重视安全，以严格的SFT对齐和“无情”的封号规则而著称。"
-        },
-        {
-          "type": "paragraph",
-          "text": "而这次Claude 3.7 Sonnet发布后，我也第一时间去体验了一把，用的还是《我们生活在南京》这部小说，然后，我竟然有点儿热泪盈眶！终于，第一个在某种意义上，符合人类审美的AI模型出现了！当我把整个故事的时间线输入进去，让它按照电影的三幕式叙事结构进行拆分时，它竟然能准确地把握节奏和三幕结构！虽然还是会不可避免地出现一些“幻觉”，产出的结果也不是那么完美，但这可是从0到1的质变啊！"
-        },
-        {
-          "type": "paragraph",
-          "text": "综合我的体验，总结下来有这么几点："
-        },
-        {
-          "type": "list",
-          "text": "• 内容审核更宽松了： 以前很多输入进去就会被直接屏蔽的内容，现在可以正常输入输出了。要知道，那部小说里可是有“核爆”剧情的，以前的模型一看到这几个字就立马“打咩”了，现在它能意识到这只是虚构的情节，并不会对现实世界造成危害，这进步可不是一星半点儿！"
-        },
-        {
-          "type": "list",
-          "text": "• 推理速度更快了： Claude 3.7的推理过程明显比其他模型快，不管是ChatGPT-4o、Gemini 2.0 Pro还是DeepSeek R1，用相同的提示词，Claude 3.7的思考时间明显更短，但思考的深度却丝毫不减。"
-        },
-        {
-          "type": "list",
-          "text": "• “智能”思考： Claude 3.7在面对不同问题时，思考时间明显不同，也就是说，它在一定程度上可以识别简单问题和复杂问题，并用不同的思考时间来应对，避免出现“想太多反而做错”的情况。"
-        },
-        {
-          "type": "paragraph",
-          "text": "不过，还是有一些小遗憾："
-        },
-        {
-          "type": "list",
-          "text": "• 既然只是3.7版本号，说明在Anthropic公司内部，他们仍然认为它并没有达到一个全新的层次，还不能扛起“4”这个版本号，只能算是3.5的优化版。"
-        },
-        {
-          "type": "list",
-          "text": "• 没有整合非推理模型和推理模型，现在必须手动选择推理模型，而新开一个会话，默认提供的是非推理模型，多了一步选择操作，略显繁琐。"
-        },
-        {
-          "type": "list",
-          "text": "• 多语言支持能力似乎有所下降，或者说优化还不到位。我用中文提问，大多数时候得到的都是英文回答，必须手动在提示词里加上一句“请用中文回答”。"
-        },
-        {
-          "type": "paragraph",
-          "text": "但总的来说，Claude 3.7确实进步了，这也证明了Claude依然顽强地站在第一梯队，并没有被远远甩在身后。"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果让我用几个形象来描述这几个模型给我的整体印象，我会这样说："
-        },
-        {
-          "type": "list",
-          "text": "• DeepSeek： 活泼可爱的“大小姐”，出身名门，自带五千年文明的深厚底蕴和文化自信，但毕竟年纪尚轻，有时候做事难免有些毛手毛脚（幻觉率较高）。"
-        },
-        {
-          "type": "list",
-          "text": "• ChatGPT： 戴着厚厚眼镜片的“理工学霸”，成绩确实是数一数二，但情商嘛……恐怕得垫底。现在正努力学习怎么说“情话”，但骨子里的那股“机械感”还是挥之不去。"
-        },
-        {
-          "type": "list",
-          "text": "• Gemini： 多金的“富二代”，什么都会一点儿，但似乎总拿不到第一。性格有点儿散漫，总是带着一种漫不经心的态度，但你还真惹不起他。"
-        },
-        {
-          "type": "list",
-          "text": "• Claude： 戴着无框眼镜的蓝发“学姐”，学习刻苦，严于律己，有一种理性而冷冽的美感。以前可能会让人觉得有点儿高冷，难以接近，但现在似乎更成熟了，也开始慢慢学会与人共情，会露出温柔的微笑。"
-        }
-      ],
-      "fallback": false,
-      "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:14.542Z"
+      "cachedAt": "2026-02-28T10:38:21.761Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-理科老师狂喜-ai一键生成互动公式动画-再也不用求flash-8",
       "url": "https://mp.weixin.qq.com/s/bkMQKUMzywUpYqiUKHPsZg",
       "title": "理科老师狂喜！AI一键生成互动公式动画，再也不用求Flash课件了",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP8fc9Mw89FnBMmFs8xibicn0udDuaOPVlOQOELpjwkDTB68UhJib45VdvqTfX5fsEYMOCcMsbpuVLECQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -5521,12 +5453,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:14.741Z"
+      "cachedAt": "2026-02-28T10:38:22.388Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-用-ai-花三分钟写个html小游戏-编程小白也能秒变游戏大-9",
       "url": "https://mp.weixin.qq.com/s/6CDALyIMZnEp7AyVws7Jeg",
       "title": "用 AI 花三分钟写个html小游戏，编程小白也能秒变游戏大师！文末附小游戏提示词",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/j8aBYW69YPjRIdv7ovo4v0EycYu99hKGC4yYOCsibXP0jKKz7LKvN4dYr3H5EdibwmuHdsXgDnTe5Np3HQgzZkfQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -5786,12 +5719,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:15.098Z"
+      "cachedAt": "2026-02-28T10:38:23.024Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-leonardo-ai-手机客户端-免费用户也能玩得开心--0",
       "url": "https://mp.weixin.qq.com/s/GtkGQ_AxNuaM_smOM8Y3sA",
       "title": "Leonardo.Ai 手机客户端，免费用户也能玩得开心！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiae6LgxJw5KNoz3zwShfVfMqUa9G2xUriaIibLmfCNT3tq4rYeTtqf5LdKkQ0nDTPic2PB1lOUJE13SUA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -5808,12 +5742,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:14.892Z"
+      "cachedAt": "2026-02-28T10:38:22.676Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-面试3个画图的外籍ai员工-谁审美最好-0",
       "url": "https://mp.weixin.qq.com/s/nPLINBrkmyZz1ygqkq8aLg",
       "title": "面试3个画图的外籍AI员工，谁审美最好（文末附彩蛋）|吴熳教学思考143",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhqq3aax4bsbTHmEr7siaU1HUycvFKmRgMDj4PtHwTsWAicelVzty7qMtmVSTByX1I4VVlRBibqXsmePQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -5898,12 +5833,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:15.566Z"
+      "cachedAt": "2026-02-28T10:38:23.448Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-接入deepseek后的自由画布-做ppt还真的有点强--0",
       "url": "https://mp.weixin.qq.com/s/eAxN4Oocf3wKlV7-i1ushQ",
       "title": "接入DeepSeek后的自由画布，做PPT还真的有点强。",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURqv2a9ly5GH2r3ySogDICQbw2h55RHhpoAYLZGZjANvOqqWeJuVtMsXQpTslVia5gg6A1ibC5DM868w/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -6330,12 +6266,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:15.378Z"
+      "cachedAt": "2026-02-28T10:38:23.750Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-不得不说-百度自由画布-能快速从视频-链接和ppt中生成新课-1",
       "url": "https://mp.weixin.qq.com/s/y-46umIQRxjItIfHZo0Zwg",
       "title": "不得不说，百度自由画布，能快速从视频、链接和PPT中生成新课件，真有点东西！|吴熳教学思考114",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhoc9R0Y3WEUXdnK9pia1hEiaZrdcZJJH0TferwRxvuKlS6dfzWdZcVmW3vefMbReZRtzIpicoDOECWZw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -6632,12 +6569,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:15.762Z"
+      "cachedAt": "2026-02-28T10:38:24.393Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-零门槛教程-手把手教你用3款工具一键生成-万物开花-爆款特效-0",
       "url": "https://mp.weixin.qq.com/s/U7rU5gPgPkhRkybjZ2RIiw",
       "title": "零门槛教程！手把手教你用 3 款工具一键生成 “万物开花” 爆款特效",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXYXOqB8icxkzfWA6MWicibXToznpdsrusSgNyGlqOm2QMd6vGGfxk7eFHSW2UIa3tn1HUL4qb4T6Nazg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -6758,462 +6696,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:15.956Z"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-爆肝整理国内ai生图工具免费指南-亲测好用工具-图片效果对比-1",
-      "url": "https://mp.weixin.qq.com/s/VcuUp5p96jSDYUV9TGzmuA",
-      "title": "爆肝整理国内AI生图工具免费指南，亲测好用工具+图片效果对比图！",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "嗨大家好！"
-        },
-        {
-          "type": "paragraph",
-          "text": "经常有朋友问我，你用AI绘画工具生成了这么多AI图片，觉得哪个工具最好用？哪些可以免费体验？效果怎么样？今天总结一些免费的AI绘画的渠道，工具太多了不可能写全，这里主要分享相对主流的，大家如果有觉得更好用的，欢迎在评论区留言一起交流分享！"
-        },
-        {
-          "type": "paragraph",
-          "text": "我的汇总从国内的工具到国外的工具，国外工具大家懂的，需要一些方法，所以这里大家稍微注意下，没有**的优先国内工具哦。"
-        },
-        {
-          "type": "paragraph",
-          "text": "防杠备注："
-        },
-        {
-          "type": "paragraph",
-          "text": "用的都是工具送的积分的基础功能生成，可能存在有的会员效果更好，但是这篇只讨论可免费试用的部分。有关积分信息是进入网站查看的，有不准的地方敬请见谅。"
-        },
-        {
-          "type": "paragraph",
-          "text": "这里会使用其默认的通用模型，展示生成的图片，大家可以来评论效果。不过可能有的工具确实擅长某单个或者几个风格的图片，这里用的提示词不是它擅长的领域也有可能。总之不是一个非常权威和客观的对比，大家就看看，然后收集一些工具网站就好啦！"
-        },
-        {
-          "type": "paragraph",
-          "text": "越写越多，最后发现写不完了，这个就作为上篇国内版吧，下篇下期再说了（狗头保命溜走.jpg）"
-        },
-        {
-          "type": "paragraph",
-          "text": "以下是建议的评价维度："
-        },
-        {
-          "type": "list",
-          "text": "1. 画质与细节精度 评估画作的画质、细节和纹理表现，是否达到预期精度。"
-        },
-        {
-          "type": "list",
-          "text": "2. 风格一致性 检测不同风格间转换的自然度和一致性。"
-        },
-        {
-          "type": "list",
-          "text": "3. 场景与构图表现 评价复杂场景和人物的比例、光影和构图的处理效果。"
-        },
-        {
-          "type": "list",
-          "text": "4. 创意适应性与提示理解度 测试AI对不同创意提示的理解和生成的适应能力。"
-        },
-        {
-          "type": "heading",
-          "text": "测试用提示词："
-        },
-        {
-          "type": "paragraph",
-          "text": "以下是每个AI绘画工具将要接受的考验，提示词都是一样的。国内国外使用本地语言的提示词。我们使用四组不同风格的绘画提示词，结合上述的评价维度：　1. 生成一幅现代女性肖像摄影作品，光线柔和，背景简洁，强调面部表情的细腻捕捉，突出自然光影效果。　Generate a modern female portrait photography, with soft lighting, a simple background, emphasizing delicate facial expression capture, and highlighting natural light and shadow effects.　2. 创作一幅动物插画，表现一只栩栩如生的猫，背景为春天的森林，色彩鲜明，毛发的细节精准，风格卡通。　Create an animal illustration of a lifelike cat, set in a spring forest background, with vivid colors, precise fur details, and a cartoon style.　3. 设计一幅赛博朋克风格的机器人，未来感强烈，金属外壳上有霓虹灯光，机器人姿势动态十足，背景为科技都市。　Design a cyberpunk-style robot with a strong futuristic feel, neon lights on its metallic surface, dynamic posture, set against a tech city background.　4. 绘制一幅3D风格的蒸汽火车，结合复古与可爱的元素，精细的质感，浓厚的烟雾效果，背景为工业化城市。　Draw a 3D-style steam train combining vintage and cute elements, with intricate textures and dense smoke effects, set against the backdrop of an industrialized city."
-        },
-        {
-          "type": "paragraph",
-          "text": "下面是工具与链接和生成图片的展示，没有先后排名，轮到哪个就哪个："
-        },
-        {
-          "type": "heading",
-          "text": "1. 即梦"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://jimeng.jianying.com/ai-tool/有APP每天有积分赠送，前一天花费积分越多第二天更有机会获得更多积分，区间在60-100左右可以生成中文即梦和豆包是亲戚，所以图片相似度高是比较正常的，但可以看出精度上即梦大部分还是更胜一筹，猜测是因为即梦是专攻这个方向？生成速度快推荐"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyWLXrxkXdAP1JJKc7zZx1ic3X0eaCQ9dbiburdFeoZGvqeLCAe1UWQfUA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyHbymruNXlz1WeiaBkRWZVVNuicEg13P5RbFMH0Nib6txezdaiatk4aNTXA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsybJPohhBH0XFaMQ9HLH8mzYqapy3YSCE8z309ictUicnZeEYsTAKQK5KA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyXnrTEuOLCUobVZ0gxEOW8bmtTdiad90cO2khXdFfQqNZxYmLrcN7xoQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "2.豆包"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://www.doubao.com/chat/有APP对话框对话，每天可生图80组左右（模糊估算）可以生成中文生成速度快"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsymrCqF1vJg7icXD9cpX1IslmWBezVRGeSkjmicpI7I1A3cPRfbaR8avxg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyaYeSflCJP0GNsePqwKVRbPHqWba521PjZIADUV0OGIfYZ9RxsCtBicA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsy223Gm4wvSwDMcqR9fwBGpianDQLFG39Ziaz4HAGlmZVrlic5RjBHjVcfw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyffZal46bjZIpJXMH1xlVk4tIHfEfxTibF3Q5FfQaucxuichNlX3JBEiag/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "3.堆友AI反应堆"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://d.design/ai/edit每日登录赠送80堆豆有一些有趣的效果，比如最近比较火的照片变非遗剪纸、毛毡玩具等可以体验风格大模型FLUX1.1 PRO (25堆豆一张)，但只能看见充满水印的输出图生成速度一般，但质量很不错推荐"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsybiaNER0JDgbpeoSXltle9xbvHEyMEZLKx1niaQW8RoXQKPfp6nTqylJQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsy07yeqOicoY5xLLqBf3cBGKUkibspx60K97rKpxEBoX0KZLuutNEic488g/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyPbqgmbJttviaB2r9vE1e6SPvSb5Xou03Gx8JcPV0iaIo2YcvG5uARaibA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsywfkib4C7vjEE6T2HoWyeiaILCS791tFlUpuyEc6aLKWevFHbVnzFqeLg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "4.无界AI"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://www.wujieai.com/ai注册送永久积分50，每日登录送30生成速度一般有APP"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyEjQYTFQNg3kXgzJgBjVG2gR54bfLSlMhAbk4o8AodbIolKmVIRe1yw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyY54UucGpySs5uv5qonYia2z9oeVP4bPDw8icx2iaBa1tCBTOePkaDrbbw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyhEK9vT2aGZrSUL0WhIbRHSODuHxxO3WK3bhSib2cDsUvt2YDFbtVPoQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyf5QE6P9dejGXRdrz5ZHh0PMSBg7pOVUVMTPtw5Cn92Guh2sQcIsbhw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "5.秒画（商汤）"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://miaohua.sensetime.com/每日登录送10次基础生图连续登录和发布任务可以赚无限卡"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsya3whKkvsw45I3a982XE7Up8lUvm3t5hic36IacmPG26CNBejcpM9Weg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyHFw2oZkMegSia2lkCpgaQGuQy0bPbibriafJQQichYth7PwzHmMUG7crgg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsye6YD59yEgiabribxTibXnSXrAem8Mzs3iaPvcVlQS8WibZOcU9rL177dXBA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyHbUZGIPltUGtsaEBVLoWAdLpzSmXic1Z9HAl9qiaPEOBpreEBicFBUeDg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "6.LiblibAI"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://www.liblib.art/每日登录送300算力有电脑客户端免费用户一般需要等待比较久时间入门稍难，需要一定Stable Diffusion基础知识本次测试没有使用LoRA和负向提示词，仅使用较为热门的该分类大模型和默认参数设置，对生图效果影响较大，在技能熟练的情况下，图片质量可以非常好，建议可以学习后使用"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyvLGBgbIFTjNQAmvvhaCQYCFeYHvk0fGbO3qCWoXsRHXjHF6ByzksAQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyK7urSiahDicEUw4LPbOMTv59X3hE5vx40xz0JyKZPwvgpMAUoI8mZzuw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyViaNGOpKDGiaev1WM7AR7cDVbDNwqzA5g5TuntCIzJIEVvrubjG4j6Tg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsysjLIOToLUxHicrDCrQEXSUJGUdHJtZibxYB34ibEuDfbMklOwBRic6fTVw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "7.可灵"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://klingai.kuaishou.com/每月赠送166灵感值+3次高品质生成上手很简单一键操作，单图消耗1灵感值本次4张图没有使用高品质生成可以多图排队推荐"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyj01JItHw163R9STJ0Qia8KjsBo9DPT1kQdNt0fwj8iaYXNe8ZpLQXlpQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyE37diacnYyrAiciaperl5aCnSZYeMrjxKHQjyYRXW87nwdHSBDIBVEH6w/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsylibvOIREOv8ib6KXXo0Pcnybu4hLlic3Jofy8KhYEO0rFWNWmNJwGxbUQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyoqqKDE6zqlPxkBPfwIl2RG56NibialcvUQmFw7Eiaia9cGxiaqoaT58ciaxw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "8.奇域AI"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://www.qiyuai.net/创作页内【签到】即可获得100额度任意频道分享作品，每获得 【25点亮】即可获得50额度奖励生成4张图消耗1积分偏科选手，相对擅长国风、水墨、插画等方向有个专门的奇域丨绘画模型，更适合带笔触质感的绘画"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsy3TxJm5aSYLVicCoCd4S4tc2WWPEpDtAiavtIvO639ibiagyXVB2z2CtQiag/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsykvpFQetsHuI5NnrzXEyzoPH2MiaunoQcuFsxr8eOhjJOANZ5WTnL8og/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyRaiaSZ0smoRiatbk2ykOYtk1kbSqVv4GMNCvFYCoYFvTHAsibYOibqtWhw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsygKuNZacAhZXC8hAibFvqQ0vRlOM9a1r0KH903BNU9V3l6x45iaXatRsQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "9.通义万相"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://tongyi.aliyun.com/wanxiang/上手简单，遵循提示词指数高每日签到，可获取50点灵感值，有效期30天 每日反馈，对创作结果点赞点踩可获取5点灵感值，每日上限20点，有效期30天 创作投稿，对创作结果投稿并成功采纳可获得20点灵感值，每日投稿上限6次，有效期30天有APP→通义插播一句，创意模板中有四格漫画、情侣头像、图标印花、电影分镜效果很有趣推荐"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyjm7JXvg66GeAYibzkJibjYtPjnBHyx3SnUaqHAebd4gaYdrXk3ib1qynw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyLSwvM4WhMxoFSKBFUr2HLe0Xw531sC8NpLYibuW7I2MuWKJAQ5qyQLg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyESeh0150YiczwImv3ujZY4WGkYj2T0gBW50FEhau4xfrVqbtTPQicB5Q/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsygM1opryWJRibZurOXVtCrukZbdLclecBeyJtPTurBX1ujqic2Ja7hPPQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "10.星流AI"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://www.xingliu.art/每天登录送100免费积分Liblib旗下产品，但是相对Liblib更简单容易上手，模型和lora应该大部分都是通用的非会员等待时间较长审美和质感在国内AI绘图工具中较为领先适合设计师下面测试中没有加LoRA增强模型，加了效果会更好"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyYmZPqC4ibCJG9BZ7fsU2aX1gibFI49ZCwn0MbJWc03ibczTtzUPVXO48w/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsysiaTNzxg0Ec1nhhAPxcicG06KnIoepnibj0PsAibZtu75Q6NoIX6s16KQQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyS7nyTK75n3ySZXR9L8X0ZqYE8iahVbIaGUlENOxaXicIyhiaXzlDibwSvA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyXwoXnsAc7LEojSNmbF10wN3aSw6HWFPC3bBJbvvx268bicpUkl3D0DA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "11.吐司AI"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://tusiart.com/有小程序/APP每日50算力使用难度略高，有一些Stable Diffusion技能更好提示词建议使用英语本次测试没有使用LoRA和负向提示词，仅使用较为热门的该分类大模型和默认参数设置，对生图效果影响可能较大"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyDHal7lXmnG4lyESPFjznVCutzWES8XsBnfWq3cy1cTkccIxgz7UgsQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyI7V2cVjQjTVaRb7tWspgquQoGib6bIDJY9LJ2X2tLXR93QK5grq91qg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsypDfQvb33dvVkab97Sm6lPI3370ORG0Nr2fdXl7BX2iaqRYEKSAXodgw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyZX1nzcR4cu7QRaPjxSdIZlCD0xhRbeVLAfSUrCDwqBEKpabTyzCyQw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "12.腾讯元宝"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址：https://yuanbao.tencent.com/目前没有触发限制，不确定有多少免费额度有APP会自动修饰提示词最近上线了AI编辑，功能有趣"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsy388vaVvloRT5Kw5zm72aF6ZvSs31ovsCL4O0BEEFGxzKwxlxIprJ8Q/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyvB5dRZj890wVAuDUYjCch4dMrO7HvP1J3aIxAxfYAFtV5DOOnQ6ibdw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyGnG7micm4bE1RsG7Be5UpYnOllvSoGa91eLyGth9sFykoaHlXTubuibQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyDqAs2Kh8Ejba2qySstzdPUedBbMygM6P9YficoRceKMXjGiaYmKQbgGA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "13.跃问APP"
-        },
-        {
-          "type": "paragraph",
-          "text": "搜索APP下载目前没有触发限制，不确定有多少免费额度网页版目前没有生图画黄油小熊很棒操作便捷目前默认3:4无法修改图片比例"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyecKMrexrmFRq5l2ia7jI2iamg0zicbueicuicuOd5JhFmica8xgZo7wzYEtw/640?wx_fmt=jpeg&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyCpFRq2ib8icSF739pGvtfCqyiatbRx4kgo0Rr4icagz7jgUDjDVZLWZh5w/640?wx_fmt=jpeg&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyjJTpL9PL5v2hB8KxqcmdHeZpJyyto8hm39uOfT7XRazuL4bvHDsJBQ/640?wx_fmt=jpeg&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeS3f2nZKcCjicKdiczcxLrsyU4SFw8EW4Uv70knGOm0FicRwyb96ZeB57l8xHRSYGd8MdX5IDdbzXVQ/640?wx_fmt=jpeg&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "今天的分享就先到这里了，大家有什么相关的想法或者问题以及工具推荐，欢迎在留言一起讨论，感谢你的观看！！"
-        },
-        {
-          "type": "paragraph",
-          "text": "我是阿真joycore，致力于学习的同时进行分享，高效输入，清晰输出。"
-        },
-        {
-          "type": "paragraph",
-          "text": "这个简介目前还没有想好怎么写，我目前最擅长的大概是平面设计和AI图片工具相关的技能知识，其他的也都有在努力学，我更倾向于分享能够用到实处的内容。希望能够给到大家更多灵感，要是有所帮助，那就再好不过啦！"
-        },
-        {
-          "type": "paragraph",
-          "text": "期待你的三连(#^.^#)"
-        }
-      ],
-      "fallback": false,
-      "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:16.420Z"
+      "cachedAt": "2026-02-28T10:38:24.066Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-今日份ai赋能-如何用ai文生图-2",
       "url": "https://mp.weixin.qq.com/s/Akw6bbksXB8Ehob7IFMe7Q",
       "title": "今日份AI赋能：如何用AI文生图",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP63DB2rCWC1mzibPD0Uls3ewasAw0tN45VtWUia32BhcfTsY5QrnkOt3MY1QSd5qpyYoOEOx2pTxicbA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -7234,12 +6723,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:16.166Z"
+      "cachedAt": "2026-02-28T10:38:25.001Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-即梦ai字体我有点玩明白了-用这套prompt提效50--3",
       "url": "https://mp.weixin.qq.com/s/HmEijK18I1E9_jFZu2un6A",
       "title": "即梦AI字体我有点玩明白了，用这套Prompt提效50%",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaezw3JNzKqX201oEz0DP4uryjhwuDKfbEBmIrfj88267JVIbGJ8ypdlJgbbicFAia59iaO0UPlDhagJA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -7776,12 +7266,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:16.659Z"
+      "cachedAt": "2026-02-28T10:38:25.689Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-小白也能写出专业文生图prompt-超棒的提示词框架-ai生-4",
       "url": "https://mp.weixin.qq.com/s/2NS0cj4sR34JeF2Z7ktiFQ",
       "title": "小白也能写出专业文生图Prompt，超棒的提示词框架+AI生图工具分享。",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeAXCYGbibYLuMdhsF2QrpG2OCarXaMkSfH9mwvS1T1liac2BjMjvn93mJcNxgtibN8GFVgvtWKWoJIw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -8347,12 +7838,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:16.878Z"
+      "cachedAt": "2026-02-28T10:38:25.368Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-即梦3-0创意字体-解锁14座城市的独特文化符号-5",
       "url": "https://mp.weixin.qq.com/s/ZiGgrRMb86LRASahrNaGeQ",
       "title": "即梦3.0创意字体：解锁14座城市的独特文化符号",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP5Wgmsa70ewc307Gob86qROclicLNe0V3XtShfrAJtoxRdHMLolRQD3dD7ibxs6qutJjuMaf02Bd6Uw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -8618,12 +8110,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:17.084Z"
+      "cachedAt": "2026-02-28T10:38:26.002Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-9500-提示词实测-ai绘画的3个-哇噻-不可能-创意-最-6",
       "url": "https://mp.weixin.qq.com/s/p-BKalQj3EXcp15p4WS9gw",
       "title": "9500+提示词实测！AI绘画的3个【哇噻？不可能！】创意，最后1个绝了！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsibw21zDyhgPZrkJGgNIUJAL6XeWq5TLNtyrLicOzdrwB2Liaz0BXWf1OYjuvcP40jhZ1UkyPFxFyiaIA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -9814,12 +9307,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:17.439Z"
+      "cachedAt": "2026-02-28T10:38:26.788Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-高颜值思维导图-ppt-小红书-公众号必备神器-零门槛-不会-0",
       "url": "https://mp.weixin.qq.com/s/QVHaLlC20ZsHCkLHBdFi8Q",
       "title": "高颜值思维导图，PPT/小红书/公众号必备神器，零门槛，不会PS也能做",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/DzKXF0rI5svAyiaRQc7ia98sNpkFr4DjWgO30bwH9jr0S1icdc7XFZY3VCY2YRg8Gwyybup72Rd8r6Y3tI54P0Rog/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -10094,12 +9588,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:17.627Z"
+      "cachedAt": "2026-02-28T10:38:26.406Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-流程图也可以优雅生成-再也不折磨自己了-1",
       "url": "https://mp.weixin.qq.com/s/_Q7dXkXipcGLAoMYo42m3Q",
       "title": "流程图也可以优雅生成，再也不折磨自己了",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP9nkjO3wlibhBdcRAphCqTAw4wX18dThGY4pwPOWcvjxqmiaxgjapHxpqJ7phj7qrCV8aYiaP5pShwWQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -10332,12 +9827,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:17.820Z"
+      "cachedAt": "2026-02-28T10:38:27.114Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-零基础玩转可灵ai图转视频-动态表情包与gif制作全攻略-0",
       "url": "https://mp.weixin.qq.com/s/I4BDoNpilWUq68nv9yeRyA",
       "title": "零基础玩转可灵AI图转视频&动态表情包与Gif制作全攻略",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiadLV5NAVKCvJ7EBnqpDHhmcm1Zk7sMosf6lzOEmXJxwUEH9bws8y5LdxZcRZuho0jy8t3hB3XRumg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -10726,12 +10222,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:18.020Z"
+      "cachedAt": "2026-02-28T10:38:27.456Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-安利一个我目前觉得最好用的ai知识库-腾讯ima-0",
       "url": "https://mp.weixin.qq.com/s/_H1HFSSvuAnm-4oocuRbCQ",
       "title": "安利一个我目前觉得最好用的AI知识库 - 腾讯ima。",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/OjgKEXmLURosfFrtiaMa0PJrpK5TTfg0et96kWbUDBjqrIYicnKKt2cJ5kN7Cyr6rgZOOgNCw3iaChQWVJVcxFLZw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -11209,12 +10706,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:18.211Z"
+      "cachedAt": "2026-02-28T10:38:27.791Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-ima知识库真香-工作党大学生教师皆适用--1",
       "url": "https://mp.weixin.qq.com/s/VRkHcRvU48g7PI1v-0x9GA",
       "title": "ima知识库真香（工作党大学生教师皆适用）",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP6MAXIQaHdJG54ibskW8C7oCictT1NmuWtjalX9cgJHiad4rQkqjj6pkOynLib2QnSr2qiagKYoD0twS7w/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -11398,12 +10896,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:18.453Z"
+      "cachedAt": "2026-02-28T10:38:28.478Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-自己的专属知识库-妈妈再也不担心我问的问题ai乱回答了-2",
       "url": "https://mp.weixin.qq.com/s/rRcqGM3qrwp2myGMkYAYVw",
       "title": "自己的专属知识库？妈妈再也不担心我问的问题AI乱回答了",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/j8aBYW69YPjpusrI1nrd55stkxE39QxicxkWvHJhQJCV5KsDzzH2V8BCSMsicgR1iba69fhkAxHyEAPtbqB1h9Pgw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -11701,12 +11200,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:18.948Z"
+      "cachedAt": "2026-02-28T10:38:28.125Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我有了一个数字分身-24小时可以回答你的ai教学问题-3",
       "url": "https://mp.weixin.qq.com/s/fhrYUEHv4iDOpYPRtrGNhw",
       "title": "我有了一个数字分身，24小时可以回答你的AI教学问题｜吴熳教学思考201",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0gJ4hHtaDhomLR4eXrXT9t2R2a08DWjzibqKxvXwE6Z769I2wbmVZzWLhicoC9zwTibetjD8jbzI1sYBGI1sYmtvw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -11777,12 +11277,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:18.647Z"
+      "cachedAt": "2026-02-28T10:38:28.768Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-电商如何利用ai降本增效-电商小白入门选哪个a1--4",
       "url": "https://mp.weixin.qq.com/s/XXYYHALYbCRDNo1xY0ajRQ",
       "title": "电商如何利用AI降本增效？电商小白入门选哪个AI？",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/rIR6vmPDKicaPTQK2mlRTNjF2M2zv7JTIDXx2TIq4NF7yhe7FPsWmywPVU48HxdbVuYDibOnCuybuib3UIUcwibgzQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -12022,12 +11523,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:19.151Z"
+      "cachedAt": "2026-02-28T10:38:29.089Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-扣子丨来学一个超简单的扣子coze入门案例-制作日签海报--0",
       "url": "https://mp.weixin.qq.com/s/uSpkstcmy8CCSZWVTzLlIQ",
       "title": "扣子丨来学一个超简单的扣子coze入门案例，制作日签海报！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacqxCFDsreojsibj7rzAPs0K9kh1rREsRibQHpBddGiaFiaxf5vicZtnVqt1oaVYtpouia8d9fFYwrWkRew/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -12563,12 +12065,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:19.363Z"
+      "cachedAt": "2026-02-28T10:38:30.123Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-收藏学习搭建个人知识库从这篇保姆级ima指南开始-0",
       "url": "https://mp.weixin.qq.com/s/zm6YQ4VZ50XorKf6YPAY4Q",
       "title": "收藏了=忘了？搭建自己的ima知识库，这份保姆级指南你值得拥有！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicPibJPkUWfdJmGlRkjZOMmHyC4CH0bl7pIu3QaEY7WuE6U4K2YE10Xcboqnom2icTJHLOLCNWdgSNXMg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -13000,12 +12503,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:19.568Z"
+      "cachedAt": "2026-02-28T10:38:29.408Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-ai-狂飙时代-小白也能玩转飞书多维表格-6",
       "url": "https://mp.weixin.qq.com/s/sYXJfaYUzbDBc821ffrkeA",
       "title": "AI 狂飙时代 小白也能玩转飞书多维表格",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/rIR6vmPDKicaoVMqnFuJANoLgukg5CtaQhy4riaSGopCbmzRibayqaJuWSv0VmfxXAUBib94b1VfPOzKicjzFddWumw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -13308,12 +12812,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:19.760Z"
+      "cachedAt": "2026-02-28T10:38:30.693Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-实测20组chatgpt-4o画图案例-细致到堪比绣花针的a-0",
       "url": "https://mp.weixin.qq.com/s/jhtVvm5GB0M8gQp-3Dwjog",
       "title": "实测20组ChatGPT 4o画图案例，细致到堪比绣花针的AI生图，好多玩法等你来学！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiafriab1175KUHmtdgPaUcJ0VAnpuSqibF2QicFTPJDHFG4DLB9aoDW1WIFBLZDibgZxEgRDkahFwZxoVw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -13625,12 +13130,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:20.001Z"
+      "cachedAt": "2026-02-28T10:38:31.027Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-chatgpt-4o或ai制作表情包上架微信喂饭级教程-不会-1",
       "url": "https://mp.weixin.qq.com/s/dHNQ9TKnFTuK9TJG9lCAvg",
       "title": "ChatGPT 4o或AI制作表情包上架微信喂饭级教程，不会PS也能轻松上手",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiafAvcwxbqNqlKiau2CGGG2CSgAiaTWtnv9Jq2tUBEVZ82PVhOBjtgEGb3T3zMibSH8ibdcyf0s4x49Rxw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -14046,12 +13552,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:20.209Z"
+      "cachedAt": "2026-02-28T10:38:31.346Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-普通人的ai改图指南-gpt-4o如何改变生活的每个角落-1-2",
       "url": "https://mp.weixin.qq.com/s/AC6Ic16XJUyd6GNAM73wVA",
       "title": "普通人的AI改图指南：GPT-4o如何改变生活的每个角落？120张图带你看普通人可以用GPT-4o做什么！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsic6XrShgm3wRRJlcQsW4BncLfHCKj6ZfqwVf8bxuqd88e8fWOPkODrNYLVjtuuia446DM0CE3D9eBw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -15052,12 +14559,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:20.467Z"
+      "cachedAt": "2026-02-28T10:38:31.788Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-claude制作ppt图表-在线编辑与ppt直接修改图表的技-0",
       "url": "https://mp.weixin.qq.com/s/pBUF5jnU_02Wwok_6CIvIQ",
       "title": "Claude制作PPT图表，在线编辑与PPT直接修改图表的技巧分享",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacMn0cb6HJ9L3Z73AQd0ria07LB2A77jYCSib2g5dXahmWQt3A2Pjj2xpVc58iagib6aZrEjj2XiaHmBlw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -15342,276 +14850,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:20.692Z"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-16组案例测试gemini-2-0-说是言出法随的当下p图王-0",
-      "url": "https://mp.weixin.qq.com/s/2nias6lfWaUjjGSxDDaGJA",
-      "title": "16组案例测试Gemini 2.0，说是言出法随的当下P图王中王不为过！",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "嗨大家好！"
-        },
-        {
-          "type": "paragraph",
-          "text": "今天的更新灵感来源于好友一泽（公众号@一泽Eze），中午还在宠物展热火朝天干活的时候，抽空看到了他给我发的截图："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewz8vctnBJbOqPzJib2G4tjibzKGQibFDx3Irzrq0GjnrVfVicag2sljiaO0kQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "一开始我情绪稳定，这些AI生图工具在精度上偶尔有进步很正常，但是看到他给的这些案例之后："
-        },
-        {
-          "type": "paragraph",
-          "text": "Google 用文生图 AI 开始真正重塑行业｜9 个测试案例，带你看懂 Gemini 能力边界"
-        },
-        {
-          "type": "paragraph",
-          "text": "无怪乎一泽称之为“超级嘴炮魔法”，我感觉我脑海里在噼里啪啦为它鼓掌，真的太强了！Gemini 2.0 Flash Experimental，结合多模态输入、增强推理和自然语言理解来创建图像。使用方式非常简单，并且免费！网址在这里：https://aistudio.google.com/app/prompts/new_chat"
-        },
-        {
-          "type": "paragraph",
-          "text": "使用方式如下："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzGvzvI9521F9fUUqn3Hysbia8VqTXHX8V0QSbDhfCicjbdichoTFUEOF0g/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "我接下来做一些测试，主要测试图片内容，这里用的都是极简的提示词，基本不存在提示词技巧，验证让普通人也可以“言出法随”的可行性。内容比较多，还请耐心查看～"
-        },
-        {
-          "type": "paragraph",
-          "text": "本篇文章我随机小脑洞的案例目录如下：1.改变颜色一键给黑白照片上色黑白小熊猫变色2.去水印3.疾速P图4.无中生有5.改变动作6.风格迁移气球系列图标系列7.人像变化8.角色连续性9.多角度视图10.场景变幻11.电商产品12.文字效果13.漫画系列14.图文流程"
-        },
-        {
-          "type": "heading",
-          "text": "1. 改变颜色"
-        },
-        {
-          "type": "heading",
-          "text": "一键给黑白照片上色"
-        },
-        {
-          "type": "paragraph",
-          "text": "先上一张女神照片试水！非常稳定。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzlhYt7O5oOmQDSnFjgJwaLyrWn1WQEq8y8YzQLTibI0Llo6MvmDr3b1A/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "黑白小熊猫变色"
-        },
-        {
-          "type": "paragraph",
-          "text": "小熊猫线稿上色！第一张很惊艳，后面怪我想法逐渐扭曲哈哈哈。Tips：点击编辑然后点击编辑图标旁边那个四角星可以重新绘制。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacLppdXriasOAKRFDVvJKewzelO0hEPXRVzBmslvlkfvysZ4MPRsSKYLLiaicGu96dqicDibLNxZL14bOA/640?wx_fmt=jpeg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "2. 去水印"
-        },
-        {
-          "type": "paragraph",
-          "text": "上传一张带水印的小浣熊，看看去水印效果。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewz6oT9zhUTrhdq7koT0r159AQoxsh1112FlCSic1MYHY2uxDCxwz2n44w/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "3. 疾速P图"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzwdSr0xuOicUG9n9UJpvYgz2AHicc3k3wemoDmpJjyDlk1zRyLhENpgHQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "4. 无中生有"
-        },
-        {
-          "type": "paragraph",
-          "text": "给到一张只有场景的图片，让它直接在场景中加入角色。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzYQNHtd021wwsr2wO81hjQ6Zib7NgibZEzRuR8h8kRUNRW3CcP7Miaiaxqw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "5. 改变动作"
-        },
-        {
-          "type": "paragraph",
-          "text": "这里上传了一张女性照片，然后对话和输出如下："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzPCajfrLcEsz8PWgfaYG7icQzzqSjlaeJ2gQoQ0CcQIZtGk8JWWFNTVw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "6. 风格迁移"
-        },
-        {
-          "type": "heading",
-          "text": "气球系列"
-        },
-        {
-          "type": "paragraph",
-          "text": "想要模仿类似材质变得更加容易。注意，如果是想要一次性输出多个图片，就将所有需要的图片主体列举出来，Gemini会更加遵循关键词，从而让你得到更好的效果。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewz8IosN97RicmvHwAOFquyKOzaATDEwro8iaOibqKxzNVo6Fu8GPwROia8ew/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "图标系列"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzib43JBSjXY1m1lbySViasP7WsicoeFVuucT1gk5Gz2hC2MYEnibjSk4Ddw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "7. 电商产品"
-        },
-        {
-          "type": "paragraph",
-          "text": "这组我当时做了个非常完美的案例，但是因为某些技术故障，网卡了，回头发现全没了，非常崩溃，好气，后面怎么都做不出原来的感觉了！所以大家遇到好的记得截图或者保存图片。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzJVMibM1rxCWIDuuksacKh2YXZfwicOo4zhEe6TaPUOGLmBib79ia4haq9g/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "8. 人像变化"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzQz2TUwHPouEgsZ2J62Yc8iaep7Eq7FW41N8oibOOmkDiazTr270cAR0sw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "9. 角色连续性"
-        },
-        {
-          "type": "paragraph",
-          "text": "这个真的非常强，上传一张图片加上简单的要求，就可以达到这样精准控制的效果，以后不论是控制背景还是前景，还是主体的表情、姿态动作，都可以非常精准，用于做绘本故事或者视频都非常好。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzsczDjXklKd77HuKnPvhEibpfBSDHuoSKDsHWpTImrJcaicKeE3GXuYIA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "10. 多角度视图"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzlK4l2wvQMpn5cy4bofxIZxxDZd39Ca9ak1eyocFKk31icicxXOicRmlyA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "11. 场景变幻"
-        },
-        {
-          "type": "paragraph",
-          "text": "尝试拉远镜头，以及在保持基本构图的同时，增添新的元素或氛围。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzPQQUia8nVmmXfaWnYcdc0Fz6pE9fDQqB895cyaFo7nrOA1Yv8JQ7Ndg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "12. 文字效果"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果你的文字不是文字，而是上传了一张带有中文的图片，其实四舍五入也可以支持中文字体效果。这里我是上传了一张带有“试试中文”的黑字的白底图片的测试："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewz0fFP7yD5Hc0P0E2exA3JayktFliaomTdaJPEu1VqNQJxEjD7EBQFzpw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "13. 漫画系列"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewzhiayqrgy4E5iaQP8cj75ABTKftMneNEBYdg9GIwKCSHu6dsvzIzN5d5g/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "heading",
-          "text": "14. 图文流程"
-        },
-        {
-          "type": "paragraph",
-          "text": "Gemini 2.0 Flash Experimental的小连招，你可以使用“生成一组带有图片的故事，（描述你想要的故事内容梗概）”“生成一组xxx教程，带有图片和文字的详细描述”等等这样的提示，获得风格统一主体相似的图片连击输出。这个过程很好玩但是好像目前看来并没什么太大用处。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiacLppdXriasOAKRFDVvJKewz11mNxH9aCFq0edPMdAR0qUR2BGuACoF2CoKOzqWyVeWSJlwBqfJFPw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "以上是这两天的小测案例汇总，我的感受是，它适合渐进式一步步推出自己想要的画面，并且主要就是在变化中维持主体不变这点很不错，总的来说好玩，也还有很大进步空间，大家也可以体验一下，祝大家玩得开心~"
-        },
-        {
-          "type": "paragraph",
-          "text": "阿真 | 视觉设计师 & AI创意工具探索者"
-        },
-        {
-          "type": "paragraph",
-          "text": "专注平面设计和AI生图相关，不定时掉落工具和个人心得，致力于分享实用有趣的创意知识。"
-        },
-        {
-          "type": "paragraph",
-          "text": "期待你的三连(#^.^#)"
-        }
-      ],
-      "fallback": false,
-      "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:20.891Z"
+      "cachedAt": "2026-02-28T10:38:32.099Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-爷爷奶奶年轻时要有彩色相机-哪还轮得到我p图-实测12款黑白-0",
       "url": "https://mp.weixin.qq.com/s/H0Wam2AkaXqD2WIHYWW2Pw",
       "title": "爷爷奶奶年轻时要有彩色相机，哪还轮得到我P图？实测12款黑白照修复神器！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXaR07oZFSxib0KNkaibgfvia30kibkgacM4Q0WdH4KXAQrow6W3IpqZ2clpLyujN9m3icbn0bIxtWWJxaQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -15620,12 +14865,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:21.080Z"
+      "cachedAt": "2026-02-28T10:38:32.806Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-ideogram这么玩-ai做logo一分钟40个不是梦-附-0",
       "url": "https://mp.weixin.qq.com/s/nDwl4VGIjZPtSQy-qs8m_w",
       "title": "Ideogram这么玩，AI做logo一分钟40个不是梦！附提示词",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiafZ673p4PuqgBQuzN1oT3QOz5adAHV41zZamE4zq2ianq3msR7iaDO2Nlo4jpicXrPc3Amep0ORydkFA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -16002,12 +15248,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:21.299Z"
+      "cachedAt": "2026-02-28T10:38:33.152Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-适合设计agent的提示词-能让lovart作图更好看更高效-0",
       "url": "https://mp.weixin.qq.com/s/fzgAQIbYNsc0uqaCX8tSyg",
       "title": "适合设计Agent的提示词，能让Lovart作图更好看更高效！附邀请链接",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacBJlmTQDJmZOpKSPrF3kk00AS6hicAiaVAMmJfBAgVLicia8lV9gny3ugM6L5eWdp3SIgaiaEV9w4ibGtg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -16895,12 +16142,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:21.551Z"
+      "cachedAt": "2026-02-28T10:38:33.546Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-4000字实测-lovart-ai-提示词模版大放送--1",
       "url": "https://mp.weixin.qq.com/s/werUMRdL-MSaU8MMdylHeA",
       "title": "拿下首批邀请码！4000字实测 Lovart.ai，提示词模版大放送！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs8SqXQGlzaEsj8FHA6ghibZESvU7cmcy2MFNSGkZoaLIh8WTlgcla2b8gcTO6ZEkSiaodRUpl0hxkibQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -17506,540 +16754,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:22.190Z"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-弹射起床抢邀请码-30个case告诉你1分钟生成的播客有多香-0",
-      "url": "https://mp.weixin.qq.com/s/wv8eicR4yKr0Wx9VKoFNng",
-      "title": "弹射起床抢邀请码！30个case告诉你1分钟生成的播客有多香！（内附邀请码！！！）",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "本文字数2800+，图片、音频、视频若干（文章不长，记得看到最后有惊喜~）"
-        },
-        {
-          "type": "paragraph",
-          "text": "请你听个音频先吧~"
-        },
-        {
-          "type": "paragraph",
-          "text": "好玩吗？"
-        },
-        {
-          "type": "paragraph",
-          "text": "这是我用一个今天刚上线的产品做的，内容来源是我昨天的这篇推文Manus宣布也能生图？Lovart会被干掉吗？开测！"
-        },
-        {
-          "type": "paragraph",
-          "text": "我自己觉得，还挺新鲜的。"
-        },
-        {
-          "type": "paragraph",
-          "text": "做起来其实也很简单！"
-        },
-        {
-          "type": "paragraph",
-          "text": "先放个地址，目前产品还在内测中（文末有邀请码获得方式），但是应该可以看到目前首页上的10000+case感受一下！"
-        },
-        {
-          "type": "paragraph",
-          "text": "https://listenhub.ai/"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeKeH3PZhUGicNicqVxLO0rtmet4Zu5DUFk72neRlruBKeA6hNrB5BgEOQ/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "前情是这样的："
-        },
-        {
-          "type": "paragraph",
-          "text": "橘子大佬前两天在群里预告了新产品即将上线，一时间，群里纷纷跪求邀请码！"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeaaZzfNkdBKOVY6wxicG05nZia4MLibo9Y4j3VCHxuTqKIKibsRurRuicXsg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "橘子大佬说到做到，周日北京闭门内测的时候，果然就先给小范围内测的朋友搞了个邀请码。"
-        },
-        {
-          "type": "paragraph",
-          "text": "收到邀请码的时候，我人还躺在床上，不夸张地说，我是弹射起床的！"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHe27fR7fMUicyT0O5abGCdlicRtHvRyiaFKGFA3iayiba580d9CAbFPMEQicAQ/640?wx_fmt=jpeg&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "打开电脑登录之后就是一顿kuku测，出门前跑了几个case，晚上回家又接着测了一波，"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeG6FfoVSibibaic7BDKrEicicictVCY9SFpxH2O6brRPS7tYic84e0pRmU9RxQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHetusiaMJLAIGwBHZgCiasDSYVknF7jr6NS9rMNt1IZmcvbuY2HhY2zqZQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "跑了小30个case之后，我觉得，这就是一个"
-        },
-        {
-          "type": "paragraph",
-          "text": "最简单极致让普通人可以不费力气搞自己喜欢的播客的产品！"
-        },
-        {
-          "type": "paragraph",
-          "text": "之前其实市场上也有类似播客的产品，大家比较熟悉的可能是notebookLM。"
-        },
-        {
-          "type": "paragraph",
-          "text": "https://notebooklm.google"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHesqdLoEEX0SKiaoXwic6MyrTUNHkvUJqjCMibJjsNFevX7gpkpEI3J5Tbg/640?wx_fmt=jpeg&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "我之前浅试过几次，挺好用的，我甚至当时还拿他出的成品做过一个类似脱口秀的视频（可惜找不到了"
-        },
-        {
-          "type": "paragraph",
-          "text": "但是当时它只能搞英文的，对中文支持还不太行。（前段时间说是可以支持了，但是我还没测试过，有测过的朋友也可以评论区聊聊）"
-        },
-        {
-          "type": "paragraph",
-          "text": "既然没有深度体验过notebookLM，咱们今天就不做对比，单纯试一试Listenhub的玩法~"
-        },
-        {
-          "type": "paragraph",
-          "text": "说干就干！"
-        },
-        {
-          "type": "paragraph",
-          "text": "打开网址，首页长这样"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHecTymFwXFoWdXnwibXqibMiaCYyfIQgicq2tXxUjicxpNt6nX378qKaTxVGw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "它有四个生成播客的方式，分别是：根据话题生成、粘贴链接、上传文件、长文本。"
-        },
-        {
-          "type": "paragraph",
-          "text": "根据话题生成：就是你随便输入一句话，选择快速或者深度模式，1-5分钟不等，就可以得到一段播客。"
-        },
-        {
-          "type": "paragraph",
-          "text": "实测快速基本1分钟能出，深度的大概在3-5分钟出"
-        },
-        {
-          "type": "paragraph",
-          "text": "（但昨天夜里最后跑了几个深度case，不知道为啥，一直报错，毕竟是内测中，可以理解，等我去跟橘子大佬报个bug）"
-        },
-        {
-          "type": "paragraph",
-          "text": "生成效果呢，快速相对来说成品的时间更短（1-2分钟），内容更浅；深度的成品时间相对长（3-4）分钟，内容更深入一些。"
-        },
-        {
-          "type": "paragraph",
-          "text": "由于我操作录屏的时候忘记开声音，所以后面只能把操作和音频成品分开展示了。"
-        },
-        {
-          "type": "paragraph",
-          "text": "他给每个生成的播客都梳理了亮点、大纲和脚本，这点确实很细致了！点赞！生成的音频也可以下载，点击上面的下载按钮就行。"
-        },
-        {
-          "type": "paragraph",
-          "text": "（这是生成的内容↑）"
-        },
-        {
-          "type": "paragraph",
-          "text": "除了话题生成以外的其他三种类型都无法选择【快速/深度】模式。"
-        },
-        {
-          "type": "paragraph",
-          "text": "粘贴链接：亲测不管是公众号的推文链接还是youtube或者b站的视频链接都可以，甚至我还玩了一个很有趣的例子，我把https://listenhub.ai/它自己的网站链接粘了进去。"
-        },
-        {
-          "type": "paragraph",
-          "text": "没想到，它居然给自己的网站做了个介绍的播客。"
-        },
-        {
-          "type": "paragraph",
-          "text": "成品如下："
-        },
-        {
-          "type": "paragraph",
-          "text": "不得不说，还是很有意思的，按照这个思路，你可以把任何网站的链接都粘贴给它，这样你就可以得到所有网站的介绍播客。"
-        },
-        {
-          "type": "paragraph",
-          "text": "而开头你听的那个播客就是我的这篇公众号转的了~Manus宣布也能生图？Lovart会被干掉吗？开测！"
-        },
-        {
-          "type": "paragraph",
-          "text": "咱就是说，整上了这个之后，再也不用盯着手机刷推文了，再干的干货也不怕，1分钟AI播客唠给你听！"
-        },
-        {
-          "type": "paragraph",
-          "text": "说到干货，我从b站和youtube各找了一个超过我的认知水平的视频链接，分别是量子力学和本福特定律（确实一脸懵逼"
-        },
-        {
-          "type": "paragraph",
-          "text": "然后扔给了它，得到了以下内容，我就放个gif和音频展示一下吧！"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_gif/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeNFfqzZVicT86QFjGIXibnHDtQ6ZxR5OIfxGddIoAMSZ7wEAluEyjnGOg/640?wx_fmt=gif&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_gif/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeGibTl0mLGzHCVGsUEBUiaCibmDrUgGAN2UnRDCyEsVUzmZuXLNWia3AZ3Q/640?wx_fmt=gif&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "上传文件：这个目前我测的是只能上传pdf或者wps的文件，且文件大小不能超过10M。于是，我在电脑里翻了个《存在主义咖啡馆》的pdf上传了。不到2分钟，我就得到了下面这个播客。"
-        },
-        {
-          "type": "paragraph",
-          "text": "虽然3分钟的时间肯定是无法获得一本书的精髓的，但是3分钟足够引起你对这本书的兴趣了，毕竟就算是听半小时的书，最终还是需要你自己亲自去看，才能更加收获满满！"
-        },
-        {
-          "type": "paragraph",
-          "text": "除了你看不懂或者懒得看的书目以外，我还试了一篇4000字的玄幻小说，是我让claude写的。"
-        },
-        {
-          "type": "paragraph",
-          "text": "然后，我仿佛听到了我日常是怎么和朋友同事讨论各种电视、小说和综艺的！"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeIrF1SEH1y6Ht6aIiaBM4vthnpcO9wFiba8jHoWQX8tkBh08WkRHNCqAQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_gif/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeaZibSzJoia9rsWm4fBWwREoQ9jAfXagb1XKwbPgtZ2Ks2RXOzV9HYK6A/640?wx_fmt=gif&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "这个场景我觉得也是很有意思的"
-        },
-        {
-          "type": "paragraph",
-          "text": "从此你再也不用担心自己嗑的冷门cp、看的冷门剧集、追的小众番没有人跟你讨论和共鸣了，AI时代，聊天搭子咱们也可以自给自足了！"
-        },
-        {
-          "type": "paragraph",
-          "text": "前面说了，你可以粘贴网页链接。但是毕竟现在的网络环境你也知道，如果你遇到了无法粘贴的链接也没关系，还有长文本可以用。"
-        },
-        {
-          "type": "paragraph",
-          "text": "长文本：前段时间，水晶手串不是特别火么，我当时就让o3给我跑了一个关于这个事儿的调研报告。看到长文本的时候，我突然就想到了这个报告，粘贴到word里一看，好家伙，万字长文啊这是！果断给Listenhub粘进去，然后kuku生成，这个长文上限我目前还没看到官方声明，有兴趣的朋友可以测一测它最长能接受多少字！"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeZZ5ydCicZ2wIExCfLiaPjQMSiaWnIicVdzUq9cmSrYVdrmGYkuZ8ssnRpg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "最后再说一下其他信息吧！"
-        },
-        {
-          "type": "paragraph",
-          "text": "目前我测出过最长的播客是4分47秒。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeVpX3GncaHKPnibOI28gyQmw5V6IMbfibUYeB85bVY2biahDwniaDiclk2ww/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "所有生成的播客在左边的【资料库】里都可以看到包括浏览器插件收藏的内容。"
-        },
-        {
-          "type": "paragraph",
-          "text": "最顶部有个【播放全部】按钮，点击可以把它们全部加入播放列表。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHecTymFwXFoWdXnwibXqibMiaCYyfIQgicq2tXxUjicxpNt6nX378qKaTxVGw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "目前Listenhub内置了9个声音，在【设置】-【声音】选择，每次最多可以选择2个。选定之后生成的播客就会以你选中的这两个声音进行讲述，已经生成的播客不能换声音。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeDoXldmQSTWD3tFg1kJLRPYiaPLEnGEcpfk445aqzr3wtfHKWLeHQprA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "这9个声音我都挨个试了一遍，总结如下："
-        },
-        {
-          "type": "paragraph",
-          "text": "原野：北方憨厚男，情绪稳定（默认声音）"
-        },
-        {
-          "type": "paragraph",
-          "text": "晓曼：北方飒姐，声音有点沙哑（默认声音）"
-        },
-        {
-          "type": "paragraph",
-          "text": "宇轩：南方直男，听起来有点傻fufu"
-        },
-        {
-          "type": "paragraph",
-          "text": "若云：知性御姐，但声音很温柔"
-        },
-        {
-          "type": "paragraph",
-          "text": "诗涵：湾湾腔可爱女生"
-        },
-        {
-          "type": "paragraph",
-          "text": "宛星：女声，ASMR"
-        },
-        {
-          "type": "paragraph",
-          "text": "远舟：男声，ASMR"
-        },
-        {
-          "type": "paragraph",
-          "text": "猴哥：不解释了，就是感觉没有那么像"
-        },
-        {
-          "type": "paragraph",
-          "text": "八戒：不解释了，比猴哥相似度高一点"
-        },
-        {
-          "type": "paragraph",
-          "text": "一些官方Q&A："
-        },
-        {
-          "type": "paragraph",
-          "text": "ListenHub 怎么用？"
-        },
-        {
-          "type": "paragraph",
-          "text": "ListenHub 现在有三个客户端："
-        },
-        {
-          "type": "paragraph",
-          "text": "Web、App、浏览器插件"
-        },
-        {
-          "type": "paragraph",
-          "text": "Web："
-        },
-        {
-          "type": "paragraph",
-          "text": "电脑使用，生产内容最方便，也可以收听。直接访问 ListenHub.ai"
-        },
-        {
-          "type": "paragraph",
-          "text": "App："
-        },
-        {
-          "type": "paragraph",
-          "text": "手机使用，随时随地打开收听，因为生产制作都在云端，所以也同时具备生产功能。目前只有 iOS 版本（暂未上架国区），安卓可以先用 Web 版本。（欢迎安卓工程师朋友来找我们聊天 k@marswave.ai）"
-        },
-        {
-          "type": "paragraph",
-          "text": "iOS 下载地址：https://apps.apple.com/us/app/listenhub/id6743071290"
-        },
-        {
-          "type": "paragraph",
-          "text": "浏览器插件："
-        },
-        {
-          "type": "paragraph",
-          "text": "在浏览器里一键收藏，可以把它当成一个 read it later 服务，只不过这次是 Listen later。"
-        },
-        {
-          "type": "paragraph",
-          "text": "可以在 Chrome 商店搜索 ListenHub，或通过这个链接下载 https://chromewebstore.google.com/detail/listenhub-instantly-turn/hkdgfhffhkllpjabeldigdlcmkhhgjel"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeibbzjWbjWrSjsQibwnDtqZSzqW4AUCH5pH5YybHRDvkgk33gQtVhkf2w/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHehU9iar8eHyalicicurN1gINao3tfkbqMREPhzFp9TH63eicdiaibQFwvpDxw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHebdshO5P4M1FkBHcrOgAO1CusBxOTtPtxEzSLN8unxOuR79Olj41RDg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHetsHUV9VPa5z7xwMZjubSVeZk3ZLCQicONhvMiax9cboEsibnwQrcKJjzg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeO4aKqTkd9CSRD1KDlZgiaiamqZYl2cWM4ggjd3Ocbf6ibve3hOCWBUskA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeQpaN6uxqgKyfsNy2ZffA1BZ9GnImsOwnTblqu2eibicdcLLGlEic3Cgag/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHekPxeicCg1mGibiaGvMo9RKic0LfOGE2AtC706ZvdUr9jicJhmlpgSKT8A1w/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHewW5wXjVeXpkg0Iicw69TEqMwEjg58icXzliaoj8k6PEwylwN8C5MaibWcA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeNkGjHdBzm8WRoxI4TiaRz51Jbcz2h9x5HF5Xv8QMBiasVNRLFyiavIq6Q/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeu4BJEeicat9bOa9FJvJqlN5bGhrCPL1KZricS469E46v2jOY565CwGOA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "目前跑一次case消耗10积分，内测账号有1000积分，基本上足够玩很久了。（默默吐槽：不像某个平台，试用31天，一共就给80分，跑一个case就没了………………）"
-        },
-        {
-          "type": "paragraph",
-          "text": "能看出，这波团队还是很有诚意的！"
-        },
-        {
-          "type": "paragraph",
-          "text": "就像他们的产品介绍里说的那样，他们的愿景是："
-        },
-        {
-          "type": "paragraph",
-          "text": "当，每一个消费者，"
-        },
-        {
-          "type": "paragraph",
-          "text": "同时都是创作者。"
-        },
-        {
-          "type": "paragraph",
-          "text": "当，每个人都可以制作一档，"
-        },
-        {
-          "type": "paragraph",
-          "text": "自己的资讯早咖啡。"
-        },
-        {
-          "type": "paragraph",
-          "text": "当，每个人点击播放，"
-        },
-        {
-          "type": "paragraph",
-          "text": "就能收听到自己喜欢的内容。"
-        },
-        {
-          "type": "paragraph",
-          "text": "这就是我们想做的产品。"
-        },
-        {
-          "type": "paragraph",
-          "text": "ListenHub：懂你的 AI 电台"
-        },
-        {
-          "type": "paragraph",
-          "text": "现在人的时间越来越紧张，想看的想玩的东西却越来越多。工作、家庭和睡眠，分走了大部分的时间，我们能留给自己的时间也越来越少，越来越碎。"
-        },
-        {
-          "type": "paragraph",
-          "text": "钱赚的够不够？孩子上什么辅导班？什么时候才能升职加薪？"
-        },
-        {
-          "type": "paragraph",
-          "text": "你总会希望有一个时间，上面的问题都别来打扰你，就3分钟，让你能够躲进一个角落闭上眼睛安静地听一听自己喜欢的东西。"
-        },
-        {
-          "type": "paragraph",
-          "text": "Listenhub大概就是这样一个产品吧！"
-        },
-        {
-          "type": "paragraph",
-          "text": "最后，想要体验的朋友可以后台扫码进群，当然如果你能帮忙转发宣传一下就更好了！"
-        },
-        {
-          "type": "paragraph",
-          "text": "我厚着脸皮跪求橘子大佬给了我一批专属邀请码！！！（写完推文正准备定时发送的时候，橘佬突然出现！）打算送给有兴趣内测反馈建议、也愿意帮忙转发的朋友，就当是橘佬给群里的福利了！"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/sz_mmbiz_png/Aic1RkSKrBsiccjxTCGZHqkpFU6Jz7wPHeA6jutOBJANN9DbglQz8mBfmn3icQbQfFL2noGPS9Cnu3M1ekBMhyCHg/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "好了，今天就到这了！"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果你觉得这篇文章还不错，欢迎分享到你的朋友圈、微信群和其他平台~"
-        },
-        {
-          "type": "paragraph",
-          "text": "有喜欢的朋友记得点个关注、星标不迷路哟！"
-        },
-        {
-          "type": "paragraph",
-          "text": "我是Loki，一只喜欢探索AI技术，发掘AI趣味的小熊猫。"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果你有更多的想法或者疑问想要和我交流，欢迎后台扫码加我进群~"
-        },
-        {
-          "type": "paragraph",
-          "text": "下次见，白白~"
-        }
-      ],
-      "fallback": false,
-      "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:21.763Z"
+      "cachedAt": "2026-02-28T10:38:34.291Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-notebooklm之外-还有这种国产ai播客神器-0",
       "url": "https://mp.weixin.qq.com/s/DUxQ4MZ-X-OONVritpZOJQ",
       "title": "NotebookLM之外，还有这种国产AI播客神器？",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Fec4MzfqiaOEjibSOcyRc6J78UMLfiawL96fxtzUcWkFN9o0LY46icI1nfN1YKXxXuic0VtkDL9jAd3x9NHRZBE5Wpw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -18839,12 +17560,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:21.973Z"
+      "cachedAt": "2026-02-28T10:38:34.656Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-万字长文打造flowith保姆级教程-快速上手-0",
       "url": "https://mp.weixin.qq.com/s/kvbwG_UYTR4e20B3XWsvYw",
       "title": "万字长文打造flowith保姆级教程！快速上手 flowith，看这一篇就够了！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsicIELbedf1Ziat1poTpDF4rXkYhcEKHgw0sVQlibjpQZFO5wNOndHpv3CTxIGALw8OpsKpoqdzzGmZg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -19747,12 +18469,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:22.670Z"
+      "cachedAt": "2026-02-28T10:38:35.107Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-使用flowith重构表情包设计流程-1",
       "url": "https://mp.weixin.qq.com/s/v1Z-O5Qf2PrKvfTzRqyxZw",
       "title": "使用 flowith 重构表情包设计流程",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxFibJoFCQeMPiblZxMrKO5KeRRpOlSE7S2oaBK0IiaTVwcOAeMibk7rJsjP6rBF7nEQ5Y7p4ZfYdnxyw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "heading",
@@ -19941,12 +18664,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:22.385Z"
+      "cachedAt": "2026-02-28T10:38:35.410Z"
     },
     {
       "id": "tutorial-feishu-《潘多拉の魔盒》制作过程全回顾-0",
       "url": "https://xv6ob26cgd8.feishu.cn/docx/A7tRdQyKkoJdICxVjSrcpRbinZc?from=from_copylink",
       "title": "《潘多拉の魔盒》制作过程全回顾",
+      "cover": "/images/tutorials/aigc-video-001.jpg",
       "blocks": [
         {
           "type": "paragraph",
@@ -19955,12 +18679,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:24.372Z"
+      "cachedAt": "2026-02-28T10:38:37.758Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-用手机豆包，让表情包过上精致人生-1",
       "url": "https://mp.weixin.qq.com/s/ER0PH6QzpIr1hrfHkCDG-w",
       "title": "用手机豆包，让表情包过上精致人生（聚焦拆解豆包智能体生成器和图生图升级以及AI图编辑）",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxPEuLMsos10wIiaiaCC8BZ3JZswdNrqEIvpzImx3lcF9QUhwxmicmZXsibCRWJvUnZlicVwePIkG8brjg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -20301,12 +19026,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:38:23.730Z"
+      "cachedAt": "2026-02-28T10:38:35.859Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-告别水印烦恼！这几款AI消除神器，我猜你会需要它！​-0",
       "url": "https://mp.weixin.qq.com/s/ZrrFw6lx-KsXLyhSw-3flg",
       "title": "告别水印烦恼！这几款AI消除神器，我猜你会需要它！​",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/rIR6vmPDKicYlgn9YwR5hetibAGEXPBAKef21VomPal9sW0yjJKPdPPqicyeGsMGMJ0dro92uRkh9S4kvY9TNibic2Q/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -21021,12 +19747,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:23.841Z"
+      "cachedAt": "2026-02-28T10:38:36.212Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-为了成为ClaudeCode高手，我雇了个AI当教练-0",
       "url": "https://mp.weixin.qq.com/s/U3G5O76s7R4Gv9V4KJInpQ",
       "title": "为了成为Claude Code高手，我雇了个AI当教练",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/ThHvgaTIUCZTCO2a55mvjEOGic5wFs697icFAjTYmz6x19icjX800G9hkNwHZNF1cJicPnDIKG5SJiaE5QHPAV7tibWg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -21327,12 +20054,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:23.374Z"
+      "cachedAt": "2026-02-28T10:38:36.523Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-淘宝比价，我只用5分钟，就扒光了1000家店的底价-0",
       "url": "https://mp.weixin.qq.com/s/MR-4D2mMxiyzD5rLCpg3aA",
       "title": "淘宝比价，我只用5分钟，就扒光了1000家店的底价【附保姆级教程】",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXbANDwkwzHU9EDeKVZEQs5GbQjq78UK5zbp4tUwZwylqVHoefADCsDt2LJ7bB8mSnWHj8rteyibneg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -21445,12 +20173,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:23.601Z"
+      "cachedAt": "2026-02-28T10:38:36.855Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-AI综合实践之IP动画视频入门级教程-0",
       "url": "https://mp.weixin.qq.com/s/8hGKhXnllzRHjSgib7Ihhw",
       "title": "AI综合实践之IP 动画视频入门级教程",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxzuWrLjD30hndbKvnd1qB3uHdegkLnEV4sia2Ufr1qLJe0JsCsDzQ6YuQH5vMLjjPrURTqUkNexew/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "heading",
@@ -21870,12 +20599,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:24.032Z"
+      "cachedAt": "2026-02-28T10:38:37.312Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-3小时拿下2130元顶格赔偿AI维权实录-0",
       "url": "https://mp.weixin.qq.com/s/2WgvZTaMwO2WEsOHnC8Bow",
       "title": "只用了4小时，我用AI维权拿下顶格赔偿2130元，过程比吃瓜还爽!",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP8U1xNar8LJlYyk4BRp2QN28ic5BicmiaG5QDQj4ic7BQdbqn7Shn8rpe7eqZooYU47GnTtunzmhB8QWg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -22305,12 +21035,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:24.273Z"
+      "cachedAt": "2026-02-28T10:38:37.681Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Dify、n8n、Coze、Fastgpt、Ragflow到底该怎么选？超详细指南-0",
       "url": "https://mp.weixin.qq.com/s/P1F4nEf47MKRUfedkEd38A",
       "title": "Dify、n8n、Coze、Fastgpt、Ragflow到底该怎么选？超详细指南～",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/3QzcPBL9P1Agcagib89iaycOKHKfl5ZB8uQooZet98PgGa4OaB1Zzb1JywNibEKQcekB9ic5YVXtMSHLiahiaibic8JOTQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -22912,12 +21643,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:24.588Z"
+      "cachedAt": "2026-02-28T10:38:38.060Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-最强中文TTS！设计任何音色+情感注入，效果绝了～-0",
       "url": "https://mp.weixin.qq.com/s/Nq2DpBzuI4Cf4RA1KnKpBw",
       "title": "最强中文TTS！设计任何音色+情感注入，效果绝了～【附实操】",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/3QzcPBL9P1APvprjV6PukHlRibia0d6GTjKwfCiaLlGKAovDGOiamkNt8PXtopKEjiaBB21Z4tfckicZZrUcNvpJcGwg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -23601,12 +22333,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:24.994Z"
+      "cachedAt": "2026-02-28T10:38:38.471Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-免费不限次的AI生图神器！全面测评「豆包超能创意2-0」-0",
       "url": "https://mp.weixin.qq.com/s/h-HKt_HgKmEpuRFnVN8p0A",
       "title": "免费不限次的AI生图神器！全面测评「豆包超能创意2.0」｜自制去水印工具&实用提示词",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/XBgibQDyDF391luEvfkiakWPEznrUK7htJOXCicQt47Ud3l1PF8afnA1TagXruPue89SOVqiaYumuJRIBqxQ9M6oBA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -24386,12 +23119,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:24.791Z"
+      "cachedAt": "2026-02-28T10:38:38.778Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-RAG天花板！从0到1打造商用Agent-0",
       "url": "https://mp.weixin.qq.com/s/VLDpRkuACSYm2fvlvd5CMA",
       "title": "RAG天花板！从0到1打造商用Agent【喂了1G资料】",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/3QzcPBL9P1BI5spAKzZhZza24DIZfygCRnHuF8wn5Lwol8G6V31IibLGTZcPptribTGbwKwOSUzNScj2MATYHia0g/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -25181,450 +23915,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:25.202Z"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-2025上半年，我的常用AI绘图工具盘点-0",
-      "url": "https://mp.weixin.qq.com/s/R0Z2_M_5hWkVgJeBLzbUdA",
-      "title": "2025上半年，我的常用AI绘图工具盘点",
-      "blocks": [
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFs9GQ0Pgom1ExtVxy8nBMKYFILKoCicJk01340sGyE1pibJ9MJs6JgoRtA/640?wx_fmt=jpeg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "嗨大家好！"
-        },
-        {
-          "type": "paragraph",
-          "text": "上次我的好基友一泽@一泽Eze 写了非常详细全面的半年度总结，当时他问我要不要写，我随口一说真不错啊我也准备写。"
-        },
-        {
-          "type": "paragraph",
-          "text": "然后被他催稿了半个月哈哈哈。"
-        },
-        {
-          "type": "paragraph",
-          "text": "关于今年上半年AI模型和产品，看他这篇万字盘点2025上半年，值得推荐的AI模型与产品清单一定能有很多收获！虽然一泽更新得不太频繁，但只要他写的，都是高质量的好内容。"
-        },
-        {
-          "type": "paragraph",
-          "text": "今天我主要还是从我自己常用的工具进行盘点。我会简单分成三个部分：AI 绘图、AI 视频，以及AI 效率工具（AI Agent也归于此类）进行盘点。不过写完AI绘图相关后意识到这个可能会是个大长篇，那么我就分成两篇或者三篇进行了。今天是上篇，AI绘图类。"
-        },
-        {
-          "type": "paragraph",
-          "text": "另外，我按照一泽当时问我的格式，按照这四个维度回答：最常用 / 有惊喜 / 有印象 / 日常推荐"
-        },
-        {
-          "type": "paragraph",
-          "text": "叠甲：以下均为我个人的尝试、体会和总结的分享，不一定完全准确，每个人的体会不同。我提到的产品或工具不一定是最好的，没有提到的也不代表不好，我们每个人对工具的具体需求和期待都是不同的。"
-        },
-        {
-          "type": "paragraph",
-          "text": "先说明一下，我这次是按工具来盘点的，不是按AI模型。"
-        },
-        {
-          "type": "paragraph",
-          "text": "AI图像生成与编辑"
-        },
-        {
-          "type": "paragraph",
-          "text": "最常用：Midjourney、即梦、ChatGPT 4o有惊喜：豆包超能创意1.0/2.0、Flux 1.0 Kontext、ComfyUI有印象：Reve、Recraft、Ideogram日常推荐：Midjourney、即梦、豆包、星流了解其他工具可以看这个（时间比较久部分信息可能有变动➡️ 爆肝整理国内AI生图工具免费指南，亲测好用工具+图片效果对比图！ ）"
-        },
-        {
-          "type": "paragraph",
-          "text": "1.最常用"
-        },
-        {
-          "type": "paragraph",
-          "text": "1.1Midjourney·视觉质感王者"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://www.midjourney.com/imagine"
-        },
-        {
-          "type": "paragraph",
-          "text": "Midjourney 依然是我上半年使用最频繁的AI绘图工具，在创意和视觉效果方面还保持行业领先地位。"
-        },
-        {
-          "type": "paragraph",
-          "text": "Midjourney 的创意激发能力依然遥遥领先，我能切身体会到 V7 版本的质感比 V6 系列有所提升，但是偶尔会觉得有点过度了，会切回 V6 系列继续跑图。Midjourney 除了真实感人物现实图像，也很擅长各种创意插图和幻想场景、各种材质表现效果，被津津乐道的就是它的美感。V6/V7 的风格化代码依然非常好玩，能轻松产出风格一致并且独特的图片。放大和扩图的效果也非常好。"
-        },
-        {
-          "type": "paragraph",
-          "text": "题外话，Midjourney 的 V1 视频模型发布后，图片转视频更方便了，视频效果也不差（但视频画质目前 480P 没有优势）。"
-        },
-        {
-          "type": "paragraph",
-          "text": "但 Midjourney 的几个缺点依然很明显，提示词遵循度一般，“脑补”功力强，精确控制能力还有局限。图片中的文字生成效果差（中文不支持，英文也不算理想）。另外，始终对中国元素有误会，亚洲人物风格都比较日系韩系，如果直出中国人物，面孔还是有些缺乏美感。"
-        },
-        {
-          "type": "paragraph",
-          "text": "往期相关："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsOOmQ9WX6DzWOXNZmWt2IKPvXM2BHyibHxFcDpoKsNlVwGq8Z3yfl2vw/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "1.2即梦·多功能创意平台"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://jimeng.jianying.com/ai-tool/home"
-        },
-        {
-          "type": "paragraph",
-          "text": "我直接大声宣布我是即梦的狂热粉！即梦是平面设计师可以多多尝试的提效好工具，对小白也友好，艺术字、中文海报生成目前无敌，人物质感提升很快，生成视觉草案、海报等的效果都可以试试，但如果要追求高画质细节的，还是要搭配后期修图和相关专业软件辅助。"
-        },
-        {
-          "type": "paragraph",
-          "text": "即梦生图生视频对口型数字人都可以，还有画布相关功能作为补充，现在还可以在剪映和它梦幻联动，直接同步即梦生成的素材到剪映，素材使用很方便。简单打个比方，比如我们想在视频里加个贴纸/艺术字/元素的气泡效果等等，在即梦做完在剪映用。感觉被字节做局了，太好用根本停不下来！"
-        },
-        {
-          "type": "paragraph",
-          "text": "即梦的人物质感还在持续提升，但是对即梦的人物效果我依然觉得，太好看反而觉得有些不真实，人物辨识度反而不够了。因为我对字体比较敏锐，在智能参考3.0的时段发现即梦已经在海报中使用免费商用字体了，期待继续优化，也期待海报小字细节持续改善。"
-        },
-        {
-          "type": "paragraph",
-          "text": "往期相关："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsjAA30y2PcDQR7lt7xVpRhJwshLrtQVoFQ08vL4O2ib9wc1tv96dXssw/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsN5eXKxZRPacy3xwyuaOpibKTXHY2Onib5BWo3N7mHuhyBBkQXiaIgskqA/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "1.3ChatGPT 4o·对话式绘图先锋"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://chatgpt.com/?model=gpt-4o"
-        },
-        {
-          "type": "paragraph",
-          "text": "ChatGPT 4o 绘图功能一出世就惊艳了全球，改图功能和风格迁移很不错，能无缝嵌入对话中即时生成和编辑图像，适合制作海报（英文海报效果更好，中文美感一般，但中文效果越来越好了）、插画、各种材质的小物件以及快速设计原型参考。"
-        },
-        {
-          "type": "paragraph",
-          "text": "ChatGPT 放在 AI 生图工具中有点太超前了，主要因为它原生多模态集成，聊天就可以画图，在生成细节、语义理解、文字渲染方面质量都很高，同时可以多轮对话局部修改（但前后一致性会有所改变）。"
-        },
-        {
-          "type": "paragraph",
-          "text": "当然缺点也突出，拼写错误和细节漏洞同样存在，生成单张图片就像拉生锈的卷闸门。原生生图刚开始可能还好，聊几轮就偏暖发黄，黄出一种出土文物般的陈旧感，下面两招土法提示词偶尔会有用："
-        },
-        {
-          "type": "paragraph",
-          "text": "1.保持色温6500k。"
-        },
-        {
-          "type": "paragraph",
-          "text": "2.柔和的漫射光，带有中性或冷色调，确保纯净、无黄色调的外观。"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果就为了这个绘图功能，那我推荐直接用 Lovart 或者星流或者 Hatchcanvas 那种直接对话并且可以批量输出的设计Agent。"
-        },
-        {
-          "type": "paragraph",
-          "text": "往期相关："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFs9w3mnpdF4qmHtY5iapK2p4cnNaKYBluBgqHBOEBFRVMp8iafgicAAb6iaQ/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "2.有惊喜"
-        },
-        {
-          "type": "paragraph",
-          "text": "2.1豆包·国产AI性价比之王"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://www.doubao.com/chat/"
-        },
-        {
-          "type": "paragraph",
-          "text": "人人都应该尝试的国民级 AI，在中文生态下表现非常出色的 AI 绘图工具，拥有很高的中文理解能力与稳定的输出效果，尤其在摄影、电商场景和 3D 风格上表现突出质感优秀，现在超能创意2.0 修图、对话修改、批量输出和生成海报等都非常方便。"
-        },
-        {
-          "type": "paragraph",
-          "text": "豆包核心优势在于本身用它的功能就多，功能很多也很能打，现在因为模型超强生图功能也上来了，豆包超能创意2.0 批量出图kuku能打，一次直出36张，108 好汉在豆包这里都只能走 3 轮。对话改图属实是奶奶都会用的级别，再加上反推和复刻的功能也强，最重要是（现在）它还免费。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsoIZlmNr6icSgKtVzSuz2gmWrcACPQOiarR02gQaWMgBq0ibB4WetxPXrQ/640?wx_fmt=jpeg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "美中不足是它在改图的多轮对话中图片质量会损耗，细节丢失变多。一致性还达不到很好，有时候需要运气和抽卡。对于高级感海报和图片的提示词有一定要求，复刻的时候也不是完全还原风格，倾向于还原它擅长的风格。（豆包：不管答案对不对，公式先套上去）"
-        },
-        {
-          "type": "paragraph",
-          "text": "往期相关："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFskJfeBKkyGvcQB5xTZSjS7lib2wqxgR1Y1wJ6wKOkysNjMXcyia7N27Fw/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsdCkmhJUzOfeC6vyX5flmpojp63TApPTuK5wLzUrOsZHLbJvIlhfs6A/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "2.2Flux 1.0 Kontext·一致性编辑利器"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://playground.bfl.ai/image/edit"
-        },
-        {
-          "type": "paragraph",
-          "text": "作为 Black Forest Labs 最新推出的 AI 图像生成和编辑工具，Flux 1.0 Kontext 图像生成美感一般，真实感很好，英文文字能力强，值得一说的还是在图片编辑方面表现非常强劲，改图能力很强。"
-        },
-        {
-          "type": "paragraph",
-          "text": "Flux 1.0 Kontext 能够理解上下文并生成和编辑图像，保持人物、物品在多场景中的形象一致，尤其适合三视图、连贯场景创作，编辑精准，风格迁移能力也好，可以多次迭代编辑。"
-        },
-        {
-          "type": "paragraph",
-          "text": "但是多轮编辑后细节会失真并且出现图像伪影，指令过于精确或复杂的时候可能无法正确响应，同时生成结果对真实世界的知识掌握略显不足，部分复杂场景可能理解不到位。"
-        },
-        {
-          "type": "paragraph",
-          "text": "Pro/Max 模式推理速度比传统模型快很多，但是不管在哪个平台使用基本都需要积分点数或者会员。"
-        },
-        {
-          "type": "paragraph",
-          "text": "FLUX.1-Kontext-dev 已开源："
-        },
-        {
-          "type": "paragraph",
-          "text": "https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev"
-        },
-        {
-          "type": "paragraph",
-          "text": "（非商用开源，开发者在使用时需要遵守 FLUX.1 [dev] 非商业许可条款）"
-        },
-        {
-          "type": "paragraph",
-          "text": "往期相关："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsHKJs9QbMTiaRibDfDUALtcOibnV9icJhA2BJTP9hf0wqjFHa6uzRjicbjjw/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "2.3ComfyUI·专业工作流必备"
-        },
-        {
-          "type": "paragraph",
-          "text": "虽然今年以来被唱衰多次，但是我在此大胆开麦，截止到目前，要做专业的工作流，ComfyUI 依然是绕不开的最好的工具。"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果我们追求对整个图像生成过程的可视化控制、希望构建自定义工作流程、需要处理批量任务或集成多模型工具，且有一定编程思维，同时硬件支持，ComfyUI 是最好的选择。ComfyUI 通过节点拼接方式组合完整流程，灵活性和可控性远超传统图形界面工具，适合那些希望精细控制生成流程并搭建复杂工作流的用户。如果接受云端，可以考虑Liblib 等工具。"
-        },
-        {
-          "type": "paragraph",
-          "text": "主要难度还是在于学习曲线陡峭，节点式操作近似于徒手编程，需要理解节点间的连接逻辑和数据传递流程，对新手很不友好。同时硬件还有依赖，虽然显存管理高效，但对 GPU 性能仍有要求，配置不足会导致卡顿。但是能学我还是建议大家学。"
-        },
-        {
-          "type": "paragraph",
-          "text": "这里推荐一个教 ComfyUI 的 UP主叫 @CG迷李辰，实话说，老师除了普通话有点LN不分其他都很完美，B站搜索他的账号免费也能学很多知识，付费有个课程我买的时候200多现在也就300多，还在持续更新，他本人也还在持续答疑，有时候晚上好晚了还在群里答疑，很真诚，跟他入门 ComfyUI 是我觉得我做得最正确的决定。我和这位老师没有私交，只是单纯觉得这位老师好所以推荐给大家。"
-        },
-        {
-          "type": "paragraph",
-          "text": "3.有印象"
-        },
-        {
-          "type": "paragraph",
-          "text": "3.1Reve·质感胶片风首选"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://preview.reve.art/app"
-        },
-        {
-          "type": "paragraph",
-          "text": "生成速度快，图片质感好，主打对提示词的高效理解、画面美感与文字渲染能力。擅长胶片质感摄影图片、人文摄影、超现实表现、海报（英文），可以中文提示词输入。从名不见经传到曾经上排行榜第一，Reve 当初就是靠硬好看出圈过，另外，它支持部分知名品牌logo直出海报（这个豆包也可以），用于制作相关品牌视频的图片素材比较方便。做艺术字效果不错，但还是限英文艺术字。Prompt Enhance 功能方便写不出提示词的朋友。另外，商用权归用户，不设复杂限制，适合电商、小团队使用。"
-        },
-        {
-          "type": "paragraph",
-          "text": "不过目前它的修改还是全图更新，没有局部编辑的功能。全景、广角、透明物体、特定角色和复杂场景表现还有欠缺。"
-        },
-        {
-          "type": "paragraph",
-          "text": "往期相关："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsNLd4mB3l5EQ4EsvVIRPGsXu6U0a0BdGAibBqCGrKSic0NCEmUPnMNIrA/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "3.2Recraft·设计师快乐老家"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://www.recraft.ai/"
-        },
-        {
-          "type": "paragraph",
-          "text": "一个适合设计师的平台，有很多设计师刚需的功能，比如支持 SVG/Lottie 矢量格式输出，图标、 logo、图案适用性强；可以上传自由风格或自己预设模板，来达到系列设计图的视觉风格统一。“5张图炼LoRA”就是它，不过这个视觉风格也没有特别统一。样机功能实用。编辑工具箱丰富，工作区简约清晰界面直观，对设计师友好。现在还内置了GPT-4o 和Flux 1 Kontext 系列模型，改图非常便捷。"
-        },
-        {
-          "type": "paragraph",
-          "text": "它预设的很多风格用来做特定风格的插画效果很好，可以尝试。Recraft V3（说到代号 Red Panda大家可能就有印象了）曾登顶多项benchmark，提示精确度和画面质量也不错。"
-        },
-        {
-          "type": "paragraph",
-          "text": "对于不熟悉设计工具的用户，上手时需要理解画布与编辑逻辑（用过星流或Lovart可以较快适应）。"
-        },
-        {
-          "type": "paragraph",
-          "text": "3.3Ideogram·Logo设计好帮手"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://ideogram.ai/"
-        },
-        {
-          "type": "paragraph",
-          "text": "我认为是目前AI图像生成中处理英文文字最出色的工具之一，适合海报设计、Logo设计、工业设计、首饰设计等场景。有较强大的提示词理解和文字集成功能，在设计型应用中占据优势。但是设计风格更倾向于国外的风格，在国内可能有部分会水土不服。"
-        },
-        {
-          "type": "paragraph",
-          "text": "Ideogram能在图像中生成清晰、可读的中英文文本（能做中文但质量差），英文比较精准，很多文章内容也可以cover。Magic Prompt 功能和 Reve 的 Enhance 一样好用，可以用于提高提示词创意质量。Canvas 有一些功能挺实用的，就是交互太难受了逻辑不清晰需要适应。"
-        },
-        {
-          "type": "paragraph",
-          "text": "不足在与审美不够突出，艺术风格不够多元，也有风格迁移的类似功能，但是效果也不算很好。"
-        },
-        {
-          "type": "paragraph",
-          "text": "往期相关："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFsFamTEqy8WibVicwUI7dia0JPuPgqshqFZCM724A5lTqemDC0Xte7ZxmKQ/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "3.4Whisk·创意探索工具"
-        },
-        {
-          "type": "paragraph",
-          "text": "网址👉 https://labs.google/fx/zh/tools/whisk"
-        },
-        {
-          "type": "paragraph",
-          "text": "Google Labs 的 Whisk，可以通过上传图像作为提示（可以不用文本提示词）来快速生成和重混新图像，基于 Gemini 模型分析图像并使用 Imagen 4 生成输出。整体效果还不错，现在还能直接转视频就更有意思了。可以探索很多趣味玩法。"
-        },
-        {
-          "type": "paragraph",
-          "text": "缺点是很不稳定，要登陆上这个网站是最大的挑战。风格控制还可以，混合图片效果不错，但一致性就一般。除了视频动效和不写提示也能跑的功能以外，其他功能现在ChatGPT 4o 和豆包也差不多可以替代了。"
-        },
-        {
-          "type": "paragraph",
-          "text": "小结"
-        },
-        {
-          "type": "paragraph",
-          "text": "我能共情每个产品一路走来所有人的付出和努力，不会因几个小问题就在文中全盘否定某个产品。我指出的产品不足都基于真实使用体验，希望这些问题能得到改善。"
-        },
-        {
-          "type": "paragraph",
-          "text": "一次性写了10个我常用的 AI 图像生成工具以后，我比较常用和熟悉的 AI 图像生成与编辑工具已经写完了。不一定只能用一个工具，具体工作的时候，我们可以结合实际需求使用工具。比如我做AI短剧的素材，可以人物让 Midjourney 完成，三视图用 Kontext 输出，片头艺术字用即梦生成等等。"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果让我推荐3个必备AI图像生成工具，那么我推荐Midjourney、即梦/豆包(二选一)、星流。原因如下："
-        },
-        {
-          "type": "paragraph",
-          "text": "Midjourney：依然是目前审美最好的，不管什么 AI 工具，只要投产比能覆盖的时候优先体验最好的。"
-        },
-        {
-          "type": "paragraph",
-          "text": "即梦/豆包：主要这俩一直在进步但是根源上又算同源的，让它俩占两个位置我过意不去，二选一又比较为难，所以放一起了，总之它们性价比都很高，下期讲视频还能讲即梦。"
-        },
-        {
-          "type": "paragraph",
-          "text": "星流：星流单说生图方面也算是简化版的 Liblib 了，入门不难，本身图片美感也很不错，加上 Agent 加持，底层模型越强它越强，结合我的使用体验，我认为它会有光明的前途。我王多鱼投了！"
-        },
-        {
-          "type": "paragraph",
-          "text": "写了关于星流的Agent功能的："
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/HibrYDJehdiaepdmGqYhPCsAy5nhBaVHFs8EdiaBk9PKb4lviaJYlshicmOxuQKFzBhzl67HJrUmy1LWc3xxsq9oPOA/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "当然，其实还我印象中的还有很多，我之前也盘点过很多效果不错的生图工具，这里仅仅是提到我常用的，大家的习惯与喜好不同也实属正常。像堆友、智象、可图等的图片生成效果也在迭代中越来越惊艳，后来者像 Krea 1 等的图片模型也很有美感，目前各家在图像生成质量上已经非常接近，很难分出明显的高下了。"
-        },
-        {
-          "type": "paragraph",
-          "text": "接下来的这个类目的发展重点可能会更多集中在落地应用上，我大胆推测可能更多的平台会结合自身优势，推出Agent 和类Agent 的工作台模式，但各平台也会探索符合自身特色的差异化路径。比如星流有星流设计Agent，智象也有图片Agent，豆包超能创意2.0的定位是生产力创意Agent，还有美图的 RoboNeo 的定位是影像与设计Agent 等等。(Agent我会在之后单独写的！)"
-        },
-        {
-          "type": "paragraph",
-          "text": "当然，无论形式如何变化，核心都会指向同一目标：简单、便捷、集成化地解决实际问题。"
-        },
-        {
-          "type": "paragraph",
-          "text": "算起来，我今年2月份才开始写公众号文章，在这不到半年的时间里，各种AI工具层出不穷，刚吹完Gemini 2.0言出法随P图王中王，转眼Chat GPT4o出来把我脸都打肿的类似事件层出不穷，今天刚说这个好，明天就有更好的类似事件屡屡发生。"
-        },
-        {
-          "type": "paragraph",
-          "text": "谢谢大家一直以来的包容。接下来也一起期待更多好产品和更多\"打脸\"哈哈哈。"
-        },
-        {
-          "type": "paragraph",
-          "text": "后面我会再分享AI视频领域和AI效率工具领域我的一些心得体会。还得感谢一泽猛猛催更才有了这期。后续的坑也是挖好了，我会继续努力的！期待和大家共同进步！"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果觉得我的内容有帮助，欢迎猛击三连鼓励我，非常感谢～！"
-        },
-        {
-          "type": "paragraph",
-          "text": "阿真 | 视觉设计师 & AI创意工具探索者　专注AI与设计相关，致力于分享实用有趣的创意知识。期待你的三连(#^.^#)"
-        }
-      ],
-      "fallback": false,
-      "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:25.629Z"
+      "cachedAt": "2026-02-28T10:38:39.088Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-保姆级!无需魔法0 基础也能 3分钟装好「沉浸式翻译」浏览器插件-0",
       "url": "https://mp.weixin.qq.com/s/7gWTHwjccoUGFh_Z4a4MNA",
       "title": "保姆级！无需魔法0 基础也能 3 分钟装好「沉浸式翻译」浏览器插件",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP5mURGEormqenBPiamuzA0FW5D6icmAeQicyd0ibJGRD9LzWSbbK4FU219ialicfiaVyUVicmiafY02LyA24KQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -25894,234 +24191,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:25.437Z"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-ima更新盘点：知识库不再只是仓库，而是AI工作台了！-0",
-      "url": "https://mp.weixin.qq.com/s/eT59Cqq06Mp9S49ZzcWPJw",
-      "title": "ima更新盘点：知识库不再只是仓库，而是AI工作台了！",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Hi,我是蜡笔！"
-        },
-        {
-          "type": "paragraph",
-          "text": "几个月前分享过ima知识库，最近发现ima暗搓搓在更新一些功能，今天就带大家盘点2025年4-7月ima的功能更新，并附上新功能使用技巧。"
-        },
-        {
-          "type": "paragraph",
-          "text": "例如，这几天你们都领到 ima的20G福利吗？"
-        },
-        {
-          "type": "paragraph",
-          "text": "打开客户端就会提醒，扫码下载app，就可以领20G个人知识库存放空间。原来的2G-->30G，现在领完就50G，免费的真香！"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5LqUibwEX2Cs3BIxoHiaA2bPyWUI5SPacJTecL7Gy5icl47gyt8bI3okfg/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "限时的，不要错过啊！！"
-        },
-        {
-          "type": "paragraph",
-          "text": "好了，接下来开始总结："
-        },
-        {
-          "type": "paragraph",
-          "text": "1知识库支持更多格式导入"
-        },
-        {
-          "type": "paragraph",
-          "text": "PDF、PPT 、EXCEL、CSV、TXT、Markdown、 图片 、微信公众号文章、微信聊天文件、 网页链接 、博客支持导入格式"
-        },
-        {
-          "type": "paragraph",
-          "text": "Excel的导入，之前不支持非常遗憾，现在终于可以把工作表格记录扔进去使用啦。对了，单个文件最大支持150M的上传。"
-        },
-        {
-          "type": "paragraph",
-          "text": "也就是说以后你针对某个报告找到的资料，不管是pdf、ppt、excel还是txt、图片，全部一股脑导进去。不用一点点费神分析，ima搭载的deepseek会一键分析，按你的需求去整理新的内容，还可以生成脑图。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5ictcO96DtczibqdFNY4Ujfke5MynicVLxibPWZubBKrrSaSZWIL5weSiamg/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "每次问完知识库的内容，点击生成脑图。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq50GzY5IkT9dhFRYEvj4AY9qUsJzhTibPT3XNerjMoyLcyuTnCNnRMf0A/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "什么时候视频、音频也可以一股脑给我转译汇总就更好了。"
-        },
-        {
-          "type": "paragraph",
-          "text": "自定义笔记本"
-        },
-        {
-          "type": "paragraph",
-          "text": "学生党：创建“错题集”笔记本，按学科分类整理错题项目经理：建立“会议记录”“项目进度”等笔记本，快速定位信息自媒体人：设置“选题库”“金句集”笔记本，收藏公众号文章，积累创作素材使用场景"
-        },
-        {
-          "type": "paragraph",
-          "text": "个人知识库现在可以创建自定义笔记本，将零散笔记按主题分类管理，支持重命名和删除操作。这部分都是我日常从微信公众号收藏过来的文章；除了收藏的文章，也可以导入本地的笔记内容进行分类的。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5qtibFvslc1K78e2H3SwsNY0Ldk1KZzFva2mFj1NlG0n86NeHgnzQ6icQ/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "但是很想吐槽的是，建好文件夹之后；居然要一个一个点击打开，选择，才能移动到文件夹，这操作真的无语了；批量“拖拉拽”是最基础的需求吧。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5SvkP1WMouL0ZoKdc7mm1ARolia1Bb9VPKUVbX39QCv9ebZgHtk3mouA/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "文件权限精细化"
-        },
-        {
-          "type": "paragraph",
-          "text": "共享知识库里面的文件权限更精细了，之前是对整个知识库有管控，现在支持对单个文件设置查看权限，整个知识库不再单一设为私有或公开。适配场景："
-        },
-        {
-          "type": "paragraph",
-          "text": "1敏感文件（如合同草案）右击选择“仅自己可见”。2共享知识库时，关键资料可设置为“不可查看”。3临时取消权限：在文件属性中随时调整权限层级。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq52HPm374JqEicBN9NagJSDFyQbYxqnGBNTOz7QMQhicLzC3uIibMUq5Jiag/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5mX8IAr3Y9UIgWbBlMgILF40L2m9lMHSXGYdypUzWrUtxoxDJAq278w/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "4本地文件阅读"
-        },
-        {
-          "type": "paragraph",
-          "text": "之前各种文件分析，我们可能会选择任意AI上传文件，给自动汇总分析；现在本地文件一步到位，直接右键选择打开方式为ima，直接就可以阅读，并唤醒ima给你分析汇总，还可以把汇总的内容再生成一篇新的笔记存入知识库；好家伙，一步到位了。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5T6ibZsVqibDzaticFjrwiaaLEibypVJQ7FsVr2T8cuYw6OrdForeuGicUZJw/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5sIoLdibInliaPQamel792SrOibxviabKPjLchL6TjnfqGGiagdUYMscSShQ/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "碎片信息秒存"
-        },
-        {
-          "type": "paragraph",
-          "text": "在浏览器、文档等任意界面选中文字，呼出工具栏即可一键保存到ima知识库。"
-        },
-        {
-          "type": "paragraph",
-          "text": "设置：设置→AI划词工具栏→选择“全局开启”"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5Yl1y01sNcficuTE6LwcGpF0JOcTg0JIHlZL9lVRQuR8N6QedbuaBPPA/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "这个其实很多AI浏览器/插件都有这个功能，ima胜在存笔记是很方便；但每次划词它都会自动跳出来，又有点烦（貌似特定网站的工具栏可禁用，没找到设置）。所以在频繁使用场景可启用，用得少还是算了。另外，碎片信息用flomo也很香！！"
-        },
-        {
-          "type": "paragraph",
-          "text": "6IMA首页画图？"
-        },
-        {
-          "type": "paragraph",
-          "text": "看到图像生成，有点奇怪的，你说文档解读、智能写作那都是知识库可延申的好功能。当然，大概ima不仅想做知识库，更像一个往知识库和AI浏览器的方向发展了，类似一个综合的AI工作台。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5icaicLxmViaLrCHS4gsiboSERqtLxWLaAuNRt3QlRSwGZLtc508QLpsM1w/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP7HxiaicacGplfJc4U0Fp8mq5vWPRzA9ib20QukNC5zuQkuYZIzMKBy9TicQUcQl9sMu6wBF0pobbOkYw/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "试了下效果，各种画质细节仍需进步；我只能理解为写作时，需要配图，然后直接生成比较方便吧。"
-        },
-        {
-          "type": "paragraph",
-          "text": "结尾照旧唠一下"
-        },
-        {
-          "type": "paragraph",
-          "text": "ima的持续迭代对经常使用的人来说还是有惊喜的，就像你吐槽的，你遗憾的，结果都实现了。"
-        },
-        {
-          "type": "paragraph",
-          "text": "从ima更新的功能，像从单纯的“信息仓库”进化为“知识引擎”，其关键还是："
-        },
-        {
-          "type": "paragraph",
-          "text": "让知识复利每存一份资料都在加固职业护城河。"
-        },
-        {
-          "type": "paragraph",
-          "text": "经验资产化团队共享知识库让新人培训周期缩短。"
-        },
-        {
-          "type": "paragraph",
-          "text": "创造力释放重复性工作交给AI，专注高价值工作探索。"
-        },
-        {
-          "type": "paragraph",
-          "text": "反正不管是ima，还是其他AI工具；职场人的核心竞争力，正从“记忆知识”转向“驾驭知识”。"
-        },
-        {
-          "type": "paragraph",
-          "text": "如果还没用过ima的，可以看看之前我写的这篇。"
-        },
-        {
-          "type": "paragraph",
-          "text": "ima知识库真香（工作党大学生教师皆适用）"
-        },
-        {
-          "type": "paragraph",
-          "text": "看到这里，如果对你有用，请随手来个点赞、转发、在看吧"
-        }
-      ],
-      "fallback": false,
-      "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:25.833Z"
+      "cachedAt": "2026-02-28T10:38:39.714Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Context is all you need：一文彻底搞懂上下文工程-0",
       "url": "https://mp.weixin.qq.com/s/nlyuqtbA1ZdZkM85Y79s2w",
       "title": "Context is all you need：一文彻底搞懂上下文工程（含牛马实战指南）",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/KujplMh4qUmfGq4ZvaElfgDHPoMqG9M2LjUxOJZwCJCJQuPAett9SibCiaX12gpuGF9T3gzXCYZERxyPkHZ2PAwA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -26996,12 +25072,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:26.308Z"
+      "cachedAt": "2026-02-28T10:38:40.389Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-新手必看：Seko视频Agent深度测评-0",
       "url": "https://mp.weixin.qq.com/s/YhN3Sy9Dr3xi2mjQouXsbA",
       "title": "新手必看：Seko视频Agent深度测评，5000字长文和9个超绝case！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBsicgcImn4ibQVpPCJdaoS6bndfgI7f6FLIdRJIraPg96VZgjic7Gz8dZtIDkEFVahG2CWibDn6HImcqoQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -27638,423 +25715,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:26.071Z"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-即梦Agent内测：从参考生成到批量创作五大功能全面测评-0",
-      "url": "https://mp.weixin.qq.com/s/S5Kho9F6OxAg5WEUh_pDlA",
-      "title": "即梦Agent内测：从参考生成到批量创作五大功能全面测评",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Hi,我是蜡笔！"
-        },
-        {
-          "type": "paragraph",
-          "text": "听说即梦上了 Agent 模式，我立刻去申请了内测;前天申请，昨天就开通了(●'◡'●)"
-        },
-        {
-          "type": "paragraph",
-          "text": "申请内测链接：https://bytedance.larkoffice.com/share/base/form/shrcnVsbHMx5NU2S7qNjfkZ6e5g?iframeFrom=docx&ccm_open=iframe"
-        },
-        {
-          "type": "paragraph",
-          "text": "说实话，今年各种 Agent 已经满天飞，新鲜感多少是褪了的。可即梦毕竟是我最常用的 AI 绘画工具，还是想第一时间看看它的玩法到底怎样。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBqIjRf5vib7FvoBDo1EpfaKeqgEN5vWHe29XJZAMuMaGcdbNIO06zkYw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "而且，它和豆包背靠字节系，多少也猜到，它可能会和豆包图像 2.0 的创意模式有点类似。"
-        },
-        {
-          "type": "paragraph",
-          "text": "官方的介绍也很直白：即梦 Agent 接入了业界领先的多模态大模型，不仅能听懂你的创意，还能看懂你输入的图片（是不是豆包那味~）。你可以直接表达想法，让 Agent 帮你写提示词或生成图片、视频；也可以传图，让它反推提示词或加入灵感进行二创；甚至一次生成 40 张创意图，或完成一整套海报、表情包、视频、绘本设计。而这一切，都是在你和 Agent 不断对话、完善创意的过程中完成的。"
-        },
-        {
-          "type": "paragraph",
-          "text": "听起来不错。下面，就让我来看看它实际操作起来到底怎么样。"
-        },
-        {
-          "type": "paragraph",
-          "text": "即梦：https://jimeng.jianying.com/ai-tool/home"
-        },
-        {
-          "type": "paragraph",
-          "text": "01"
-        },
-        {
-          "type": "paragraph",
-          "text": "创意参考生"
-        },
-        {
-          "type": "paragraph",
-          "text": "参考这种风格，生成梅兰竹菊四幅国画，笔触要随性，构图和谐，有大量空白。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBqpfKRGsPMicTf62JH4hmzibHdcicquxS64oJaAFwTia3vw9VacZcGTJ48Q/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "图1是原图，后面4张是参考生成的；虽达不到原图那种意境，但效果还不错有水墨画那种笔触，当时试过豆包是比较生硬的。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBMhtibtA5VHYXHQiaQ9DyoI2jlrW6x8iaZeWURia52KUFPVxD57khWe3G7w/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBv9sQYRZaukFKWibeREzRdbTJfXM0Gu32397QuyynAwBRGGdaB6ibNj7g/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBvrU18XbfcCPJ2B7ldiaHn1bz32iavHtLdLibNogKcnzJXJNcu8L2Pg15Q/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBeNJlHJbWiaNdsTkNr1ibQibr6GcCTeezaTmicL8v7BYAlWHIg7NYpTkAiag/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "对话1：参考这个图片，生成“顺颂时宜”、“百事从欢”、“年岁并进”、“春祺夏安”4张壁纸。对话2：再根据同类风格，生成“春和景明”、“烟火年年”"
-        },
-        {
-          "type": "paragraph",
-          "text": "图1是参考图片，其他是对话生成的，基本一模一样；主体没问题，细节那些没给指令是不会自动修改的。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB2hDO3Jca0JxF2iaAEJ5JQpFuV4ibmJXPDKobCYgLSQWZ26kKyNnibkHOw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB3r1DBvNlCBhyfcXfyE4iawkLIn2EcZv224dCcGgbxp28VHGofNz0icibQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBQIQCKBHpvEBxeM1LEd7wMGic4CojOuLgGdT24eL1VwEXkSLPln6icT0g/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB6z65fW4K5ueHyxu8uY58QkYoYF7nBjxiadjMPtrM0GOPoSbz87HaXYw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBFta3hr3AUILc9Nbicqoe9osRfx5J8sOYiauMicSuqLktvy4ysHicxhjjMg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBy1gVrMRazdBFpyliboY08arQVwIPRgaRexEEnHKRyZJFJIiaowU67Bug/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "参考这三张图片的风格，生成中式建筑的海报图片。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB2u1RUiadwctGPsSZtXDX5INKJVGxtN9cEQ1KN5WdSLCDPMnicbugnbaw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB17thQaFuxcN3U6JIiaeo39mnJcDKwI0V10MgS11tibRs2coMrDmAsoQw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBWkVyfBmyfnaNe9VwyIFKcdXDhKRXPzMTrcnICxBDzyZicC72St6bWTw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "前面3张是参考原图，后面4张是参考生成的；这个有点小丑，反复对话几次，都没体现出中国建筑的美，可能风格差异太大了。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBahS1bvF4LmWZ1hpFmdD1R6Sp4nlCqFyNqrChEhIgibZBAoPTSvwZ6sQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBWvEgPegqdkvQIh2aWQiaKGaPwwmQ9TXgqkyJZdzCaeiaB3N0icrBWE6yg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBZicD9h5WIVk6rOnOxp1gycJk22GPDtrjSJgh5TplddtZyUrxNvtST6A/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBjiaXBVmrMpH71YNEnErq30MGfpI1wOX1DZvfdibJbsZxCicuFOJKlN8Ww/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "02多图人物一致性"
-        },
-        {
-          "type": "paragraph",
-          "text": "根据爱与美的女神阿芙洛狄忒来一场环球旅行：海风初吻(圣托里尼日出) → 雪顶微笑(巴黎埃菲尔铁塔) → 金色回眸(埃及金字塔) → 樱花耳语(京都清水寺) → 雾中漫步(伦敦大本钟) → 热情旋舞(西班牙弗拉门戈广场) → 星河之下(撒哈拉沙漠) → 翡翠长城(中国万里长城) → 海底倾听(大堡礁) → 冰川小憩(南极极光) → 花园送别(阿姆斯特丹郁金香) → 爱的归港(回到爱琴海)；以上节点生成奇幻油画风格图片，保持人物一致性，图片比例9：16。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBPrZbfMlKejYpcxDF8GEiaR6zESphFmGjmfHlgUYtdtUgql3MFmnj0Wg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBUUfITiaMOk4rWlBaUpwr7rxicw3cTibNwdF0zRQUDUW551iajPibaAx6oFw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB7kBFjHwibCibRYdZIgG1kNiayKDwGWKYyPGfmjic6JpX5kcRibyG5TCRjMg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBm54YZUibAr4yI8022shicx4LeWbSQibc75prNbqibRn76GoMaaHCpCX1wA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB9w80KTrFCEh279rTp0V12q8w3UD5LN8vFibrlZTJUGJj0XXHCuq875Q/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBOBgopGa9h4apvd8GNfVU17DRNJa9Tn5jtuAgQYutB6aTsyTwQWdIaA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpByoTPlY7zJfRwbHmSAHpjibe04ib2frktR7wVSF3VUqnCAExsESd34ILQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBcqWpbiaUJzLnKLiaYkD3QbOUey0TF8WyfkTibia6icVBCX51zNk3jX3rbUQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBcUAG3BVsFxamgbFWYLtcib9MLgDX29IgFW9sCdbcl8sUrt08fefXhvw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "这一组真的好美，不愧是爱与美之神！这里我是想起倒放老师的干货，想要一致性就用阿芙洛狄忒，学以致用了。然后发现即梦也强调了形象锚点、服饰逻辑、动态延续来保持人物的连贯性；这个不就是我们之前写提示词保持一致性的技巧吗，它有自动用起来，不错~"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBHDNVibn4serCY49ic9JWJmb5wiaENlAOWABfcdQSN0pQAuNAM0OIgbia2g/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "麻烦给周杰伦的《稻香》前12句歌词，设计12个分镜图，水彩绘画风格，每张图附上歌词，歌词与分镜画面适配。分镜图比例3:2，保持人物的一致性。"
-        },
-        {
-          "type": "paragraph",
-          "text": "这里歌词不对，叫它保持人物一致性，就全给我搞同一个图同一个人，傻乎乎的抖小机灵。。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBufaUkZRiaXNcmNryGfOicaA2mtuE6h2triaOnkcUEbFtQdl29pEmAAHag/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "03"
-        },
-        {
-          "type": "paragraph",
-          "text": "创意想法实现"
-        },
-        {
-          "type": "paragraph",
-          "text": "Q萌毛绒挂件的商品主图，适用于潮玩、IP联名、电商展示，风格亲和、可爱。 角色以卡通动物或人物为原型，头大身小，四肢简化且圆润，造型饱满。 可佩戴帽子、饰带、眼镜等装饰，顶部连接金属旋转挂钩。 毛绒部分表现短毛绒质感，柔软细腻。帽子等衣物展现棉布质感，有缝线细节。金属挂钩表现镀镍或镀银的亚光质感，局部高光增强真实感。 面部细节可用刺绣，搭配蝴蝶结、布标等装饰。毛绒边缘收口平整，金属结构清晰。配件上可加入印花图案或英文标语，风格统一。 主体为暖色调，配饰使用对比色提升辨识度。 使用顶部柔光+正面补光，呈现自然明暗层次。金属件带高光点，毛发表现柔和阴影，避免强反光。 采用正面视角，角色垂直悬挂于画面中央，上部完整展示挂钩。构图对称，下方留空，增强空间感与独立性。 背景为白底，便于后期处理，图像聚焦清晰，边缘锐利。 现在，为我分别生成比例为1:1的【蚂蚁森林的梭梭树、冷杉、胡杨树、花棒、山桃、沙棘、柠条、榆树、黄柳、山杏、油松、侧柏、云杉、华山松、崖柏】"
-        },
-        {
-          "type": "paragraph",
-          "text": "参考阿真老师提示词的改写，继续做我喜欢的蚂蚁森林公仔；讲真没有lovart生成那么精致。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBl6t4FPUicbQETsUXVryEOSicAvuatbshhSFib2TdNtkOBaqgibfTvjUFQA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBfhhBLuclGOribvL2icZGDXSYRrN3NjgUibnpFoYLQyIg0JSA3DILicX05A/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBYREOhx04ZTu3uXHKY2icPl8vQHkF03G3ib55Gft0JtJ9QyacwMTVX3JQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBGYrAMOyrROjePibbWLh5IaUYSOqjvjpMXrrx96YplVUF5wZNX6J5knQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpB8WTzfaQb9iabVqSMpPVdwKXFm8I0p4ib9ibcEj2HJJOAlZVoibwyWgKY6w/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBOEY4xWIQ0X5cDGnicic5Gn7yW21ACxib6bMCa5unlEuic9mgejKvQZOibbw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBWJHP5vndbmCIFlfia15OkN2dU7F1dtEQL2FtiaRXdfibwaJNdMVRyMJuw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBpLA1z0lWQuiaMWTkPlXUQUNugwAtWV3ibbFRKjV6AzY3yXLH6cFIviaUg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBiaP2nI9icgXkZrVefVLA3beBibCIaxurl17OvrlSFhp32oY7SQmMYMczA/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "这里我让其中一个公仔生成一些周边，执行了但不多的感觉。。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBMInEMKFicbkJ4siaWSnZk716DNUldgc5fBnCzutZGYhYjLFrcvHXvvSw/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "04"
-        },
-        {
-          "type": "paragraph",
-          "text": "反推提示词"
-        },
-        {
-          "type": "paragraph",
-          "text": "反推提示词。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBJO4B5Kibmia1mz8icS99hHRGhYGhiaGA8EAQBtTMdszahtz1GMMYjzTb5g/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBEnq3yPvV7H5Lgrpntibpn13RCI99UeKdfSMs30hicPPBqHicjtZUBrlYQ/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBGibahjGdCaTqBdA0tNQQTtofkx1mUFTmC99bFcuAbVFiaHMx1ia3Wj09Q/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "图1是原图，反推了提示词后；我再用提示词生成了图2；不能说相似，只能说毫不相干。"
-        },
-        {
-          "type": "paragraph",
-          "text": "05"
-        },
-        {
-          "type": "paragraph",
-          "text": "批量生成视频"
-        },
-        {
-          "type": "paragraph",
-          "text": "参考这段提示词：【延时摄影风格：画面从一片虚无开始，以延时方式缓缓铺展。各类食材与微缩元素逐一生成、组装，最终化作一幅完整的等轴 3D 迷你景观。鲜红的辣椒与翠绿的花椒巧妙拼出英文单词“Chengdu”。具体景观：翻滚的红油火锅与憨态可掬的熊猫元素共同构筑麻辣鲜香的世界——迷你食客围坐在巨型铜锅（菜板造型）旁，竹笋、香菇、毛肚、豆皮化作起伏丘陵；红油汇成蜿蜒河流，豆皮小舟漂浮其上；糯米团或麻糬捏制的迷你熊猫在竹林（由芹菜或香菜梗构成）间嬉戏。】分别生成长沙、成都、广州、西安四个城市的特色视频。"
-        },
-        {
-          "type": "paragraph",
-          "text": "任务规划挺细致的，跟其他Agent差不多，不过它是批量生成，期待下。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBicxs8Xzl1hcUZSZ5vyMbM1MEUBbAlt2lHpmGzxBGnTbyYkspCqeaAibg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "先生成了图片，然后再是视频；需要排队很久，大致等了1小时才出来"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP6REtRnHkUWAaoAVibyZwbpBSZ7lejSwHF0Idj2CujCrcjZBIXp5N1dFtvqPHibcmUrkIoLJKdb6gsg/640?wx_fmt=png&from=appmsg",
-          "alt": "Image"
-        },
-        {
-          "type": "paragraph",
-          "text": "结果第二天早上一看，四个视频只生成了一个；感觉没get到正确的玩法。"
-        },
-        {
-          "type": "paragraph",
-          "text": "06"
-        },
-        {
-          "type": "paragraph",
-          "text": "总结唠一下"
-        },
-        {
-          "type": "paragraph",
-          "text": "1、现在图片任务的积分消耗很低，一般只要2到7分，而视频任务大概在15到35分之间。赠送的100积分用起来其实挺耐用的。"
-        },
-        {
-          "type": "paragraph",
-          "text": "2、批量生成图片和视频是个很大的升级，以前只能生成四张，现在可以批量操作，满足感大幅提升。"
-        },
-        {
-          "type": "paragraph",
-          "text": "3、即梦本身对中文海报支持最好，但在Agent里用自己反推的提示词时，效果还不是特别理想；也有可能是我测试得不够多。"
-        },
-        {
-          "type": "paragraph",
-          "text": "4、即梦Agent的定位不是专门做设计的，所以在创意设计和理解上还有欠缺。不过这是它第一次发布，成长空间很大。"
-        },
-        {
-          "type": "paragraph",
-          "text": "5、暗搓搓吐槽下：批量生图但不支持批量下载；其实我测评还有很多内容，但一个个另存真的好麻烦，插件一个个都失效了"
-        },
-        {
-          "type": "paragraph",
-          "text": "总之，工具的进化，从来不只是性能数字的跃升，而是它能否真正拓展我们的想象边界。即梦Agent才刚起步，真正的故事还在后面，期待~"
-        }
-      ],
-      "fallback": false,
-      "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:26.526Z"
+      "cachedAt": "2026-02-28T10:38:40.760Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Seko保姆级玩法教程，丝滑转场和对口型太惊艳了-0",
       "url": "https://mp.weixin.qq.com/s/aaY50AjowztpaiSbmbrpJw",
       "title": "Seko保姆级玩法教程，丝滑转场和对口型太惊艳了。",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiacZc5mVmBL7w68XAQKrxicuKwHlKYAORZa4KQ7WoNuVYctrgzP6lPyMjw7HOwjXKwHEibJRPrvPTC0w/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -28450,12 +26117,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:26.720Z"
+      "cachedAt": "2026-02-28T10:38:41.412Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-KA21宣传KT板设计任务完整复盘-0",
       "url": "https://mp.weixin.qq.com/s/wrVCKE55YRyq_Yyho_cDug",
       "title": "生图类批量设计任务执行全过程|细节教程分享",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaxUicTvLYMP22mq9zzjSDG3BO1Hru48DBjjzqAMbnXkfL8Z5L0K7O0moUgNoY98EtsbOjEY7CHicLdw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -28464,12 +26132,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:26.926Z"
+      "cachedAt": "2026-02-28T10:38:41.778Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-教爸妈用豆包AI真正走进家庭的温暖故事-0",
       "url": "https://mp.weixin.qq.com/s/AA0cPSQJq4PnpoHaZZMA4A",
       "title": "当爸妈也会对着豆包说话的那一天...",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/R8LaBCAYicP9yunPGeZYsB1SEVffGYibwNYb2Zeo6vUAlVF0iaDOfMNhQzbhl2LTlTEXv1DFtuicDySOyaJ16fx5Zw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -28830,12 +26499,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:27.146Z"
+      "cachedAt": "2026-02-28T10:38:42.393Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-阿真-飞书多维表格应用模式-从表格到应用的跨越-0",
       "url": "https://mp.weixin.qq.com/s/lZ93f3bvMCfCOwTm2SjOMQ?scene=1&click_id=1",
       "title": "又一篇保姆级教程，献给飞书多维表格应用模式。",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiaeAjwJJ6TgJCicfniaDLXdb0Hr9RlWA1lb7a5r8N2ZIff3f8kNfqQWVEq6zkicpGkUuQ2pC8oWVal54A/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -29498,12 +27168,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:27.373Z"
+      "cachedAt": "2026-02-28T10:38:42.086Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-一个杯子引发的AI电商全案设计落地方案探索-0",
       "url": "https://mp.weixin.qq.com/s/5CJo2N0xAdx340WXA1H2pQ",
       "title": "一个杯子引发的AI电商全案设计落地方案探索|屁屁杯工业产品全案设计制作教程",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViaw8Ugd2Tk0zNiaYsIBxL0cF7OAudWewXO6KHncsbpWp890qdV7T5JnZcsrxPBFV25icMBwN45zuMOpw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -29512,12 +27183,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:27.578Z"
+      "cachedAt": "2026-02-28T10:38:42.747Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-2025年终复盘AI-PPT的疯狂进化史-0",
       "url": "https://mp.weixin.qq.com/s/pXKL1UvIy4JY4INk7-4GLA",
       "title": "2025年终复盘：AI PPT的疯狂进化史，含实战案例（打工人必看）",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/4XFuL57YsP54Z1uLjTOSWaGJHBEBVzWzwib3cpTzPLafXk6qwNzZC1EibjibBQlR8lkkiaPVNoNjheD5FibvclYHs4A/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -29683,12 +27355,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:27.775Z"
+      "cachedAt": "2026-02-28T10:38:43.064Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-Lovart正式冲击PPT赛道-0",
       "url": "https://mp.weixin.qq.com/s/oQX8sGs2MUNg6detRkYkDQ",
       "title": "Lovart正式冲击PPT赛道！AI PPT新王诞生",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/XBgibQDyDF3icTC81a7r26jdibfic8kVtHLp4uXFlJjVLQQV6X1kYyTMxApvV4JAUKqzeFH4MEbnhM5DdtSkiaZAricQ/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "heading",
@@ -30221,126 +27894,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:28.007Z"
-    },
-    {
-      "id": "tutorial-mp-weixin-qq-com-腾讯IMA任务模式实测知识库终于能直接生成PPT了-0",
-      "url": "https://mp.weixin.qq.com/s/XICUOKn8pFAIah55jawIFg",
-      "title": "腾讯IMA可以做PPT了？这下收藏的800篇文章不会吃灰了",
-      "blocks": [
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP5n1LGicVbryIgY5DkROKKyhXqd5ciaic8tX49HMBdW0Pok2ZhCbI8BO9fIoMBJsxF4xKoC2OVknmTEQ/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "Hi，大家好！我是蜡笔，你的AI进化指南💡"
-        },
-        {
-          "type": "paragraph",
-          "text": "今天得知腾讯IMA的任务模式可以做PPT了，赶紧测评下；如果不清楚IMA基础使用的，可以看看这两篇："
-        },
-        {
-          "type": "paragraph",
-          "text": "腾讯IMA知识库入门教程和使用案例"
-        },
-        {
-          "type": "paragraph",
-          "text": "ima更新盘点：知识库不再只是仓库，而是AI工作台了！"
-        },
-        {
-          "type": "paragraph",
-          "text": "这次一文会给你们看下IMA出的PPT是怎样的？是否能编辑？还给你们看看IMA的任务模式除了PPT还能干什么？还有微信文章丝滑收入IMA的技巧。"
-        },
-        {
-          "type": "paragraph",
-          "text": "感兴趣就往下看吧！"
-        },
-        {
-          "type": "paragraph",
-          "text": "IMA任务模式-PPT"
-        },
-        {
-          "type": "paragraph",
-          "text": "1、首先你需要下载腾讯IMA的客户端，如果已下载，需更新到最新版本，才能看到任务模式。目前还是内测中，任务模式邀请码我放评论区。2、因为近期有科普AI PPT的需求，以这个为案例。选择任务模式，左上角选生成PPT，@是选择现有的知识库，这个是平时收集的AI相关公众号文章；我希望从里面整理出AI PPT的的PPT。3、过程确认：开始执行不久就让我补充信息，直接回复A或B即可，或者补充其他。（经过多轮测试，这个必须点击，否则会一直停在这里）补充完信息，会先结合我提示词+补充信息完善整体提示词，仍然需要人工确认；记得点击，这个过程比较快速。"
-        },
-        {
-          "type": "paragraph",
-          "text": "4、开始任务：这个执行需要花费半个钟，建议这个时候忙其他就行。不过可以多开任务页面，同步执行任务。5、PPT成果：划重点！内容整理是不错的，毕竟都是自己搜集的宝藏！PPT是通过HTML生成的，基本没图片，只有图标和文字排版也还好，但样式几乎是没有的；测试了下加风格提示词，就是下图2的样式，就改个色。当然，是可下载，也可编辑的PPT，无需转换；就是美化全靠自己了，如果要求不高，也能直出就用。是不是觉得收藏的几百篇微信文章可以用起了了？"
-        },
-        {
-          "type": "paragraph",
-          "text": "任务模式-报告今天刚好收藏了阿真老师的整个IMA知识库，用来生成一个《提示词要怎么写最好用》的报告。还是任务模式，选生成报告，可选用一个或多个知识库。步骤还是跟PPT差不多的三步流程，需要你补充一些信息，点确认。这是生成的报告：非常的详细，从入门到错误案例，万能提示词框架；虽然我定了2000字，可是它给了我9000+，可能IMA对报告的定义，就是大长篇吧。任务模式-生成播客讲在前面，我觉得这个播客很一般。例如这个案例，引用了一个穿越古代必备手册的知识库；可选分单人或双人对话生成，我期待的是一个有趣的播客。。结果结果：由于过程中，让我选了唐朝，导致知识库和唐朝所需内容对不上；给我生成了一个内容空白的播客，就是两个主播在里面不断讲，唐朝的***值得一说，但查无资料，所以是空白的。讲了5分钟的这个空白，那个空白，真的笑s，我要不要庆幸它没给瞎编呢？所以我有个想法：不如IMA任务模式根据知识库输出一篇所需报告；转身投入ListenHub的怀抱，生成更生动的播客，这才是真香用法吧"
-        },
-        {
-          "type": "paragraph",
-          "text": "微信文章超丝滑保存"
-        },
-        {
-          "type": "paragraph",
-          "text": "手机端打开微信文章收藏到IMA，估计大家都知道。"
-        },
-        {
-          "type": "paragraph",
-          "text": "但是，PC端群聊文章收藏，不知道大家知不知道；反正上班有空时看到干货收藏，或者没空时先收藏再看，总之PC端操作肯定比玩手机没那么像摸鱼。"
-        },
-        {
-          "type": "paragraph",
-          "text": "1、点击文章，右键--打开方式--小程序工具--选择IMA 即收藏成功。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP5n1LGicVbryIgY5DkROKKyhFIbBxSiarBfibWicycV4dFl9iafmKELbicpIOBHeaz6qjzsjLcbTMcd8icLQ/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP5n1LGicVbryIgY5DkROKKyhmojnFBHdrQX3W5R0s00vQ2GHzyibpmrW8fAMOcPdQVRWTbhNBXJVluw/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "2、还是PC端，先安装一个IMA的浏览器插件，把你在看的文章，一键收藏。"
-        },
-        {
-          "type": "image",
-          "src": "https://mmbiz.qpic.cn/mmbiz_png/4XFuL57YsP5n1LGicVbryIgY5DkROKKyhkp5Z9OCibstNYkQESYXQB4kwzrVW3yWLuIuX1CGQQh3wjUE5Mgdr5Zg/640?wx_fmt=png&from=appmsg",
-          "alt": ""
-        },
-        {
-          "type": "paragraph",
-          "text": "今天测评就到这。"
-        },
-        {
-          "type": "paragraph",
-          "text": "大家都在年终总结，我感觉都写得真好，所以我，还是默默看吧。"
-        },
-        {
-          "type": "paragraph",
-          "text": "写在最后鉴于我们收藏=学习的本性，信息和知识的积累虽然越来越多了，但我们并没有懒得合理的用起来，因此如何将这些宝贵的资料转化为高质量的工作成果，依然是许多人的难题。工具的便捷是一个不错的动力。腾讯IMA的任务模式目的是把大家收藏那一堆知识资料盘活，将知识库转化为有价值的文档。这确实也增加了它的优势，虽然功能都比较初级，还是期待IMA不断优化后的成果，毕竟依托微信生态，我用它的频率确实比其他知识库都高！"
-        },
-        {
-          "type": "paragraph",
-          "text": "图片由AI生成。"
-        },
-        {
-          "type": "quote",
-          "text": "读到这里，恭喜你完成一次进化升级 ✨点个关注 / 转发一下，让我们一起进化吧 💡欢迎评论区反馈点评，我都在。"
-        },
-        {
-          "type": "paragraph",
-          "text": "最近组建AI交流群，公众号后台点击【AI交流】可加微信进群。"
-        }
-      ],
-      "fallback": false,
-      "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:28.417Z"
+      "cachedAt": "2026-02-28T10:38:43.406Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-我用3500字提示词把AI-PPT拉回可控区间-0",
       "url": "https://mp.weixin.qq.com/s/VJUd1HYU4vNypZGE0OXpEA",
       "title": "2025年最后一天，我用3500字提示词硬控住了AI PPT",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Aic1RkSKrBs91tJ1uNiatO3VUlKm0l7ypy9riaGJpGK6h6FsNM4X7qDmxbCNMc6Kfde5dExPG95jl0bEvrqwtKibBA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -30659,12 +28219,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:28.207Z"
+      "cachedAt": "2026-02-28T10:38:43.713Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-2026最佳AI工具推荐让你一整年效率拉满-0",
       "url": "https://mp.weixin.qq.com/s/wFkh8ndoM7vgqKOjS43hRQ",
       "title": "2026最佳AI工具推荐，让你一整年效率拉满！（推荐收藏）",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/3QzcPBL9P1AM9aia3IybAViaEL1j24mwMJxrsiaIXb57u6K1wJHyeNR4KqDwwm4iblPZMrbbGJ8D8Pl37OytKWdDMw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -31415,12 +28976,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:29.065Z"
+      "cachedAt": "2026-02-28T10:38:44.365Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-免费视频切片分析脚本再创作可复用的分镜反推工作流-0",
       "url": "https://mp.weixin.qq.com/s/4k8OE1xAX3nOJVDyXdGcmA",
       "title": "免费视频切片分析+脚本再创作，提示词分享。",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiafM10Picic2SfWyzyq0WiagfiacCy5wN0D06vm9P9HJLX682vdAgn9iaT5tyvVlcU1KbCgbzVriaJs5KYWg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -31616,12 +29178,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:28.649Z"
+      "cachedAt": "2026-02-28T10:38:44.699Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-承认吧99的AI热点普通人根本用不上-0",
       "url": "https://mp.weixin.qq.com/s/0KibHNsX210EUt0bdopgzA",
       "title": "承认吧，99%的AI热点，普通人根本用不上",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMmicZZJywTHwseAWD4Pv4pv2DIHDj7ZaRGOic7jUhxaxRVGoiaHnvLaWJvmldDaZ7QWHYuVicRQtic9ktloDmj6ica7GbOy1SxSJe9xGc/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -31979,12 +29542,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:28.870Z"
+      "cachedAt": "2026-02-28T10:38:45.229Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-可灵30太贵用不起lovart4毛钱起真香-0",
       "url": "https://mp.weixin.qq.com/s/RFlwQFpnEiNn3sym9sFDwg",
       "title": "可灵3.0太贵用不起？lovart4毛钱起真香！",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ib3hzeKedibj8y8yhunGoESXt3vX2VKt93ic9bFmyM6VNpqibnTXoNRQgIM1xpEffxXpHzt0OCblTn9XcZib0NzqZhFS6VbAjHytick25icLjjuViaA/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -32001,12 +29565,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:29.214Z"
+      "cachedAt": "2026-02-28T10:38:44.927Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-即梦Seedance20实测一张九宫格分镜一句提-0",
       "url": "https://mp.weixin.qq.com/s/ikM_k5Jx5CH7mjPogA5DpA",
       "title": "即梦Seedance2.0实测：一张九宫格分镜 + 一句提示词，视频就出好了",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/VV0r92V7YpeTlNzSicnoYECPWfzrTSicolI8QMcSWCwgdoxJZ1CDV8p68MDoZGbYpS5qEY9ep9yicm9U8JgTPlswdFrzO9dJMua7YkO8Sx20Aw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -32190,12 +29755,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:29.445Z"
+      "cachedAt": "2026-02-28T10:38:45.551Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-IP动态表情包批量制作进阶法AI工作流探索-0",
       "url": "https://mp.weixin.qq.com/s/VCmg8-pwSXjWyI1ytui8Hg",
       "title": "IP动态表情包批量制作进阶法|AI工作流探索",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/qia9ZvCZaViawPFpsD57saPv9qL4eErp7nk7V8TE8RJln2qcVjiaLQb1zLvEM9owTHOmXibRvficWmr4FrTiclc2ZOSg/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -32204,12 +29770,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:29.639Z"
+      "cachedAt": "2026-02-28T10:38:45.901Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-一张图一句话就能做视频的时代来了即梦Seedan-0",
       "url": "https://mp.weixin.qq.com/s/SdoImVnCtQbmVPhkHxESkg",
       "title": "一张图+一句话，就能做视频的时代来了！即梦Seedance 2.0新发布，牛上天了！（附3种体验方式）",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/15amGy0JsPicam257Mib6nXibqBiaHJsza7O0VKR0ibRA99iaJlwJib4keG517oqicknV2jTAicniaKic6dO94Xn4HsGsrWONJ6tdntRVO4hsjGfibxy550/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -32575,12 +30142,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:29.979Z"
+      "cachedAt": "2026-02-28T10:38:46.212Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-豆包Seedance20实测也来了多个视频生成怎-0",
       "url": "https://mp.weixin.qq.com/s/DmTt_gNK06XwBl6huBuCcg",
       "title": "豆包Seedance2.0实测也来了：多个视频生成怎么保持一致性的技巧分享",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/VV0r92V7YpeTlNzSicnoYECPWfzrTSicolI8QMcSWCwgdoxJZ1CDV8p68MDoZGbYpS5qEY9ep9yicm9U8JgTPlswdFrzO9dJMua7YkO8Sx20Aw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "image",
@@ -32751,12 +30319,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:30.596Z"
+      "cachedAt": "2026-02-28T10:38:46.524Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-一觉醒来Kimi的VibeCoding已经是钮祜-0",
       "url": "https://mp.weixin.qq.com/s/z_hHY6080fwd5_wECvalDA",
       "title": "一觉醒来Kimi的Vibe Coding已经是钮祜禄版本了，7个case上手实测！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/HibrYDJehdiadEkSGUGT8hYZdERk2cdPfgQFeNuujWQAnNo6f7YLicqjz5jX2Tjslo898ic4iaIblPv8y4kSoCPlGLw/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -32765,12 +30334,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:30.396Z"
+      "cachedAt": "2026-02-28T10:38:46.853Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-龙虾Token焦虑自救指南-0",
       "url": "https://mp.weixin.qq.com/s/VqGg56KbdLcEarJt0btQXA",
       "title": "龙虾Token焦虑自救指南",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/MoZfoickyLB1ssU7AOjFHVJKX0Bx1GkKMezCf5CsEvrJWnzAXz4fB4z5BWwp8TIEzAXvA5tUtGN6KeS0emd63EIVogawGmJSXanabbegUrcM/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -32934,12 +30504,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:30.206Z"
+      "cachedAt": "2026-02-28T10:38:47.194Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-装上这个Skills让整个GitHub为你打工-0",
       "url": "https://mp.weixin.qq.com/s/zSOYzJfFe-P8BRZMa_PtUA",
       "title": "装上这个Skills，让整个GitHub为你打工",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/cevPo6QMgbDLusN5jZPbjia57PbwOIoTQAYs49qnvxmqls8AoAjwVYXCdbZN4zR1V1aBemvS8mdibXzCabicSCRLyDhXZdt7ayZ2Z2NxpfZHFM/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -33245,12 +30816,13 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:31.016Z"
+      "cachedAt": "2026-02-28T10:38:47.499Z"
     },
     {
       "id": "tutorial-mp-weixin-qq-com-谷歌上新NanoBanana2性价比王者来了附5-0",
       "url": "https://mp.weixin.qq.com/s/-X9uagypDsVnY0tV-N2KMg",
       "title": "谷歌上新Nano Banana 2！性价比王者来了！（附5种使用途径和超全测试集）",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/yiaVrQ9NLMm9NdZe5bJ4HHSjyDWt9ApcnprRwBDrpOZD9iceGReBkb8ib0nXVEyANia7souiaD6TT8UzQ0ps8sEyibVYZC2zicoYPuCDGwbmY08JYE/0?wx_fmt=jpeg",
       "blocks": [
         {
           "type": "paragraph",
@@ -33685,7 +31257,438 @@ module.exports = {
       ],
       "fallback": false,
       "source": "wechat-fulltext",
-      "cachedAt": "2026-02-28T06:35:30.800Z"
+      "cachedAt": "2026-02-28T10:38:47.849Z"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-我TMD受够了删掉132G截图后才发现原来可以这-0",
+      "url": "https://mp.weixin.qq.com/s/2iX0HOTjdU9NgXO1M1_3Cg",
+      "title": "我TMD受够了！删掉132G截图后，才发现原来可以这样“榨干”小红书",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/0bHsGulrrXYfMvicG16S8CGK224IwPrPKMApCowkoFibgGcq1R8Xfyrt4KmTEER1M1Yw541VNYKSSjUTg77ciaMSA/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "我受够了！删掉132G的\"灵感\"截图后，我用这套\"土法\"把小红书榨干了周末，我看着电脑屏幕，真想把它直接从楼上丢下去。为啥？我的桌面，密密麻麻，全是截图。D盘里一个叫\"内容素材\"的文件夹，点开属性一看，好家伙，132个G。我敢说，在座各位做内容的，没一个敢说自己电脑里没这么个\"赛博垃圾场\"。我们像有囤积癖的松鼠，疯狂地往里塞东西，以为存下来就是自己的了。结果呢？真到写东西的时候，鬼知道那张惊为天人的图在哪，那句拍案叫绝的文案藏在哪个角落。最后还是得苦哈哈地重新打开APP，重新刷，重新焦虑。这天晚上，我在机械地整理着这一堆\"垃圾\"文件，脑子里就一个念头：TMD，我受够了。我是个创作者，不是个仓库管理员啊！就在理智崩断的边缘，我突发奇想，搞了套\"土法炼钢\"的骚操作。没想到，效果出奇的好。现在，小红书对我来说，已经不是一个需要\"刷\"的APP，而是一个随时可以\"调用\"的、活的数据库。别急，方法不难，甚至有点野路子，但绝对好用。主角就俩：影刀RPA 飞书多维表格第一步：找个\"不要钱的实习生\"帮你干脏活先说影刀RPA。你就当它是你新招的一个实习生，这小子特别听话，手速巨快，还不要钱、不要命、24小时不睡觉。我以前是怎么干的？看到好东西，截图，保存。我现在是怎么干的？我直接跟这个\"实习生\"说：\"小影，去，把小红书上所有带'职场OOTD'标签的笔记，只要是最近一个月发布的，全部给我扒下来。记住，文案、图片、博主是谁、多少赞、多少收藏，我全都要！图片要高清的！\"然后？然后我就去刷刷手机，顺便回了几个群的消息。再回来一看，我靠。一个整整齐齐的表格雏形就出现了。我以前要花大半天甚至一天才能干完的活，这哥们儿十几分钟就搞定了。关键是，它不是截图，是把所有信息都结构化地扒下来了，文字是文字，数字是数字。那一瞬间的感觉，真的，就像堵死的马桶被一下搋通了，舒坦！第二步：给你的\"灵感\"安个智能的家扒下来的东西，得有个好地方放。以前，我们用Excel，放文件夹。现在，我用飞书多维表格。这玩意儿，你要是还当它是Excel，那真是屈才了。它更像乐高，你可以自己搭个信息基地。影刀抓回来的数据，会自动\"biu\"地一下，跑到我建好的飞书多维表格里，萝卜青菜，各回各家。标题进\"标题\"格，链接进\"链接\"格，博主信息进\"博主\"格，图片直接就嵌在格子里，点开就能看大图。一个看起来更真实、更干净且功能强大的飞书多维表格界面示意图自从有了这玩意儿，我的世界清净了。想写篇\"早八人旅游攻略\"，直接筛选\"旅游\"标签，按点赞量从高到低排个序，几十篇爆款笔记的标题、文案、图片结构瞬间就在眼前了。什么套路，什么模板，一目了然。想研究下某个对标账号为啥那么牛逼？直接筛选他的昵称，他所有的爆款笔记，从标题用词到图片风格，再到发布时间，全都给你扒得干干净净。这哪是表格，这简直就是我的\"内容战略情报局\"啊！最骚的来了：让AI给你打工如果说上面只是让我从体力劳动里解放出来，那飞书表格里藏着的AI功能，简直就是给我装了个\"外挂大脑\"。表格里不是有现成的爆款文案吗？我在旁边新建一列，直接对AI说：\"嘿，请根据我给你的内容，按照爆款文案的样式进行修改和扩写。\"\"唰\"，一篇7分像的稿子就出来了。虽然不能直接用，但做个初稿，或者提供个新角度，简直不要太爽。我还能让它：\"总结这篇文章的5个核心看点。\"，\"分析这个标题的吸引力在哪。\"，\"把这段内容改成朋友圈九宫格文案。\"它就像一个任劳任怨的助理，帮你把最头疼的\"从0到1\"给解决了。剩下的，就是我们这些\"人类\"发挥创意和情感去打磨、去升华。说真的，别再用\"灵感\"的名义，去干搬砖的活了搞定这套流程之后，我做的第一件事，就是把我那个132个G的\"灵感\"文件夹，拖进了回收站。那一刻，我感觉整个人都轻松了。我们总说要专注，要做有价值的事。可现实是，我们80%的时间，可能都在做这种低水平的重复劳动。我们感动于自己的\"努力\"，却没发现那只是在原地打转。技术这东西，不是为了让你失业，而是为了把你从这些狗屁倒灶的破事里解救出来。AI也好，自动化也好，它们存在的意义，就是让我们能把时间，花在真正需要\"人\"的地方——去思考，去感受，去创造，去连接。说白了，就是把\"搬砖\"的活外包出去，我们自己，专心搞“艺术”。OK，方法都告诉你了。最后，我就问你一句：如果每天能帮你省出4小时的\"垃圾时间\"，你打算用它来摸鱼，还是干点真正牛逼的事儿？评论区告诉我。"
+        }
+      ],
+      "fallback": false,
+      "source": "wechat-fulltext",
+      "cachedAt": "2026-02-28T10:38:48.139Z"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-视频分镜提示词Skill详细制作过程分享-0",
+      "url": "https://mp.weixin.qq.com/s/F5hVxpFwtuv7lfwTeeOgOg",
+      "title": "视频分镜提示词Skill，详细制作过程分享！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/m1eibvmmT3sicp6fch1fKY53OxDBjPTC1iaoiaHXfpg60GpXayBk4qojJgdDJ9icQNnyC7ePo068ThSMOm85tiavURhIMaQSgk1dS7U36CxwkFRt4/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "视频分镜skill下载和使用一键打包！"
+        },
+        {
+          "type": "paragraph",
+          "text": "视频分镜skill下载和使用一键打包！"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.995Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-转给你那位想养虾的朋友OpenClaw保姆级部署-0",
+      "url": "https://mp.weixin.qq.com/s/iG3dEGTNNr4CM3Ep7d-Lnw",
+      "title": "转给你那位想养虾🦞的朋友！OpenClaw🦞保姆级部署教程，我把坑都踩完了，按步骤做就能成。",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/T8lDbHpgVxKe4rtAApU6CWfiaOVDSswibW0haoIG0MLttibcJGtO7nbwgXuG7BUpX4W9ySBDz2J4gv9BYoPgAeoFYlibuzQ1HMxJdx60rIgW8fQ/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "最近 OpenClaw （别称“小龙虾🦞”）的热度太夸张，“养虾”从零到一指南。"
+        },
+        {
+          "type": "paragraph",
+          "text": "最近 OpenClaw （别称“小龙虾🦞”）的热度太夸张，“养虾”从零到一指南。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.995Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-同事都在偷偷用NanoBanana231套模板做-0",
+      "url": "https://mp.weixin.qq.com/s/e02rNHnYkkCoie4e5i1nOg",
+      "title": "同事都在偷偷用：Nano Banana 2 + 31 套模板，做出高级感配图",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/Ls0ATlDTNndOTNlCib3iauPYM7avEGhq4IAncYehp4gMxibBG2xdpVpQPMjAWFia9WK9DwaqzooxANdfL0PU0d6WXpsmPbqg5Y6Miba6dxoDvtibo/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nano Banana 2 负责生成，Lovart 负责一键纠错编辑。"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nano Banana 2 负责生成，Lovart 负责一键纠错编辑。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.995Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-这套简历优化prompt分享给大家让你的简历瞬间-0",
+      "url": "https://mp.weixin.qq.com/s/XQi14CiDBP3Rq6RvCDp7vQ",
+      "title": "这套简历优化prompt，分享给大家，让你的简历瞬间“高级”起来了",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/VV0r92V7YpdswO9xPn0hgxhR5XA3MnSOrmyO6HZ1nkhzs9HZ9Npm1nial9cUuEGNBb2Doz6vK5NPjXF9jdUyWGoyxxdxHoPWnmCniaAPg0kR0/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "年后找工作必备：一个超好用的简历优化prompt用起来~"
+        },
+        {
+          "type": "paragraph",
+          "text": "年后找工作必备：一个超好用的简历优化prompt用起来~"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.995Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-Windows安装OpenClaw保姆级教程集成-0",
+      "url": "https://mp.weixin.qq.com/s/7AFWS6ZqYzSnzLU9Iiimig",
+      "title": "Windows安装OpenClaw保姆级教程: 集成Deepseek+飞书, 1小时搞定你的私人AI助手",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ibC4PtEcYeBvpqsqHib70NopGr8ic7IErSFF9Cv20gIyCZX77gqGqZ4xpiaSqUHLuWAMtqvwmPRezibL5eT2H9GrGwJU7vlCLUzdCRdOjybFzWI8/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "OpenClaw入门到精通第一集"
+        },
+        {
+          "type": "paragraph",
+          "text": "OpenClaw入门到精通第一集"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.996Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-Mac苹果电脑30分钟安装OpenClawDee-0",
+      "url": "https://mp.weixin.qq.com/s/Wz0YoQVEKmWBRODRdeFXuQ",
+      "title": "Mac苹果电脑30分钟安装OpenClaw+DeepSeek+飞书插件全程指南 (2026版)",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/ibC4PtEcYeBt7FY9bYHwvMhHyrOd6N9RtGbsZyMJtMhouo5iaG7zGUKRoJCQJ6R9tDm9fBYibK9wMU6Omz9zWr5WveeqHiaWlCI17hetlKpVKdw/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "大家好，我是刀哥。做过大厂研发、做过出海硬件，现在挖掘AI圈一手更新，深耕 AI 视频、AI 编程。"
+        },
+        {
+          "type": "paragraph",
+          "text": "上次出完Windows教程之后，有不少粉丝问有没有Mac教程，mac安装非常简单，但考虑到小白可能连Terminal都没用过，也没敲过任何命令，还是详细写一写！"
+        },
+        {
+          "type": "paragraph",
+          "text": "首先介绍下Terminal终端，它就是输入一些命令的地方。把四个手指放在触摸板上合拢，打开应用浏览：然后搜索框里输入Ter就显示终端了，点开"
+        },
+        {
+          "type": "paragraph",
+          "text": "大家好，我是刀哥。做过大厂研发、做过出海硬件，现在挖掘AI圈一手更新，深耕 AI 视频、AI 编程。"
+        },
+        {
+          "type": "paragraph",
+          "text": "上次出完Windows教程之后，有不少粉丝问有没有Mac教程，mac安装非常简单，但考虑到小白可能连Terminal都没用过，也没敲过任何命令，还是详细写一写！"
+        },
+        {
+          "type": "paragraph",
+          "text": "首先介绍下Terminal终端，它就是输入一些命令的地方。把四个手指放在触摸板上合拢，打开应用浏览：然后搜索框里输入Ter就显示终端了，点开"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.996Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-OpenClaw从新手到进阶飞书多Agent协作-0",
+      "url": "https://mp.weixin.qq.com/s/1t8M2C5pAlvZLxh9elv_4w",
+      "title": "OpenClaw 从新手到进阶：飞书多 Agent 协作、Skills推荐、人格配置、Memory保姆级教程",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/T8lDbHpgVxJPlYMHYkhqTzIjUDSGkwghfSUT4XufEtj8xDg3ic6IoxebOCfyAibSK7POQGmHicHF82620Jjh81oFfh8VtW2ZIaViaicicic9vichs8o/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "很多人把 OpenClaw 跑起来，却发现自己的“龙虾”干不了活。问题通常不在模型，而在配置。这篇文章从人格、记忆、skills 到多 Agent 协作，一步步教你把一只龙虾养成一整个 AI 团队。"
+        },
+        {
+          "type": "paragraph",
+          "text": "很多人把 OpenClaw 跑起来，却发现自己的“龙虾”干不了活。问题通常不在模型，而在配置。这篇文章从人格、记忆、skills 到多 Agent 协作，一步步教你把一只龙虾养成一整个 AI 团队。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.997Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-聊聊龙虾的Heartbeat设计哲学-0",
+      "url": "https://mp.weixin.qq.com/s/_Go-3PHMCPOeP3jmgu3wMw",
+      "title": "聊聊龙虾的 Heartbeat 设计哲学",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/SQLMuWlOPuFL7voRfxNye4l0Xd2RtOYFicKgNGtS3SYmjKwPBiajcyybRFUMdpEVWhbLPMSVTACkciaQcHaMdMfaEC6QUh3wibYvqCB6Yl3VnEM/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "一个被误解的功能，一个被低估的设计。"
+        },
+        {
+          "type": "paragraph",
+          "text": "一个被误解的功能，一个被低估的设计。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.997Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-实测5款Al语音输入法1款免费封神1款贵但全能微-0",
+      "url": "https://mp.weixin.qq.com/s/Vb_VGF2jWeIMY-j_rCJ7BA",
+      "title": "实测5款Al语音输入法:1款免费封神，1款贵但全能，微信的隐藏功能90%人不知道(附对比表格)",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/15amGy0JsPibdCdGmIDgVze0PcuicY3VlNJ4XJayz86N5ajydCB8l0GTibE1tU7m2W5fn6SVM9P4rjNV981ZFt61YXArlLItoQhUjJLMAL4BZk/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "2026年效率翻倍清单:这5款能语音输入法的AI神器，帮你省下80%打字时间"
+        },
+        {
+          "type": "paragraph",
+          "text": "2026年效率翻倍清单:这5款能语音输入法的AI神器，帮你省下80%打字时间"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.998Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-养虾30天我总结了这十条血泪经验附救虾指南全文干-0",
+      "url": "https://mp.weixin.qq.com/s/zXc_JVI5fYsb9vgtXEnCWw",
+      "title": "养虾30天🦞，我总结了这十条血泪经验（附救虾指南），全文干货！！！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/T8lDbHpgVxLBiatrnSQXT5Rco2qqqDC7x87L7XSkBpicRjBpRgItEZCZI77tZYA7EF8znw1N8icD15WEXLJE7oIqURiaib2H2FekBI3sIfk51fiaU/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "这篇都是实战经验，包括skills下载，养虾技巧，以及最重要的救虾流程。看完你至少能少走很多弯路，关键时候还能把你的龙虾救回来。"
+        },
+        {
+          "type": "paragraph",
+          "text": "这篇都是实战经验，包括skills下载，养虾技巧，以及最重要的救虾流程。看完你至少能少走很多弯路，关键时候还能把你的龙虾救回来。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.998Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-实操保姆级拆解AI自动化SOP四步法从选题配图到-0",
+      "url": "https://mp.weixin.qq.com/s/wxjR1dS2eYUxm7Q9eXqWhw?scene=1",
+      "title": "【实操】保姆级拆解AI自动化SOP四步法，从选题、配图到排版全自动",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/ic8BH9EFusn7zuMiaicSvv0pXiaA50SwOGHxkzkEnhBhR1nB9hdiax4EJ5tIjgS0gfMyKU7ZJXgTEj7UFib3V0h8EbCBlRLnWWmFLva0nKHH0Hzdc/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "让 AI 主动来理解我们的需求，并自动调度相关工具进行制作。"
+        },
+        {
+          "type": "paragraph",
+          "text": "让 AI 主动来理解我们的需求，并自动调度相关工具进行制作。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.998Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-PC端输入范式我为什么最后留下闪电说-0",
+      "url": "https://mp.weixin.qq.com/s/03xSXr9dA0KVY94I-pJSEw?scene=1",
+      "title": "PC 端输入范式，我为什么最后留下闪电说",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/AJa20SqCrzDpXicXGJCB9PCXGIlNNCjtRf08e7mmiabhb0MkVFf8dGs03StUmJg1JictPcvIdo5SSQEXFAIOg4eIt6yvf8xz2jx24CKZFLZs9c/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "目前电脑端豆包输入法平替——闪电说，提升输入效率四倍！"
+        },
+        {
+          "type": "paragraph",
+          "text": "目前电脑端豆包输入法平替——闪电说，提升输入效率四倍！"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.998Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-让完美使用飞书文档和在飞书中流式输出-0",
+      "url": "https://mp.weixin.qq.com/s/xI5e0JcOCK_rkMWQiymiWg",
+      "title": "让🦞完美使用飞书文档和在飞书中流式输出",
+      "cover": "http://mmbiz.qpic.cn/mmbiz_jpg/ib3hzeKedibj8KrxgaoiaialSNbW8UeGib4623iaNQ4mysD6VLiaCsz687lTdTLS9BqCJctshb5Bz3Go89ryAvRMfCV3T4TYgThMYghrVzt1aMp5ibk/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "直接和龙虾发下面2个消息，就可以在飞书文档流式输出。"
+        },
+        {
+          "type": "paragraph",
+          "text": "直接和龙虾发下面2个消息，就可以在飞书文档流式输出。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.998Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-全网都在装OpenClaw我的龙虾已经在帮我搭飞-0",
+      "url": "https://mp.weixin.qq.com/s/9AH4zOkJ1Ac-Bxaq-dOiRA?scene=1",
+      "title": "全网都在装 OpenClaw，我的龙虾已经在帮我搭飞书多维表格了",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/62UPwaOVsFrJVTvjrbHUjrzsd9doVKbkJ6IiaEGibXNfIaNxhugqYKkSe7t505JQGJzXvPRNDGwuBaVSibvaKLsibichKU8FMSkLOOnxia5RgdmTo/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "47 个技能、一句话出完整系统， 加配置文档，3 分钟全自动搞定"
+        },
+        {
+          "type": "paragraph",
+          "text": "47 个技能、一句话出完整系统， 加配置文档，3 分钟全自动搞定"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.999Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-图文救星SeedeAI不写提示词生成高清图还带源-0",
+      "url": "https://mp.weixin.qq.com/s/bcgV_EpsoxhwS39p35wSvw",
+      "title": "图文救星Seede AI，不写提示词、生成高清图还带源文件！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/m1eibvmmT3siciaia0HXXFvDiaLYy9QgaXSduEufCT9KmF4jJWMjOywFw0aYK9MhqFmgItByYn4xibNnyPVV4tJOmMUID1FmlSTDGGHxb99IbqgGE/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "生图最烦写提示词？Seede AI 决定干掉这个痛点。"
+        },
+        {
+          "type": "paragraph",
+          "text": "生图最烦写提示词？Seede AI 决定干掉这个痛点。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.999Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-小龙虾OpenClaw在偷啃这12个技巧帮你省T-0",
+      "url": "https://mp.weixin.qq.com/s/tZb7lr2NB1KU82sidlWFxQ?scene=1",
+      "title": "小龙虾OpenClaw在“偷啃”？这12个技巧帮你省Token！",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/NLP7cUicg7G4WO7SFicSmVU8iaHSicY8z0ujezGEtqPmcogQKKTQj8LDYdQB2dicj4x2rjIu0WjezUn0Be1iaHZWsHBaRrmzTMsKqehCjUaJATzuA/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "用一只省钱的小龙虾～～"
+        },
+        {
+          "type": "paragraph",
+          "text": "用一只省钱的小龙虾～～"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:16.999Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-小山译ClaudeSkill编写与实战指南-0",
+      "url": "https://mp.weixin.qq.com/s/yBpO9uH3sRJmv5zRw05Srg",
+      "title": "[小山译] Claude Skill 编写与实战指南",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/niaWtvtophjen92cCiaibibH6Nrao8GnB8JG9mWcSfAiaVxpyj8Vib0J5qnnC1sXRMww5T1sIFxS0KoxB8o0djEtlEXW20zb3mSRv2orLpMsVfKicY/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "完整翻译 Anthropic 的 Skill 实战指南"
+        },
+        {
+          "type": "paragraph",
+          "text": "完整翻译 Anthropic 的 Skill 实战指南"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:17.000Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-PUASkill很火但我更想推荐它的反面-0",
+      "url": "https://mp.weixin.qq.com/s/_IxCPTuYD6dfMOs7uG6WzQ",
+      "title": "PUA Skill很火，但我更想推荐它的反面",
+      "cover": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/MoZfoickyLB0xic0yt2WUhAFZZ6p5nYTXGjiagvcc2kP67vbIpfWTXnaV5EC9iaqXY3pr4q3UM3dFe0Rw41PKxlB6bv4ZZEQvThkpUeasCF0GKg/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "一个用爱解放AI潜能的Skill"
+        },
+        {
+          "type": "paragraph",
+          "text": "一个用爱解放AI潜能的Skill"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:17.000Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-ClaudeCode每次都不认识我于是我给它做了-0",
+      "url": "https://mp.weixin.qq.com/s/wzDi4Ff0U2KsoqtXotjIRw",
+      "title": "Claude Code每次都不认识我，于是我给它做了一套记忆系统",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/cevPo6QMgbCQYyribn8Od9tWJic93J8wlr5GqmhrQSmzvVynSmqlucWTNYiayo00J27Y6UcGibiac7t3W2ekpCbKfI7LtTfIPLQuxZ8ZH1g6RuPE/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "让AI从一个每次都要认识我的新同事，变成一个越用越懂我的搭档。"
+        },
+        {
+          "type": "paragraph",
+          "text": "让AI从一个每次都要认识我的新同事，变成一个越用越懂我的搭档。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:17.000Z",
+      "error": "unsafe-remote-address"
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-OpenClaw会话历史记录断掉怎么让它自己修好-0",
+      "url": "https://mp.weixin.qq.com/s/sZOc1QGevaahiR5o6vtDFQ",
+      "title": "OpenClaw会话历史记录断掉？怎么让它自己修好自己",
+      "cover": "https://mmbiz.qpic.cn/mmbiz_jpg/gq3a9icfIXEbOaibZDJFFytJxSKlyhAu865UqHBL1PCC3w984x1bPKEl8nVKPzOsV6E5dCkz4lyuZ9Q5bfPYtEa9A0nazeKtvKfbtiadyG9Q7k/0?wx_fmt=jpeg",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "用OpenClaw的朋友可能遇到过这样的情况。昨天还在和它讨论一个项目，今天早上发消息过去，它突然变得像个陌生人。"
+        },
+        {
+          "type": "paragraph",
+          "text": "用OpenClaw的朋友可能遇到过这样的情况。昨天还在和它讨论一个项目，今天早上发消息过去，它突然变得像个陌生人。"
+        }
+      ],
+      "fallback": true,
+      "source": "fallback-summary",
+      "cachedAt": "2026-03-26T06:45:17.000Z",
+      "error": "unsafe-remote-address"
     }
   ]
 };

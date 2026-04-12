@@ -11,6 +11,7 @@ type Platform = {
   id: string;
   name: string;
   url: string;
+  logo?: string;
 };
 
 type PodcastConfig = {

@@ -13,6 +13,7 @@ import {
 
 const rootDir = path.resolve(__dirname, '..');
 const outputPath = path.join(rootDir, 'src', 'data', 'miniapp-tutorial-fulltext.json');
+const miniappPackageOutputPath = path.join(rootDir, 'miniprogram', 'pkg-tutorial', 'data', 'tutorial-fulltext.js');
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -53,6 +54,19 @@ async function loadExisting(): Promise<Map<string, FulltextCacheItem>> {
   } catch {
     return new Map();
   }
+}
+
+async function writeOutputs(result: FulltextCacheFile) {
+  const serializedJson = JSON.stringify(result, null, 2);
+  const serializedModule = `module.exports = ${serializedJson};\n`;
+
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await mkdir(path.dirname(miniappPackageOutputPath), { recursive: true });
+
+  await Promise.all([
+    writeFile(outputPath, serializedJson, 'utf8'),
+    writeFile(miniappPackageOutputPath, serializedModule, 'utf8'),
+  ]);
 }
 
 function toTutorialList(): TutorialRecord[] {
@@ -206,11 +220,12 @@ async function main() {
     items: outputItems,
   };
 
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, JSON.stringify(result, null, 2), 'utf8');
+  await writeOutputs(result);
 
   // eslint-disable-next-line no-console
   console.log(`[fulltext-cache] done output=${outputPath}`);
+  // eslint-disable-next-line no-console
+  console.log(`[fulltext-cache] mirrored output=${miniappPackageOutputPath}`);
   // eslint-disable-next-line no-console
   console.log(`[fulltext-cache] summary fetched=${fetched}, cached=${cached}, reused=${reused}, fallback=${fallback}`);
 }

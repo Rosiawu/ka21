@@ -221,4 +221,27 @@ export const teamMemberEnProfiles: Record<string, LocalizedTeamMemberProfile> = 
       { icon: '🧠', label: 'Cross-Domain Synthesis' },
     ],
   },
+  tuhuijiscott: {
+    name: 'Scott Tu',
+    title: 'Founder of Ruiyi Zhineng / Host of Finance AI Salon',
+    location: 'Beijing',
+    specialty: 'AI Project Management, Financial AI Implementation, Germany Insights, Training and Speaking',
+    wechatAccount: 'Tu Hui',
+    aiTools: ['Claude', 'Codex', 'Xiangqi AI Project Management', 'NotebookLM'],
+    description:
+      'Focused on vibe-style project management, with seven years in Germany and eight years of Big Four and finance experience.',
+    skills: ['AI Project Management', 'Financial AI Implementation', 'Training and Speaking'],
+    personalTraits: ['Finance Lens', 'Project Execution', 'Global Perspective'],
+  },
+  bierchangbaicao: {
+    name: 'Bill',
+    title: 'AI Industry Analyst',
+    location: 'Beijing',
+    specialty: 'Frontline AI Industry Insights',
+    wechatAccount: 'Bill AI New Vision',
+    description:
+      'An AI industry analyst with a management consulting background who keeps unpacking how the AI industry is actually evolving.',
+    skills: ['AI Industry Research', 'Trend Analysis', 'Consulting Research'],
+    personalTraits: ['Industry Observation', 'Signal Over Noise', 'Consulting Lens'],
+  },
 };
