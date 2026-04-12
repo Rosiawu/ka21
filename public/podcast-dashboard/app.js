@@ -252,6 +252,10 @@ function faviconUrl(url) {
   }
 }
 
+function platformLogoUrl(platform) {
+  return platform?.logo || faviconUrl(platform?.url || "");
+}
+
 function episodeNumber(episode) {
   const match = String(episode?.title || "").match(/^\s*(\d+)\./);
   return match ? Number(match[1]) : 0;
@@ -656,7 +660,7 @@ function renderHeroLinks() {
     .map(
       (platform) => `
         <a class="hero-link-chip ${platformToneClass(platform.id)}" href="${platform.url}" target="_blank" rel="noreferrer" aria-label="${platform.name}">
-          <img class="hero-link-logo" src="${faviconUrl(platform.url)}" alt="${platform.name} logo" loading="lazy" />
+          <img class="hero-link-logo" src="${platformLogoUrl(platform)}" alt="${platform.name} logo" loading="lazy" />
           <span class="hero-link-label">${platform.name}</span>
         </a>
       `,
