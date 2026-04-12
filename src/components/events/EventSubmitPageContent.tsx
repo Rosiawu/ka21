@@ -1,8 +1,9 @@
 "use client";
 
 import Link from '@/i18n/Link';
-import { useState } from 'react';
-import AdminSessionGate from '@/components/admin/AdminSessionGate';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import TutorialImportGate from '@/components/tutorials/TutorialImportGate';
+import { getEventImageSrc } from '@/lib/events/image';
 
 type PreviewDraft = {
   title: string;
@@ -40,16 +41,20 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
   const [message, setMessage] = useState('');
   const [successUrl, setSuccessUrl] = useState('');
   const [preview, setPreview] = useState<PreviewDraft | null>(null);
+  const lastAutoPreviewedUrlRef = useRef('');
+  const latestSourceUrlRef = useRef('');
+  const previewSequenceRef = useRef(0);
 
   const canPreview = sourceUrl.trim().length > 0;
   const canSubmit = Boolean(preview?.title && preview?.summary && preview?.sourceUrl);
+  const previewCoverImage = preview?.coverImage ? getEventImageSrc(preview.coverImage) : '';
 
   const text = {
     badge: isEn ? 'Event Wand' : '赛事魔法棒',
     title: isEn ? 'Paste one link, preview, then publish' : '只贴一个链接，先预览再发帖',
     subtitle: isEn
-      ? 'We parse the post first, show you the result, then publish after your confirmation.'
-      : '系统会先解析原帖，给你看一版预览，确认没问题后再正式发到赛事区。',
+      ? 'Paste a public event link on desktop, let it auto-parse, then publish after your confirmation.'
+      : '现在可以直接在电脑上贴公开链接，系统会自动解析一版预览，确认没问题后再正式发到赛事区。',
     back: isEn ? 'Back to event board' : '返回赛事区',
     sourceUrlLabel: isEn ? 'Original post link' : '原帖链接',
     sourceUrlPlaceholder: isEn
@@ -57,8 +62,8 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
       : '把公众号文章或公开赛事页面链接贴进来',
     tipsTitle: isEn ? 'Parsing upgrade' : '这次升级了什么',
     tipsBody: isEn
-      ? 'We now preview parsed fields first, and try OCR on the poster cover when the article itself has too little text.'
-      : '现在会先给你看解析预览；如果正文信息太少，还会尝试从海报封面里补抓主办方、截止时间和地点。',
+      ? 'Unlock with the same ka21 password used by tutorial import. After you paste a link, preview parsing starts automatically, and the parser can fall back to poster OCR when the article body is too thin.'
+      : '现在和萌新教程共用同一个 ka21 密码；把链接贴进来后会自动开始解析预览，如果正文信息太少，还会尝试从海报封面里补抓主办方、截止时间和地点。',
     preview: isEn ? 'Parse preview' : '先解析预览',
     previewing: isEn ? 'Parsing...' : '解析中...',
     publish: isEn ? 'Confirm and publish' : '确认无误，发到赛事区',
@@ -87,14 +92,23 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
     errorDuplicate: isEn ? 'This link already exists in the event board.' : '这条链接已经在赛事区里了。',
   };
 
-  const humanizeMessage = (raw: string) => {
+  const humanizeMessage = useCallback((raw: string) => {
     if (raw === 'wechat-verification-required') return text.errorWechat;
     if (raw === 'duplicate-source-url') return text.errorDuplicate;
     if (raw === 'invalid-source-url') return isEn ? 'Invalid URL.' : '链接格式不对。';
     if (raw === 'missing-source-url') return isEn ? 'Please paste a link first.' : '先贴一个链接。';
     if (raw === 'extract-title-failed') return isEn ? 'Could not parse the title.' : '没能解析出标题。';
     return raw || (isEn ? 'Submit failed.' : '提交失败。');
-  };
+  }, [isEn, text.errorDuplicate, text.errorWechat]);
+
+  const isValidSourceUrl = useCallback((raw: string) => {
+    try {
+      const parsed = new URL(raw.trim());
+      return ['http:', 'https:'].includes(parsed.protocol);
+    } catch {
+      return false;
+    }
+  }, []);
 
   const updateField = (key: keyof PreviewDraft, value: string) => {
     setPreview((current) => {
@@ -106,8 +120,16 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
     });
   };
 
-  const handlePreview = async () => {
-    if (!canPreview) return;
+  useEffect(() => {
+    latestSourceUrlRef.current = sourceUrl.trim();
+  }, [sourceUrl]);
+
+  const handlePreview = useCallback(async (requestedSourceUrl = sourceUrl.trim()) => {
+    const normalizedSourceUrl = requestedSourceUrl.trim();
+    if (!normalizedSourceUrl) return;
+
+    const requestId = previewSequenceRef.current + 1;
+    previewSequenceRef.current = requestId;
     setPreviewing(true);
     setMessage('');
     setSuccessUrl('');
@@ -116,9 +138,17 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
       const response = await fetch('/api/events/preview', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sourceUrl }),
+        body: JSON.stringify({ sourceUrl: normalizedSourceUrl }),
       });
       const result = await response.json();
+
+      if (
+        previewSequenceRef.current !== requestId ||
+        latestSourceUrlRef.current !== normalizedSourceUrl
+      ) {
+        return;
+      }
+
       if (!result.success) {
         setMessage(humanizeMessage(result.message));
         setPreview(null);
@@ -128,15 +158,47 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
       setPreview({
         ...EMPTY_DRAFT,
         ...result.data,
-        sourceUrl,
+        sourceUrl: normalizedSourceUrl,
       });
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : (isEn ? 'Preview failed.' : '预览失败。'));
-      setPreview(null);
+      if (
+        previewSequenceRef.current === requestId &&
+        latestSourceUrlRef.current === normalizedSourceUrl
+      ) {
+        setMessage(error instanceof Error ? error.message : (isEn ? 'Preview failed.' : '预览失败。'));
+        setPreview(null);
+      }
     } finally {
-      setPreviewing(false);
+      if (previewSequenceRef.current === requestId) {
+        setPreviewing(false);
+      }
     }
-  };
+  }, [humanizeMessage, isEn, sourceUrl]);
+
+  const triggerPreview = useCallback((requestedSourceUrl = sourceUrl.trim()) => {
+    const normalizedSourceUrl = requestedSourceUrl.trim();
+    if (!normalizedSourceUrl) return;
+    lastAutoPreviewedUrlRef.current = normalizedSourceUrl;
+    void handlePreview(normalizedSourceUrl);
+  }, [handlePreview, sourceUrl]);
+
+  useEffect(() => {
+    const normalizedSourceUrl = sourceUrl.trim();
+    if (!normalizedSourceUrl || !isValidSourceUrl(normalizedSourceUrl)) {
+      return;
+    }
+
+    if (normalizedSourceUrl === lastAutoPreviewedUrlRef.current) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      lastAutoPreviewedUrlRef.current = normalizedSourceUrl;
+      void handlePreview(normalizedSourceUrl);
+    }, 600);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [handlePreview, isValidSourceUrl, sourceUrl]);
 
   const handleSubmit = async () => {
     if (!preview || !canSubmit) return;
@@ -160,6 +222,7 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
       setSuccessUrl(`/${locale}/events#${result.data.id}`);
       setSourceUrl('');
       setPreview(null);
+      lastAutoPreviewedUrlRef.current = '';
     } catch (error) {
       setMessage(error instanceof Error ? error.message : (isEn ? 'Submit failed.' : '提交失败。'));
     } finally {
@@ -189,7 +252,15 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
         </section>
 
         <div className="mt-6">
-          <AdminSessionGate locale={isEn ? 'en' : 'zh'}>
+          <TutorialImportGate
+            locale={isEn ? 'en' : 'zh'}
+            title={isEn ? 'Unlock the event wand' : '先解锁赛事魔法棒'}
+            description={
+              isEn
+                ? 'Use the same ka21 password as tutorial import, then paste a public link and let desktop preview parse it for you.'
+                : '输入和萌新教程一样的 ka21 密码后，就可以在电脑上直接粘贴公开链接，让赛事区自动解析预览。'
+            }
+          >
             <section className="rounded-[2rem] border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-800 dark:bg-gray-950/85 sm:p-6">
               <div className="rounded-[1.5rem] border border-emerald-200/80 bg-emerald-50/80 p-4 text-sm text-gray-700 dark:border-emerald-800/50 dark:bg-emerald-950/20 dark:text-gray-200">
             <p className="font-semibold text-gray-900 dark:text-gray-100">{text.tipsTitle}</p>
@@ -201,15 +272,34 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
               <span className="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-200">{text.sourceUrlLabel}</span>
               <textarea
                 value={sourceUrl}
-                onChange={(event) => setSourceUrl(event.target.value)}
+                onChange={(event) => {
+                  const nextSourceUrl = event.target.value;
+                  setSourceUrl(nextSourceUrl);
+                  setMessage('');
+                  setSuccessUrl('');
+
+                  if (preview && nextSourceUrl.trim() !== preview.sourceUrl) {
+                    setPreview(null);
+                  }
+
+                  if (nextSourceUrl.trim() !== lastAutoPreviewedUrlRef.current) {
+                    lastAutoPreviewedUrlRef.current = '';
+                  }
+                }}
                 placeholder={text.sourceUrlPlaceholder}
                 className="min-h-[150px] w-full rounded-[1.5rem] border border-gray-200 bg-gray-50 px-4 py-4 text-sm leading-6 text-gray-900 outline-none transition focus:border-emerald-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                onKeyDown={(event) => {
+                  if ((event.metaKey || event.ctrlKey) && event.key === 'Enter' && !previewing) {
+                    event.preventDefault();
+                    triggerPreview();
+                  }
+                }}
               />
             </label>
 
             <button
               type="button"
-              onClick={handlePreview}
+              onClick={() => triggerPreview()}
               disabled={!canPreview || previewing}
               className="flex w-full items-center justify-center gap-2 rounded-[1.25rem] bg-[#e06b6b] px-5 py-4 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(224,107,107,0.18)] transition hover:bg-[#c85a5a] hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
             >
@@ -316,9 +406,9 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
 
                   <div className="space-y-4">
                     <div className="overflow-hidden rounded-[1.5rem] border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-950">
-                      {preview.coverImage ? (
+                      {previewCoverImage ? (
                         // eslint-disable-next-line @next/next/no-img-element
-                        <img src={preview.coverImage} alt={preview.title} className="aspect-[4/5] w-full object-cover" />
+                        <img src={previewCoverImage} alt={preview.title} className="aspect-[4/5] w-full object-cover" />
                       ) : (
                         <div className="flex aspect-[4/5] items-center justify-center px-6 text-center text-sm text-gray-500 dark:text-gray-400">
                           {text.noCover}
@@ -353,7 +443,7 @@ export default function EventSubmitPageContent({ locale }: { locale: string }) {
             )}
               </div>
             </section>
-          </AdminSessionGate>
+          </TutorialImportGate>
         </div>
       </div>
     </div>
