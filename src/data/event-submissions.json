@@ -1,6 +1,29 @@
 {
   "entries": [
     {
+      "id": "单人作战多核加速人工智能opc加速营开放报名-1775969727271",
+      "title": "单人作战，多核加速！人工智能OPC加速营开放报名",
+      "summary": "全球顶级人工智能生态圈",
+      "organizer": "OPC友好社区",
+      "author": "",
+      "sourceUrl": "https://mp.weixin.qq.com/s/rvKwvYEhoxXEsPRxfNkwsQ",
+      "sourceLabel": "公众号",
+      "eventDate": "即日起至2026年3月20日报名方式：请",
+      "deadline": "即日起至2026年3月20日报名方式：请",
+      "location": "线下",
+      "tags": [
+        "AI",
+        "设计",
+        "编程",
+        "PPT",
+        "创作",
+        "校园"
+      ],
+      "coverImage": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/XjkgPJm5nehNBT5jXLvuu2j3BccPuvW49qSnibUJVjficsrwLnOPjib0BDLmZeTk4iawa3tzIH2xmM2S9wRKnZs0BSCEXtQPViahbibVCxkrO8BmA/0?wx_fmt=jpeg",
+      "images": [],
+      "createdAt": "2026-04-12T04:55:27.271Z"
+    },
+    {
       "id": "别聊了起来干活openclaw养虾大赛正式开搞阿里云请全城极客吃小龙虾-1773308967931",
       "title": "🦞 别聊了，起来干活！OpenClaw“养虾”大赛正式开搞，阿里云请全城极客吃小龙虾！",
       "summary": "阿里云请全城极客吃小龙虾！ OpenClaw ShrimpOpenClaw“养虾”大赛警告：本文含“虾”量过高，阅读后可能导致强烈的 coding 冲动和食欲大增。 各位极客、码农、AI 驯兽师们：是不是受够了那些只会说“作为一个人工智能语言模型...”的废话文学？",
@@ -66,7 +89,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-12T09:49:27.931Z",
-    "count": 3
+    "updatedAt": "2026-04-12T04:55:27.272Z",
+    "count": 4
   }
 }
