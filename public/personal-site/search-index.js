@@ -5594,7 +5594,7 @@ window.__PERSONAL_SEARCH_INDEX__ = {
     },
     {
       "title": "我，一个文科生3小时用AI做好个人网站，踩的坑和可抄的作业全在这了",
-      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5ODU1ODg1Mg==&mid=2247489937&idx=1&sn=3d2d27b116a400bd6e4645c36b133f0c&chksm=c061e77af7166e6cec8380b71ef600a956b7c334e219fbc236d314c3efbcfd3a60e3f7ae7fab#rd",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5ODU1ODg1Mg==&mid=2247489937&idx=1&sn=3d2d27b116a400bd6e4645c36b133f0c&chksm=c061e77af7166e6cec8380b71ef600a956b7c334e219fbc236d314c3efbcfd3a60e3f7ae7fab#rd",
       "category": "AI教学思考",
       "date": "2026-04-07",
       "number": 494,
@@ -5606,7 +5606,7 @@ window.__PERSONAL_SEARCH_INDEX__ = {
     },
     {
       "title": "数字生命卡兹克AIFUT2026大会第一天：理性",
-      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5ODU1ODg1Mg==&mid=2247489964&idx=1&sn=05e5dd5eb25b282157eb7a0c2d922477&chksm=c061e747f7166e519a7f4b6bcd6c7441afd2fb8c4e539cb5d33787a829d3ceabdc6fd00f0c47#rd",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5ODU1ODg1Mg==&mid=2247489964&idx=1&sn=05e5dd5eb25b282157eb7a0c2d922477&chksm=c061e747f7166e519a7f4b6bcd6c7441afd2fb8c4e539cb5d33787a829d3ceabdc6fd00f0c47#rd",
       "category": "AI前沿动态",
       "date": "2026-04-08",
       "number": 495,
