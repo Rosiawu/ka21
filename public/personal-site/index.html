@@ -801,7 +801,7 @@ body.search-mode #about{display:none}
       <p class="hero-desc" id="heroDesc">AI 导航网站牛马库 Vibe coder，「灯下白」播客主持人。公众号与视频号「吴熳 Rosia」主理人，14年教育从业者，写过<span id="heroArticleCount">433</span>篇教学思考，探索 AI 如何真实改变一线课堂与生活。</p>
       
       <div class="hero-chips">
-        <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5ODU1ODg1Mg==&action=getalbum&album_id=3672103436448808968" target="_blank" class="hero-chip chip-accent" id="heroArticlesChip">☑ <span id="heroChipCount">433</span>篇AI赋能教学原创文</a>
+        <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5ODU1ODg1Mg==&action=getalbum&album_id=3672103436448808968" target="_blank" class="hero-chip chip-accent" id="heroArticlesChip">☑ AI赋能英语教学文章合集</a>
         <a href="https://ka21.org/zh/podcast" target="_blank" class="hero-chip chip-accent">☑ 灯下白播客主理人</a>
         <a href="https://ka21.org/zh" target="_blank" class="hero-chip chip-accent">☑ 牛马库 Vibe coder</a>
         
@@ -816,7 +816,7 @@ body.search-mode #about{display:none}
 
   <!-- STATS -->
   <div class="stats-bar">
-    <div class="st"><div class="st-n" id="statsArticleCount">433</div><div class="st-l">篇原创</div></div>
+    <div class="st"><div class="st-n" id="statsArticleCount">437</div><div class="st-l">篇原创</div></div>
     <div class="st"><div class="st-n">16</div><div class="st-l">个月日更</div></div>
     <div class="st"><div class="st-n">14</div><div class="st-l">年从业</div></div>
     <div class="st"><div class="st-n" id="statsPodcastCount">11</div><div class="st-l">集播客动态更新中</div></div>
@@ -1412,7 +1412,7 @@ else render();
 // ===== 动态数字同步 =====
 (function syncDynamicCounts() {
   const total = ARTS.length;
-  const ids = ["heroArticleCount","heroChipCount","writingTagCount","writingDescCount","writingPillCount"];
+  const ids = ["heroArticleCount","statsArticleCount","writingTagCount","writingDescCount","writingPillCount"];
   ids.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = total; });
 })();
 </script>
