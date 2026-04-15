@@ -798,10 +798,10 @@ body.search-mode #about{display:none}
       <div class="hero-text">
       <span class="hero-eyebrow">Man Wu　教育者 · AI探索者 · 网站开发玩家 · 播客制作者</span>
       <h1 class="hero-h1">吴熳 Rosia</h1>
-      <p class="hero-desc" id="heroDesc">AI 导航网站牛马库 Vibe coder，「灯下白」播客主持人。公众号与视频号「吴熳 Rosia」主理人，14年教育从业者，写过433篇教学思考，探索 AI 如何真实改变一线课堂与生活。</p>
+      <p class="hero-desc" id="heroDesc">AI 导航网站牛马库 Vibe coder，「灯下白」播客主持人。公众号与视频号「吴熳 Rosia」主理人，14年教育从业者，写过<span id="heroArticleCount">433</span>篇教学思考，探索 AI 如何真实改变一线课堂与生活。</p>
       
       <div class="hero-chips">
-        <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5ODU1ODg1Mg==&action=getalbum&album_id=3672103436448808968" target="_blank" class="hero-chip chip-accent" id="heroArticlesChip">☑ 433篇AI赋能教学原创文</a>
+        <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5ODU1ODg1Mg==&action=getalbum&album_id=3672103436448808968" target="_blank" class="hero-chip chip-accent" id="heroArticlesChip">☑ <span id="heroChipCount">433</span>篇AI赋能教学原创文</a>
         <a href="https://ka21.org/zh/podcast" target="_blank" class="hero-chip chip-accent">☑ 灯下白播客主理人</a>
         <a href="https://ka21.org/zh" target="_blank" class="hero-chip chip-accent">☑ 牛马库 Vibe coder</a>
         
@@ -857,10 +857,10 @@ body.search-mode #about{display:none}
         <span class="proj-cta">查看记录 →</span>
       </a>
       <a class="proj-card" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5ODU1ODg1Mg==&action=getalbum&album_id=3672103436448808968" target="_blank">
-        <span class="proj-tag" id="writingProjectTag">Writing · 433 篇</span>
+        <span class="proj-tag" id="writingProjectTag">Writing · <span id="writingTagCount">433</span> 篇</span>
         <div class="proj-name">AIGC辅助英语教学合集</div>
-        <p class="proj-desc" id="writingProjectDesc">433 篇日更实操合集，涵盖 AI 画图、视频字幕、作文批改、课件制作等全场景。中文互联网最持续更新的英语 AI 教学实战记录。</p>
-        <div class="proj-pills"><span class="proj-pill" id="writingProjectPill">433篇</span><span class="proj-pill">日更实操</span><span class="proj-pill">可搜索</span></div>
+        <p class="proj-desc" id="writingProjectDesc"><span id="writingDescCount">433</span> 篇日更实操合集，涵盖 AI 画图、视频字幕、作文批改、课件制作等全场景。中文互联网最持续更新的英语 AI 教学实战记录。</p>
+        <div class="proj-pills"><span class="proj-pill" id="writingProjectPill"><span id="writingPillCount">433</span>篇</span><span class="proj-pill">日更实操</span><span class="proj-pill">可搜索</span></div>
         <span class="proj-cta">进入合集 →</span>
       </a>
     </div>
@@ -1110,7 +1110,25 @@ function fulltextSearchResults(items, rawQuery) {
   const query = normalizeQuery(rawQuery);
   const tokens = queryTokens(query);
   if (!tokens.length) return [];
-  return items.filter(item => tokens.every(token => itemSearchText(item).includes(token)));
+  return items
+    .filter(item => tokens.every(token => itemSearchText(item).includes(token)))
+    .map(item => {
+      let score = 0;
+      const titleLower = (item.title || "").toLowerCase();
+      const catLower = (item.category || "").toLowerCase();
+      const contentLower = (item.content || "").toLowerCase();
+      tokens.forEach(token => {
+        if (titleLower.includes(token)) score += 100;
+        if (catLower.includes(token)) score += 50;
+        // count occurrences in content
+        let idx = 0, count = 0;
+        while ((idx = contentLower.indexOf(token, idx)) !== -1) { count++; idx += token.length; }
+        score += count * 3;
+      });
+      item._score = score;
+      return item;
+    })
+    .sort((a, b) => b._score - a._score);
 }
 
 function buildBodySnippet(content, tokens) {
@@ -1392,6 +1410,11 @@ if (PAGE_QUERY) renderSearchPage(PAGE_QUERY);
 else render();
 
 // ===== 动态数字同步 =====
+(function syncDynamicCounts() {
+  const total = ARTS.length;
+  const ids = ["heroArticleCount","heroChipCount","writingTagCount","writingDescCount","writingPillCount"];
+  ids.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = total; });
+})();
 </script>
 </body>
 </html>
