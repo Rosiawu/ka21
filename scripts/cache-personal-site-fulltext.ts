@@ -51,6 +51,22 @@ const personalArticlesPath = path.join(rootDir, 'data', 'personal-site', 'articl
 const searchIndexOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.json');
 const searchIndexScriptOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.js');
 
+function normalizeArticleUrl(url: string): string {
+  return safeText(url).trim().replace(/^http:\/\/mp\.weixin\.qq\.com/i, 'https://mp.weixin.qq.com');
+}
+
+function normalizeArticle(article: PersonalArticle): PersonalArticle {
+  return {
+    ...article,
+    t: safeText(article.t),
+    d: safeText(article.d),
+    u: normalizeArticleUrl(article.u),
+    c: safeText(article.c),
+    n: Number.isFinite(article.n) ? article.n : Number(article.n) || 0,
+    img: safeText(article.img) || undefined,
+  };
+}
+
 function parseArgs() {
   const args = process.argv.slice(2);
   let force = false;
@@ -83,7 +99,7 @@ function parseEmbeddedArticles(rawHtml: string): PersonalArticle[] {
   }
 
   const parsed = JSON.parse(match[1]) as PersonalArticle[];
-  return parsed.filter((item) => !!item?.u && !!item?.t);
+  return parsed.map(normalizeArticle).filter((item) => !!item?.u && !!item?.t);
 }
 
 async function readArticles(): Promise<PersonalArticle[]> {
@@ -91,7 +107,7 @@ async function readArticles(): Promise<PersonalArticle[]> {
     const raw = await readFile(personalArticlesPath, 'utf8');
     const parsed = JSON.parse(raw) as PersonalArticlesFile;
     if (Array.isArray(parsed.items) && parsed.items.length > 0) {
-      return parsed.items.filter((item) => !!item?.u && !!item?.t);
+      return parsed.items.map(normalizeArticle).filter((item) => !!item?.u && !!item?.t);
     }
   } catch {
     // Fall back to embedded data below.
@@ -143,7 +159,7 @@ function buildFallbackItem(article: PersonalArticle, reason?: string): SearchInd
 
   return {
     title: safeText(article.t),
-    url: safeText(article.u),
+    url: normalizeArticleUrl(article.u),
     category: safeText(article.c),
     date: safeText(article.d),
     number: Number.isFinite(article.n) ? article.n : 0,
@@ -161,7 +177,7 @@ async function buildItem(
   existingMap: Map<string, SearchIndexItem>,
   force: boolean,
 ): Promise<{ item: SearchIndexItem; status: SearchStatus }> {
-  const url = safeText(article.u).trim();
+  const url = normalizeArticleUrl(article.u);
   const existing = existingMap.get(url);
 
   if (!force && existing && !existing.fallback && existing.content) {
