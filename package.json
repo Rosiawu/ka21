@@ -16,6 +16,7 @@
     "export:miniapp-data": "tsx scripts/export-miniapp-data.ts",
     "cache:miniapp-fulltext": "tsx scripts/cache-miniapp-tutorial-fulltext.ts",
     "cache:personal-fulltext": "tsx scripts/cache-personal-site-fulltext.ts",
+    "sync:personal-site-articles": "npm run cache:personal-fulltext --",
     "validate-tutorial-relations": "tsx scripts/validate-tutorial-relations.ts",
     "validate-featured": "tsx scripts/validate-featured.ts",
     "check-i18n-keys": "tsx scripts/check-i18n-keys.ts",

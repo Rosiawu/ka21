@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
@@ -43,19 +44,33 @@ type SearchStatus = 'cached' | 'fetched' | 'fallback' | 'reused';
 type TextBlock = {
   type?: string;
   text?: string;
+  src?: string;
 };
 
 const rootDir = path.resolve(__dirname, '..');
 const personalIndexPath = path.join(rootDir, 'public', 'personal-site', 'index.html');
 const personalArticlesPath = path.join(rootDir, 'data', 'personal-site', 'articles.json');
+const personalCoversDir = path.join(rootDir, 'public', 'personal-site', 'covers');
 const searchIndexOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.json');
 const searchIndexScriptOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.js');
+const MAX_COVER_BYTES = 8 * 1024 * 1024;
+const IMAGE_REQUEST_HEADERS = {
+  'user-agent':
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1',
+  accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+  referer: 'https://mp.weixin.qq.com/',
+  pragma: 'no-cache',
+  'cache-control': 'no-cache',
+} as const;
 
 function parseArgs() {
   const args = process.argv.slice(2);
   let force = false;
   let limit = Number.POSITIVE_INFINITY;
+  let recent = 0;
   let concurrency = Number(process.env.FULLTEXT_CONCURRENCY || '4');
+  const mids = new Set<string>();
 
   for (const arg of args) {
     if (arg === '--force') force = true;
@@ -63,9 +78,23 @@ function parseArgs() {
       const n = Number(arg.slice('--limit='.length));
       if (Number.isFinite(n) && n > 0) limit = n;
     }
+    if (arg.startsWith('--recent=')) {
+      const n = Number(arg.slice('--recent='.length));
+      if (Number.isFinite(n) && n > 0) recent = n;
+    }
     if (arg.startsWith('--concurrency=')) {
       const n = Number(arg.slice('--concurrency='.length));
       if (Number.isFinite(n) && n > 0) concurrency = n;
+    }
+    if (arg.startsWith('--mids=')) {
+      const values = arg
+        .slice('--mids='.length)
+        .split(',')
+        .map((value) => value.trim())
+        .filter(Boolean);
+      for (const value of values) {
+        mids.add(value);
+      }
     }
   }
 
@@ -73,7 +102,7 @@ function parseArgs() {
     concurrency = 4;
   }
 
-  return { force, limit, concurrency };
+  return { force, limit, recent, concurrency, mids };
 }
 
 function parseEmbeddedArticles(rawHtml: string): PersonalArticle[] {
@@ -119,6 +148,23 @@ async function loadExisting(): Promise<Map<string, SearchIndexItem>> {
   }
 }
 
+function articleMid(article: PersonalArticle): string {
+  return safeText(article.u).match(/(?:^|[?&])mid=(\d+)/)?.[1] || '';
+}
+
+function selectArticles(
+  articles: PersonalArticle[],
+  options: { limit: number; recent: number; mids: Set<string> },
+): PersonalArticle[] {
+  if (options.mids.size > 0) {
+    return articles.filter((article) => options.mids.has(articleMid(article)));
+  }
+  if (options.recent > 0) {
+    return articles.slice(-options.recent);
+  }
+  return articles.slice(0, options.limit);
+}
+
 function blocksToText(blocks: TextBlock[]): string {
   return normalizeText(
     blocks
@@ -127,6 +173,89 @@ function blocksToText(blocks: TextBlock[]): string {
       .filter(Boolean)
       .join('\n\n'),
   );
+}
+
+function firstImageSrc(blocks: TextBlock[]): string {
+  const hit = blocks.find((block) => block && block.type === 'image' && typeof block.src === 'string' && block.src.trim());
+  return hit?.src?.trim() || '';
+}
+
+function inferExtension(url: string, contentType: string | null): string {
+  if (contentType) {
+    if (contentType.includes('png')) return '.png';
+    if (contentType.includes('webp')) return '.webp';
+    if (contentType.includes('jpeg') || contentType.includes('jpg')) return '.jpg';
+    if (contentType.includes('gif')) return '.gif';
+  }
+  const lower = url.toLowerCase();
+  if (lower.includes('.png')) return '.png';
+  if (lower.includes('.webp')) return '.webp';
+  if (lower.includes('.gif')) return '.gif';
+  if (lower.includes('.jpg') || lower.includes('.jpeg')) return '.jpg';
+  return '.jpg';
+}
+
+function isRemoteImageRef(value: string): boolean {
+  return /^https?:\/\//i.test(value);
+}
+
+async function downloadCoverToLocal(coverUrl: string): Promise<string | null> {
+  const normalizedUrl = safeText(coverUrl).trim().replace(/&amp;/g, '&');
+  if (!normalizedUrl) return null;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15_000);
+
+  try {
+    await mkdir(personalCoversDir, { recursive: true });
+    const response = await fetch(normalizedUrl, {
+      headers: IMAGE_REQUEST_HEADERS,
+      redirect: 'follow',
+      cache: 'no-store',
+      signal: controller.signal,
+    });
+
+    if (!response.ok) return null;
+
+    const contentType = response.headers.get('content-type') || '';
+    if (!contentType.startsWith('image/')) return null;
+
+    const declaredLength = Number(response.headers.get('content-length') || '0');
+    if (declaredLength > MAX_COVER_BYTES) return null;
+
+    const arrayBuffer = await response.arrayBuffer();
+    if (arrayBuffer.byteLength > MAX_COVER_BYTES) return null;
+
+    const buffer = Buffer.from(arrayBuffer);
+    const hash = createHash('md5').update(buffer).digest('hex').slice(0, 12);
+    const ext = inferExtension(normalizedUrl, contentType);
+    const filename = `${hash}${ext}`;
+    await writeFile(path.join(personalCoversDir, filename), buffer);
+    return `covers/${filename}`;
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function localizeImageCandidates(candidates: string[]): Promise<string> {
+  const seen = new Set<string>();
+
+  for (const candidate of candidates) {
+    const value = safeText(candidate).trim();
+    if (!value || seen.has(value)) continue;
+    seen.add(value);
+
+    if (!isRemoteImageRef(value)) {
+      return value;
+    }
+
+    const localized = await downloadCoverToLocal(value);
+    if (localized) return localized;
+  }
+
+  return '';
 }
 
 function buildFallbackItem(article: PersonalArticle, reason?: string): SearchIndexItem {
@@ -163,9 +292,19 @@ async function buildItem(
 ): Promise<{ item: SearchIndexItem; status: SearchStatus }> {
   const url = safeText(article.u).trim();
   const existing = existingMap.get(url);
+  const localCachedImage = await localizeImageCandidates([safeText(article.img), safeText(existing?.image)]);
+  if (localCachedImage) {
+    article.img = localCachedImage;
+  }
 
   if (!force && existing && !existing.fallback && existing.content) {
-    return { item: existing, status: 'cached' };
+    return {
+      item: {
+        ...existing,
+        image: localCachedImage || existing.image,
+      },
+      status: 'cached',
+    };
   }
 
   if (!url) {
@@ -174,7 +313,18 @@ async function buildItem(
 
   try {
     const fulltext = await fetchAndExtractFulltext(url, { timeoutMs: 20_000 });
-    const content = blocksToText(Array.isArray(fulltext.blocks) ? (fulltext.blocks as TextBlock[]) : []);
+    const blocks = Array.isArray(fulltext.blocks) ? (fulltext.blocks as TextBlock[]) : [];
+    const content = blocksToText(blocks);
+    const cover = await localizeImageCandidates([
+      safeText(fulltext.firstContentImage),
+      firstImageSrc(blocks),
+      safeText(fulltext.cover),
+      safeText(article.img),
+      safeText(existing?.image),
+    ]);
+    if (cover) {
+      article.img = cover;
+    }
 
     if (content) {
       return {
@@ -184,7 +334,7 @@ async function buildItem(
           category: safeText(article.c),
           date: safeText(article.d),
           number: Number.isFinite(article.n) ? article.n : 0,
-          image: safeText(article.img) || undefined,
+          image: cover || undefined,
           content,
           fallback: false,
           source: 'wechat-fulltext',
@@ -198,6 +348,7 @@ async function buildItem(
       return {
         item: {
           ...existing,
+          image: localCachedImage || existing.image,
           cachedAt: new Date().toISOString(),
           error: 'empty-blocks-reuse-existing',
         },
@@ -213,6 +364,7 @@ async function buildItem(
       return {
         item: {
           ...existing,
+          image: localCachedImage || existing.image,
           cachedAt: new Date().toISOString(),
           error: message,
         },
@@ -260,28 +412,48 @@ async function writeOutput(searchIndex: SearchIndexFile) {
   ]);
 }
 
+async function writeEmbeddedArticles(articles: PersonalArticle[]) {
+  const rawHtml = await readFile(personalIndexPath, 'utf8');
+  const nextHtml = rawHtml.replace(
+    /const ARTS\s*=\s*(\[[\s\S]*?\]);\s*const MONTHS/,
+    `const ARTS = ${JSON.stringify(articles)};\nconst MONTHS`,
+  );
+
+  await writeFile(personalIndexPath, nextHtml, 'utf8');
+}
+
 async function main() {
-  const { force, limit, concurrency } = parseArgs();
-  const articles = (await readArticles()).slice(0, limit);
+  const { force, limit, recent, concurrency, mids } = parseArgs();
+  const articles = await readArticles();
+  const selectedArticles = selectArticles(articles, { limit, recent, mids });
   const existingMap = await loadExisting();
+  const processedMap = new Map<string, SearchIndexItem>();
 
   let fetched = 0;
   let fallback = 0;
   let reused = 0;
   let cached = 0;
 
-  console.log(`[personal-fulltext] start total=${articles.length} force=${force} concurrency=${concurrency}`);
+  console.log(
+    `[personal-fulltext] start total=${articles.length} selected=${selectedArticles.length} force=${force} concurrency=${concurrency}`,
+  );
 
-  const items = await runWithConcurrency(articles, concurrency, async (article, index) => {
+  await runWithConcurrency(selectedArticles, concurrency, async (article, index) => {
     const { item, status } = await buildItem(article, existingMap, force);
+    processedMap.set(item.url, item);
 
     if (status === 'fetched') fetched += 1;
     if (status === 'fallback') fallback += 1;
     if (status === 'reused') reused += 1;
     if (status === 'cached') cached += 1;
 
-    console.log(`[personal-fulltext] ${index + 1}/${articles.length} ${article.u} -> ${status}`);
-    return item;
+    console.log(`[personal-fulltext] ${index + 1}/${selectedArticles.length} ${article.u} -> ${status}`);
+    return null;
+  });
+
+  const items = articles.map((article) => {
+    const url = safeText(article.u).trim();
+    return processedMap.get(url) || existingMap.get(url) || buildFallbackItem(article, 'not-processed');
   });
 
   const searchIndex: SearchIndexFile = {
@@ -290,10 +462,11 @@ async function main() {
     items,
   };
 
-  await writeOutput(searchIndex);
+  await Promise.all([writeOutput(searchIndex), writeEmbeddedArticles(articles)]);
 
   console.log(`[personal-fulltext] done search=${searchIndexOutputPath}`);
   console.log(`[personal-fulltext] done script=${searchIndexScriptOutputPath}`);
+  console.log(`[personal-fulltext] done index=${personalIndexPath}`);
   console.log(`[personal-fulltext] summary fetched=${fetched} cached=${cached} reused=${reused} fallback=${fallback}`);
 }
 

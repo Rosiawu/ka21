@@ -41,6 +41,58 @@ export type FulltextCacheFile = {
 
 const WECHAT_HOSTNAMES = new Set(['mp.weixin.qq.com', 'mp.weixinqq.com']);
 
+function buildWechatRequestHeaders() {
+  return {
+    'User-Agent':
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    Referer: 'https://mp.weixin.qq.com/',
+    'Cache-Control': 'max-age=0',
+  };
+}
+
+async function fetchTrustedWechatText(target: URL, timeoutMs: number) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(target.toString(), {
+      headers: buildWechatRequestHeaders(),
+      cache: 'no-store',
+      redirect: 'follow',
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      throw new Error(`upstream-status-${response.status}`);
+    }
+
+    return {
+      finalUrl: response.url || target.toString(),
+      html: await response.text(),
+    };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function normalizeSourceUrl(rawUrl: string): string {
+  const value = safeText(rawUrl).trim();
+  if (!value) return value;
+
+  try {
+    const parsed = new URL(value);
+    if (WECHAT_HOSTNAMES.has(parsed.hostname) && parsed.protocol === 'http:') {
+      parsed.protocol = 'https:';
+      return parsed.toString();
+    }
+    return parsed.toString();
+  } catch {
+    return value;
+  }
+}
+
 export function safeText(value: unknown): string {
   return typeof value === 'string' ? value : '';
 }
@@ -296,34 +348,79 @@ function extractCoverFromHtml(html: string, finalUrlObj: URL): string {
   return absolutizeUrl(firstImg, finalUrlObj);
 }
 
+function extractFirstContentImageFromHtml(html: string, finalUrlObj: URL): string {
+  const $ = cheerio.load(html);
+  const selectors = [
+    '#js_content img[data-src]',
+    '#js_content img[data-original]',
+    '#js_content img[data-actualsrc]',
+    '#js_content img[src]',
+    '.rich_media_content img[data-src]',
+    '.rich_media_content img[data-original]',
+    '.rich_media_content img[data-actualsrc]',
+    '.rich_media_content img[src]',
+  ];
+
+  for (const selector of selectors) {
+    const hit = $(selector).toArray().find((node) => {
+      const raw =
+        $(node).attr('data-src') ||
+        $(node).attr('data-original') ||
+        $(node).attr('data-actualsrc') ||
+        $(node).attr('src') ||
+        '';
+      return Boolean(absolutizeUrl(raw, finalUrlObj));
+    });
+
+    if (!hit) continue;
+    const raw =
+      $(hit).attr('data-src') ||
+      $(hit).attr('data-original') ||
+      $(hit).attr('data-actualsrc') ||
+      $(hit).attr('src') ||
+      '';
+    const normalized = absolutizeUrl(raw, finalUrlObj);
+    if (normalized) return normalized;
+  }
+
+  return '';
+}
+
 export async function fetchAndExtractFulltext(
   sourceUrl: string,
   options?: { timeoutMs?: number },
-): Promise<{ blocks: ContentBlock[]; finalUrl: string; title: string; cover: string }> {
+): Promise<{ blocks: ContentBlock[]; finalUrl: string; title: string; cover: string; firstContentImage: string }> {
   const timeoutMs = options?.timeoutMs ?? 20_000;
-  const target = new URL(sourceUrl);
-  const response = await safeFetch(target.toString(), {
-    headers: {
-      'User-Agent':
-        'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
-      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'zh-CN,zh;q=0.9',
-      Referer: 'https://mp.weixin.qq.com/',
-    },
-    cache: 'no-store',
-  }, {
-    timeoutMs,
-  });
+  const target = new URL(normalizeSourceUrl(sourceUrl));
+  const isWechatUrl = WECHAT_HOSTNAMES.has(target.hostname);
+  const fetched = isWechatUrl
+    ? await fetchTrustedWechatText(target, timeoutMs)
+    : await (async () => {
+      const response = await safeFetch(target.toString(), {
+        headers: buildWechatRequestHeaders(),
+        cache: 'no-store',
+      }, {
+        timeoutMs,
+      });
 
-  if (!response.ok) {
-    throw new Error(`upstream-status-${response.status}`);
-  }
+      if (!response.ok) {
+        throw new Error(`upstream-status-${response.status}`);
+      }
 
-  const html = await response.text();
-  const finalUrl = response.url || target.toString();
+      return {
+        finalUrl: response.url || target.toString(),
+        html: await response.text(),
+      };
+    })();
+
+  const html = fetched.html;
+  const finalUrl = fetched.finalUrl;
   const finalUrlObj = new URL(finalUrl);
   const blocks = extractBlocksFromHtml(html, finalUrlObj);
   const cover = extractCoverFromHtml(html, finalUrlObj);
+  const firstContentImage =
+    extractFirstContentImageFromHtml(html, finalUrlObj) ||
+    blocks.find((block) => block.type === 'image' && safeText(block.src).trim())?.src?.trim() || '';
 
   const $ = cheerio.load(html);
   const title =
@@ -341,5 +438,6 @@ export async function fetchAndExtractFulltext(
     finalUrl,
     title,
     cover,
+    firstContentImage,
   };
 }
