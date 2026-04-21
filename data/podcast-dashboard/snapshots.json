@@ -2594,5 +2594,89 @@
       }
     },
     "createdAt": "2026-04-20T17:00:22.579Z"
+  },
+  {
+    "id": "snapshot-1776790497678",
+    "date": "2026-04-22",
+    "note": "自动抓取",
+    "platformTotals": {
+      "lizhi": 1787,
+      "ximalaya": 1191,
+      "wangyiyun": 281,
+      "youtube": 0
+    },
+    "episodePlays": {
+      "69a69588de29766da93ec01b": {
+        "lizhi": 237,
+        "ximalaya": 120,
+        "wangyiyun": 92
+      },
+      "69ad0f7dc8cdeb38c26acb2c": {
+        "lizhi": 244,
+        "ximalaya": 88,
+        "wangyiyun": 40
+      },
+      "69b184e184bce022f9f4fd5b": {
+        "lizhi": 235,
+        "ximalaya": 93,
+        "wangyiyun": 17
+      },
+      "69bab249690ca3160f393dc7": {
+        "lizhi": 191,
+        "ximalaya": 51,
+        "wangyiyun": 31
+      },
+      "69bc120a3c625cc5ae2f5160": {
+        "lizhi": 176,
+        "ximalaya": 145,
+        "wangyiyun": 19
+      },
+      "69bcbace2d318777c9d271de": {
+        "lizhi": 148,
+        "ximalaya": 61,
+        "wangyiyun": 6
+      },
+      "69bd022a2d318777c9df5837": {
+        "lizhi": 140,
+        "ximalaya": 87,
+        "wangyiyun": 10
+      },
+      "69c10b71521e5c0a809b71b1": {
+        "lizhi": 108,
+        "ximalaya": 56,
+        "wangyiyun": 4
+      },
+      "69bd17643c625cc5ae4ef65a": {
+        "lizhi": 106,
+        "ximalaya": 102,
+        "wangyiyun": 11
+      },
+      "69c39bfb4a34541b1bfe40c2": {
+        "lizhi": 74,
+        "ximalaya": 81,
+        "wangyiyun": 15
+      },
+      "69c4b19c852cf1b8bbeffda2": {
+        "lizhi": 65,
+        "ximalaya": 85,
+        "wangyiyun": 13
+      },
+      "69d8697ae2c8be3155d4daf1": {
+        "lizhi": 37,
+        "ximalaya": 77,
+        "wangyiyun": 13
+      },
+      "69d869cbe2c8be3155d4e2f6": {
+        "lizhi": 25,
+        "ximalaya": 89,
+        "wangyiyun": 6
+      },
+      "69dc8c5ee2c8be315512f7dc": {
+        "lizhi": 1,
+        "ximalaya": 56,
+        "wangyiyun": 4
+      }
+    },
+    "createdAt": "2026-04-21T16:54:57.678Z"
   }
 ]
