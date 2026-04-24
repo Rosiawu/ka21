@@ -272,6 +272,15 @@ function parseJsonScript<T>(html: string, scriptId: string) {
   return JSON.parse(match[1]) as T;
 }
 
+function parseQingtingInitStores<T>(html: string) {
+  const match = String(html || '').match(/window\.__initStores\s*=\s*(\{[\s\S]*?\})\s*window\.ssr\s*=\s*true/i);
+  if (!match) {
+    throw new Error('Missing Qingting initStores payload');
+  }
+
+  return JSON.parse(match[1]) as T;
+}
+
 function parseCompactNumber(text: string) {
   const value = String(text || '').trim();
   if (!value || value === '---' || value === '--') {
@@ -653,6 +662,65 @@ async function scrapeLizhi(platform: Platform, episodes: Episode[]): Promise<Scr
   };
 }
 
+async function scrapeQingting(platform: Platform, episodes: Episode[]): Promise<ScrapeResult> {
+  const html = await fetchText(platform.url, {
+    headers: {
+      accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
+    },
+    context: `${platform.id} page`,
+    timeoutMs: 10_000,
+    retries: 2,
+  });
+
+  const data = parseQingtingInitStores<{
+    VChannelStore?: {
+      channel?: {
+        playcount?: string | number;
+        program_count?: number;
+      };
+      currentList?: Array<{ title?: string; playCount?: string | number }>;
+      programs?: {
+        total?: number;
+        items?: Array<{ title?: string; playCount?: string | number }>;
+      };
+    };
+  }>(html);
+
+  const store = data?.VChannelStore;
+  const titleMap = buildEpisodeMap(episodes);
+  const episodePlays: Record<string, number> = {};
+  const candidates = [...(store?.currentList || []), ...(store?.programs?.items || [])];
+
+  for (const item of candidates) {
+    const episodeId = matchEpisodeId(titleMap, item.title || '');
+    const playCount = parseCompactNumber(String(item.playCount || ''));
+    if (!episodeId || playCount === null) {
+      continue;
+    }
+
+    episodePlays[episodeId] = Math.max(episodePlays[episodeId] || 0, playCount);
+  }
+
+  const total = parseCompactNumber(String(store?.channel?.playcount || ''));
+  if (total === null && Object.keys(episodePlays).length === 0) {
+    throw new Error('Qingting public page does not expose usable counts');
+  }
+
+  const visibleEpisodeCount = Object.keys(episodePlays).length;
+  const programCount = Number(store?.programs?.total || store?.channel?.program_count || 0);
+
+  return {
+    platformId: platform.id,
+    supported: true,
+    note:
+      visibleEpisodeCount > 0
+        ? `公开页可抓到频道总播放；单集公开可见 ${visibleEpisodeCount}/${programCount || '?'} 期`
+        : `公开页可抓到频道总播放 ${total ?? '?'}；单集播放当前大多隐藏`,
+    total,
+    episodePlays,
+  };
+}
+
 async function scrapeYoutube(platform: Platform, episodes: Episode[]): Promise<ScrapeResult> {
   const videosUrl = platform.url.endsWith('/videos')
     ? `${platform.url}?view=0&sort=dd&flow=grid&hl=en`
@@ -738,7 +806,7 @@ async function scrapePublicCounts(config: PodcastConfig, episodes: Episode[]) {
           results.push(scrapeUnsupported(platform, 'Spotify 公开节目页不提供播放量'));
           break;
         case 'qingting':
-          results.push(scrapeUnsupported(platform, '蜻蜓公开页和公开 GraphQL 都对该节目返回 playcount=---'));
+          results.push(await scrapeQingting(platform, episodes));
           break;
         default:
           results.push(scrapeUnsupported(platform, '当前没有为该平台配置抓取器'));
