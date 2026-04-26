@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>樊振东品牌代言盘点 · FAN ZHENDONG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&family=Noto+Sans+SC:wght@300;400&family=Noto+Serif+SC:wght@400;700;900&family=Orbitron:wght@400;900&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0038A8;
+  --navy-d:#002070;
+  --gold:#FFD700;
+  --gold-d:#C9A227;
+  --black:#0A0A0F;
+  --white:#F5F2ED;
+  --ease:cubic-bezier(0.25,0,0.0,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--black);
+  color:var(--white);
+  overflow-x:hidden;
+  font-family:'DM Sans','Noto Sans SC',sans-serif;
+  font-weight:300;
+}
+img{max-width:100%;display:block}
+::selection{background:var(--gold);color:var(--navy)}
+
+/* ===== LOADER ===== */
+#loader{
+  position:fixed;inset:0;
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  z-index:9999;
+  overflow:hidden;
+  transition:opacity 0.5s ease, visibility 0.5s ease;
+}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-ball{
+  position:absolute;
+  width:24px;height:24px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#fff,var(--gold) 55%,var(--gold-d));
+  box-shadow:0 0 20px rgba(255,215,0,0.6);
+  top:50%;left:-30px;
+  transform:translateY(-50%);
+  animation:ballShoot 1s cubic-bezier(0.2,0,0.4,1) 0.2s forwards;
+}
+@keyframes ballShoot{
+  0%{left:-30px;top:50%}
+  60%{left:50%;top:50%;transform:translate(-50%,-50%) scale(1)}
+  80%{left:50%;top:50%;transform:translate(-50%,-50%) scale(2.5);opacity:1}
+  100%{left:50%;top:50%;transform:translate(-50%,-50%) scale(0);opacity:0}
+}
+.loader-chars{
+  display:flex;gap:8px;
+  position:relative;z-index:2;
+}
+.loader-chars span{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(60px,15vw,140px);
+  color:var(--white);
+  display:inline-block;
+  opacity:0;
+  transform:translate(var(--tx,0),var(--ty,0)) rotate(var(--rot,0deg));
+  transition:all 0.6s var(--ease);
+}
+.loader-chars span.assembled{
+  opacity:1;
+  transform:translate(0,0) rotate(0deg);
+}
+.loader-chars span:nth-child(1){--tx:-200px;--ty:-100px;--rot:-30deg}
+.loader-chars span:nth-child(2){--tx:0;--ty:-180px;--rot:15deg}
+.loader-chars span:nth-child(3){--tx:200px;--ty:-80px;--rot:25deg}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  z-index:1000;
+  display:flex;align-items:center;gap:0;
+  background:rgba(0,56,168,0);
+  border:1px solid rgba(255,215,0,0);
+  border-radius:999px;
+  padding:6px 6px 6px 8px;
+  transition:all 0.3s ease;
+  backdrop-filter:blur(0px);
+}
+nav.scrolled{
+  background:rgba(0,20,80,0.92);
+  border-color:rgba(255,215,0,0.35);
+  backdrop-filter:blur(24px) saturate(180%);
+  box-shadow:0 4px 32px rgba(0,0,0,0.4);
+}
+.nav-brand{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:17px;
+  color:var(--gold);
+  letter-spacing:0.08em;
+  padding:6px 16px 6px 12px;
+  white-space:nowrap;
+  border-right:1px solid rgba(255,215,0,0.25);
+  margin-right:4px;
+  line-height:1;
+}
+nav a{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:13px;
+  letter-spacing:0.12em;
+  color:rgba(245,242,237,0.85);
+  text-decoration:none;
+  padding:6px 14px;
+  border-radius:999px;
+  transition:all 0.22s ease;
+  white-space:nowrap;
+}
+nav a:hover, nav a.active{
+  background:var(--gold);
+  color:var(--navy);
+}
+.nav-brand:hover{
+  background:transparent !important;
+  color:var(--gold) !important;
+  opacity:0.85;
+}
+
+/* ===== SECTION REVEAL ===== */
+[data-reveal]{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.8s var(--ease),transform 0.8s var(--ease);
+}
+[data-reveal="left"]{transform:translateX(-60px)}
+[data-reveal="right"]{transform:translateX(60px)}
+[data-reveal="scale"]{transform:scale(0.92)}
+[data-reveal].in-view{opacity:1;transform:none}
+
+/* ===== S1 HERO ===== */
+#hero{
+  position:relative;
+  width:100vw;height:100vh;
+  overflow:hidden;
+  display:flex;align-items:center;
+}
+.hero-left{
+  position:absolute;inset:0;right:45%;
+  background:var(--navy);
+  clip-path:polygon(0 0,100% 0,88% 100%,0 100%);
+  z-index:1;
+}
+.hero-right{
+  position:absolute;inset:0;left:50%;
+  background:var(--black);
+  z-index:0;
+}
+.hero-photo{
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:58%;
+  object-fit:cover;
+  object-position:top center;
+  z-index:2;
+  filter:saturate(0);
+  animation:photoReveal 1.2s ease 1s forwards;
+}
+@keyframes photoReveal{
+  to{filter:saturate(1.1) contrast(1.05)}
+}
+.hero-photo-fallback{
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:58%;
+  background:linear-gradient(135deg,#1a3a6e 0%,#0A0A0F 100%);
+  z-index:2;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-photo-fallback svg{
+  width:200px;height:auto;
+  opacity:0.3;
+}
+.hero-content{
+  position:relative;z-index:10;
+  padding-left:clamp(24px,5vw,80px);
+  max-width:55%;
+}
+.hero-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,9vw,140px);
+  line-height:0.9;
+  color:var(--white);
+  letter-spacing:0.02em;
+  display:block;
+}
+.hero-cn{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(32px,6vw,90px);
+  color:var(--gold);
+  display:block;
+  margin-top:4px;
+}
+.hero-sub{
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  font-size:clamp(11px,1.2vw,16px);
+  letter-spacing:0.4em;
+  text-transform:uppercase;
+  color:rgba(245,242,237,0.6);
+  margin-top:16px;
+  display:block;
+}
+.hero-counter-wrap{
+  margin-top:32px;
+  display:flex;align-items:baseline;gap:10px;
+}
+.hero-counter-num{
+  font-family:'Orbitron',monospace;
+  font-weight:900;
+  font-size:clamp(40px,6vw,80px);
+  color:var(--gold);
+  line-height:1;
+}
+.hero-counter-label{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(245,242,237,0.7);
+}
+.hero-gold-lines{
+  position:absolute;left:0;right:0;z-index:5;
+  pointer-events:none;
+}
+.hero-gold-lines .line-top{
+  position:absolute;top:10%;left:0;right:0;
+  height:1px;background:var(--gold);opacity:0.5;
+}
+.hero-gold-lines .line-bot{
+  position:absolute;bottom:12%;left:0;right:0;
+  height:1px;background:var(--gold);opacity:0.5;
+}
+.hero-side-label{
+  position:absolute;right:20px;top:50%;
+  transform:translateY(-50%) rotate(90deg);
+  transform-origin:center center;
+  font-family:'Orbitron',monospace;
+  font-size:11px;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  z-index:10;
+  white-space:nowrap;
+}
+.hero-scroll-hint{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  z-index:10;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.hero-scroll-hint span{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:12px;letter-spacing:0.3em;
+  color:rgba(245,242,237,0.4);
+}
+.scroll-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:var(--gold);
+  animation:scrollBounce 1.4s ease-in-out infinite;
+}
+@keyframes scrollBounce{
+  0%,100%{transform:translateY(0);opacity:1}
+  50%{transform:translateY(10px);opacity:0.3}
+}
+.hero-year-strip{
+  position:absolute;bottom:80px;left:0;right:0;
+  z-index:10;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  font-family:'Orbitron',monospace;
+  font-size:12px;letter-spacing:0.3em;
+  color:rgba(245,242,237,0.3);
+}
+.hero-year-strip .yr{color:var(--gold);font-weight:900}
+.hero-year-strip .dash{flex:1;max-width:60px;height:1px;background:rgba(255,215,0,0.3)}
+
+/* ===== S2 MARQUEE ===== */
+#marquee-section{
+  height:80px;
+  background:var(--gold);
+  overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
+  gap:0;
+  position:relative;
+  z-index:10;
+}
+.marquee-track{
+  display:flex;
+  gap:0;
+  white-space:nowrap;
+  height:40px;
+  align-items:center;
+}
+.marquee-track.track1{animation:marqueeL 25s linear infinite}
+.marquee-track.track2{animation:marqueeR 30s linear infinite}
+@keyframes marqueeL{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@keyframes marqueeR{
+  from{transform:translateX(-50%)}
+  to{transform:translateX(0)}
+}
+.marquee-item{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;
+  letter-spacing:0.08em;
+  color:var(--navy);
+  padding:0 40px;
+  display:flex;align-items:center;gap:40px;
+}
+.marquee-item::after{
+  content:'·';
+  font-size:18px;
+  opacity:0.5;
+}
+
+/* ===== S3 STATS ===== */
+#stats{
+  min-height:100vh;
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.stats-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.stats-inner{
+  position:relative;z-index:2;
+  width:100%;max-width:1200px;
+  padding:0 40px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+}
+.stat-item{
+  padding:60px 40px;
+  border-right:1px solid rgba(255,215,0,0.2);
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+}
+.stat-item:last-child{border-right:none}
+.stat-num{
+  font-family:'Orbitron',monospace;
+  font-weight:900;
+  font-size:clamp(56px,10vw,140px);
+  color:var(--gold);
+  line-height:1;
+  display:block;
+}
+.stat-prefix{
+  font-family:'Orbitron',monospace;
+  font-size:clamp(28px,4vw,60px);
+  color:var(--gold);
+  margin-right:4px;
+}
+.stat-label-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(16px,2vw,28px);
+  letter-spacing:0.1em;
+  color:rgba(245,242,237,0.5);
+  margin-top:12px;
+  display:block;
+}
+.stat-label-cn{
+  font-family:'Noto Sans SC',sans-serif;
+  font-size:clamp(12px,1.2vw,16px);
+  color:rgba(245,242,237,0.4);
+  margin-top:4px;
+  display:block;
+}
+.stats-headline{
+  position:absolute;bottom:40px;left:0;right:0;
+  text-align:center;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,5vw,72px);
+  letter-spacing:0.05em;
+  color:rgba(245,242,237,0.08);
+}
+
+/* ===== SECTION TITLES ===== */
+.section-header{
+  padding:clamp(60px,8vw,100px) clamp(24px,5vw,80px) 0;
+}
+.section-tag{
+  font-family:'Orbitron',monospace;
+  font-size:11px;
+  letter-spacing:0.4em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:12px;
+}
+.section-tag::before{
+  content:'';
+  display:block;width:40px;height:1px;
+  background:var(--gold);
+}
+.section-title-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,7vw,100px);
+  letter-spacing:0.02em;
+  line-height:0.9;
+  color:var(--white);
+  display:block;
+}
+.section-title-cn{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(20px,3vw,40px);
+  color:var(--gold);
+  display:block;
+  margin-top:4px;
+}
+
+/* ===== S4 SPORT BRANDS ===== */
+#sport{
+  background:var(--black);
+  padding-bottom:0;
+}
+.triptych{
+  display:flex;
+  margin-top:clamp(30px,4vw,60px);
+  height:clamp(400px,60vh,680px);
+}
+.triptych-card{
+  flex:1;
+  position:relative;
+  overflow:hidden;
+  transition:flex 0.5s cubic-bezier(0.4,0,0.2,1);
+  cursor:pointer;
+}
+.triptych-card:hover{flex:2.5}
+.triptych-card:nth-child(2){
+  margin-left:-40px;margin-right:-40px;
+  z-index:2;
+}
+.tc-bg{
+  position:absolute;inset:0;
+  transition:transform 0.5s ease;
+}
+.triptych-card:hover .tc-bg{transform:scale(1.03)}
+.tc-content{
+  position:absolute;inset:0;
+  padding:40px 30px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 60%);
+}
+.tc-year{
+  font-family:'Orbitron',monospace;
+  font-size:11px;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  position:absolute;top:20px;right:20px;
+}
+.tc-name-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,4vw,56px);
+  color:var(--white);
+  line-height:1;
+}
+.tc-name-cn{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(14px,1.8vw,24px);
+  color:var(--gold);
+  margin-top:4px;
+}
+.tc-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  color:rgba(245,242,237,0.7);
+  margin-top:12px;
+  max-width:240px;
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+  line-height:1.5;
+}
+.triptych-card:hover .tc-desc{opacity:1;transform:translateY(0)}
+/* Butterfly card */
+.tc-butterfly .tc-bg{background:#00307B}
+.tc-butterfly-art{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) rotate(-15deg);
+  opacity:0.25;
+  width:60%;
+  transition:opacity 0.5s ease, transform 0.5s ease;
+}
+.triptych-card:hover .tc-butterfly-art{opacity:0.15;transform:translate(-50%,-50%) rotate(-10deg) scale(1.1)}
+/* Anta card */
+.tc-anta .tc-bg{
+  background:linear-gradient(135deg,#111 0%,#1a1a1a 100%);
+}
+.tc-fzd{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(60px,8vw,110px);
+  color:#FF4713;
+  letter-spacing:-0.05em;
+  opacity:0.2;
+  font-style:italic;
+  transition:opacity 0.5s,font-size 0.5s;
+  white-space:nowrap;
+}
+.triptych-card:hover .tc-fzd{opacity:0.12;font-size:clamp(70px,10vw,130px)}
+/* MLB card */
+.tc-mlb .tc-bg{background:#001B6B}
+.tc-mlb-art{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-55%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(80px,12vw,160px);
+  color:#D50032;
+  opacity:0.15;
+  letter-spacing:-0.02em;
+  transition:opacity 0.5s;
+}
+.triptych-card:hover .tc-mlb-art{opacity:0.09}
+
+/* ===== S5 LUXURY BRANDS ===== */
+#luxury{
+  background:var(--black);
+  min-height:140vh;
+  position:relative;
+}
+.luxury-stagger{
+  position:relative;
+  padding:0 clamp(20px,4vw,60px) 120px;
+  margin-top:clamp(40px,6vw,80px);
+}
+.lux-card{
+  position:relative;
+  border-radius:4px;
+  overflow:hidden;
+  cursor:pointer;
+}
+.lux-card:nth-child(1){
+  width:65%;margin-left:0;margin-bottom:40px;
+  height:clamp(360px,50vh,560px);
+}
+.lux-card:nth-child(2){
+  width:50%;margin-left:28%;margin-bottom:40px;
+  height:clamp(280px,40vh,420px);
+}
+.lux-card:nth-child(3){
+  width:40%;margin-left:55%;
+  height:clamp(260px,36vh,380px);
+}
+.lux-bg{position:absolute;inset:0;transition:transform 0.6s ease}
+.lux-card:hover .lux-bg{transform:scale(1.04)}
+.lux-content{
+  position:absolute;inset:0;
+  padding:40px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.lux-ghost-text{
+  position:absolute;
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:15vw;
+  line-height:0.85;
+  color:var(--white);
+  opacity:0.05;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+}
+.lux-tag{
+  font-family:'Orbitron',monospace;
+  font-size:10px;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  margin-bottom:8px;
+  opacity:0.8;
+}
+.lux-name-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,4vw,60px);
+  color:var(--white);
+  line-height:0.95;
+}
+.lux-name-cn{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(14px,1.5vw,22px);
+  color:var(--gold);
+  margin-top:6px;
+}
+.lux-slogan{
+  font-family:'Noto Serif SC',serif;
+  font-style:italic;
+  font-size:clamp(12px,1.2vw,18px);
+  color:rgba(245,242,237,0.6);
+  margin-top:12px;
+  line-height:1.5;
+}
+/* Cadillac */
+.lux-cadillac .lux-bg{background:linear-gradient(135deg,#1a2050 0%,#0d1230 100%)}
+.cadillac-crest{
+  position:absolute;top:30px;right:40px;
+  width:48px;height:48px;
+}
+/* RIMOWA */
+.lux-rimowa .lux-bg{
+  background:linear-gradient(to right,#1a1a1a,#222);
+}
+.rimowa-grooves{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 18px,
+    rgba(255,255,255,0.04) 18px,
+    rgba(255,255,255,0.04) 20px
+  );
+}
+/* Armani */
+.lux-armani .lux-bg{background:#000}
+.armani-eagle{
+  position:absolute;top:40px;left:40px;
+  opacity:0.15;
+}
+
+/* ===== S6 FOOD & BEVERAGE ===== */
+#food{
+  background:var(--black);
+}
+.food-grid{
+  display:grid;
+  grid-template-columns:1.8fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:3px;
+  margin-top:clamp(30px,4vw,60px);
+  height:clamp(600px,80vh,900px);
+}
+.food-card{
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.food-card:nth-child(1){grid-row:1 / 3}
+.fc-bg{position:absolute;inset:0;transition:transform 0.5s ease}
+.food-card:hover .fc-bg{transform:scale(1.05)}
+.fc-content{
+  position:absolute;inset:0;
+  padding:clamp(24px,3vw,48px);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 60%);
+}
+.fc-name-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(32px,5vw,72px);
+  color:var(--white);
+  line-height:0.95;
+}
+.fc-name-cn{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(14px,1.8vw,24px);
+  color:var(--gold);
+  margin-top:6px;
+}
+.fc-sub{
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:rgba(245,242,237,0.5);
+  margin-top:8px;
+}
+/* Yili */
+.fc-yili .fc-bg{background:linear-gradient(135deg,#0052A5,#003a70)}
+.yili-circle{
+  position:absolute;top:50%;right:30px;
+  transform:translateY(-50%);
+  width:120px;height:120px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+}
+.yili-inner{
+  width:80px;height:80px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:28px;
+  color:rgba(255,255,255,0.4);
+}
+/* Heytea */
+.fc-heytea .fc-bg{background:#1A1A1A}
+.heytea-steam{
+  position:absolute;top:30px;left:50%;transform:translateX(-50%);
+}
+.steam-line{
+  width:2px;height:30px;
+  background:rgba(201,162,39,0.4);
+  border-radius:2px;
+  margin:0 auto;
+  animation:steam 2s ease-in-out infinite;
+  transform-origin:bottom center;
+}
+.steam-wrap{display:flex;gap:8px;justify-content:center}
+.steam-line:nth-child(2){animation-delay:0.4s;height:22px}
+.steam-line:nth-child(3){animation-delay:0.8s;height:26px}
+@keyframes steam{
+  0%{opacity:0.4;transform:scaleX(1) translateY(0)}
+  50%{opacity:0.7;transform:scaleX(1.3) translateY(-8px)}
+  100%{opacity:0;transform:scaleX(0.8) translateY(-20px)}
+}
+.heytea-icon{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-60%);
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(40px,6vw,80px);
+  color:var(--gold);
+  opacity:0.15;
+}
+/* Gumeng */
+.fc-gumeng .fc-bg{background:linear-gradient(135deg,#2E5E3E,#1a3d28)}
+.gumeng-leaf{
+  position:absolute;top:20px;right:20px;
+  opacity:0.2;
+}
+/* Nescafe */
+.fc-nescafe .fc-bg{background:#CC2200}
+.nescafe-text{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-55%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,8vw,100px);
+  color:rgba(255,255,255,0.12);
+  letter-spacing:-0.02em;
+}
+.fc-slogan{
+  font-family:'Noto Serif SC',serif;
+  font-style:italic;
+  font-size:clamp(11px,1vw,15px);
+  color:rgba(245,242,237,0.6);
+  margin-top:8px;
+  line-height:1.5;
+}
+
+/* ===== S7 BEAUTY STRIPS ===== */
+#beauty{
+  background:var(--black);
+}
+.beauty-strips{
+  margin-top:clamp(30px,4vw,60px);
+}
+.beauty-strip{
+  height:clamp(90px,18vh,160px);
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  display:flex;
+  transition:height 0.4s var(--ease);
+}
+.beauty-strip:hover{height:clamp(120px,24vh,220px)}
+.bs-left{
+  width:30%;
+  position:relative;
+  overflow:hidden;
+  clip-path:polygon(0 0,100% 0,90% 100%,0 100%);
+  flex-shrink:0;
+  transition:width 0.4s var(--ease);
+}
+.beauty-strip:hover .bs-left{width:45%}
+.bs-right{
+  flex:1;
+  background:var(--black);
+  display:flex;align-items:center;
+  padding:0 40px;
+  position:relative;
+}
+.bs-name-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(22px,3.5vw,52px);
+  letter-spacing:0.05em;
+  position:absolute;
+  bottom:20px;left:24px;right:24px;
+}
+.bs-right-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(18px,2.5vw,40px);
+  color:var(--white);
+  margin-right:20px;
+}
+.bs-right-cn{
+  font-family:'Noto Sans SC',sans-serif;
+  font-size:clamp(11px,1.2vw,16px);
+  color:rgba(245,242,237,0.5);
+}
+.bs-right-meta{
+  margin-left:auto;
+  font-family:'Orbitron',monospace;
+  font-size:10px;
+  letter-spacing:0.25em;
+  color:var(--gold);
+  opacity:0.7;
+}
+.bs-right-desc{
+  position:absolute;bottom:12px;left:40px;
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  color:rgba(245,242,237,0.4);
+  opacity:0;
+  transition:opacity 0.3s ease 0.1s;
+}
+.beauty-strip:hover .bs-right-desc{opacity:1}
+/* Strip colors */
+.bs-avene .bs-left{background:#5BA4C8}
+.bs-avene .bs-name-en{color:rgba(255,255,255,0.9)}
+.bs-clinique .bs-left{background:#ACE1AF}
+.bs-clinique .bs-name-en{color:rgba(0,0,0,0.8)}
+.bs-yuze .bs-left{background:#C8B49A}
+.bs-yuze .bs-name-en{color:rgba(30,61,89,0.9)}
+.bs-klorane .bs-left{background:#4A7C59}
+.bs-klorane .bs-name-en{color:rgba(255,255,255,0.9)}
+.bs-usmile .bs-left{background:linear-gradient(135deg,#7B2D8B,#00C8A0)}
+.bs-usmile .bs-name-en{color:rgba(255,255,255,0.9)}
+
+/* ===== S8 REDMI TECH ===== */
+#tech{
+  min-height:100vh;
+  background:#080808;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.tech-glow{
+  position:absolute;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,105,0,0.12) 0%,transparent 70%);
+  top:50%;right:-100px;
+  transform:translateY(-50%);
+  pointer-events:none;
+}
+.tech-ghost{
+  position:absolute;
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(80px,18vw,260px);
+  color:#FF6900;
+  opacity:0.06;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+  letter-spacing:-0.02em;
+}
+.tech-content{
+  position:relative;z-index:2;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  padding:80px clamp(24px,6vw,100px);
+  max-width:1300px;
+  width:100%;
+}
+.tech-text-side{}
+.tech-main-cn{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(40px,7vw,100px);
+  color:var(--white);
+  line-height:0.9;
+  display:block;
+  position:relative;
+}
+.tech-main-cn::after{
+  content:attr(data-text);
+  position:absolute;
+  left:3px;top:4px;
+  color:#FF6900;
+  opacity:0.4;
+  z-index:-1;
+}
+.tech-main-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(22px,3.5vw,52px);
+  letter-spacing:0.05em;
+  color:rgba(245,242,237,0.4);
+  margin-top:8px;
+  display:block;
+}
+.tech-brand-tag{
+  display:inline-flex;align-items:center;
+  border:1px solid #FF6900;
+  border-radius:999px;
+  padding:6px 20px;
+  margin-top:24px;
+  font-family:'Orbitron',monospace;
+  font-size:11px;
+  letter-spacing:0.25em;
+  color:#FF6900;
+  gap:10px;
+}
+.tech-brand-tag::before{
+  content:'';
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#FF6900;
+  animation:pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.5);opacity:0.5}
+}
+.tech-desc{
+  margin-top:20px;
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  line-height:1.7;
+  color:rgba(245,242,237,0.5);
+  max-width:380px;
+}
+.tech-phone-side{
+  display:flex;justify-content:center;
+}
+.phone-frame{
+  width:clamp(160px,18vw,240px);
+  height:clamp(320px,36vw,480px);
+  border:2px solid #FF6900;
+  border-radius:clamp(24px,3vw,40px);
+  position:relative;
+  overflow:hidden;
+  background:#0A0A0A;
+  box-shadow:0 0 40px rgba(255,105,0,0.15), 0 0 80px rgba(255,105,0,0.07);
+}
+.phone-notch{
+  position:absolute;top:16px;left:50%;
+  transform:translateX(-50%);
+  width:60px;height:10px;
+  border-radius:999px;
+  background:#1a1a1a;
+}
+.phone-screen-content{
+  position:absolute;inset:30px 10px 20px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;
+}
+.phone-brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(24px,3vw,36px);
+  color:#FF6900;
+  letter-spacing:0.05em;
+}
+.phone-model{
+  font-family:'Orbitron',monospace;
+  font-size:10px;
+  letter-spacing:0.25em;
+  color:rgba(255,105,0,0.5);
+}
+.phone-divider{
+  width:40px;height:1px;background:#FF6900;opacity:0.3;margin:4px 0;
+}
+.phone-line{
+  font-family:'DM Sans',sans-serif;
+  font-size:8px;
+  letter-spacing:0.15em;
+  color:rgba(255,255,255,0.2);
+  text-align:center;
+}
+
+/* ===== S9 LIFESTYLE (Jellycat + Meituan) ===== */
+#lifestyle{
+  background:var(--black);
+  position:relative;
+  overflow:hidden;
+}
+.lifestyle-wrap{
+  position:relative;
+  padding:clamp(40px,6vw,80px) clamp(24px,5vw,80px) 0;
+  display:flex;
+  align-items:flex-start;
+  gap:0;
+  min-height:clamp(500px,80vh,800px);
+}
+.jellycat-card{
+  width:38%;
+  height:clamp(500px,70vh,720px);
+  background:#F5D5C8;
+  border-radius:4px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  flex-shrink:0;
+  z-index:2;
+}
+.jellycat-card:hover .jc-ear-l{transform:rotate(-15deg) translateY(-6px)}
+.jellycat-card:hover .jc-ear-r{transform:rotate(12deg) translateY(-8px)}
+.jc-bunny{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-60%);
+}
+.jc-ears{
+  display:flex;justify-content:center;gap:16px;
+  margin-bottom:8px;
+}
+.jc-ear{
+  width:28px;height:65px;
+  background:#E8B4A0;
+  border-radius:999px;
+  transition:transform 0.4s var(--ease);
+  transform-origin:bottom center;
+}
+.jc-ear-l{transform:rotate(-8deg)}
+.jc-ear-r{transform:rotate(8deg)}
+.jc-head{
+  width:80px;height:70px;
+  background:#E8B4A0;
+  border-radius:50%;
+  margin:0 auto;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.jc-eyes{display:flex;gap:14px;align-items:center}
+.jc-eye{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:#3D3D3D;
+}
+.jc-nose{
+  width:8px;height:6px;
+  background:#C48080;
+  border-radius:50%;
+  position:absolute;
+  bottom:18px;left:50%;transform:translateX(-50%);
+}
+.jc-body{
+  width:100px;height:60px;
+  background:#ECC0B0;
+  border-radius:50%;
+  margin:0 auto;
+}
+.jellycat-content{
+  position:absolute;bottom:30px;left:0;right:0;
+  padding:0 28px;
+}
+.jc-name{
+  font-family:'Noto Serif SC',serif;
+  font-weight:400;
+  font-size:clamp(16px,2.5vw,28px);
+  color:#3D3D3D;
+}
+.jc-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(20px,3vw,36px);
+  color:#3D3D3D;
+  letter-spacing:0.05em;
+  opacity:0.6;
+}
+.jc-year{
+  font-family:'Orbitron',monospace;
+  font-size:10px;
+  letter-spacing:0.3em;
+  color:#8D5D5D;
+  margin-top:6px;
+  opacity:0.7;
+}
+.meituan-card{
+  flex:1;
+  margin-left:-30px;
+  margin-top:80px;
+  height:clamp(400px,55vh,600px);
+  background:#FFDC00;
+  border-radius:4px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+.mt-content{
+  position:absolute;inset:0;
+  padding:40px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.mt-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,6vw,80px);
+  color:#060606;
+  line-height:0.9;
+}
+.mt-cn{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(16px,2vw,26px);
+  color:#060606;
+  opacity:0.7;
+  margin-top:6px;
+}
+.mt-slogan{
+  font-family:'Noto Serif SC',serif;
+  font-style:italic;
+  font-size:clamp(11px,1vw,15px);
+  color:#060606;
+  opacity:0.5;
+  margin-top:10px;
+  line-height:1.5;
+}
+.mt-bg-icon{
+  position:absolute;
+  top:50%;right:30px;transform:translateY(-50%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(100px,16vw,200px);
+  color:#060606;
+  opacity:0.06;
+  line-height:1;
+}
+
+/* ===== S10 HORIZONTAL TIMELINE ===== */
+#timeline-section{
+  position:relative;
+  height:calc(18 * 60px + 200vh);
+}
+.timeline-sticky{
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow:hidden;
+  background:var(--black);
+}
+.timeline-header{
+  position:absolute;
+  top:clamp(24px,4vh,50px);
+  left:clamp(24px,5vw,80px);
+  z-index:10;
+}
+.timeline-track-wrap{
+  position:absolute;
+  top:0;left:0;
+  width:max-content;
+  height:100%;
+  display:flex;
+  will-change:transform;
+}
+.timeline-card{
+  width:clamp(300px,28vw,420px);
+  height:100%;
+  position:relative;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;
+  border-right:1px solid rgba(255,255,255,0.06);
+  padding:clamp(20px,3vw,50px) clamp(20px,2.5vw,40px);
+  flex-shrink:0;
+}
+.tc-color-bar{
+  position:absolute;top:0;left:0;right:0;
+  height:4px;
+}
+.tc-timeline-year{
+  font-family:'Orbitron',monospace;
+  font-weight:900;
+  font-size:clamp(48px,7vw,100px);
+  color:rgba(255,255,255,0.06);
+  position:absolute;
+  top:clamp(30px,5vh,70px);
+  left:clamp(20px,2.5vw,40px);
+  line-height:1;
+}
+.tc-timeline-num{
+  font-family:'Orbitron',monospace;
+  font-size:10px;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  opacity:0.6;
+  margin-bottom:8px;
+}
+.tc-timeline-brand-en{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,4vw,52px);
+  color:var(--white);
+  line-height:0.95;
+}
+.tc-timeline-brand-cn{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(14px,1.8vw,22px);
+  color:var(--gold);
+  margin-top:6px;
+}
+.tc-timeline-category{
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(245,242,237,0.35);
+  margin-top:10px;
+}
+.tc-timeline-desc{
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  color:rgba(245,242,237,0.4);
+  margin-top:12px;
+  line-height:1.6;
+  max-width:300px;
+}
+.timeline-gold-line{
+  position:absolute;top:50%;left:0;
+  width:100%;height:1px;
+  background:var(--gold);
+  opacity:0.25;
+  pointer-events:none;
+  z-index:5;
+}
+.timeline-ball{
+  position:absolute;top:50%;left:0;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#fff,var(--gold) 55%,var(--gold-d));
+  box-shadow:0 0 12px rgba(255,215,0,0.7);
+  transform:translate(0,-50%);
+  z-index:6;
+  pointer-events:none;
+}
+.timeline-progress{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  display:flex;gap:6px;align-items:center;
+  z-index:10;
+}
+.tp-dot{
+  width:4px;height:4px;border-radius:50%;
+  background:rgba(255,255,255,0.2);
+  transition:background 0.2s, width 0.2s;
+}
+.tp-dot.active{background:var(--gold);width:16px;border-radius:2px}
+
+/* ===== S11 MANIFESTO ===== */
+#manifesto{
+  min-height:100vh;
+  background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.manifesto-bg-text{
+  position:absolute;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(80px,20vw,280px);
+  color:var(--navy);
+  opacity:0.12;
+  top:50%;left:50%;
+  transform:translate(-55%,-50%);
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+  letter-spacing:0.02em;
+}
+.manifesto-cn{
+  position:absolute;
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(60px,14vw,200px);
+  color:var(--navy);
+  mix-blend-mode:multiply;
+  top:50%;left:50%;
+  transform:translate(-45%,-48%);
+  white-space:nowrap;
+  pointer-events:none;
+  user-select:none;
+  opacity:0.7;
+}
+.manifesto-fzd-ghost{
+  position:absolute;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,8vw,120px);
+  color:var(--navy);
+  opacity:0.15;
+  bottom:60px;right:60px;
+  letter-spacing:0.1em;
+}
+.manifesto-center{
+  position:relative;z-index:2;
+  text-align:center;
+}
+.manifesto-sub{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(14px,2vw,28px);
+  letter-spacing:0.4em;
+  color:var(--navy);
+  opacity:0.6;
+  margin-bottom:20px;
+}
+.manifesto-main{
+  font-family:'Noto Serif SC',serif;
+  font-weight:900;
+  font-size:clamp(20px,4vw,52px);
+  color:var(--navy);
+  line-height:1.2;
+}
+.brand-dots-container{
+  position:absolute;inset:0;
+  pointer-events:none;
+}
+.brand-dot{
+  position:absolute;
+  width:8px;height:8px;
+  border-radius:50%;
+  cursor:pointer;
+  pointer-events:all;
+  transition:all 0.3s var(--ease);
+}
+.brand-dot:hover{
+  width:140px;height:auto;
+  border-radius:4px;
+  padding:6px 12px;
+  transform:translate(-50%,-50%) scale(1) !important;
+  z-index:10;
+}
+.brand-dot:hover .dot-label{display:block}
+.dot-label{
+  display:none;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:13px;
+  letter-spacing:0.1em;
+  white-space:nowrap;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--navy);
+  border-top:3px solid var(--gold);
+  position:relative;overflow:hidden;
+}
+.footer-main{
+  text-align:center;
+  padding:clamp(60px,8vw,100px) 40px clamp(20px,4vw,40px);
+}
+.footer-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,8vw,120px);
+  letter-spacing:0.05em;
+  color:var(--white);
+  display:block;
+  line-height:0.9;
+}
+.footer-sub{
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  letter-spacing:0.4em;
+  color:rgba(245,242,237,0.4);
+  margin-top:12px;
+  text-transform:uppercase;
+}
+.footer-marquee-wrap{
+  overflow:hidden;
+  border-top:1px solid rgba(255,215,0,0.15);
+  border-bottom:1px solid rgba(255,215,0,0.15);
+  height:44px;
+  display:flex;align-items:center;
+}
+.footer-marquee{
+  display:flex;
+  animation:marqueeL 40s linear infinite;
+  white-space:nowrap;
+}
+.footer-marquee-item{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:16px;
+  letter-spacing:0.08em;
+  color:rgba(255,215,0,0.5);
+  padding:0 30px;
+}
+.footer-marquee-item::after{content:' · '}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  padding:clamp(30px,4vw,60px) clamp(24px,5vw,80px);
+  gap:40px;
+  border-top:1px solid rgba(255,215,0,0.1);
+}
+.fg-label{
+  font-family:'Orbitron',monospace;
+  font-size:10px;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  margin-bottom:12px;
+  opacity:0.7;
+}
+.fg-val{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  color:rgba(245,242,237,0.5);
+  line-height:1.7;
+}
+.footer-copy{
+  text-align:center;
+  padding:20px;
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;
+  color:rgba(245,242,237,0.2);
+  letter-spacing:0.1em;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .stats-inner{grid-template-columns:1fr}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,215,0,0.2);padding:40px 20px}
+  .stat-item:last-child{border-bottom:none}
+  .triptych{flex-direction:column;height:auto}
+  .triptych-card{height:280px}
+  .triptych-card:nth-child(2){margin-left:0;margin-right:0;z-index:1}
+  .triptych-card:hover{flex:1}
+  .lux-card:nth-child(1),.lux-card:nth-child(2),.lux-card:nth-child(3){
+    width:100%;margin-left:0;height:280px;
+  }
+  .food-grid{grid-template-columns:1fr;grid-template-rows:repeat(4,240px)}
+  .food-card:nth-child(1){grid-row:1}
+  .tech-content{grid-template-columns:1fr}
+  .tech-phone-side{display:none}
+  .lifestyle-wrap{flex-direction:column}
+  .jellycat-card,.meituan-card{width:100%;margin:0}
+  .meituan-card{margin-top:0}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-ball"></div>
+  <div class="loader-chars">
+    <span>樊</span>
+    <span>振</span>
+    <span>东</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-brand">樊振东</a>
+  <a href="#sport">品牌</a>
+  <a href="#timeline-section">时间线</a>
+  <a href="#manifesto">宣言</a>
+  <a href="#footer-anchor">关于</a>
+</nav>
+
+<!-- S1 HERO -->
+<section id="hero">
+  <div class="hero-left"></div>
+  <div class="hero-right"></div>
+  <img
+    class="hero-photo"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Fan_Zhendong_at_the_2024_Summer_Olympics%2C_August_1%2C_2024.jpg/800px-Fan_Zhendong_at_the_2024_Summer_Olympics%2C_August_1%2C_2024.jpg"
+    alt="樊振东 Fan Zhendong"
+    onerror="this.style.display='none';document.querySelector('.hero-photo-fallback').style.display='flex'"
+  >
+  <div class="hero-photo-fallback" style="display:none">
+    <svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="60" rx="38" ry="38" fill="rgba(255,215,0,0.15)"/>
+      <path d="M40 300 Q100 200 160 300" fill="rgba(255,215,0,0.1)"/>
+      <rect x="70" y="98" width="60" height="120" rx="8" fill="rgba(255,215,0,0.08)"/>
+    </svg>
+  </div>
+  <div class="hero-gold-lines">
+    <div class="line-top"></div>
+    <div class="line-bot"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-en">FAN<br>ZHENDONG</span>
+    <span class="hero-cn">樊振东</span>
+    <span class="hero-sub">World Champion · Olympic Gold · 品牌代言盘点</span>
+    <div class="hero-counter-wrap">
+      <span class="hero-counter-num" data-target="18" id="hero-counter">0</span>
+      <span class="hero-counter-label">× BRAND<br>AMBASSADOR</span>
+    </div>
+  </div>
+  <div class="hero-side-label">2021 ——————— 2025</div>
+  <div class="hero-year-strip">
+    <span class="yr">2021</span>
+    <div class="dash"></div>
+    <span>2022</span>
+    <div class="dash"></div>
+    <span>2023</span>
+    <div class="dash"></div>
+    <span class="yr">2024</span>
+    <div class="dash"></div>
+    <span class="yr">2025</span>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- S2 MARQUEE -->
+<div id="marquee-section">
+  <div class="marquee-track track1">
+    <div class="marquee-item">BUTTERFLY 蝴蝶</div>
+    <div class="marquee-item">YILI 伊利</div>
+    <div class="marquee-item">JELLYCAT 吉利猫</div>
+    <div class="marquee-item">ANTA 安踏</div>
+    <div class="marquee-item">RIMOWA 日默瓦</div>
+    <div class="marquee-item">HEYTEA 喜茶</div>
+    <div class="marquee-item">REDMI 红米</div>
+    <div class="marquee-item">MLB</div>
+    <div class="marquee-item">CADILLAC 凯迪拉克</div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item">BUTTERFLY 蝴蝶</div>
+    <div class="marquee-item">YILI 伊利</div>
+    <div class="marquee-item">JELLYCAT 吉利猫</div>
+    <div class="marquee-item">ANTA 安踏</div>
+    <div class="marquee-item">RIMOWA 日默瓦</div>
+    <div class="marquee-item">HEYTEA 喜茶</div>
+    <div class="marquee-item">REDMI 红米</div>
+    <div class="marquee-item">MLB</div>
+    <div class="marquee-item">CADILLAC 凯迪拉克</div>
+  </div>
+  <div class="marquee-track track2">
+    <div class="marquee-item">ARMANI 阿玛尼</div>
+    <div class="marquee-item">GUMENG 古茗</div>
+    <div class="marquee-item">AVENE 雅漾</div>
+    <div class="marquee-item">MEITUAN 美团闪购</div>
+    <div class="marquee-item">KLORANE 康如</div>
+    <div class="marquee-item">CLINIQUE 倩碧</div>
+    <div class="marquee-item">YUZE 玉泽</div>
+    <div class="marquee-item">NESCAFÉ 雀巢咖啡</div>
+    <div class="marquee-item">USMILE 笑容加</div>
+    <!-- duplicate -->
+    <div class="marquee-item">ARMANI 阿玛尼</div>
+    <div class="marquee-item">GUMENG 古茗</div>
+    <div class="marquee-item">AVENE 雅漾</div>
+    <div class="marquee-item">MEITUAN 美团闪购</div>
+    <div class="marquee-item">KLORANE 康如</div>
+    <div class="marquee-item">CLINIQUE 倩碧</div>
+    <div class="marquee-item">YUZE 玉泽</div>
+    <div class="marquee-item">NESCAFÉ 雀巢咖啡</div>
+    <div class="marquee-item">USMILE 笑容加</div>
+  </div>
+</div>
+
+<!-- S3 STATS -->
+<section id="stats">
+  <div class="stats-grid-bg"></div>
+  <div class="stats-inner">
+    <div class="stat-item" data-reveal>
+      <span class="stat-prefix">#</span>
+      <span class="stat-num" data-counter="1" data-target="1">0</span>
+      <span class="stat-label-en">WORLD RANKED</span>
+      <span class="stat-label-cn">ITF世界排名第一</span>
+    </div>
+    <div class="stat-item" data-reveal>
+      <span class="stat-num" data-counter="18" data-target="18">0</span>
+      <span class="stat-label-en">BRAND DEALS</span>
+      <span class="stat-label-cn">商业代言品牌数量</span>
+    </div>
+    <div class="stat-item" data-reveal>
+      <span class="stat-num" data-counter="2024" data-target="2024">0</span>
+      <span class="stat-label-en">OLYMPIC GOLD</span>
+      <span class="stat-label-cn">巴黎奥运冠军</span>
+    </div>
+  </div>
+  <div class="stats-headline">品牌代言盘点</div>
+</section>
+
+<!-- S4 SPORT BRANDS -->
+<section id="sport">
+  <div class="section-header" data-reveal>
+    <div class="section-tag">01 · SPORT FOUNDATION</div>
+    <span class="section-title-en">SPORT<br>BRANDS</span>
+    <span class="section-title-cn">运动赋能</span>
+  </div>
+  <div class="triptych">
+    <!-- Butterfly -->
+    <div class="triptych-card tc-butterfly">
+      <div class="tc-bg"></div>
+      <svg class="tc-butterfly-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100,60 Q70,10 10,20 Q35,65 100,60" fill="#E8001C"/>
+        <path d="M100,60 Q130,10 190,20 Q165,65 100,60" fill="#E8001C"/>
+        <path d="M100,60 Q55,85 12,100 Q50,80 100,60" fill="#4488DD"/>
+        <path d="M100,60 Q145,85 188,100 Q150,80 100,60" fill="#4488DD"/>
+        <ellipse cx="100" cy="60" rx="4" ry="12" fill="#333"/>
+      </svg>
+      <div class="tc-content">
+        <span class="tc-year">NOV 2021</span>
+        <div class="tc-name-en">BUTTERFLY</div>
+        <div class="tc-name-cn">蝴蝶 · 乒乓器材</div>
+        <div class="tc-desc">独家装备合作，推出FZD签名款球拍系列，包括ALC、Super ALC、ZLC等多款。樊振东使用蝴蝶FZD ALC球拍至今。</div>
+      </div>
+    </div>
+    <!-- Anta -->
+    <div class="triptych-card tc-anta">
+      <div class="tc-bg"></div>
+      <div class="tc-fzd">FZD</div>
+      <div class="tc-content">
+        <span class="tc-year">JUN 2024</span>
+        <div class="tc-name-en">ANTA 安踏</div>
+        <div class="tc-name-cn">安踏 · 运动服饰 · FZD个人IP</div>
+        <div class="tc-desc">中国首位拥有个人IP商标的乒乓球运动员。FZD商标于2025年7月生效，开创中国乒乓商业IP新范式。</div>
+      </div>
+    </div>
+    <!-- MLB -->
+    <div class="triptych-card tc-mlb">
+      <div class="tc-bg"></div>
+      <div class="tc-mlb-art">MLB</div>
+      <div class="tc-content">
+        <span class="tc-year">JAN 2025</span>
+        <div class="tc-name-en">MLB</div>
+        <div class="tc-name-cn">美职棒大联盟 · 冠军荣耀大使</div>
+        <div class="tc-desc">中国区冠军荣耀大使，2025年赴东京MLB开幕战，出席品牌活动。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S5 LUXURY BRANDS -->
+<section id="luxury">
+  <div class="section-header" data-reveal>
+    <div class="section-tag">02 · ACCESSIBLE LUXURY</div>
+    <span class="section-title-en">LUXURY<br>LIFE</span>
+    <span class="section-title-cn">轻奢生活</span>
+  </div>
+  <div class="luxury-stagger">
+    <!-- Cadillac - largest -->
+    <div class="lux-card lux-cadillac" data-reveal="scale">
+      <div class="lux-bg"></div>
+      <div class="lux-ghost-text">莫问前路</div>
+      <!-- Cadillac Crest SVG -->
+      <svg class="cadillac-crest" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4 L44 14 L44 34 L24 44 L4 34 L4 14 Z" stroke="#CBA529" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <rect x="12" y="16" width="24" height="16" stroke="#CBA529" stroke-width="1" fill="none" opacity="0.4"/>
+        <rect x="16" y="20" width="16" height="3" fill="#CBA529" opacity="0.4"/>
+        <rect x="16" y="25" width="16" height="3" fill="#CBA529" opacity="0.4"/>
+      </svg>
+      <div class="lux-content">
+        <span class="lux-tag">JAN 2025 · LUXURY AUTO</span>
+        <div class="lux-name-en">CADILLAC</div>
+        <div class="lux-name-cn">凯迪拉克 · 豪华汽车</div>
+        <div class="lux-slogan">「莫问前路，尽是坦途」<br><em>Unapologetic Excellence</em></div>
+      </div>
+    </div>
+    <!-- RIMOWA -->
+    <div class="lux-card lux-rimowa" data-reveal="right">
+      <div class="lux-bg"></div>
+      <div class="rimowa-grooves"></div>
+      <div class="lux-content">
+        <span class="lux-tag">AUG 2024 · LUXURY LUGGAGE</span>
+        <div class="lux-name-en">RIMOWA</div>
+        <div class="lux-name-cn">日默瓦 · 品牌挚友</div>
+        <div class="lux-slogan">热爱当红 · 铝合金经典旅行箱</div>
+      </div>
+    </div>
+    <!-- Armani -->
+    <div class="lux-card lux-armani" data-reveal="right">
+      <div class="lux-bg"></div>
+      <!-- Armani Eagle SVG -->
+      <svg class="armani-eagle" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="120">
+        <path d="M60 20 L80 35 Q90 50 80 65 L60 75 L40 65 Q30 50 40 35 Z" stroke="white" stroke-width="0.5" fill="none" opacity="0.6"/>
+        <path d="M60 20 Q80 10 100 20 Q90 35 80 35 Z" fill="white" opacity="0.3"/>
+        <path d="M60 20 Q40 10 20 20 Q30 35 40 35 Z" fill="white" opacity="0.3"/>
+        <path d="M60 75 L55 95 L60 88 L65 95 Z" fill="white" opacity="0.4"/>
+      </svg>
+      <div class="lux-content">
+        <span class="lux-tag">JAN 2025 · LUXURY FASHION</span>
+        <div class="lux-name-en">GIORGIO ARMANI</div>
+        <div class="lux-name-cn">阿玛尼 · 品牌挚友 · 米兰时装周</div>
+        <div class="lux-slogan">Giorgio Armani亲自邀请至前排中央席位<br>2025春夏系列代言人</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S6 FOOD & BEVERAGE -->
+<section id="food">
+  <div class="section-header" data-reveal>
+    <div class="section-tag">03 · FOOD & BEVERAGE</div>
+    <span class="section-title-en">TASTE &<br>VITALITY</span>
+    <span class="section-title-cn">饮食健康</span>
+  </div>
+  <div class="food-grid">
+    <!-- Yili - spans full height -->
+    <div class="food-card fc-yili" data-reveal="left">
+      <div class="fc-bg"></div>
+      <div class="yili-circle">
+        <div class="yili-inner">伊<br>利</div>
+      </div>
+      <div class="fc-content">
+        <div class="fc-name-en">YILI</div>
+        <div class="fc-name-cn">伊利 · 中国奥运官方乳品</div>
+        <div class="fc-sub">FEB 2024 · DAIRY</div>
+        <div class="fc-slogan">与孙颖莎、王楚钦共同代言，奥运三冠同步加持</div>
+      </div>
+    </div>
+    <!-- Heytea -->
+    <div class="food-card fc-heytea" data-reveal>
+      <div class="fc-bg"></div>
+      <div class="heytea-steam">
+        <div class="steam-wrap">
+          <div class="steam-line"></div>
+          <div class="steam-line"></div>
+          <div class="steam-line"></div>
+        </div>
+      </div>
+      <div class="heytea-icon">喜</div>
+      <div class="fc-content">
+        <div class="fc-name-en">HEYTEA</div>
+        <div class="fc-name-cn">喜茶 · 首位冠军大使</div>
+        <div class="fc-sub">SEP 2024 · TEA</div>
+        <div class="fc-slogan">「喝喜柿，有喜事」</div>
+      </div>
+    </div>
+    <!-- Gumeng -->
+    <div class="food-card fc-gumeng" data-reveal>
+      <div class="fc-bg"></div>
+      <svg class="gumeng-leaf" viewBox="0 0 80 80" width="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 10 Q65 25 65 50 Q65 72 40 72 Q15 72 15 50 Q15 25 40 10Z" fill="rgba(255,255,255,0.2)"/>
+        <path d="M40 72 L40 40" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      </svg>
+      <div class="fc-content">
+        <div class="fc-name-en">GUMENG</div>
+        <div class="fc-name-cn">古茗 · 鲜活果蔬瓶代言</div>
+        <div class="fc-sub">MAR 2025 · TEA</div>
+        <div class="fc-slogan">10天销售500万杯，携手樊振东让鲜活更鲜活</div>
+      </div>
+    </div>
+    <!-- Nescafe -->
+    <div class="food-card fc-nescafe" data-reveal>
+      <div class="fc-bg"></div>
+      <div class="nescafe-text">NESCAFÉ</div>
+      <div class="fc-content">
+        <div class="fc-name-en">NESCAFÉ</div>
+        <div class="fc-name-cn">雀巢咖啡 · 品牌大使</div>
+        <div class="fc-sub">SEP 2025 · COFFEE</div>
+        <div class="fc-slogan">「每一杯，为更好」<br>100%进口咖啡豆，0反式脂肪</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S7 BEAUTY STRIPS -->
+<section id="beauty">
+  <div class="section-header" data-reveal>
+    <div class="section-tag">04 · BEAUTY & CARE</div>
+    <span class="section-title-en">BEAUTY<br>EMPIRE</span>
+    <span class="section-title-cn">美妆护肤</span>
+  </div>
+  <div class="beauty-strips" style="margin-top:clamp(30px,4vw,60px)">
+    <!-- Avene -->
+    <div class="beauty-strip bs-avene" data-reveal="left">
+      <div class="bs-left">
+        <div class="bs-name-en">AVÈNE</div>
+      </div>
+      <div class="bs-right">
+        <span class="bs-right-name">AVÈNE</span>
+        <span class="bs-right-cn">雅漾 · 法国温泉护肤</span>
+        <span class="bs-right-meta">APR 2025</span>
+        <div class="bs-right-desc">「无惧敏感，长效守护」— 适配敏感肌，全国商业区大规模户外投放</div>
+      </div>
+    </div>
+    <!-- Clinique -->
+    <div class="beauty-strip bs-clinique" data-reveal="right">
+      <div class="bs-left">
+        <div class="bs-name-en">CLINIQUE</div>
+      </div>
+      <div class="bs-right">
+        <span class="bs-right-name">CLINIQUE</span>
+        <span class="bs-right-cn">倩碧 · 皮肤科学</span>
+        <span class="bs-right-meta">SEP 2025</span>
+        <div class="bs-right-desc">产品联合开发者，上市后全渠道销售额3000万元，门店会员成交增长876%</div>
+      </div>
+    </div>
+    <!-- Yuze -->
+    <div class="beauty-strip bs-yuze" data-reveal="left">
+      <div class="bs-left">
+        <div class="bs-name-en">YUZE</div>
+      </div>
+      <div class="bs-right">
+        <span class="bs-right-name">玉泽 YUZE</span>
+        <span class="bs-right-cn">上海家化 · 皮肤屏障</span>
+        <span class="bs-right-meta">SEP 2025</span>
+        <div class="bs-right-desc">首位身体护理代言人，22年守护屏障与樊振东22年乒乓历程共鸣</div>
+      </div>
+    </div>
+    <!-- Klorane -->
+    <div class="beauty-strip bs-klorane" data-reveal="right">
+      <div class="bs-left">
+        <div class="bs-name-en">KLORANE</div>
+      </div>
+      <div class="bs-right">
+        <span class="bs-right-name">KLORANE</span>
+        <span class="bs-right-cn">康如 · 法国植萃护发</span>
+        <span class="bs-right-meta">AUG 2025</span>
+        <div class="bs-right-desc">「健康头皮，力量生长」—— Pierre Fabre集团旗下第二个代言品牌</div>
+      </div>
+    </div>
+    <!-- usmile -->
+    <div class="beauty-strip bs-usmile" data-reveal="left">
+      <div class="bs-left">
+        <div class="bs-name-en">usmile</div>
+      </div>
+      <div class="bs-right">
+        <span class="bs-right-name">usmile 笑容加</span>
+        <span class="bs-right-cn">智能电动牙刷 · 口腔护理</span>
+        <span class="bs-right-meta">SEP 2025</span>
+        <div class="bs-right-desc">「守护，是唯一的答案」—— 品牌10周年，专业与冠军的巅峰对话</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S8 TECH (Redmi) -->
+<section id="tech">
+  <div class="tech-glow"></div>
+  <div class="tech-ghost">当红不让</div>
+  <div class="tech-content">
+    <div class="tech-text-side" data-reveal="left">
+      <span class="tech-main-cn" data-text="当红不让">当红不让</span>
+      <span class="tech-main-en">REDMI · SMARTPHONE</span>
+      <div class="tech-brand-tag">NOV 2024 · JAN 2025 · CHAMPION AMBASSADOR</div>
+      <div class="tech-desc">
+        红米冠军大使，"当红不让"广告语席卷全国200+城市1500+大屏，
+        Redmi Turbo 4首发代言。<br><br>
+        <span style="color:var(--gold)">红米 · 当红不让</span><br>
+        好看好用的2025首款新机
+      </div>
+    </div>
+    <div class="tech-phone-side" data-reveal="right">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen-content">
+          <div class="phone-brand">Redmi</div>
+          <div class="phone-divider"></div>
+          <div class="phone-model">TURBO 4</div>
+          <div class="phone-divider"></div>
+          <div class="phone-line">当红不让</div>
+          <div class="phone-line">CHAMPION AMBASSADOR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S9 LIFESTYLE (Jellycat + Meituan) -->
+<section id="lifestyle">
+  <div class="section-header" data-reveal>
+    <div class="section-tag">06 · LIFESTYLE & JOY</div>
+    <span class="section-title-en">LIFE<br>STYLE</span>
+    <span class="section-title-cn">时尚生活</span>
+  </div>
+  <div class="lifestyle-wrap">
+    <!-- Jellycat -->
+    <div class="jellycat-card" data-reveal="left">
+      <div class="jc-bunny">
+        <div class="jc-ears">
+          <div class="jc-ear jc-ear-l"></div>
+          <div class="jc-ear jc-ear-r"></div>
+        </div>
+        <div class="jc-head">
+          <div class="jc-eyes">
+            <div class="jc-eye"></div>
+            <div class="jc-eye"></div>
+          </div>
+          <div class="jc-nose"></div>
+        </div>
+        <div class="jc-body"></div>
+      </div>
+      <div class="jellycat-content">
+        <div class="jc-name">吉利猫 · 快乐大使</div>
+        <div class="jc-en">JELLYCAT</div>
+        <div class="jc-year">MAR 2024 · PLUSH TOYS · GLOBAL FIRST HUMAN PARTNER</div>
+      </div>
+    </div>
+    <!-- Meituan Flash -->
+    <div class="meituan-card" data-reveal="right">
+      <div class="mt-bg-icon">闪</div>
+      <div class="mt-content">
+        <div class="mt-name">MEITUAN<br>FLASH</div>
+        <div class="mt-cn">美团闪购 · 即时零售</div>
+        <div class="mt-slogan">「球拍一挥，优惠立达」<br>30分钟极速到家 · 618购物节代言<br>MAY 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S10 HORIZONTAL TIMELINE -->
+<div id="timeline-section">
+  <div class="timeline-sticky" id="timeline-sticky">
+    <div class="timeline-header">
+      <div class="section-tag" style="margin-bottom:4px">07 · CHRONOLOGY</div>
+      <span class="section-title-en" style="font-size:clamp(28px,4vw,56px)">BRAND<br>TIMELINE</span>
+      <span class="section-title-cn" style="font-size:clamp(14px,1.8vw,22px)">代言时间线</span>
+    </div>
+    <div class="timeline-gold-line"></div>
+    <div class="timeline-ball" id="timeline-ball"></div>
+    <div class="timeline-track-wrap" id="timeline-track">
+      <!-- Cards generated by JS -->
+    </div>
+    <div class="timeline-progress" id="timeline-progress"></div>
+  </div>
+</div>
+
+<!-- S11 MANIFESTO -->
+<section id="manifesto">
+  <div class="manifesto-bg-text">UNSTOPPABLE</div>
+  <div class="manifesto-cn">当红不让</div>
+  <div class="manifesto-fzd-ghost">FAN ZHENDONG</div>
+  <div class="manifesto-center" data-reveal="scale">
+    <div class="manifesto-sub">THE CHAMPION MANIFESTO</div>
+    <div class="manifesto-main">
+      冠军之路<br>不问来路<br>只问前路
+    </div>
+  </div>
+  <div class="brand-dots-container" id="brand-dots"></div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer-anchor">
+  <div class="footer-main">
+    <span class="footer-name">樊振东<br>FAN ZHENDONG</span>
+    <div class="footer-sub">Champion · Icon · 品牌代言盘点 · 2021–2025</div>
+  </div>
+  <div class="footer-marquee-wrap">
+    <div class="footer-marquee">
+      <span class="footer-marquee-item">BUTTERFLY</span>
+      <span class="footer-marquee-item">伊利</span>
+      <span class="footer-marquee-item">JELLYCAT</span>
+      <span class="footer-marquee-item">安踏</span>
+      <span class="footer-marquee-item">RIMOWA</span>
+      <span class="footer-marquee-item">喜茶</span>
+      <span class="footer-marquee-item">REDMI</span>
+      <span class="footer-marquee-item">MLB</span>
+      <span class="footer-marquee-item">CADILLAC</span>
+      <span class="footer-marquee-item">ARMANI</span>
+      <span class="footer-marquee-item">古茗</span>
+      <span class="footer-marquee-item">雅漾</span>
+      <span class="footer-marquee-item">美团闪购</span>
+      <span class="footer-marquee-item">KLORANE</span>
+      <span class="footer-marquee-item">CLINIQUE</span>
+      <span class="footer-marquee-item">玉泽</span>
+      <span class="footer-marquee-item">NESCAFÉ</span>
+      <span class="footer-marquee-item">usmile</span>
+      <!-- duplicate -->
+      <span class="footer-marquee-item">BUTTERFLY</span>
+      <span class="footer-marquee-item">伊利</span>
+      <span class="footer-marquee-item">JELLYCAT</span>
+      <span class="footer-marquee-item">安踏</span>
+      <span class="footer-marquee-item">RIMOWA</span>
+      <span class="footer-marquee-item">喜茶</span>
+      <span class="footer-marquee-item">REDMI</span>
+      <span class="footer-marquee-item">MLB</span>
+      <span class="footer-marquee-item">CADILLAC</span>
+      <span class="footer-marquee-item">ARMANI</span>
+      <span class="footer-marquee-item">古茗</span>
+      <span class="footer-marquee-item">雅漾</span>
+      <span class="footer-marquee-item">美团闪购</span>
+      <span class="footer-marquee-item">KLORANE</span>
+      <span class="footer-marquee-item">CLINIQUE</span>
+      <span class="footer-marquee-item">玉泽</span>
+      <span class="footer-marquee-item">NESCAFÉ</span>
+      <span class="footer-marquee-item">usmile</span>
+    </div>
+  </div>
+  <div class="footer-grid">
+    <div>
+      <div class="fg-label">代言时间线</div>
+      <div class="fg-val">
+        2021 — 蝴蝶 Butterfly<br>
+        2024 — 伊利·Jellycat·安踏·日默瓦·喜茶·红米<br>
+        2025 — 阿玛尼·凯迪拉克·MLB·古茗·雅漾<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;美团·康如·倩碧·玉泽·雀巢·笑容加
+      </div>
+    </div>
+    <div>
+      <div class="fg-label">商业价值</div>
+      <div class="fg-val">
+        18个品牌代言<br>
+        横跨运动·奢侈品·科技·食品·美妆<br>
+        中国体坛IP新范式开创者<br>
+        首位拥有个人IP商标的乒乓球运动员
+      </div>
+    </div>
+    <div>
+      <div class="fg-label">关于此页面</div>
+      <div class="fg-val">
+        数据整理至2025年<br>
+        设计概念：当红不让·品牌代言盘点<br>
+        品牌色：#0038A8 × #FFD700<br>
+        版式设计实验作品
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">FAN ZHENDONG 品牌代言盘点 · 樊振东品牌代言盘点 · 2021–2025</div>
+</footer>
+
+<script>
+// ===== LOADER =====
+(function initLoader() {
+  const loader = document.getElementById('loader');
+  const chars = document.querySelectorAll('.loader-chars span');
+
+  setTimeout(() => {
+    chars.forEach((c, i) => {
+      setTimeout(() => c.classList.add('assembled'), i * 120);
+    });
+  }, 900);
+
+  setTimeout(() => {
+    loader.classList.add('hidden');
+    document.body.style.overflow = '';
+    startHeroCounter();
+  }, 2000);
+
+  document.body.style.overflow = 'hidden';
+})();
+
+// ===== HERO COUNTER =====
+function startHeroCounter() {
+  const el = document.getElementById('hero-counter');
+  if (!el) return;
+  animateCounter(el, 0, 18, 1200);
+}
+
+// ===== NAV =====
+(function initNav() {
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+})();
+
+// ===== INTERSECTION OBSERVER =====
+(function initReveal() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        // trigger counters inside
+        e.target.querySelectorAll('[data-counter]').forEach(c => {
+          if (!c.dataset.done) {
+            c.dataset.done = '1';
+            animateCounter(c, 0, parseInt(c.dataset.target), 1500);
+          }
+        });
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+
+  // also observe stats section itself
+  const stats = document.getElementById('stats');
+  if (stats) {
+    const statsObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-counter]').forEach(c => {
+            if (!c.dataset.done) {
+              c.dataset.done = '1';
+              animateCounter(c, 0, parseInt(c.dataset.target), 1800);
+            }
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    statsObs.observe(stats);
+  }
+})();
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(el, from, to, duration) {
+  const start = performance.now();
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
+  function tick(now) {
+    const t = Math.min((now - start) / duration, 1);
+    el.textContent = Math.round(from + (to - from) * easeOut(t));
+    if (t < 1) requestAnimationFrame(tick);
+    else el.textContent = to;
+  }
+  requestAnimationFrame(tick);
+}
+
+// ===== TIMELINE DATA =====
+const brands = [
+  { num:'01', year:'2021', month:'NOV', en:'BUTTERFLY', cn:'蝴蝶', cat:'乒乓器材', desc:'独家装备合作，FZD签名款球拍系列', color:'#00307B' },
+  { num:'02', year:'2024', month:'FEB', en:'YILI', cn:'伊利', cat:'乳制品', desc:'中国奥运官方乳品合作，奥运三冠加持', color:'#0052A5' },
+  { num:'03', year:'2024', month:'MAR', en:'JELLYCAT', cn:'吉利猫', cat:'玩具', desc:'品牌全球首位人类合作者，快乐大使', color:'#C47B5A' },
+  { num:'04', year:'2024', month:'JUN', en:'ANTA', cn:'安踏', cat:'运动服饰', desc:'FZD个人IP商标，开创乒乓商业新范式', color:'#CC3300' },
+  { num:'05', year:'2024', month:'AUG', en:'RIMOWA', cn:'日默瓦', cat:'奢侈箱包', desc:'品牌挚友，热爱当红联名系列', color:'#2A2A2A' },
+  { num:'06', year:'2024', month:'SEP', en:'HEYTEA', cn:'喜茶', cat:'新茶饮', desc:'首位冠军大使，喜柿多多限定周边', color:'#1A1A1A' },
+  { num:'07', year:'2024', month:'NOV', en:'REDMI', cn:'红米', cat:'智能手机', desc:'当红不让，全国200+城市1500+大屏', color:'#CC5500' },
+  { num:'08', year:'2025', month:'JAN', en:'MLB', cn:'美职棒', cat:'潮流时尚', desc:'中国区冠军荣耀大使，东京开幕战', color:'#001B6B' },
+  { num:'09', year:'2025', month:'JAN', en:'CADILLAC', cn:'凯迪拉克', cat:'豪华汽车', desc:'莫问前路，尽是坦途', color:'#1a2050' },
+  { num:'10', year:'2025', month:'JAN', en:'ARMANI', cn:'阿玛尼', cat:'奢侈时装', desc:'品牌挚友，米兰时装周FW2025', color:'#111111' },
+  { num:'11', year:'2025', month:'MAR', en:'GUMENG', cn:'古茗', cat:'新茶饮', desc:'鲜活果蔬瓶代言，10天500万杯', color:'#2E5E3E' },
+  { num:'12', year:'2025', month:'APR', en:'AVÈNE', cn:'雅漾', cat:'护肤', desc:'无惧敏感，长效守护，法国温泉品牌', color:'#3A7A9A' },
+  { num:'13', year:'2025', month:'MAY', en:'MEITUAN', cn:'美团闪购', cat:'即时零售', desc:'球拍一挥，优惠立达，618节代言', color:'#222200' },
+  { num:'14', year:'2025', month:'AUG', en:'KLORANE', cn:'康如', cat:'护发', desc:'健康头皮，力量生长，植萃防脱系列', color:'#2A5C38' },
+  { num:'15', year:'2025', month:'SEP', en:'CLINIQUE', cn:'倩碧', cat:'护肤', desc:'产品联合开发者，销售增长876%', color:'#3A6B3A' },
+  { num:'16', year:'2025', month:'SEP', en:'YUZE', cn:'玉泽', cat:'护肤', desc:'首位身体护理代言人，上海家化', color:'#5A4A3A' },
+  { num:'17', year:'2025', month:'SEP', en:'NESCAFÉ', cn:'雀巢咖啡', cat:'咖啡', desc:'每一杯，为更好，100%进口咖啡豆', color:'#AA1100' },
+  { num:'18', year:'2025', month:'SEP', en:'USMILE', cn:'笑容加', cat:'口腔护理', desc:'守护是唯一的答案，品牌10周年', color:'#5A1A6B' },
+];
+
+// ===== BUILD TIMELINE =====
+(function buildTimeline() {
+  const track = document.getElementById('timeline-track');
+  const progress = document.getElementById('timeline-progress');
+
+  brands.forEach((b, i) => {
+    const card = document.createElement('div');
+    card.className = 'timeline-card';
+    card.innerHTML = `
+      <div class="tc-color-bar" style="background:${b.color}"></div>
+      <div class="tc-timeline-year">${b.year}</div>
+      <div class="tc-timeline-num">${b.num} · ${b.month} ${b.year}</div>
+      <div class="tc-timeline-brand-en">${b.en}</div>
+      <div class="tc-timeline-brand-cn">${b.cn}</div>
+      <div class="tc-timeline-category">${b.cat}</div>
+      <div class="tc-timeline-desc">${b.desc}</div>
+    `;
+    track.appendChild(card);
+
+    const dot = document.createElement('div');
+    dot.className = 'tp-dot';
+    dot.id = `tp-dot-${i}`;
+    progress.appendChild(dot);
+  });
+})();
+
+// ===== HORIZONTAL TIMELINE SCROLL =====
+(function initTimeline() {
+  const section = document.getElementById('timeline-section');
+  const track = document.getElementById('timeline-track');
+  const ball = document.getElementById('timeline-ball');
+  let cardWidth = 0;
+
+  function updateTimeline() {
+    if (!section || !track) return;
+    const rect = section.getBoundingClientRect();
+    const totalCards = brands.length;
+    cardWidth = track.firstElementChild ? track.firstElementChild.offsetWidth : 380;
+    const trackWidth = totalCards * cardWidth;
+    const maxTranslate = trackWidth - window.innerWidth;
+    const sectionHeight = section.offsetHeight - window.innerHeight;
+
+    if (rect.top > 0 || rect.bottom < window.innerHeight) {
+      // section not in view
+      return;
+    }
+
+    const scrolled = -rect.top;
+    const ratio = Math.max(0, Math.min(1, scrolled / sectionHeight));
+    const translateX = ratio * maxTranslate;
+
+    track.style.transform = `translateX(${-translateX}px)`;
+    ball.style.transform = `translate(${translateX * (window.innerWidth / trackWidth)}px, -50%)`;
+
+    // update progress dots
+    const activeIndex = Math.floor(ratio * totalCards);
+    document.querySelectorAll('.tp-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === activeIndex);
+    });
+  }
+
+  window.addEventListener('scroll', updateTimeline, { passive: true });
+  window.addEventListener('resize', updateTimeline, { passive: true });
+  updateTimeline();
+})();
+
+// ===== BRAND DOTS (Manifesto) =====
+(function buildBrandDots() {
+  const container = document.getElementById('brand-dots');
+  if (!container) return;
+
+  const positions = [
+    [15,20],[25,70],[8,50],[35,15],[42,80],[55,25],
+    [62,60],[70,10],[78,45],[85,75],[90,20],[20,85],
+    [48,40],[30,35],[65,85],[10,30],[50,65],[80,55]
+  ];
+  const dotColors = [
+    '#00307B','#0052A5','#C47B5A','#CC3300','#2A2A2A','#1A1A1A',
+    '#CC5500','#001B6B','#1a2050','#111111','#2E5E3E','#3A7A9A',
+    '#222200','#2A5C38','#3A6B3A','#5A4A3A','#AA1100','#5A1A6B'
+  ];
+
+  brands.forEach((b, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'brand-dot';
+    const [x, y] = positions[i] || [Math.random()*80+10, Math.random()*80+10];
+    dot.style.cssText = `
+      left:${x}%;top:${y}%;
+      background:${dotColors[i]};
+      transform:translate(-50%,-50%);
+    `;
+    dot.innerHTML = `<span class="dot-label" style="color:${i===4||i===9?'#fff':'#fff'}">${b.en}</span>`;
+    container.appendChild(dot);
+  });
+})();
+</script>
+</body>
+</html>
