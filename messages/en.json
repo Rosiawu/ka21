@@ -27,7 +27,8 @@
     "retry": "Retry",
     "loadFailed": "Failed to load, please try again later",
     "totalCount": "{count} items",
-    "menuPersonal": "Personal Site"
+    "menuPersonal": "Personal Site",
+    "menuFanZhendong": "Fan Zhendong"
   },
   "Home": {
     "subtitle": "Discover, compare and use the best AI tools to boost productivity and creativity",

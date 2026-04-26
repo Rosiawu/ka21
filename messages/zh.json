@@ -27,7 +27,8 @@
     "retry": "重试",
     "loadFailed": "加载失败，请稍后重试",
     "totalCount": "共 {count} 个",
-    "menuPersonal": "个人网站"
+    "menuPersonal": "个人网站",
+    "menuFanZhendong": "樊振东"
   },
   "Home": {
     "subtitle": "真人手测，只留100个好用AI牛马",

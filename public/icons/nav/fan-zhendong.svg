@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <defs>
+    <linearGradient id="fzd" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0038A8"/>
+      <stop offset="100%" stop-color="#FFD700"/>
+    </linearGradient>
+  </defs>
+  <!-- paddle handle -->
+  <line x1="15.5" y1="15.5" x2="20" y2="20" stroke="url(#fzd)" stroke-width="2" stroke-linecap="round"/>
+  <!-- paddle head -->
+  <circle cx="10" cy="10" r="7" stroke="url(#fzd)" stroke-width="1.5" fill="none"/>
+  <!-- ball -->
+  <circle cx="20" cy="5" r="2.2" stroke="url(#fzd)" stroke-width="1.2" fill="none"/>
+</svg>

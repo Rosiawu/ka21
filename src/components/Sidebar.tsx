@@ -76,6 +76,11 @@ function buildMenuItems(
       name: tCommon('menuPersonal'),
       icon: '/icons/nav/personal.svg',
       href: '/personal'
+    },
+    {
+      name: tCommon('menuFanZhendong'),
+      icon: '/icons/nav/fan-zhendong.svg',
+      href: '/fan-zhendong'
     }
   ];
 }
