@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-04-29T17:23:09.443Z",
+  "updatedAt": "2026-04-30T17:15:06.029Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "69f1f002fbed7ba9411d69e0",
+      "title": "17. 子扬：从文科到算法，他把“猜你喜欢”变成可解释的科学",
+      "pubDate": "Thu, 30 Apr 2026 00:00:00 GMT",
+      "duration": "01:16:09",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69f1f002fbed7ba9411d69e0?utm_source=rss"
+    },
     {
       "id": "69ef08461e94ae692141c79e",
       "title": "16. 吴熳：四次跨界从文科生到AI编程讲师，勇气比天赋更管用",
