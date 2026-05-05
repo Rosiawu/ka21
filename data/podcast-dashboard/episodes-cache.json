@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-05-04T17:26:44.202Z",
+  "updatedAt": "2026-05-05T17:19:28.046Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "69f1f5cdfbed7ba9411dc649",
+      "title": "18. 王帅：一个研究情感计算的人，跑去做了最不讲感情的财会AI",
+      "pubDate": "Tue, 05 May 2026 00:00:00 GMT",
+      "duration": "01:03:56",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69f1f5cdfbed7ba9411dc649?utm_source=rss"
+    },
     {
       "id": "69f1f002fbed7ba9411d69e0",
       "title": "17. 子扬：从文科到算法，他把“猜你喜欢”变成可解释的科学",
