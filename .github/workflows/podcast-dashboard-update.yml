@@ -3,7 +3,8 @@ name: Update Podcast Dashboard Snapshot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 16 * * *'
+    # Run daily at 10:00 Asia/Shanghai (02:00 UTC).
+    - cron: '0 2 * * *'
 
 permissions:
   contents: write

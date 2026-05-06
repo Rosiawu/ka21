@@ -3506,125 +3506,110 @@
     "createdAt": "2026-05-04T17:26:51.818Z"
   },
   {
-    "id": "snapshot-1778001575639",
+    "id": "snapshot-1778082304348",
     "date": "2026-05-06",
     "note": "自动抓取",
     "platformTotals": {
-      "xiaoyuzhou": 1861,
-      "lizhi": 2868,
-      "ximalaya": 1641,
-      "wangyiyun": 356,
+      "xiaoyuzhou": 2564,
+      "lizhi": 2937,
+      "ximalaya": 1664,
+      "wangyiyun": 362,
       "qingting": 41,
       "youtube": 0
     },
     "episodePlays": {
       "69f1f5cdfbed7ba9411dc649": {
-        "xiaoyuzhou": 24,
+        "xiaoyuzhou": 47,
         "lizhi": 1,
-        "ximalaya": 67,
-        "wangyiyun": 0
+        "wangyiyun": 2
       },
       "69f1f002fbed7ba9411d69e0": {
-        "xiaoyuzhou": 74,
-        "lizhi": 22,
-        "ximalaya": 66,
-        "wangyiyun": 13
+        "xiaoyuzhou": 76,
+        "lizhi": 26,
+        "wangyiyun": 17
       },
       "69ef08461e94ae692141c79e": {
-        "xiaoyuzhou": 108,
-        "lizhi": 30,
-        "ximalaya": 57,
+        "xiaoyuzhou": 111,
+        "lizhi": 36,
         "wangyiyun": 10
       },
       "69e0ac77e2c8be315560f417": {
-        "xiaoyuzhou": 60,
-        "lizhi": 66,
-        "ximalaya": 100,
+        "xiaoyuzhou": 69,
+        "lizhi": 72,
         "wangyiyun": 13
       },
       "69dc8c5ee2c8be315512f7dc": {
-        "xiaoyuzhou": 198,
-        "lizhi": 76,
-        "ximalaya": 76,
+        "xiaoyuzhou": 206,
+        "lizhi": 77,
         "wangyiyun": 19
       },
       "69d869cbe2c8be3155d4e2f6": {
-        "xiaoyuzhou": 125,
-        "lizhi": 104,
-        "ximalaya": 123,
+        "xiaoyuzhou": 126,
+        "lizhi": 110,
         "wangyiyun": 8
       },
       "69d8697ae2c8be3155d4daf1": {
         "xiaoyuzhou": 104,
-        "lizhi": 113,
-        "ximalaya": 91,
+        "lizhi": 119,
         "wangyiyun": 15
       },
       "69c4b19c852cf1b8bbeffda2": {
         "xiaoyuzhou": 134,
-        "lizhi": 148,
-        "ximalaya": 107,
+        "lizhi": 150,
         "wangyiyun": 19
       },
       "69c39bfb4a34541b1bfe40c2": {
-        "xiaoyuzhou": 137,
-        "lizhi": 156,
-        "ximalaya": 89,
+        "xiaoyuzhou": 140,
+        "lizhi": 161,
         "wangyiyun": 19
       },
       "69bd17643c625cc5ae4ef65a": {
-        "xiaoyuzhou": 112,
-        "lizhi": 189,
-        "ximalaya": 104,
+        "xiaoyuzhou": 113,
+        "lizhi": 194,
         "wangyiyun": 13
       },
       "69c10b71521e5c0a809b71b1": {
         "xiaoyuzhou": 92,
-        "lizhi": 187,
-        "ximalaya": 62,
+        "lizhi": 194,
         "wangyiyun": 4
       },
       "69bd022a2d318777c9df5837": {
-        "xiaoyuzhou": 245,
-        "lizhi": 219,
-        "ximalaya": 96,
+        "xiaoyuzhou": 249,
+        "lizhi": 225,
         "wangyiyun": 10
       },
       "69bcbace2d318777c9d271de": {
-        "xiaoyuzhou": 156,
-        "lizhi": 228,
-        "ximalaya": 69,
+        "xiaoyuzhou": 157,
+        "lizhi": 233,
         "wangyiyun": 8
       },
       "69bc120a3c625cc5ae2f5160": {
-        "xiaoyuzhou": 147,
-        "lizhi": 258,
-        "ximalaya": 160,
+        "xiaoyuzhou": 154,
+        "lizhi": 264,
         "wangyiyun": 19,
         "qingting": 13
       },
       "69bab249690ca3160f393dc7": {
-        "xiaoyuzhou": 145,
-        "lizhi": 269,
-        "ximalaya": 59,
+        "xiaoyuzhou": 149,
+        "lizhi": 270,
         "wangyiyun": 31
       },
-      "69a69588de29766da93ec01b": {
-        "lizhi": 252,
-        "ximalaya": 126,
-        "wangyiyun": 94
+      "69b184e184bce022f9f4fd5b": {
+        "xiaoyuzhou": 163,
+        "lizhi": 278,
+        "wangyiyun": 19
       },
       "69ad0f7dc8cdeb38c26acb2c": {
-        "lizhi": 273,
-        "ximalaya": 91,
+        "xiaoyuzhou": 165,
+        "lizhi": 274,
         "wangyiyun": 42
       },
-      "69b184e184bce022f9f4fd5b": {
-        "lizhi": 277,
-        "ximalaya": 98,
-        "wangyiyun": 19
+      "69a69588de29766da93ec01b": {
+        "xiaoyuzhou": 309,
+        "lizhi": 253,
+        "wangyiyun": 94
       }
     },
-    "createdAt": "2026-05-05T17:19:35.639Z"
+    "createdAt": "2026-05-06T15:45:04.348Z"
   }
 ]

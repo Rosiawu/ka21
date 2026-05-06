@@ -492,9 +492,74 @@ async function loadEpisodesFromConfig(config: PodcastConfig, logger = console) {
   return cachedEpisodes;
 }
 
+async function mapWithConcurrency<T, TResult>(
+  items: T[],
+  concurrency: number,
+  worker: (item: T, index: number) => Promise<TResult>,
+): Promise<TResult[]> {
+  const normalizedConcurrency = Math.max(1, Math.min(items.length || 1, concurrency));
+  const results = new Array<TResult>(items.length);
+  let cursor = 0;
+
+  await Promise.all(
+    Array.from({ length: normalizedConcurrency }, async () => {
+      while (cursor < items.length) {
+        const index = cursor;
+        cursor += 1;
+        results[index] = await worker(items[index], index);
+      }
+    }),
+  );
+
+  return results;
+}
+
+function buildXiaoyuzhouEpisodeUrl(episode: Episode) {
+  const link = String(episode.link || '').trim();
+  if (/xiaoyuzhoufm\.com\/episode\//i.test(link)) {
+    return link;
+  }
+
+  return `https://www.xiaoyuzhoufm.com/episode/${episode.id}`;
+}
+
+function parseXiaoyuzhouEpisodePage(html: string) {
+  const data = parseJsonScript<{
+    props?: {
+      pageProps?: {
+        episode?: {
+          eid?: string;
+          title?: string;
+          playCount?: number;
+          podcast?: {
+            pid?: string;
+          };
+        };
+      };
+    };
+  }>(html, '__NEXT_DATA__');
+  const episode = data?.props?.pageProps?.episode;
+  if (!episode) {
+    throw new Error('Missing Xiaoyuzhou episode payload');
+  }
+
+  return episode;
+}
+
 async function scrapeXiaoyuzhou(platform: Platform, episodes: Episode[]): Promise<ScrapeResult> {
   const html = await fetchText(platform.url, { context: `${platform.id} page` });
-  const data = parseJsonScript<{ props?: { pageProps?: { episodes?: Array<{ title?: string; playCount?: number }>; podcast?: { episodes?: Array<{ title?: string; playCount?: number }>; subscriptionCount?: number } } } }>(
+  const data = parseJsonScript<{
+    props?: {
+      pageProps?: {
+        episodes?: Array<{ title?: string; playCount?: number }>;
+        podcast?: {
+          episodes?: Array<{ title?: string; playCount?: number }>;
+          subscriptionCount?: number;
+          episodeCount?: number;
+        };
+      };
+    };
+  }>(
     html,
     '__NEXT_DATA__',
   );
@@ -514,10 +579,60 @@ async function scrapeXiaoyuzhou(platform: Platform, episodes: Episode[]): Promis
     total += playCount;
   }
 
+  const missingEpisodes = episodes.filter((episode) => episodePlays[episode.id] === undefined);
+  let backfilledCount = 0;
+  let failedBackfills = 0;
+
+  if (missingEpisodes.length > 0) {
+    const backfills = await mapWithConcurrency(missingEpisodes, 4, async (episode) => {
+      const detailUrl = buildXiaoyuzhouEpisodeUrl(episode);
+      try {
+        const detailHtml = await fetchText(detailUrl, {
+          headers: {
+            accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
+          },
+          context: `${platform.id} episode ${episode.id}`,
+          timeoutMs: 10_000,
+          retries: 2,
+        });
+        const detailEpisode = parseXiaoyuzhouEpisodePage(detailHtml);
+        return {
+          episodeId: episode.id,
+          playCount: Number(detailEpisode.playCount || 0),
+        };
+      } catch {
+        return {
+          episodeId: episode.id,
+          playCount: null,
+        };
+      }
+    });
+
+    for (const backfill of backfills) {
+      if (backfill.playCount === null) {
+        failedBackfills += 1;
+        continue;
+      }
+
+      episodePlays[backfill.episodeId] = backfill.playCount;
+      total += backfill.playCount;
+      backfilledCount += 1;
+    }
+  }
+
+  const declaredEpisodeCount = Number(pageProps?.podcast?.episodeCount || 0);
+  const capturedEpisodeCount = Object.keys(episodePlays).length;
+  const coverageBase = declaredEpisodeCount || episodes.length || '?';
+  const coverageNote =
+    backfilledCount > 0
+      ? `节目页公开 ${sourceEpisodes.length}/${coverageBase} 期，单集页补齐 ${backfilledCount} 期`
+      : `公开页可抓取 ${capturedEpisodeCount}/${coverageBase} 期`;
+  const failureNote = failedBackfills > 0 ? `，另有 ${failedBackfills} 期补抓失败` : '';
+
   return {
     platformId: platform.id,
     supported: true,
-    note: `公开页可抓取，总订阅 ${pageProps?.podcast?.subscriptionCount ?? '?'}`,
+    note: `${coverageNote}${failureNote}，总订阅 ${pageProps?.podcast?.subscriptionCount ?? '?'}`,
     total,
     episodePlays,
   };
