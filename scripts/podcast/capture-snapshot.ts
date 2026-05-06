@@ -644,34 +644,45 @@ async function scrapeXimalaya(platform: Platform, episodes: Episode[]): Promise<
     throw new Error('Unable to extract Ximalaya album ID');
   }
 
-  const [albumRaw, tracksRaw] = await Promise.all([
-    fetchText(`https://www.ximalaya.com/revision/album?albumId=${albumId}`, {
-      headers: { referer: platform.url },
-      context: `${platform.id} album API`,
-    }),
-    fetchText(`https://mobile.ximalaya.com/mobile/v1/album/track?albumId=${albumId}&pageNum=1&pageSize=30`, {
-      headers: { referer: platform.url },
-      context: `${platform.id} track API`,
-    }),
-  ]);
+  const albumRaw = await fetchText(`https://www.ximalaya.com/revision/album?albumId=${albumId}`, {
+    headers: { referer: platform.url },
+    context: `${platform.id} album API`,
+  });
 
-  const album = JSON.parse(albumRaw) as { data?: { mainInfo?: { playCount?: number; subscribeCount?: number } } };
-  const tracks = JSON.parse(tracksRaw) as { data?: { list?: Array<{ title?: string; playtimes?: number }> } };
+  const album = JSON.parse(albumRaw) as {
+    data?: {
+      mainInfo?: { playCount?: number; subscribeCount?: number };
+      tracksInfo?: {
+        trackTotalCount?: number;
+        tracks?: Array<{ title?: string; playCount?: number }>;
+      };
+    };
+  };
   const titleMap = buildEpisodeMap(episodes);
   const episodePlays: Record<string, number> = {};
+  const tracks = Array.isArray(album?.data?.tracksInfo?.tracks) ? album.data.tracksInfo.tracks : [];
 
-  for (const track of tracks?.data?.list || []) {
+  for (const track of tracks) {
     const episodeId = matchEpisodeId(titleMap, track.title || '');
     if (!episodeId) {
       continue;
     }
-    episodePlays[episodeId] = Number(track.playtimes || 0);
+
+    episodePlays[episodeId] = Number(track.playCount || 0);
   }
+
+  const declaredTrackCount = Number(album?.data?.tracksInfo?.trackTotalCount || 0);
+  const capturedTrackCount = Object.keys(episodePlays).length;
+  const coverageBase = declaredTrackCount || episodes.length || '?';
+  const partialNote =
+    declaredTrackCount > 0 && tracks.length < declaredTrackCount
+      ? `，当前接口仅公开前 ${tracks.length}/${declaredTrackCount} 期`
+      : '';
 
   return {
     platformId: platform.id,
     supported: true,
-    note: `公开 API 可抓取，总订阅 ${album?.data?.mainInfo?.subscribeCount ?? '?'}`,
+    note: `公开专辑 API 可抓取 ${capturedTrackCount}/${coverageBase} 期${partialNote}，总订阅 ${album?.data?.mainInfo?.subscribeCount ?? '?'}`,
     total: Number(album?.data?.mainInfo?.playCount || 0),
     episodePlays,
   };
