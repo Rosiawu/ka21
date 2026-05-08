@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-05-06T16:18:51.081Z",
+  "updatedAt": "2026-05-08T02:13:27.504Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "69f9b5b5e05c0efcd6e74bb7",
+      "title": "19. 孔德闻：做一场57G的发布会PPT，比写代码更考验抗压",
+      "pubDate": "Thu, 07 May 2026 00:00:00 GMT",
+      "duration": "01:06:47",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69f9b5b5e05c0efcd6e74bb7?utm_source=rss"
+    },
     {
       "id": "69f1f5cdfbed7ba9411dc649",
       "title": "18. 王帅：一个研究情感计算的人，跑去做了最不讲感情的财会AI",
