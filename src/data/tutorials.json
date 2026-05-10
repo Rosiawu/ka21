@@ -1886,11 +1886,25 @@
       "recommendReason": "上个月我去完阿里悟空的发布会就一直在用，还把悟空推荐给了我最近在做企业培训的公司。\\x0a\\x0a用了这么久，我觉得它特别适合帮人类处理那些琐碎，纯执行的事，整理发票就是典型，我一直觉得这个案例太适合分享给你们了，今天刚好有空马上写一篇出来！\\x0a\\x0a我现在依然是一人公司的状态，一些公司运营的开销都是我自己先垫付后面再用发票报销，每张几十几百的报销起来很麻烦，转账还有手续费，最好就是批量处理完一次转账，每个月这些发票和账目还要给代记账公司报税，最开始的时候我手动整理真的烦死了……\\x0a\\x26amp;nbsp;\\x0a还好现在有了悟空这样的本地Agent，我就会把发票放在一个文件夹里，然后让悟空读取文件夹，自动把发票登记在AI表格里，标注上报销状态，方便我批量完成报销转账不出错，超级方便～\\x0a\\x26amp;nbsp;\\x0a后面如果有了新发票，也放进这个文件夹里，悟空会自动扫描后识别到哪些是新加的，完成表格更新，所有记录都在我眼下，安安心心～\\x0a\\x26amp;nbsp;\\x0a自由职业/小团队/没有专职财务的朋友真的值得试试！",
       "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/LmCofQYyNiczY3He4BaxO01c3ibxJgJzI3lPB8hTRgktGBcM8EueibYgBc5DfBrmEgL2J0e8lic0TgKJu5Wulibibmk0yt2wbfZkhAnOy6BcKl664/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-ClaudeCode安装与使用指北一-0",
+      "title": "Claude Code 安装与使用指北（一）",
+      "description": "带你入门 Claude Code 的世界。",
+      "url": "https://mp.weixin.qq.com/s/yTnUwmwnVdJHbOnv6OT0CA",
+      "source": "灰尘",
+      "publishDate": "2026-04-09",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "带你入门 Claude Code 的世界。",
+      "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/aKXmjnEGn4gFsq3nAXB3ic39j2b8hHJ5iajGRw7mhZC0hZXcaRPX7FjF8mz6d9zIWXaeVTOTRJsiccnGZMjVvdsotB9QAysC3ickmia6X7pHuzLw/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-04-17T10:45:55.947Z",
-    "count": 110
+    "updatedAt": "2026-05-10T12:08:02.769Z",
+    "count": 111
   }
 }
