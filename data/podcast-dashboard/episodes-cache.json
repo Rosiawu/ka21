@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-05-20T05:57:07.160Z",
+  "updatedAt": "2026-05-21T06:00:35.340Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "6a0dbcf5e1eb34a939c730b4",
+      "title": "23. 云舒：从提示词卡片到Agent，一个AI产品经理的“游戏”之路",
+      "pubDate": "Thu, 21 May 2026 00:00:00 GMT",
+      "duration": "01:03:25",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a0dbcf5e1eb34a939c730b4?utm_source=rss"
+    },
     {
       "id": "69df5a42b977fb2c47024845",
       "title": "22. 云天：从户外玩家到 Vibe Coding 产品经理，他把热爱做成了小程序",
