@@ -1,6 +1,44 @@
 {
   "entries": [
     {
+      "id": "devlog-xposter-markdown-x-2026-05-23",
+      "version": "共创 17",
+      "date": "2026-05-23",
+      "timelineTitle": {
+        "zh": "xPoster 把 Markdown 发 X 这件事打通了",
+        "en": "xPoster 把 Markdown 发 X 这件事打通了"
+      },
+      "cardTitle": {
+        "zh": "xPoster 把 Markdown 发 X 这件事打通了",
+        "en": "xPoster 把 Markdown 发 X 这件事打通了"
+      },
+      "body": {
+        "zh": "今天补一条微信直发的开发日志。\n\n今天看到 xPoster 这条线很有意思。\n\n它解决的是一个很具体、但写作者每天都会被磨到的痛点：X Articles 的写作体验很别扭，Markdown 转过去以后格式容易乱，代码块、图片、长文结构都要反复手调。\n\nxPoster 的做法很直接：把 Markdown 文件拖到 X 文章编辑器区域，插件自动转换成可发布的文章内容，同时处理预览、媒体、诊断和发布确认。它已经上架 Chrome 应用商店，也有开源仓库 nevertoday/xposter。\n\n这条记录对牛马库有用，是因为它不是在做一个大而全的平台，而是精准卡住内容发布流程里最让人便秘的那一小段，把它补成一条自动化通道。\n\n后面可以继续观察它对代码块、图片和长文格式的处理表现。如果体验稳定，它就是一个很适合收进牛马库的小工具案例。\n\n记录人：吴熳",
+        "en": "今天补一条微信直发的开发日志。\n\n今天看到 xPoster 这条线很有意思。\n\n它解决的是一个很具体、但写作者每天都会被磨到的痛点：X Articles 的写作体验很别扭，Markdown 转过去以后格式容易乱，代码块、图片、长文结构都要反复手调。\n\nxPoster 的做法很直接：把 Markdown 文件拖到 X 文章编辑器区域，插件自动转换成可发布的文章内容，同时处理预览、媒体、诊断和发布确认。它已经上架 Chrome 应用商店，也有开源仓库 nevertoday/xposter。\n\n这条记录对牛马库有用，是因为它不是在做一个大而全的平台，而是精准卡住内容发布流程里最让人便秘的那一小段，把它补成一条自动化通道。\n\n后面可以继续观察它对代码块、图片和长文格式的处理表现。如果体验稳定，它就是一个很适合收进牛马库的小工具案例。\n\n记录人：吴熳"
+      },
+      "imageSlotLabel": {
+        "zh": "纯文字记录：xPoster 把 Markdown 发 X 这件事打通了",
+        "en": "纯文字记录：xPoster 把 Markdown 发 X 这件事打通了"
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "Chrome 应用商店：xPoster",
+            "en": "Chrome 应用商店：xPoster"
+          },
+          "href": "https://chromewebstore.google.com/detail/xposter/iimkimodgdjnnmdopeolboakhjmhfbbj?authuser=0&hl=zh-CN"
+        },
+        {
+          "label": {
+            "zh": "GitHub：nevertoday/xposter",
+            "en": "GitHub：nevertoday/xposter"
+          },
+          "href": "https://github.com/nevertoday/xposter"
+        }
+      ],
+      "images": []
+    },
+    {
       "id": "devlog-tutorial-import-flow-2026-03-31",
       "version": "共创 16",
       "date": "2026-03-31",
@@ -230,7 +268,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-31T14:42:12.000Z",
-    "count": 6
+    "updatedAt": "2026-05-22T23:44:59.521Z",
+    "count": 7
   }
 }
