@@ -1900,6 +1900,26 @@
       "recommendReason": "带你入门 Claude Code 的世界。",
       "customImageUrl": "https://mmbiz.qpic.cn/mmbiz_jpg/aKXmjnEGn4gFsq3nAXB3ic39j2b8hHJ5iajGRw7mhZC0hZXcaRPX7FjF8mz6d9zIWXaeVTOTRJsiccnGZMjVvdsotB9QAysC3ickmia6X7pHuzLw/0?wx_fmt=jpeg",
       "relatedTools": []
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-laoP12Vc1Riz8OsZNv3HaQ-0",
+      "title": "做好了PPT懒得写逐字稿？WPS AI生成PPT演讲稿超乎想象",
+      "url": "https://mp.weixin.qq.com/s/la0P12Vc1Riz8OsZNv3HaQ",
+      "source": "吴熳Rosia",
+      "publishDate": "2026-05-19",
+      "difficultyLevel": "萌新进阶",
+      "category": "AI办公",
+      "skillTags": [
+        "WPS",
+        "PPT",
+        "逐字稿",
+        "AI办公"
+      ],
+      "recommendReason": "完整演示WPS灵犀从PPT生成演讲者备注和逐字稿的全流程，包含入口定位、备注栏vs导出文档的选择策略、说课稿制作建议和避坑技巧，适合需要上台讲PPT的教师和职场人。",
+      "customImageUrl": "/images/tutorials/wps-ai-ppt-speech-001.jpg",
+      "relatedTools": [
+        "wps"
+      ]
     }
   ],
   "meta": {
