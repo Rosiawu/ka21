@@ -1920,11 +1920,25 @@
       "relatedTools": [
         "wps"
       ]
+    },
+    {
+      "id": "tutorial-mp-weixin-qq-com-不懂这几个技巧难怪你用不好AI-0",
+      "title": "不懂这几个技巧，难怪你用不好AI！",
+      "description": "“同样是用AI，怎么我们之间差距那么大？”",
+      "url": "https://mp.weixin.qq.com/s/Vg7KnFlpUS6g8PqQP0Akxw",
+      "source": "Simonlin",
+      "publishDate": "2026-05-27",
+      "difficultyLevel": "萌新进阶",
+      "category": "office-productivity",
+      "skillTags": [],
+      "recommendReason": "“同样是用AI，怎么我们之间差距那么大？”",
+      "customImageUrl": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/gBevQ6puE7CzhdAdXI6ePBWwLQ5w1JJquy08QGbzKoHxz97Mlom2GvLaqCatJnJlG8IibOWogzt3n1mXwAJXtugoSjVYUKEJqRQuvaAwicVgQ/0?wx_fmt=jpeg",
+      "relatedTools": []
     }
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-05-10T12:08:02.769Z",
-    "count": 111
+    "updatedAt": "2026-05-27T15:09:37.055Z",
+    "count": 112
   }
 }
