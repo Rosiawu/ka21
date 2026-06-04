@@ -8,7 +8,7 @@
       "openid": null,
       "unionid": null,
       "createdAt": "2026-06-04T14:03:19.796Z",
-      "updatedAt": "2026-06-04T14:03:19.796Z"
+      "updatedAt": "2026-06-04T14:03:23.492Z"
     }
   ],
   "deals": [],
@@ -16,6 +16,6 @@
   "pointsLedger": [],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-06-04T14:03:19.796Z"
+    "updatedAt": "2026-06-04T14:03:23.492Z"
   }
 }
