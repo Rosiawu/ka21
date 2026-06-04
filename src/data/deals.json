@@ -1,10 +1,21 @@
 {
-  "contributors": [],
+  "contributors": [
+    {
+      "id": "contributor_4jb3zbwc",
+      "nickname": "Anson",
+      "avatarUrl": "https://api.dicebear.com/9.x/shapes/svg?seed=Anson",
+      "bio": "",
+      "openid": null,
+      "unionid": null,
+      "createdAt": "2026-06-04T14:03:19.796Z",
+      "updatedAt": "2026-06-04T14:03:19.796Z"
+    }
+  ],
   "deals": [],
   "events": [],
   "pointsLedger": [],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-03-16T00:00:00.000Z"
+    "updatedAt": "2026-06-04T14:03:19.796Z"
   }
 }
