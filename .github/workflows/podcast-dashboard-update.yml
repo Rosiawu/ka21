@@ -3,8 +3,8 @@ name: Update Podcast Dashboard Snapshot
 on:
   workflow_dispatch:
   schedule:
-    # Run daily at 10:00 Asia/Shanghai (02:00 UTC).
-    - cron: '0 2 * * *'
+    # Run daily after 10:00 Asia/Shanghai (10:10 CST / 02:10 UTC).
+    - cron: '10 2 * * *'
 
 permissions:
   contents: write
@@ -36,6 +36,19 @@ jobs:
       # ── 第一步：抓取播放量，写入本地 JSON ───────────────────────────────────
       - name: Capture podcast snapshot
         run: npm run podcast:capture-snapshot
+
+      - name: Report captured podcast episodes
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const cache = JSON.parse(fs.readFileSync('data/podcast-dashboard/episodes-cache.json', 'utf8'));
+          const episodes = Array.isArray(cache.episodes) ? cache.episodes : [];
+          const latest = episodes[0];
+          console.log(`Episode cache: ${episodes.length} episodes`);
+          if (latest) {
+            console.log(`Latest episode: ${latest.title}`);
+          }
+          NODE
 
       # ── 第二步：同步到飞书多维表（幂等，失败不影响后续 commit）──────────────
       - name: Sync to Feishu Bitable

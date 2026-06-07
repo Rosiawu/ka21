@@ -6,7 +6,20 @@ import { captureLiveDashboardData } from '../../../../../scripts/podcast/capture
 import { requireAdminAccess } from '@/lib/security/admin';
 import { beginConcurrencyLease, enforceRateLimit } from '@/lib/security/rate-limit';
 
-const defaultConfig = {
+type PlatformConfig = {
+  id: string;
+  name: string;
+  url: string;
+  logo?: string;
+};
+
+type PodcastConfig = {
+  showName: string;
+  rssUrl: string;
+  platforms: ReadonlyArray<PlatformConfig>;
+};
+
+const defaultConfig: PodcastConfig = {
   showName: '灯下白',
   rssUrl: 'https://feed.xyzfm.space/labr6f9g6xvp',
   platforms: [
@@ -59,17 +72,10 @@ const defaultConfig = {
       logo: '/images/podcast/platforms/spotify.png',
     },
   ],
-} as const;
+};
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
-
-type PlatformConfig = (typeof defaultConfig.platforms)[number];
-type PodcastConfig = {
-  showName: string;
-  rssUrl: string;
-  platforms: ReadonlyArray<PlatformConfig>;
-};
 
 type Snapshot = {
   id: string;
@@ -89,6 +95,7 @@ type NextFetchInit = RequestInit & {
 const podcastDataDir = path.join(process.cwd(), 'data', 'podcast-dashboard');
 const trackerConfigPath = path.join(podcastDataDir, 'config.json');
 const trackerSnapshotsPath = path.join(podcastDataDir, 'snapshots.json');
+const trackerEpisodesCachePath = path.join(podcastDataDir, 'episodes-cache.json');
 const dashboardRefreshHeader = 'x-ka21-dashboard-refresh';
 const noStoreHeaders = {
   'Cache-Control': 'no-store, max-age=0, must-revalidate',
@@ -99,6 +106,25 @@ function jsonResponse(body: unknown, status = 200) {
     status,
     headers: noStoreHeaders,
   });
+}
+
+async function fetchRepoJson<T>(relativePath: string): Promise<T> {
+  const repo = process.env.GITHUB_REPO || 'Rosiawu/ka21';
+  const branch = process.env.GITHUB_BRANCH || 'main';
+  const url = `https://raw.githubusercontent.com/${repo}/${branch}/${relativePath}`;
+  const response = await fetch(url, {
+    cache: 'no-store',
+    headers: {
+      'user-agent': 'ka21-podcast-dashboard/1.0',
+      accept: 'application/json, text/plain;q=0.9, */*;q=0.8',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch ${relativePath} from GitHub: ${response.status}`);
+  }
+
+  return (await response.json()) as T;
 }
 
 function isTrustedDashboardRefreshRequest(request: Request) {
@@ -146,6 +172,15 @@ function requireDashboardRefreshAccess(request: Request) {
 
 async function loadConfig(): Promise<PodcastConfig> {
   try {
+    const parsed = await fetchRepoJson<PodcastConfig>('data/podcast-dashboard/config.json');
+    if (parsed && Array.isArray(parsed.platforms)) {
+      return parsed;
+    }
+  } catch {
+    // Fall back to the bundled file if GitHub raw data is temporarily unavailable.
+  }
+
+  try {
     const raw = await readFile(trackerConfigPath, 'utf8');
     const parsed = JSON.parse(raw);
     if (!parsed || !Array.isArray(parsed.platforms)) {
@@ -158,6 +193,15 @@ async function loadConfig(): Promise<PodcastConfig> {
 }
 
 async function loadSnapshots(): Promise<Snapshot[]> {
+  try {
+    const parsed = await fetchRepoJson<Snapshot[]>('data/podcast-dashboard/snapshots.json');
+    if (Array.isArray(parsed)) {
+      return parsed;
+    }
+  } catch {
+    // Fall back to the bundled file if GitHub raw data is temporarily unavailable.
+  }
+
   try {
     const raw = await readFile(trackerSnapshotsPath, 'utf8');
     const parsed = JSON.parse(raw);
@@ -172,36 +216,137 @@ async function loadSnapshots(): Promise<Snapshot[]> {
   }
 }
 
-async function loadEpisodes(config: PodcastConfig) {
-  const response = await fetch(config.rssUrl, {
-    headers: {
-      'user-agent': 'ka21-podcast-dashboard/1.0',
-      accept: 'application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8',
-    },
-    next: { revalidate: 3600 },
-  } as NextFetchInit);
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch RSS feed: ${response.status}`);
+async function loadEpisodesCache() {
+  try {
+    const parsed = await fetchRepoJson<{ episodes?: Array<{ id: string; title: string; pubDate: string; duration: string; link: string }> }>(
+      'data/podcast-dashboard/episodes-cache.json',
+    );
+    if (Array.isArray(parsed.episodes) && parsed.episodes.length > 0) {
+      return parsed.episodes;
+    }
+  } catch {
+    // Fall back to the bundled cache if GitHub raw data is temporarily unavailable.
   }
 
-  const xml = await response.text();
-  const $ = cheerio.load(xml, { xmlMode: true });
+  try {
+    const raw = await readFile(trackerEpisodesCachePath, 'utf8');
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed.episodes) && parsed.episodes.length > 0) {
+      return parsed.episodes;
+    }
+  } catch {
+    // The caller will surface the RSS error if no cache exists.
+  }
 
-  return $('channel > item')
-    .toArray()
-    .map((item, index) => {
-      const node = $(item);
-      const guid = node.find('guid').first().text().trim() || node.find('link').first().text().trim() || `episode-${index + 1}`;
+  return null;
+}
 
-      return {
-        id: guid,
-        title: node.find('title').first().text().trim() || `Episode ${index + 1}`,
-        pubDate: node.find('pubDate').first().text().trim(),
-        duration: node.find('itunes\\:duration').first().text().trim(),
-        link: node.find('link').first().text().trim(),
-      };
-    });
+async function loadEpisodes(config: PodcastConfig) {
+  let rssError: unknown = null;
+
+  try {
+    const response = await fetch(config.rssUrl, {
+      headers: {
+        'user-agent': 'ka21-podcast-dashboard/1.0',
+        accept: 'application/rss+xml, application/xml, text/xml;q=0.9, */*;q=0.8',
+      },
+      next: { revalidate: 3600 },
+    } as NextFetchInit);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch RSS feed: ${response.status}`);
+    }
+
+    const xml = await response.text();
+    const $ = cheerio.load(xml, { xmlMode: true });
+    const episodes = $('channel > item')
+      .toArray()
+      .map((item, index) => {
+        const node = $(item);
+        const guid = node.find('guid').first().text().trim() || node.find('link').first().text().trim() || `episode-${index + 1}`;
+
+        return {
+          id: guid,
+          title: node.find('title').first().text().trim() || `Episode ${index + 1}`,
+          pubDate: node.find('pubDate').first().text().trim(),
+          duration: node.find('itunes\\:duration').first().text().trim(),
+          link: node.find('link').first().text().trim(),
+        };
+      });
+
+    if (episodes.length > 0) {
+      return episodes;
+    }
+
+    rssError = new Error('RSS feed returned no episodes');
+  } catch (error) {
+    rssError = error;
+  }
+
+  const cachedEpisodes = await loadEpisodesCache();
+  if (cachedEpisodes) {
+    return cachedEpisodes;
+  }
+
+  throw rssError instanceof Error ? rssError : new Error('Failed to load podcast episodes');
+}
+
+function sumObjectValues(object: Record<string, number> = {}) {
+  return Object.values(object).reduce((sum, value) => sum + Number(value || 0), 0);
+}
+
+function snapshotRank(snapshot: Snapshot) {
+  const note = String(snapshot.note || '').trim();
+  if (note === '自动抓取') {
+    return 3;
+  }
+  if (note) {
+    return 2;
+  }
+  return 1;
+}
+
+function snapshotTotals(snapshot: Snapshot) {
+  return {
+    platformTotal: sumObjectValues(snapshot.platformTotals || {}),
+    episodeTotal: Object.values(snapshot.episodePlays || {}).reduce((sum, values) => sum + sumObjectValues(values || {}), 0),
+  };
+}
+
+function compareSnapshots(left: Snapshot, right: Snapshot) {
+  const leftTotals = snapshotTotals(left);
+  const rightTotals = snapshotTotals(right);
+
+  if (leftTotals.platformTotal !== rightTotals.platformTotal) {
+    return leftTotals.platformTotal - rightTotals.platformTotal;
+  }
+
+  if (leftTotals.episodeTotal !== rightTotals.episodeTotal) {
+    return leftTotals.episodeTotal - rightTotals.episodeTotal;
+  }
+
+  const rankDiff = snapshotRank(left) - snapshotRank(right);
+  if (rankDiff !== 0) {
+    return rankDiff;
+  }
+
+  return String(left.createdAt || '').localeCompare(String(right.createdAt || ''));
+}
+
+function mergeSnapshotByDate(snapshots: Snapshot[], snapshot: Snapshot | null) {
+  if (!snapshot) {
+    return snapshots;
+  }
+
+  const sameDay = snapshots.filter((item) => item.date === snapshot.date);
+  const bestSameDay = sameDay.reduce<Snapshot | null>(
+    (best, item) => (best && compareSnapshots(best, item) >= 0 ? best : item),
+    null,
+  );
+  const winner = bestSameDay && compareSnapshots(bestSameDay, snapshot) >= 0 ? bestSameDay : snapshot;
+  return [...snapshots.filter((item) => item.date !== snapshot.date), winner].sort(
+    (a, b) => a.date.localeCompare(b.date) || a.createdAt.localeCompare(b.createdAt),
+  );
 }
 
 export async function GET() {
@@ -252,11 +397,17 @@ export async function POST(request: Request) {
       persist: true,
       allowWriteFailure: true,
     });
+    const [freshEpisodes, freshSnapshots] = await Promise.all([
+      loadEpisodes(payload.config),
+      loadSnapshots(),
+    ]);
+    const episodes = freshEpisodes.length >= payload.episodes.length ? freshEpisodes : payload.episodes;
+    const snapshots = mergeSnapshotByDate(freshSnapshots, payload.snapshot);
 
     return jsonResponse({
       config: payload.config,
-      episodes: payload.episodes,
-      snapshots: payload.snapshots,
+      episodes,
+      snapshots,
       refreshed: true,
       persisted: payload.persisted,
       snapshot: payload.snapshot,

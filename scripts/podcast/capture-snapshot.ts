@@ -470,25 +470,66 @@ async function loadEpisodesFromXiaoyuzhou(config: PodcastConfig) {
   );
 }
 
-async function loadEpisodesFromConfig(config: PodcastConfig, logger = console) {
+async function persistEpisodesCacheIfNeeded(
+  episodes: Episode[],
+  source: string,
+  {
+    logger = console,
+    persistCache = true,
+    allowCacheWriteFailure = false,
+  }: {
+    logger?: Pick<typeof console, 'warn'>;
+    persistCache?: boolean;
+    allowCacheWriteFailure?: boolean;
+  } = {},
+) {
+  if (!persistCache) {
+    return;
+  }
+
+  try {
+    await writeEpisodesCache(episodes, source);
+  } catch (error) {
+    const mode = allowCacheWriteFailure ? 'skipped' : 'failed';
+    logger.warn(`[episodes] Cache write ${mode}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+async function loadEpisodesFromConfig(
+  config: PodcastConfig,
+  {
+    logger = console,
+    persistCache = true,
+    allowCacheWriteFailure = false,
+  }: {
+    logger?: Pick<typeof console, 'warn'>;
+    persistCache?: boolean;
+    allowCacheWriteFailure?: boolean;
+  } = {},
+) {
+  let rssError: unknown = null;
+
   try {
     const episodes = await loadEpisodesFromRss(config);
-    await writeEpisodesCache(episodes, 'rss');
+    await persistEpisodesCacheIfNeeded(episodes, 'rss', { logger, persistCache, allowCacheWriteFailure });
     return episodes;
   } catch (error) {
+    rssError = error;
     logger.warn(`[episodes] RSS unavailable: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   try {
     const episodes = await loadEpisodesFromXiaoyuzhou(config);
-    await writeEpisodesCache(episodes, 'xiaoyuzhou');
+    await persistEpisodesCacheIfNeeded(episodes, 'xiaoyuzhou', { logger, persistCache, allowCacheWriteFailure });
     return episodes;
   } catch (error) {
     logger.warn(`[episodes] Xiaoyuzhou fallback unavailable: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   const cachedEpisodes = await readEpisodesCache();
-  logger.warn('[episodes] Using cached episode list.');
+  logger.warn(
+    `[episodes] Using cached episode list.${rssError instanceof Error ? ` RSS error: ${rssError.message}` : ''}`,
+  );
   return cachedEpisodes;
 }
 
@@ -571,8 +612,11 @@ async function scrapeXiaoyuzhou(platform: Platform, episodes: Episode[]): Promis
 
   for (const episode of sourceEpisodes) {
     const episodeId = matchEpisodeId(titleMap, episode.title || '');
-    const playCount = Number(episode.playCount || 0);
+    const playCount = normalizeNumber(episode.playCount);
     if (!episodeId) {
+      continue;
+    }
+    if (playCount === null) {
       continue;
     }
     episodePlays[episodeId] = playCount;
@@ -598,7 +642,7 @@ async function scrapeXiaoyuzhou(platform: Platform, episodes: Episode[]): Promis
         const detailEpisode = parseXiaoyuzhouEpisodePage(detailHtml);
         return {
           episodeId: episode.id,
-          playCount: Number(detailEpisode.playCount || 0),
+          playCount: normalizeNumber(detailEpisode.playCount),
         };
       } catch {
         return {
@@ -620,8 +664,12 @@ async function scrapeXiaoyuzhou(platform: Platform, episodes: Episode[]): Promis
     }
   }
 
-  const declaredEpisodeCount = Number(pageProps?.podcast?.episodeCount || 0);
   const capturedEpisodeCount = Object.keys(episodePlays).length;
+  if (capturedEpisodeCount === 0) {
+    throw new Error('Xiaoyuzhou public page did not expose any matching episode play counts');
+  }
+
+  const declaredEpisodeCount = Number(pageProps?.podcast?.episodeCount || 0);
   const coverageBase = declaredEpisodeCount || episodes.length || '?';
   const coverageNote =
     backfilledCount > 0
@@ -644,35 +692,47 @@ async function scrapeXimalaya(platform: Platform, episodes: Episode[]): Promise<
     throw new Error('Unable to extract Ximalaya album ID');
   }
 
-  const [albumRaw, tracksRaw] = await Promise.all([
-    fetchText(`https://www.ximalaya.com/revision/album?albumId=${albumId}`, {
-      headers: { referer: platform.url },
-      context: `${platform.id} album API`,
-    }),
-    fetchText(`https://mobile.ximalaya.com/mobile/v1/album/track?albumId=${albumId}&pageNum=1&pageSize=30`, {
-      headers: { referer: platform.url },
-      context: `${platform.id} track API`,
-    }),
-  ]);
+  const albumRaw = await fetchText(`https://www.ximalaya.com/revision/album?albumId=${albumId}`, {
+    headers: { referer: platform.url },
+    context: `${platform.id} album API`,
+  });
 
-  const album = JSON.parse(albumRaw) as { data?: { mainInfo?: { playCount?: number; subscribeCount?: number } } };
-  const tracks = JSON.parse(tracksRaw) as { data?: { list?: Array<{ title?: string; playtimes?: number }> } };
+  const album = JSON.parse(albumRaw) as {
+    data?: {
+      mainInfo?: { playCount?: number; subscribeCount?: number };
+      tracksInfo?: {
+        trackTotalCount?: number;
+        tracks?: Array<{ title?: string; playCount?: number }>;
+      };
+    };
+  };
   const titleMap = buildEpisodeMap(episodes);
   const episodePlays: Record<string, number> = {};
 
-  for (const track of tracks?.data?.list || []) {
+  for (const track of album?.data?.tracksInfo?.tracks || []) {
     const episodeId = matchEpisodeId(titleMap, track.title || '');
     if (!episodeId) {
       continue;
     }
-    episodePlays[episodeId] = Number(track.playtimes || 0);
+
+    const playCount = normalizeNumber(track.playCount);
+    if (playCount !== null) {
+      episodePlays[episodeId] = playCount;
+    }
+  }
+
+  const capturedEpisodeCount = Object.keys(episodePlays).length;
+  const declaredEpisodeCount = Number(album?.data?.tracksInfo?.trackTotalCount || 0);
+  const total = normalizeNumber(album?.data?.mainInfo?.playCount);
+  if (total === null && capturedEpisodeCount === 0) {
+    throw new Error('Ximalaya public API did not expose usable play counts');
   }
 
   return {
     platformId: platform.id,
     supported: true,
-    note: `公开 API 可抓取，总订阅 ${album?.data?.mainInfo?.subscribeCount ?? '?'}`,
-    total: Number(album?.data?.mainInfo?.playCount || 0),
+    note: `公开 API 可抓取，总订阅 ${album?.data?.mainInfo?.subscribeCount ?? '?'}，单集 ${capturedEpisodeCount}/${declaredEpisodeCount || '?'} 期`,
+    total,
     episodePlays,
   };
 }
@@ -719,15 +779,28 @@ async function scrapeWangyiyun(platform: Platform, episodes: Episode[]): Promise
       continue;
     }
 
-    const playCount = match ? Number(match[match.length - 1]) : 0;
+    if (!match) {
+      continue;
+    }
+
+    const playCount = normalizeNumber(match[match.length - 1]);
+    if (playCount === null) {
+      continue;
+    }
+
     episodePlays[episodeId] = playCount;
     total += playCount;
+  }
+
+  const capturedEpisodeCount = Object.keys(episodePlays).length;
+  if (capturedEpisodeCount === 0) {
+    throw new Error('Netease public page did not expose any matching episode play counts');
   }
 
   return {
     platformId: platform.id,
     supported: true,
-    note: `公开页列表可抓取，总订阅 ${radio?.data?.subCount ?? '?'}`,
+    note: `公开页列表可抓取 ${capturedEpisodeCount}/${episodes.length || '?'} 期，总订阅 ${radio?.data?.subCount ?? '?'}`,
     total,
     episodePlays,
   };
@@ -758,9 +831,15 @@ async function scrapeLizhi(platform: Platform, episodes: Episode[]): Promise<Scr
   }
 
   let total = 0;
+  let countedVoices = 0;
   for (const voice of voices) {
     const episodeId = matchEpisodeId(titleMap, voice.name || voice.title || '');
-    const playCount = Number(voice.playCount || 0);
+    const playCount = normalizeNumber(voice.playCount);
+    if (playCount === null) {
+      continue;
+    }
+
+    countedVoices += 1;
     total += playCount;
     if (!episodeId) {
       continue;
@@ -768,10 +847,14 @@ async function scrapeLizhi(platform: Platform, episodes: Episode[]): Promise<Scr
     episodePlays[episodeId] = playCount;
   }
 
+  if (countedVoices === 0) {
+    throw new Error('Lizhi public API did not expose usable play counts');
+  }
+
   return {
     platformId: platform.id,
     supported: true,
-    note: `手机公开 API 可抓取，共 ${voices.length || 0} 期`,
+    note: `手机公开 API 可抓取，共 ${voices.length || 0} 期，含播放量 ${countedVoices} 条`,
     total,
     episodePlays,
   };
@@ -869,10 +952,15 @@ async function scrapeYoutube(platform: Platform, episodes: Episode[]): Promise<S
     total += plays;
   }
 
+  const capturedEpisodeCount = Object.keys(episodePlays).length;
+  if (capturedEpisodeCount === 0) {
+    return scrapeUnsupported(platform, 'YouTube 公开频道页当前没有匹配到节目视频播放量');
+  }
+
   return {
     platformId: platform.id,
     supported: true,
-    note: '抓取的是公开视频观看数，不是 YouTube Studio 内部播客分析口径',
+    note: `抓取的是公开视频观看数，不是 YouTube Studio 内部播客分析口径；匹配 ${capturedEpisodeCount}/${episodes.length || '?'} 期`,
     total,
     episodePlays,
   };
@@ -1094,7 +1182,10 @@ export async function captureLiveDashboardData({
 } = {}) {
   const config = await readJson<PodcastConfig>(configPath);
   const snapshots = await readJson<Snapshot[]>(snapshotsPath);
-  const episodes = await loadEpisodesFromConfig(config);
+  const episodes = await loadEpisodesFromConfig(config, {
+    persistCache: !dryRun && persist,
+    allowCacheWriteFailure: allowWriteFailure,
+  });
   const counts = await scrapePublicCounts(config, episodes);
 
   const snapshot = normalizeSnapshot(
@@ -1174,6 +1265,10 @@ async function main() {
     JSON.stringify(
       {
         dryRun: payload.dryRun,
+        episodes: {
+          count: payload.episodes.length,
+          latest: payload.episodes[0]?.title || null,
+        },
         snapshot: payload.snapshot,
         results: payload.results,
       },
