@@ -1155,6 +1155,52 @@ function compareSnapshots(left: Snapshot, right: Snapshot) {
   return String(left.createdAt || '').localeCompare(String(right.createdAt || ''));
 }
 
+function latestPriorSnapshot(snapshots: Snapshot[], date: string) {
+  return snapshots
+    .filter((item) => item.date < date && hasSnapshotData(item))
+    .sort((a, b) => a.date.localeCompare(b.date) || String(a.createdAt || '').localeCompare(String(b.createdAt || '')))
+    .at(-1) || null;
+}
+
+function describeSnapshotRegression(snapshot: Snapshot, previous: Snapshot | null) {
+  if (!previous) {
+    return null;
+  }
+
+  const platformRegressions = Object.entries(previous.platformTotals || {})
+    .filter(([, previousValue]) => Number(previousValue || 0) > 0)
+    .filter(([platformId, previousValue]) => {
+      const currentValue = snapshot.platformTotals?.[platformId];
+      return currentValue === undefined || Number(currentValue || 0) < Number(previousValue || 0);
+    })
+    .map(([platformId, previousValue]) => {
+      const currentValue = snapshot.platformTotals?.[platformId];
+      return `${platformId}:${currentValue ?? 'missing'}<${previousValue}`;
+    });
+
+  const episodeRegressions = Object.entries(previous.episodePlays || {})
+    .map(([episodeId, previousValues]) => {
+      const previousTotal = sumObjectValues(previousValues || {});
+      const currentTotal = sumObjectValues(snapshot.episodePlays?.[episodeId] || {});
+      return { episodeId, currentTotal, previousTotal };
+    })
+    .filter((item) => item.previousTotal > 0 && item.currentTotal < item.previousTotal)
+    .slice(0, 5)
+    .map((item) => `${item.episodeId}:${item.currentTotal}<${item.previousTotal}`);
+
+  if (platformRegressions.length === 0 && episodeRegressions.length === 0) {
+    return null;
+  }
+
+  return [
+    `snapshot ${snapshot.date} regressed from ${previous.date}`,
+    platformRegressions.length > 0 ? `platforms ${platformRegressions.join(', ')}` : null,
+    episodeRegressions.length > 0 ? `episodes ${episodeRegressions.join(', ')}` : null,
+  ]
+    .filter(Boolean)
+    .join('; ');
+}
+
 function hasSnapshotData(snapshot: Snapshot) {
   return (
     sumObjectValues(snapshot.platformTotals || {}) > 0 ||
@@ -1216,6 +1262,21 @@ export async function captureLiveDashboardData({
     throw new Error('No public data captured. Snapshot not written.');
   }
 
+  const regressionReason = describeSnapshotRegression(snapshot, latestPriorSnapshot(snapshots, snapshot.date));
+  if (regressionReason) {
+    return {
+      dryRun,
+      skipped: true,
+      skipReason: regressionReason,
+      persisted: false,
+      config,
+      episodes,
+      snapshots,
+      snapshot: null,
+      results: counts.results,
+    };
+  }
+
   const sameDay = snapshots.filter((item) => item.date === snapshot.date);
   const bestSameDay = sameDay.reduce<Snapshot | null>(
     (best, item) => (best && compareSnapshots(best, item) >= 0 ? best : item),
@@ -1257,7 +1318,16 @@ async function main() {
   const payload = await captureLiveDashboardData({ dryRun, persist: true });
 
   if (payload.skipped) {
-    console.log(JSON.stringify({ skipped: true, reason: 'no_new_data_keep_existing_snapshot' }, null, 2));
+    console.log(
+      JSON.stringify(
+        {
+          skipped: true,
+          reason: payload.skipReason || 'no_new_data_keep_existing_snapshot',
+        },
+        null,
+        2,
+      ),
+    );
     return;
   }
 

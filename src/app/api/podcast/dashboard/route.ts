@@ -412,6 +412,7 @@ export async function POST(request: Request) {
       persisted: payload.persisted,
       snapshot: payload.snapshot,
       skipped: payload.skipped,
+      skipReason: payload.skipReason,
       results: payload.results,
     });
   } catch (error) {

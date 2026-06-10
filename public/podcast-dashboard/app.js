@@ -859,6 +859,14 @@ async function refreshDashboard() {
     renderAll();
 
     const latestDate = data?.snapshot?.date || latestSnapshots().latest?.date || "刚刚";
+    if (data.skipped) {
+      setRefreshUi({
+        loading: false,
+        message: `本次抓取像是不完整数据，已保留 ${latestDate} 的有效快照。`,
+      });
+      return;
+    }
+
     const persistedMessage = data.persisted
       ? `已刷新到 ${latestDate}，服务端快照也已更新。`
       : `已刷新到 ${latestDate}，当前页面已经显示最新公开数据。`;
