@@ -1162,6 +1162,43 @@ function latestPriorSnapshot(snapshots: Snapshot[], date: string) {
     .at(-1) || null;
 }
 
+function stabilizeEpisodePlays(snapshot: Snapshot, previous: Snapshot | null) {
+  if (!previous) {
+    return [];
+  }
+
+  const filled: string[] = [];
+  for (const [episodeId, previousValues] of Object.entries(previous.episodePlays || {})) {
+    for (const [platformId, previousValue] of Object.entries(previousValues || {})) {
+      const normalizedPreviousValue = Number(previousValue || 0);
+      if (normalizedPreviousValue <= 0) {
+        continue;
+      }
+
+      const previousPlatformTotal = previous.platformTotals?.[platformId];
+      const currentPlatformTotal = snapshot.platformTotals?.[platformId];
+      if (
+        previousPlatformTotal === undefined ||
+        currentPlatformTotal === undefined ||
+        Number(currentPlatformTotal || 0) < Number(previousPlatformTotal || 0)
+      ) {
+        continue;
+      }
+
+      const currentValue = snapshot.episodePlays?.[episodeId]?.[platformId];
+      if (currentValue !== undefined && Number(currentValue || 0) >= normalizedPreviousValue) {
+        continue;
+      }
+
+      snapshot.episodePlays[episodeId] ||= {};
+      snapshot.episodePlays[episodeId][platformId] = normalizedPreviousValue;
+      filled.push(`${episodeId}.${platformId}:${currentValue ?? 'missing'}->${normalizedPreviousValue}`);
+    }
+  }
+
+  return filled;
+}
+
 function describeSnapshotRegression(snapshot: Snapshot, previous: Snapshot | null) {
   if (!previous) {
     return null;
@@ -1262,7 +1299,15 @@ export async function captureLiveDashboardData({
     throw new Error('No public data captured. Snapshot not written.');
   }
 
-  const regressionReason = describeSnapshotRegression(snapshot, latestPriorSnapshot(snapshots, snapshot.date));
+  const previousSnapshot = latestPriorSnapshot(snapshots, snapshot.date);
+  const stabilizedEntries = stabilizeEpisodePlays(snapshot, previousSnapshot);
+  if (stabilizedEntries.length > 0) {
+    console.warn(
+      `[snapshot] Stabilized ${stabilizedEntries.length} episode platform values from previous snapshot: ${stabilizedEntries.slice(0, 8).join(', ')}`,
+    );
+  }
+
+  const regressionReason = describeSnapshotRegression(snapshot, previousSnapshot);
   if (regressionReason) {
     return {
       dryRun,
