@@ -1,3 +1,6 @@
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+
 import * as cheerio from 'cheerio';
 import { safeFetch } from '@/lib/security/safe-fetch';
 
@@ -40,6 +43,98 @@ export type FulltextCacheFile = {
 };
 
 const WECHAT_HOSTNAMES = new Set(['mp.weixin.qq.com', 'mp.weixinqq.com']);
+const execFileAsync = promisify(execFile);
+
+function buildWechatRequestHeaders() {
+  return {
+    'User-Agent':
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    Referer: 'https://mp.weixin.qq.com/',
+    'Cache-Control': 'max-age=0',
+  } as const;
+}
+
+function shouldUseCurlFallback(targetUrl: URL, error: unknown, allowCurlFallback: boolean) {
+  if (!allowCurlFallback || !WECHAT_HOSTNAMES.has(targetUrl.hostname)) {
+    return false;
+  }
+
+  const message = error instanceof Error ? error.message : String(error);
+  return (
+    message.includes('ENOTFOUND') ||
+    message.includes('ECONNREFUSED') ||
+    message.includes('unresolved-remote-host') ||
+    message.includes('unsafe-remote-address')
+  );
+}
+
+async function fetchWechatHtmlWithCurl(url: string, timeoutMs: number) {
+  const headers = buildWechatRequestHeaders();
+  const args = [
+    '-L',
+    '-sS',
+    '--max-time',
+    String(Math.max(1, Math.ceil(timeoutMs / 1000))),
+    '-A',
+    headers['User-Agent'],
+    '-H',
+    `Accept: ${headers.Accept}`,
+    '-H',
+    `Accept-Language: ${headers['Accept-Language']}`,
+    '-H',
+    `Referer: ${headers.Referer}`,
+    '-H',
+    `Cache-Control: ${headers['Cache-Control']}`,
+    '-w',
+    '\n__KA21_HTTP_STATUS__:%{http_code}',
+    url,
+  ];
+
+  const { stdout } = await execFileAsync('curl', args, {
+    maxBuffer: 8 * 1024 * 1024,
+  });
+
+  const marker = '\n__KA21_HTTP_STATUS__:';
+  const markerIndex = stdout.lastIndexOf(marker);
+  if (markerIndex === -1) {
+    throw new Error('curl-status-missing');
+  }
+
+  const body = stdout.slice(0, markerIndex);
+  const statusCode = Number(stdout.slice(markerIndex + marker.length).trim());
+
+  if (!Number.isFinite(statusCode) || statusCode >= 400) {
+    throw new Error(`curl-fetch-failed-${statusCode || 'unknown'}`);
+  }
+
+  return body;
+}
+
+async function fetchWechatHtmlWithNativeFetch(url: string, timeoutMs: number) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(url, {
+      headers: buildWechatRequestHeaders(),
+      cache: 'no-store',
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      throw new Error(`native-fetch-failed-${response.status}`);
+    }
+
+    return {
+      html: await response.text(),
+      finalUrl: response.url || url,
+    };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
 
 export function safeText(value: unknown): string {
   return typeof value === 'string' ? value : '';
@@ -298,29 +393,42 @@ function extractCoverFromHtml(html: string, finalUrlObj: URL): string {
 
 export async function fetchAndExtractFulltext(
   sourceUrl: string,
-  options?: { timeoutMs?: number },
+  options?: { timeoutMs?: number; allowCurlFallback?: boolean },
 ): Promise<{ blocks: ContentBlock[]; finalUrl: string; title: string; cover: string }> {
   const timeoutMs = options?.timeoutMs ?? 20_000;
   const target = new URL(sourceUrl);
-  const response = await safeFetch(target.toString(), {
-    headers: {
-      'User-Agent':
-        'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
-      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'zh-CN,zh;q=0.9',
-      Referer: 'https://mp.weixin.qq.com/',
-    },
-    cache: 'no-store',
-  }, {
-    timeoutMs,
-  });
+  const headers = buildWechatRequestHeaders();
 
-  if (!response.ok) {
-    throw new Error(`upstream-status-${response.status}`);
+  let html = '';
+  let finalUrl = target.toString();
+
+  try {
+    const response = await safeFetch(target.toString(), {
+      headers,
+      cache: 'no-store',
+    }, {
+      timeoutMs,
+    });
+
+    if (!response.ok) {
+      throw new Error(`upstream-status-${response.status}`);
+    }
+
+    html = await response.text();
+    finalUrl = response.url || target.toString();
+  } catch (error) {
+    if (!shouldUseCurlFallback(target, error, options?.allowCurlFallback === true)) {
+      throw error;
+    }
+
+    try {
+      const nativeResult = await fetchWechatHtmlWithNativeFetch(target.toString(), timeoutMs);
+      html = nativeResult.html;
+      finalUrl = nativeResult.finalUrl;
+    } catch {
+      html = await fetchWechatHtmlWithCurl(target.toString(), timeoutMs);
+    }
   }
-
-  const html = await response.text();
-  const finalUrl = response.url || target.toString();
   const finalUrlObj = new URL(finalUrl);
   const blocks = extractBlocksFromHtml(html, finalUrlObj);
   const cover = extractCoverFromHtml(html, finalUrlObj);
