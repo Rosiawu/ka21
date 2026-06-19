@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 
 import { fetchAndExtractFulltext, normalizeText, safeText } from '../src/lib/miniapp/tutorial-fulltext';
@@ -65,7 +66,9 @@ const personalIndexPath = path.join(rootDir, 'public', 'personal-site', 'index.h
 const personalArticlesPath = path.join(rootDir, 'data', 'personal-site', 'articles.json');
 const searchIndexOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.json');
 const searchIndexScriptOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.js');
+const personalCoversDir = path.join(rootDir, 'public', 'personal-site', 'covers');
 const wechatHosts = new Set(['mp.weixin.qq.com', 'mp.weixinqq.com']);
+const wechatImageHostPattern = /(^|\.)qpic\.cn$/;
 const wechatBiz = 'Mzg5ODU1ODg1Mg==';
 const wechatAlbumSources: WechatAlbumSource[] = [
   {
@@ -137,6 +140,263 @@ function normalizeAlbumImage(rawUrl: string | undefined): string | undefined {
   if (!value) return undefined;
   if (value.startsWith('//')) return `https:${value}`;
   return value.replace(/^http:/, 'https:');
+}
+
+function isRemoteUrl(rawUrl: string | undefined): boolean {
+  const value = safeText(rawUrl).trim();
+  return /^https?:\/\//i.test(value);
+}
+
+function isWechatImageUrl(rawUrl: string | undefined): boolean {
+  const value = safeText(rawUrl).trim();
+  if (!isRemoteUrl(value)) return false;
+
+  try {
+    const parsed = new URL(value);
+    return wechatImageHostPattern.test(parsed.hostname);
+  } catch {
+    return false;
+  }
+}
+
+function buildWechatImageCandidates(rawUrl: string): string[] {
+  const normalized = normalizeAlbumImage(rawUrl);
+  if (!normalized) return [];
+
+  const candidates = new Set<string>();
+  candidates.add(normalized);
+
+  const parsed = new URL(normalized);
+  if (parsed.pathname.endsWith('/300')) {
+    const highRes = new URL(parsed);
+    highRes.pathname = highRes.pathname.replace(/\/300$/, '/640');
+    candidates.add(highRes.toString());
+
+    const originalSize = new URL(parsed);
+    originalSize.pathname = originalSize.pathname.replace(/\/300$/, '/0');
+    candidates.add(originalSize.toString());
+  }
+
+  return [...candidates];
+}
+
+function extensionFromContentType(contentType: string | null): string {
+  const value = safeText(contentType).toLowerCase();
+  if (value.includes('png')) return 'png';
+  if (value.includes('webp')) return 'webp';
+  if (value.includes('gif')) return 'gif';
+  return 'jpg';
+}
+
+function buildCoverHash(rawUrl: string): string {
+  return createHash('sha256').update(rawUrl).digest('hex').slice(0, 12);
+}
+
+function readJpegSize(buffer: Buffer): { width: number; height: number } | undefined {
+  if (buffer.length < 4 || buffer[0] !== 0xff || buffer[1] !== 0xd8) return undefined;
+
+  let offset = 2;
+  while (offset + 9 < buffer.length) {
+    if (buffer[offset] !== 0xff) {
+      offset += 1;
+      continue;
+    }
+
+    const marker = buffer[offset + 1];
+    const length = buffer.readUInt16BE(offset + 2);
+    if (length < 2) return undefined;
+
+    if (
+      marker === 0xc0 ||
+      marker === 0xc1 ||
+      marker === 0xc2 ||
+      marker === 0xc3 ||
+      marker === 0xc5 ||
+      marker === 0xc6 ||
+      marker === 0xc7 ||
+      marker === 0xc9 ||
+      marker === 0xca ||
+      marker === 0xcb ||
+      marker === 0xcd ||
+      marker === 0xce ||
+      marker === 0xcf
+    ) {
+      return {
+        height: buffer.readUInt16BE(offset + 5),
+        width: buffer.readUInt16BE(offset + 7),
+      };
+    }
+
+    offset += 2 + length;
+  }
+
+  return undefined;
+}
+
+function readPngSize(buffer: Buffer): { width: number; height: number } | undefined {
+  const pngSignature = '89504e470d0a1a0a';
+  if (buffer.length < 24 || buffer.subarray(0, 8).toString('hex') !== pngSignature) return undefined;
+  return {
+    width: buffer.readUInt32BE(16),
+    height: buffer.readUInt32BE(20),
+  };
+}
+
+async function readLocalCoverSize(imagePath: string | undefined): Promise<{ width: number; height: number } | undefined> {
+  const value = safeText(imagePath).trim();
+  if (!value.startsWith('covers/')) return undefined;
+
+  try {
+    const buffer = await readFile(path.join(rootDir, 'public', 'personal-site', value));
+    return readJpegSize(buffer) || readPngSize(buffer);
+  } catch {
+    return undefined;
+  }
+}
+
+async function shouldRefreshWechatHeadCover(article: PersonalArticle): Promise<boolean> {
+  try {
+    if (!wechatHosts.has(new URL(canonicalizeArticleUrl(article.u)).hostname)) return false;
+  } catch {
+    return false;
+  }
+
+  if (isWechatImageUrl(article.img)) return true;
+  if (article.n > 0) return false;
+
+  const size = await readLocalCoverSize(article.img);
+  if (!size?.width || !size.height) return false;
+
+  // WeChat article head images in this site are wide cards, usually around 21:9.
+  // A square local cover means we likely cached the album thumbnail instead.
+  return size.width / size.height < 1.8;
+}
+
+async function findExistingCachedCover(rawUrl: string): Promise<string | undefined> {
+  const hash = buildCoverHash(rawUrl);
+  for (const ext of ['jpg', 'png', 'webp', 'gif']) {
+    const filename = `${hash}.${ext}`;
+    try {
+      const existing = await readFile(path.join(personalCoversDir, filename));
+      if (existing.length > 0) return `covers/${filename}`;
+    } catch {
+      // Try the next possible extension.
+    }
+  }
+  return undefined;
+}
+
+async function downloadWechatCover(rawUrl: string): Promise<string | undefined> {
+  const existing = await findExistingCachedCover(rawUrl);
+  if (existing) return existing;
+
+  await mkdir(personalCoversDir, { recursive: true });
+
+  const headers = {
+    'User-Agent':
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+    Accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    Referer: 'https://mp.weixin.qq.com/',
+  } as const;
+
+  for (const candidate of buildWechatImageCandidates(rawUrl)) {
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      try {
+        const response = await fetch(candidate, {
+          headers,
+          cache: 'no-store',
+        });
+
+        const contentType = response.headers.get('content-type');
+        if (!response.ok || !safeText(contentType).startsWith('image/')) continue;
+
+        const buffer = Buffer.from(await response.arrayBuffer());
+        if (buffer.length < 1024) continue;
+
+        const ext = extensionFromContentType(contentType);
+        const filename = `${buildCoverHash(rawUrl)}.${ext}`;
+        await writeFile(path.join(personalCoversDir, filename), buffer);
+        return `covers/${filename}`;
+      } catch {
+        if (attempt < 3) {
+          await new Promise((resolve) => setTimeout(resolve, 400 * attempt));
+        }
+      }
+    }
+  }
+
+  return undefined;
+}
+
+async function fetchArticleHeadCover(article: PersonalArticle): Promise<string | undefined> {
+  const url = canonicalizeArticleUrl(article.u);
+  if (!url) return undefined;
+
+  try {
+    const fulltext = await fetchAndExtractFulltext(url, { timeoutMs: 20_000, allowCurlFallback: true });
+    const cover = normalizeAlbumImage(fulltext.cover);
+    return isWechatImageUrl(cover) ? cover : undefined;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`[personal-fulltext] cover fetch failed ${url}: ${message}`);
+    return undefined;
+  }
+}
+
+async function localizeWechatCoverImages(articles: PersonalArticle[]): Promise<PersonalArticle[]> {
+  let localized = 0;
+  let fallback = 0;
+  let failed = 0;
+  const articleCoverCache = new Map<string, string | undefined>();
+  const localCoverCache = new Map<string, string | undefined>();
+  const out: PersonalArticle[] = [];
+
+  for (const article of articles) {
+    const image = safeText(article.img);
+    if (!(await shouldRefreshWechatHeadCover(article))) {
+      out.push(article);
+      continue;
+    }
+
+    const articleUrl = canonicalizeArticleUrl(article.u);
+    let headCover = articleCoverCache.get(articleUrl);
+    if (!articleCoverCache.has(articleUrl)) {
+      headCover = await fetchArticleHeadCover(article);
+      articleCoverCache.set(articleUrl, headCover);
+    }
+
+    const sourceImage = headCover || (isWechatImageUrl(image) ? image : '');
+    if (!sourceImage) {
+      failed += 1;
+      out.push(article);
+      continue;
+    }
+
+    let localImage = localCoverCache.get(sourceImage);
+    if (!localCoverCache.has(sourceImage)) {
+      localImage = await downloadWechatCover(sourceImage);
+      localCoverCache.set(sourceImage, localImage);
+    }
+
+    if (localImage) {
+      if (headCover) {
+        localized += 1;
+      } else {
+        fallback += 1;
+      }
+      out.push({ ...article, img: localImage });
+    } else {
+      failed += 1;
+      out.push(article);
+    }
+  }
+
+  if (localized > 0 || fallback > 0 || failed > 0) {
+    console.log(`[personal-fulltext] wechat covers localized=${localized} fallback=${fallback} failed=${failed}`);
+  }
+
+  return out;
 }
 
 function albumArticleToPersonalArticle(article: WechatAlbumArticle, source: WechatAlbumSource): PersonalArticle | null {
@@ -393,7 +653,18 @@ async function buildItem(
   const existing = existingMap.get(url);
 
   if (!force && existing && !existing.fallback && existing.content) {
-    return { item: existing, status: 'cached' };
+    return {
+      item: {
+        ...existing,
+        title: safeText(article.t) || existing.title,
+        url,
+        category: safeText(article.c) || existing.category,
+        date: safeText(article.d) || existing.date,
+        number: Number.isFinite(article.n) ? article.n : existing.number,
+        image: safeText(article.img) || existing.image,
+      },
+      status: 'cached',
+    };
   }
 
   if (!url) {
@@ -426,6 +697,12 @@ async function buildItem(
       return {
         item: {
           ...existing,
+          title: safeText(article.t) || existing.title,
+          url,
+          category: safeText(article.c) || existing.category,
+          date: safeText(article.d) || existing.date,
+          number: Number.isFinite(article.n) ? article.n : existing.number,
+          image: safeText(article.img) || existing.image,
           cachedAt: new Date().toISOString(),
           error: 'empty-blocks-reuse-existing',
         },
@@ -441,6 +718,12 @@ async function buildItem(
       return {
         item: {
           ...existing,
+          title: safeText(article.t) || existing.title,
+          url,
+          category: safeText(article.c) || existing.category,
+          date: safeText(article.d) || existing.date,
+          number: Number.isFinite(article.n) ? article.n : existing.number,
+          image: safeText(article.img) || existing.image,
           cachedAt: new Date().toISOString(),
           error: message,
         },
@@ -531,7 +814,7 @@ async function writeOutput(searchIndex: SearchIndexFile) {
 
 async function main() {
   const { force, limit, concurrency } = parseArgs();
-  const articles = (await readArticles()).slice(0, limit);
+  const articles = await localizeWechatCoverImages((await readArticles()).slice(0, limit));
   const existingMap = await loadExisting();
 
   let fetched = 0;
