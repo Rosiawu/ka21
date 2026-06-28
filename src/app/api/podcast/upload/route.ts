@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { proxyAdminRequest, shouldProxyAdminRequest } from '@/lib/admin-proxy';
 import { submitPodcastEpisode } from '@/lib/podcast-upload/store';
 import { requireAdminAccess } from '@/lib/security/admin';
 import { enforceRateLimit } from '@/lib/security/rate-limit';
@@ -28,6 +29,10 @@ function boolValue(formData: FormData, key: string) {
 }
 
 export async function POST(request: Request) {
+  if (shouldProxyAdminRequest(request)) {
+    return proxyAdminRequest(request, '/api/podcast/upload');
+  }
+
   const adminError = requireAdminAccess(request);
   if (adminError) {
     return adminError;

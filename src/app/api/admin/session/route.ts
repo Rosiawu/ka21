@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { proxyAdminRequest, shouldProxyAdminRequest } from '@/lib/admin-proxy';
 import {
   clearAdminSessionResponse,
   createAdminSessionResponse,
@@ -8,11 +9,19 @@ import {
 import { enforceRateLimit } from '@/lib/security/rate-limit';
 
 export async function GET(request: Request) {
+  if (shouldProxyAdminRequest(request)) {
+    return proxyAdminRequest(request, '/api/admin/session');
+  }
+
   const state = getAdminSessionState(request);
   return NextResponse.json({ success: true, data: state });
 }
 
 export async function POST(request: Request) {
+  if (shouldProxyAdminRequest(request)) {
+    return proxyAdminRequest(request, '/api/admin/session');
+  }
+
   const rateLimitResponse = enforceRateLimit(request, {
     name: 'admin-session-login',
     limit: 6,
@@ -45,6 +54,10 @@ export async function POST(request: Request) {
   }
 }
 
-export async function DELETE() {
+export async function DELETE(request: Request) {
+  if (shouldProxyAdminRequest(request)) {
+    return proxyAdminRequest(request, '/api/admin/session');
+  }
+
   return clearAdminSessionResponse();
 }
