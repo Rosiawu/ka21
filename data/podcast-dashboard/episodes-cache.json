@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-07-08T05:30:39.692Z",
+  "updatedAt": "2026-07-09T06:14:32.552Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "6a432d349d2f5743684001bb",
+      "title": "37. 超级峰：做了18款产品后，他开始管理一支AI团队",
+      "pubDate": "Thu, 09 Jul 2026 00:00:00 GMT",
+      "duration": "01:09:20",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a432d349d2f5743684001bb?utm_source=rss"
+    },
     {
       "id": "6a451c162e335a35a80c8a30",
       "title": "36. 陆肯：从卖电话卡、艺人经纪到剧本AI写作系统，他每次转型都在构建AI判断力",
