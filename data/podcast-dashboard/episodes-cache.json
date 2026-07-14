@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-07-13T05:48:07.560Z",
+  "updatedAt": "2026-07-14T05:08:51.890Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "6a43dd939d2f574368407266",
+      "title": "38. 程佳伟：从AIGC短片制作到Anima智能体构造，他想和“奥德赛时期”的年轻人聊聊",
+      "pubDate": "Tue, 14 Jul 2026 00:00:00 GMT",
+      "duration": "00:51:29",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a43dd939d2f574368407266?utm_source=rss"
+    },
     {
       "id": "6a432d349d2f5743684001bb",
       "title": "37. 超级峰：做了18款产品后，他开始管理一支AI团队",
