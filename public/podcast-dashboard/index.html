@@ -60,6 +60,9 @@
               class="hero-show-logo"
               src="/podcast-dashboard/dengxiabai-logo.png"
               alt="灯下白 logo"
+              width="132"
+              height="132"
+              decoding="async"
             />
           </div>
           <div class="hero-copy-block">
@@ -77,11 +80,11 @@
         </div>
         <div class="chart-grid">
           <div class="chart-card">
-            <div class="chart-title">按日按节目堆叠总播放</div>
+            <div class="chart-title">近 30 天节目播放趋势（播放最高的 8 集 + 其他）</div>
             <div id="total-trend-chart" class="chart-box"></div>
           </div>
           <div class="chart-card">
-            <div class="chart-title">按日按平台堆叠总播放</div>
+            <div class="chart-title">近 30 天平台播放趋势</div>
             <div id="platform-bar-chart" class="chart-box"></div>
           </div>
           <div class="chart-card chart-card-wide">
@@ -124,9 +127,10 @@
             <tbody></tbody>
           </table>
         </div>
+        <div id="episode-summary-pagination" class="pagination" aria-label="单集表现分页"></div>
       </section>
 
-      <details class="panel collapse-panel">
+      <details id="history-panel" class="panel collapse-panel">
         <summary class="collapse-summary">
           <div class="panel-head">
             <h2>快照历史</h2>
@@ -139,14 +143,26 @@
             <tbody></tbody>
           </table>
         </div>
+        <div id="history-pagination" class="pagination" aria-label="快照历史分页"></div>
         <div class="subsection-head">
-          <h3>单集快照历史</h3>
-          <p class="muted">每一集单独保留按日期记录的平台播放量快照。</p>
+          <div>
+            <h3>单集快照历史</h3>
+            <p class="muted">选择一期节目查看按日期记录的平台播放量，不再一次生成全部历史表格。</p>
+          </div>
+          <label class="history-filter">
+            <span>选择节目</span>
+            <select id="episode-history-select" aria-label="选择要查看的节目"></select>
+          </label>
         </div>
-        <div id="episode-history" class="episode-history-grid"></div>
+        <div class="chart-card episode-history-chart-card">
+          <div id="episode-history-chart-title" class="chart-title">单集播放趋势</div>
+          <div id="episode-history-chart" class="chart-box history-chart"></div>
+        </div>
+        <div id="episode-history"></div>
+        <div id="episode-history-pagination" class="pagination" aria-label="单集快照历史分页"></div>
       </details>
     </main>
 
-    <script type="module" src="/podcast-dashboard/app.js?v=20260610a"></script>
+    <script type="module" src="/podcast-dashboard/app.js?v=20260714a"></script>
   </body>
   </html>

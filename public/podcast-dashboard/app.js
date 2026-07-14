@@ -3,7 +3,17 @@ const state = {
   episodes: [],
   snapshots: [],
   isRefreshing: false,
+  episodeSummaryPage: 1,
+  historyPage: 1,
+  episodeHistoryPage: 1,
+  selectedEpisodeId: "",
 };
+
+const EPISODE_SUMMARY_PAGE_SIZE = 10;
+const HISTORY_PAGE_SIZE = 15;
+const CHART_SNAPSHOT_LIMIT = 30;
+const CHART_EPISODE_LIMIT = 8;
+let chartRenderTimer = null;
 
 const PLATFORM_COLORS = {
   ximalaya: "#7c8fb8",
@@ -33,6 +43,7 @@ const charts = {
   totalTrend: null,
   platformBar: null,
   episodeBar: null,
+  episodeHistory: null,
 };
 
 const elements = {
@@ -51,9 +62,16 @@ const elements = {
   platformSummary: document.querySelector("#platform-summary"),
   episodeSummaryTableHead: document.querySelector("#episode-summary-table thead"),
   episodeSummaryTableBody: document.querySelector("#episode-summary-table tbody"),
+  episodeSummaryPagination: document.querySelector("#episode-summary-pagination"),
+  historyPanel: document.querySelector("#history-panel"),
   historyTableHead: document.querySelector("#history-table thead"),
   historyTableBody: document.querySelector("#history-table tbody"),
+  historyPagination: document.querySelector("#history-pagination"),
+  episodeHistorySelect: document.querySelector("#episode-history-select"),
+  episodeHistoryChartTitle: document.querySelector("#episode-history-chart-title"),
+  episodeHistoryChart: document.querySelector("#episode-history-chart"),
   episodeHistory: document.querySelector("#episode-history"),
+  episodeHistoryPagination: document.querySelector("#episode-history-pagination"),
 };
 
 function resolveLocale() {
@@ -346,10 +364,8 @@ function translucentBarStyle(color) {
     ]),
     borderColor: `${color}66`,
     borderWidth: 1,
-    shadowBlur: 22,
-    shadowColor: `${color}2e`,
     opacity: 0.78,
-    borderRadius: [18, 18, 10, 10],
+    borderRadius: [8, 8, 4, 4],
   };
 }
 
@@ -357,11 +373,27 @@ function renderCharts() {
   const { sorted, latest } = latestSnapshots();
   const platforms = visiblePlatforms();
   const episodeColors = episodeColorMap();
-  const episodeSeriesAsc = [...state.episodes].sort((left, right) => episodeNumber(left) - episodeNumber(right));
-  const episodeLegendDesc = [...state.episodes]
-    .sort((left, right) => episodeNumber(right) - episodeNumber(left))
-    .map((episode) => legendEpisodeLabel(episode));
-  const dateCount = sorted.length;
+  const chartSnapshots = sorted.slice(-CHART_SNAPSHOT_LIMIT);
+  const rankedEpisodes = [...state.episodes]
+    .filter((episode) => chartSnapshots.some((snapshot) => episodeTotal(snapshot, episode.id) > 0))
+    .sort((left, right) => episodeTotal(latest, right.id) - episodeTotal(latest, left.id));
+  const primaryEpisodes = rankedEpisodes.slice(0, CHART_EPISODE_LIMIT);
+  const otherEpisodes = rankedEpisodes.slice(CHART_EPISODE_LIMIT);
+  const episodeSeries = primaryEpisodes.map((episode) => ({
+    id: episode.id,
+    name: legendEpisodeLabel(episode),
+    color: episodeColors.get(episode.id) || "#cbd5e1",
+    value: (snapshot) => episodeTotal(snapshot, episode.id),
+  }));
+  if (otherEpisodes.length > 0) {
+    episodeSeries.push({
+      id: "other-episodes",
+      name: `其他 ${otherEpisodes.length} 集`,
+      color: "#aab4c2",
+      value: (snapshot) => otherEpisodes.reduce((sum, episode) => sum + episodeTotal(snapshot, episode.id), 0),
+    });
+  }
+  const dateCount = chartSnapshots.length;
   const useHorizontalDailyCharts = dateCount > 10;
   const compactMobile = isMobileViewport();
 
@@ -371,36 +403,28 @@ function renderCharts() {
 
   if (totalTrend) {
     const categories = useHorizontalDailyCharts
-      ? [...sorted].reverse().map((snapshot) => formatChartDateLabel(snapshot.date))
-      : sorted.map((snapshot) => formatChartDateLabel(snapshot.date));
+      ? [...chartSnapshots].reverse().map((snapshot) => formatChartDateLabel(snapshot.date))
+      : chartSnapshots.map((snapshot) => formatChartDateLabel(snapshot.date));
     const categoryAxisInterval = compactMobile ? Math.max(0, Math.ceil(categories.length / 4) - 1) : 0;
-    const stackSeries = episodeSeriesAsc.map((episode) => {
-      const color = episodeColors.get(episode.id) || "#cbd5e1";
-      const dataSource = useHorizontalDailyCharts ? [...sorted].reverse() : sorted;
+    const stackSeries = episodeSeries.map((series) => {
+      const dataSource = useHorizontalDailyCharts ? [...chartSnapshots].reverse() : chartSnapshots;
       return {
-        name: legendEpisodeLabel(episode),
+        name: series.name,
         type: "bar",
         stack: "plays",
         barMaxWidth: 42,
-        itemStyle: translucentBarStyle(color),
+        itemStyle: translucentBarStyle(series.color),
         emphasis: { focus: "series" },
-        label: {
-          show: !compactMobile,
-          position: useHorizontalDailyCharts ? "right" : "inside",
-          color: "#7f8a99",
-          fontSize: 11,
-          formatter: ({ value }) => (value ? formatNumber(value) : ""),
-        },
-        data: dataSource.map((snapshot) => episodeTotal(snapshot, episode.id)),
+        data: dataSource.map(series.value),
       };
     });
 
     totalTrend.setOption({
-      animationDuration: 400,
+      animation: false,
       legend: {
         show: !compactMobile,
         bottom: 0,
-        data: episodeLegendDesc,
+        data: episodeSeries.map((series) => series.name),
         textStyle: { color: "#8a97a8" },
         itemWidth: 22,
         itemHeight: 12,
@@ -433,16 +457,16 @@ function renderCharts() {
             axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
           },
       series: stackSeries,
-    });
+    }, true);
   }
 
   if (platformBar) {
     const categories = useHorizontalDailyCharts
-      ? [...sorted].reverse().map((snapshot) => formatChartDateLabel(snapshot.date))
-      : sorted.map((snapshot) => formatChartDateLabel(snapshot.date));
+      ? [...chartSnapshots].reverse().map((snapshot) => formatChartDateLabel(snapshot.date))
+      : chartSnapshots.map((snapshot) => formatChartDateLabel(snapshot.date));
     const categoryAxisInterval = compactMobile ? Math.max(0, Math.ceil(categories.length / 4) - 1) : 0;
     const platformSeries = platforms.map((platform) => {
-      const dataSource = useHorizontalDailyCharts ? [...sorted].reverse() : sorted;
+      const dataSource = useHorizontalDailyCharts ? [...chartSnapshots].reverse() : chartSnapshots;
       return {
         name: platform.name,
         type: "bar",
@@ -450,13 +474,6 @@ function renderCharts() {
         barMaxWidth: 42,
         itemStyle: translucentBarStyle(PLATFORM_COLORS[platform.id] || "#cbd5e1"),
         emphasis: { focus: "series" },
-        label: {
-          show: !compactMobile,
-          position: useHorizontalDailyCharts ? "right" : "inside",
-          color: "#7f8a99",
-          fontSize: 11,
-          formatter: ({ value }) => (value ? formatNumber(value) : ""),
-        },
         data: dataSource.map((snapshot) => {
           return Object.values(snapshot.episodePlays || {}).reduce(
             (sum, values) => sum + Number(values?.[platform.id] || 0),
@@ -467,7 +484,7 @@ function renderCharts() {
     });
 
     platformBar.setOption({
-      animationDuration: 400,
+      animation: false,
       legend: {
         show: !compactMobile,
         bottom: 0,
@@ -501,7 +518,7 @@ function renderCharts() {
             axisLabel: { color: "#8a97a8", fontSize: compactMobile ? 10 : 12 },
           },
       series: platformSeries,
-    });
+    }, true);
   }
 
   if (episodeBar) {
@@ -511,7 +528,7 @@ function renderCharts() {
     const relativeDays = Array.from({ length: 15 }, (_, index) => (compactMobile ? `D${index + 1}` : `Day ${index + 1}`));
 
     episodeBar.setOption({
-      animationDuration: 400,
+      animation: false,
       legend: {
         show: !compactMobile,
         bottom: 0,
@@ -565,8 +582,6 @@ function renderCharts() {
           lineStyle: {
             width: 3,
             color,
-            shadowBlur: 18,
-            shadowColor: `${color}33`,
           },
           itemStyle: {
             color,
@@ -582,8 +597,18 @@ function renderCharts() {
           data,
         };
       }),
-    });
+    }, true);
   }
+}
+
+function scheduleChartsRender(delay = 180) {
+  if (chartRenderTimer !== null) {
+    window.clearTimeout(chartRenderTimer);
+  }
+  chartRenderTimer = window.setTimeout(() => {
+    chartRenderTimer = null;
+    renderCharts();
+  }, delay);
 }
 
 function renderOverview() {
@@ -675,10 +700,37 @@ function buildEpisodeTableHeader() {
   return `<tr><th class="episode-cell">单集</th><th>跨平台求和</th><th>较上次</th>${headers}</tr>`;
 }
 
+function clampPage(page, totalItems, pageSize) {
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  return Math.min(Math.max(1, page), totalPages);
+}
+
+function pageItems(items, page, pageSize) {
+  const safePage = clampPage(page, items.length, pageSize);
+  const start = (safePage - 1) * pageSize;
+  return { items: items.slice(start, start + pageSize), page: safePage };
+}
+
+function paginationMarkup(page, totalItems, pageSize) {
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  if (totalPages <= 1) {
+    return `<span class="pagination-meta">共 ${formatNumber(totalItems)} 条</span>`;
+  }
+
+  return `
+    <button type="button" class="pagination-button" data-page="${page - 1}" ${page <= 1 ? "disabled" : ""}>上一页</button>
+    <span class="pagination-meta">第 ${page} / ${totalPages} 页 · 共 ${formatNumber(totalItems)} 条</span>
+    <button type="button" class="pagination-button" data-page="${page + 1}" ${page >= totalPages ? "disabled" : ""}>下一页</button>
+  `;
+}
+
 function renderEpisodeSummary() {
   const { latest, previous } = latestSnapshots();
+  const episodes = [...state.episodes].sort((left, right) => episodeNumber(right) - episodeNumber(left));
+  const paged = pageItems(episodes, state.episodeSummaryPage, EPISODE_SUMMARY_PAGE_SIZE);
+  state.episodeSummaryPage = paged.page;
   elements.episodeSummaryTableHead.innerHTML = buildEpisodeTableHeader();
-  elements.episodeSummaryTableBody.innerHTML = state.episodes
+  elements.episodeSummaryTableBody.innerHTML = paged.items
     .map((episode) => {
       const total = episodeTotal(latest, episode.id);
       const delta = formatDelta(episodeDelta(episode.id, latest, previous));
@@ -701,16 +753,23 @@ function renderEpisodeSummary() {
       `;
     })
     .join("");
+  elements.episodeSummaryPagination.innerHTML = paginationMarkup(
+    state.episodeSummaryPage,
+    episodes.length,
+    EPISODE_SUMMARY_PAGE_SIZE,
+  );
 }
 
 function renderHistory() {
   const { sorted } = latestSnapshots();
+  const snapshots = [...sorted].reverse();
+  const paged = pageItems(snapshots, state.historyPage, HISTORY_PAGE_SIZE);
+  state.historyPage = paged.page;
   const head = visiblePlatforms()
     .map((platform) => `<th class="${platformToneClass(platform.id)}">${platform.name}</th>`)
     .join("");
   elements.historyTableHead.innerHTML = `<tr><th>日期</th><th>备注</th><th>跨平台总播放求和</th>${head}</tr>`;
-  elements.historyTableBody.innerHTML = [...sorted]
-    .reverse()
+  elements.historyTableBody.innerHTML = paged.items
     .map((snapshot) => {
       const total = sumObjectValues(snapshot.platformTotals);
       const platformCells = visiblePlatforms()
@@ -729,67 +788,158 @@ function renderHistory() {
       `;
     })
     .join("");
+  elements.historyPagination.innerHTML = paginationMarkup(state.historyPage, snapshots.length, HISTORY_PAGE_SIZE);
 }
 
 function renderEpisodeHistory() {
   const { sorted } = latestSnapshots();
+  const episodes = [...state.episodes].sort((left, right) => episodeNumber(right) - episodeNumber(left));
+  const availableEpisodes = episodes.filter((episode) => sorted.some((snapshot) => episodeTotal(snapshot, episode.id) > 0));
 
-  elements.episodeHistory.innerHTML = state.episodes
-    .map((episode) => {
-      const rows = [...sorted]
-        .reverse()
-        .filter((snapshot) => episodeTotal(snapshot, episode.id) > 0)
-        .map((snapshot) => {
-          const total = episodeTotal(snapshot, episode.id);
-          const platformCells = visiblePlatforms()
-            .map((platform) => {
-              const value = snapshot?.episodePlays?.[episode.id]?.[platform.id] ?? null;
-              return `<td class="${platformToneClass(platform.id)}">${formatNumber(value)}</td>`;
-            })
-            .join("");
+  if (!availableEpisodes.some((episode) => episode.id === state.selectedEpisodeId)) {
+    state.selectedEpisodeId = availableEpisodes[0]?.id || "";
+  }
 
-          return `
-            <tr>
-              <td>${snapshot.date}</td>
-              <td>${snapshot.note || "—"}</td>
-              <td>${formatNumber(total)}</td>
-              ${platformCells}
-            </tr>
-          `;
+  elements.episodeHistorySelect.innerHTML = availableEpisodes
+    .map((episode) => `<option value="${episode.id}" ${episode.id === state.selectedEpisodeId ? "selected" : ""}>${episode.title}</option>`)
+    .join("");
+
+  const episode = availableEpisodes.find((item) => item.id === state.selectedEpisodeId);
+  if (!episode) {
+    charts.episodeHistory?.clear();
+    elements.episodeHistory.innerHTML = `<p class="muted empty-state">暂无单集历史数据</p>`;
+    elements.episodeHistoryPagination.innerHTML = "";
+    return;
+  }
+
+  const snapshots = [...sorted]
+    .reverse()
+    .filter((snapshot) => episodeTotal(snapshot, episode.id) > 0);
+  const chartSnapshots = [...snapshots].reverse();
+  const episodeHistoryChart = ensureChart("episodeHistory", elements.episodeHistoryChart);
+  if (elements.episodeHistoryChartTitle) {
+    elements.episodeHistoryChartTitle.textContent = `${shortEpisodeLabel(episode)} · 总播放趋势`;
+  }
+  episodeHistoryChart?.setOption({
+    animationDuration: 300,
+    grid: isMobileViewport()
+      ? { left: 44, right: 14, top: 24, bottom: 34 }
+      : { left: 56, right: 24, top: 30, bottom: 42 },
+    tooltip: mobileTooltipConfig({ trigger: "axis" }),
+    xAxis: {
+      type: "category",
+      data: chartSnapshots.map((snapshot) => formatChartDateLabel(snapshot.date)),
+      axisLine: { lineStyle: { color: "rgba(199, 208, 220, 0.65)" } },
+      axisLabel: {
+        color: "#8a97a8",
+        fontSize: isMobileViewport() ? 10 : 12,
+        hideOverlap: true,
+      },
+    },
+    yAxis: {
+      type: "value",
+      splitLine: { lineStyle: { color: "rgba(215, 223, 233, 0.8)" } },
+      axisLabel: { color: "#8a97a8", fontSize: isMobileViewport() ? 10 : 12 },
+    },
+    series: [{
+      name: "跨平台总播放",
+      type: "line",
+      smooth: true,
+      showSymbol: !isMobileViewport(),
+      symbolSize: 7,
+      lineStyle: { width: 3, color: "#7c8fb8" },
+      itemStyle: { color: "#7c8fb8", borderColor: "#ffffff", borderWidth: 2 },
+      areaStyle: {
+        color: new window.echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: "#7c8fb833" },
+          { offset: 1, color: "#7c8fb803" },
+        ]),
+      },
+      data: chartSnapshots.map((snapshot) => episodeTotal(snapshot, episode.id)),
+    }],
+  }, true);
+  const paged = pageItems(snapshots, state.episodeHistoryPage, HISTORY_PAGE_SIZE);
+  state.episodeHistoryPage = paged.page;
+  const head = visiblePlatforms()
+    .map((platform) => `<th class="${platformToneClass(platform.id)}">${platform.name}</th>`)
+    .join("");
+  const rows = paged.items
+    .map((snapshot) => {
+      const platformCells = visiblePlatforms()
+        .map((platform) => {
+          const value = snapshot?.episodePlays?.[episode.id]?.[platform.id] ?? null;
+          return `<td class="${platformToneClass(platform.id)}">${formatNumber(value)}</td>`;
         })
         .join("");
-      const head = visiblePlatforms()
-        .map((platform) => `<th class="${platformToneClass(platform.id)}">${platform.name}</th>`)
-        .join("");
-
       return `
-        <section class="episode-history-card">
-          <div>
-            <div class="episode-title">${episode.title}</div>
-            <div class="episode-meta">${episode.pubDate || ""}</div>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr><th>日期</th><th>备注</th><th>单集跨平台求和</th>${head}</tr>
-              </thead>
-              <tbody>${rows}</tbody>
-            </table>
-          </div>
-        </section>
+        <tr>
+          <td>${snapshot.date}</td>
+          <td>${snapshot.note || "—"}</td>
+          <td>${formatNumber(episodeTotal(snapshot, episode.id))}</td>
+          ${platformCells}
+        </tr>
       `;
     })
     .join("");
+
+  elements.episodeHistory.innerHTML = `
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>日期</th><th>备注</th><th>单集跨平台求和</th>${head}</tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+  elements.episodeHistoryPagination.innerHTML = paginationMarkup(
+    state.episodeHistoryPage,
+    snapshots.length,
+    HISTORY_PAGE_SIZE,
+  );
 }
 
 function renderAll() {
-  renderCharts();
   renderOverview();
   renderHeroLinks();
   renderPlatformSummary();
   renderEpisodeSummary();
-  renderHistory();
-  renderEpisodeHistory();
+  if (elements.historyPanel?.open) {
+    renderHistory();
+    renderEpisodeHistory();
+  }
+}
+
+function bindPagination(container, onPageChange) {
+  container?.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-page]");
+    if (!button || button.disabled) return;
+    onPageChange(Number(button.dataset.page));
+  });
+}
+
+function bindHistoryControls() {
+  bindPagination(elements.episodeSummaryPagination, (page) => {
+    state.episodeSummaryPage = page;
+    renderEpisodeSummary();
+  });
+  bindPagination(elements.historyPagination, (page) => {
+    state.historyPage = page;
+    renderHistory();
+  });
+  bindPagination(elements.episodeHistoryPagination, (page) => {
+    state.episodeHistoryPage = page;
+    renderEpisodeHistory();
+  });
+  elements.episodeHistorySelect?.addEventListener("change", (event) => {
+    state.selectedEpisodeId = event.target.value;
+    state.episodeHistoryPage = 1;
+    renderEpisodeHistory();
+  });
+  elements.historyPanel?.addEventListener("toggle", () => {
+    if (elements.historyPanel.open) {
+      renderHistory();
+      renderEpisodeHistory();
+    }
+  });
 }
 
 function setRefreshUi({ loading = false, message = "" } = {}) {
@@ -857,6 +1007,7 @@ async function refreshDashboard() {
     const data = await requestDashboard({ refresh: true });
     applyDashboardData(data);
     renderAll();
+    scheduleChartsRender();
 
     const latestDate = data?.snapshot?.date || latestSnapshots().latest?.date || "刚刚";
     if (data.skipped) {
@@ -882,6 +1033,7 @@ async function refreshDashboard() {
 async function boot() {
   hydrateBackHomeLink();
   bindRefreshButton();
+  bindHistoryControls();
   setRefreshUi({ message: "页面会优先显示最新公开快照" });
 
   const data = await requestDashboard();
@@ -894,9 +1046,20 @@ async function boot() {
     elements.heroCopy.textContent = "欢迎点击右边你喜欢的平台收听并订阅";
   }
   renderAll();
+  scheduleChartsRender();
+  let resizeTimer;
+  let compactViewport = isMobileViewport();
   window.addEventListener("resize", () => {
-    renderCharts();
-    Object.values(charts).forEach((chart) => chart?.resize());
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => {
+      const nextCompactViewport = isMobileViewport();
+      if (nextCompactViewport !== compactViewport) {
+        compactViewport = nextCompactViewport;
+        scheduleChartsRender(80);
+        return;
+      }
+      Object.values(charts).forEach((chart) => chart?.resize());
+    }, 160);
   });
 }
 

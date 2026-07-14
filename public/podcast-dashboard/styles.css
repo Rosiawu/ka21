@@ -46,7 +46,7 @@ body {
     radial-gradient(circle at 88% 8%, rgba(229, 236, 255, 0.9), transparent 28%),
     radial-gradient(circle at 45% 100%, rgba(255, 253, 250, 0.78), transparent 34%),
     linear-gradient(180deg, #fcfdff 0%, #f4f8fc 42%, #edf3f8 100%);
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 body::before {
@@ -57,7 +57,7 @@ body::before {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.54), transparent 30%),
     linear-gradient(315deg, rgba(186, 224, 255, 0.2), transparent 34%);
-  mix-blend-mode: screen;
+  opacity: 0.7;
 }
 
 .page {
@@ -89,8 +89,6 @@ body::before {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.95),
     0 12px 26px rgba(152, 169, 190, 0.14);
-  backdrop-filter: blur(20px) saturate(130%);
-  -webkit-backdrop-filter: blur(20px) saturate(130%);
   transition:
     transform 160ms ease,
     box-shadow 160ms ease,
@@ -114,11 +112,9 @@ body::before {
 .panel {
   position: relative;
   overflow: hidden;
-  background: var(--surface);
+  background: rgba(250, 252, 255, 0.94);
   border: 1px solid rgba(255, 255, 255, 0.82);
   box-shadow: var(--shadow-xl);
-  backdrop-filter: blur(30px) saturate(135%);
-  -webkit-backdrop-filter: blur(30px) saturate(135%);
 }
 
 .hero::before,
@@ -270,8 +266,6 @@ h3 {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.96),
     0 8px 18px rgba(180, 193, 211, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   transition:
     transform 160ms ease,
     box-shadow 160ms ease,
@@ -368,6 +362,33 @@ h3 {
   margin: 28px 0 16px;
 }
 
+.history-filter {
+  display: grid;
+  gap: 7px;
+  min-width: min(100%, 360px);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.history-filter select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 42px 0 14px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  font: inherit;
+}
+
+.episode-history-chart-card {
+  margin-bottom: 16px;
+}
+
+.history-chart {
+  height: 300px;
+}
+
 .cards,
 .summary-grid,
 .link-grid,
@@ -404,14 +425,12 @@ h3 {
 .episode-history-card {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(248, 251, 254, 0.55));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 254, 0.9));
   border: 1px solid var(--line);
   border-radius: 24px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.96),
     var(--shadow-sm);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
 }
 
 .card::before,
@@ -569,8 +588,6 @@ input {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.96),
     0 8px 20px rgba(167, 181, 199, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 input:focus {
@@ -618,12 +635,44 @@ input:focus {
   overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.46);
+  background: rgba(255, 255, 255, 0.92);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.94),
     0 10px 28px rgba(181, 194, 210, 0.12);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 14px;
+}
+
+.pagination-button {
+  min-height: 40px;
+  padding: 0 16px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.68);
+  cursor: pointer;
+}
+
+.pagination-button:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
+.pagination-meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.empty-state {
+  padding: 24px 0;
+  text-align: center;
 }
 
 table {
@@ -805,6 +854,19 @@ tbody tr:last-child td {
 
   .subsection-head {
     margin: 22px 0 12px;
+  }
+
+  .pagination {
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .pagination-button {
+    padding: 0 13px;
+  }
+
+  .pagination-meta {
+    text-align: center;
   }
 
   .hero,
