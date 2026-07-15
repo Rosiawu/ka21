@@ -772,6 +772,19 @@ tbody tr:last-child td {
   font-size: 12px;
 }
 
+.historical-value,
+.historical-date {
+  display: block;
+}
+
+.historical-date {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;

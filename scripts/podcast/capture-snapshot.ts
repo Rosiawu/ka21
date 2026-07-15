@@ -628,7 +628,10 @@ async function scrapeXiaoyuzhou(platform: Platform, episodes: Episode[]): Promis
   let failedBackfills = 0;
 
   if (missingEpisodes.length > 0) {
-    const backfills = await mapWithConcurrency(missingEpisodes, 4, async (episode) => {
+    const backfills = await mapWithConcurrency(missingEpisodes, 1, async (episode, index) => {
+      if (index > 0) {
+        await sleep(500);
+      }
       const detailUrl = buildXiaoyuzhouEpisodeUrl(episode);
       try {
         const detailHtml = await fetchText(detailUrl, {
@@ -670,6 +673,10 @@ async function scrapeXiaoyuzhou(platform: Platform, episodes: Episode[]): Promis
   }
 
   const declaredEpisodeCount = Number(pageProps?.podcast?.episodeCount || 0);
+  const expectedEpisodeCount = declaredEpisodeCount || episodes.length;
+  if (capturedEpisodeCount < expectedEpisodeCount || failedBackfills > 0) {
+    throw new Error(`Xiaoyuzhou returned ${capturedEpisodeCount}/${expectedEpisodeCount} episodes`);
+  }
   const coverageBase = declaredEpisodeCount || episodes.length || '?';
   const coverageNote =
     backfilledCount > 0

@@ -10,7 +10,7 @@ const state = {
 };
 
 const EPISODE_SUMMARY_PAGE_SIZE = 10;
-const HISTORY_PAGE_SIZE = 15;
+const HISTORY_PAGE_SIZE = 10;
 const CHART_SNAPSHOT_LIMIT = 30;
 const CHART_EPISODE_LIMIT = 8;
 let chartRenderTimer = null;
@@ -207,6 +207,21 @@ function sumObjectValues(object = {}) {
 
 function episodeTotal(snapshot, episodeId) {
   return sumObjectValues(snapshot?.episodePlays?.[episodeId] || {});
+}
+
+function latestEpisodePlatformObservation(episodeId, platformId) {
+  const snapshots = latestSnapshots().sorted;
+  for (let index = snapshots.length - 1; index >= 0; index -= 1) {
+    const snapshot = snapshots[index];
+    if (String(snapshot.note || "").includes("沿用上次有效数据")) {
+      continue;
+    }
+    const value = snapshot?.episodePlays?.[episodeId]?.[platformId];
+    if (value !== null && value !== undefined) {
+      return { value, date: snapshot.date };
+    }
+  }
+  return null;
 }
 
 function platformDelta(platformId, latest, previous) {
@@ -737,7 +752,21 @@ function renderEpisodeSummary() {
       const platformCells = visiblePlatforms()
         .map((platform) => {
           const value = latest?.episodePlays?.[episode.id]?.[platform.id] ?? null;
-          return `<td class="${platformToneClass(platform.id)}">${formatNumber(value)}</td>`;
+          if (value !== null || platform.id !== "ximalaya") {
+            return `<td class="${platformToneClass(platform.id)}">${formatNumber(value)}</td>`;
+          }
+
+          const historical = latestEpisodePlatformObservation(episode.id, platform.id);
+          if (!historical) {
+            return `<td class="${platformToneClass(platform.id)}">—</td>`;
+          }
+
+          return `
+            <td class="${platformToneClass(platform.id)}">
+              <span class="historical-value">${formatNumber(historical.value)}</span>
+              <span class="historical-date">截至 ${historical.date.slice(5).replace("-", "/")}</span>
+            </td>
+          `;
         })
         .join("");
       return `
@@ -1007,7 +1036,6 @@ async function refreshDashboard() {
     const data = await requestDashboard({ refresh: true });
     applyDashboardData(data);
     renderAll();
-    scheduleChartsRender();
 
     const latestDate = data?.snapshot?.date || latestSnapshots().latest?.date || "刚刚";
     if (data.skipped) {
@@ -1046,7 +1074,6 @@ async function boot() {
     elements.heroCopy.textContent = "欢迎点击右边你喜欢的平台收听并订阅";
   }
   renderAll();
-  scheduleChartsRender();
   let resizeTimer;
   let compactViewport = isMobileViewport();
   window.addEventListener("resize", () => {
@@ -1055,7 +1082,7 @@ async function boot() {
       const nextCompactViewport = isMobileViewport();
       if (nextCompactViewport !== compactViewport) {
         compactViewport = nextCompactViewport;
-        scheduleChartsRender(80);
+        charts.episodeHistory?.resize();
         return;
       }
       Object.values(charts).forEach((chart) => chart?.resize());

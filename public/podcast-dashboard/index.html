@@ -76,26 +76,6 @@
 
       <section class="panel">
         <div class="panel-head">
-          <h2>灯下白播客节目数据一览</h2>
-        </div>
-        <div class="chart-grid">
-          <div class="chart-card">
-            <div class="chart-title">近 30 天节目播放趋势（播放最高的 8 集 + 其他）</div>
-            <div id="total-trend-chart" class="chart-box"></div>
-          </div>
-          <div class="chart-card">
-            <div class="chart-title">近 30 天平台播放趋势</div>
-            <div id="platform-bar-chart" class="chart-box"></div>
-          </div>
-          <div class="chart-card chart-card-wide">
-            <div class="chart-title">每期节目发布后 Day 1 - Day 15 总播放对比</div>
-            <div id="episode-bar-chart" class="chart-box"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="panel-head">
           <div>
             <h2>最新概览</h2>
             <p id="snapshot-meta" class="muted">还没有快照</p>
@@ -119,7 +99,7 @@
       <section class="panel">
         <div class="panel-head">
           <h2>单集表现</h2>
-          <p class="muted">按照最新快照展示每一集的跨平台播放求和与平台拆分。</p>
+          <p class="muted">按照最新快照展示；带日期的数字是该平台最后一次真实抓取值，不计入今日合计。</p>
         </div>
         <div class="table-wrap">
           <table id="episode-summary-table">
@@ -163,6 +143,6 @@
       </details>
     </main>
 
-    <script type="module" src="/podcast-dashboard/app.js?v=20260714a"></script>
+    <script type="module" src="/podcast-dashboard/app.js?v=20260715b"></script>
   </body>
   </html>
