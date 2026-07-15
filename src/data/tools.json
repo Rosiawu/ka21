@@ -5253,6 +5253,53 @@
       },
       "isVisible": true,
       "displayOrder": 160
+    },
+    {
+      "id": "ruijianai",
+      "name": "中科睿鉴",
+      "description": "面向 AI 生成与伪造内容的安全检测平台。中科睿鉴覆盖音频、视频、图片和文本，可用于 AIGC 内容检测、深度伪造识别、图片篡改检测、伪造溯源、论文 AI 检测与内容合规审核，适合有内容核验和安全审查需求的办公场景。",
+      "icon": "/icons/ruijianai.png",
+      "url": "https://www.ruijianai.com/",
+      "tags": [
+        "ai-detection",
+        "multimodal",
+        "productivity"
+      ],
+      "recommendLevel": "medium",
+      "accessibility": "直接访问",
+      "groupComments": [
+        {
+          "content": "更偏内容安全与鉴伪，而不是常规文档工具。需要核验 AI 生成内容、深度伪造、图片篡改或论文 AI 痕迹时，可以从它的产品与体验入口进一步了解。",
+          "author": "站内整理",
+          "createdAt": "2026-07-15",
+          "reviewType": "基于官网定位整理"
+        }
+      ],
+      "guides": [
+        {
+          "title": "主要功能",
+          "content": "1. 音视频、图片和文本 AIGC 检测\n2. AI 换脸、合成人声等深度伪造检测\n3. 图片 PS 篡改识别与区域定位\n4. 伪造技术溯源与检测报告输出\n5. AI 论文检测与内容合规审核",
+          "type": "text"
+        },
+        {
+          "title": "使用步骤",
+          "content": "1. 打开中科睿鉴官网\n2. 在产品中心选择对应的检测或审核产品\n3. 查看产品能力、适用场景和体验入口\n4. 按页面说明上传或接入待检测内容\n5. 结合检测结果进行人工复核",
+          "type": "text"
+        },
+        {
+          "title": "注意事项",
+          "content": "1. 官网包含企业级产品，不同能力的开放方式和使用条件可能不同\n2. AI 检测结果应作为辅助判断，不宜替代人工核验\n3. 上传敏感、个人或业务文件前，先确认隐私政策与数据处理方式\n4. 具体准确率、接口和服务范围以官网当前说明为准",
+          "type": "注意事项"
+        }
+      ],
+      "createdAt": "2026-07-15T00:00:00Z",
+      "updatedAt": "2026-07-15T00:00:00Z",
+      "toolCategory": "office",
+      "icons": {
+        "png": "/icons/ruijianai.png"
+      },
+      "isVisible": true,
+      "displayOrder": 250
     }
   ]
 }
