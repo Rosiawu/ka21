@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-07-14T05:08:51.890Z",
+  "updatedAt": "2026-07-15T05:09:11.103Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "6a42ba2f2e335a35a80b6e38",
+      "title": "39. 小乙：白天读骨伤博士，晚上写鬼故事，他把十几年资料存成AI上下文",
+      "pubDate": "Wed, 15 Jul 2026 00:00:00 GMT",
+      "duration": "01:06:16",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a42ba2f2e335a35a80b6e38?utm_source=rss"
+    },
     {
       "id": "6a43dd939d2f574368407266",
       "title": "38. 程佳伟：从AIGC短片制作到Anima智能体构造，他想和“奥德赛时期”的年轻人聊聊",
