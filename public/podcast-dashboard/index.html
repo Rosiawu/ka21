@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>灯下白 | 播客播放量追踪</title>
-    <link rel="stylesheet" href="/podcast-dashboard/styles.css?v=20260610a" />
+    <link rel="stylesheet" href="/podcast-dashboard/styles.css?v=20260716a" />
     <style>
       #back-home-link {
         display: inline-flex;
@@ -88,6 +88,27 @@
         <div id="overview-cards" class="cards"></div>
       </section>
 
+      <section class="panel range-panel">
+        <div class="panel-head panel-head-wrap">
+          <div>
+            <h2>3 月 3 日至今数据面板</h2>
+            <p id="range-meta" class="muted">正在整理历史时间范围</p>
+          </div>
+          <p id="range-coverage" class="muted">正在计算数据覆盖情况</p>
+        </div>
+        <div id="range-cards" class="cards range-cards"></div>
+        <div class="chart-grid range-chart-grid">
+          <div class="chart-card">
+            <div class="chart-title">周度净增长</div>
+            <div id="weekly-growth-chart" class="chart-box range-chart-box"></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">最新平台份额</div>
+            <div id="platform-share-chart" class="chart-box range-chart-box"></div>
+          </div>
+        </div>
+      </section>
+
       <section class="panel">
         <div class="panel-head">
           <h2>平台总播放</h2>
@@ -143,6 +164,6 @@
       </details>
     </main>
 
-    <script type="module" src="/podcast-dashboard/app.js?v=20260715b"></script>
+    <script type="module" src="/podcast-dashboard/app.js?v=20260716a"></script>
   </body>
   </html>

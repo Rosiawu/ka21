@@ -13,6 +13,7 @@ const EPISODE_SUMMARY_PAGE_SIZE = 10;
 const HISTORY_PAGE_SIZE = 10;
 const CHART_SNAPSHOT_LIMIT = 30;
 const CHART_EPISODE_LIMIT = 8;
+const REQUESTED_RANGE_START = "2026-03-03";
 let chartRenderTimer = null;
 
 const PLATFORM_COLORS = {
@@ -44,6 +45,8 @@ const charts = {
   platformBar: null,
   episodeBar: null,
   episodeHistory: null,
+  weeklyGrowth: null,
+  platformShare: null,
 };
 
 const elements = {
@@ -52,6 +55,10 @@ const elements = {
   showName: document.querySelector("#show-name"),
   heroCopy: document.querySelector("#hero-copy"),
   heroLinks: document.querySelector("#hero-links"),
+  panelTitle: document.querySelector(".panel-head-wrap h2"),
+  rangeMeta: document.querySelector("#range-meta"),
+  rangeCoverage: document.querySelector("#range-coverage"),
+  rangeCards: document.querySelector("#range-cards"),
   snapshotMeta: document.querySelector("#snapshot-meta"),
   refreshButton: document.querySelector("#refresh-button"),
   refreshStatus: document.querySelector("#refresh-status"),
@@ -59,6 +66,8 @@ const elements = {
   totalTrendChart: document.querySelector("#total-trend-chart"),
   platformBarChart: document.querySelector("#platform-bar-chart"),
   episodeBarChart: document.querySelector("#episode-bar-chart"),
+  weeklyGrowthChart: document.querySelector("#weekly-growth-chart"),
+  platformShareChart: document.querySelector("#platform-share-chart"),
   platformSummary: document.querySelector("#platform-summary"),
   episodeSummaryTableHead: document.querySelector("#episode-summary-table thead"),
   episodeSummaryTableBody: document.querySelector("#episode-summary-table tbody"),
@@ -203,6 +212,53 @@ function latestSnapshots() {
 
 function sumObjectValues(object = {}) {
   return Object.values(object).reduce((sum, value) => sum + Number(value || 0), 0);
+}
+
+function totalPlatformCount(snapshot) {
+  return sumObjectValues(snapshot?.platformTotals || {});
+}
+
+function diffDays(startDate, endDate) {
+  const start = new Date(`${startDate}T00:00:00+08:00`);
+  const end = new Date(`${endDate}T00:00:00+08:00`);
+  return Math.round((end - start) / 86400000);
+}
+
+function rangeSummary() {
+  const sorted = latestSnapshots().sorted.filter((snapshot) => snapshot.date >= REQUESTED_RANGE_START);
+  const latest = sorted.at(-1) || null;
+  const firstActual = sorted[0] || null;
+  if (!latest || !firstActual) return null;
+
+  let peakGrowth = { date: latest.date, value: 0 };
+  const dailyGrowth = sorted.map((snapshot, index) => {
+    const previous = sorted[index - 1] || null;
+    const growth = previous ? totalPlatformCount(snapshot) - totalPlatformCount(previous) : 0;
+    if (growth > peakGrowth.value) peakGrowth = { date: snapshot.date, value: growth };
+    return { date: snapshot.date, growth };
+  });
+  const weeklyGrowth = [];
+  for (let index = 0; index < dailyGrowth.length; index += 7) {
+    const group = dailyGrowth.slice(index, index + 7);
+    weeklyGrowth.push({
+      label: `${group[0].date.slice(5)}-${group.at(-1).date.slice(5)}`,
+      value: group.reduce((sum, item) => sum + item.growth, 0),
+    });
+  }
+
+  const requestedDays = Math.max(1, diffDays(REQUESTED_RANGE_START, latest.date) + 1);
+  const totalGrowth = totalPlatformCount(latest) - totalPlatformCount(firstActual);
+  return {
+    latest,
+    firstActual,
+    totalGrowth,
+    coveredDays: sorted.length,
+    requestedDays,
+    coverageRate: sorted.length / requestedDays,
+    avgDailyGrowth: Math.round(totalGrowth / Math.max(1, diffDays(firstActual.date, latest.date))),
+    peakGrowth,
+    weeklyGrowth,
+  };
 }
 
 function episodeTotal(snapshot, episodeId) {
@@ -387,6 +443,7 @@ function translucentBarStyle(color) {
 function renderCharts() {
   const { sorted, latest } = latestSnapshots();
   const platforms = visiblePlatforms();
+  const summary = rangeSummary();
   const episodeColors = episodeColorMap();
   const chartSnapshots = sorted.slice(-CHART_SNAPSHOT_LIMIT);
   const rankedEpisodes = [...state.episodes]
@@ -415,6 +472,8 @@ function renderCharts() {
   const totalTrend = ensureChart("totalTrend", elements.totalTrendChart);
   const platformBar = ensureChart("platformBar", elements.platformBarChart);
   const episodeBar = ensureChart("episodeBar", elements.episodeBarChart);
+  const weeklyGrowth = ensureChart("weeklyGrowth", elements.weeklyGrowthChart);
+  const platformShare = ensureChart("platformShare", elements.platformShareChart);
 
   if (totalTrend) {
     const categories = useHorizontalDailyCharts
@@ -614,6 +673,53 @@ function renderCharts() {
       }),
     }, true);
   }
+
+  if (weeklyGrowth && summary) {
+    weeklyGrowth.setOption({
+      animation: false,
+      grid: compactMobile ? { left: 44, right: 12, top: 28, bottom: 54 } : { left: 54, right: 20, top: 32, bottom: 58 },
+      tooltip: mobileTooltipConfig({ trigger: "axis", axisPointer: { type: "shadow" } }),
+      xAxis: {
+        type: "category",
+        data: summary.weeklyGrowth.map((item) => item.label),
+        axisLabel: { color: "#8a97a8", rotate: compactMobile ? 32 : 18, fontSize: compactMobile ? 9 : 11 },
+        axisLine: { lineStyle: { color: "rgba(199, 208, 220, 0.65)" } },
+      },
+      yAxis: {
+        type: "value",
+        axisLabel: { color: "#8a97a8" },
+        splitLine: { lineStyle: { color: "rgba(215, 223, 233, 0.8)" } },
+      },
+      series: [{
+        name: "周度净增长",
+        type: "bar",
+        barMaxWidth: 42,
+        itemStyle: translucentBarStyle("#7672ea"),
+        label: { show: !compactMobile, position: "top", color: "#7f8a99", formatter: ({ value }) => value ? formatNumber(value) : "" },
+        data: summary.weeklyGrowth.map((item) => item.value),
+      }],
+    }, true);
+  }
+
+  if (platformShare && latest) {
+    platformShare.setOption({
+      animation: false,
+      tooltip: { trigger: "item" },
+      legend: { bottom: 0, textStyle: { color: "#8a97a8" } },
+      series: [{
+        type: "pie",
+        radius: ["42%", "70%"],
+        center: ["50%", "44%"],
+        itemStyle: { borderColor: "rgba(255,255,255,0.95)", borderWidth: 3 },
+        label: { show: !compactMobile, color: "#607083", formatter: ({ name, percent }) => `${name}\n${percent}%` },
+        data: platforms.map((platform) => ({
+          name: platform.name,
+          value: Number(latest.platformTotals?.[platform.id] || 0),
+          itemStyle: { color: PLATFORM_COLORS[platform.id] || "#cbd5e1" },
+        })).filter((item) => item.value > 0),
+      }],
+    }, true);
+  }
 }
 
 function scheduleChartsRender(delay = 180) {
@@ -669,6 +775,34 @@ function renderOverview() {
       `,
     )
     .join("");
+}
+
+function renderRangeSummary() {
+  const summary = rangeSummary();
+  if (!summary) {
+    elements.rangeMeta.textContent = "当前还没有可用的历史快照";
+    elements.rangeCoverage.textContent = "等待自动抓取写入";
+    elements.rangeCards.innerHTML = "";
+    return;
+  }
+
+  const latestTotal = totalPlatformCount(summary.latest);
+  const firstTotal = totalPlatformCount(summary.firstActual);
+  elements.rangeMeta.textContent = `请求区间：${REQUESTED_RANGE_START} 至 ${summary.latest.date} · 实际首条快照：${summary.firstActual.date}`;
+  elements.rangeCoverage.textContent = `已覆盖 ${summary.coveredDays} / ${summary.requestedDays} 天 · 覆盖率 ${Math.round(summary.coverageRate * 100)}%`;
+  const cards = [
+    ["累计增长", formatNumber(summary.totalGrowth), `从 ${formatNumber(firstTotal)} 增长到 ${formatNumber(latestTotal)}`],
+    ["日均净增长", formatNumber(summary.avgDailyGrowth), `按 ${summary.firstActual.date} 到 ${summary.latest.date} 计算`],
+    ["单日峰值增长", formatNumber(summary.peakGrowth.value), `出现在 ${summary.peakGrowth.date}`],
+    ["最新快照日期", summary.latest.date, summary.latest.note || "无备注"],
+  ];
+  elements.rangeCards.innerHTML = cards.map(([label, value, detail]) => `
+    <article class="card metric-card">
+      <span class="muted">${label}</span>
+      <strong>${value}</strong>
+      <div class="delta flat">${detail}</div>
+    </article>
+  `).join("");
 }
 
 function renderPlatformSummary() {
@@ -927,10 +1061,12 @@ function renderEpisodeHistory() {
 }
 
 function renderAll() {
+  renderRangeSummary();
   renderOverview();
   renderHeroLinks();
   renderPlatformSummary();
   renderEpisodeSummary();
+  scheduleChartsRender();
   if (elements.historyPanel?.open) {
     renderHistory();
     renderEpisodeHistory();

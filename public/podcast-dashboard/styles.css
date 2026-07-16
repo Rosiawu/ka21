@@ -402,6 +402,31 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.panel-head-wrap {
+  align-items: flex-end;
+}
+
+.panel-head-wrap > .muted {
+  text-align: right;
+}
+
+.range-cards {
+  margin-bottom: 18px;
+}
+
+.metric-card {
+  min-height: 176px;
+  padding: 22px 24px;
+}
+
+.metric-card strong {
+  font-size: clamp(38px, 4vw, 58px);
+}
+
+.range-chart-box {
+  height: 390px;
+}
+
 .summary-grid {
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 }
@@ -841,6 +866,14 @@ tbody tr:last-child td {
 }
 
 @media (max-width: 720px) {
+  .panel-head-wrap > .muted {
+    text-align: left;
+  }
+
+  .range-chart-box {
+    height: 280px;
+  }
+
   .page {
     padding: 18px 14px 56px;
   }
