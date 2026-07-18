@@ -1,8 +1,13 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { execFile } from 'node:child_process';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { promisify } from 'node:util';
+import sharp from 'sharp';
 
 import { fetchAndExtractFulltext, normalizeText, safeText } from '../src/lib/miniapp/tutorial-fulltext';
+import { discoverWechatPublishHistory, type WechatPublishedArticle } from './lib/wechat-publish-history';
 
 type PersonalArticle = {
   t: string;
@@ -11,6 +16,13 @@ type PersonalArticle = {
   c: string;
   n: number;
   img?: string;
+  kind?: 'image';
+  mid?: string;
+  idx?: number;
+  discoveryContent?: string;
+  trustedCover?: boolean;
+  coverNeedsCrop?: boolean;
+  discoveryCover?: string;
 };
 
 type PersonalArticlesFile = {
@@ -26,6 +38,9 @@ type SearchIndexItem = {
   date: string;
   number: number;
   image?: string;
+  kind?: 'image';
+  mid?: string;
+  idx?: number;
   content: string;
   fallback: boolean;
   source: 'wechat-fulltext' | 'fallback-meta';
@@ -61,14 +76,29 @@ type WechatAlbumArticle = {
   url?: string;
 };
 
+type FaceBox = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  confidence: number;
+};
+
 const rootDir = path.resolve(__dirname, '..');
 const personalIndexPath = path.join(rootDir, 'public', 'personal-site', 'index.html');
 const personalArticlesPath = path.join(rootDir, 'data', 'personal-site', 'articles.json');
 const searchIndexOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.json');
 const searchIndexScriptOutputPath = path.join(rootDir, 'public', 'personal-site', 'search-index.js');
 const personalCoversDir = path.join(rootDir, 'public', 'personal-site', 'covers');
+const faceDetectorSource = path.join(rootDir, 'scripts', 'lib', 'detect-image-faces.m');
+const faceDetectorBinary = path.join(tmpdir(), 'ka21-wechat-face-detector-v1');
+const execFileAsync = promisify(execFile);
+const targetCoverWidth = 1280;
+const targetCoverHeight = 545;
+const targetCoverRatio = targetCoverWidth / targetCoverHeight;
+const cardSafeWidthRatio = (16 / 9) / targetCoverRatio;
 const wechatHosts = new Set(['mp.weixin.qq.com', 'mp.weixinqq.com']);
-const wechatImageHostPattern = /(^|\.)qpic\.cn$/;
+const wechatImageHostPattern = /(^|\.)(qpic|qlogo)\.cn$/;
 const wechatBiz = 'Mzg5ODU1ODg1Mg==';
 const wechatAlbumSources: WechatAlbumSource[] = [
   {
@@ -108,7 +138,33 @@ function normalizeArticle(article: PersonalArticle): PersonalArticle {
     c: safeText(article.c),
     n: Number.isFinite(article.n) ? article.n : 0,
     img: safeText(article.img) || undefined,
+    kind: article.kind === 'image' ? 'image' : undefined,
+    mid: safeText(article.mid) || extractWechatIdentity(article.u)?.mid,
+    idx: Number.isFinite(article.idx) ? article.idx : extractWechatIdentity(article.u)?.idx,
+    discoveryContent: safeText(article.discoveryContent) || undefined,
+    trustedCover: article.trustedCover === true || undefined,
+    coverNeedsCrop: article.coverNeedsCrop === true || undefined,
+    discoveryCover: normalizeAlbumImage(article.discoveryCover),
   };
+}
+
+function extractWechatIdentity(rawUrl: string): { mid: string; idx: number } | undefined {
+  try {
+    const url = new URL(canonicalizeArticleUrl(rawUrl));
+    const mid = safeText(url.searchParams.get('mid'));
+    const idx = Number(url.searchParams.get('idx') || '1');
+    if (mid && Number.isFinite(idx)) return { mid, idx };
+  } catch {
+    // Short WeChat URLs do not expose the appmsg id.
+  }
+  return undefined;
+}
+
+function articleIdentity(article: PersonalArticle): string {
+  const mid = safeText(article.mid) || extractWechatIdentity(article.u)?.mid;
+  const idx = Number.isFinite(article.idx) ? Number(article.idx) : extractWechatIdentity(article.u)?.idx;
+  if (mid) return `wechat:${mid}:${idx || 1}`;
+  return `url:${canonicalizeArticleUrl(article.u)}`;
 }
 
 function formatShanghaiDate(epochSeconds: string | number | undefined): string {
@@ -188,8 +244,191 @@ function extensionFromContentType(contentType: string | null): string {
   return 'jpg';
 }
 
-function buildCoverHash(rawUrl: string): string {
-  return createHash('sha256').update(rawUrl).digest('hex').slice(0, 12);
+function buildCoverHash(rawUrl: string, cropToHead = false): string {
+  const cacheKey = cropToHead ? `${rawUrl}|wechat-head-face-safe-v3` : rawUrl;
+  return createHash('sha256').update(cacheKey).digest('hex').slice(0, 12);
+}
+
+let faceDetectorReady: Promise<boolean> | undefined;
+
+async function ensureFaceDetector(): Promise<boolean> {
+  if (process.platform !== 'darwin') return false;
+  if (!faceDetectorReady) {
+    faceDetectorReady = (async () => {
+      try {
+        await execFileAsync('/usr/bin/clang', [
+          '-fobjc-arc',
+          '-framework', 'Foundation',
+          '-framework', 'CoreGraphics',
+          '-framework', 'ImageIO',
+          '-framework', 'Vision',
+          faceDetectorSource,
+          '-O2',
+          '-o', faceDetectorBinary,
+        ]);
+        return true;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`[personal-fulltext] face detector unavailable: ${message}`);
+        return false;
+      }
+    })();
+  }
+  return faceDetectorReady;
+}
+
+async function detectFaces(buffer: Buffer, cacheKey: string): Promise<FaceBox[]> {
+  if (!(await ensureFaceDetector())) return [];
+
+  const inputPath = path.join(tmpdir(), `ka21-wechat-face-${buildCoverHash(cacheKey)}.jpg`);
+  try {
+    await sharp(buffer).rotate().jpeg({ quality: 92 }).toFile(inputPath);
+    const { stdout } = await execFileAsync(faceDetectorBinary, [inputPath], { maxBuffer: 1024 * 1024 });
+    const parsed = JSON.parse(stdout) as FaceBox[];
+    return parsed.filter((face) =>
+      face.confidence >= 0.3 &&
+      face.width > 0 &&
+      face.height > 0 &&
+      [face.x, face.y, face.width, face.height].every(Number.isFinite));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.warn(`[personal-fulltext] face detection failed: ${message}`);
+    return [];
+  } finally {
+    try {
+      await unlink(inputPath);
+    } catch {
+      // Temporary input may not have been written.
+    }
+  }
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
+function expandedFaceBounds(faces: FaceBox[], width: number, height: number) {
+  const bounds = faces.map((face) => {
+    const left = face.x * width;
+    const top = face.y * height;
+    const faceWidth = face.width * width;
+    const faceHeight = face.height * height;
+    return {
+      left: Math.max(0, left - faceWidth * 0.4),
+      top: Math.max(0, top - faceHeight * 0.8),
+      right: Math.min(width, left + faceWidth * 1.4),
+      bottom: Math.min(height, top + faceHeight * 1.55),
+    };
+  });
+
+  return {
+    left: Math.min(...bounds.map((box) => box.left)),
+    top: Math.min(...bounds.map((box) => box.top)),
+    right: Math.max(...bounds.map((box) => box.right)),
+    bottom: Math.max(...bounds.map((box) => box.bottom)),
+  };
+}
+
+function chooseFaceSafeCrop(
+  faces: FaceBox[],
+  width: number,
+  height: number,
+): { left: number; top: number; width: number; height: number } | undefined {
+  const bounds = expandedFaceBounds(faces, width, height);
+  const sourceRatio = width / height;
+  const cropWidth = sourceRatio > targetCoverRatio ? height * targetCoverRatio : width;
+  const cropHeight = sourceRatio > targetCoverRatio ? height : width / targetCoverRatio;
+  const safeInset = cropWidth * (1 - cardSafeWidthRatio) / 2;
+
+  if (
+    bounds.bottom - bounds.top > cropHeight ||
+    bounds.right - bounds.left > cropWidth - safeInset * 2
+  ) return undefined;
+
+  const minLeft = Math.max(0, bounds.right - cropWidth + safeInset);
+  const maxLeft = Math.min(width - cropWidth, bounds.left - safeInset);
+  if (minLeft > maxLeft) return undefined;
+
+  const minTop = Math.max(0, bounds.bottom - cropHeight);
+  const maxTop = Math.min(height - cropHeight, bounds.top);
+  if (minTop > maxTop) return undefined;
+
+  const preferredLeft = (bounds.left + bounds.right - cropWidth) / 2;
+  const preferredTop = (bounds.top + bounds.bottom - cropHeight) / 2;
+  return {
+    left: Math.round(clamp(preferredLeft, minLeft, maxLeft)),
+    top: Math.round(clamp(preferredTop, minTop, maxTop)),
+    width: Math.round(cropWidth),
+    height: Math.round(cropHeight),
+  };
+}
+
+function facesAreCardSafe(faces: FaceBox[]): boolean {
+  const safeInset = (1 - cardSafeWidthRatio) / 2;
+  return faces.every((face) =>
+    face.x >= safeInset &&
+    face.x + face.width <= 1 - safeInset &&
+    face.y >= 0.005 &&
+    face.y + face.height <= 0.995);
+}
+
+async function createContainedFaceSafeCover(buffer: Buffer): Promise<Buffer> {
+  const safeWidth = Math.floor(targetCoverWidth * cardSafeWidthRatio);
+  const background = await sharp(buffer)
+    .rotate()
+    .resize(targetCoverWidth, targetCoverHeight, { fit: 'cover', position: sharp.strategy.attention })
+    .blur(24)
+    .modulate({ brightness: 0.72, saturation: 0.78 })
+    .jpeg({ quality: 90 })
+    .toBuffer();
+  const foreground = await sharp(buffer)
+    .rotate()
+    .resize(safeWidth, targetCoverHeight, { fit: 'inside', withoutEnlargement: false })
+    .jpeg({ quality: 92 })
+    .toBuffer({ resolveWithObject: true });
+
+  return sharp(background)
+    .composite([{
+      input: foreground.data,
+      left: Math.round((targetCoverWidth - foreground.info.width) / 2),
+      top: Math.round((targetCoverHeight - foreground.info.height) / 2),
+    }])
+    .jpeg({ quality: 90, mozjpeg: true })
+    .toBuffer();
+}
+
+async function createFaceSafeHeadCover(buffer: Buffer, sourceUrl: string): Promise<Buffer> {
+  const oriented = sharp(buffer).rotate();
+  const metadata = await oriented.metadata();
+  const width = metadata.width || 0;
+  const height = metadata.height || 0;
+  const faces = width && height ? await detectFaces(buffer, sourceUrl) : [];
+
+  if (faces.length === 0) {
+    const candidate = await oriented
+      .resize(targetCoverWidth, targetCoverHeight, { fit: 'cover', position: sharp.strategy.attention })
+      .jpeg({ quality: 90, mozjpeg: true })
+      .toBuffer();
+    const candidateFaces = await detectFaces(candidate, `${sourceUrl}|candidate`);
+    if (candidateFaces.length > 0 && !facesAreCardSafe(candidateFaces)) {
+      console.log(`[personal-fulltext] face-safe cover faces=${candidateFaces.length} mode=contain-after-crop-audit`);
+      return createContainedFaceSafeCover(buffer);
+    }
+    return candidate;
+  }
+
+  const crop = chooseFaceSafeCrop(faces, width, height);
+  if (!crop) {
+    console.log(`[personal-fulltext] face-safe cover faces=${faces.length} mode=contain`);
+    return createContainedFaceSafeCover(buffer);
+  }
+
+  console.log(`[personal-fulltext] face-safe cover faces=${faces.length} mode=crop`);
+  return oriented
+    .extract(crop)
+    .resize(targetCoverWidth, targetCoverHeight, { fit: 'fill' })
+    .jpeg({ quality: 90, mozjpeg: true })
+    .toBuffer();
 }
 
 function readJpegSize(buffer: Buffer): { width: number; height: number } | undefined {
@@ -254,6 +493,12 @@ async function readLocalCoverSize(imagePath: string | undefined): Promise<{ widt
   }
 }
 
+function isWechatHeadCoverRatio(size: { width: number; height: number } | undefined): boolean {
+  if (!size?.width || !size.height) return false;
+  const ratio = size.width / size.height;
+  return ratio >= 2.25 && ratio <= 2.45;
+}
+
 async function shouldRefreshWechatHeadCover(article: PersonalArticle): Promise<boolean> {
   try {
     if (!wechatHosts.has(new URL(canonicalizeArticleUrl(article.u)).hostname)) return false;
@@ -262,6 +507,10 @@ async function shouldRefreshWechatHeadCover(article: PersonalArticle): Promise<b
   }
 
   if (isWechatImageUrl(article.img)) return true;
+  if (article.kind === 'image' && isWechatImageUrl(article.discoveryCover)) return true;
+  if (article.kind === 'image') {
+    return !isWechatHeadCoverRatio(await readLocalCoverSize(article.img));
+  }
   if (article.n > 0) return false;
 
   const size = await readLocalCoverSize(article.img);
@@ -272,8 +521,8 @@ async function shouldRefreshWechatHeadCover(article: PersonalArticle): Promise<b
   return size.width / size.height < 1.8;
 }
 
-async function findExistingCachedCover(rawUrl: string): Promise<string | undefined> {
-  const hash = buildCoverHash(rawUrl);
+async function findExistingCachedCover(rawUrl: string, cropToHead = false): Promise<string | undefined> {
+  const hash = buildCoverHash(rawUrl, cropToHead);
   for (const ext of ['jpg', 'png', 'webp', 'gif']) {
     const filename = `${hash}.${ext}`;
     try {
@@ -286,8 +535,8 @@ async function findExistingCachedCover(rawUrl: string): Promise<string | undefin
   return undefined;
 }
 
-async function downloadWechatCover(rawUrl: string): Promise<string | undefined> {
-  const existing = await findExistingCachedCover(rawUrl);
+async function downloadWechatCover(rawUrl: string, cropToHead = false): Promise<string | undefined> {
+  const existing = await findExistingCachedCover(rawUrl, cropToHead);
   if (existing) return existing;
 
   await mkdir(personalCoversDir, { recursive: true });
@@ -314,9 +563,10 @@ async function downloadWechatCover(rawUrl: string): Promise<string | undefined> 
         const buffer = Buffer.from(await response.arrayBuffer());
         if (buffer.length < 1024) continue;
 
-        const ext = extensionFromContentType(contentType);
-        const filename = `${buildCoverHash(rawUrl)}.${ext}`;
-        await writeFile(path.join(personalCoversDir, filename), buffer);
+        const output = cropToHead ? await createFaceSafeHeadCover(buffer, rawUrl) : buffer;
+        const ext = cropToHead ? 'jpg' : extensionFromContentType(contentType);
+        const filename = `${buildCoverHash(rawUrl, cropToHead)}.${ext}`;
+        await writeFile(path.join(personalCoversDir, filename), output);
         return `covers/${filename}`;
       } catch {
         if (attempt < 3) {
@@ -335,7 +585,10 @@ async function fetchArticleHeadCover(article: PersonalArticle): Promise<string |
 
   try {
     const fulltext = await fetchAndExtractFulltext(url, { timeoutMs: 20_000, allowCurlFallback: true });
-    const cover = normalizeAlbumImage(fulltext.cover);
+    const firstContentImage = article.kind === 'image'
+      ? fulltext.blocks.find((block) => block.type === 'image')?.src
+      : undefined;
+    const cover = normalizeAlbumImage(firstContentImage || fulltext.cover);
     return isWechatImageUrl(cover) ? cover : undefined;
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -360,26 +613,38 @@ async function localizeWechatCoverImages(articles: PersonalArticle[]): Promise<P
     }
 
     const articleUrl = canonicalizeArticleUrl(article.u);
-    let headCover = articleCoverCache.get(articleUrl);
-    if (!articleCoverCache.has(articleUrl)) {
+    let headCover = normalizeAlbumImage(article.discoveryCover)
+      || (article.trustedCover && isWechatImageUrl(image) ? image : articleCoverCache.get(articleUrl));
+    if (!headCover && !articleCoverCache.has(articleUrl)) {
       headCover = await fetchArticleHeadCover(article);
       articleCoverCache.set(articleUrl, headCover);
     }
 
-    const sourceImage = headCover || (isWechatImageUrl(image) ? image : '');
+    const sourceImage = headCover || '';
     if (!sourceImage) {
       failed += 1;
-      out.push(article);
+      out.push({ ...article, img: undefined, trustedCover: undefined });
       continue;
     }
 
     let localImage = localCoverCache.get(sourceImage);
     if (!localCoverCache.has(sourceImage)) {
-      localImage = await downloadWechatCover(sourceImage);
+      const cropToHead = article.coverNeedsCrop === true || (article.kind === 'image' && article.trustedCover !== true);
+      localImage = await downloadWechatCover(sourceImage, cropToHead);
       localCoverCache.set(sourceImage, localImage);
     }
 
     if (localImage) {
+      const size = await readLocalCoverSize(localImage);
+      if (!isWechatHeadCoverRatio(size)) {
+        failed += 1;
+        console.warn(
+          `[personal-fulltext] rejected non-2.35:1 cover ${articleUrl} size=${size ? `${size.width}x${size.height}` : 'unknown'}`,
+        );
+        out.push({ ...article, img: undefined, trustedCover: undefined });
+        continue;
+      }
+
       if (headCover) {
         localized += 1;
       } else {
@@ -388,7 +653,7 @@ async function localizeWechatCoverImages(articles: PersonalArticle[]): Promise<P
       out.push({ ...article, img: localImage });
     } else {
       failed += 1;
-      out.push(article);
+      out.push({ ...article, img: undefined, trustedCover: undefined });
     }
   }
 
@@ -411,6 +676,30 @@ function albumArticleToPersonalArticle(article: WechatAlbumArticle, source: Wech
     c: inferCategory(title, source.defaultCategory),
     n: 0,
     img: normalizeAlbumImage(article.cover_img_1_1),
+  });
+}
+
+function publishedArticleToPersonalArticle(article: WechatPublishedArticle): PersonalArticle | null {
+  const title = safeText(article.title).trim();
+  const url = canonicalizeArticleUrl(article.url);
+  if (!title || !url) return null;
+
+  return normalizeArticle({
+    t: title,
+    d: formatShanghaiDate(article.createTime),
+    u: url,
+    c: inferCategory(title, 'AI教学思考'),
+    n: 0,
+    img: normalizeAlbumImage(article.cover),
+    kind: article.kind === 'image' ? 'image' : undefined,
+    mid: safeText(article.appmsgId),
+    idx: Number.isFinite(article.itemIdx) ? article.itemIdx : 1,
+    discoveryContent: article.kind === 'image'
+      ? normalizeText(article.digest || `图片文章，共${article.imageCount}张图片`)
+      : undefined,
+    trustedCover: article.coverIsHead || article.coverNeedsCrop,
+    coverNeedsCrop: article.coverNeedsCrop,
+    discoveryCover: normalizeAlbumImage(article.cover),
   });
 }
 
@@ -501,29 +790,101 @@ function compareArticleDates(a: PersonalArticle, b: PersonalArticle): number {
   return safeText(a.u).localeCompare(safeText(b.u));
 }
 
-async function mergeAlbumArticles(articles: PersonalArticle[]): Promise<PersonalArticle[]> {
+function mergeDiscoveredArticle(existing: PersonalArticle | undefined, discovered: PersonalArticle): PersonalArticle {
+  if (!existing) return discovered;
+
+  return normalizeArticle({
+    ...existing,
+    t: discovered.t || existing.t,
+    d: discovered.d || existing.d,
+    c: discovered.c || existing.c,
+    kind: discovered.kind || existing.kind,
+    mid: discovered.mid || existing.mid,
+    idx: discovered.idx || existing.idx,
+    discoveryContent: discovered.discoveryContent || existing.discoveryContent,
+    trustedCover: discovered.trustedCover || existing.trustedCover,
+    coverNeedsCrop: discovered.coverNeedsCrop || existing.coverNeedsCrop,
+    discoveryCover: discovered.discoveryCover || existing.discoveryCover,
+    // Keep an existing local cover. New rows retain the remote cover for localization.
+    img: isRemoteUrl(existing.img) ? (discovered.img || existing.img) : (existing.img || discovered.img),
+    u: existing.u || discovered.u,
+    n: existing.n,
+  });
+}
+
+async function mergeDiscoveredArticles(articles: PersonalArticle[]): Promise<PersonalArticle[]> {
   const map = new Map<string, PersonalArticle>();
+  const urlToKey = new Map<string, string>();
 
   for (const article of articles) {
-    if (article.u) map.set(article.u, article);
+    if (!article.u) continue;
+    const key = articleIdentity(article);
+    map.set(key, article);
+    urlToKey.set(canonicalizeArticleUrl(article.u), key);
   }
 
   let discovered = 0;
   let added = 0;
+  let updated = 0;
+  let fullDiscoverySucceeded = false;
+
+  try {
+    const history = await discoverWechatPublishHistory();
+    discovered += history.articles.length;
+
+    for (const raw of history.articles) {
+      const article = publishedArticleToPersonalArticle(raw);
+      if (!article) continue;
+      const identityKey = articleIdentity(article);
+      const existingKey = map.has(identityKey) ? identityKey : urlToKey.get(article.u);
+      const existing = existingKey ? map.get(existingKey) : undefined;
+      const merged = mergeDiscoveredArticle(existing, article);
+
+      if (existingKey && existingKey !== identityKey) map.delete(existingKey);
+      map.set(identityKey, merged);
+      urlToKey.set(merged.u, identityKey);
+      if (existing) updated += 1;
+      else added += 1;
+    }
+
+    console.log(
+      `[personal-fulltext] publish history records=${history.totalRecords} articles=${history.articles.length} added=${added} updated=${updated}`,
+    );
+    fullDiscoverySucceeded = true;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    if (process.env.WECHAT_ALLOW_ALBUM_FALLBACK !== '1') {
+      throw new Error(`wechat-full-discovery-unavailable: ${message}`);
+    }
+    console.warn(`[personal-fulltext] publish history unavailable (${message}); explicit album fallback enabled`);
+  }
 
   for (const source of wechatAlbumSources) {
-    const albumArticles = await fetchAlbumArticles(source);
+    let albumArticles: PersonalArticle[];
+    try {
+      albumArticles = await fetchAlbumArticles(source);
+    } catch (error) {
+      if (!fullDiscoverySucceeded) throw error;
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn(`[personal-fulltext] supplemental album ${source.label} unavailable: ${message}`);
+      continue;
+    }
     discovered += albumArticles.length;
 
     for (const article of albumArticles) {
-      if (!article.u || map.has(article.u)) continue;
-      map.set(article.u, article);
+      if (!article.u) continue;
+      const key = articleIdentity(article);
+      const existingKey = map.has(key) ? key : urlToKey.get(article.u);
+      const existing = existingKey ? map.get(existingKey) : undefined;
+      if (existing) continue;
+      map.set(key, article);
+      urlToKey.set(article.u, key);
       added += 1;
     }
   }
 
   const merged = [...map.values()].sort(compareArticleDates);
-  console.log(`[personal-fulltext] albums discovered=${discovered} added=${added} total=${merged.length}`);
+  console.log(`[personal-fulltext] discovery found=${discovered} added=${added} updated=${updated} total=${merged.length}`);
   return merged;
 }
 
@@ -574,7 +935,7 @@ async function readArticles(): Promise<PersonalArticle[]> {
     const parsed = JSON.parse(raw) as PersonalArticlesFile;
     if (Array.isArray(parsed.items) && parsed.items.length > 0) {
       articles = parsed.items.filter((item) => !!item?.u && !!item?.t).map(normalizeArticle);
-      return mergeAlbumArticles(articles);
+      return mergeDiscoveredArticles(articles);
     }
   } catch {
     // Fall back to embedded data below.
@@ -582,7 +943,7 @@ async function readArticles(): Promise<PersonalArticle[]> {
 
   const rawHtml = await readFile(personalIndexPath, 'utf8');
   articles = parseEmbeddedArticles(rawHtml);
-  return mergeAlbumArticles(articles);
+  return mergeDiscoveredArticles(articles);
 }
 
 async function loadExisting(): Promise<Map<string, SearchIndexItem>> {
@@ -621,6 +982,7 @@ function buildFallbackItem(article: PersonalArticle, reason?: string): SearchInd
   const fallbackContent = normalizeText(
     [
       safeText(article.t),
+      safeText(article.discoveryContent),
       article.c ? `分类：${article.c}` : '',
       article.d ? `发布日期：${article.d}` : '',
       article.n > 0 ? `编号：吴熳教学思考${article.n}` : '',
@@ -636,6 +998,9 @@ function buildFallbackItem(article: PersonalArticle, reason?: string): SearchInd
     date: safeText(article.d),
     number: Number.isFinite(article.n) ? article.n : 0,
     image: safeText(article.img) || undefined,
+    kind: article.kind,
+    mid: safeText(article.mid) || undefined,
+    idx: Number.isFinite(article.idx) ? article.idx : undefined,
     content: fallbackContent,
     fallback: true,
     source: 'fallback-meta',
@@ -651,6 +1016,26 @@ async function buildItem(
 ): Promise<{ item: SearchIndexItem; status: SearchStatus }> {
   const url = canonicalizeArticleUrl(article.u);
   const existing = existingMap.get(url);
+  const discoveryContent = normalizeText(safeText(article.discoveryContent));
+
+  if (article.kind === 'image' && discoveryContent) {
+    const item: SearchIndexItem = {
+      title: safeText(article.t),
+      url,
+      category: safeText(article.c),
+      date: safeText(article.d),
+      number: Number.isFinite(article.n) ? article.n : 0,
+      image: safeText(article.img) || undefined,
+      kind: 'image',
+      mid: safeText(article.mid) || undefined,
+      idx: Number.isFinite(article.idx) ? article.idx : undefined,
+      content: discoveryContent,
+      fallback: false,
+      source: 'wechat-fulltext',
+      cachedAt: existing?.content === discoveryContent ? existing.cachedAt : new Date().toISOString(),
+    };
+    return { item, status: existing?.content === discoveryContent ? 'cached' : 'fetched' };
+  }
 
   if (!force && existing && !existing.fallback && existing.content) {
     return {
@@ -662,6 +1047,9 @@ async function buildItem(
         date: safeText(article.d) || existing.date,
         number: Number.isFinite(article.n) ? article.n : existing.number,
         image: safeText(article.img) || existing.image,
+        kind: article.kind || existing.kind,
+        mid: safeText(article.mid) || existing.mid,
+        idx: Number.isFinite(article.idx) ? article.idx : existing.idx,
       },
       status: 'cached',
     };
@@ -684,6 +1072,9 @@ async function buildItem(
           date: safeText(article.d),
           number: Number.isFinite(article.n) ? article.n : 0,
           image: safeText(article.img) || undefined,
+          kind: article.kind,
+          mid: safeText(article.mid) || undefined,
+          idx: Number.isFinite(article.idx) ? article.idx : undefined,
           content,
           fallback: false,
           source: 'wechat-fulltext',
@@ -784,6 +1175,9 @@ async function writeOutput(searchIndex: SearchIndexFile) {
       c: item.category,
       n: item.number,
       img: item.image,
+      kind: item.kind,
+      mid: item.mid,
+      idx: item.idx,
     })),
   };
   const rawHtml = await readFile(personalIndexPath, 'utf8');
