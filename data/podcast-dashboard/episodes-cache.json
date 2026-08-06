@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-08-05T05:23:47.661Z",
+  "updatedAt": "2026-08-06T05:26:21.900Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "6a6da2ce1b5e24969ce72d7c",
+      "title": "44. 栗畅：从程序员到成都AI社群主理人，她用两小时做出300万播放的生日视频",
+      "pubDate": "Thu, 06 Aug 2026 00:00:00 GMT",
+      "duration": "00:58:02",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a6da2ce1b5e24969ce72d7c?utm_source=rss"
+    },
     {
       "id": "6a70bcb81b5e24969ce85f98",
       "title": "43. 小耳：她曾花6年捏泥巴办展，如今平均 6 天开源一个AI产品",
