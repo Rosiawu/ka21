@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-08-12T04:15:49.627Z",
+  "updatedAt": "2026-08-13T04:20:00.217Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "6a78b62e000a55a9bb055ca3",
+      "title": "46. 李光华：从AI翻译产品到Vibe Coding社区：翻译的昨天，就是Coding的明天",
+      "pubDate": "Thu, 13 Aug 2026 00:00:00 GMT",
+      "duration": "01:09:17",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a78b62e000a55a9bb055ca3?utm_source=rss"
+    },
     {
       "id": "6a78b010000a55a9bb055b56",
       "title": "45.丫丫：她辞掉十年教师工作，原想带1000个老师走近AI，一年后变成了2万",
