@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-08-31T08:36:07.695Z",
+  "updatedAt": "2026-09-01T07:45:12.901Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "6a957afaf03e74ee6b02c2d9",
+      "title": "51.黄啊码：从AIGC到Vibe Coding，他把每一次技术浪潮都变成了下一块积木",
+      "pubDate": "Tue, 01 Sep 2026 00:00:00 GMT",
+      "duration": "00:32:17",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a957afaf03e74ee6b02c2d9?utm_source=rss"
+    },
     {
       "id": "6a886f53ef65145dfcc35169",
       "title": "50.Terry Tang：从巴基斯坦工地到深圳跨境电商独立站，但他还是出来做了OPC",
