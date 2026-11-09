@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "build:cloudflare": "npm run prebuild && opennextjs-cloudflare build",
+    "build:cloudflare": "npm run prebuild && opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion",
     "dev": "next dev",
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
