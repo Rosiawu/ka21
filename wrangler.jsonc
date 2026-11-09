@@ -7,12 +7,8 @@
 		"nodejs_compat",
 		"global_fetch_strictly_public"
 	],
-	"routes": [
-		{
-			"pattern": "ka21.org/*",
-			"zone_name": "ka21.org"
-		}
-	],
+	"workers_dev": true,
+	"preview_urls": true,
 	"vars": {
 		"NEXT_PUBLIC_SITE_URL": "https://ka21.org",
 		"GITHUB_REPO": "Rosiawu/ka21",
