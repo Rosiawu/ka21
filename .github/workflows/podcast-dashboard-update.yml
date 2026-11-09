@@ -3,8 +3,9 @@ name: Update Podcast Dashboard Snapshot
 on:
   workflow_dispatch:
   schedule:
-    # Run daily after 10:00 Asia/Shanghai (10:10 CST / 02:10 UTC).
+    # Run twice daily in the cloud (10:10 and 22:10 Asia/Shanghai).
     - cron: '10 2 * * *'
+    - cron: '10 14 * * *'
 
 permissions:
   contents: write
@@ -17,6 +18,9 @@ jobs:
   capture:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      has_changes: ${{ steps.commit.outputs.has_changes }}
+      data_commit: ${{ steps.commit.outputs.data_commit }}
 
     steps:
       - name: Checkout
@@ -35,7 +39,38 @@ jobs:
 
       # ── 第一步：抓取播放量，写入本地 JSON ───────────────────────────────────
       - name: Capture podcast snapshot
-        run: npm run podcast:capture-snapshot
+        run: |
+          for attempt in 1 2 3; do
+            echo "Capture attempt ${attempt}/3"
+            if npm run podcast:capture-snapshot; then
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "::error::Podcast capture failed after 3 attempts."
+              exit 1
+            fi
+            sleep $((attempt * 15))
+          done
+
+      - name: Verify today's snapshot and preserved history
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const { execFileSync } = require('child_process');
+          const file = 'data/podcast-dashboard/snapshots.json';
+          const before = JSON.parse(execFileSync('git', ['show', `HEAD:${file}`], { encoding: 'utf8' }));
+          const after = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const today = new Intl.DateTimeFormat('en-CA', {
+            timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+          }).format(new Date());
+          const afterDates = new Set(after.map((item) => item.date));
+          const missing = [...new Set(before.map((item) => item.date))].filter((date) => !afterDates.has(date));
+          const duplicateDates = after.map((item) => item.date).filter((date, index, dates) => dates.indexOf(date) !== index);
+          if (!afterDates.has(today)) throw new Error(`Today's snapshot is missing: ${today}`);
+          if (missing.length) throw new Error(`Historical snapshots were removed: ${missing.join(', ')}`);
+          if (duplicateDates.length) throw new Error(`Duplicate snapshot dates: ${[...new Set(duplicateDates)].join(', ')}`);
+          console.log(`Verified ${after.length} unique snapshots through ${today}; no historical dates removed.`);
+          NODE
 
       - name: Report captured podcast episodes
         run: |
@@ -86,12 +121,34 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/podcast-dashboard/config.json data/podcast-dashboard/episodes-cache.json data/podcast-dashboard/snapshots.json
           git commit -m "chore: update podcast dashboard snapshot"
-          git push
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          echo "data_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
-      # ── 第四步：有新数据才同步 Worker 运行时密钥并重新部署 ────────────────────
+  deploy:
+    needs: capture
+    if: needs.capture.outputs.has_changes == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout updated data
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.capture.outputs.data_commit }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.17.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Deployment is intentionally separate: a Cloudflare failure must not hide a successful capture.
       - name: Prepare Worker runtime secrets
-        if: steps.commit.outputs.has_changes == 'true'
         id: runtime-secrets
         env:
           WORKER_GITHUB_TOKEN: ${{ secrets.WORKER_GITHUB_TOKEN }}
@@ -132,23 +189,21 @@ jobs:
           echo "count=$count" >> "$GITHUB_OUTPUT"
 
       - name: Sync Worker runtime secrets
-        if: steps.commit.outputs.has_changes == 'true' && steps.runtime-secrets.outputs.count != '0'
+        if: steps.runtime-secrets.outputs.count != '0'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npx wrangler secret bulk .cloudflare-runtime-secrets.json
 
       - name: Warn when Worker runtime secrets are missing
-        if: steps.commit.outputs.has_changes == 'true' && steps.runtime-secrets.outputs.count == '0'
+        if: steps.runtime-secrets.outputs.count == '0'
         run: |
           echo "::warning::No Worker runtime secrets were synced. Cloudflare write APIs will stay read-only until WORKER_GITHUB_TOKEN and the related admin/tutorial secrets are configured in GitHub Actions secrets."
 
       - name: Build for Cloudflare
-        if: steps.commit.outputs.has_changes == 'true'
-        run: npx opennextjs-cloudflare build
+        run: npm run build:cloudflare
 
       - name: Deploy to Cloudflare Workers
-        if: steps.commit.outputs.has_changes == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

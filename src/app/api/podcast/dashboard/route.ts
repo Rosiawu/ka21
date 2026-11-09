@@ -297,7 +297,7 @@ function sumObjectValues(object: Record<string, number> = {}) {
 
 function snapshotRank(snapshot: Snapshot) {
   const note = String(snapshot.note || '').trim();
-  if (note === '自动抓取') {
+  if (note.startsWith('自动抓取')) {
     return 3;
   }
   if (note) {
@@ -412,7 +412,6 @@ export async function POST(request: Request) {
       persisted: payload.persisted,
       snapshot: payload.snapshot,
       skipped: payload.skipped,
-      skipReason: payload.skipReason,
       results: payload.results,
     });
   } catch (error) {

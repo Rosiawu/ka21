@@ -269,8 +269,12 @@ function latestEpisodePlatformObservation(episodeId, platformId) {
   const snapshots = latestSnapshots().sorted;
   for (let index = snapshots.length - 1; index >= 0; index -= 1) {
     const snapshot = snapshots[index];
-    if (String(snapshot.note || "").includes("沿用上次有效数据")) {
-      continue;
+    const note = String(snapshot.note || "");
+    if (note.includes("沿用上次有效数据")) {
+      const fallbackList = note.match(/沿用上次有效数据：([^）]+)/)?.[1];
+      if (!fallbackList || fallbackList.split("、").includes(platformId)) {
+        continue;
+      }
     }
     const value = snapshot?.episodePlays?.[episodeId]?.[platformId];
     if (value !== null && value !== undefined) {

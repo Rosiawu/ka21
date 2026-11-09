@@ -26,6 +26,7 @@
     "analytics:serve": "python3 -m http.server 8787 --directory analytics-reports",
     "analytics:panel": "node scripts/open-analytics-panel.js",
     "podcast:capture-snapshot": "tsx scripts/podcast/capture-snapshot.ts",
+    "podcast:test-capture": "node --import tsx --test scripts/podcast/capture-snapshot.test.ts",
     "feishu:check-auth": "tsx scripts/feishu/check-auth.ts",
     "feishu:podcast:ensure-base": "tsx scripts/feishu/ensure-base.ts",
     "feishu:podcast:sync": "tsx scripts/feishu/sync-podcast.ts",

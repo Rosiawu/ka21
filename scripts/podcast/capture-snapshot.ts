@@ -28,7 +28,7 @@ type Episode = {
   link: string;
 };
 
-type Snapshot = {
+export type Snapshot = {
   id: string;
   date: string;
   note: string;
@@ -1126,7 +1126,7 @@ function sumObjectValues(object: Record<string, number> = {}) {
 
 function snapshotRank(snapshot: Snapshot) {
   const note = String(snapshot.note || '').trim();
-  if (note === '自动抓取') {
+  if (note.startsWith('自动抓取')) {
     return 3;
   }
   if (note) {
@@ -1162,33 +1162,82 @@ function compareSnapshots(left: Snapshot, right: Snapshot) {
   return String(left.createdAt || '').localeCompare(String(right.createdAt || ''));
 }
 
-function latestPriorSnapshot(snapshots: Snapshot[], date: string) {
-  return snapshots
+export function buildHistoricalBaseline(snapshots: Snapshot[], date: string) {
+  const priorSnapshots = snapshots
     .filter((item) => item.date < date && hasSnapshotData(item))
-    .sort((a, b) => a.date.localeCompare(b.date) || String(a.createdAt || '').localeCompare(String(b.createdAt || '')))
-    .at(-1) || null;
-}
-
-function stabilizeEpisodePlays(snapshot: Snapshot, previous: Snapshot | null) {
-  if (!previous) {
-    return [];
+    .sort((a, b) => b.date.localeCompare(a.date) || String(b.createdAt || '').localeCompare(String(a.createdAt || '')));
+  const latest = priorSnapshots[0];
+  if (!latest) {
+    return null;
   }
 
-  const filled: string[] = [];
-  for (const [episodeId, previousValues] of Object.entries(previous.episodePlays || {})) {
-    for (const [platformId, previousValue] of Object.entries(previousValues || {})) {
-      const normalizedPreviousValue = Number(previousValue || 0);
-      if (normalizedPreviousValue <= 0) {
+  const baseline: Snapshot = {
+    ...latest,
+    platformTotals: {},
+    episodePlays: {},
+  };
+
+  for (const item of priorSnapshots) {
+    for (const [platformId, value] of Object.entries(item.platformTotals || {})) {
+      baseline.platformTotals[platformId] ??= value;
+    }
+    for (const [episodeId, values] of Object.entries(item.episodePlays || {})) {
+      for (const [platformId, value] of Object.entries(values || {})) {
+        baseline.episodePlays[episodeId] ||= {};
+        baseline.episodePlays[episodeId][platformId] ??= value;
+      }
+    }
+  }
+
+  return baseline;
+}
+
+export function stabilizeSnapshotWithPrevious(snapshot: Snapshot, previous: Snapshot | null) {
+  if (!previous) {
+    return { fallbackPlatforms: [], stabilizedEntries: [] };
+  }
+
+  const fallbackPlatforms: string[] = [];
+  const stabilizedEntries: string[] = [];
+
+  for (const [platformId, previousValue] of Object.entries(previous.platformTotals || {})) {
+    const normalizedPreviousValue = Number(previousValue || 0);
+    if (normalizedPreviousValue <= 0) {
+      continue;
+    }
+
+    const currentValue = snapshot.platformTotals?.[platformId];
+    if (currentValue !== undefined && Number(currentValue || 0) >= normalizedPreviousValue) {
+      continue;
+    }
+
+    snapshot.platformTotals[platformId] = normalizedPreviousValue;
+    fallbackPlatforms.push(platformId);
+    stabilizedEntries.push(`${platformId}:${currentValue ?? 'missing'}->${normalizedPreviousValue}`);
+
+    for (const [episodeId, previousValues] of Object.entries(previous.episodePlays || {})) {
+      const previousEpisodeValue = previousValues?.[platformId];
+      if (previousEpisodeValue === undefined) {
         continue;
       }
 
-      const previousPlatformTotal = previous.platformTotals?.[platformId];
-      const currentPlatformTotal = snapshot.platformTotals?.[platformId];
-      if (
-        previousPlatformTotal === undefined ||
-        currentPlatformTotal === undefined ||
-        Number(currentPlatformTotal || 0) < Number(previousPlatformTotal || 0)
-      ) {
+      const currentEpisodeValue = snapshot.episodePlays?.[episodeId]?.[platformId];
+      snapshot.episodePlays[episodeId] ||= {};
+      snapshot.episodePlays[episodeId][platformId] = Math.max(
+        Number(currentEpisodeValue || 0),
+        Number(previousEpisodeValue || 0),
+      );
+    }
+  }
+
+  for (const [episodeId, previousValues] of Object.entries(previous.episodePlays || {})) {
+    for (const [platformId, previousValue] of Object.entries(previousValues || {})) {
+      if (fallbackPlatforms.includes(platformId)) {
+        continue;
+      }
+
+      const normalizedPreviousValue = Number(previousValue || 0);
+      if (normalizedPreviousValue <= 0) {
         continue;
       }
 
@@ -1199,11 +1248,11 @@ function stabilizeEpisodePlays(snapshot: Snapshot, previous: Snapshot | null) {
 
       snapshot.episodePlays[episodeId] ||= {};
       snapshot.episodePlays[episodeId][platformId] = normalizedPreviousValue;
-      filled.push(`${episodeId}.${platformId}:${currentValue ?? 'missing'}->${normalizedPreviousValue}`);
+      stabilizedEntries.push(`${episodeId}.${platformId}:${currentValue ?? 'missing'}->${normalizedPreviousValue}`);
     }
   }
 
-  return filled;
+  return { fallbackPlatforms, stabilizedEntries };
 }
 
 function describeSnapshotRegression(snapshot: Snapshot, previous: Snapshot | null) {
@@ -1252,6 +1301,24 @@ function hasSnapshotData(snapshot: Snapshot) {
   );
 }
 
+export function assertSnapshotHistoryPreserved(before: Snapshot[], after: Snapshot[], replacedDate: string) {
+  const afterDates = new Set(after.map((item) => item.date));
+  const missingDates = [...new Set(before.map((item) => item.date))]
+    .filter((date) => date !== replacedDate && !afterDates.has(date))
+    .sort();
+
+  if (missingDates.length > 0) {
+    throw new Error(`Snapshot history would lose ${missingDates.length} date(s): ${missingDates.join(', ')}`);
+  }
+
+  const duplicateDates = after
+    .map((item) => item.date)
+    .filter((date, index, dates) => dates.indexOf(date) !== index);
+  if (duplicateDates.length > 0) {
+    throw new Error(`Snapshot history contains duplicate date(s): ${[...new Set(duplicateDates)].join(', ')}`);
+  }
+}
+
 function chinaDateString() {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Asia/Shanghai',
@@ -1290,43 +1357,26 @@ export async function captureLiveDashboardData({
   );
 
   if (!hasSnapshotData(snapshot)) {
-    const sameDayWithData = snapshots.some((item) => item.date === snapshot.date && hasSnapshotData(item));
-    if (sameDayWithData) {
-      return {
-        dryRun,
-        skipped: true,
-        persisted: false,
-        config,
-        episodes,
-        snapshots,
-        snapshot: null,
-        results: counts.results,
-      };
-    }
     throw new Error('No public data captured. Snapshot not written.');
   }
 
-  const previousSnapshot = latestPriorSnapshot(snapshots, snapshot.date);
-  const stabilizedEntries = stabilizeEpisodePlays(snapshot, previousSnapshot);
+  const previousSnapshot = buildHistoricalBaseline(snapshots, snapshot.date);
+  const { fallbackPlatforms, stabilizedEntries } = stabilizeSnapshotWithPrevious(snapshot, previousSnapshot);
   if (stabilizedEntries.length > 0) {
     console.warn(
-      `[snapshot] Stabilized ${stabilizedEntries.length} episode platform values from previous snapshot: ${stabilizedEntries.slice(0, 8).join(', ')}`,
+      `[snapshot] Stabilized ${stabilizedEntries.length} values from previous snapshot: ${stabilizedEntries.slice(0, 8).join(', ')}`,
     );
+  }
+
+  if (fallbackPlatforms.length > 0) {
+    snapshot.note = `自动抓取（部分平台沿用上次有效数据：${fallbackPlatforms.join('、')}）`;
+  } else if (stabilizedEntries.length > 0) {
+    snapshot.note = `自动抓取（${stabilizedEntries.length} 个单集平台值沿用历史最大值）`;
   }
 
   const regressionReason = describeSnapshotRegression(snapshot, previousSnapshot);
   if (regressionReason) {
-    return {
-      dryRun,
-      skipped: true,
-      skipReason: regressionReason,
-      persisted: false,
-      config,
-      episodes,
-      snapshots,
-      snapshot: null,
-      results: counts.results,
-    };
+    throw new Error(`Snapshot stabilization failed: ${regressionReason}`);
   }
 
   const sameDay = snapshots.filter((item) => item.date === snapshot.date);
@@ -1339,6 +1389,7 @@ export async function captureLiveDashboardData({
   const mergedSnapshots = snapshots.filter((item) => item.date !== snapshot.date);
   mergedSnapshots.push(winner);
   mergedSnapshots.sort((a, b) => a.date.localeCompare(b.date) || a.createdAt.localeCompare(b.createdAt));
+  assertSnapshotHistoryPreserved(snapshots, mergedSnapshots, snapshot.date);
 
   let persisted = false;
   if (!dryRun && persist) {
@@ -1356,6 +1407,7 @@ export async function captureLiveDashboardData({
   return {
     dryRun,
     skipped: false,
+    fallbackPlatforms,
     persisted,
     config,
     episodes,
@@ -1368,20 +1420,6 @@ export async function captureLiveDashboardData({
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
   const payload = await captureLiveDashboardData({ dryRun, persist: true });
-
-  if (payload.skipped) {
-    console.log(
-      JSON.stringify(
-        {
-          skipped: true,
-          reason: payload.skipReason || 'no_new_data_keep_existing_snapshot',
-        },
-        null,
-        2,
-      ),
-    );
-    return;
-  }
 
   console.log(
     JSON.stringify(
