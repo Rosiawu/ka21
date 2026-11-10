@@ -58,7 +58,10 @@ jobs:
           const fs = require('fs');
           const { execFileSync } = require('child_process');
           const file = 'data/podcast-dashboard/snapshots.json';
-          const before = JSON.parse(execFileSync('git', ['show', `HEAD:${file}`], { encoding: 'utf8' }));
+          const before = JSON.parse(execFileSync('git', ['show', `HEAD:${file}`], {
+            encoding: 'utf8',
+            maxBuffer: 20 * 1024 * 1024,
+          }));
           const after = JSON.parse(fs.readFileSync(file, 'utf8'));
           const today = new Intl.DateTimeFormat('en-CA', {
             timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
