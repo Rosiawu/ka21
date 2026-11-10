@@ -1,6 +1,44 @@
 {
   "entries": [
     {
+      "id": "devlog-cloudflare-podcast-recovery-2026-11-10",
+      "version": "共创 18",
+      "date": "2026-11-10",
+      "timelineTitle": {
+        "zh": "牛马库正式搬到 Cloudflare，公众号和播客数据链路也补齐了",
+        "en": "KA21 has moved to Cloudflare, with article and podcast pipelines repaired"
+      },
+      "cardTitle": {
+        "zh": "牛马库正式搬到 Cloudflare，公众号和播客数据链路也补齐了",
+        "en": "KA21 has moved to Cloudflare, with article and podcast pipelines repaired"
+      },
+      "body": {
+        "zh": "今天这条不是一个小功能上线，而是把牛马库背后几条一直让我不放心的链路，终于一起收拾干净了。\n\n第一件事，是牛马库正式从 Vercel 搬到了 Cloudflare。\n之前 Vercel 的额度已经满了，还一直发邮件提醒。我不想让网站继续依赖一个随时可能因为额度停下来的平台，所以这次把域名、页面、接口和自动部署全部切到了 Cloudflare。现在正式网站已经由 Cloudflare 提供服务，Vercel 不再跟着每次更新自动部署，旧版本只暂时留作紧急回滚。\n\n第二件事，是把 5 月 25 日以后没有正常出现在个人站里的公众号文章重新核对了一遍。\n问题并不是文章没有抓到，而是以前的自动化只把结果写在临时工作区里，没有真正提交和发布到线上。现在个人站共有 457 篇文章，5 月 25 日以后新增的 13 篇都已经上线，搜索索引和文章数完全一致，封面也全部存到了自己的网站里，不再依赖微信图片热链。\n\n第三件事，是把《灯下白》播客那段断断续续的数据重新查清楚。\n旧脚本有个很隐蔽的问题：只要某个平台当天抓取失败，或者返回的数字比昨天小，整天的快照就会被跳过；更麻烦的是，脚本最后还会显示执行成功，所以表面上自动任务每天都在跑，实际上很多天根本没有留下数据。除此之外，4 月 18 日到 24 日的 7 个真实快照还曾经被一次带着旧数据文件的提交误删。\n\n这次已经从历史记录里把那 7 天真实数据完整找回。现在看板有 225 个唯一日期快照、58 期节目，最新数据是 11 月 10 日。还有 28 个历史日期没有任何可信来源可以还原，我没有为了让曲线好看而编造数字。\n\n以后这条链路也不再依赖我的电脑开不开机。GitHub 会在每天北京时间 10:10 和 22:10 自动抓取，失败会重试；单个平台暂时出问题时，会保留其他平台的新数据和上一份可信数据，不再让整天快照一起消失。抓取成功后会自动提交，再由 Cloudflare 发布到正式网站。\n\n最后顺手把网站速度也做了一轮减重。首页压缩传输从大约 193 KB 降到了 28 KB，播客接口从大约 762 KB 降到了 50 KB。0.01 毫秒这种速度在公网里不可能实现，但现在页面少绕了很多远程请求，静态内容和播客数据也能直接从 Cloudflare 缓存里拿。\n\n这次真正完成的，不只是“换了一个免费部署平台”。而是公众号文章、播客快照、搜索索引、自动抓取和网站发布，终于都变成了不依赖某一台电脑、可以自己持续运转的一条完整链路。\n\n记录人：吴熳（Codex 协助排查与发布）",
+        "en": "This update closes several infrastructure and data gaps behind KA21.\n\nThe production site has moved from Vercel to Cloudflare. Domain traffic, pages, APIs, and automatic deployments now run on Cloudflare, while Vercel automatic deployments have been disabled. Old Vercel deployments are retained only as an emergency rollback.\n\nThe personal-site article pipeline was also audited. It now contains 457 articles, including all 13 articles published after May 25. The article list and search index match, and cover images are stored locally instead of relying on WeChat image hotlinks.\n\nFor the 灯下白 podcast dashboard, the old capture script could silently skip an entire day whenever one platform failed or returned a lower count, while still reporting success. Seven genuine snapshots from April 18–24 had also been removed by a stale data commit. Those seven snapshots have now been recovered from repository history. The dashboard currently contains 225 unique daily snapshots and 58 episodes, with the latest data dated November 10. Another 28 historical dates have no trustworthy source and were deliberately left blank rather than fabricated.\n\nThe capture workflow now runs in GitHub at 10:10 and 22:10 Beijing time every day, retries failures, preserves trustworthy historical values, and deploys successful updates through Cloudflare without requiring a local computer to stay on.\n\nPerformance was improved as well: the compressed homepage response dropped from about 193 KB to 28 KB, and the podcast API from about 762 KB to 50 KB. A 0.01 ms public-network load time is physically impossible, but the site now avoids unnecessary remote requests and makes better use of Cloudflare caching.\n\nThis was more than a hosting change: the article sync, podcast snapshots, search index, scheduled capture, and production deployment now form one cloud-based pipeline that can keep running on its own."
+      },
+      "imageSlotLabel": {
+        "zh": "纯文字记录：Cloudflare 迁移与数据链路修复",
+        "en": "Text-only devlog: Cloudflare migration and data pipeline recovery"
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "查看灯下白播客数据看板",
+            "en": "Open the podcast data dashboard"
+          },
+          "href": "https://ka21.org/podcast-dashboard/"
+        },
+        {
+          "label": {
+            "zh": "查看吴熳个人站文章",
+            "en": "Open Rosia's personal-site articles"
+          },
+          "href": "https://ka21.org/personal-site/"
+        }
+      ],
+      "images": []
+    },
+    {
       "id": "devlog-xposter-markdown-x-2026-05-23",
       "version": "共创 17",
       "date": "2026-05-23",
