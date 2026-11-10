@@ -3,18 +3,18 @@
 import { usePathname } from 'next/navigation';
 import LayoutContainers from '@/components/LayoutContainers';
 
-function isImmersiveAboutPath(pathname: string | null): boolean {
+function isImmersivePath(pathname: string | null): boolean {
   if (!pathname) {
     return false;
   }
 
-  return /^\/(zh|en)\/about\/?$/.test(pathname);
+  return /^\/(zh|en)\/(?:about|fde(?:\/.*)?)\/?$/.test(pathname);
 }
 
 export default function LocaleShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
-  if (isImmersiveAboutPath(pathname)) {
+  if (isImmersivePath(pathname)) {
     return <>{children}</>;
   }
 

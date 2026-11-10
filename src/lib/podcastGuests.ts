@@ -155,8 +155,8 @@ export function getLabel(labels: TaxonomyLabels, code: string, locale: GuestDire
 
 export function getDirectoryStats() {
   return {
-    episodeCount: guestProfiles.length,
-    guestCount: guestProfiles.reduce((sum, profile) => sum + profile.names.length, 0),
+    episodeCount: episodes.length,
+    guestCount: new Set(guestProfiles.flatMap((profile) => profile.names)).size,
     industryCount: new Set(guestProfiles.flatMap((profile) => profile.industries)).size,
     capabilityCount: new Set(guestProfiles.flatMap((profile) => profile.capabilities)).size,
   };

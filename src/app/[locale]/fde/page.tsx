@@ -7,7 +7,6 @@ import {
   getLabel,
   guestProfiles,
   industryLabels,
-  podcastDirectorySource,
   roleLabels,
   type GuestDirectoryLocale,
 } from '@/lib/podcastGuests';
@@ -19,18 +18,16 @@ type PageParams = Promise<{ locale: string }>;
 const copy = {
   zh: {
     title: '灯下白 FDE 人才图谱｜企业 AI 交付专家与跨行业实践者',
-    description: '从《灯下白》58 期真实深度访谈中，按行业、能力和交付方式寻找企业 AI、数据治理、AIGC、教育、出海与增长方向的实践者。',
+    description: '从《灯下白》59 期真实深度访谈中，按行业、能力和交付方式寻找企业 AI、数据治理、AIGC、教育、出海与增长方向的实践者。',
     eyebrow: 'Dengxiabai · FDE Network',
     heroTitle: '找到真正做过事的\nAI 交付者',
-    heroDescription: '58 期真实深度访谈，不只展示履历，也展示他们如何定义问题、进入业务并做出结果。告诉我你的需求，我来帮你匹配合适的 FDE 与交付组合。',
+    heroDescription: '59 期真实深度访谈，不只展示履历，也展示他们如何定义问题、进入业务并做出结果。告诉我你的需求，我来帮你匹配合适的 FDE 与交付组合。',
     primaryCta: '浏览人才图谱',
     contactCta: '联系吴熳',
-    contactNote: '合作范围、档期与方案由主理人统一确认；页面不公开报价。',
     episodeStat: '期真实访谈',
     guestStat: '位嘉宾',
     industryStat: '个行业方向',
     capabilityStat: '类核心能力',
-    sourceNote: '资料来自《灯下白》公开节目与嘉宾访谈，最近同步',
     searchPlaceholder: '搜索姓名、行业、能力或业务问题',
     industryLabel: '行业',
     capabilityLabel: '能力',
@@ -55,18 +52,16 @@ const copy = {
   },
   en: {
     title: 'Dengxiabai FDE Network | Enterprise AI Delivery Practitioners',
-    description: 'Discover enterprise AI, data, AIGC, education, international growth and product practitioners through 58 in-depth Dengxiabai interviews.',
+    description: 'Discover enterprise AI, data, AIGC, education, international growth and product practitioners through 59 in-depth Dengxiabai interviews.',
     eyebrow: 'Dengxiabai · FDE Network',
     heroTitle: 'Meet AI practitioners\nwho have shipped real work',
-    heroDescription: 'Fifty-eight in-depth interviews reveal more than résumés: how practitioners frame problems, enter real operations and deliver outcomes. Share your goal and we will help assemble the right FDE team.',
+    heroDescription: 'Fifty-nine in-depth interviews reveal more than résumés: how practitioners frame problems, enter real operations and deliver outcomes. Share your goal and we will help assemble the right FDE team.',
     primaryCta: 'Explore the network',
     contactCta: 'Contact Wu Man',
-    contactNote: 'Scope, availability and proposals are confirmed by the curator. Pricing is not published here.',
     episodeStat: 'interviews',
     guestStat: 'guests',
     industryStat: 'industry areas',
     capabilityStat: 'core capabilities',
-    sourceNote: 'Profiles are based on public Dengxiabai episodes and guest interviews. Last synced',
     searchPlaceholder: 'Search names, industries, capabilities or problems',
     industryLabel: 'Industry',
     capabilityLabel: 'Capability',
@@ -244,13 +239,16 @@ export default async function FdePage({ params }: { params: PageParams }) {
         <div className="relative mx-auto grid max-w-[1480px] gap-10 px-4 py-16 sm:px-6 sm:py-24 xl:grid-cols-[1.35fr_.65fr] xl:items-end">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#a54f4f] dark:text-[#f0a0a0]">{text.eyebrow}</p>
-            <h1 className="mt-5 whitespace-pre-line text-[clamp(3rem,7.2vw,7.5rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-stone-950 dark:text-white">{text.heroTitle}</h1>
+            <h1 className="mt-5 text-[clamp(2.65rem,7.2vw,7.5rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-stone-950 dark:text-white">
+              {text.heroTitle.split('\n').map((line) => (
+                <span key={line} className="block whitespace-nowrap">{line}</span>
+              ))}
+            </h1>
             <p className="mt-7 max-w-3xl text-base leading-8 text-stone-700 dark:text-stone-300 sm:text-lg">{text.heroDescription}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href="#directory" className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-stone-950 px-6 text-sm font-semibold text-white transition hover:bg-[#b65757] dark:bg-stone-100 dark:text-stone-950 dark:hover:bg-[#f0a0a0]">{text.primaryCta}</a>
               <a href="tel:+8613911349663" className="inline-flex min-h-12 items-center justify-center rounded-2xl border border-stone-400/60 bg-white/50 px-6 text-sm font-semibold text-stone-900 backdrop-blur transition hover:border-[#b65757] hover:text-[#a54f4f] dark:border-stone-600 dark:bg-stone-900/40 dark:text-white">{text.contactCta} · 139 1134 9663</a>
             </div>
-            <p className="mt-4 text-xs leading-5 text-stone-500 dark:text-stone-400">{text.contactNote}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[2rem] border border-stone-300/60 bg-stone-300/60 shadow-2xl shadow-stone-900/10 dark:border-stone-700 dark:bg-stone-700">
@@ -266,9 +264,6 @@ export default async function FdePage({ params }: { params: PageParams }) {
               </div>
             ))}
           </div>
-        </div>
-        <div className="relative mx-auto max-w-[1480px] px-4 pb-5 text-xs text-stone-500 sm:px-6 dark:text-stone-400">
-          {text.sourceNote} {new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : 'zh-CN', { dateStyle: 'medium' }).format(new Date(podcastDirectorySource.sourceUpdatedAt))}
         </div>
       </section>
 
