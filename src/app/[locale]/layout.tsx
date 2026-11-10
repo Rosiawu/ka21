@@ -1,7 +1,7 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import type {Metadata} from 'next';
-import {notFound} from 'next/navigation';
+import {redirect} from 'next/navigation';
 import LocaleTag from '@/components/LocaleTag';
 import LocaleShell from '@/components/LocaleShell';
 import {generateHreflangMetadata} from '@/lib/hreflang';
@@ -11,7 +11,7 @@ type LocaleParams = Promise<{locale: string}>;
 
 function requireLocale(locale: string): AppLocale {
   if (!isSupportedLocale(locale)) {
-    notFound();
+    redirect('/zh');
   }
   return locale;
 }
@@ -19,8 +19,6 @@ function requireLocale(locale: string): AppLocale {
 export function generateStaticParams() {
   return [{ locale: 'zh' }, { locale: 'en' }];
 }
-
-export const dynamicParams = false;
 
 // 生成多语言元数据（标题/描述/多语言链接）
 export async function generateMetadata({

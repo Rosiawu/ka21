@@ -1,15 +1,21 @@
 import {Suspense} from 'react';
 import {setRequestLocale} from 'next-intl/server';
+import {redirect} from 'next/navigation';
 import HomeContent from '@/components/HomeContent';
 import ChatWidget from '@/components/ChatWidget';
 import StructuredData from '@/components/StructuredData';
 import { sortedEvents } from '@/data/events';
 import { listBundledApprovedDeals } from '@/lib/deals/store';
+import {isSupportedLocale} from '@/i18n/config';
 
 type HomePageParams = Promise<{ locale: string }>;
 
 export default async function Home({ params }: { params: HomePageParams }) {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  if (!isSupportedLocale(rawLocale)) {
+    redirect('/zh');
+  }
+  const locale = rawLocale;
   setRequestLocale(locale);
   const isEn = locale === 'en';
   const initialEvents = sortedEvents;

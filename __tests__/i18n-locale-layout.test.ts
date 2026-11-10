@@ -7,7 +7,7 @@ describe('locale layout', () => {
     const content = fs.readFileSync(layoutPath, 'utf8');
     expect(content).toContain('NextIntlClientProvider');
     expect(content).toContain('type LocaleParams = Promise<{locale: string}>;');
-    expect(content).toContain('export const dynamicParams = false;');
+    expect(content).toContain("redirect('/zh')");
   });
 
   test('root layout stays static and LocaleTag updates html lang on localized pages', () => {
@@ -18,5 +18,14 @@ describe('locale layout', () => {
     expect(rootContent).toContain('<html lang="zh-CN"');
     expect(rootContent).not.toContain("from 'next/headers'");
     expect(localeTagContent).toContain("document.documentElement.setAttribute('lang', lang)");
+  });
+
+  test('home page validates locale before loading its message bundle', () => {
+    const pagePath = path.join(process.cwd(), 'src/app/[locale]/page.tsx');
+    const content = fs.readFileSync(pagePath, 'utf8');
+    const validationPosition = content.indexOf('isSupportedLocale(rawLocale)');
+    const messageImportPosition = content.indexOf('messages/${locale}.json');
+    expect(validationPosition).toBeGreaterThan(-1);
+    expect(messageImportPosition).toBeGreaterThan(validationPosition);
   });
 });
