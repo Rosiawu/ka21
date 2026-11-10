@@ -20,6 +20,7 @@ export async function generateMetadata(
       description: isEn
         ? 'Search tools and tutorials together with intent-aware recommendations.'
         : '统一搜索工具和教程，并提供意图推荐结果。',
+      robots: { index: false, follow: true },
       alternates: {
         canonical: hreflangConfig.canonical,
         languages: hreflangConfig.languages,

@@ -1,4 +1,5 @@
 import taxonomy from '@/data/podcast-guest-taxonomy.json';
+import { guestProfiles } from '@/lib/podcastGuests';
 
 export const dynamic = 'force-static';
 
@@ -13,8 +14,7 @@ export function GET() {
       name: '吴熳',
       telephone: '+86-139-1134-9663',
     },
-    pricing: 'Not published; contact the curator for scope and proposal.',
-    profiles: taxonomy.profiles.map((profile) => ({
+    profiles: guestProfiles.map((profile) => ({
       episodeNumber: profile.episodeNumber,
       names: profile.names,
       aliases: profile.aliases,

@@ -31,6 +31,7 @@ export async function generateMetadata(
     {
       title,
       description,
+      robots: { index: false, follow: true },
       alternates: {
         canonical: hreflangConfig.canonical,
         languages: hreflangConfig.languages
