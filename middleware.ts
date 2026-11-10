@@ -8,21 +8,14 @@ export function middleware(req: NextRequest) {
   const {pathname} = req.nextUrl;
   const pathnameLocale = getLocaleFromPathname(pathname);
 
-  // 放行：API、Next 静态资源与已含语言前缀的路径
-  // 排除 /_next/, /api, /favicon.ico 等
+  // API、静态资源和已带 /zh 或 /en 的页面由 matcher 直接绕过中间件。
   if (
     pathname.startsWith('/api') ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/favicon.ico') ||
     pathnameLocale
   ) {
-    if (!pathnameLocale) {
-      return NextResponse.next();
-    }
-
-    const requestHeaders = new Headers(req.headers);
-    requestHeaders.set('x-ka21-locale', pathnameLocale);
-    return NextResponse.next({request: {headers: requestHeaders}});
+    return NextResponse.next();
   }
 
   // 按优先级取语言：cookie.locale > 请求头 Accept-Language > defaultLocale
@@ -38,5 +31,5 @@ export function middleware(req: NextRequest) {
 
 // 匹配所有非 _next 资源的路径
 export const config = {
-  matcher: ['/((?!_next|api|favicon.ico).*)']
+  matcher: ['/((?!_next|api|favicon.ico|zh(?:/|$)|en(?:/|$)).*)']
 };

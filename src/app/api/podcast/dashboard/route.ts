@@ -98,8 +98,8 @@ const noStoreHeaders = {
   'Cache-Control': 'no-store, max-age=0, must-revalidate',
 };
 const publicReadHeaders = {
-  'Cache-Control': 'public, max-age=60, s-maxage=3600, stale-while-revalidate=86400',
-  'CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+  'Cache-Control': 'public, max-age=60, s-maxage=300, stale-while-revalidate=3600',
+  'CDN-Cache-Control': 'public, max-age=300, stale-while-revalidate=3600',
 };
 
 function jsonResponse(body: unknown, status = 200, headers = noStoreHeaders) {
@@ -274,11 +274,23 @@ function mergeSnapshotByDate(snapshots: Snapshot[], snapshot: Snapshot | null) {
   );
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const edgeCache = (globalThis.caches as CacheStorage & { default?: Cache } | undefined)?.default;
+  if (edgeCache) {
+    const cached = await edgeCache.match(request);
+    if (cached) {
+      return cached;
+    }
+  }
+
   try {
     const config = await loadConfig();
     const [episodes, snapshots] = await Promise.all([loadEpisodes(config), loadSnapshots()]);
-    return jsonResponse({ config, episodes, snapshots }, 200, publicReadHeaders);
+    const response = jsonResponse({ config, episodes, snapshots }, 200, publicReadHeaders);
+    if (edgeCache) {
+      await edgeCache.put(request, response.clone());
+    }
+    return response;
   } catch (error) {
     return jsonResponse(
       {
