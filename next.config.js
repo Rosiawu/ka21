@@ -98,6 +98,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'wx.qlogo.cn',
       },
+      {
+        protocol: 'https',
+        hostname: 'image.xyzcdn.net',
+      },
     ],
   },
   poweredByHeader: false,

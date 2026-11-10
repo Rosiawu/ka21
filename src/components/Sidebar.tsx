@@ -41,6 +41,11 @@ function buildMenuItems(
       href: '/podcast'
     },
     {
+      name: tCommon('menuFdeDirectory'),
+      icon: '/icons/nav/podcast.svg',
+      href: '/fde'
+    },
+    {
       name: tCommon('menuPodcastUpload'),
       icon: '/icons/categories/podcast-wave.svg',
       href: '/podcast-upload'

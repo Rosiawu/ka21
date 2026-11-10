@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import toolsData from '@/data/tools.json';
 import { tutorials } from '@/data/tutorials';
+import { guestProfiles } from '@/lib/podcastGuests';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ka21.org';
@@ -16,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/unified-search',
     '/tutorials',
     '/llm-articles',
+    '/fde',
     '/test-clarity'
   ];
 
@@ -57,6 +59,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const fdeProfilePages = locales.flatMap(locale =>
+    guestProfiles.map(profile => ({
+      url: `${baseUrl}/${locale}/fde/${profile.slug}`,
+      lastModified: new Date(profile.episode.publishedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    }))
+  );
+
   return [
     {
       url: baseUrl,
@@ -68,5 +79,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...toolPages,
     ...toolPagesEn,
     ...tutorialPages,
+    ...fdeProfilePages,
   ];
 }
