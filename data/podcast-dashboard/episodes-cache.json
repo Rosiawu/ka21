@@ -1,7 +1,14 @@
 {
-  "updatedAt": "2026-11-10T09:41:58.258Z",
+  "updatedAt": "2026-11-10T20:48:22.088Z",
   "source": "rss",
   "episodes": [
+    {
+      "id": "6af319065b7c4709bfe41c77",
+      "title": "59. 李术其：AI工具怎么薅羊毛？免费额度、Token和批量试错背后的生产力",
+      "pubDate": "Tue, 10 Nov 2026 13:19:32 GMT",
+      "duration": "00:44:50",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6af319065b7c4709bfe41c77?utm_source=rss"
+    },
     {
       "id": "6af16c18b4a4e20202f7025e",
       "title": "58. 李术其：不会代码，他用AI把招聘、销售、工伤信息都做成了业务看板自动系统",
