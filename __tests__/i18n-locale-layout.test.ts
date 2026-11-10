@@ -7,6 +7,7 @@ describe('locale layout', () => {
     const content = fs.readFileSync(layoutPath, 'utf8');
     expect(content).toContain('NextIntlClientProvider');
     expect(content).toContain('type LocaleParams = Promise<{locale: string}>;');
+    expect(content).toContain('export const dynamicParams = false;');
   });
 
   test('root layout stays static and LocaleTag updates html lang on localized pages', () => {

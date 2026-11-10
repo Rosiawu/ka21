@@ -20,6 +20,8 @@ export function generateStaticParams() {
   return [{ locale: 'zh' }, { locale: 'en' }];
 }
 
+export const dynamicParams = false;
+
 // 生成多语言元数据（标题/描述/多语言链接）
 export async function generateMetadata({
   params
