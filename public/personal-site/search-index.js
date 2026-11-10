@@ -1,5 +1,5 @@
 window.__PERSONAL_SEARCH_INDEX__ = {
-  "updatedAt": "2026-11-09T13:20:41.470Z",
+  "updatedAt": "2026-11-10T12:17:07.428Z",
   "total": 457,
   "items": [
     {
