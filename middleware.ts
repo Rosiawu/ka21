@@ -2,22 +2,9 @@
 // 作用：当访问未带语言前缀的路径时，根据 Cookie/Accept-Language 识别语言并重定向到对应的语言前缀路径
 
 import {NextRequest, NextResponse} from 'next/server';
-import {getLocaleFromPathname, resolvePreferredLocale} from './src/i18n/resolveLocale';
+import {resolvePreferredLocale} from './src/i18n/resolveLocale';
 
 export function middleware(req: NextRequest) {
-  const {pathname} = req.nextUrl;
-  const pathnameLocale = getLocaleFromPathname(pathname);
-
-  // API、静态资源和已带 /zh 或 /en 的页面由 matcher 直接绕过中间件。
-  if (
-    pathname.startsWith('/api') ||
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/favicon.ico') ||
-    pathnameLocale
-  ) {
-    return NextResponse.next();
-  }
-
   // 按优先级取语言：cookie.locale > 请求头 Accept-Language > defaultLocale
   const preferred = resolvePreferredLocale({
     cookieLocale: req.cookies.get('locale')?.value,
@@ -25,11 +12,11 @@ export function middleware(req: NextRequest) {
   });
 
   const url = req.nextUrl.clone();
-  url.pathname = `/${preferred}${pathname}`;
+  url.pathname = `/${preferred}`;
   return NextResponse.redirect(url);
 }
 
 // 匹配所有非 _next 资源的路径
 export const config = {
-  matcher: ['/((?!_next|api|favicon.ico|zh(?:/|$)|en(?:/|$)).*)']
+  matcher: ['/']
 };
