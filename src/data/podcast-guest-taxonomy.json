@@ -16,6 +16,19 @@
       "clientTypes": ["government-soe", "large-enterprise", "education-institution"]
     },
     {
+      "episodeNumber": 58,
+      "slug": "li-shuqi-58",
+      "names": ["李术其"],
+      "aliases": ["猫工头"],
+      "headline": {"zh": "企业级 AI、人力资源与业务自动化实践者", "en": "Enterprise AI, HR and workflow automation practitioner"},
+      "primaryIndustry": "human-resources",
+      "industries": ["human-resources", "enterprise-services"],
+      "roles": ["product", "consultant", "trainer"],
+      "capabilities": ["enterprise-ai", "ai-product", "agent-knowledge", "data-governance", "training-change"],
+      "deliverables": ["diagnosis-strategy", "prototype-poc", "system-workflow", "training-workshop"],
+      "clientTypes": ["government-soe", "large-enterprise", "education-institution"]
+    },
+    {
       "episodeNumber": 57,
       "slug": "xiangyang-qiaomu",
       "names": ["向阳乔木"],

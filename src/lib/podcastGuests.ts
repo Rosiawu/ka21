@@ -44,6 +44,7 @@ export type GuestProfile = GuestTaxonomyProfile & {
 type TaxonomyLabels = Record<string, Record<GuestDirectoryLocale, string>>;
 
 export const industryLabels: TaxonomyLabels = {
+  uncategorized: { zh: '待整理', en: 'To be classified' },
   'human-resources': { zh: '人力资源', en: 'Human Resources' },
   'enterprise-services': { zh: '企业服务', en: 'Enterprise Services' },
   education: { zh: '教育', en: 'Education' },
@@ -134,15 +135,57 @@ export const clientTypeLabels: TaxonomyLabels = {
 
 const episodes = episodeData.episodes as PodcastEpisode[];
 const taxonomyProfiles = taxonomyData.profiles as GuestTaxonomyProfile[];
-const episodeByNumber = new Map(episodes.map((episode) => [episode.episodeNumber, episode]));
+const taxonomyByEpisodeNumber = new Map(
+  taxonomyProfiles.map((profile) => [profile.episodeNumber, profile]),
+);
 
-export const guestProfiles: GuestProfile[] = taxonomyProfiles
-  .map((profile) => {
-    const episode = episodeByNumber.get(profile.episodeNumber);
-    if (!episode) return null;
-    return { ...profile, episode };
-  })
-  .filter((profile): profile is GuestProfile => Boolean(profile))
+function normalizeGuestName(value: string) {
+  return value.toLocaleLowerCase().replace(/[\s·・,，、&＆/／()（）\[\]【】]/g, '');
+}
+
+function findReusableTaxonomy(episode: PodcastEpisode) {
+  const guestName = normalizeGuestName(episode.guestLabel);
+  return taxonomyProfiles.find((profile) =>
+    [...profile.names, ...profile.aliases].some((name) => {
+      const normalizedName = normalizeGuestName(name);
+      return normalizedName === guestName || guestName.includes(normalizedName) || normalizedName.includes(guestName);
+    }),
+  );
+}
+
+function createFallbackTaxonomy(episode: PodcastEpisode): GuestTaxonomyProfile {
+  const reusable = findReusableTaxonomy(episode);
+  if (reusable) {
+    return {
+      ...reusable,
+      episodeNumber: episode.episodeNumber,
+      slug: `${reusable.slug.replace(/-ep-\d+$/, '')}-ep-${episode.episodeNumber}`,
+    };
+  }
+
+  return {
+    episodeNumber: episode.episodeNumber,
+    slug: `episode-${episode.episodeNumber}`,
+    names: [episode.guestLabel],
+    aliases: [],
+    headline: {
+      zh: `《灯下白》第 ${episode.episodeNumber} 期嘉宾`,
+      en: `Guest of Dengxiabai episode ${episode.episodeNumber}`,
+    },
+    primaryIndustry: 'uncategorized',
+    industries: ['uncategorized'],
+    roles: [],
+    capabilities: [],
+    deliverables: [],
+    clientTypes: [],
+  };
+}
+
+export const guestProfiles: GuestProfile[] = episodes
+  .map((episode) => ({
+    ...(taxonomyByEpisodeNumber.get(episode.episodeNumber) || createFallbackTaxonomy(episode)),
+    episode,
+  }))
   .sort((left, right) => right.episodeNumber - left.episodeNumber);
 
 export function getGuestProfile(slug: string) {
