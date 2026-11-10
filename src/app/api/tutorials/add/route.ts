@@ -291,7 +291,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       data: newTutorial,
-      message: useGitHub ? '已提交到 GitHub，请等待 Vercel 自动构建（约 1-2 分钟）' : '已保存到本地文件'
+      message: useGitHub ? '已提交到 GitHub，请等待 Cloudflare 自动构建（约 1-3 分钟）' : '已保存到本地文件'
     });
   } catch (error) {
     return NextResponse.json(

@@ -1,4 +1,4 @@
-import Link from '@/i18n/Link'
+import Link from 'next/link'
 
 export default function NotFound() {
   return (
@@ -10,7 +10,7 @@ export default function NotFound() {
           抱歉，您要访问的页面不存在。可能是链接已失效或输入的地址有误。
         </p>
         <Link 
-          href="/" 
+          href="/zh"
           className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors duration-300"
         >
           返回首页

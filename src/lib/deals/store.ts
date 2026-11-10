@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import bundledDeals from '@/data/deals.json';
 import { fetchJsonFileFromGitHub, updateGitHubJsonFile } from '@/lib/github';
 import { createId, getDayKey, getVisitorEventKey, nowIso, sanitizeImagePayload } from './helpers';
 import { extractDealInfo } from './extract';
@@ -65,6 +66,14 @@ function buildDealViewModel(data: DealsDataFile, deal: DealRecord): DealViewMode
 export async function listApprovedDeals() {
   const { data } = await readStore();
   return data.deals.filter((item) => item.moderationDecision === 'approved').map((item) => buildDealViewModel(data, item)).filter(Boolean) as DealViewModel[];
+}
+
+export function listBundledApprovedDeals() {
+  const data = bundledDeals as DealsDataFile;
+  return data.deals
+    .filter((item) => item.moderationDecision === 'approved')
+    .map((item) => buildDealViewModel(data, item))
+    .filter(Boolean) as DealViewModel[];
 }
 
 export async function getDealById(dealId: string) {

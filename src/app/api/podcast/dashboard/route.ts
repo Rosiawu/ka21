@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import * as cheerio from 'cheerio';
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
+import bundledConfig from '../../../../../data/podcast-dashboard/config.json';
+import bundledEpisodesCache from '../../../../../data/podcast-dashboard/episodes-cache.json';
+import bundledSnapshots from '../../../../../data/podcast-dashboard/snapshots.json';
 import { captureLiveDashboardData } from '../../../../../scripts/podcast/capture-snapshot';
 import { requireAdminAccess } from '@/lib/security/admin';
 import { beginConcurrencyLease, enforceRateLimit } from '@/lib/security/rate-limit';
@@ -92,39 +93,20 @@ type NextFetchInit = RequestInit & {
   };
 };
 
-const podcastDataDir = path.join(process.cwd(), 'data', 'podcast-dashboard');
-const trackerConfigPath = path.join(podcastDataDir, 'config.json');
-const trackerSnapshotsPath = path.join(podcastDataDir, 'snapshots.json');
-const trackerEpisodesCachePath = path.join(podcastDataDir, 'episodes-cache.json');
 const dashboardRefreshHeader = 'x-ka21-dashboard-refresh';
 const noStoreHeaders = {
   'Cache-Control': 'no-store, max-age=0, must-revalidate',
 };
+const publicReadHeaders = {
+  'Cache-Control': 'public, max-age=60, s-maxage=3600, stale-while-revalidate=86400',
+  'CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+};
 
-function jsonResponse(body: unknown, status = 200) {
+function jsonResponse(body: unknown, status = 200, headers = noStoreHeaders) {
   return NextResponse.json(body, {
     status,
-    headers: noStoreHeaders,
+    headers,
   });
-}
-
-async function fetchRepoJson<T>(relativePath: string): Promise<T> {
-  const repo = process.env.GITHUB_REPO || 'Rosiawu/ka21';
-  const branch = process.env.GITHUB_BRANCH || 'main';
-  const url = `https://raw.githubusercontent.com/${repo}/${branch}/${relativePath}`;
-  const response = await fetch(url, {
-    cache: 'no-store',
-    headers: {
-      'user-agent': 'ka21-podcast-dashboard/1.0',
-      accept: 'application/json, text/plain;q=0.9, */*;q=0.8',
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch ${relativePath} from GitHub: ${response.status}`);
-  }
-
-  return (await response.json()) as T;
 }
 
 function isTrustedDashboardRefreshRequest(request: Request) {
@@ -171,77 +153,25 @@ function requireDashboardRefreshAccess(request: Request) {
 }
 
 async function loadConfig(): Promise<PodcastConfig> {
-  try {
-    const parsed = await fetchRepoJson<PodcastConfig>('data/podcast-dashboard/config.json');
-    if (parsed && Array.isArray(parsed.platforms)) {
-      return parsed;
-    }
-  } catch {
-    // Fall back to the bundled file if GitHub raw data is temporarily unavailable.
-  }
-
-  try {
-    const raw = await readFile(trackerConfigPath, 'utf8');
-    const parsed = JSON.parse(raw);
-    if (!parsed || !Array.isArray(parsed.platforms)) {
-      return defaultConfig;
-    }
-    return parsed;
-  } catch {
-    return defaultConfig;
-  }
+  const parsed = bundledConfig as PodcastConfig;
+  return Array.isArray(parsed.platforms) ? parsed : defaultConfig;
 }
 
 async function loadSnapshots(): Promise<Snapshot[]> {
-  try {
-    const parsed = await fetchRepoJson<Snapshot[]>('data/podcast-dashboard/snapshots.json');
-    if (Array.isArray(parsed)) {
-      return parsed;
-    }
-  } catch {
-    // Fall back to the bundled file if GitHub raw data is temporarily unavailable.
-  }
-
-  try {
-    const raw = await readFile(trackerSnapshotsPath, 'utf8');
-    const parsed = JSON.parse(raw);
-
-    if (!Array.isArray(parsed)) {
-      return [];
-    }
-
-    return parsed;
-  } catch {
-    return [];
-  }
+  return Array.isArray(bundledSnapshots) ? bundledSnapshots as Snapshot[] : [];
 }
 
 async function loadEpisodesCache() {
-  try {
-    const parsed = await fetchRepoJson<{ episodes?: Array<{ id: string; title: string; pubDate: string; duration: string; link: string }> }>(
-      'data/podcast-dashboard/episodes-cache.json',
-    );
-    if (Array.isArray(parsed.episodes) && parsed.episodes.length > 0) {
-      return parsed.episodes;
-    }
-  } catch {
-    // Fall back to the bundled cache if GitHub raw data is temporarily unavailable.
-  }
-
-  try {
-    const raw = await readFile(trackerEpisodesCachePath, 'utf8');
-    const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed.episodes) && parsed.episodes.length > 0) {
-      return parsed.episodes;
-    }
-  } catch {
-    // The caller will surface the RSS error if no cache exists.
-  }
-
-  return null;
+  const parsed = bundledEpisodesCache as { episodes?: Array<{ id: string; title: string; pubDate: string; duration: string; link: string }> };
+  return Array.isArray(parsed.episodes) && parsed.episodes.length > 0 ? parsed.episodes : null;
 }
 
 async function loadEpisodes(config: PodcastConfig) {
+  const cachedEpisodes = await loadEpisodesCache();
+  if (cachedEpisodes) {
+    return cachedEpisodes;
+  }
+
   let rssError: unknown = null;
 
   try {
@@ -281,11 +211,6 @@ async function loadEpisodes(config: PodcastConfig) {
     rssError = new Error('RSS feed returned no episodes');
   } catch (error) {
     rssError = error;
-  }
-
-  const cachedEpisodes = await loadEpisodesCache();
-  if (cachedEpisodes) {
-    return cachedEpisodes;
   }
 
   throw rssError instanceof Error ? rssError : new Error('Failed to load podcast episodes');
@@ -353,7 +278,7 @@ export async function GET() {
   try {
     const config = await loadConfig();
     const [episodes, snapshots] = await Promise.all([loadEpisodes(config), loadSnapshots()]);
-    return jsonResponse({ config, episodes, snapshots });
+    return jsonResponse({ config, episodes, snapshots }, 200, publicReadHeaders);
   } catch (error) {
     return jsonResponse(
       {

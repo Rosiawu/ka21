@@ -3,8 +3,8 @@ import {setRequestLocale} from 'next-intl/server';
 import HomeContent from '@/components/HomeContent';
 import ChatWidget from '@/components/ChatWidget';
 import StructuredData from '@/components/StructuredData';
-import { getSortedEvents } from '@/data/events';
-import { listApprovedDeals } from '@/lib/deals/store';
+import { sortedEvents } from '@/data/events';
+import { listBundledApprovedDeals } from '@/lib/deals/store';
 
 type HomePageParams = Promise<{ locale: string }>;
 
@@ -12,10 +12,8 @@ export default async function Home({ params }: { params: HomePageParams }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const isEn = locale === 'en';
-  const [initialEvents, approvedDeals] = await Promise.all([
-    getSortedEvents(),
-    listApprovedDeals().catch(() => []),
-  ]);
+  const initialEvents = sortedEvents;
+  const approvedDeals = listBundledApprovedDeals();
   // 直接按路径参数加载对应语言消息，避免受 request 级 locale 影响
   type Messages = typeof import('../../../messages/en.json');
   const messages = (await import(`../../../messages/${locale}.json`)).default as Messages;

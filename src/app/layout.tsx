@@ -1,13 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
-import { headers } from 'next/headers';
 import ErrorBoundary from "@/components/ErrorBoundary";
 import ThemeProvider from '@/components/ThemeProvider';
 import UmamiAnalytics from '@/components/UmamiAnalytics';
 import ClarityAnalytics from '@/components/ClarityAnalytics';
-import { toHtmlLang } from '@/i18n/resolveLocale';
 import { createDefaultIcons, createMetadataBase } from '@/lib/siteMetadata';
 
 export const metadata: Metadata = {
@@ -20,20 +17,14 @@ export const metadata: Metadata = {
   icons: createDefaultIcons(),
 };
 
-async function getRootLocaleLang() {
-  return toHtmlLang((await headers()).get('x-ka21-locale'));
-}
-
 // 根布局：仅承载全局样式/脚本/主题/错误边界等“与语言无关”的外层壳
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const lang = await getRootLocaleLang();
-
   return (
-    <html lang={lang} className="scroll-smooth" suppressHydrationWarning>
+    <html lang="zh-CN" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* 添加 Font Awesome（全局样式依赖） */}
         <link
@@ -79,8 +70,6 @@ export default async function RootLayout({
             {children}
           </ErrorBoundary>
         </ThemeProvider>
-        <Analytics />
-
         {/* 页面行为相关脚本已迁移至客户端布局容器组件 */}
       </body>
     </html>
