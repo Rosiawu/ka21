@@ -44,9 +44,6 @@ type DirectoryCopy = {
   allIndustries: string;
   allCapabilities: string;
   allDeliverables: string;
-  sortLabel: string;
-  newest: string;
-  nameSort: string;
   results: string;
   people: string;
   clear: string;
@@ -72,6 +69,19 @@ function formatDate(value: string, locale: string) {
   }).format(new Date(value));
 }
 
+const scenarioTones = [
+  'bg-[#f8f1e3] xl:-rotate-1 xl:translate-y-2',
+  'bg-[#dfe5ff] xl:rotate-1',
+  'bg-[#f4d5cc] xl:-translate-y-1',
+  'bg-[#f2d47c] xl:rotate-1 xl:translate-y-3',
+  'bg-[#d9e3d5] xl:-rotate-1',
+  'bg-[#f8f1e3] xl:translate-y-1',
+];
+
+const scenarioMarks = ['bg-[#e56557]', 'bg-[#2846c7]', 'bg-[#e7b44a]'];
+const cardTapes = ['bg-[#e7b44a]/80', 'bg-[#f0a79e]/80', 'bg-[#91a5ef]/75'];
+const imageRatios = ['aspect-[16/10]', 'aspect-[4/3]', 'aspect-[16/11]'];
+
 export default function FdeDirectory({
   locale,
   profiles,
@@ -93,7 +103,6 @@ export default function FdeDirectory({
   const [industry, setIndustry] = useState('');
   const [capability, setCapability] = useState('');
   const [deliverable, setDeliverable] = useState('');
-  const [sort, setSort] = useState<'newest' | 'name'>('newest');
 
   const filteredProfiles = useMemo(() => {
     const normalizedQuery = normalize(query);
@@ -118,11 +127,8 @@ export default function FdeDirectory({
       );
     });
 
-    return [...filtered].sort((left, right) => {
-      if (sort === 'name') return left.name.localeCompare(right.name, locale === 'en' ? 'en' : 'zh-CN');
-      return right.episodeNumber - left.episodeNumber;
-    });
-  }, [capability, deliverable, industry, locale, profiles, query, sort]);
+    return [...filtered].sort((left, right) => right.episodeNumber - left.episodeNumber);
+  }, [capability, deliverable, industry, profiles, query]);
 
   const hasFilters = Boolean(query || industry || capability || deliverable);
 
@@ -135,19 +141,23 @@ export default function FdeDirectory({
 
   return (
     <>
-      <section className="mx-auto max-w-[1480px] px-3 pb-8 pt-4 sm:px-6 sm:pt-8">
-        <div className="mb-5 flex items-end justify-between gap-4">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#b65757] dark:text-[#f0a0a0]">
-              {copy.scenarioHeading}
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-stone-900 dark:text-stone-50 sm:text-3xl">
-              {copy.scenarioDescription}
-            </h2>
+      <section className="mx-auto grid max-w-[1480px] gap-8 px-3 pb-14 pt-16 sm:px-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-12 lg:pt-24">
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <span className="font-serif text-7xl font-black leading-none text-[#e56557]">01</span>
+          <p className="mt-5 text-[11px] font-black uppercase tracking-[0.24em] text-[#2846c7] dark:text-[#9cb0ff]">
+            {copy.scenarioHeading}
+          </p>
+          <h2 className="mt-3 font-serif text-3xl font-black leading-tight tracking-tight text-[#172238] dark:text-[#f8f1e3]">
+            {copy.scenarioDescription}
+          </h2>
+          <div className="mt-6 flex items-center gap-2" aria-hidden="true">
+            <span className="h-3 w-3 rounded-full bg-[#e56557]" />
+            <span className="h-px w-16 bg-[#172238] dark:bg-[#f8f1e3]" />
+            <span className="h-3 w-3 bg-[#e7b44a]" />
           </div>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {scenarios.map((scenario, index) => {
             const selected = capability === scenario.capability;
             return (
@@ -156,22 +166,24 @@ export default function FdeDirectory({
                 type="button"
                 onClick={() => setCapability(selected ? '' : scenario.capability)}
                 aria-pressed={selected}
-                className={`group min-h-44 rounded-[1.6rem] border p-5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
+                className={`group relative min-h-52 border-2 border-[#172238] p-5 text-left shadow-[6px_6px_0_#172238] transition-all duration-200 hover:-translate-y-1 hover:shadow-[9px_9px_0_#172238] dark:border-[#f8f1e3] dark:shadow-[6px_6px_0_#f8f1e3] ${
                   selected
-                    ? 'border-[#e06b6b] bg-[#fff0ed] shadow-md dark:bg-[#442526]'
-                    : 'border-stone-200/80 bg-white/85 dark:border-stone-700 dark:bg-stone-900/75'
+                    ? 'bg-[#2846c7] text-white xl:rotate-0 xl:translate-y-0'
+                    : `${scenarioTones[index % scenarioTones.length]} text-[#172238]`
                 }`}
               >
+                <span className={`absolute left-1/2 top-0 h-6 w-20 -translate-x-1/2 -translate-y-1/2 rotate-2 ${scenarioMarks[index % scenarioMarks.length]}`} aria-hidden="true" />
                 <div className="flex items-start justify-between gap-4">
-                  <span className="text-xs font-bold uppercase tracking-[0.15em] text-stone-500 dark:text-stone-400">
+                  <span className={`text-[11px] font-black uppercase tracking-[0.18em] ${selected ? 'text-white/75' : 'text-[#5b6270]'}`}>
                     {scenario.eyebrow}
                   </span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-stone-100 text-sm font-semibold text-stone-500 transition-colors group-hover:bg-[#e06b6b] group-hover:text-white dark:bg-stone-800">
+                  <span className={`font-serif text-3xl font-black ${selected ? 'text-[#e7b44a]' : 'text-[#e56557]'}`}>
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <h3 className="mt-7 text-xl font-semibold text-stone-900 dark:text-stone-50">{scenario.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-stone-600 dark:text-stone-300">{scenario.description}</p>
+                <h3 className="mt-7 font-serif text-2xl font-black leading-tight">{scenario.title}</h3>
+                <p className={`mt-3 text-sm leading-6 ${selected ? 'text-white/80' : 'text-[#555d6d]'}`}>{scenario.description}</p>
+                <span className="absolute bottom-4 right-4 text-lg font-black" aria-hidden="true">↗</span>
               </button>
             );
           })}
@@ -179,20 +191,20 @@ export default function FdeDirectory({
       </section>
 
       <section id="directory" className="mx-auto max-w-[1480px] scroll-mt-24 px-3 sm:px-6">
-        <div className="rounded-[2rem] border border-stone-200/80 bg-[#f8f5ef]/90 p-4 shadow-[0_24px_80px_rgba(82,54,38,0.08)] dark:border-stone-700 dark:bg-stone-900/80 sm:p-6">
-          <div className="mb-5 flex flex-col justify-between gap-3 lg:flex-row lg:items-end">
+        <div className="border-y-2 border-[#172238] bg-[#f8f1e3] px-4 py-7 shadow-[7px_7px_0_#e7b44a] dark:border-[#f8f1e3] dark:bg-[#172238] sm:px-6">
+          <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#b65757] dark:text-[#f0a0a0]">
-                Talent Directory
+              <p className="text-[11px] font-black uppercase tracking-[0.24em] text-[#e56557]">
+                02 / Talent Directory
               </p>
-              <h2 className="mt-2 text-2xl font-semibold text-stone-900 dark:text-stone-50 sm:text-3xl">{copy.filterHeading}</h2>
+              <h2 className="mt-2 font-serif text-3xl font-black text-[#172238] dark:text-[#f8f1e3] sm:text-4xl">{copy.filterHeading}</h2>
             </div>
-            <p aria-live="polite" className="text-sm text-stone-500 dark:text-stone-400">
-              {copy.results} <strong className="text-stone-900 dark:text-white">{filteredProfiles.length}</strong> {copy.people}
+            <p aria-live="polite" className="inline-flex items-baseline gap-2 self-start border-b-4 border-[#e56557] pb-1 text-sm font-bold text-[#172238] dark:text-[#f8f1e3] lg:self-auto">
+              {copy.results} <strong className="font-serif text-4xl font-black text-[#2846c7] dark:text-[#9cb0ff]">{filteredProfiles.length}</strong> {copy.people}
             </p>
           </div>
 
-          <div className="grid gap-3 lg:grid-cols-[minmax(220px,1.4fr)_repeat(3,minmax(150px,0.8fr))_minmax(120px,0.6fr)]">
+          <div className="grid gap-3 lg:grid-cols-[minmax(240px,1.4fr)_repeat(3,minmax(160px,0.8fr))]">
             <label className="relative block">
               <span className="sr-only">{copy.searchPlaceholder}</span>
               <svg className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
@@ -204,13 +216,13 @@ export default function FdeDirectory({
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={copy.searchPlaceholder}
-                className="h-12 w-full rounded-2xl border border-stone-200 bg-white pl-12 pr-4 text-sm text-stone-900 outline-none transition focus:border-[#e06b6b] focus:ring-4 focus:ring-[#e06b6b]/10 dark:border-stone-700 dark:bg-stone-950 dark:text-white"
+                className="h-12 w-full border-2 border-[#172238] bg-white pl-12 pr-4 text-sm text-[#172238] outline-none transition focus:bg-[#fff8dc] focus:ring-4 focus:ring-[#2846c7]/15 dark:border-[#f8f1e3] dark:bg-[#0f172a] dark:text-white"
               />
             </label>
 
             <label>
               <span className="sr-only">{copy.industryLabel}</span>
-              <select value={industry} onChange={(event) => setIndustry(event.target.value)} className="h-12 w-full rounded-2xl border border-stone-200 bg-white px-4 text-sm text-stone-800 outline-none focus:border-[#e06b6b] dark:border-stone-700 dark:bg-stone-950 dark:text-white">
+              <select value={industry} onChange={(event) => setIndustry(event.target.value)} className="h-12 w-full border-2 border-[#172238] bg-white px-4 text-sm font-medium text-[#172238] outline-none focus:bg-[#fff8dc] dark:border-[#f8f1e3] dark:bg-[#0f172a] dark:text-white">
                 <option value="">{copy.allIndustries}</option>
                 {industries.map((option) => <option key={option.code} value={option.code}>{option.label} ({option.count})</option>)}
               </select>
@@ -218,7 +230,7 @@ export default function FdeDirectory({
 
             <label>
               <span className="sr-only">{copy.capabilityLabel}</span>
-              <select value={capability} onChange={(event) => setCapability(event.target.value)} className="h-12 w-full rounded-2xl border border-stone-200 bg-white px-4 text-sm text-stone-800 outline-none focus:border-[#e06b6b] dark:border-stone-700 dark:bg-stone-950 dark:text-white">
+              <select value={capability} onChange={(event) => setCapability(event.target.value)} className="h-12 w-full border-2 border-[#172238] bg-white px-4 text-sm font-medium text-[#172238] outline-none focus:bg-[#fff8dc] dark:border-[#f8f1e3] dark:bg-[#0f172a] dark:text-white">
                 <option value="">{copy.allCapabilities}</option>
                 {capabilities.map((option) => <option key={option.code} value={option.code}>{option.label} ({option.count})</option>)}
               </select>
@@ -226,37 +238,31 @@ export default function FdeDirectory({
 
             <label>
               <span className="sr-only">{copy.deliverableLabel}</span>
-              <select value={deliverable} onChange={(event) => setDeliverable(event.target.value)} className="h-12 w-full rounded-2xl border border-stone-200 bg-white px-4 text-sm text-stone-800 outline-none focus:border-[#e06b6b] dark:border-stone-700 dark:bg-stone-950 dark:text-white">
+              <select value={deliverable} onChange={(event) => setDeliverable(event.target.value)} className="h-12 w-full border-2 border-[#172238] bg-white px-4 text-sm font-medium text-[#172238] outline-none focus:bg-[#fff8dc] dark:border-[#f8f1e3] dark:bg-[#0f172a] dark:text-white">
                 <option value="">{copy.allDeliverables}</option>
                 {deliverables.map((option) => <option key={option.code} value={option.label}>{option.label} ({option.count})</option>)}
               </select>
             </label>
 
-            <label>
-              <span className="sr-only">{copy.sortLabel}</span>
-              <select value={sort} onChange={(event) => setSort(event.target.value as 'newest' | 'name')} className="h-12 w-full rounded-2xl border border-stone-200 bg-white px-4 text-sm text-stone-800 outline-none focus:border-[#e06b6b] dark:border-stone-700 dark:bg-stone-950 dark:text-white">
-                <option value="newest">{copy.newest}</option>
-                <option value="name">{copy.nameSort}</option>
-              </select>
-            </label>
           </div>
 
           {hasFilters && (
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              {query && <span className="rounded-full bg-white px-3 py-1.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-300">“{query}”</span>}
-              {industry && <span className="rounded-full bg-white px-3 py-1.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-300">{industries.find((item) => item.code === industry)?.label}</span>}
-              {capability && <span className="rounded-full bg-white px-3 py-1.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-300">{capabilities.find((item) => item.code === capability)?.label}</span>}
-              {deliverable && <span className="rounded-full bg-white px-3 py-1.5 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-300">{deliverable}</span>}
-              <button type="button" onClick={clearFilters} className="px-2 py-1 text-xs font-semibold text-[#b65757] underline decoration-[#b65757]/30 underline-offset-4 hover:decoration-[#b65757]">{copy.clear}</button>
+              {query && <span className="border border-[#172238] bg-white px-3 py-1.5 text-xs text-[#172238]">“{query}”</span>}
+              {industry && <span className="border border-[#172238] bg-white px-3 py-1.5 text-xs text-[#172238]">{industries.find((item) => item.code === industry)?.label}</span>}
+              {capability && <span className="border border-[#172238] bg-white px-3 py-1.5 text-xs text-[#172238]">{capabilities.find((item) => item.code === capability)?.label}</span>}
+              {deliverable && <span className="border border-[#172238] bg-white px-3 py-1.5 text-xs text-[#172238]">{deliverable}</span>}
+              <button type="button" onClick={clearFilters} className="px-2 py-1 text-xs font-black text-[#e56557] underline decoration-2 underline-offset-4">{copy.clear}</button>
             </div>
           )}
         </div>
 
         {filteredProfiles.length > 0 ? (
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
-            {filteredProfiles.map((profile) => (
-              <article key={profile.slug} className="group overflow-hidden rounded-[1.75rem] border border-stone-200/80 bg-white shadow-[0_14px_50px_rgba(71,45,30,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_65px_rgba(71,45,30,0.13)] dark:border-stone-700 dark:bg-stone-900">
-                <Link href={`/${locale}/fde/${profile.slug}`} className="relative block aspect-[16/10] overflow-hidden bg-stone-100" aria-label={`${copy.viewProfile}: ${profile.name}`}>
+          <div className="mt-10 grid gap-7 sm:grid-cols-2 2xl:grid-cols-3">
+            {filteredProfiles.map((profile, index) => (
+              <article key={profile.slug} className="group relative w-full border-2 border-[#172238] bg-[#f8f1e3] shadow-[6px_6px_0_#172238] transition duration-300 hover:-translate-y-1 hover:shadow-[9px_9px_0_#2846c7] dark:border-[#f8f1e3] dark:bg-[#172238] dark:shadow-[6px_6px_0_#f8f1e3]">
+                <span className={`absolute left-1/2 top-0 z-20 h-6 w-24 -translate-x-1/2 -translate-y-1/2 ${index % 2 === 0 ? 'rotate-2' : '-rotate-2'} ${cardTapes[index % cardTapes.length]}`} aria-hidden="true" />
+                <Link href={`/${locale}/fde/${profile.slug}`} className={`relative block overflow-hidden border-b-2 border-[#172238] bg-[#d9e3d5] dark:border-[#f8f1e3] ${imageRatios[index % imageRatios.length]}`} aria-label={`${copy.viewProfile}: ${profile.name}`}>
                   <Image
                     src={profile.coverUrl}
                     alt={`${profile.name} ${copy.latestEpisode}`}
@@ -265,35 +271,35 @@ export default function FdeDirectory({
                     sizes="(min-width: 1536px) 30vw, (min-width: 640px) 45vw, 100vw"
                     className="object-cover transition duration-500 group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-                  <span className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-bold tracking-wide text-white backdrop-blur-md">EP {String(profile.episodeNumber).padStart(2, '0')}</span>
-                  <span className="absolute bottom-4 left-4 rounded-full bg-white/92 px-3 py-1.5 text-xs font-semibold text-stone-800 backdrop-blur-md">{profile.industry.label}</span>
+                  <span className="absolute left-3 top-3 border-2 border-[#172238] bg-[#e7b44a] px-2.5 py-1 text-xs font-black tracking-wide text-[#172238]">EP {String(profile.episodeNumber).padStart(2, '0')}</span>
+                  <span className="absolute bottom-0 right-0 border-l-2 border-t-2 border-[#172238] bg-[#f8f1e3] px-3 py-1.5 text-xs font-black text-[#172238]">{profile.industry.label}</span>
                 </Link>
 
                 <div className="p-5 sm:p-6">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-2xl font-semibold tracking-tight text-stone-900 dark:text-stone-50">{profile.name}</h3>
-                      {profile.aliases.length > 0 && <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">{profile.aliases.join(' · ')}</p>}
+                      <h3 className="font-serif text-3xl font-black tracking-tight text-[#172238] dark:text-[#f8f1e3]">{profile.name}</h3>
+                      {profile.aliases.length > 0 && <p className="mt-1 text-xs font-bold text-[#e56557]">{profile.aliases.join(' · ')}</p>}
                     </div>
-                    <span className="shrink-0 text-xs text-stone-400">{formatDate(profile.publishedAt, locale)}</span>
+                    <span className="shrink-0 font-serif text-2xl font-black text-[#2846c7] dark:text-[#9cb0ff]">EP {String(profile.episodeNumber).padStart(2, '0')}</span>
                   </div>
-                  <p className="mt-3 min-h-12 text-sm font-medium leading-6 text-stone-700 dark:text-stone-200">{profile.headline}</p>
+                  <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-[#747b88] dark:text-[#aeb7ca]">{formatDate(profile.publishedAt, locale)}</p>
+                  <p className="mt-4 border-l-4 border-[#e7b44a] pl-3 text-sm font-bold leading-6 text-[#30394b] dark:text-[#e0e5ef]">{profile.headline}</p>
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     {profile.capabilities.slice(0, 3).map((item) => (
-                      <span key={item.code} className="rounded-full border border-[#e06b6b]/20 bg-[#fff5f2] px-3 py-1 text-xs text-[#9f4d4d] dark:bg-[#422526] dark:text-[#ffc5bd]">{item.label}</span>
+                      <span key={item.code} className="border-b-2 border-[#2846c7] px-1 py-1 text-xs font-bold text-[#2846c7] dark:text-[#aebcff]">{item.label}</span>
                     ))}
                   </div>
 
-                  <p className="mt-4 line-clamp-3 text-sm leading-6 text-stone-500 dark:text-stone-400">{profile.bioSnippet}</p>
+                  <p className="mt-5 line-clamp-4 text-sm leading-6 text-[#626a78] dark:text-[#b8c0cf]">{profile.bioSnippet}</p>
 
-                  <div className="mt-6 flex items-center gap-3 border-t border-stone-100 pt-4 dark:border-stone-800">
-                    <Link href={`/${locale}/fde/${profile.slug}`} className="inline-flex h-10 flex-1 items-center justify-center rounded-xl bg-stone-900 px-4 text-sm font-semibold text-white transition hover:bg-[#b65757] dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-[#f0a0a0]">
-                      {copy.viewProfile}
+                  <div className="mt-6 flex items-center gap-4 border-t-2 border-[#172238] pt-4 dark:border-[#f8f1e3]">
+                    <Link href={`/${locale}/fde/${profile.slug}`} className="inline-flex h-10 flex-1 items-center justify-center bg-[#2846c7] px-4 text-sm font-black text-white transition hover:bg-[#e56557]">
+                      {copy.viewProfile} →
                     </Link>
-                    <a href={profile.xiaoyuzhouUrl} target="_blank" rel="noopener noreferrer" className="inline-flex h-10 items-center justify-center rounded-xl border border-stone-200 px-4 text-sm font-semibold text-stone-700 transition hover:border-[#e06b6b] hover:text-[#b65757] dark:border-stone-700 dark:text-stone-200">
-                      {copy.listen}
+                    <a href={profile.xiaoyuzhouUrl} target="_blank" rel="noopener noreferrer" className="inline-flex h-10 items-center justify-center border-b-2 border-[#e56557] px-1 text-sm font-black text-[#172238] transition hover:text-[#e56557] dark:text-[#f8f1e3]">
+                      ↗ {copy.listen}
                     </a>
                   </div>
                 </div>
@@ -301,11 +307,11 @@ export default function FdeDirectory({
             ))}
           </div>
         ) : (
-          <div className="mt-6 rounded-[2rem] border border-dashed border-stone-300 bg-white px-6 py-20 text-center dark:border-stone-700 dark:bg-stone-900">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#fff0ed] text-2xl dark:bg-[#422526]">⌕</div>
-            <h3 className="mt-5 text-xl font-semibold text-stone-900 dark:text-white">{copy.emptyTitle}</h3>
-            <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-stone-500 dark:text-stone-400">{copy.emptyDescription}</p>
-            <button type="button" onClick={clearFilters} className="mt-5 rounded-xl bg-[#e06b6b] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#c85a5a]">{copy.clear}</button>
+          <div className="mt-10 border-2 border-dashed border-[#172238] bg-[#f8f1e3] px-6 py-20 text-center shadow-[7px_7px_0_#e7b44a] dark:border-[#f8f1e3] dark:bg-[#172238]">
+            <div className="mx-auto flex h-14 w-14 rotate-6 items-center justify-center border-2 border-[#172238] bg-[#e56557] text-2xl text-white dark:border-[#f8f1e3]">⌕</div>
+            <h3 className="mt-6 font-serif text-2xl font-black text-[#172238] dark:text-[#f8f1e3]">{copy.emptyTitle}</h3>
+            <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-[#626a78] dark:text-[#b8c0cf]">{copy.emptyDescription}</p>
+            <button type="button" onClick={clearFilters} className="mt-6 border-2 border-[#172238] bg-[#2846c7] px-5 py-2.5 text-sm font-black text-white shadow-[4px_4px_0_#172238]">{copy.clear}</button>
           </div>
         )}
       </section>

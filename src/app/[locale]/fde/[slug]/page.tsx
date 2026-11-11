@@ -21,6 +21,7 @@ type PageParams = Promise<{ locale: string; slug: string }>;
 
 const copy = {
   zh: {
+    home: '返回首页',
     back: '返回 FDE 人才图谱',
     episode: '《灯下白》访谈',
     profile: '嘉宾介绍',
@@ -34,8 +35,7 @@ const copy = {
     listen: '前往小宇宙收听',
     contact: '联系吴熳匹配合作',
     contactTitle: '想邀请这位嘉宾参与交付？',
-    contactBody: '告诉我你的业务目标、对象和时间，我会确认嘉宾意愿、档期，并协助组合适合的交付方案。',
-    availability: '能力标签来自公开访谈整理，不代表嘉宾对所有项目均有档期；具体合作以主理人确认结果为准。',
+    contactBody: '告诉我你的业务目标、对象和时间，我会结合访谈中验证过的经验，协助匹配合适的嘉宾与交付方式。',
     published: '发布于',
     duration: '时长',
     related: '同方向的其他实践者',
@@ -43,6 +43,7 @@ const copy = {
     originalLanguage: '',
   },
   en: {
+    home: 'Back to Home',
     back: 'Back to the FDE network',
     episode: 'Dengxiabai Interview',
     profile: 'Guest Profile',
@@ -56,8 +57,7 @@ const copy = {
     listen: 'Listen on Xiaoyuzhou',
     contact: 'Contact Wu Man',
     contactTitle: 'Interested in working with this guest?',
-    contactBody: 'Share your desired outcome, audience and timing. We will confirm interest and availability, then help shape the right engagement.',
-    availability: 'Capability tags are based on public interviews and do not guarantee availability for every project. All engagements require confirmation.',
+    contactBody: 'Share your desired outcome, audience and timing. We will match relevant, interview-verified experience with the right engagement format.',
     published: 'Published',
     duration: 'Duration',
     related: 'More practitioners in this field',
@@ -209,9 +209,12 @@ export default async function GuestDetailPage({ params }: { params: PageParams }
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       <header className="border-b border-stone-200 bg-[#efe5d5] dark:border-stone-800 dark:bg-[#1d1916]">
-        <div className="mx-auto max-w-[1380px] px-4 py-5 sm:px-6">
-          <Link href={`/${locale}/fde`} className="inline-flex items-center gap-2 text-sm font-semibold text-stone-600 transition hover:text-[#a84f4f] dark:text-stone-300">
-            <span aria-hidden="true">←</span> {text.back}
+        <div className="mx-auto flex max-w-[1380px] flex-wrap items-center gap-3 px-4 py-5 sm:px-6">
+          <Link href={`/${locale}`} className="inline-flex min-h-10 items-center gap-2 rounded-full border border-stone-300 bg-white/70 px-4 text-sm font-semibold text-stone-700 transition hover:border-[#a84f4f] hover:text-[#a84f4f] dark:border-stone-700 dark:bg-white/10 dark:text-stone-200">
+            <span aria-hidden="true">←</span> {text.home}
+          </Link>
+          <Link href={`/${locale}/fde`} className="inline-flex min-h-10 items-center gap-2 px-2 text-sm font-semibold text-stone-600 transition hover:text-[#a84f4f] dark:text-stone-300">
+            <span aria-hidden="true">↙</span> {text.back}
           </Link>
         </div>
       </header>
@@ -308,7 +311,6 @@ export default async function GuestDetailPage({ params }: { params: PageParams }
               <h2 className="text-xl font-semibold">{text.contactTitle}</h2>
               <p className="mt-3 text-sm leading-6 text-white/80">{text.contactBody}</p>
               <a href="tel:+8613911349663" className="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-white px-4 text-sm font-bold text-[#8f4040]">139 1134 9663</a>
-              <p className="mt-4 text-[11px] leading-5 text-white/65">{text.availability}</p>
             </section>
           </aside>
         </div>

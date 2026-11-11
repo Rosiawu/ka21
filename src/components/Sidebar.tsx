@@ -42,13 +42,8 @@ function buildMenuItems(
     },
     {
       name: tCommon('menuFdeDirectory'),
-      icon: '/icons/nav/podcast.svg',
+      icon: '/icons/nav/fde-network.svg',
       href: '/fde'
-    },
-    {
-      name: tCommon('menuPodcastUpload'),
-      icon: '/icons/categories/podcast-wave.svg',
-      href: '/podcast-upload'
     },
     {
       name: tCommon('menuEvents'),
