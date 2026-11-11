@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T02:00:00+08:00",
+  "updatedAt": "2026-11-11T10:58:00+08:00",
   "windowStart": "2026-11-11",
   "windowEnd": "2026-11-18",
   "technical": {
@@ -41,8 +41,8 @@
     }
   ],
   "queries": [
-    { "query": "KA21 AI牛马库", "type": "品牌词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
-    { "query": "灯下白 FDE 人才图谱", "type": "品牌 + 产品", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
+    { "query": "KA21 AI牛马库", "type": "品牌词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "已引用（2 个 KA21 页面）" },
+    { "query": "灯下白 FDE 人才图谱", "type": "品牌 + 产品", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "基线暂未发现" },
     { "query": "企业 AI 交付专家", "type": "主题词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
     { "query": "AI 工具真实测评", "type": "主题词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" }
   ],
@@ -52,8 +52,8 @@
       "googleIndexed": null,
       "bingIndexed": null,
       "baiduIndexed": null,
-      "geoMentions": null,
-      "event": "技术信号上线；IndexNow 接受 381 个 URL"
+      "geoMentions": 2,
+      "event": "技术信号上线；IndexNow 接受 381 个 URL；AI 搜索已引用首页与关于页，FDE 新页面暂未出现"
     }
   ]
 }
