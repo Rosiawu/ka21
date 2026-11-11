@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tutorials',
     '/llm-articles',
     '/fde',
+    '/seo-geo',
     '/deals',
   ];
 

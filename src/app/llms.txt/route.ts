@@ -24,6 +24,7 @@ export function GET() {
 - 《灯下白》播客数据（${podcastEpisodes.episodeCount} 期）: ${baseUrl}/podcast-dashboard/
 - 灯下白 FDE 人才图谱: ${baseUrl}/zh/fde
 - English FDE directory: ${baseUrl}/en/fde
+- SEO / GEO 效果看板: ${baseUrl}/zh/seo-geo
 - 开发日志: ${baseUrl}/zh/devlog
 
 ## Machine-readable resources

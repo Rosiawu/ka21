@@ -1,0 +1,59 @@
+{
+  "updatedAt": "2026-11-11T02:00:00+08:00",
+  "windowStart": "2026-11-11",
+  "windowEnd": "2026-11-18",
+  "technical": {
+    "robots": { "status": "ready", "detail": "已允许搜索与主流 AI 爬虫读取页面和前端资源" },
+    "sitemap": { "status": "ready", "detail": "379 个规范 URL，无搜索页、测试页和锚点重复项" },
+    "llms": { "status": "ready", "detail": "已改为 KA21 全站机器可读说明" },
+    "indexNow": { "status": "ready", "detail": "379 个 URL 已被 IndexNow 接受（HTTP 200）" }
+  },
+  "platforms": [
+    {
+      "id": "google",
+      "name": "Google Search Console",
+      "status": "pending",
+      "summary": "域名属性已填好，等待完成账号内创建与 DNS 验证",
+      "indexedPages": null,
+      "impressions": null,
+      "clicks": null,
+      "nextAction": "创建 ka21.org 域名属性并提交 sitemap.xml"
+    },
+    {
+      "id": "bing",
+      "name": "Bing / Copilot",
+      "status": "submitted",
+      "summary": "IndexNow 已成功提交；站长账号授权仍待完成",
+      "indexedPages": null,
+      "impressions": null,
+      "clicks": null,
+      "nextAction": "完成 Bing Webmaster Tools 登录后核验索引与 Copilot 可见性"
+    },
+    {
+      "id": "baidu",
+      "name": "百度搜索资源平台",
+      "status": "pending",
+      "summary": "登录页已打开，等待账号登录和站点验证",
+      "indexedPages": null,
+      "impressions": null,
+      "clicks": null,
+      "nextAction": "登录百度账号，验证 ka21.org 并提交 sitemap.xml"
+    }
+  ],
+  "queries": [
+    { "query": "KA21 AI牛马库", "type": "品牌词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
+    { "query": "灯下白 FDE 人才图谱", "type": "品牌 + 产品", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
+    { "query": "企业 AI 交付专家", "type": "主题词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
+    { "query": "AI 工具真实测评", "type": "主题词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" }
+  ],
+  "daily": [
+    {
+      "date": "2026-11-11",
+      "googleIndexed": null,
+      "bingIndexed": null,
+      "baiduIndexed": null,
+      "geoMentions": null,
+      "event": "技术信号上线；IndexNow 接受 379 个 URL"
+    }
+  ]
+}

@@ -8,7 +8,7 @@ function isImmersivePath(pathname: string | null): boolean {
     return false;
   }
 
-  return /^\/(zh|en)\/(?:about|fde(?:\/.*)?)\/?$/.test(pathname);
+  return /^\/(zh|en)\/(?:about|seo-geo|fde(?:\/.*)?)\/?$/.test(pathname);
 }
 
 export default function LocaleShell({ children }: { children: React.ReactNode }) {
