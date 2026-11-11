@@ -1,6 +1,45 @@
 {
   "entries": [
     {
+      "id": "devlog-fde-french-editorial-2026-11-11",
+      "version": "共创 19",
+      "date": "2026-11-11",
+      "timelineTitle": {
+        "zh": "FDE 人才图谱，终于有点像我自己了",
+        "en": "The FDE directory finally feels like me"
+      },
+      "cardTitle": {
+        "zh": "把 FDE 人才图谱从“AI 模板脸”改成法式插画版",
+        "en": "Turning the FDE directory from an AI template into a French editorial collage"
+      },
+      "body": {
+        "zh": "今天把《灯下白》FDE 人才图谱彻底重做了一遍。\n\n第一版虽然功能都在，但我一打开就觉得不对。左边还挂着牛马库整套导航，页面像从一个大网站里硬切出来的子栏目；中间那个人像也很像常见的 AI 生成插画，跟我平时喜欢的图片调性完全不是一回事。\n\n所以这次先把左边导航整个拿掉，只留一个“返回首页”。进入人才图谱以后，页面就是完整沉浸式的，不再被牛马库其他栏目打断。\n\n视觉上也不再继续画一个假装代表“人才”的通用人物，而是直接换上《灯下白》毛毛版 Logo。整体重新做成暖米色、深蓝、珊瑚红和芥末黄的法式编辑拼贴：有一点实验版式，有一点纸张、胶带和错位印刷的感觉，同时保留科技感，但不再冷冰冰。\n\n信息上也做了一轮清理。删掉了 Human, not hype，删掉了“按姓名”这种没有业务意义的排序，也删掉了不适合直接给客户看的内部确认话术。筛选只留下真正有判断价值的行业、能力和交付方式。\n\n最重要的是把数字重新对齐《灯下白》的真实节目源。现在一共 59 期，猫工头李术其的两期访谈被拆成两个独立页面：第 59 期讲 AI 工具成本、免费额度和批量试错，第 58 期讲用 AI 做业务看板自动系统；向阳乔木严格对应第 57 期。页面上的编号全部读取真实 episode number，不再拿列表顺序冒充节目编号。\n\n最后，把我从来没有用过的“播客上传”页面也一起删掉了。\n\n中间还遇到一个很典型的问题：本地已经是新版，线上却仍然是旧版。最后发现不是浏览器没刷新，而是法式插画版只存在本地，之前成功部署的是更早的版本。这次专门从远端最新 main 做了隔离发布，避免把工作区里其他还没完成的内容一起带上线，再一路盯到 Cloudflare 发布成功，最后直接打开正式网站验收。\n\n这次改完以后，FDE 人才图谱终于不再像一个“AI 功能页”，而更像《灯下白》自己长出来的一张人才网络海报。\n\n记录人：吴熳（Codex 协助设计、数据同步与发布）",
+        "en": "Today we rebuilt the Dengxiabai FDE directory from the ground up.\n\nThe first version worked, but it still felt like a generic AI product page: the full KA21 sidebar interrupted the experience, and the stock-style person illustration did not resemble the visual language of Dengxiabai.\n\nThe directory is now fully immersive, with only a Back to Home control. The generic portrait has been replaced by the official yellow Dengxiabai logo, and the page now uses a warm French editorial collage system built from cream, deep navy, coral and mustard, with paper, tape and offset-print details. It keeps a sense of technology without feeling cold.\n\nWe also removed the Human, not hype badge, the name-based sorting option, and internal process copy that was not suitable for customers. Filters now focus on meaningful business dimensions: industry, capability and engagement type.\n\nThe directory data was synchronized with the public Dengxiabai RSS feed. There are now 59 episodes. Li Shuqi, also known as Cat Foreman, has two independent pages: episode 59 covers AI tool costs, free quotas and batch experimentation, while episode 58 covers AI-powered business dashboard automation. Xiangyang Qiaomu remains episode 57. Every visible episode number now comes from the real episode data rather than list position.\n\nThe unused podcast-upload page was removed as well.\n\nOne final deployment issue was caught along the way: the French editorial version existed locally, but production was still serving an earlier design. We prepared an isolated release from the latest remote main branch, deployed it through Cloudflare, and verified the final production page directly.\n\nThe FDE directory now feels less like an AI feature page and more like a talent-network poster grown naturally out of Dengxiabai."
+      },
+      "imageSlotLabel": {
+        "zh": "FDE 人才图谱法式编辑拼贴版线上截图",
+        "en": "Production screenshot of the French editorial FDE directory"
+      },
+      "relatedLinks": [
+        {
+          "label": {
+            "zh": "查看灯下白 FDE 人才图谱",
+            "en": "Open the Dengxiabai FDE directory"
+          },
+          "href": "https://ka21.org/zh/fde"
+        }
+      ],
+      "images": [
+        {
+          "src": "/images/devlog/submissions/devlog-fde-french-editorial-2026-11-11/01-fde-french-editorial.png",
+          "alt": {
+            "zh": "灯下白 FDE 人才图谱法式编辑拼贴版首页",
+            "en": "Homepage of the French editorial Dengxiabai FDE directory"
+          }
+        }
+      ]
+    },
+    {
       "id": "devlog-cloudflare-podcast-recovery-2026-11-10",
       "version": "共创 18",
       "date": "2026-11-10",
@@ -306,7 +345,7 @@
   ],
   "meta": {
     "version": "1.0.0",
-    "updatedAt": "2026-05-22T23:44:59.521Z",
-    "count": 7
+    "updatedAt": "2026-11-11T12:32:44.000Z",
+    "count": 9
   }
 }
