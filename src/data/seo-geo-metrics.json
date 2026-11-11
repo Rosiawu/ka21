@@ -4,9 +4,9 @@
   "windowEnd": "2026-11-18",
   "technical": {
     "robots": { "status": "ready", "detail": "已允许搜索与主流 AI 爬虫读取页面和前端资源" },
-    "sitemap": { "status": "ready", "detail": "379 个规范 URL，无搜索页、测试页和锚点重复项" },
+    "sitemap": { "status": "ready", "detail": "381 个规范 URL，无搜索页、测试页和锚点重复项" },
     "llms": { "status": "ready", "detail": "已改为 KA21 全站机器可读说明" },
-    "indexNow": { "status": "ready", "detail": "379 个 URL 已被 IndexNow 接受（HTTP 200）" }
+    "indexNow": { "status": "ready", "detail": "381 个 URL 已被 IndexNow 接受（HTTP 200）" }
   },
   "platforms": [
     {
@@ -53,7 +53,7 @@
       "bingIndexed": null,
       "baiduIndexed": null,
       "geoMentions": null,
-      "event": "技术信号上线；IndexNow 接受 379 个 URL"
+      "event": "技术信号上线；IndexNow 接受 381 个 URL"
     }
   ]
 }
