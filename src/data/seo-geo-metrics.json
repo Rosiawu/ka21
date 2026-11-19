@@ -1,48 +1,50 @@
 {
-  "updatedAt": "2026-11-11T10:58:00+08:00",
+  "updatedAt": "2026-11-19T10:14:00+08:00",
   "windowStart": "2026-11-11",
   "windowEnd": "2026-11-18",
   "technical": {
-    "robots": { "status": "ready", "detail": "已允许搜索与主流 AI 爬虫读取页面和前端资源" },
-    "sitemap": { "status": "ready", "detail": "381 个规范 URL，无搜索页、测试页和锚点重复项" },
-    "llms": { "status": "ready", "detail": "已改为 KA21 全站机器可读说明" },
-    "indexNow": { "status": "ready", "detail": "381 个 URL 已被 IndexNow 接受（HTTP 200）" }
+    "robots": { "status": "ready", "detail": "2026-11-19 返回 HTTP 200；允许搜索与主流 AI 爬虫读取公开页面" },
+    "sitemap": { "status": "ready", "detail": "2026-11-19 返回 HTTP 200；包含 381 个规范 URL，包括第 58/59 期独立页" },
+    "llms": { "status": "ready", "detail": "2026-11-19 返回 HTTP 200；提供 KA21 全站机器可读说明" },
+    "indexNow": { "status": "ready", "detail": "密钥文件 2026-11-19 返回 HTTP 200；381 个 URL 于 2026-11-11 获 IndexNow HTTP 200 接受" }
   },
   "platforms": [
     {
       "id": "google",
       "name": "Google Search Console",
-      "status": "pending",
-      "summary": "域名属性已填好，等待完成账号内创建与 DNS 验证",
+      "status": "submitted",
+      "summary": "ka21.org 域名属性于 2026-11-11 完成 DNS 验证；sitemap 已重新提交，但当时后台仍显示旧的抓取错误，本周新收录和曝光未核实",
       "indexedPages": null,
       "impressions": null,
       "clicks": null,
-      "nextAction": "创建 ka21.org 域名属性并提交 sitemap.xml"
+      "nextAction": "在 Search Console 核对 sitemap 最新处理结果与 11 月 11–18 日的索引、曝光数据"
     },
     {
       "id": "bing",
       "name": "Bing / Copilot",
       "status": "submitted",
-      "summary": "IndexNow 已成功提交；站长账号授权仍待完成",
+      "summary": "站点于 2026-11-11 完成 DNS 验证；后台当时显示 sitemap 成功，但最近抓取日期仍是 2026-01-10，本周新收录和曝光未核实",
       "indexedPages": null,
       "impressions": null,
       "clicks": null,
-      "nextAction": "完成 Bing Webmaster Tools 登录后核验索引与 Copilot 可见性"
+      "nextAction": "在 Bing Webmaster Tools 核对最新抓取、索引和 Copilot 引用"
     },
     {
       "id": "baidu",
       "name": "百度搜索资源平台",
       "status": "pending",
-      "summary": "登录页已打开，等待账号登录和站点验证",
+      "summary": "截至七天观察期结束，未取得百度站点验证或后台收录数据的证据",
       "indexedPages": null,
       "impressions": null,
       "clicks": null,
-      "nextAction": "登录百度账号，验证 ka21.org 并提交 sitemap.xml"
+      "nextAction": "登录百度搜索资源平台，验证 ka21.org 后核对收录与提交入口"
     }
   ],
   "queries": [
     { "query": "KA21 AI牛马库", "type": "品牌词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "已引用（2 个 KA21 页面）" },
     { "query": "灯下白 FDE 人才图谱", "type": "品牌 + 产品", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "基线暂未发现" },
+    { "query": "第 58 期独立页（li-shuqi-58）", "type": "独立页面", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
+    { "query": "第 59 期独立页（li-shuqi）", "type": "独立页面", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
     { "query": "企业 AI 交付专家", "type": "主题词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
     { "query": "AI 工具真实测评", "type": "主题词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" }
   ],
@@ -54,6 +56,14 @@
       "baiduIndexed": null,
       "geoMentions": 2,
       "event": "技术信号上线；IndexNow 接受 381 个 URL；AI 搜索已引用首页与关于页，FDE 新页面暂未出现"
+    },
+    {
+      "date": "2026-11-19",
+      "googleIndexed": null,
+      "bingIndexed": null,
+      "baiduIndexed": null,
+      "geoMentions": null,
+      "event": "11 月 11–18 日观察期复核：技术资源及第 58/59 期页面可访问；Google、Bing 已验证，百度未证实验证；未取得本周收录、曝光或新增 AI 引用的可靠数字，缺失日期不补造记录"
     }
   ]
 }
