@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-19T10:14:00+08:00",
+  "updatedAt": "2026-11-21T11:41:00+08:00",
   "windowStart": "2026-11-11",
   "windowEnd": "2026-11-18",
   "technical": {
     "robots": { "status": "ready", "detail": "2026-11-19 返回 HTTP 200；允许搜索与主流 AI 爬虫读取公开页面" },
-    "sitemap": { "status": "ready", "detail": "2026-11-19 返回 HTTP 200；包含 381 个规范 URL，包括第 58/59 期独立页" },
+    "sitemap": { "status": "ready", "detail": "Google 于 2026-11-21 成功读取 sitemap.xml，发现 381 个页面；包含第 58/59 期独立页" },
     "llms": { "status": "ready", "detail": "2026-11-19 返回 HTTP 200；提供 KA21 全站机器可读说明" },
     "indexNow": { "status": "ready", "detail": "密钥文件 2026-11-19 返回 HTTP 200；381 个 URL 于 2026-11-11 获 IndexNow HTTP 200 接受" }
   },
@@ -12,12 +12,12 @@
     {
       "id": "google",
       "name": "Google Search Console",
-      "status": "submitted",
-      "summary": "ka21.org 域名属性于 2026-11-11 完成 DNS 验证；sitemap 已重新提交，但当时后台仍显示旧的抓取错误，本周新收录和曝光未核实",
-      "indexedPages": null,
-      "impressions": null,
-      "clicks": null,
-      "nextAction": "在 Search Console 核对 sitemap 最新处理结果与 11 月 11–18 日的索引、曝光数据"
+      "status": "ready",
+      "summary": "Search Console：11 月 16 日索引报告显示 256 页已收录、126 页已发现但未收录；11 月 12–18 日搜索结果有 453 次曝光、4 次点击，平均排名 9.8；sitemap 于 11 月 21 日读取成功",
+      "indexedPages": 256,
+      "impressions": 453,
+      "clicks": 4,
+      "nextAction": "核查第 58/59 期 URL 的单页索引状态，并跟踪 126 个已发现但未收录页面"
     },
     {
       "id": "bing",
@@ -41,6 +41,7 @@
     }
   ],
   "queries": [
+    { "query": "ka21", "type": "品牌词", "google": "23 次曝光、0 次点击（11 月 12–18 日）", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
     { "query": "KA21 AI牛马库", "type": "品牌词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "已引用（2 个 KA21 页面）" },
     { "query": "灯下白 FDE 人才图谱", "type": "品牌 + 产品", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "基线暂未发现" },
     { "query": "第 58 期独立页（li-shuqi-58）", "type": "独立页面", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
@@ -64,6 +65,14 @@
       "baiduIndexed": null,
       "geoMentions": null,
       "event": "11 月 11–18 日观察期复核：技术资源及第 58/59 期页面可访问；Google、Bing 已验证，百度未证实验证；未取得本周收录、曝光或新增 AI 引用的可靠数字，缺失日期不补造记录"
+    },
+    {
+      "date": "2026-11-21",
+      "googleIndexed": 256,
+      "bingIndexed": null,
+      "baiduIndexed": null,
+      "geoMentions": null,
+      "event": "Google Search Console：索引报告（11 月 16 日更新）显示 256 页已收录、126 页已发现未收录；11 月 12–18 日有 453 次曝光、4 次点击；sitemap 11 月 21 日读取成功并发现 381 页。Bing 本轮未取得后台数据，新增 AI 引用未核实"
     }
   ]
 }
