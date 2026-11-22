@@ -55421,14 +55421,14 @@
     "createdAt": "2026-11-21T09:41:45.672Z"
   },
   {
-    "id": "snapshot-1795293053907",
+    "id": "snapshot-1795340541440",
     "date": "2026-11-22",
     "note": "自动抓取（部分平台沿用上次有效数据：wangyiyun、xiaoyuzhou）",
     "platformTotals": {
-      "lizhi": 16615,
-      "ximalaya": 12609,
+      "lizhi": 16628,
+      "ximalaya": 12635,
       "wangyiyun": 1408,
-      "qingting": 1484,
+      "qingting": 1626,
       "xiaoyuzhou": 16020
     },
     "episodePlays": {
@@ -55441,7 +55441,7 @@
       },
       "6a78bd05000a55a9bb055d82": {
         "lizhi": 308,
-        "ximalaya": 390,
+        "ximalaya": 391,
         "wangyiyun": 20,
         "qingting": 104,
         "xiaoyuzhou": 167
@@ -55454,43 +55454,43 @@
         "xiaoyuzhou": 151
       },
       "6a9e5692f03e74ee6b0653d5": {
-        "lizhi": 295,
+        "lizhi": 296,
         "ximalaya": 179,
         "wangyiyun": 31,
         "qingting": 59,
         "xiaoyuzhou": 82
       },
       "6aa24fbc9d3264778166f4da": {
-        "lizhi": 302,
+        "lizhi": 303,
         "ximalaya": 240,
         "wangyiyun": 20,
         "qingting": 157,
         "xiaoyuzhou": 162
       },
       "6abbeb4f195d838e2aebbbfd": {
-        "lizhi": 262,
+        "lizhi": 263,
         "ximalaya": 138,
         "wangyiyun": 8,
         "qingting": 72,
         "xiaoyuzhou": 106
       },
       "6ac468a5e742e36efcbecb1c": {
-        "lizhi": 256,
+        "lizhi": 257,
         "ximalaya": 166,
         "wangyiyun": 4,
         "qingting": 70,
         "xiaoyuzhou": 188
       },
       "6ac60735e742e36efcbf402b": {
-        "lizhi": 247,
+        "lizhi": 253,
         "ximalaya": 291,
         "wangyiyun": 4,
         "qingting": 196,
         "xiaoyuzhou": 188
       },
       "6af319065b7c4709bfe41c77": {
-        "lizhi": 56,
-        "ximalaya": 157,
+        "lizhi": 59,
+        "ximalaya": 162,
         "wangyiyun": 2,
         "qingting": 21,
         "xiaoyuzhou": 105
@@ -55502,7 +55502,7 @@
         "xiaoyuzhou": 294
       },
       "6a83ef7f5aeb2a5712e88af7": {
-        "ximalaya": 158,
+        "ximalaya": 159,
         "wangyiyun": 10,
         "qingting": 38,
         "xiaoyuzhou": 90
@@ -55814,6 +55814,6 @@
         "qingting": 13
       }
     },
-    "createdAt": "2026-11-21T20:30:53.907Z"
+    "createdAt": "2026-11-22T09:42:21.440Z"
   }
 ]
