@@ -1116,7 +1116,7 @@ function setRefreshUi({ loading = false, message = "" } = {}) {
 
   if (elements.refreshButton) {
     elements.refreshButton.disabled = loading;
-    elements.refreshButton.textContent = loading ? "正在刷新..." : "立即刷新数据";
+    elements.refreshButton.textContent = loading ? "正在加载..." : "重新加载数据";
   }
 
   if (elements.refreshStatus && message) {
@@ -1141,19 +1141,13 @@ function bindRefreshButton() {
 window.podcastDashboardRefresh = handleRefreshButtonClick;
 
 async function requestDashboard({ refresh = false } = {}) {
-  const response = await fetch(
-    refresh ? "/api/podcast/dashboard" : `/api/podcast/dashboard?ts=${Date.now()}`,
-    {
-      method: refresh ? "POST" : "GET",
-      cache: "no-store",
-      credentials: "same-origin",
-      headers: {
-        ...(refresh ? { "x-ka21-dashboard-refresh": "1" } : {}),
-        "cache-control": "no-store",
-        pragma: "no-cache",
-      },
-    },
-  );
+  const dataUrl = refresh
+    ? `/podcast-dashboard/data.json?published=${Date.now()}`
+    : "/podcast-dashboard/data.json";
+  const response = await fetch(dataUrl, {
+    cache: refresh ? "reload" : "default",
+    credentials: "same-origin",
+  });
   const data = await response.json();
 
   if (!response.ok) {
@@ -1170,26 +1164,18 @@ function applyDashboardData(data) {
 }
 
 async function refreshDashboard() {
-  setRefreshUi({ loading: true, message: "正在抓取公开数据，通常需要几秒钟..." });
+  setRefreshUi({ loading: true, message: "正在重新读取最新发布的公开快照..." });
 
   try {
     const data = await requestDashboard({ refresh: true });
     applyDashboardData(data);
     renderAll();
 
-    const latestDate = data?.snapshot?.date || latestSnapshots().latest?.date || "刚刚";
-    if (data.skipped) {
-      setRefreshUi({
-        loading: false,
-        message: `本次抓取像是不完整数据，已保留 ${latestDate} 的有效快照。`,
-      });
-      return;
-    }
-
-    const persistedMessage = data.persisted
-      ? `已刷新到 ${latestDate}，服务端快照也已更新。`
-      : `已刷新到 ${latestDate}，当前页面已经显示最新公开数据。`;
-    setRefreshUi({ loading: false, message: persistedMessage });
+    const latestDate = latestSnapshots().latest?.date || "最新日期";
+    setRefreshUi({
+      loading: false,
+      message: `已重新读取 ${latestDate} 的公开快照；云端采集每天自动运行两次。`,
+    });
   } catch (error) {
     setRefreshUi({
       loading: false,
@@ -1202,7 +1188,7 @@ async function boot() {
   hydrateBackHomeLink();
   bindRefreshButton();
   bindHistoryControls();
-  setRefreshUi({ message: "页面会优先显示最新公开快照" });
+  setRefreshUi({ message: "数据由云端每天自动采集两次，页面读取最新已发布快照" });
 
   const data = await requestDashboard();
   applyDashboardData(data);

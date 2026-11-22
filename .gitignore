@@ -65,3 +65,6 @@ dreamina-login-qr.png
 .wrangler/
 .dev.vars*
 cloudflare-env.d.ts
+
+# Generated from data/podcast-dashboard/* during dev/build.
+/public/podcast-dashboard/data.json
