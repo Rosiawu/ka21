@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T11:41:00+08:00",
+  "updatedAt": "2026-11-22T21:35:00+08:00",
   "windowStart": "2026-11-11",
   "windowEnd": "2026-11-18",
   "technical": {
@@ -23,17 +23,17 @@
       "id": "bing",
       "name": "Bing / Copilot",
       "status": "submitted",
-      "summary": "站点于 2026-11-11 完成 DNS 验证；后台当时显示 sitemap 成功，但最近抓取日期仍是 2026-01-10，本周新收录和曝光未核实",
+      "summary": "站点于 2026-11-11 完成 DNS 验证；2026-11-22 当前浏览器未登录有站点权限的账号，无法复核最新索引、曝光及 Copilot 引用",
       "indexedPages": null,
       "impressions": null,
       "clicks": null,
-      "nextAction": "在 Bing Webmaster Tools 核对最新抓取、索引和 Copilot 引用"
+      "nextAction": "使用此前验证 ka21.org 的账号登录 Bing Webmaster Tools，再核对最新抓取、索引和 Copilot 引用"
     },
     {
       "id": "baidu",
       "name": "百度搜索资源平台",
       "status": "pending",
-      "summary": "截至七天观察期结束，未取得百度站点验证或后台收录数据的证据",
+      "summary": "2026-11-22 百度公开 site:ka21.org 搜索可见首页，页面显示约 1 条结果并注明为估算；站长平台未登录，准确收录量仍未知",
       "indexedPages": null,
       "impressions": null,
       "clicks": null,
@@ -41,6 +41,7 @@
     }
   ],
   "queries": [
+    { "query": "site:ka21.org", "type": "收录探测", "google": "待采集", "bing": "待采集", "baidu": "首页可见；约 1 条为估算（11 月 22 日）", "geo": "待采集" },
     { "query": "ka21", "type": "品牌词", "google": "23 次曝光、0 次点击（11 月 12–18 日）", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
     { "query": "KA21 AI牛马库", "type": "品牌词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "已引用（2 个 KA21 页面）" },
     { "query": "灯下白 FDE 人才图谱", "type": "品牌 + 产品", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "基线暂未发现" },
@@ -73,6 +74,14 @@
       "baiduIndexed": null,
       "geoMentions": null,
       "event": "Google Search Console：索引报告（11 月 16 日更新）显示 256 页已收录、126 页已发现未收录；11 月 12–18 日有 453 次曝光、4 次点击；sitemap 11 月 21 日读取成功并发现 381 页。Bing 本轮未取得后台数据，新增 AI 引用未核实"
+    },
+    {
+      "date": "2026-11-22",
+      "googleIndexed": null,
+      "bingIndexed": null,
+      "baiduIndexed": null,
+      "geoMentions": null,
+      "event": "百度公开 site:ka21.org 查询可见 KA21 首页；约 1 条结果是搜索页估算，不能作为准确收录数。百度站长平台未登录，进一步查询触发安全验证；Bing 后台未登录有站点权限的账号，暂无新的后台或 AI 引用数字"
     }
   ]
 }
