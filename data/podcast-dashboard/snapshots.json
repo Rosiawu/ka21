@@ -55817,14 +55817,14 @@
     "createdAt": "2026-11-22T09:42:21.440Z"
   },
   {
-    "id": "snapshot-1795380234639",
+    "id": "snapshot-1795430504355",
     "date": "2026-11-23",
     "note": "自动抓取（部分平台沿用上次有效数据：wangyiyun、xiaoyuzhou）",
     "platformTotals": {
-      "lizhi": 16644,
-      "ximalaya": 12646,
+      "lizhi": 16659,
+      "ximalaya": 12681,
       "wangyiyun": 1408,
-      "qingting": 1671,
+      "qingting": 1876,
       "xiaoyuzhou": 16020
     },
     "episodePlays": {
@@ -55843,50 +55843,50 @@
         "xiaoyuzhou": 167
       },
       "6a957afaf03e74ee6b02c2d9": {
-        "lizhi": 308,
+        "lizhi": 309,
         "ximalaya": 180,
         "wangyiyun": 10,
         "qingting": 96,
         "xiaoyuzhou": 151
       },
       "6a9e5692f03e74ee6b0653d5": {
-        "lizhi": 296,
+        "lizhi": 297,
         "ximalaya": 179,
-        "wangyiyun": 33,
+        "wangyiyun": 35,
         "qingting": 59,
         "xiaoyuzhou": 82
       },
       "6aa24fbc9d3264778166f4da": {
-        "lizhi": 303,
+        "lizhi": 304,
         "ximalaya": 240,
         "wangyiyun": 20,
         "qingting": 157,
         "xiaoyuzhou": 162
       },
       "6abbeb4f195d838e2aebbbfd": {
-        "lizhi": 263,
+        "lizhi": 264,
         "ximalaya": 138,
         "wangyiyun": 8,
         "qingting": 72,
         "xiaoyuzhou": 106
       },
       "6ac468a5e742e36efcbecb1c": {
-        "lizhi": 257,
+        "lizhi": 262,
         "ximalaya": 166,
         "wangyiyun": 4,
         "qingting": 70,
         "xiaoyuzhou": 188
       },
       "6ac60735e742e36efcbf402b": {
-        "lizhi": 257,
+        "lizhi": 258,
         "ximalaya": 291,
         "wangyiyun": 4,
         "qingting": 196,
         "xiaoyuzhou": 188
       },
       "6af319065b7c4709bfe41c77": {
-        "lizhi": 65,
-        "ximalaya": 163,
+        "lizhi": 70,
+        "ximalaya": 167,
         "wangyiyun": 2,
         "qingting": 21,
         "xiaoyuzhou": 105
@@ -56210,6 +56210,6 @@
         "qingting": 13
       }
     },
-    "createdAt": "2026-11-22T20:43:54.639Z"
+    "createdAt": "2026-11-23T10:41:44.355Z"
   }
 ]
