@@ -56213,14 +56213,14 @@
     "createdAt": "2026-11-23T10:41:44.355Z"
   },
   {
-    "id": "snapshot-1795484374369",
+    "id": "snapshot-1795523037995",
     "date": "2026-11-24",
     "note": "自动抓取（部分平台沿用上次有效数据：wangyiyun、xiaoyuzhou）",
     "platformTotals": {
-      "lizhi": 16670,
-      "ximalaya": 12709,
+      "lizhi": 16680,
+      "ximalaya": 12759,
       "wangyiyun": 1408,
-      "qingting": 2032,
+      "qingting": 2160,
       "xiaoyuzhou": 16020
     },
     "episodePlays": {
@@ -56233,56 +56233,56 @@
       },
       "6a78bd05000a55a9bb055d82": {
         "lizhi": 310,
-        "ximalaya": 391,
+        "ximalaya": 392,
         "wangyiyun": 20,
         "qingting": 104,
         "xiaoyuzhou": 167
       },
       "6a957afaf03e74ee6b02c2d9": {
-        "lizhi": 309,
+        "lizhi": 310,
         "ximalaya": 180,
         "wangyiyun": 10,
         "qingting": 96,
         "xiaoyuzhou": 151
       },
       "6a9e5692f03e74ee6b0653d5": {
-        "lizhi": 297,
+        "lizhi": 298,
         "ximalaya": 179,
         "wangyiyun": 37,
         "qingting": 59,
         "xiaoyuzhou": 82
       },
       "6aa24fbc9d3264778166f4da": {
-        "lizhi": 304,
+        "lizhi": 305,
         "ximalaya": 240,
         "wangyiyun": 20,
         "qingting": 157,
         "xiaoyuzhou": 162
       },
       "6abbeb4f195d838e2aebbbfd": {
-        "lizhi": 264,
+        "lizhi": 265,
         "ximalaya": 138,
         "wangyiyun": 8,
         "qingting": 72,
         "xiaoyuzhou": 106
       },
       "6ac468a5e742e36efcbecb1c": {
-        "lizhi": 262,
+        "lizhi": 263,
         "ximalaya": 167,
         "wangyiyun": 4,
         "qingting": 70,
         "xiaoyuzhou": 188
       },
       "6ac60735e742e36efcbf402b": {
-        "lizhi": 262,
+        "lizhi": 263,
         "ximalaya": 291,
         "wangyiyun": 4,
         "qingting": 196,
         "xiaoyuzhou": 188
       },
       "6af319065b7c4709bfe41c77": {
-        "lizhi": 72,
-        "ximalaya": 169,
+        "lizhi": 76,
+        "ximalaya": 170,
         "wangyiyun": 2,
         "qingting": 21,
         "xiaoyuzhou": 105
@@ -56606,6 +56606,6 @@
         "qingting": 13
       }
     },
-    "createdAt": "2026-11-24T01:39:34.369Z"
+    "createdAt": "2026-11-24T12:23:57.995Z"
   }
 ]
