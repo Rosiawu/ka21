@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-10T12:17:07.428Z",
-  "total": 457,
+  "updatedAt": "2026-11-24T16:31:24.683Z",
+  "total": 459,
   "items": [
     {
       "t": "人教版初中七年级新教材 Unit 1 配套AI生成歌曲Nice to meet you如何生成？|吴熳教学思考60",
@@ -3657,6 +3657,22 @@
       "c": "社群与项目",
       "n": 0,
       "img": "covers/5fd85b02890d.jpg"
+    },
+    {
+      "t": "WPS春芽计划【AI+X】校园行，AI时代的职场竞争力在哪里？",
+      "d": "2026-11-18",
+      "u": "https://mp.weixin.qq.com/s?__biz=Mzg5ODU1ODg1Mg==&mid=2247491812&idx=1&sn=de8f30730d527accd510234e37c84fa4&chksm=c0621e0ff71597194b42519afd49a0c622e0cb087d17cbd4fa664156ecf69305fced7150c7cc",
+      "c": "课件与配图",
+      "n": 0,
+      "img": "covers/f546d79eacf2.jpg"
+    },
+    {
+      "t": "睡前聊十分钟睡醒出产品，拉群拍电影拿金鸡奖，昨晚Grok Bot Build Night信息量太大了！",
+      "d": "2026-11-21",
+      "u": "https://mp.weixin.qq.com/s?__biz=Mzg5ODU1ODg1Mg==&mid=2247491822&idx=1&sn=5b310588cc95b37daa69d93b83764fff&chksm=c0621e05f71597131af87e9bcf8b88db13498e24daf3945c68ad4a91c6bda247c1ccf76dbd28",
+      "c": "AI工具测评",
+      "n": 0,
+      "img": "covers/0957fc925e93.jpg"
     }
   ]
 }
