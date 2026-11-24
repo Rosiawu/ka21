@@ -1,0 +1,2699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F7F2E7" />
+  <title>灯下白FDE案例展示——南方康复学校脑瘫儿童课程定制项目</title>
+  <meta name="description" content="灯下白FDE案例展示：面向南方某康复学校1名教师与15名脑瘫及特教需求儿童，定制交付10节A/B/C三档分层本地HTML多模态互动课程。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="灯下白FDE案例展示——南方康复学校脑瘫儿童课程定制项目" />
+  <meta property="og:description" content="面向南方某康复学校1名教师与15名特教及脑瘫康复需求儿童，35天定制交付10节A/B/C三档分层本地HTML多模态互动课程。" />
+  <meta property="og:url" content="https://ka21.org/fde-cases/nanfang-rehab/" />
+  <link rel="canonical" href="https://ka21.org/fde-cases/nanfang-rehab/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <style>
+/* ==========================================================================
+   灯下白 · FDE 案例手记
+   法式纸本水粉插画风 —— 桌面端杂志跨页与移动端手账双端响应式系统
+   ========================================================================== */
+
+:root {
+  /* Paper & Desk Surfaces */
+  --desk-linen: #E5DDD0;
+  --paper: #F7F2E7;
+  --paper-deep: #EFE7D6;
+  --paper-ivory: #FCF9F2;
+  --paper-tint-blue: #EBF0F5;
+  --paper-tint-ochre: #F9F0D9;
+  --paper-tint-rose: #F6E7E1;
+  --paper-tint-sage: #E8EFE6;
+
+  /* Ink Tones (Warm Sepia Charcoal — Never Pure #000) */
+  --ink: #27231F;
+  --ink-body: #38322C;
+  --ink-soft: #625A50;
+  --ink-muted: #8A8073;
+  --rule: rgba(39, 35, 31, 0.15);
+  --rule-strong: rgba(39, 35, 31, 0.42);
+
+  /* Gouache Pigments */
+  --terracotta: #C25941;
+  --terracotta-wash: #F2DAD2;
+  --cobalt: #33588A;
+  --cobalt-wash: #D8E4F2;
+  --ochre: #D59B32;
+  --ochre-wash: #F7E7BE;
+  --sage: #557653;
+  --sage-wash: #DCE9DA;
+
+  /* Typography */
+  --font-serif-cn: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+  --font-display-num: "Cormorant Garamond", "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans-cn: "PingFang SC", "Hiragino Sans GB", -apple-system, BlinkMacSystemFont, "Noto Sans SC", "Microsoft YaHei", sans-serif;
+
+  /* Layout Rhythm (Mobile Default, Expanded on Tablet/Desktop) */
+  --sheet-max: 1100px;
+  --gutter: 22px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--desk-linen);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--desk-linen);
+  color: var(--ink-body);
+  font-family: var(--font-sans-cn);
+  font-size: 16px;
+  line-height: 1.86;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Subtle Reading Progress Hairline */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  pointer-events: none;
+  background: transparent;
+}
+
+.reading-progress__bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--cobalt), var(--terracotta), var(--ochre));
+  transition: width 80ms linear;
+}
+
+/* Main Editorial Sheet */
+.carnet-sheet {
+  position: relative;
+  width: 100%;
+  max-width: var(--sheet-max);
+  margin: 0 auto;
+  background-color: var(--paper);
+  min-height: 100dvh;
+  padding-bottom: calc(48px + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 44px;
+  }
+
+  body {
+    padding: 28px 24px 56px;
+    background-image: radial-gradient(rgba(39, 35, 31, 0.055) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+
+  .carnet-sheet {
+    border: 1px solid rgba(39, 35, 31, 0.15);
+    border-radius: 6px;
+    box-shadow:
+      0 22px 60px rgba(39, 35, 31, 0.10),
+      0 2px 8px rgba(39, 35, 31, 0.05);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 64px;
+  }
+
+  body {
+    padding: 36px 32px 68px;
+  }
+}
+
+/* Subtle Archival Cotton Paper Texture Overlay */
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hidden SVG Filter Library */
+.svg-defs-vault {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Editorial Top Masthead & Cover
+   ========================================================================== */
+
+.cover {
+  padding: 18px var(--gutter) 28px;
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .cover {
+    padding: 28px var(--gutter) 44px;
+  }
+}
+
+.masthead-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--ink);
+  position: relative;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.masthead-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  border-bottom: 0.75px solid var(--rule-strong);
+}
+
+.masthead-brand {
+  font-family: var(--font-serif-cn);
+  font-weight: 700;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.masthead-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--terracotta);
+}
+
+.masthead-folio {
+  font-family: var(--font-serif-cn);
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+/* Responsive Cover Spread */
+.cover-spread {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .cover-spread {
+    display: grid;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 44px;
+    align-items: center;
+    margin-top: 34px;
+  }
+
+  .cover-copy {
+    order: 1;
+  }
+
+  .cover-illustration {
+    order: 2;
+    margin: 0 !important;
+    max-width: 100% !important;
+    padding: 24px 20px 16px;
+    background-color: var(--paper-ivory);
+    border: 1.2px solid var(--rule-strong);
+    border-radius: 6px 12px 8px 10px;
+    box-shadow: 6px 8px 0 rgba(213, 155, 50, 0.16);
+  }
+}
+
+.cover-illustration {
+  margin: 22px auto 18px;
+  position: relative;
+  max-width: 390px;
+  width: 100%;
+}
+
+.cover-illustration svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.cover-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0 12px;
+  padding: 4px 12px 4px 10px;
+  background-color: var(--ochre-wash);
+  border: 1px solid rgba(39, 35, 31, 0.22);
+  border-radius: 2px 7px 3px 6px;
+  font-family: var(--font-serif-cn);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  box-shadow: 2px 2px 0 rgba(213, 155, 50, 0.28);
+}
+
+.cover-title {
+  margin: 0;
+  font-family: var(--font-serif-cn);
+  font-weight: 700;
+  line-height: 1.38;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+
+.cover-title__eyebrow {
+  display: block;
+  font-size: clamp(17.5px, 4.6vw, 21px);
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+
+.cover-title__sub {
+  display: block;
+  font-size: clamp(23.5px, 6.2vw, 31px);
+  line-height: 1.34;
+  color: var(--cobalt);
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .cover-title__eyebrow {
+    font-size: clamp(18px, 1.9vw, 22px);
+  }
+
+  .cover-title__sub {
+    font-size: clamp(26px, 2.9vw, 34px);
+  }
+}
+
+.cover-brush-underline {
+  display: block;
+  width: 176px;
+  height: 10px;
+  margin-top: 8px;
+}
+
+.cover-lead {
+  margin: 16px 0 0;
+  font-size: 15.5px;
+  line-height: 1.84;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+  max-width: 560px;
+}
+
+/* Cover Key Metadata Strip */
+.cover-meta-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--rule-strong);
+}
+
+@media (min-width: 900px) {
+  .cover-meta-row {
+    gap: 18px;
+    margin-top: 26px;
+    padding-top: 18px;
+  }
+}
+
+.meta-cell {
+  text-align: left;
+  padding-right: 4px;
+}
+
+.meta-cell:not(:last-child) {
+  border-right: 1px solid var(--rule);
+}
+
+.meta-cell__label {
+  display: block;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  letter-spacing: 0.03em;
+  margin-bottom: 3px;
+  white-space: nowrap;
+}
+
+.meta-cell__val {
+  font-family: var(--font-serif-cn);
+  font-weight: 700;
+  font-size: 13.8px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .meta-cell__label {
+    font-size: 12.5px;
+  }
+  .meta-cell__val {
+    font-size: 16.5px;
+  }
+}
+
+/* ==========================================================================
+   Sticky Chapter Ribbon (Mobile Compact 6-Grid / Desktop Full Bar)
+   ========================================================================== */
+
+.chapter-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(247, 242, 231, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 7px 12px;
+}
+
+.chapter-nav__list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.nav-extra {
+  display: none;
+}
+
+.chapter-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 5px 2px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  border: 1px solid transparent;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  white-space: nowrap;
+}
+
+.chapter-nav__num {
+  font-family: var(--font-display-num);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+@media (min-width: 768px) {
+  .chapter-nav {
+    padding: 10px var(--gutter);
+  }
+
+  .chapter-nav__list {
+    gap: 10px;
+  }
+
+  .nav-extra {
+    display: inline;
+  }
+
+  .chapter-nav__link {
+    gap: 6px;
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+
+  .chapter-nav__num {
+    font-size: 15px;
+  }
+}
+
+.chapter-nav__link.is-active {
+  background-color: var(--paper-ivory);
+  color: var(--ink);
+  border-color: var(--rule-strong);
+  box-shadow: 1px 1.5px 0 rgba(39, 35, 31, 0.12);
+  font-weight: 600;
+}
+
+.chapter-nav__link.is-active .chapter-nav__num {
+  color: var(--terracotta);
+}
+
+/* ==========================================================================
+   Shared Chapter Typography & Ornaments
+   ========================================================================== */
+
+.chapter {
+  padding: 36px var(--gutter) 34px;
+  position: relative;
+  scroll-margin-top: 56px;
+}
+
+@media (min-width: 900px) {
+  .chapter {
+    padding: 54px var(--gutter) 52px;
+    scroll-margin-top: 64px;
+  }
+}
+
+.chapter--tinted-warm {
+  background-color: var(--paper-deep);
+}
+
+.deckle-divider {
+  display: block;
+  width: 100%;
+  height: 14px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.deckle-divider svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.chapter-header {
+  margin-bottom: 18px;
+}
+
+.chapter-rubric {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.chapter-num-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display-num);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--ink);
+  z-index: 1;
+  padding: 2px 6px;
+}
+
+.chapter-num-badge::before {
+  content: "";
+  position: absolute;
+  inset: 2px -2px 0px 2px;
+  border-radius: 52% 48% 44% 56% / 48% 55% 45% 52%;
+  z-index: -1;
+  background-color: var(--terracotta-wash);
+}
+
+.chapter-num-badge--blue::before {
+  background-color: var(--cobalt-wash);
+}
+
+.chapter-num-badge--ochre::before {
+  background-color: var(--ochre-wash);
+}
+
+.chapter-num-badge--sage::before {
+  background-color: var(--sage-wash);
+}
+
+.chapter-sub-cn {
+  font-family: var(--font-serif-cn);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.chapter-title {
+  margin: 0;
+  font-family: var(--font-serif-cn);
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 27px);
+  line-height: 1.38;
+  color: var(--ink);
+}
+
+.prose-p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.88;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+.prose-p:last-child {
+  margin-bottom: 0;
+}
+
+.gouache-hl {
+  background: linear-gradient(180deg, transparent 56%, var(--ochre-wash) 56%);
+  padding: 0 2px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.gouache-hl--rose {
+  background: linear-gradient(180deg, transparent 56%, var(--terracotta-wash) 56%);
+}
+
+.gouache-hl--blue {
+  background: linear-gradient(180deg, transparent 56%, var(--cobalt-wash) 56%);
+}
+
+/* ==========================================================================
+   Chapter 01: 甲方 · 1 名教师与 15 名学生插画卡
+   ========================================================================== */
+
+.client-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (min-width: 860px) {
+  .client-layout {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 42px;
+    align-items: center;
+  }
+}
+
+.classroom-sketch-card {
+  margin: 2px 0;
+  padding: 18px 18px 16px;
+  background-color: var(--paper-ivory);
+  border: 1.2px solid var(--ink);
+  border-radius: 4px 10px 5px 8px;
+  box-shadow: 4px 5px 0 var(--cobalt-wash);
+  position: relative;
+}
+
+.classroom-sketch-card svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.scale-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--rule-strong);
+}
+
+.scale-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.scale-stat__num {
+  font-family: var(--font-display-num);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--terracotta);
+}
+
+.scale-stat--students .scale-stat__num {
+  color: var(--cobalt);
+}
+
+.scale-stat__unit {
+  font-family: var(--font-serif-cn);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.scale-stat__desc {
+  display: block;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Chapter 02: 难题 · 四项具体问题 (Stack on Mobile, 2x2 Ledger on Desktop)
+   ========================================================================== */
+
+.problem-top-grid {
+  margin-bottom: 18px;
+}
+
+@media (min-width: 860px) {
+  .problem-top-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 36px;
+    align-items: end;
+    margin-bottom: 28px;
+  }
+
+  .contrast-banner {
+    margin-bottom: 0 !important;
+  }
+}
+
+.contrast-banner {
+  margin: 16px 0 18px;
+  padding: 15px 16px;
+  background-color: var(--paper-ivory);
+  border-left: 3px solid var(--terracotta);
+  border-top: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0 8px 6px 0;
+}
+
+.contrast-banner__lead {
+  margin: 0;
+  font-family: var(--font-serif-cn);
+  font-size: 15.5px;
+  line-height: 1.78;
+  color: var(--ink);
+}
+
+.problem-ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.problem-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 12px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule-strong);
+  align-items: start;
+}
+
+.problem-item:last-child {
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+@media (min-width: 860px) {
+  .problem-ledger {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+  }
+
+  .problem-item:nth-child(3) {
+    border-bottom: 1px solid var(--rule-strong);
+  }
+}
+
+.problem-item__illus {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.problem-item__illus svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.problem-item__head {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 0 0 5px;
+}
+
+.problem-item__idx {
+  font-family: var(--font-display-num);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--terracotta);
+}
+
+.problem-item__title {
+  margin: 0;
+  font-family: var(--font-serif-cn);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.problem-item__desc {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.78;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Chapter 03: 交付内容 · A/B/C 抽认卡 + 本地 HTML 备忘 + 多模态 + 10节课程邮票
+   ========================================================================== */
+
+.delivery-lead {
+  max-width: 760px;
+}
+
+.delivery-feature-split {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 20px 0 6px;
+}
+
+@media (min-width: 860px) {
+  .delivery-feature-split {
+    display: grid;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 28px;
+    align-items: end;
+    margin: 24px 0 12px;
+  }
+}
+
+.tier-showcase {
+  margin: 0;
+}
+
+.tier-showcase__caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  margin-bottom: 8px;
+}
+
+.tier-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 0 6px;
+  position: relative;
+  z-index: 2;
+}
+
+.tier-tab {
+  appearance: none;
+  border: 1.2px solid var(--ink);
+  border-bottom: none;
+  background-color: var(--paper-deep);
+  color: var(--ink-soft);
+  padding: 8px 14px 7px;
+  border-radius: 8px 10px 0 0;
+  font-family: var(--font-serif-cn);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+  min-height: 40px;
+}
+
+.tier-tab[data-tier="A"].is-selected {
+  background-color: var(--paper-tint-ochre);
+  color: var(--ink);
+  transform: translateY(1.5px);
+}
+
+.tier-tab[data-tier="B"].is-selected {
+  background-color: var(--paper-tint-blue);
+  color: var(--ink);
+  transform: translateY(1.5px);
+}
+
+.tier-tab[data-tier="C"].is-selected {
+  background-color: var(--paper-tint-sage);
+  color: var(--ink);
+  transform: translateY(1.5px);
+}
+
+.tier-card-stage {
+  border: 1.2px solid var(--ink);
+  border-radius: 3px 10px 8px 6px;
+  padding: 18px;
+  background-color: var(--paper-tint-ochre);
+  box-shadow: 4px 4px 0 rgba(39, 35, 31, 0.10);
+  transition: background-color 0.25s ease;
+}
+
+.tier-card-stage[data-active-tier="B"] {
+  background-color: var(--paper-tint-blue);
+}
+
+.tier-card-stage[data-active-tier="C"] {
+  background-color: var(--paper-tint-sage);
+}
+
+.tier-panel {
+  display: none;
+}
+
+.tier-panel.is-visible {
+  display: block;
+  animation: fadeSlideIn 0.24s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tier-panel__badge {
+  display: inline-block;
+  font-family: var(--font-serif-cn);
+  font-weight: 600;
+  font-size: 12.5px;
+  padding: 2px 9px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background-color: rgba(252, 249, 242, 0.8);
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.tier-panel__title {
+  margin: 0 0 6px;
+  font-family: var(--font-serif-cn);
+  font-size: 17.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.tier-panel__text {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.78;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+/* Paperclip Field Memo: Why Local HTML? */
+.atelier-memo {
+  position: relative;
+  margin: 6px 0 0;
+  padding: 20px 18px 18px;
+  background-color: var(--paper-tint-blue);
+  border: 1px solid rgba(51, 88, 138, 0.32);
+  border-radius: 3px 9px 4px 7px;
+}
+
+.atelier-memo__clip {
+  position: absolute;
+  top: -13px;
+  right: 20px;
+  width: 26px;
+  height: 44px;
+  pointer-events: none;
+}
+
+.atelier-memo__title {
+  margin: 0 0 8px;
+  font-family: var(--font-serif-cn);
+  font-weight: 700;
+  font-size: 16.5px;
+  color: var(--cobalt);
+}
+
+.atelier-memo__p {
+  margin: 0 0 10px;
+  font-size: 14.8px;
+  line-height: 1.8;
+  color: var(--ink-body);
+  text-wrap: pretty;
+}
+
+.atelier-memo__p:last-child {
+  margin-bottom: 0;
+}
+
+/* 4 Multimodal Content Blocks */
+.modality-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0 28px;
+}
+
+@media (min-width: 860px) {
+  .modality-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 14px 0 34px;
+  }
+}
+
+.modality-card {
+  padding: 15px 14px 14px;
+  background-color: var(--paper-ivory);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px 3px 8px 4px;
+  position: relative;
+}
+
+.modality-card:nth-child(1) { box-shadow: 3px 3px 0 var(--ochre-wash); }
+.modality-card:nth-child(2) { box-shadow: 3px 3px 0 var(--terracotta-wash); }
+.modality-card:nth-child(3) { box-shadow: 3px 3px 0 var(--cobalt-wash); }
+.modality-card:nth-child(4) { box-shadow: 3px 3px 0 var(--sage-wash); }
+
+.modality-card__icon {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 6px;
+}
+
+.modality-card__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.modality-card__title {
+  margin: 0 0 4px;
+  font-family: var(--font-serif-cn);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.modality-card__desc {
+  margin: 0;
+  font-size: 13.8px;
+  line-height: 1.68;
+  color: var(--ink-soft);
+}
+
+/* Illustrated Course Postage Stamps */
+.course-shelf-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 26px 0 12px;
+}
+
+.course-shelf-title {
+  margin: 0;
+  font-family: var(--font-serif-cn);
+  font-size: 17.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.course-shelf-sub {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .stamp-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+.course-stamp {
+  background-color: var(--paper-ivory);
+  padding: 14px 12px 13px;
+  border: 1px dashed rgba(39, 35, 31, 0.34);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 0 rgba(39, 35, 31, 0.06);
+}
+
+.course-stamp::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 0.75px solid rgba(39, 35, 31, 0.14);
+  pointer-events: none;
+}
+
+.course-stamp__art {
+  width: 68px;
+  height: 58px;
+  margin-bottom: 6px;
+}
+
+.course-stamp__art svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.course-stamp__num {
+  font-family: var(--font-serif-cn);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  line-height: 1.2;
+}
+
+.course-stamp__name {
+  margin: 4px 0 0;
+  font-family: var(--font-serif-cn);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.course-stamp--more {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  padding: 14px 18px;
+  background-color: var(--paper-tint-ochre);
+  border-style: solid;
+  border-color: rgba(39, 35, 31, 0.25);
+}
+
+.course-stamp--more .course-stamp__name {
+  font-size: 14.8px;
+  margin: 2px 0 0;
+}
+
+.course-stamp__tag {
+  font-family: var(--font-serif-cn);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--terracotta);
+  background-color: var(--paper-ivory);
+  padding: 4px 10px;
+  border: 1px solid rgba(194, 89, 65, 0.35);
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Chapter 04: AI 工具与五步制作流程
+   ========================================================================== */
+
+.workflow-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (min-width: 860px) {
+  .workflow-layout {
+    display: grid;
+    grid-template-columns: 0.88fr 1.12fr;
+    gap: 44px;
+    align-items: start;
+  }
+
+  .workflow-layout__side {
+    position: sticky;
+    top: 84px;
+  }
+
+  .workflow-steps-lead {
+    margin-top: 6px;
+  }
+}
+
+.codex-colophon {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px 0 6px;
+  padding: 15px 16px;
+  background-color: var(--paper-ivory);
+  border: 1.2px solid var(--ink);
+  border-radius: 6px 3px 8px 4px;
+  box-shadow: 3px 4px 0 var(--terracotta-wash);
+}
+
+.codex-colophon__seal {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+}
+
+.codex-colophon__seal svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.codex-colophon__label {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  display: block;
+}
+
+.codex-colophon__title {
+  margin: 2px 0 3px;
+  font-family: var(--font-serif-cn);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.codex-colophon__desc {
+  margin: 0;
+  font-size: 13.8px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.workflow-steps-lead {
+  margin-bottom: 16px;
+}
+
+.workflow-trail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.workflow-step {
+  position: relative;
+  padding-left: 42px;
+  padding-bottom: 22px;
+}
+
+.workflow-step:last-child {
+  padding-bottom: 0;
+}
+
+.workflow-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 30px;
+  bottom: 2px;
+  border-left: 1.5px dashed rgba(39, 35, 31, 0.30);
+}
+
+.workflow-step__marker {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 54% 46% 48% 52% / 47% 53% 46% 54%;
+  border: 1.3px solid var(--ink);
+  background-color: var(--paper-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display-num);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.workflow-step:nth-child(1) .workflow-step__marker { background-color: var(--ochre-wash); }
+.workflow-step:nth-child(2) .workflow-step__marker { background-color: var(--terracotta-wash); }
+.workflow-step:nth-child(3) .workflow-step__marker { background-color: var(--cobalt-wash); }
+.workflow-step:nth-child(4) .workflow-step__marker { background-color: var(--sage-wash); }
+.workflow-step:nth-child(5) .workflow-step__marker { background-color: var(--ochre-wash); }
+
+.workflow-step__title {
+  margin: 0 0 4px;
+  font-family: var(--font-serif-cn);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.workflow-step__desc {
+  margin: 0;
+  font-size: 14.8px;
+  line-height: 1.78;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Chapter 05: 周期与分工 · 撕页日历 & 双栏协作角色卡
+   ========================================================================== */
+
+@media (min-width: 860px) {
+  .team-top-row {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .team-top-row .chapter-header {
+    margin-bottom: 0;
+  }
+
+  .team-top-row .calendar-row {
+    margin: 0;
+  }
+}
+
+.calendar-row {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 14px;
+  align-items: center;
+  margin: 18px 0 22px;
+  padding: 15px;
+  background-color: var(--paper-ivory);
+  border: 1.2px solid var(--ink);
+  border-radius: 5px 8px 4px 7px;
+}
+
+.eph-leaf {
+  background-color: var(--paper);
+  border: 1.2px solid var(--ink);
+  border-radius: 3px 3px 6px 6px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 2px 3px 0 var(--terracotta-wash);
+}
+
+.eph-leaf__top {
+  background-color: var(--terracotta);
+  color: var(--paper-ivory);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 4px 6px;
+}
+
+.eph-leaf__day {
+  font-family: var(--font-display-num);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.15;
+  color: var(--ink);
+  padding-top: 5px;
+}
+
+.eph-leaf__sub {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  padding: 2px 4px 7px;
+}
+
+.calendar-summary__big {
+  margin: 0 0 4px;
+  font-family: var(--font-serif-cn);
+  font-size: 17.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.calendar-summary__note {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.68;
+  color: var(--ink-soft);
+}
+
+.team-dossier {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+@media (min-width: 768px) {
+  .team-dossier {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+.role-card {
+  padding: 18px 18px 16px;
+  background-color: var(--paper-ivory);
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px 9px 5px 7px;
+}
+
+.role-card--lead {
+  border-color: var(--ink);
+  box-shadow: 3px 4px 0 var(--ochre-wash);
+}
+
+.role-card--dev {
+  box-shadow: 3px 4px 0 var(--cobalt-wash);
+}
+
+.role-card__eyebrow {
+  font-size: 12px;
+  color: var(--terracotta);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.role-card--dev .role-card__eyebrow {
+  color: var(--cobalt);
+}
+
+.role-card__name {
+  margin: 3px 0 8px;
+  font-family: var(--font-serif-cn);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.duty-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.duty-tag {
+  font-size: 12.8px;
+  line-height: 1.4;
+  padding: 4px 9px;
+  border-radius: 3px 6px 4px 5px;
+  background-color: var(--paper-tint-ochre);
+  border: 1px solid rgba(39, 35, 31, 0.16);
+  color: var(--ink);
+}
+
+.role-card--dev .duty-tag {
+  background-color: var(--paper-tint-blue);
+}
+
+/* ==========================================================================
+   Chapter 06: 结果与教师原话明信片
+   ========================================================================== */
+
+.outcome-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 860px) {
+  .outcome-layout {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .outcome-layout__quote {
+    position: sticky;
+    top: 84px;
+  }
+}
+
+.postcard-quote {
+  position: relative;
+  margin: 18px 2px 18px;
+  padding: 22px 20px 20px;
+  background-color: #FDFBF5;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 31px,
+    rgba(51, 88, 138, 0.11) 32px
+  );
+  border: 1.3px solid var(--ink);
+  border-radius: 4px 6px 5px 4px;
+  transform: rotate(-0.6deg);
+  box-shadow: 4px 6px 0 rgba(39, 35, 31, 0.10);
+}
+
+.postcard-quote__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.postcard-quote__label {
+  font-family: var(--font-serif-cn);
+  font-size: 12.5px;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 3px;
+}
+
+.postcard-quote__stamp {
+  width: 44px;
+  height: 50px;
+  flex-shrink: 0;
+  margin-top: -4px;
+}
+
+.postcard-quote__stamp svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.postcard-quote__text {
+  margin: 0;
+  font-family: var(--font-serif-cn);
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.85;
+  color: var(--ink);
+  position: relative;
+}
+
+.postcard-quote__mark {
+  font-family: var(--font-display-num);
+  font-size: 38px;
+  line-height: 0;
+  vertical-align: -10px;
+  color: var(--terracotta);
+  margin-right: 4px;
+}
+
+.postcard-quote__footer {
+  margin-top: 14px;
+  text-align: right;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-family: var(--font-serif-cn);
+}
+
+/* 5 Concrete Results List */
+.outcome-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.outcome-card {
+  padding: 15px 16px;
+  background-color: var(--paper-ivory);
+  border: 1px solid var(--rule-strong);
+  border-radius: 5px 8px 4px 6px;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.outcome-card__check {
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+}
+
+.outcome-card__check svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.outcome-card__title {
+  margin: 0 0 4px;
+  font-family: var(--font-serif-cn);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.outcome-card__desc {
+  margin: 0;
+  font-size: 14.8px;
+  line-height: 1.76;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   Colophon Footer
+   ========================================================================== */
+
+.colophon-footer {
+  padding: 30px var(--gutter) 16px;
+  text-align: center;
+  border-top: 1.5px solid var(--ink);
+  position: relative;
+}
+
+.colophon-footer::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  right: 0;
+  border-top: 0.75px solid var(--rule-strong);
+}
+
+.colophon-ornament {
+  width: 96px;
+  height: 36px;
+  margin: 0 auto 10px;
+}
+
+.colophon-ornament svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.colophon-title {
+  margin: 0 0 4px;
+  font-family: var(--font-serif-cn);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.colophon-meta {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Reading Progress Hairline -->
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress__bar" id="readingBar"></div>
+  </div>
+
+  <!-- Subtle Cotton Paper Grain -->
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <!-- Shared SVG Filters for Hand-Inked Nib & Offset Gouache Edges -->
+  <svg class="svg-defs-vault" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="ink-nib" x="-8%" y="-8%" width="116%" height="116%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="7" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.35" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <filter id="gouache-edge" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="12" result="gnoise" />
+        <feDisplacementMap in="SourceGraphic" in2="gnoise" scale="2.6" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <main class="carnet-sheet">
+    <!-- ====================================================================
+         封面与总标题 (Responsive Two-Column Spread on Web, Stack on Mobile)
+         ==================================================================== -->
+    <header class="cover" id="top">
+      <div class="masthead-bar">
+        <span class="masthead-brand">
+          <span class="masthead-dot" aria-hidden="true"></span>
+          灯下白 · FDE 案例展示
+        </span>
+        <span class="masthead-folio">案例档案 01 · 2026</span>
+      </div>
+
+      <div class="cover-spread">
+        <!-- Illustration Column (First on Mobile, Right Plate on Desktop) -->
+        <figure class="cover-illustration" aria-label="手绘水粉插画：台灯暖光下的分层互动绘本与南国绿植窗台">
+          <svg viewBox="0 0 380 236" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Soft Warm Pool of Lamp Light ("灯下白") -->
+            <path d="M118 82 L42 204 C98 220 228 220 278 202 L182 82 Z"
+                  fill="#FDF9EE" opacity="0.92" filter="url(#gouache-edge)" />
+            <ellipse cx="164" cy="202" rx="118" ry="18"
+                     fill="#F7E5B4" opacity="0.65" style="mix-blend-mode:multiply" filter="url(#gouache-edge)" />
+
+            <!-- Right Background: Southern Arched Window & Sky Wash -->
+            <g style="mix-blend-mode:multiply" filter="url(#gouache-edge)">
+              <path d="M266 36 C266 16 336 16 336 36 L336 138 L266 138 Z" fill="#DCE7F3" />
+              <circle cx="312" cy="48" r="13" fill="#F3C567" opacity="0.85" />
+              <!-- Terracotta Plant Pot Gouache -->
+              <path d="M286 142 L322 142 L316 174 L292 174 Z" fill="#DDA08E" />
+              <!-- Olive / Banyan Leaves Gouache -->
+              <path d="M303 140 C285 124 274 106 283 96 C293 98 302 114 304 134 Z" fill="#B9CFB4" />
+              <path d="M306 138 C316 114 332 100 342 106 C340 120 324 132 308 140 Z" fill="#9BB996" />
+              <path d="M304 128 C298 104 304 82 315 82 C322 94 316 114 306 130 Z" fill="#B9CFB4" />
+            </g>
+
+            <!-- Left-Center Gouache Fills (Offset Print Style) -->
+            <g transform="translate(3, 3)" style="mix-blend-mode:multiply" filter="url(#gouache-edge)">
+              <!-- Pleated Terracotta Lampshade Fill -->
+              <path d="M114 44 L174 44 L192 84 L96 84 Z" fill="#E39A86" />
+              <!-- Cobalt Ceramic Lamp Base Fill -->
+              <path d="M84 156 C72 164 70 184 82 194 L118 194 C128 184 126 164 114 156 Z" fill="#9BB4D4" />
+              <!-- Open Custom Course Workbook Fill -->
+              <path d="M132 174 C156 166 184 168 204 176 C224 168 252 166 276 174 L286 204 C258 198 226 198 204 206 C182 198 150 198 122 204 Z"
+                    fill="#FCF8EF" />
+              <!-- Three A / B / C Tab Ribbons protruding from book -->
+              <rect x="218" y="156" width="15" height="18" rx="2" transform="rotate(-6 218 156)" fill="#F0C362" />
+              <rect x="238" y="154" width="15" height="19" rx="2" transform="rotate(2 238 154)" fill="#96B3D6" />
+              <rect x="258" y="157" width="15" height="18" rx="2" transform="rotate(9 258 157)" fill="#A6C4A1" />
+              <!-- Little Paper Bird Rising -->
+              <path d="M212 118 L232 108 L224 126 L238 122 L216 134 Z" fill="#9BB4D4" />
+            </g>
+
+            <!-- Hand-Inked Charcoal Line Art -->
+            <g stroke="#27231F" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+              <!-- Horizon Desk Line -->
+              <path d="M22 196 C112 194 268 195 358 196" stroke-width="1.5" />
+
+              <!-- Arched Window Frame -->
+              <path d="M263 138 L263 38 C263 13 335 13 335 38 L335 138" stroke-width="1.4" />
+              <path d="M255 139 L344 139" stroke-width="1.6" />
+              <path d="M299 20 L299 138" stroke-width="1" stroke-dasharray="2 3" opacity="0.55" />
+              <path d="M264 84 L334 84" stroke-width="1" opacity="0.55" />
+
+              <!-- Potted Southern Plant Ink -->
+              <path d="M284 140 L320 140 L314 173 L290 173 Z" stroke-width="1.4" />
+              <path d="M281 140 L323 140" stroke-width="1.8" />
+              <path d="M302 140 C286 125 274 108 282 95 C293 98 301 114 303 136" stroke-width="1.35" />
+              <path d="M304 138 C315 116 330 101 341 105 C338 119 322 131 305 139" stroke-width="1.35" />
+              <path d="M302 130 C297 106 303 82 314 81 C320 93 314 113 304 132" stroke-width="1.35" />
+
+              <!-- Brass & Ceramic Desk Lamp -->
+              <path d="M141 42 C141 35 147 35 147 42" stroke-width="1.5" />
+              <path d="M112 43 L172 43 L190 83 L94 83 Z" stroke-width="1.65" />
+              <path d="M126 44 L115 82 M142 44 L142 82 M158 44 L169 82" stroke-width="1.05" opacity="0.65" />
+              <path d="M97 78 C126 81 158 81 187 78" stroke-width="1" />
+              <path d="M136 84 C137 92 147 92 148 84" stroke-width="1.4" fill="#F8DE7E" />
+              <path d="M126 96 L118 106 M142 98 L142 110 M158 96 L166 106" stroke-width="1.2" stroke="#C25941" />
+              <path d="M114 83 C92 98 88 128 98 155" stroke-width="2.1" />
+              <path d="M119 83 C98 98 94 128 103 155" stroke-width="1.1" opacity="0.65" />
+              <path d="M83 155 L115 155 C126 165 127 183 117 195 L81 195 C71 183 72 165 83 155 Z" stroke-width="1.6" />
+              <path d="M80 176 L88 176 M82 182 L92 182 M85 188 L95 188" stroke-width="1" opacity="0.5" />
+
+              <!-- Open Illustrated Workbook & A/B/C Tabs -->
+              <path d="M130 173 C154 165 182 167 202 176 C222 167 250 165 274 173 L284 203 C256 197 224 197 202 206 C180 197 148 197 120 203 Z"
+                    stroke-width="1.6" fill="#FCF9F2" />
+              <path d="M202 176 L202 206" stroke-width="1.4" />
+              <rect x="144" y="178" width="24" height="14" rx="2" stroke-width="1.1" fill="#F7E7BE" />
+              <path d="M174 180 L191 180 M174 186 L188 186 M144 196 L186 196" stroke-width="1.1" opacity="0.7" />
+              <circle cx="224" cy="184" r="6.5" stroke-width="1.1" fill="#F2DAD2" />
+              <path d="M236 181 L262 181 M236 187 L258 187 M216 195 L264 195" stroke-width="1.1" opacity="0.7" />
+
+              <!-- A / B / C Bookmarks -->
+              <path d="M216 168 L215 154 L230 153 L231 167" stroke-width="1.25" />
+              <path d="M237 167 L238 152 L252 153 L251 167" stroke-width="1.25" />
+              <path d="M257 168 L260 154 L274 157 L270 171" stroke-width="1.25" />
+
+              <!-- Paper Bird & Dotted Flight Path -->
+              <path d="M203 162 C196 146 200 132 210 124" stroke-width="1.1" stroke-dasharray="2.5 3.5" opacity="0.65" />
+              <path d="M209 119 L232 107 L223 126 L210 119 Z" stroke-width="1.3" />
+              <path d="M223 126 L237 121 L216 133 L223 126 Z" stroke-width="1.3" />
+            </g>
+
+            <!-- Hand-Lettered A / B / C on Tabs -->
+            <text x="220" y="164" font-family="Georgia, serif" font-size="9.5" font-weight="700" fill="#27231F">A</text>
+            <text x="241" y="163" font-family="Georgia, serif" font-size="9.5" font-weight="700" fill="#27231F">B</text>
+            <text x="261" y="166" font-family="Georgia, serif" font-size="9.5" font-weight="700" fill="#27231F">C</text>
+          </svg>
+        </figure>
+
+        <!-- Copy Column -->
+        <div class="cover-copy">
+          <div class="cover-kicker">
+            <span>特殊教育数字化 · 定制交付手记</span>
+          </div>
+
+          <h1 class="cover-title">
+            <span class="cover-title__eyebrow">灯下白FDE案例展示——</span>
+            <span class="cover-title__sub">南方康复学校<br />脑瘫儿童课程定制项目</span>
+          </h1>
+
+          <!-- Hand-drawn terracotta brush wave under title -->
+          <svg class="cover-brush-underline" viewBox="0 0 180 12" fill="none" aria-hidden="true">
+            <path d="M3 7 C42 2, 88 11, 134 5 C152 3, 166 6, 177 5"
+                  stroke="#C25941" stroke-width="3" stroke-linecap="round" filter="url(#ink-nib)" />
+          </svg>
+
+          <p class="cover-lead">
+            当通用数字课件遇上能力各异的特殊教育课堂，如何让技术退到幕后，做成一位老师随手能开、十五个孩子各自好用的生活互动课？这是一份来自真实交付现场的项目手记。
+          </p>
+
+          <div class="cover-meta-row" aria-label="项目关键速览">
+            <div class="meta-cell">
+              <span class="meta-cell__label">直接服务规模</span>
+              <span class="meta-cell__val">1 师 · 15 生</span>
+            </div>
+            <div class="meta-cell">
+              <span class="meta-cell__label">约定交付体量</span>
+              <span class="meta-cell__val">10 节 × A/B/C</span>
+            </div>
+            <div class="meta-cell">
+              <span class="meta-cell__label">项目实施周期</span>
+              <span class="meta-cell__val">约 35 天</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sticky Chapter Ribbon (Concise on Mobile, Full Titles on Desktop Web) -->
+    <nav class="chapter-nav" aria-label="案例章节导航">
+      <ul class="chapter-nav__list">
+        <li><a class="chapter-nav__link is-active" href="#sec-client"><span class="chapter-nav__num">01</span>甲方<span class="nav-extra">规模</span></a></li>
+        <li><a class="chapter-nav__link" href="#sec-problem"><span class="chapter-nav__num">02</span><span class="nav-extra">面临</span>难题</a></li>
+        <li><a class="chapter-nav__link" href="#sec-delivery"><span class="chapter-nav__num">03</span>交付<span class="nav-extra">内容</span></a></li>
+        <li><a class="chapter-nav__link" href="#sec-workflow"><span class="chapter-nav__num">04</span><span class="nav-extra">工具与</span>流程</a></li>
+        <li><a class="chapter-nav__link" href="#sec-team"><span class="chapter-nav__num">05</span><span class="nav-extra">周期与</span>分工</a></li>
+        <li><a class="chapter-nav__link" href="#sec-outcome"><span class="chapter-nav__num">06</span><span class="nav-extra">项目</span>成果</a></li>
+      </ul>
+    </nav>
+
+    <!-- ====================================================================
+         CHAPTER 01 · 甲方：学校名称与规模
+         ==================================================================== -->
+    <section class="chapter" id="sec-client">
+      <div class="client-layout">
+        <div class="client-layout__text">
+          <div class="chapter-header">
+            <div class="chapter-rubric">
+              <span class="chapter-num-badge">01</span>
+              <span class="chapter-sub-cn">服务对象与教学规模</span>
+            </div>
+            <h2 class="chapter-title">甲方：学校名称与规模</h2>
+          </div>
+
+          <p class="prose-p">
+            项目甲方为<span class="gouache-hl">南方某康复学校</span>。本次项目直接服务的教学规模为 <strong style="color:var(--ink)">1 名教师、15 名学生</strong>。
+          </p>
+
+          <p class="prose-p">
+            项目面向有<span class="gouache-hl--rose">特殊教育和脑瘫康复需求</span>的儿童，课程需要充分考虑学生之间的能力差异，以及教师实际使用数字化教学资源的便利性。
+          </p>
+        </div>
+
+        <!-- Bespoke Pochoir Illustration: 1 Guiding Lantern / Teacher & Exactly 15 Unique Paper Boats -->
+        <div class="classroom-sketch-card">
+          <svg viewBox="0 0 348 118" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="一位教师引航与十五只大小颜色各异的小纸船插画，寓意因材施教">
+            <!-- Gentle Water / Breeze Waves -->
+            <path d="M12 56 C78 48, 146 64, 214 54 C268 46, 306 58, 338 52" stroke="#33588A" stroke-opacity="0.22" stroke-width="1.3" stroke-dasharray="4 4" />
+            <path d="M18 96 C92 88, 168 102, 244 92 C288 86, 316 96, 338 92" stroke="#33588A" stroke-opacity="0.22" stroke-width="1.3" stroke-dasharray="4 4" />
+
+            <!-- Left: 1 Teacher's Warm Lighthouse / Open Book Beacon -->
+            <g transform="translate(2,2)" style="mix-blend-mode:multiply" filter="url(#gouache-edge)">
+              <circle cx="38" cy="58" r="24" fill="#F7E5B4" />
+              <path d="M26 78 L50 78 L46 46 L30 46 Z" fill="#E59C88" />
+            </g>
+            <g stroke="#27231F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+              <path d="M25 80 L51 80 L46 45 L30 45 Z" />
+              <path d="M28 45 L38 33 L48 45 Z" fill="#C25941" />
+              <circle cx="38" cy="56" r="4.5" fill="#F9E395" />
+              <path d="M56 48 L65 44 M58 56 L68 56 M56 64 L65 68" stroke="#C25941" stroke-width="1.3" />
+            </g>
+
+            <!-- Right: Exactly 15 Unique Little Paper Boats (8 top row + 7 bottom row = 15 students!) -->
+            <g filter="url(#ink-nib)" stroke="#27231F" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Row 1 (8 boats) -->
+              <g transform="translate(82, 34)"><polygon points="0,14 10,2 20,14" fill="#D8E4F2"/><polygon points="2,14 18,14 15,19 5,19" fill="#96B3D6"/></g>
+              <g transform="translate(114, 28) scale(1.12)"><polygon points="0,14 10,2 20,14" fill="#F7E7BE"/><polygon points="2,14 18,14 15,19 5,19" fill="#E8B95B"/></g>
+              <g transform="translate(150, 36) scale(0.9)"><polygon points="0,14 10,2 20,14" fill="#F2DAD2"/><polygon points="2,14 18,14 15,19 5,19" fill="#DE8F79"/></g>
+              <g transform="translate(180, 30) scale(1.05)"><polygon points="0,14 10,2 20,14" fill="#DCE9DA"/><polygon points="2,14 18,14 15,19 5,19" fill="#98B894"/></g>
+              <g transform="translate(214, 35) scale(0.95)"><polygon points="0,14 10,2 20,14" fill="#F7E7BE"/><polygon points="2,14 18,14 15,19 5,19" fill="#E8B95B"/></g>
+              <g transform="translate(246, 27) scale(1.1)"><polygon points="0,14 10,2 20,14" fill="#D8E4F2"/><polygon points="2,14 18,14 15,19 5,19" fill="#96B3D6"/></g>
+              <g transform="translate(282, 34) scale(0.88)"><polygon points="0,14 10,2 20,14" fill="#DCE9DA"/><polygon points="2,14 18,14 15,19 5,19" fill="#98B894"/></g>
+              <g transform="translate(312, 29) scale(1.02)"><polygon points="0,14 10,2 20,14" fill="#F2DAD2"/><polygon points="2,14 18,14 15,19 5,19" fill="#DE8F79"/></g>
+
+              <!-- Row 2 (7 boats = total 15) -->
+              <g transform="translate(94, 72) scale(1.04)"><polygon points="0,14 10,2 20,14" fill="#DCE9DA"/><polygon points="2,14 18,14 15,19 5,19" fill="#98B894"/></g>
+              <g transform="translate(130, 76) scale(0.92)"><polygon points="0,14 10,2 20,14" fill="#D8E4F2"/><polygon points="2,14 18,14 15,19 5,19" fill="#96B3D6"/></g>
+              <g transform="translate(164, 70) scale(1.14)"><polygon points="0,14 10,2 20,14" fill="#F2DAD2"/><polygon points="2,14 18,14 15,19 5,19" fill="#DE8F79"/></g>
+              <g transform="translate(202, 75) scale(0.95)"><polygon points="0,14 10,2 20,14" fill="#F7E7BE"/><polygon points="2,14 18,14 15,19 5,19" fill="#E8B95B"/></g>
+              <g transform="translate(236, 71) scale(1.06)"><polygon points="0,14 10,2 20,14" fill="#DCE9DA"/><polygon points="2,14 18,14 15,19 5,19" fill="#98B894"/></g>
+              <g transform="translate(272, 76) scale(0.9)"><polygon points="0,14 10,2 20,14" fill="#F7E7BE"/><polygon points="2,14 18,14 15,19 5,19" fill="#E8B95B"/></g>
+              <g transform="translate(304, 71) scale(1.05)"><polygon points="0,14 10,2 20,14" fill="#D8E4F2"/><polygon points="2,14 18,14 15,19 5,19" fill="#96B3D6"/></g>
+            </g>
+          </svg>
+
+          <div class="scale-stats">
+            <div>
+              <div class="scale-stat">
+                <span class="scale-stat__num">1</span>
+                <span class="scale-stat__unit">名直接授课教师</span>
+              </div>
+              <span class="scale-stat__desc">课件需好打开、易操作、方便反复使用</span>
+            </div>
+            <div class="scale-stat--students">
+              <div class="scale-stat">
+                <span class="scale-stat__num">15</span>
+                <span class="scale-stat__unit">名特教与康复儿童</span>
+              </div>
+              <span class="scale-stat__desc">兼顾脑瘫康复需求与显著个体能力差异</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Torn Paper / Hand-drawn Wave Divider -->
+    <div class="deckle-divider" aria-hidden="true">
+      <svg viewBox="0 0 490 14" preserveAspectRatio="none">
+        <path d="M0 14 L0 6 Q24 2 48 7 T96 6 T144 7 T192 5 T240 7 T288 6 T336 7 T384 5 T432 7 T490 6 L490 14 Z" fill="#EFE7D6" />
+      </svg>
+    </div>
+
+    <!-- ====================================================================
+         CHAPTER 02 · 难题：学校原来面临什么问题？
+         ==================================================================== -->
+    <section class="chapter chapter--tinted-warm" id="sec-problem">
+      <div class="problem-top-grid">
+        <div>
+          <div class="chapter-header">
+            <div class="chapter-rubric">
+              <span class="chapter-num-badge chapter-num-badge--blue">02</span>
+              <span class="chapter-sub-cn">特殊教育场景下的四项痛点</span>
+            </div>
+            <h2 class="chapter-title">难题：学校原来面临什么问题？</h2>
+          </div>
+
+          <div class="contrast-banner">
+            <p class="contrast-banner__lead">
+              这个项目最核心的挑战，是如何让数字化课程<strong>真正适应特殊教育场景</strong>。
+            </p>
+          </div>
+        </div>
+
+        <div class="problem-top-grid__prose">
+          <p class="prose-p">
+            普通数字课程通常采用统一的教学难度和交互方式，但特殊教育学生在<span class="gouache-hl">认知、理解、操作及表达能力</span>方面存在明显差异。同样一节课，不同学生可能需要完全不同的教学支持。
+          </p>
+          <p class="prose-p">因此，项目需要解决以下四个具体问题：</p>
+        </div>
+      </div>
+
+      <ol class="problem-ledger">
+        <!-- Problem 1 -->
+        <li class="problem-item">
+          <div class="problem-item__illus" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="7" y="22" width="12" height="19" rx="2" fill="#F7E7BE" transform="translate(2,2)" />
+              <rect x="19" y="15" width="12" height="26" rx="2" fill="#D8E4F2" transform="translate(2,2)" />
+              <rect x="31" y="8" width="12" height="33" rx="2" fill="#DCE9DA" transform="translate(2,2)" />
+              <g stroke="#27231F" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <rect x="7" y="22" width="11" height="19" rx="1.5" />
+                <rect x="19" y="15" width="11" height="26" rx="1.5" />
+                <rect x="31" y="8" width="11" height="33" rx="1.5" />
+              </g>
+              <text x="10" y="35" font-family="Georgia,serif" font-size="9" font-weight="700" fill="#27231F">A</text>
+              <text x="22" y="31" font-family="Georgia,serif" font-size="9" font-weight="700" fill="#27231F">B</text>
+              <text x="34" y="27" font-family="Georgia,serif" font-size="9" font-weight="700" fill="#27231F">C</text>
+            </svg>
+          </div>
+          <div>
+            <div class="problem-item__head">
+              <span class="problem-item__idx">01.</span>
+              <h3 class="problem-item__title">教学难度分层</h3>
+            </div>
+            <p class="problem-item__desc">同一教学主题需要提供 A、B、C 三个难度版本，以适应不同能力水平的学生。</p>
+          </div>
+        </li>
+
+        <!-- Problem 2 -->
+        <li class="problem-item">
+          <div class="problem-item__illus" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="20" cy="22" r="12" fill="#F2DAD2" />
+              <circle cx="31" cy="28" r="10" fill="#D8E4F2" style="mix-blend-mode:multiply" />
+              <g stroke="#27231F" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <path d="M11 16 L24 16 M11 21 L20 21" />
+                <path d="M29 14 L29 29 C29 32 25 33 24 31 C23 29 26 27 29 28" />
+                <path d="M29 14 L36 12 L36 17 L29 19" fill="#C25941" />
+                <polygon points="14,29 23,34 14,39" fill="#F7E7BE" />
+              </g>
+            </svg>
+          </div>
+          <div>
+            <div class="problem-item__head">
+              <span class="problem-item__idx">02.</span>
+              <h3 class="problem-item__title">教学内容多模态呈现</h3>
+            </div>
+            <p class="problem-item__desc">课程需要结合文字、音频、视频、互动等形式，让学生能够通过不同方式理解内容。</p>
+          </div>
+        </li>
+
+        <!-- Problem 3 -->
+        <li class="problem-item">
+          <div class="problem-item__illus" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="9" y="11" width="30" height="24" rx="3" fill="#F7E7BE" transform="translate(2,2)" />
+              <g stroke="#27231F" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <rect x="8" y="10" width="30" height="24" rx="3" fill="#FCF9F2" />
+                <path d="M8 17 L38 17" />
+                <circle cx="13" cy="13.5" r="1" fill="#27231F" />
+                <circle cx="17" cy="13.5" r="1" fill="#27231F" />
+                <polygon points="20,21 28,25.5 20,30" fill="#E39A86" />
+                <path d="M28 31 L34 40 M28 31 L30 39 M28 31 L36 34" />
+              </g>
+            </svg>
+          </div>
+          <div>
+            <div class="problem-item__head">
+              <span class="problem-item__idx">03.</span>
+              <h3 class="problem-item__title">降低教师使用门槛</h3>
+            </div>
+            <p class="problem-item__desc">只有一名教师直接参与教学，课程需要尽可能方便打开、操作和重复使用。</p>
+          </div>
+        </li>
+
+        <!-- Problem 4 -->
+        <li class="problem-item">
+          <div class="problem-item__illus" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M10 17 L21 17 L24 21 L40 21 L40 38 L10 38 Z" fill="#DCE9DA" transform="translate(2,2)" />
+              <g stroke="#27231F" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <path d="M9 16 L20 16 L23 20 L39 20 L39 37 L9 37 Z" fill="#FCF9F2" />
+                <path d="M19 29 L23 33 L30 25" stroke="#557653" stroke-width="1.8" />
+              </g>
+            </svg>
+          </div>
+          <div>
+            <div class="problem-item__head">
+              <span class="problem-item__idx">04.</span>
+              <h3 class="problem-item__title">适应学校实际设备环境</h3>
+            </div>
+            <p class="problem-item__desc">课程需要支持本地离线运行，减少对网络连接及额外软件安装的依赖。</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <div class="deckle-divider" aria-hidden="true">
+      <svg viewBox="0 0 490 14" preserveAspectRatio="none" style="background:#EFE7D6">
+        <path d="M0 14 L0 6 Q24 11 48 6 T96 7 T144 5 T192 7 T240 5 T288 7 T336 6 T384 8 T432 6 T490 7 L490 14 Z" fill="#F7F2E7" />
+      </svg>
+    </div>
+
+    <!-- ====================================================================
+         CHAPTER 03 · 交付内容：做了什么？
+         ==================================================================== -->
+    <section class="chapter" id="sec-delivery">
+      <div class="chapter-header">
+        <div class="chapter-rubric">
+          <span class="chapter-num-badge chapter-num-badge--ochre">03</span>
+          <span class="chapter-sub-cn">分层多模态与本地化交付</span>
+        </div>
+        <h2 class="chapter-title">交付内容：做了什么？</h2>
+      </div>
+
+      <p class="prose-p delivery-lead">
+        项目约定交付 <span class="gouache-hl">10 节数字化互动课程</span>，每节均设计 <strong style="color:var(--ink)">A、B、C 三个难度层级</strong>，最终采用<span class="gouache-hl--blue">本地 HTML 形式</span>交付。
+      </p>
+
+      <!-- Responsive Two-Column Row on Web: Left = A/B/C Switcher, Right = Local HTML Memo -->
+      <div class="delivery-feature-split">
+        <!-- Interactive Tactile Folder Switcher: A / B / C Difficulty Layers -->
+        <div class="tier-showcase" aria-label="A/B/C三档难度分层切换卡片">
+          <div class="tier-showcase__caption">
+            <span>同课异构 · 三档分层设计结构</span>
+            <span>点击标签翻阅 ▾</span>
+          </div>
+          <div class="tier-tabs" role="tablist" aria-label="课程难度层级">
+            <button class="tier-tab is-selected" role="tab" aria-selected="true" data-tier="A" type="button">A 层难度</button>
+            <button class="tier-tab" role="tab" aria-selected="false" data-tier="B" type="button">B 层难度</button>
+            <button class="tier-tab" role="tab" aria-selected="false" data-tier="C" type="button">C 层难度</button>
+          </div>
+          <div class="tier-card-stage" id="tierStage" data-active-tier="A">
+            <div class="tier-panel is-visible" role="tabpanel" data-panel="A">
+              <span class="tier-panel__badge">A 档难度 · 同一教学主题</span>
+              <h3 class="tier-panel__title">面向不同能力梯度的定制支持（A 档）</h3>
+              <p class="tier-panel__text">
+                围绕同一生活主题，针对学生的认知、理解、操作与表达差异调整内容密度与互动引导方式，让不同起点的孩子都能参与同一堂课。
+              </p>
+            </div>
+            <div class="tier-panel" role="tabpanel" data-panel="B">
+              <span class="tier-panel__badge">B 档难度 · 同一教学主题</span>
+              <h3 class="tier-panel__title">面向不同能力梯度的定制支持（B 档）</h3>
+              <p class="tier-panel__text">
+                结合文字说明、语音提示、视频演示与适度交互环节，在理解与动手操作之间取得平衡，方便教师按课堂上不同学生的状态灵活切换。
+              </p>
+            </div>
+            <div class="tier-panel" role="tabpanel" data-panel="C">
+              <span class="tier-panel__badge">C 档难度 · 同一教学主题</span>
+              <h3 class="tier-panel__title">面向不同能力梯度的定制支持（C 档）</h3>
+              <p class="tier-panel__text">
+                与 A、B 版本保持同一生活课题，但在教学结构、提示粒度与操作环节上做针对性分层适配，实现 10 节课 × 3 档层级的完整覆盖。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paperclip Note: Why Local HTML? -->
+        <aside class="atelier-memo" aria-label="为什么选择本地 HTML 交付">
+          <svg class="atelier-memo__clip" viewBox="0 0 28 48" fill="none" aria-hidden="true">
+            <path d="M9 14 V34 C9 40 19 40 19 34 V10 C19 4 6 4 6 11 V31"
+                  stroke="#8A6830" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <h3 class="atelier-memo__title">为什么选择本地 HTML 作为交付形式？</h3>
+          <p class="atelier-memo__p">
+            主要考虑实际使用的便利性。课程可以通过<strong>浏览器在本地打开，支持离线使用</strong>，不必依赖持续联网，也能减少安装专用软件带来的操作负担。
+          </p>
+          <p class="atelier-memo__p">
+            对学校而言，课程交付后能够<strong>保留在本地，方便教师反复使用</strong>。
+          </p>
+        </aside>
+      </div>
+
+      <p class="prose-p" style="margin: 24px 0 12px;">课程包含以下四类多模态内容：</p>
+
+      <!-- 4 Multimodal Vignette Cards (2x2 on Mobile, 4-Across on Desktop) -->
+      <div class="modality-grid">
+        <article class="modality-card">
+          <div class="modality-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none">
+              <rect x="6" y="5" width="22" height="26" rx="2" fill="#F7E7BE" transform="translate(2,2)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" filter="url(#ink-nib)">
+                <rect x="6" y="5" width="22" height="26" rx="2" fill="#FCF9F2" />
+                <path d="M11 12 H23 M11 17 H23 M11 22 H18" />
+              </g>
+            </svg>
+          </div>
+          <h3 class="modality-card__title">文字内容</h3>
+          <p class="modality-card__desc">教学说明、知识呈现及操作提示。</p>
+        </article>
+
+        <article class="modality-card">
+          <div class="modality-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="12" fill="#F2DAD2" transform="translate(2,2)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <path d="M9 15 H14 L20 10 V26 L14 21 H9 Z" fill="#FCF9F2" />
+                <path d="M24 14 C26 16 26 20 24 22 M27 11 C30 15 30 21 27 25" stroke="#C25941" />
+              </g>
+            </svg>
+          </div>
+          <h3 class="modality-card__title">音频内容</h3>
+          <p class="modality-card__desc">配音、语音提示等。</p>
+        </article>
+
+        <article class="modality-card">
+          <div class="modality-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none">
+              <rect x="5" y="8" width="26" height="20" rx="3" fill="#D8E4F2" transform="translate(2,2)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <rect x="5" y="8" width="26" height="20" rx="3" fill="#FCF9F2" />
+                <polygon points="15,13 23,18 15,23" fill="#96B3D6" />
+              </g>
+            </svg>
+          </div>
+          <h3 class="modality-card__title">视频内容</h3>
+          <p class="modality-card__desc">辅助理解教学知识的视听材料。</p>
+        </article>
+
+        <article class="modality-card">
+          <div class="modality-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="14" r="9" fill="#DCE9DA" transform="translate(1,1)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <circle cx="18" cy="13" r="5" stroke="#557653" stroke-dasharray="2 2" />
+                <path d="M18 13 V26 M18 19 C21 19 25 21 25 26 V29 H13 V23 C13 21 15 20 18 21" fill="#FCF9F2" />
+              </g>
+            </svg>
+          </div>
+          <h3 class="modality-card__title">互动内容</h3>
+          <p class="modality-card__desc">可供学生操作和参与的数字化学习环节。</p>
+        </article>
+      </div>
+
+      <!-- 10 Everyday Digital-Life Courses Illustrated Stamp Shelf -->
+      <div class="course-shelf-head">
+        <h3 class="course-shelf-title">贴近日常生活的 10 节定制课</h3>
+        <span class="course-shelf-sub">每节 A/B/C 三档</span>
+      </div>
+
+      <div class="stamp-grid">
+        <!-- Course 1: 初识网络与生活 -->
+        <div class="course-stamp">
+          <div class="course-stamp__art" aria-hidden="true">
+            <svg viewBox="0 0 68 56" fill="none">
+              <circle cx="35" cy="28" r="19" fill="#D8E4F2" filter="url(#gouache-edge)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <rect x="19" y="15" width="30" height="26" rx="2" fill="#FCF9F2" />
+                <path d="M19 28 H49 M34 15 V41" opacity="0.45" />
+                <path d="M26 11 C31 7 37 7 42 11" stroke="#C25941" />
+                <path d="M29 14 C32 11.5 36 11.5 39 14" stroke="#C25941" />
+              </g>
+            </svg>
+          </div>
+          <span class="course-stamp__num">课程 01</span>
+          <p class="course-stamp__name">《初识网络与生活》</p>
+        </div>
+
+        <!-- Course 2: 线上购衣 -->
+        <div class="course-stamp">
+          <div class="course-stamp__art" aria-hidden="true">
+            <svg viewBox="0 0 68 56" fill="none">
+              <path d="M22 18 L13 25 L17 32 L23 28 V45 H45 V28 L51 32 L55 25 L46 18 Z" fill="#F2DAD2" transform="translate(2,2)" filter="url(#gouache-edge)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <path d="M34 9 C36 9 37 11 35 12 L34 14 M26 18 L34 14 L42 18" />
+                <path d="M23 18 L13 25 L17 31 L23 27 V44 H45 V27 L51 31 L55 25 L45 18 C41 21 27 21 23 18 Z" fill="#FCF9F2" />
+                <path d="M24 25 H44 M24 30 H44 M24 35 H44 M24 40 H44" stroke="#33588A" stroke-width="1.2" />
+              </g>
+            </svg>
+          </div>
+          <span class="course-stamp__num">课程 02</span>
+          <p class="course-stamp__name">《线上购衣》</p>
+        </div>
+
+        <!-- Course 3: 线上订餐 -->
+        <div class="course-stamp">
+          <div class="course-stamp__art" aria-hidden="true">
+            <svg viewBox="0 0 68 56" fill="none">
+              <path d="M16 28 C16 42 52 42 52 28 Z" fill="#F7E7BE" transform="translate(2,2)" filter="url(#gouache-edge)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <path d="M26 13 C24 17 28 19 26 23 M34 11 C32 15 36 18 34 22 M42 14 C40 18 44 20 42 23" stroke="#C25941" />
+                <path d="M16 27 H52 C51 40 42 44 34 44 C26 44 17 40 16 27 Z" fill="#FCF9F2" />
+                <path d="M26 44 H42" stroke-width="1.6" />
+                <path d="M40 27 L50 18" stroke-width="1.5" />
+              </g>
+            </svg>
+          </div>
+          <span class="course-stamp__num">课程 03</span>
+          <p class="course-stamp__name">《线上订餐》</p>
+        </div>
+
+        <!-- Course 4: 线上买菜 -->
+        <div class="course-stamp">
+          <div class="course-stamp__art" aria-hidden="true">
+            <svg viewBox="0 0 68 56" fill="none">
+              <path d="M17 27 H51 L46 44 H22 Z" fill="#F7E7BE" transform="translate(2,2)" filter="url(#gouache-edge)" />
+              <circle cx="29" cy="24" r="6" fill="#E39A86" />
+              <path d="M36 26 L43 14 L47 26 Z" fill="#DCE9DA" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <path d="M24 26 C24 14 44 14 44 26" />
+                <circle cx="28" cy="24" r="5" fill="#E39A86" />
+                <path d="M36 26 L41 15 L45 26" fill="#98B894" />
+                <path d="M17 26 H51 L46 44 H22 Z" fill="#FCF9F2" fill-opacity="0.65" />
+                <path d="M21 32 H47 M22 38 H46 M29 26 L30 44 M39 26 L38 44" opacity="0.65" />
+              </g>
+            </svg>
+          </div>
+          <span class="course-stamp__num">课程 04</span>
+          <p class="course-stamp__name">《线上买菜》</p>
+        </div>
+
+        <!-- Course 5: 线上打车 -->
+        <div class="course-stamp">
+          <div class="course-stamp__art" aria-hidden="true">
+            <svg viewBox="0 0 68 56" fill="none">
+              <path d="M14 31 L20 21 H44 L51 31 H55 V40 H12 V31 Z" fill="#F7E7BE" transform="translate(2,2)" filter="url(#gouache-edge)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <rect x="29" y="16" width="9" height="4" rx="1" fill="#C25941" />
+                <path d="M13 30 L20 20 H44 L50 30 H55 C56 30 57 32 57 34 V39 H11 V33 C11 31 12 30 13 30 Z" fill="#F9E395" />
+                <path d="M22 23 L18 30 H32 V23 Z M35 23 V30 H47 L42 23 Z" fill="#FCF9F2" />
+                <circle cx="21" cy="40" r="4.5" fill="#FCF9F2" />
+                <circle cx="46" cy="40" r="4.5" fill="#FCF9F2" />
+              </g>
+            </svg>
+          </div>
+          <span class="course-stamp__num">课程 05</span>
+          <p class="course-stamp__name">《线上打车》</p>
+        </div>
+
+        <!-- Course 6: 线上医疗 -->
+        <div class="course-stamp">
+          <div class="course-stamp__art" aria-hidden="true">
+            <svg viewBox="0 0 68 56" fill="none">
+              <rect x="17" y="16" width="34" height="26" rx="4" fill="#DCE9DA" transform="translate(2,2)" filter="url(#gouache-edge)" />
+              <g stroke="#27231F" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                <path d="M27 16 V12 H41 V16" />
+                <rect x="17" y="16" width="34" height="26" rx="4" fill="#FCF9F2" />
+                <path d="M32 23 H36 V27 H40 V31 H36 V35 H32 V31 H28 V27 H32 Z" fill="#E39A86" stroke="#C25941" />
+              </g>
+            </svg>
+          </div>
+          <span class="course-stamp__num">课程 06</span>
+          <p class="course-stamp__name">《线上医疗》</p>
+        </div>
+
+        <!-- Remaining 4 Courses Summary Bar -->
+        <div class="course-stamp course-stamp--more">
+          <div>
+            <span class="course-stamp__num">课程 07 – 10</span>
+            <p class="course-stamp__name">以及其余 4 节定制互动课程</p>
+          </div>
+          <span class="course-stamp__tag">共 10 节内容</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="deckle-divider" aria-hidden="true">
+      <svg viewBox="0 0 490 14" preserveAspectRatio="none">
+        <path d="M0 14 L0 6 Q24 2 48 7 T96 6 T144 7 T192 5 T240 7 T288 6 T336 7 T384 5 T432 7 T490 6 L490 14 Z" fill="#EFE7D6" />
+      </svg>
+    </div>
+
+    <!-- ====================================================================
+         CHAPTER 04 · AI 工具和流程：如何完成制作？
+         ==================================================================== -->
+    <section class="chapter chapter--tinted-warm" id="sec-workflow">
+      <div class="workflow-layout">
+        <div class="workflow-layout__side">
+          <div class="chapter-header">
+            <div class="chapter-rubric">
+              <span class="chapter-num-badge chapter-num-badge--sage">04</span>
+              <span class="chapter-sub-cn">辅助工具与五步实施路径</span>
+            </div>
+            <h2 class="chapter-title">AI 工具和流程：如何完成制作？</h2>
+          </div>
+
+          <p class="prose-p">
+            本项目采用 <span class="gouache-hl">AI 辅助内容生产与代码开发</span>的工作方式，围绕特殊教育场景进行课程设计和交付。
+          </p>
+
+          <!-- Codex Tool Seal Card -->
+          <div class="codex-colophon">
+            <div class="codex-colophon__seal" aria-hidden="true">
+              <svg viewBox="0 0 54 54" fill="none">
+                <circle cx="28" cy="28" r="22" fill="#F7E7BE" filter="url(#gouache-edge)" />
+                <g stroke="#27231F" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" filter="url(#ink-nib)">
+                  <circle cx="27" cy="27" r="22" stroke-dasharray="3 2.5" />
+                  <circle cx="27" cy="27" r="18" fill="#FCF9F2" />
+                  <path d="M18 23 L14 27 L18 31 M36 23 L40 27 L36 31" stroke="#33588A" />
+                  <path d="M27 16 L31 26 L27 37 L23 26 Z" fill="#E39A86" />
+                  <circle cx="27" cy="26" r="1.4" fill="#27231F" />
+                </g>
+              </svg>
+            </div>
+            <div>
+              <span class="codex-colophon__label">主力 AI 辅助开发工具</span>
+              <h3 class="codex-colophon__title">Codex 辅助制作</h3>
+              <p class="codex-colophon__desc">项目采用了 AI 辅助制作的方式，主要用的是 Codex，高效转化多模态素材与本地 HTML 交互逻辑。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="workflow-layout__steps">
+          <p class="prose-p workflow-steps-lead">整体流程可以概括为五个步骤：</p>
+
+          <ol class="workflow-trail">
+            <li class="workflow-step">
+              <span class="workflow-step__marker">1</span>
+              <h3 class="workflow-step__title">第一步：需求分析与教学设计</h3>
+              <p class="workflow-step__desc">梳理学校的教学需求、学生能力差异和交付要求，确定每节课的教学目标、内容结构及 A、B、C 三档难度。</p>
+            </li>
+
+            <li class="workflow-step">
+              <span class="workflow-step__marker">2</span>
+              <h3 class="workflow-step__title">第二步：课程内容制作</h3>
+              <p class="workflow-step__desc">根据教学目标组织文字、音频、视频、图片等素材，形成适合不同学习能力的多模态教学内容。</p>
+            </li>
+
+            <li class="workflow-step">
+              <span class="workflow-step__marker">3</span>
+              <h3 class="workflow-step__title">第三步：HTML 互动课程开发</h3>
+              <p class="workflow-step__desc">将课程内容转化为浏览器可运行的 HTML 页面，整合多媒体素材和互动功能，形成可独立使用的课程文件。</p>
+            </li>
+
+            <li class="workflow-step">
+              <span class="workflow-step__marker">4</span>
+              <h3 class="workflow-step__title">第四步：分层适配与功能检查</h3>
+              <p class="workflow-step__desc">检查不同难度版本的内容与交互方式，并验证页面、媒体资源和本地运行功能。</p>
+            </li>
+
+            <li class="workflow-step">
+              <span class="workflow-step__marker">5</span>
+              <h3 class="workflow-step__title">第五步：分批交付与反馈调整</h3>
+              <p class="workflow-step__desc">根据项目交付安排，分批提交课程成果，并配合学校进行后续沟通和调整。</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="deckle-divider" aria-hidden="true">
+      <svg viewBox="0 0 490 14" preserveAspectRatio="none" style="background:#EFE7D6">
+        <path d="M0 14 L0 6 Q24 11 48 6 T96 7 T144 5 T192 7 T240 5 T288 7 T336 6 T384 8 T432 6 T490 7 L490 14 Z" fill="#F7F2E7" />
+      </svg>
+    </div>
+
+    <!-- ====================================================================
+         CHAPTER 05 · 周期和分工：做了多久？谁来做？
+         ==================================================================== -->
+    <section class="chapter" id="sec-team">
+      <div class="team-top-row">
+        <div class="chapter-header">
+          <div class="chapter-rubric">
+            <span class="chapter-num-badge">05</span>
+            <span class="chapter-sub-cn">实施排期与轻量化团队协作</span>
+          </div>
+          <h2 class="chapter-title">周期和分工：做了多久？谁来做？</h2>
+        </div>
+
+        <!-- Tear-off Calendar Card -->
+        <div class="calendar-row" aria-label="项目启动时间与周期">
+          <div class="eph-leaf">
+            <div class="eph-leaf__top">2026 年 9 月</div>
+            <div class="eph-leaf__day">11</div>
+            <div class="eph-leaf__sub">项目正式启动</div>
+          </div>
+          <div class="calendar-summary">
+            <p class="calendar-summary__big">项目周期调整约 35 天</p>
+            <p class="calendar-summary__note">
+              由<strong>北京千赞科技有限公司</strong>承接，采用小型协作团队的方式敏捷实施。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-dossier">
+        <!-- Project Lead: 吴熳 -->
+        <article class="role-card role-card--lead">
+          <span class="role-card__eyebrow">项目负责人 · 需求与交付统筹</span>
+          <h3 class="role-card__name">吴熳（我）</h3>
+          <p class="prose-p" style="font-size:14.5px; margin-bottom:6px;">
+            主要负责前端客户对接与全周期把控，串联学校实际教学诉求与技术实现：
+          </p>
+          <div class="duty-tags">
+            <span class="duty-tag">甲方需求沟通</span>
+            <span class="duty-tag">项目方案</span>
+            <span class="duty-tag">交付范围确认</span>
+            <span class="duty-tag">合作协调</span>
+            <span class="duty-tag">进度管理</span>
+            <span class="duty-tag">验收沟通</span>
+          </div>
+        </article>
+
+        <!-- Partner Developer -->
+        <article class="role-card role-card--dev">
+          <span class="role-card__eyebrow">技术协作 · 研发与维护支持</span>
+          <h3 class="role-card__name">合作开发人员</h3>
+          <p class="prose-p" style="font-size:14.5px; margin-bottom:6px;">
+            具体的课程开发和技术交付由合作开发人员参与完成，协同保障落地体验：
+          </p>
+          <div class="duty-tags">
+            <span class="duty-tag">互动课程开发</span>
+            <span class="duty-tag">技术交付</span>
+            <span class="duty-tag">分批交付推进</span>
+            <span class="duty-tag">技术维护</span>
+            <span class="duty-tag">使用答疑</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="prose-p" style="margin-top:18px;">
+        这是一个典型的<span class="gouache-hl--rose">轻量化 AI 项目协作案例</span>：通过项目负责人<strong>吴熳</strong>整合需求、教学内容与技术开发能力，为学校提供定制化交付。
+      </p>
+    </section>
+
+    <div class="deckle-divider" aria-hidden="true">
+      <svg viewBox="0 0 490 14" preserveAspectRatio="none">
+        <path d="M0 14 L0 6 Q24 2 48 7 T96 6 T144 7 T192 5 T240 7 T288 6 T336 7 T384 5 T432 7 T490 6 L490 14 Z" fill="#EFE7D6" />
+      </svg>
+    </div>
+
+    <!-- ====================================================================
+         CHAPTER 06 · 结果：实际取得了什么成果？
+         ==================================================================== -->
+    <section class="chapter chapter--tinted-warm" id="sec-outcome">
+      <div class="outcome-layout">
+        <div class="outcome-layout__quote">
+          <div class="chapter-header">
+            <div class="chapter-rubric">
+              <span class="chapter-num-badge chapter-num-badge--ochre">06</span>
+              <span class="chapter-sub-cn">交付成果与课堂真实回响</span>
+            </div>
+            <h2 class="chapter-title">结果：实际取得了什么成果？</h2>
+          </div>
+
+          <p class="prose-p">
+            项目取得了比较明确的交付成果和客户认可。
+          </p>
+
+          <!-- Lined Postcard: Teacher's Verbatim Quote -->
+          <blockquote class="postcard-quote">
+            <div class="postcard-quote__header">
+              <span class="postcard-quote__label">课堂实测回响 · 一线教师反馈原话</span>
+              <div class="postcard-quote__stamp" aria-hidden="true">
+                <svg viewBox="0 0 44 50" fill="none">
+                  <rect x="3" y="3" width="38" height="44" fill="#F2DAD2" stroke="#C25941" stroke-width="1.2" stroke-dasharray="2.5 2" />
+                  <rect x="7" y="7" width="30" height="36" stroke="#27231F" stroke-width="0.8" fill="#FCF9F2" />
+                  <path d="M22 37 C22 27 23 19 26 14" stroke="#557653" stroke-width="1.3" stroke-linecap="round" />
+                  <path d="M22 30 C16 28 15 22 19 21 C22 22 23 26 22 30 Z" fill="#98B894" stroke="#27231F" stroke-width="0.9" />
+                  <path d="M23 24 C29 22 31 17 27 16 C24 17 23 21 23 24 Z" fill="#98B894" stroke="#27231F" stroke-width="0.9" />
+                </svg>
+              </div>
+            </div>
+            <p class="postcard-quote__text">
+              <span class="postcard-quote__mark" aria-hidden="true">“</span>课堂中让学生都尝试操作各个模块了，基本没什么问题，后续又反馈，学生用得很顺畅。
+            </p>
+            <footer class="postcard-quote__footer">—— 南方某康复学校 · 授课教师课堂实测反馈</footer>
+          </blockquote>
+        </div>
+
+        <!-- 5 Concrete Outcomes -->
+        <ol class="outcome-list">
+          <li class="outcome-card">
+            <div class="outcome-card__check" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none">
+                <circle cx="15" cy="15" r="11" fill="#F7E7BE" />
+                <circle cx="14" cy="14" r="10.5" stroke="#27231F" stroke-width="1.25" filter="url(#ink-nib)" />
+                <path d="M9.5 14.5 L12.8 17.8 L19 10.8" stroke="#C25941" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="outcome-card__title">1. 真实付费订单</h3>
+              <p class="outcome-card__desc">第一期项目合同金额为<strong> 5 位数</strong>，约定交付 10 节数字化互动课程，每节设置 A、B、C 三个难度层级。</p>
+            </div>
+          </li>
+
+          <li class="outcome-card">
+            <div class="outcome-card__check" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none">
+                <circle cx="15" cy="15" r="11" fill="#D8E4F2" />
+                <circle cx="14" cy="14" r="10.5" stroke="#27231F" stroke-width="1.25" filter="url(#ink-nib)" />
+                <path d="M9.5 14.5 L12.8 17.8 L19 10.8" stroke="#33588A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="outcome-card__title">2. 阶段性交付完成</h3>
+              <p class="outcome-card__desc">项目已经完成第一批交付，并按照合同安排推进后续课程制作。</p>
+            </div>
+          </li>
+
+          <li class="outcome-card">
+            <div class="outcome-card__check" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none">
+                <circle cx="15" cy="15" r="11" fill="#F2DAD2" />
+                <circle cx="14" cy="14" r="10.5" stroke="#27231F" stroke-width="1.25" filter="url(#ink-nib)" />
+                <path d="M9.5 14.5 L12.8 17.8 L19 10.8" stroke="#C25941" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="outcome-card__title">3. 客户高度满意</h3>
+              <p class="outcome-card__desc">学校对已经交付的课程效果非常满意，认可课程的呈现形式和实际教学适用性。</p>
+            </div>
+          </li>
+
+          <li class="outcome-card">
+            <div class="outcome-card__check" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none">
+                <circle cx="15" cy="15" r="11" fill="#DCE9DA" />
+                <circle cx="14" cy="14" r="10.5" stroke="#27231F" stroke-width="1.25" filter="url(#ink-nib)" />
+                <path d="M9.5 14.5 L12.8 17.8 L19 10.8" stroke="#557653" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="outcome-card__title">4. 获得后续合作机会</h3>
+              <p class="outcome-card__desc">基于第一期的交付效果，学校决定将<strong>第二期剩余的部分康复课程内容</strong>继续交由我们团队制作。</p>
+            </div>
+          </li>
+
+          <li class="outcome-card">
+            <div class="outcome-card__check" aria-hidden="true">
+              <svg viewBox="0 0 28 28" fill="none">
+                <circle cx="15" cy="15" r="11" fill="#F7E7BE" />
+                <circle cx="14" cy="14" r="10.5" stroke="#27231F" stroke-width="1.25" filter="url(#ink-nib)" />
+                <path d="M9.5 14.5 L12.8 17.8 L19 10.8" stroke="#C25941" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="outcome-card__title">5. 形成可复用的交付经验</h3>
+              <p class="outcome-card__desc">团队积累了特殊教育场景下的分层课程设计、多模态内容制作和本地 HTML 互动课程开发经验。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         尾署
+         ==================================================================== -->
+    <footer class="colophon-footer">
+      <div class="colophon-ornament" aria-hidden="true">
+        <svg viewBox="0 0 96 36" fill="none">
+          <path d="M10 18 H36 M60 18 H86" stroke="#27231F" stroke-opacity="0.35" stroke-width="1" stroke-linecap="round" />
+          <circle cx="48" cy="18" r="7" fill="#F7E7BE" />
+          <path d="M44 21 L48 11 L52 21 Z" stroke="#27231F" stroke-width="1.2" fill="#E39A86" />
+        </svg>
+      </div>
+      <p class="colophon-title">灯下白 · FDE 案例展示</p>
+      <p class="colophon-meta">
+        南方康复学校脑瘫儿童课程定制项目<br />
+        承接方：北京千赞科技有限公司 · 项目负责人：吴熳
+      </p>
+    </footer>
+  </main>
+
+  <script>
+(function () {
+  "use strict";
+
+  // 1. Top Reading Progress Hairline
+  var readingBar = document.getElementById("readingBar");
+  function updateProgress() {
+    if (!readingBar) return;
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    var pct =
+      docHeight > 0
+        ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100))
+        : 0;
+    readingBar.style.width = pct.toFixed(1) + "%";
+  }
+
+  // 2. Interactive A / B / C Difficulty Folder Tabs
+  var tierTabs = document.querySelectorAll(".tier-tab");
+  var tierStage = document.getElementById("tierStage");
+  var tierPanels = document.querySelectorAll(".tier-panel");
+
+  tierTabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      var target = tab.getAttribute("data-tier");
+      if (!target) return;
+
+      tierTabs.forEach(function (t) {
+        var active = t === tab;
+        t.classList.toggle("is-selected", active);
+        t.setAttribute("aria-selected", active ? "true" : "false");
+      });
+
+      if (tierStage) {
+        tierStage.setAttribute("data-active-tier", target);
+      }
+
+      tierPanels.forEach(function (panel) {
+        var match = panel.getAttribute("data-panel") === target;
+        panel.classList.toggle("is-visible", match);
+      });
+    });
+  });
+
+  // 3. Sticky Chapter Ribbon Active Highlight (Accurate Viewport Tracking)
+  var navLinks = document.querySelectorAll(".chapter-nav__link");
+  var sections = [];
+
+  navLinks.forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (href && href.charAt(0) === "#") {
+      var sec = document.querySelector(href);
+      if (sec) sections.push({ id: href, el: sec, link: link });
+    }
+  });
+
+  function updateActiveChapter() {
+    if (!sections.length) return;
+    var scrollBottom =
+      (window.scrollY || document.documentElement.scrollTop) +
+      window.innerHeight;
+    var docHeight = document.documentElement.scrollHeight;
+
+    var current = sections[0];
+    if (docHeight - scrollBottom <= 24) {
+      current = sections[sections.length - 1];
+    } else {
+      for (var i = 0; i < sections.length; i++) {
+        var rect = sections[i].el.getBoundingClientRect();
+        if (rect.top <= 160) {
+          current = sections[i];
+        }
+      }
+    }
+
+    sections.forEach(function (item) {
+      item.link.classList.toggle("is-active", item === current);
+    });
+  }
+
+  function onScroll() {
+    updateProgress();
+    updateActiveChapter();
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  onScroll();
+})();
+
+  </script>
+</body>
+</html>
