@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { existsSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 
@@ -61,6 +62,12 @@ type WechatAlbumArticle = {
   url?: string;
 };
 
+type WechatPublishedArticle = {
+  title?: string;
+  url?: string;
+  publishedAt?: string | number;
+};
+
 const rootDir = path.resolve(__dirname, '..');
 const personalIndexPath = path.join(rootDir, 'public', 'personal-site', 'index.html');
 const personalArticlesPath = path.join(rootDir, 'data', 'personal-site', 'articles.json');
@@ -70,6 +77,8 @@ const personalCoversDir = path.join(rootDir, 'public', 'personal-site', 'covers'
 const wechatHosts = new Set(['mp.weixin.qq.com', 'mp.weixinqq.com']);
 const wechatImageHostPattern = /(^|\.)qpic\.cn$/;
 const wechatBiz = 'Mzg5ODU1ODg1Mg==';
+const wechatPublishedArticlesApi =
+  process.env.KA21_WECHAT_PUBLISHED_API_URL || 'https://ka21.org/api/wechat/published-articles';
 const wechatAlbumSources: WechatAlbumSource[] = [
   {
     albumId: '3672103436448808968',
@@ -98,6 +107,40 @@ function canonicalizeArticleUrl(rawUrl: string): string {
   } catch {
     return value;
   }
+}
+
+function articleIdentity(article: Pick<PersonalArticle, 'u'>): string {
+  const url = canonicalizeArticleUrl(article.u);
+  try {
+    const parsed = new URL(url);
+    if (wechatHosts.has(parsed.hostname)) {
+      const mid = parsed.searchParams.get('mid');
+      const idx = parsed.searchParams.get('idx') || '1';
+      if (mid) return `wechat:${mid}:${idx}`;
+    }
+  } catch {
+    // Fall back to the canonical URL below.
+  }
+  return url;
+}
+
+function readEnvFileValue(filePath: string, key: string): string {
+  if (!existsSync(filePath)) return '';
+  const line = readFileSync(filePath, 'utf8')
+    .split(/\r?\n/)
+    .find((entry) => entry.trim().startsWith(`${key}=`));
+  if (!line) return '';
+
+  let value = line.slice(line.indexOf('=') + 1).trim();
+  if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    value = value.slice(1, -1);
+  }
+  return value;
+}
+
+function getPublishedArticlesBearerToken(): string {
+  return safeText(process.env.KA21_ADMIN_BEARER_TOKEN).trim()
+    || readEnvFileValue(path.join(rootDir, '.env.local'), 'KA21_ADMIN_BEARER_TOKEN');
 }
 
 function normalizeArticle(article: PersonalArticle): PersonalArticle {
@@ -493,6 +536,52 @@ async function fetchAlbumArticles(source: WechatAlbumSource): Promise<PersonalAr
   return out;
 }
 
+async function fetchPublishedArticles(): Promise<PersonalArticle[]> {
+  const bearerToken = getPublishedArticlesBearerToken();
+  if (!bearerToken) {
+    console.log('[personal-fulltext] published articles skipped: missing KA21_ADMIN_BEARER_TOKEN');
+    return [];
+  }
+
+  const response = await fetch(`${wechatPublishedArticlesApi}?count=20`, {
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${bearerToken}`,
+    },
+    cache: 'no-store',
+  });
+  const payload = await response.json() as {
+    success?: boolean;
+    message?: string;
+    data?: { total?: number; articles?: WechatPublishedArticle[] };
+  };
+
+  if (!response.ok || !payload.success) {
+    throw new Error(`published-articles-fetch-failed-${response.status}-${payload.message || 'unknown'}`);
+  }
+
+  const articles = Array.isArray(payload.data?.articles) ? payload.data.articles : [];
+  const normalized = articles
+    .map((article) => {
+      const title = safeText(article.title).trim();
+      const url = canonicalizeArticleUrl(safeText(article.url));
+      if (!title || !url) return null;
+      return normalizeArticle({
+        t: title,
+        d: formatShanghaiDate(article.publishedAt),
+        u: url,
+        c: inferCategory(title, 'AI教学思考'),
+        n: 0,
+      });
+    })
+    .filter((article): article is PersonalArticle => Boolean(article));
+
+  console.log(
+    `[personal-fulltext] published articles fetched=${normalized.length} total=${payload.data?.total || 'unknown'}`,
+  );
+  return normalized;
+}
+
 function compareArticleDates(a: PersonalArticle, b: PersonalArticle): number {
   const dateCompare = safeText(a.d).localeCompare(safeText(b.d));
   if (dateCompare !== 0) return dateCompare;
@@ -505,7 +594,7 @@ async function mergeAlbumArticles(articles: PersonalArticle[]): Promise<Personal
   const map = new Map<string, PersonalArticle>();
 
   for (const article of articles) {
-    if (article.u) map.set(article.u, article);
+    if (article.u) map.set(articleIdentity(article), article);
   }
 
   let discovered = 0;
@@ -516,10 +605,19 @@ async function mergeAlbumArticles(articles: PersonalArticle[]): Promise<Personal
     discovered += albumArticles.length;
 
     for (const article of albumArticles) {
-      if (!article.u || map.has(article.u)) continue;
-      map.set(article.u, article);
+      const key = articleIdentity(article);
+      if (!article.u || map.has(key)) continue;
+      map.set(key, article);
       added += 1;
     }
+  }
+
+  const publishedArticles = await fetchPublishedArticles();
+  for (const article of publishedArticles) {
+    const key = articleIdentity(article);
+    if (!article.u || map.has(key)) continue;
+    map.set(key, article);
+    added += 1;
   }
 
   const merged = [...map.values()].sort(compareArticleDates);
