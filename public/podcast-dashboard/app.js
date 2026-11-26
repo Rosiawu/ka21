@@ -294,6 +294,8 @@ function platformDelta(platformId, latest, previous) {
 }
 
 function episodeDelta(episodeId, latest, previous) {
+  if (!Object.keys(latest?.episodePlays?.[episodeId] || {}).length ||
+      !Object.keys(previous?.episodePlays?.[episodeId] || {}).length) return null;
   const current = episodeTotal(latest, episodeId);
   const before = episodeTotal(previous, episodeId);
   if (!latest || !previous) {
@@ -885,7 +887,8 @@ function renderEpisodeSummary() {
   elements.episodeSummaryTableHead.innerHTML = buildEpisodeTableHeader();
   elements.episodeSummaryTableBody.innerHTML = paged.items
     .map((episode) => {
-      const total = episodeTotal(latest, episode.id);
+      const total = Object.keys(latest?.episodePlays?.[episode.id] || {}).length
+        ? episodeTotal(latest, episode.id) : null;
       const delta = formatDelta(episodeDelta(episode.id, latest, previous));
       const platformCells = visiblePlatforms()
         .map((platform) => {

@@ -675,7 +675,13 @@ async function scrapeXiaoyuzhou(platform: Platform, episodes: Episode[]): Promis
   const declaredEpisodeCount = Number(pageProps?.podcast?.episodeCount || 0);
   const expectedEpisodeCount = declaredEpisodeCount || episodes.length;
   if (capturedEpisodeCount < expectedEpisodeCount || failedBackfills > 0) {
-    throw new Error(`Xiaoyuzhou returned ${capturedEpisodeCount}/${expectedEpisodeCount} episodes`);
+    return {
+      platformId: platform.id,
+      supported: false,
+      note: `小宇宙仅抓到 ${capturedEpisodeCount}/${expectedEpisodeCount} 期；保留已抓到的单集，平台总量沿用历史数据`,
+      total: null,
+      episodePlays,
+    };
   }
   const coverageBase = declaredEpisodeCount || episodes.length || '?';
   const coverageNote =

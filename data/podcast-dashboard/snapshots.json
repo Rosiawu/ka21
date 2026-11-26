@@ -57007,7 +57007,7 @@
   {
     "id": "snapshot-1795690038534",
     "date": "2026-11-26",
-    "note": "自动抓取（部分平台沿用上次有效数据：wangyiyun、xiaoyuzhou）",
+    "note": "自动抓取（部分平台沿用上次有效数据：wangyiyun、xiaoyuzhou；王杰文小宇宙单集补充自11月26日22:56本地抓取）",
     "platformTotals": {
       "lizhi": 16708,
       "ximalaya": 12927,
@@ -57016,6 +57016,9 @@
       "xiaoyuzhou": 16020
     },
     "episodePlays": {
+      "6afebd9bfe62f8f52c4d9ae1": {
+        "xiaoyuzhou": 103
+      },
       "6a78ba8ec4079d62c57fd494": {
         "lizhi": 314,
         "ximalaya": 167,
