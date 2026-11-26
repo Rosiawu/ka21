@@ -509,8 +509,16 @@ async function loadEpisodesFromConfig(
 ) {
   let rssError: unknown = null;
 
+  async function mergeWithCache(episodes: Episode[]) {
+    let cached: Episode[] = [];
+    try { cached = await readEpisodesCache(); } catch { /* First capture may not have a cache. */ }
+    const byId = new Map(cached.map((episode) => [episode.id, episode]));
+    for (const episode of episodes) byId.set(episode.id, episode);
+    return [...byId.values()].sort((a, b) => String(b.pubDate).localeCompare(String(a.pubDate)));
+  }
+
   try {
-    const episodes = await loadEpisodesFromRss(config);
+    const episodes = await mergeWithCache(await loadEpisodesFromRss(config));
     await persistEpisodesCacheIfNeeded(episodes, 'rss', { logger, persistCache, allowCacheWriteFailure });
     return episodes;
   } catch (error) {
@@ -519,7 +527,7 @@ async function loadEpisodesFromConfig(
   }
 
   try {
-    const episodes = await loadEpisodesFromXiaoyuzhou(config);
+    const episodes = await mergeWithCache(await loadEpisodesFromXiaoyuzhou(config));
     await persistEpisodesCacheIfNeeded(episodes, 'xiaoyuzhou', { logger, persistCache, allowCacheWriteFailure });
     return episodes;
   } catch (error) {

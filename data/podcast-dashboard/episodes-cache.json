@@ -1,7 +1,322 @@
 {
   "updatedAt": "2026-11-26T10:47:03.196Z",
-  "source": "xiaoyuzhou",
+  "source": "restored-history-and-xiaoyuzhou",
   "episodes": [
+    {
+      "id": "69bcbace2d318777c9d271de",
+      "title": "06. 杜思康：从四大到AI创业者，他用十年等一个时刻",
+      "pubDate": "Wed, 25 Mar 2026 00:00:00 GMT",
+      "duration": "00:56:08",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69bcbace2d318777c9d271de?utm_source=rss"
+    },
+    {
+      "id": "69bab249690ca3160f393dc7",
+      "title": "04. 比尔：被全网喷后，四大出身审计师用财务模型拆穿AI泡沫",
+      "pubDate": "Wed, 18 Mar 2026 14:20:33 GMT",
+      "duration": "00:55:19",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69bab249690ca3160f393dc7?utm_source=rss"
+    },
+    {
+      "id": "6a42ba2f2e335a35a80b6e38",
+      "title": "39. 小乙：白天读骨伤博士，晚上写鬼故事，他把十几年资料存成AI上下文",
+      "pubDate": "Wed, 15 Jul 2026 00:00:00 GMT",
+      "duration": "01:06:16",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a42ba2f2e335a35a80b6e38?utm_source=rss"
+    },
+    {
+      "id": "69c10b71521e5c0a809b71b1",
+      "title": "08. 李哲：从SEO到GEO，他在AI搜索时代重写营销逻辑",
+      "pubDate": "Tue, 31 Mar 2026 00:00:00 GMT",
+      "duration": "00:55:00",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69c10b71521e5c0a809b71b1?utm_source=rss"
+    },
+    {
+      "id": "6a42b6d99d2f5743683fe74f",
+      "title": "34. 明立：教历史的工科生到头部教育公司AI负责人的探索之路",
+      "pubDate": "Tue, 30 Jun 2026 00:00:00 GMT",
+      "duration": "01:16:50",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a42b6d99d2f5743683fe74f?utm_source=rss"
+    },
+    {
+      "id": "6a49b0ea3fb7233cbf43cd2e",
+      "title": "42.王梓：影视寒冬逆势而行，搜商加美商拉满的他，提前圆了导演梦",
+      "pubDate": "Tue, 28 Jul 2026 00:00:00 GMT",
+      "duration": "01:01:54",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a49b0ea3fb7233cbf43cd2e?utm_source=rss"
+    },
+    {
+      "id": "69ef08461e94ae692141c79e",
+      "title": "16. 吴熳：四次跨界从文科生到AI编程讲师，勇气比天赋更管用",
+      "pubDate": "Tue, 28 Apr 2026 00:00:00 GMT",
+      "duration": "01:20:54",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69ef08461e94ae692141c79e?utm_source=rss"
+    },
+    {
+      "id": "6a1433bfe59ebca93642e525",
+      "title": "24. 吕思彤：13岁独立开发者，4000小时AI练出来的产品手感",
+      "pubDate": "Tue, 26 May 2026 00:00:00 GMT",
+      "duration": "00:38:08",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a1433bfe59ebca93642e525?utm_source=rss"
+    },
+    {
+      "id": "6a2f7d3943a22a695583ebdc",
+      "title": "32. 苏苏：从房企销冠到全网爆火PUA Skill作者，她把AI训练成有自主性的员工",
+      "pubDate": "Tue, 23 Jun 2026 00:00:00 GMT",
+      "duration": "00:35:05",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a2f7d3943a22a695583ebdc?utm_source=rss"
+    },
+    {
+      "id": "6a4537772e335a35a80c99e6",
+      "title": "40. 鱼鱼：四次人生重启后，她乐意从电商操盘手变成AI科普者",
+      "pubDate": "Tue, 21 Jul 2026 00:00:00 GMT",
+      "duration": "01:09:18",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a4537772e335a35a80c99e6?utm_source=rss"
+    },
+    {
+      "id": "69dc8c5ee2c8be315512f7dc",
+      "title": "14. 计育韬：从哲学到代码，他把\"语言\"变成了一种生产力",
+      "pubDate": "Tue, 21 Apr 2026 00:00:00 GMT",
+      "duration": "01:42:09",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69dc8c5ee2c8be315512f7dc?utm_source=rss"
+    },
+    {
+      "id": "69df5a42b977fb2c47024845",
+      "title": "22. 云天：从户外玩家到 Vibe Coding 产品经理，他把热爱做成了小程序",
+      "pubDate": "Tue, 19 May 2026 00:00:00 GMT",
+      "duration": "00:59:32",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69df5a42b977fb2c47024845?utm_source=rss"
+    },
+    {
+      "id": "6a2f74a04233e62bc549fab4",
+      "title": "30.洛小山：从游戏引擎到AI陪伴，他把Alice养出了“活人感”",
+      "pubDate": "Tue, 16 Jun 2026 00:00:00 GMT",
+      "duration": "00:51:40",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a2f74a04233e62bc549fab4?utm_source=rss"
+    },
+    {
+      "id": "6a43dd939d2f574368407266",
+      "title": "38. 程佳伟：从AIGC短片制作到Anima智能体构造，他想和“奥德赛时期”的年轻人聊聊",
+      "pubDate": "Tue, 14 Jul 2026 00:00:00 GMT",
+      "duration": "00:51:29",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a43dd939d2f574368407266?utm_source=rss"
+    },
+    {
+      "id": "69d8697ae2c8be3155d4daf1",
+      "title": "12.Kiki：她把一个虚拟女孩养成百万粉丝的数字偶像，重写“陪伴”的意义",
+      "pubDate": "Tue, 14 Apr 2026 00:00:00 GMT",
+      "duration": "01:52:15",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69d8697ae2c8be3155d4daf1?utm_source=rss"
+    },
+    {
+      "id": "6a01b5281b7bd50295ed9f30",
+      "title": "20. 阿星：我不是在创业，我是在逃跑 —— 一个AI“街溜子”的自我救赎",
+      "pubDate": "Tue, 12 May 2026 00:00:00 GMT",
+      "duration": "01:51:32",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a01b5281b7bd50295ed9f30?utm_source=rss"
+    },
+    {
+      "id": "6a78b010000a55a9bb055b56",
+      "title": "45.丫丫：她辞掉十年教师工作，原想带1000个老师走近AI，一年后变成了2万",
+      "pubDate": "Tue, 11 Aug 2026 00:00:00 GMT",
+      "duration": "01:07:02",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a78b010000a55a9bb055b56?utm_source=rss"
+    },
+    {
+      "id": "6a16faec7460cabdeb56ce86",
+      "title": "28. 斯泷：700天手工AI日报，她把自己活成了一个信息节点",
+      "pubDate": "Tue, 09 Jun 2026 00:00:00 GMT",
+      "duration": "00:54:12",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a16faec7460cabdeb56ce86?utm_source=rss"
+    },
+    {
+      "id": "6a451c162e335a35a80c8a30",
+      "title": "36. 陆肯：从卖电话卡、艺人经纪到剧本AI写作系统，他每次转型都在构建AI判断力",
+      "pubDate": "Tue, 07 Jul 2026 00:00:00 GMT",
+      "duration": "01:03:13",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a451c162e335a35a80c8a30?utm_source=rss"
+    },
+    {
+      "id": "69c39bfb4a34541b1bfe40c2",
+      "title": "10. 费费：她用亲身经历证明，AI是让生活变得更美好的",
+      "pubDate": "Tue, 07 Apr 2026 00:00:00 GMT",
+      "duration": "01:28:59",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69c39bfb4a34541b1bfe40c2?utm_source=rss"
+    },
+    {
+      "id": "69f1f5cdfbed7ba9411dc649",
+      "title": "18. 王帅：一个研究情感计算的人，跑去做了最不讲感情的财会AI",
+      "pubDate": "Tue, 05 May 2026 00:00:00 GMT",
+      "duration": "01:03:56",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69f1f5cdfbed7ba9411dc649?utm_source=rss"
+    },
+    {
+      "id": "6a70bcb81b5e24969ce85f98",
+      "title": "43. 小耳：她曾花6年捏泥巴办展，如今平均 6 天开源一个AI产品",
+      "pubDate": "Tue, 04 Aug 2026 00:00:00 GMT",
+      "duration": "01:32:49",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a70bcb81b5e24969ce85f98?utm_source=rss"
+    },
+    {
+      "id": "69a69588de29766da93ec01b",
+      "title": "01. 刘旭：装修被坑2000块，AI帮他4小时顶格索赔",
+      "pubDate": "Tue, 03 Mar 2026 08:13:15 GMT",
+      "duration": "01:11:39",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69a69588de29766da93ec01b?utm_source=rss"
+    },
+    {
+      "id": "6a16dd80ac7bdb080c31a1ad",
+      "title": "26. 吱吱：从四大到金融中后台，她用AI白天搞事业，晚上搞家庭",
+      "pubDate": "Tue, 02 Jun 2026 00:00:00 GMT",
+      "duration": "01:09:23",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a16dd80ac7bdb080c31a1ad?utm_source=rss"
+    },
+    {
+      "id": "69f1f002fbed7ba9411d69e0",
+      "title": "17. 子扬：从文科到算法，他把“猜你喜欢”变成可解释的科学",
+      "pubDate": "Thu, 30 Apr 2026 00:00:00 GMT",
+      "duration": "01:16:09",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69f1f002fbed7ba9411d69e0?utm_source=rss"
+    },
+    {
+      "id": "6a16d9907460cabdeb56ba7f",
+      "title": "25. 叶灿：食品专业大学生，也能获得黑客松一等奖，成为跨境电商AI产品经理？",
+      "pubDate": "Thu, 28 May 2026 00:00:00 GMT",
+      "duration": "01:16:30",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a16d9907460cabdeb56ba7f?utm_source=rss"
+    },
+    {
+      "id": "6a3c05a49d2f5743683d5eaf",
+      "title": "33. 沈龙翔：和罗振宇老师一起上得到直播的亲子专家，他如何完成中年华丽转型？",
+      "pubDate": "Thu, 25 Jun 2026 00:00:00 GMT",
+      "duration": "01:16:24",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a3c05a49d2f5743683d5eaf?utm_source=rss"
+    },
+    {
+      "id": "6a4536ff9d2f574368411067",
+      "title": "41. 白苏：十岁在网吧学黑客，创业归零后，他用AI给普通人做设计",
+      "pubDate": "Thu, 23 Jul 2026 00:00:00 GMT",
+      "duration": "01:18:47",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a4536ff9d2f574368411067?utm_source=rss"
+    },
+    {
+      "id": "69e0ac77e2c8be315560f417",
+      "title": "15. 石唱：从广告营销到AI内容主编，她站在专家和用户之间做翻译",
+      "pubDate": "Thu, 23 Apr 2026 00:00:00 GMT",
+      "duration": "01:21:51",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69e0ac77e2c8be315560f417?utm_source=rss"
+    },
+    {
+      "id": "6a0dbcf5e1eb34a939c730b4",
+      "title": "23. 云舒：从提示词卡片到Agent，一个AI产品经理的“游戏”之路",
+      "pubDate": "Thu, 21 May 2026 00:00:00 GMT",
+      "duration": "01:03:25",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a0dbcf5e1eb34a939c730b4?utm_source=rss"
+    },
+    {
+      "id": "69bc120a3c625cc5ae2f5160",
+      "title": "05.杨知铮：从数据分析到AI开发者，他在开源社区重建能力",
+      "pubDate": "Thu, 19 Mar 2026 15:53:19 GMT",
+      "duration": "01:36:18",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69bc120a3c625cc5ae2f5160?utm_source=rss"
+    },
+    {
+      "id": "6a2f788a4233e62bc549fd90",
+      "title": "31. 塔塔：从AI敌对者到3万粉博主，她把小白路重新走给普通人看",
+      "pubDate": "Thu, 18 Jun 2026 00:00:00 GMT",
+      "duration": "00:27:48",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a2f788a4233e62bc549fd90?utm_source=rss"
+    },
+    {
+      "id": "69d869cbe2c8be3155d4e2f6",
+      "title": "13.酸梅：一个人剪153天素材，她用AI把“不可能完成“的纪录片做成了",
+      "pubDate": "Thu, 16 Apr 2026 00:00:00 GMT",
+      "duration": "01:06:16",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69d869cbe2c8be3155d4e2f6?utm_source=rss"
+    },
+    {
+      "id": "6a0475e41b7bd502951680d5",
+      "title": "21. 陈星：经历过VR泡沫后，我在AI短剧里找到了“进得去也出得来”的生意",
+      "pubDate": "Thu, 14 May 2026 00:00:00 GMT",
+      "duration": "01:17:41",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a0475e41b7bd502951680d5?utm_source=rss"
+    },
+    {
+      "id": "69b184e184bce022f9f4fd5b",
+      "title": "03. 德沛：AI一句话写完一年代码，孩子还要学编程吗？",
+      "pubDate": "Thu, 12 Mar 2026 00:00:00 GMT",
+      "duration": "01:21:19",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69b184e184bce022f9f4fd5b?utm_source=rss"
+    },
+    {
+      "id": "6a21a0ffb30e1571aea0cb84",
+      "title": "29. 倒放：一路抽象到AI艺术家，他把矛盾碰撞写成创作方法",
+      "pubDate": "Thu, 11 Jun 2026 00:00:00 GMT",
+      "duration": "00:35:25",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a21a0ffb30e1571aea0cb84?utm_source=rss"
+    },
+    {
+      "id": "6a432d349d2f5743684001bb",
+      "title": "37. 超级峰：做了18款产品后，他开始管理一支AI团队",
+      "pubDate": "Thu, 09 Jul 2026 00:00:00 GMT",
+      "duration": "01:09:20",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a432d349d2f5743684001bb?utm_source=rss"
+    },
+    {
+      "id": "69c4b19c852cf1b8bbeffda2",
+      "title": "11. 小苋：她用感知世界的能力 把自己的问题做成AI产品",
+      "pubDate": "Thu, 09 Apr 2026 00:00:00 GMT",
+      "duration": "01:09:11",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69c4b19c852cf1b8bbeffda2?utm_source=rss"
+    },
+    {
+      "id": "69f9b5b5e05c0efcd6e74bb7",
+      "title": "19. 孔德闻：做一场57G的发布会PPT，比写代码更考验抗压",
+      "pubDate": "Thu, 07 May 2026 00:00:00 GMT",
+      "duration": "01:06:47",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69f9b5b5e05c0efcd6e74bb7?utm_source=rss"
+    },
+    {
+      "id": "6a6da2ce1b5e24969ce72d7c",
+      "title": "44. 栗畅：从程序员到成都AI社群主理人，她用两小时做出300万播放的生日视频",
+      "pubDate": "Thu, 06 Aug 2026 00:00:00 GMT",
+      "duration": "00:58:02",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a6da2ce1b5e24969ce72d7c?utm_source=rss"
+    },
+    {
+      "id": "6a16f5677460cabdeb56cae0",
+      "title": "27. Yoyo & 迟未晚：为女性设计，她们用AI做了一枚“激素戒指”",
+      "pubDate": "Thu, 04 Jun 2026 00:00:00 GMT",
+      "duration": "01:06:04",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a16f5677460cabdeb56cae0?utm_source=rss"
+    },
+    {
+      "id": "6a4512af2e335a35a80c8494",
+      "title": "35. 橘子：从Listenhub到Cola，四次转型到AI创业的决策如何下定",
+      "pubDate": "Thu, 02 Jul 2026 00:00:00 GMT",
+      "duration": "01:31:34",
+      "link": "https://www.xiaoyuzhoufm.com/episode/6a4512af2e335a35a80c8494?utm_source=rss"
+    },
+    {
+      "id": "69bd17643c625cc5ae4ef65a",
+      "title": "09. Henry：从图像AI到向量数据库，他在底层重建AI的理解方式",
+      "pubDate": "Thu, 02 Apr 2026 00:00:00 GMT",
+      "duration": "01:39:20",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69bd17643c625cc5ae4ef65a?utm_source=rss"
+    },
+    {
+      "id": "69ad0f7dc8cdeb38c26acb2c",
+      "title": "02. 徐铭远：两天做出AI龙虾客户端，收获10W+用户还在持续增长",
+      "pubDate": "Sun, 08 Mar 2026 06:06:21 GMT",
+      "duration": "01:19:02",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69ad0f7dc8cdeb38c26acb2c?utm_source=rss"
+    },
+    {
+      "id": "69bd022a2d318777c9df5837",
+      "title": "07. 王帅：从个人知识库到企业级Agent，他在重写信息的使用方式",
+      "pubDate": "Sat, 28 Mar 2026 00:00:00 GMT",
+      "duration": "01:03:44",
+      "link": "https://www.xiaoyuzhoufm.com/episode/69bd022a2d318777c9df5837?utm_source=rss"
+    },
     {
       "id": "6afebd9bfe62f8f52c4d9ae1",
       "title": "60. 王杰文：AI律师已经来了，法律行业还相信越老越吃香吗？",
