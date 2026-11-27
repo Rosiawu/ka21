@@ -1,8 +1,27 @@
+import type { Metadata } from 'next';
 import { sortedDevLogs } from '@/data/devLogs';
 import DevLogImageCarousel from '@/components/DevLogImageCarousel';
 import DevLogHashNavigator from '@/components/DevLogHashNavigator';
+import { generateHreflangMetadata } from '@/lib/hreflang';
 
 type DevLogPageParams = Promise<{ locale: string }>;
+
+export async function generateMetadata({ params }: { params: DevLogPageParams }): Promise<Metadata> {
+  const { locale: rawLocale } = await params;
+  const isEn = rawLocale === 'en';
+  const hreflang = generateHreflangMetadata(isEn ? 'en' : 'zh', 'devlog');
+
+  return {
+    title: isEn ? 'Development Log - KA21 Tools' : '开发日志 - KA21工具导航',
+    description: isEn
+      ? 'The build notes are open and transparent. Every small iteration is documented.'
+      : '建站过程公开透明，每一次小步迭代都记录在这里。',
+    alternates: {
+      canonical: hreflang.canonical,
+      languages: hreflang.languages,
+    },
+  };
+}
 
 function toLocaleHref(href: string, locale: string): string {
   if (!href.startsWith('/')) {

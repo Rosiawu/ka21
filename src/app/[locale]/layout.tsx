@@ -4,7 +4,6 @@ import type {Metadata} from 'next';
 import {redirect} from 'next/navigation';
 import LocaleTag from '@/components/LocaleTag';
 import LocaleShell from '@/components/LocaleShell';
-import {generateHreflangMetadata} from '@/lib/hreflang';
 import {isSupportedLocale, type AppLocale} from '@/i18n/config';
 
 type LocaleParams = Promise<{locale: string}>;
@@ -20,7 +19,7 @@ export function generateStaticParams() {
   return [{ locale: 'zh' }, { locale: 'en' }];
 }
 
-// 生成多语言元数据（标题/描述/多语言链接）
+// 生成多语言默认标题和描述。各页面自己声明 canonical / hreflang。
 export async function generateMetadata({
   params
 }: {
@@ -32,16 +31,11 @@ export async function generateMetadata({
   type Messages = typeof import('../../../messages/en.json');
   const messages = (await import(`../../../messages/${locale}.json`)).default as Messages;
 
-  // 生成hreflang标签（首页路径为空）
-  const hreflangConfig = generateHreflangMetadata(locale, '');
-
+  // 标题和描述作为语言页的默认值。
+  // canonical / hreflang 不放在这里：否则没单独声明的子页面会继承首页地址。
   return {
     title: messages.Common?.siteTitle,
     description: messages.Home?.subtitle,
-    alternates: {
-      canonical: hreflangConfig.canonical,
-      languages: hreflangConfig.languages
-    }
   };
 }
 
