@@ -63,8 +63,26 @@ function buildDealViewModel(data: DealsDataFile, deal: DealRecord): DealViewMode
   return { ...deal, contributor, stats: buildDealStats(data, deal.id) };
 }
 
+function bundledStore(): DealsDataFile {
+  return bundledDeals as DealsDataFile;
+}
+
+/**
+ * Public reads must not 500 when the Worker has no local deals file and no GitHub token.
+ * Writes still use readStore() so a failed read cannot be saved back without a sha.
+ */
+async function readPublishedStore(): Promise<DealsDataFile> {
+  try {
+    const { data } = await readStore();
+    return data;
+  } catch (error) {
+    console.error('[deals] Published read failed, using bundled deals.json', error);
+    return bundledStore();
+  }
+}
+
 export async function listApprovedDeals() {
-  const { data } = await readStore();
+  const data = await readPublishedStore();
   return data.deals.filter((item) => item.moderationDecision === 'approved').map((item) => buildDealViewModel(data, item)).filter(Boolean) as DealViewModel[];
 }
 
@@ -77,7 +95,7 @@ export function listBundledApprovedDeals() {
 }
 
 export async function getDealById(dealId: string) {
-  const { data } = await readStore();
+  const data = await readPublishedStore();
   const deal = data.deals.find((item) => item.id === dealId);
   return deal ? buildDealViewModel(data, deal) : null;
 }
@@ -168,7 +186,7 @@ export async function trackDealEvent(input: { dealId: string; visitorId: string;
 }
 
 export async function getContributorProfile(contributorId: string): Promise<ContributorProfileViewModel | null> {
-  const { data } = await readStore();
+  const data = await readPublishedStore();
   const contributor = findContributor(data, contributorId);
   if (!contributor) return null;
   const deals = data.deals.filter((item) => item.contributorId === contributor.id).map((item) => buildDealViewModel(data, item)).filter(Boolean) as DealViewModel[];

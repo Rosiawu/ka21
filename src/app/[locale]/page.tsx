@@ -1,4 +1,5 @@
 import {Suspense} from 'react';
+import type {Metadata} from 'next';
 import {setRequestLocale} from 'next-intl/server';
 import {redirect} from 'next/navigation';
 import HomeContent from '@/components/HomeContent';
@@ -6,9 +7,27 @@ import ChatWidget from '@/components/ChatWidget';
 import StructuredData from '@/components/StructuredData';
 import { sortedEvents } from '@/data/events';
 import { listBundledApprovedDeals } from '@/lib/deals/store';
+import {generateHreflangMetadata} from '@/lib/hreflang';
 import {isSupportedLocale} from '@/i18n/config';
 
 type HomePageParams = Promise<{ locale: string }>;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: HomePageParams;
+}): Promise<Metadata> {
+  const {locale: rawLocale} = await params;
+  const locale = rawLocale === 'en' ? 'en' : 'zh';
+  const hreflang = generateHreflangMetadata(locale, '');
+
+  return {
+    alternates: {
+      canonical: hreflang.canonical,
+      languages: hreflang.languages,
+    },
+  };
+}
 
 export default async function Home({ params }: { params: HomePageParams }) {
   const { locale: rawLocale } = await params;
@@ -24,6 +43,7 @@ export default async function Home({ params }: { params: HomePageParams }) {
   type Messages = typeof import('../../../messages/en.json');
   const messages = (await import(`../../../messages/${locale}.json`)).default as Messages;
   const subtitle = messages.Home?.subtitle as string;
+  const canonicalUrl = generateHreflangMetadata(locale, '').canonical;
 
   // 调试输出（仅开发环境或显式开启 DEBUG_I18N=1 时）
   if (process.env.NODE_ENV === 'development' || process.env.DEBUG_I18N === '1') {
@@ -37,7 +57,7 @@ export default async function Home({ params }: { params: HomePageParams }) {
         type="WebPage"
         title={isEn ? 'KA21 Tools - One-stop AI Resource Hub' : 'KA21工具导航 - 一站式AI资源平台'}
         description={subtitle}
-        url={`/${locale}`}
+        url={canonicalUrl}
         locale={locale}
       />
       <StructuredData type="Organization" locale={locale} />

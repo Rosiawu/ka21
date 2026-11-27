@@ -5,7 +5,7 @@ import { guestProfiles, podcastDirectorySource } from '@/lib/podcastGuests';
 import personalArticles from '../../data/personal-site/articles.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ka21.org';
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://ka21.org').replace(/\/+$/, '');
   const locales = ['zh', 'en'];
   const latestDevLogDate = devLogSubmissions.entries
     .map((entry) => entry.date)
@@ -17,13 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .reduce((latest, value) => Math.max(latest, value), 0),
   );
 
-  // Only canonical, indexable landing pages belong in the sitemap.
+  // Only final 200, indexable URLs. App routes have no trailing slash.
+  // Omit `/` because it 307s to `/zh`, and `/tools` because it 307s to `/#all-tools-categories`.
   const basePages = [
     '',
     '/about',
     '/devlog',
     '/events',
-    '/tools',
     '/tutorials',
     '/llm-articles',
     '/fde',
@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/${locale}${page}`,
       changeFrequency: 'weekly' as const,
       priority: page === '' ? 1 : 0.8,
+      ...(page === '' ? { lastModified: latestSiteUpdate } : {}),
       ...(page === '/fde' ? { lastModified: new Date(podcastDirectorySource.sourceUpdatedAt) } : {}),
       ...(page === '/devlog' && latestDevLogDate ? { lastModified: new Date(latestDevLogDate) } : {}),
     }))
@@ -61,12 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   return [
-    {
-      url: baseUrl,
-      lastModified: latestSiteUpdate,
-      changeFrequency: 'daily',
-      priority: 1,
-    },
     {
       url: `${baseUrl}/personal-site/`,
       lastModified: new Date(personalArticles.updatedAt),

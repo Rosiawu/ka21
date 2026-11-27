@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { generateHreflangMetadata } from '@/lib/hreflang';
 import { setRequestLocale } from 'next-intl/server';
 
 const caseRows = [
@@ -74,14 +75,17 @@ const shareMaterials = [
 type PageParams = Promise<{ locale: string }>;
 
 export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
-  const { locale } = await params;
+  const { locale: rawLocale } = await params;
+  const locale = rawLocale === 'en' ? 'en' : 'zh';
+  const hreflang = generateHreflangMetadata(locale, 'alice-goodcase-weekly');
 
   return {
     title: 'Alice Good Case 周报｜KA21',
     description: 'Alice 悄咪咪测试小群 Good Case 周报，面向小山和产品侧的可复制文字版单页报告。',
     alternates: {
-      canonical: `/${locale}/alice-goodcase-weekly`
-    }
+      canonical: hreflang.canonical,
+      languages: hreflang.languages,
+    },
   };
 }
 

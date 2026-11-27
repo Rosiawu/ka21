@@ -19,20 +19,33 @@ export interface HreflangConfig {
  * @param path 当前页面路径（不包含语言前缀）
  * @returns hreflang配置对象
  */
+/**
+ * App routes use Next's no-trailing-slash policy (`/zh`, not `/zh/`).
+ * An empty path is the locale homepage and must not become a trailing slash,
+ * because `/zh/` 308-redirects to `/zh`.
+ */
+export function normalizeCanonicalPath(path: string = ''): string {
+  const trimmed = path.trim();
+  if (!trimmed || trimmed === '/') return '';
+
+  const withLeadingSlash = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+  return withLeadingSlash.replace(/\/{2,}/g, '/').replace(/\/+$/, '');
+}
+
 export function generateHreflangTags(
   baseUrl: string,
   currentLocale: string,
   path: string = ''
 ): HreflangConfig {
-  // 确保path格式正确
-  const fullPath = path.startsWith('/') ? path : `/${path}`;
+  const siteOrigin = baseUrl.replace(/\/+$/, '');
+  const fullPath = normalizeCanonicalPath(path);
 
   return {
-    canonical: `${baseUrl}/${currentLocale}${fullPath}`,
+    canonical: `${siteOrigin}/${currentLocale}${fullPath}`,
     languages: {
-      'zh': `${baseUrl}/zh${fullPath}`,
-      'en': `${baseUrl}/en${fullPath}`,
-      'x-default': `${baseUrl}/zh${fullPath}` // 默认语言为中文
+      'zh': `${siteOrigin}/zh${fullPath}`,
+      'en': `${siteOrigin}/en${fullPath}`,
+      'x-default': `${siteOrigin}/zh${fullPath}` // 默认语言为中文
     }
   };
 }
