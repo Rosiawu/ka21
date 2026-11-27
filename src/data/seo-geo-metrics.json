@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-22T21:35:00+08:00",
+  "updatedAt": "2026-11-27T00:00:00+08:00",
   "windowStart": "2026-11-11",
   "windowEnd": "2026-11-18",
   "technical": {
     "robots": { "status": "ready", "detail": "2026-11-19 返回 HTTP 200；允许搜索与主流 AI 爬虫读取公开页面" },
-    "sitemap": { "status": "ready", "detail": "Google 于 2026-11-21 成功读取 sitemap.xml，发现 381 个页面；包含第 58/59 期独立页" },
+    "sitemap": { "status": "ready", "detail": "Google 于 11 月 21 日、Bing 于 11 月 24 日成功读取 sitemap.xml；均发现 381 个 URL，包括第 58/59 期独立页" },
     "llms": { "status": "ready", "detail": "2026-11-19 返回 HTTP 200；提供 KA21 全站机器可读说明" },
     "indexNow": { "status": "ready", "detail": "密钥文件 2026-11-19 返回 HTTP 200；381 个 URL 于 2026-11-11 获 IndexNow HTTP 200 接受" }
   },
@@ -22,18 +22,18 @@
     {
       "id": "bing",
       "name": "Bing / Copilot",
-      "status": "submitted",
-      "summary": "站点于 2026-11-11 完成 DNS 验证；2026-11-22 当前浏览器未登录有站点权限的账号，无法复核最新索引、曝光及 Copilot 引用",
-      "indexedPages": null,
-      "impressions": null,
-      "clicks": null,
-      "nextAction": "使用此前验证 ka21.org 的账号登录 Bing Webmaster Tools，再核对最新抓取、索引和 Copilot 引用"
+      "status": "ready",
+      "summary": "Bing Webmaster（11 月 26 日查看）：Site Explorer 显示 394 个已索引 URL；搜索表现图表覆盖 11 月 11–24 日，共 869 次曝光、31 次点击；AI Performance 显示 7 次引用，均为 SlideDeck Cleaner 工具页，发生于 11 月 11–12 日；第 58/59 期单页均显示已收录",
+      "indexedPages": 394,
+      "impressions": 869,
+      "clicks": 31,
+      "nextAction": "持续跟踪第 58/59 期的实际曝光，并核查 Bing 对频繁 IndexNow 批量提交的警告"
     },
     {
       "id": "baidu",
       "name": "百度搜索资源平台",
       "status": "pending",
-      "summary": "2026-11-22 百度公开 site:ka21.org 搜索可见首页，页面显示约 1 条结果并注明为估算；站长平台未登录，准确收录量仍未知",
+      "summary": "11 月 22 日百度公开 site:ka21.org 搜索可见首页，约 1 条结果为估算；11 月 26 日站长平台仍显示未登录，准确收录量未知",
       "indexedPages": null,
       "impressions": null,
       "clicks": null,
@@ -42,11 +42,12 @@
   ],
   "queries": [
     { "query": "site:ka21.org", "type": "收录探测", "google": "待采集", "bing": "待采集", "baidu": "首页可见；约 1 条为估算（11 月 22 日）", "geo": "待采集" },
-    { "query": "ka21", "type": "品牌词", "google": "23 次曝光、0 次点击（11 月 12–18 日）", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
+    { "query": "ka21", "type": "品牌词", "google": "23 次曝光、0 次点击（11 月 12–18 日）", "bing": "44 次曝光、3 次点击（11 月 11–24 日）", "baidu": "待采集", "geo": "待采集" },
     { "query": "KA21 AI牛马库", "type": "品牌词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "已引用（2 个 KA21 页面）" },
     { "query": "灯下白 FDE 人才图谱", "type": "品牌 + 产品", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "基线暂未发现" },
-    { "query": "第 58 期独立页（li-shuqi-58）", "type": "独立页面", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
-    { "query": "第 59 期独立页（li-shuqi）", "type": "独立页面", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
+    { "query": "第 58 期独立页（li-shuqi-58）", "type": "独立页面", "google": "待采集", "bing": "已收录（11 月 26 日单页检查）", "baidu": "待采集", "geo": "待采集" },
+    { "query": "第 59 期独立页（li-shuqi）", "type": "独立页面", "google": "待采集", "bing": "已收录（11 月 26 日单页检查）", "baidu": "待采集", "geo": "待采集" },
+    { "query": "slidedeck cleaner", "type": "AI 引证词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "Bing AI 引用 7 次（11 月 11–12 日）" },
     { "query": "企业 AI 交付专家", "type": "主题词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" },
     { "query": "AI 工具真实测评", "type": "主题词", "google": "待采集", "bing": "待采集", "baidu": "待采集", "geo": "待采集" }
   ],
@@ -82,6 +83,14 @@
       "baiduIndexed": null,
       "geoMentions": null,
       "event": "百度公开 site:ka21.org 查询可见 KA21 首页；约 1 条结果是搜索页估算，不能作为准确收录数。百度站长平台未登录，进一步查询触发安全验证；Bing 后台未登录有站点权限的账号，暂无新的后台或 AI 引用数字"
+    },
+    {
+      "date": "2026-11-27",
+      "googleIndexed": null,
+      "bingIndexed": 394,
+      "baiduIndexed": null,
+      "geoMentions": 7,
+      "event": "Bing 站长后台：394 个已索引 URL；11 月 11–24 日共 869 次曝光、31 次点击；第 58/59 期单页均显示已收录。Bing AI Performance 记录 7 次 SlideDeck Cleaner 工具页引用（11 月 11–12 日），不是 KA21 品牌词或 FDE 引用。百度后台仍未登录，准确收录量未知"
     }
   ]
 }
