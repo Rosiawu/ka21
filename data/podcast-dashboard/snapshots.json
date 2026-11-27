@@ -57811,5 +57811,414 @@
       }
     },
     "createdAt": "2026-11-27T10:48:30.996Z"
+  },
+  {
+    "id": "snapshot-1795819298950",
+    "date": "2026-11-28",
+    "note": "自动抓取（45 个单集平台值沿用历史最大值）",
+    "platformTotals": {
+      "xiaoyuzhou": 16343,
+      "lizhi": 16738,
+      "ximalaya": 12968,
+      "wangyiyun": 1435,
+      "qingting": 2819
+    },
+    "episodePlays": {
+      "6afebd9bfe62f8f52c4d9ae1": {
+        "xiaoyuzhou": 107
+      },
+      "6af319065b7c4709bfe41c77": {
+        "xiaoyuzhou": 128,
+        "lizhi": 96,
+        "ximalaya": 189,
+        "wangyiyun": 2,
+        "qingting": 36
+      },
+      "6af16c18b4a4e20202f7025e": {
+        "xiaoyuzhou": 139,
+        "wangyiyun": 2
+      },
+      "6aed7a995b7c4709bfe1fdae": {
+        "xiaoyuzhou": 170,
+        "wangyiyun": 1
+      },
+      "6ac60735e742e36efcbf402b": {
+        "xiaoyuzhou": 210,
+        "lizhi": 266,
+        "ximalaya": 298,
+        "wangyiyun": 4,
+        "qingting": 224
+      },
+      "6ac468a5e742e36efcbecb1c": {
+        "xiaoyuzhou": 196,
+        "lizhi": 266,
+        "ximalaya": 172,
+        "wangyiyun": 4,
+        "qingting": 82
+      },
+      "6abbeb4f195d838e2aebbbfd": {
+        "xiaoyuzhou": 109,
+        "lizhi": 268,
+        "ximalaya": 141,
+        "wangyiyun": 8,
+        "qingting": 99
+      },
+      "6aa24fbc9d3264778166f4da": {
+        "xiaoyuzhou": 164,
+        "lizhi": 308,
+        "ximalaya": 247,
+        "wangyiyun": 20,
+        "qingting": 193
+      },
+      "6a9e5692f03e74ee6b0653d5": {
+        "xiaoyuzhou": 88,
+        "lizhi": 301,
+        "ximalaya": 180,
+        "wangyiyun": 37,
+        "qingting": 59
+      },
+      "6a957afaf03e74ee6b02c2d9": {
+        "xiaoyuzhou": 153,
+        "lizhi": 313,
+        "ximalaya": 180,
+        "wangyiyun": 10,
+        "qingting": 96
+      },
+      "6a886f53ef65145dfcc35169": {
+        "xiaoyuzhou": 299,
+        "ximalaya": 192,
+        "wangyiyun": 10,
+        "qingting": 99
+      },
+      "6a83ef7f5aeb2a5712e88af7": {
+        "xiaoyuzhou": 90,
+        "ximalaya": 159,
+        "wangyiyun": 10,
+        "qingting": 38
+      },
+      "6a78bd05000a55a9bb055d82": {
+        "xiaoyuzhou": 170,
+        "lizhi": 314,
+        "ximalaya": 393,
+        "wangyiyun": 20,
+        "qingting": 104
+      },
+      "6a78ba8ec4079d62c57fd494": {
+        "xiaoyuzhou": 1006,
+        "lizhi": 316,
+        "ximalaya": 167,
+        "wangyiyun": 15,
+        "qingting": 67
+      },
+      "6a78b62e000a55a9bb055ca3": {
+        "xiaoyuzhou": 238,
+        "ximalaya": 194,
+        "qingting": 29
+      },
+      "69bcbace2d318777c9d271de": {
+        "xiaoyuzhou": 214,
+        "lizhi": 283,
+        "wangyiyun": 17,
+        "ximalaya": 117,
+        "youtube": 1
+      },
+      "69bab249690ca3160f393dc7": {
+        "xiaoyuzhou": 327,
+        "lizhi": 293,
+        "wangyiyun": 49,
+        "ximalaya": 86
+      },
+      "6a42ba2f2e335a35a80b6e38": {
+        "xiaoyuzhou": 99,
+        "lizhi": 336,
+        "ximalaya": 203,
+        "wangyiyun": 8,
+        "qingting": 12
+      },
+      "69c10b71521e5c0a809b71b1": {
+        "xiaoyuzhou": 203,
+        "lizhi": 277,
+        "wangyiyun": 11,
+        "ximalaya": 119,
+        "qingting": 12,
+        "youtube": 2
+      },
+      "6a42b6d99d2f5743683fe74f": {
+        "xiaoyuzhou": 140,
+        "lizhi": 333,
+        "ximalaya": 173,
+        "wangyiyun": 13,
+        "qingting": 71
+      },
+      "6a49b0ea3fb7233cbf43cd2e": {
+        "xiaoyuzhou": 113,
+        "lizhi": 327,
+        "ximalaya": 155,
+        "wangyiyun": 10,
+        "qingting": 14
+      },
+      "69ef08461e94ae692141c79e": {
+        "xiaoyuzhou": 350,
+        "lizhi": 309,
+        "wangyiyun": 26,
+        "ximalaya": 147
+      },
+      "6a1433bfe59ebca93642e525": {
+        "xiaoyuzhou": 302,
+        "lizhi": 311,
+        "wangyiyun": 26,
+        "ximalaya": 149
+      },
+      "6a2f7d3943a22a695583ebdc": {
+        "xiaoyuzhou": 163,
+        "lizhi": 319,
+        "ximalaya": 175,
+        "wangyiyun": 10,
+        "qingting": 13
+      },
+      "6a4537772e335a35a80c99e6": {
+        "xiaoyuzhou": 879,
+        "lizhi": 327,
+        "ximalaya": 159,
+        "wangyiyun": 11,
+        "qingting": 24
+      },
+      "69dc8c5ee2c8be315512f7dc": {
+        "xiaoyuzhou": 473,
+        "lizhi": 304,
+        "wangyiyun": 38,
+        "ximalaya": 173
+      },
+      "69df5a42b977fb2c47024845": {
+        "xiaoyuzhou": 372,
+        "lizhi": 316,
+        "wangyiyun": 20,
+        "ximalaya": 143
+      },
+      "6a2f74a04233e62bc549fab4": {
+        "xiaoyuzhou": 339,
+        "lizhi": 309,
+        "ximalaya": 223,
+        "wangyiyun": 26,
+        "qingting": 9
+      },
+      "6a43dd939d2f574368407266": {
+        "xiaoyuzhou": 120,
+        "lizhi": 334,
+        "ximalaya": 169,
+        "wangyiyun": 19,
+        "qingting": 30
+      },
+      "69d8697ae2c8be3155d4daf1": {
+        "xiaoyuzhou": 165,
+        "lizhi": 298,
+        "wangyiyun": 20,
+        "ximalaya": 143,
+        "qingting": 10
+      },
+      "6a01b5281b7bd50295ed9f30": {
+        "xiaoyuzhou": 290,
+        "lizhi": 323,
+        "wangyiyun": 24,
+        "ximalaya": 179
+      },
+      "6a78b010000a55a9bb055b56": {
+        "xiaoyuzhou": 204,
+        "lizhi": 329,
+        "ximalaya": 181,
+        "wangyiyun": 26,
+        "qingting": 32
+      },
+      "6a16faec7460cabdeb56ce86": {
+        "xiaoyuzhou": 210,
+        "wangyiyun": 13
+      },
+      "6a451c162e335a35a80c8a30": {
+        "xiaoyuzhou": 728,
+        "lizhi": 323,
+        "ximalaya": 166,
+        "wangyiyun": 20,
+        "qingting": 25
+      },
+      "69c39bfb4a34541b1bfe40c2": {
+        "xiaoyuzhou": 208,
+        "lizhi": 284,
+        "wangyiyun": 22,
+        "ximalaya": 150,
+        "qingting": 12
+      },
+      "69f1f5cdfbed7ba9411dc649": {
+        "xiaoyuzhou": 112,
+        "lizhi": 322,
+        "wangyiyun": 13,
+        "ximalaya": 139
+      },
+      "6a70bcb81b5e24969ce85f98": {
+        "xiaoyuzhou": 259,
+        "lizhi": 322,
+        "ximalaya": 162,
+        "wangyiyun": 11,
+        "qingting": 19
+      },
+      "69a69588de29766da93ec01b": {
+        "xiaoyuzhou": 604,
+        "lizhi": 268,
+        "wangyiyun": 254,
+        "qingting": 38,
+        "ximalaya": 180
+      },
+      "6a16dd80ac7bdb080c31a1ad": {
+        "xiaoyuzhou": 464,
+        "lizhi": 312,
+        "wangyiyun": 35,
+        "ximalaya": 189
+      },
+      "69f1f002fbed7ba9411d69e0": {
+        "xiaoyuzhou": 165,
+        "lizhi": 310,
+        "wangyiyun": 24,
+        "ximalaya": 139,
+        "youtube": 1
+      },
+      "6a16d9907460cabdeb56ba7f": {
+        "xiaoyuzhou": 232,
+        "lizhi": 314,
+        "wangyiyun": 40,
+        "ximalaya": 153
+      },
+      "6a3c05a49d2f5743683d5eaf": {
+        "xiaoyuzhou": 221,
+        "lizhi": 316,
+        "ximalaya": 205,
+        "wangyiyun": 19,
+        "qingting": 12
+      },
+      "6a4536ff9d2f574368411067": {
+        "xiaoyuzhou": 224,
+        "lizhi": 324,
+        "ximalaya": 197,
+        "wangyiyun": 11,
+        "qingting": 38
+      },
+      "69e0ac77e2c8be315560f417": {
+        "xiaoyuzhou": 144,
+        "lizhi": 301,
+        "wangyiyun": 42,
+        "ximalaya": 151
+      },
+      "6a0dbcf5e1eb34a939c730b4": {
+        "xiaoyuzhou": 454,
+        "lizhi": 334,
+        "wangyiyun": 28,
+        "qingting": 9,
+        "ximalaya": 180
+      },
+      "69bc120a3c625cc5ae2f5160": {
+        "xiaoyuzhou": 335,
+        "lizhi": 288,
+        "wangyiyun": 28,
+        "ximalaya": 239,
+        "qingting": 13,
+        "youtube": 1
+      },
+      "6a2f788a4233e62bc549fd90": {
+        "xiaoyuzhou": 223,
+        "lizhi": 324,
+        "ximalaya": 180,
+        "wangyiyun": 20,
+        "qingting": 15
+      },
+      "69d869cbe2c8be3155d4e2f6": {
+        "xiaoyuzhou": 209,
+        "lizhi": 299,
+        "wangyiyun": 24,
+        "ximalaya": 254,
+        "qingting": 62
+      },
+      "6a0475e41b7bd502951680d5": {
+        "xiaoyuzhou": 199,
+        "lizhi": 313,
+        "wangyiyun": 49,
+        "ximalaya": 188
+      },
+      "69b184e184bce022f9f4fd5b": {
+        "xiaoyuzhou": 297,
+        "lizhi": 293,
+        "wangyiyun": 42,
+        "ximalaya": 132,
+        "youtube": 1
+      },
+      "6a21a0ffb30e1571aea0cb84": {
+        "xiaoyuzhou": 186,
+        "lizhi": 318,
+        "ximalaya": 208,
+        "wangyiyun": 19,
+        "qingting": 42
+      },
+      "6a432d349d2f5743684001bb": {
+        "xiaoyuzhou": 241,
+        "lizhi": 332,
+        "ximalaya": 237,
+        "qingting": 28
+      },
+      "69c4b19c852cf1b8bbeffda2": {
+        "xiaoyuzhou": 191,
+        "lizhi": 289,
+        "wangyiyun": 28,
+        "ximalaya": 147
+      },
+      "69f9b5b5e05c0efcd6e74bb7": {
+        "xiaoyuzhou": 133,
+        "lizhi": 306,
+        "wangyiyun": 33,
+        "ximalaya": 112,
+        "qingting": 9
+      },
+      "6a6da2ce1b5e24969ce72d7c": {
+        "xiaoyuzhou": 164,
+        "lizhi": 324,
+        "ximalaya": 176,
+        "wangyiyun": 11,
+        "qingting": 41
+      },
+      "6a16f5677460cabdeb56cae0": {
+        "xiaoyuzhou": 123,
+        "lizhi": 315,
+        "wangyiyun": 19,
+        "ximalaya": 202
+      },
+      "6a4512af2e335a35a80c8494": {
+        "xiaoyuzhou": 835,
+        "lizhi": 323,
+        "ximalaya": 302,
+        "wangyiyun": 20,
+        "qingting": 58
+      },
+      "69bd17643c625cc5ae4ef65a": {
+        "xiaoyuzhou": 203,
+        "lizhi": 288,
+        "wangyiyun": 20,
+        "ximalaya": 152,
+        "youtube": 2
+      },
+      "69ad0f7dc8cdeb38c26acb2c": {
+        "xiaoyuzhou": 287,
+        "lizhi": 287,
+        "wangyiyun": 69,
+        "ximalaya": 148
+      },
+      "69bd022a2d318777c9df5837": {
+        "xiaoyuzhou": 672,
+        "lizhi": 291,
+        "wangyiyun": 24,
+        "ximalaya": 172,
+        "qingting": 40
+      },
+      "6a42a3c32e335a35a80b6bfd": {
+        "wangyiyun": 4,
+        "xiaoyuzhou": 33
+      }
+    },
+    "createdAt": "2026-11-27T22:41:38.950Z"
   }
 ]
